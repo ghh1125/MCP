@@ -1,0 +1,239 @@
+{
+  "repository": {
+    "name": "EigenLedger",
+    "url": "https://github.com/santoshlite/EigenLedger",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/EigenLedger",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773248400.967104,
+    "end_time": 1773248647.119989,
+    "duration": 246.15288496017456,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.58,
+      "intrusiveness_risk": "medium",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/santoshlite/EigenLedger",
+      "repo_name": "EigenLedger",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/EigenLedger/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/EigenLedger/temp_clone'...\nfatal: unable to access 'https://github.com/santoshlite/EigenLedger/': Recv failure: Operation timed out\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/EigenLedger/temp_clone'...\nfatal: unable to access 'https://github.com/santoshlite/EigenLedger/': Recv failure: Operation timed out\n"
+  ],
+  "recommendations": [
+    "Add a real test suite (unit tests for analytics functions in `modules/empyrical`",
+    "integration tests for `run.py`/main flow",
+    "and basic smoke tests)",
+    "split `EigenLedger/main.py` into smaller modules (data ingestion",
+    "metrics engine",
+    "visualization",
+    "app/controller) to reduce the current single-file bottleneck",
+    "fix packaging metadata detection by correcting and validating `pyproject.toml` (build-system",
+    "project metadata",
+    "dependencies",
+    "optional extras",
+    "entry points)",
+    "add explicit dependency files and pin ranges (`pyproject` + optional `requirements.txt`) including dev/test extras",
+    "define stable CLI entry points (e.g.",
+    "`eigenledger` console script) instead of relying on `python -m ...`",
+    "add CI workflows for lint/test/build/publish (not just publish) with matrix testing across Python versions",
+    "introduce code quality tooling (`ruff`/`flake8`",
+    "`black`",
+    "`isort`",
+    "`mypy`) with pre-commit hooks",
+    "improve observability and error handling (structured logging",
+    "user-facing error messages",
+    "graceful failures for missing market data/APIs)",
+    "document architecture and execution paths in README (module responsibilities",
+    "CLI usage",
+    "examples",
+    "troubleshooting)",
+    "add API-level docstrings/type hints across core functions to improve maintainability and MCP toolability",
+    "validate and harden external-data paths (e.g.",
+    "yfinance failures",
+    "network timeouts",
+    "retry/backoff",
+    "caching)",
+    "remove or clearly vendor-lock third-party `empyrical` code with attribution/update strategy to avoid drift",
+    "add benchmark/performance checks for heavy stats computations (vectorization hotspots",
+    "optional parallel/numba paths)",
+    "add security and release hygiene (dependency scanning",
+    "pinned action versions",
+    "changelog",
+    "semantic versioning)",
+    "and add MCP plugin tests plus endpoint documentation to ensure the generated MCP layer remains functional and discoverable"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow orchestration was resilient: despite git clone timeout, pipeline continued via zip fallback and completed all nodes.",
+      "Import-first adapter strategy was appropriate for a Python package and enabled MCP layer generation without deep code rewrites.",
+      "Generated MCP service started healthy over stdio, indicating baseline runtime viability.",
+      "Risk and complexity were assessed as medium with maintainability index 75, supporting feasible integration."
+    ],
+    "failure_reasons": [
+      "Primary repository acquisition failed due to network timeout in DownloadNode (CloneFailed).",
+      "DeepWiki analysis failed, reducing enrichment depth for architecture/tool inference.",
+      "Static detection pipeline reported zero processed files / no dependencies in one stage, indicating metadata/telemetry inconsistency.",
+      "Generated plugin exposed zero concrete endpoints/tools, limiting functional MCP value."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Download encountered clone timeout; recovery via zip fallback succeeded but likely consumed a significant share of total 246.15s.",
+      "analysis_time": "Analysis completed with mixed quality: file tree discovered (17 files), but dependency and entry-point detectors under-reported.",
+      "generation_time": "Generation succeeded quickly enough to produce scaffold files, but output was largely boilerplate with no endpoint surface.",
+      "test_time": "MCP plugin health check passed (startup healthy), while original project tests were effectively absent (0 test files, no meaningful execution)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "No reliable metrics recorded (reported 0 MB); efficiency cannot be validated.",
+      "cpu_efficiency": "No reliable metrics recorded (reported 0%); CPU behavior is unobservable from current telemetry.",
+      "disk_usage": "Generated artifact footprint reported as 0 bytes/LOC in summary, conflicting with actual files present; disk accounting instrumentation appears incomplete."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 62,
+    "architecture_score": 58,
+    "performance_score": 52,
+    "maintainability_score": 64,
+    "security_score": 85,
+    "scalability_score": 57
+  }
+}

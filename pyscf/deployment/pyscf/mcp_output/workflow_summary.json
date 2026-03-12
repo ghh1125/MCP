@@ -1,0 +1,249 @@
+{
+  "repository": {
+    "name": "pyscf",
+    "url": "https://github.com/pyscf/pyscf",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pyscf",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773263342.9707782,
+    "end_time": 1773263587.864883,
+    "duration": 244.894104719162,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 35,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.pyscf",
+        "source.pyscf.adc",
+        "source.pyscf.agf2",
+        "source.pyscf.ao2mo",
+        "source.pyscf.cc",
+        "source.pyscf.ci",
+        "source.pyscf.data",
+        "source.pyscf.df",
+        "source.pyscf.dft",
+        "source.pyscf.eph",
+        "source.pyscf.fci",
+        "source.pyscf.geomopt",
+        "source.pyscf.grad",
+        "source.pyscf.gto",
+        "source.pyscf.gw",
+        "source.pyscf.hessian",
+        "source.pyscf.lib",
+        "source.pyscf.lo",
+        "source.pyscf.mcpdft",
+        "source.pyscf.mcscf",
+        "source.pyscf.md",
+        "source.pyscf.mp",
+        "source.pyscf.mrpt",
+        "source.pyscf.nac",
+        "source.pyscf.pbc",
+        "source.pyscf.qmmm",
+        "source.pyscf.scf",
+        "source.pyscf.sgx",
+        "source.pyscf.solvent",
+        "source.pyscf.soscf",
+        "source.pyscf.symm",
+        "source.pyscf.tddft",
+        "source.pyscf.tdscf",
+        "source.pyscf.tools",
+        "source.pyscf.x2c"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/pyscf/pyscf",
+      "repo_name": "pyscf",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pyscf/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "define and run a minimal MCP smoke-test suite (import + one tiny RHF/RKS calculation) in CI since test status is empty",
+    "add strict input/output schemas (Pydantic models) for each exposed endpoint to prevent ambiguous argument passing for overloaded names like kernel/analyze",
+    "de-duplicate and namespace MCP endpoint names (e.g.",
+    "scf.rhf.kernel vs cc.ccsd.kernel) to avoid collisions in tool routing",
+    "add timeout/memory guards and “small-system only” defaults for expensive methods (CCSD/CASSCF/PBC) to reduce runaway jobs",
+    "create a curated “safe endpoint allowlist” for MCP (core stable APIs only) and move experimental/high-cost functions behind an explicit opt-in flag",
+    "implement structured error mapping (PySCF exceptions → MCP error codes with actionable hints) for better client reliability",
+    "pin and document compatibility matrix across Python/PySCF/numpy/scipy/h5py plus optional deps (xcfun/libxc/mpi4py) to reduce environment drift",
+    "add deterministic example-based regression tests for key workflows (Mole→RHF→MP2",
+    "Mole→RKS",
+    "Cell→KRHF) with numerical tolerances",
+    "add observability hooks (per-call timing",
+    "method metadata",
+    "molecule size",
+    "convergence status) and optional tracing IDs in MCP responses",
+    "improve README_MCP with “quickstart + limits + cost warnings + supported methods” and copy-paste client examples",
+    "add caching/reuse guidance for checkpoint files and integrals to avoid repeated expensive setup in interactive MCP usage",
+    "introduce async job handling or background-task mode for long-running computations with polling/cancel support",
+    "harden serialization boundaries (explicit unit conventions",
+    "ndarray shape validation",
+    "complex-number handling) for qcschema and dumps/loads paths",
+    "run lint/type checks on generated MCP plugin code (ruff + mypy/pyright) and enforce in CI",
+    "add security guardrails for user-provided file paths and external data loading (sandbox/allowlist",
+    "no arbitrary file traversal)"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow status is success with all planned nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy is appropriate for PySCF’s library-first architecture and showed high feasibility (0.9).",
+      "MCP plugin started healthy over stdio, indicating basic runtime viability.",
+      "Repository ingestion succeeded despite fallback path (zip fallback), preserving continuity."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Validation depth is limited: original project tests were not effectively executed (passed=false with empty details, 0 execution time).",
+      "DeepWiki enrichment failed, reducing external contextual analysis quality.",
+      "Observability/resource metrics were not captured (memory/cpu/throughput all zero), limiting performance confidence."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; exact per-node timing not provided. Repo ingestion used zip fallback, which likely increased I/O overhead but remained reliable.",
+      "analysis_time": "Completed successfully for a very large codebase (1593 files; 35 packages surfaced). Reasonable given complexity; no blocking errors.",
+      "generation_time": "Completed successfully with 7 plugin artifacts generated; however reported LOC/size as 0 suggests metrics instrumentation gap, not generation failure.",
+      "test_time": "MCP health check succeeded quickly, but substantive test execution appears absent (0s/empty results), so true functional test time is effectively not measured."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to missing telemetry (reported 0 MB). Efficiency cannot be validated.",
+      "cpu_efficiency": "Unknown due to missing telemetry (reported 0%).",
+      "disk_usage": "Likely moderate-high because PySCF is large and artifact-rich; generated plugin footprint appears small, but reported size=0 indicates measurement gap."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 58,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 62
+  }
+}

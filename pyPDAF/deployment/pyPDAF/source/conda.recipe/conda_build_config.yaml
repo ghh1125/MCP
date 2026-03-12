@@ -1,0 +1,31 @@
+python:
+    - 3.11
+    - 3.12
+    - 3.13
+
+c_compiler_version:
+    - 14 # [linux]
+
+# there seems to be bug in gfortran 15.1.0
+# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=119928
+# therefore, we pin gfortran 14
+fortran_compiler_version:
+    - 14 # [not win]
+
+c_compiler:
+    - clang      # [win]
+
+fortran_compiler:
+    - flang      # [win]
+
+numpy_version:
+    - '>2'
+
+mpi:
+    - mpich    # [not win]
+    - msmpi    # [win]
+
+# meson-python 0.18 cannot be installed on Windows
+pymeson:
+    - <0.18  # [win]
+    - '>=0.18'  # [not win]

@@ -1,0 +1,221 @@
+{
+  "repository": {
+    "name": "pmdarima",
+    "url": "https://github.com/alkaline-ml/pmdarima",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pmdarima",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773280283.696873,
+    "end_time": 1773280526.9335449,
+    "duration": 243.23667192459106,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 10,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.pmdarima",
+        "source.pmdarima.__check_build",
+        "source.pmdarima._build_utils",
+        "source.pmdarima.arima",
+        "source.pmdarima.compat",
+        "source.pmdarima.datasets",
+        "source.pmdarima.model_selection",
+        "source.pmdarima.preprocessing",
+        "source.pmdarima.tests",
+        "source.pmdarima.utils"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.92,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/alkaline-ml/pmdarima",
+      "repo_name": "pmdarima",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pmdarima/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke-test suite for all generated MCP endpoints (import + one happy-path call each)",
+    "pin and matrix-test dependency versions in CI (especially numpy/pandas/statsmodels/scikit-learn compatibility)",
+    "define strict Pydantic request/response schemas for each endpoint (typed inputs",
+    "defaults",
+    "validation errors)",
+    "add robust error translation in adapter/service layers (map library exceptions to stable MCP error codes/messages)",
+    "normalize endpoint naming conventions (e.g.",
+    "snake_case only; deprecate aliases like autoarima with warnings)",
+    "implement timeout/cancellation guards for long-running fits (auto_arima/grid search) with configurable limits",
+    "add caching controls for dataset loaders and expensive diagnostics to reduce repeated work",
+    "improve observability with structured logging and per-endpoint latency/success metrics",
+    "expand README_MCP with concrete examples for exogenous/endogenous shapes and CV splitters",
+    "add contract tests for serialization of numpy/pandas objects across MCP boundaries",
+    "verify thread/process safety for StepwiseContext and model selection utilities under concurrent requests",
+    "include security hardening checks (input size limits",
+    "safe deserialization assumptions",
+    "dependency vulnerability scanning)",
+    "add benchmark baselines for key endpoints (auto_arima",
+    "cross_val_score",
+    "pipeline) and track regressions in CI",
+    "create versioned API compatibility policy for exposed MCP tools",
+    "add fallback behavior tests for environments missing optional deps (matplotlib/pytest) to ensure graceful degradation"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow completed with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy was feasible (import_feasibility 0.92) and low intrusiveness risk enabled non-invasive MCP wrapping.",
+      "Generated MCP service started healthy over stdio and passed plugin-level validation.",
+      "Repository structure was rich and analyzable (148 files discovered via zip fallback), enabling broad endpoint extraction."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki analysis failed (external analysis dependency), reducing enrichment quality but not blocking execution.",
+      "Original project test result is marked failed/empty despite '100%' coverage metadata, indicating test telemetry inconsistency rather than functional pipeline failure."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; imported via zip fallback, indicating robust fallback behavior though likely slower than direct VCS metadata parsing.",
+      "analysis_time": "Completed successfully with medium complexity classification and broad module discovery; no LLM/DeepWiki call contribution to timing quality.",
+      "generation_time": "Completed successfully; MCP scaffold and adapter files created quickly with broad endpoint list.",
+      "test_time": "Plugin health checks passed, but original-project test stage produced contradictory signals (passed=false with no test files), limiting confidence."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB likely placeholder).",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0% likely placeholder).",
+      "disk_usage": "Low-to-moderate; only a small MCP output scaffold was generated, but generated size metrics were reported as 0 (likely instrumentation gap)."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 82,
+    "performance_score": 70,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 72
+  }
+}

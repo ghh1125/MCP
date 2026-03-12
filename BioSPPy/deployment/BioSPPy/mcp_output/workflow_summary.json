@@ -1,0 +1,230 @@
+{
+  "repository": {
+    "name": "BioSPPy",
+    "url": "https://github.com/scientisst/BioSPPy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/BioSPPy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773269401.834347,
+    "end_time": 1773269656.7036228,
+    "duration": 254.86927580833435,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/scientisst/BioSPPy",
+      "repo_name": "BioSPPy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/BioSPPy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/BioSPPy/temp_clone'...\nfatal: unable to access 'https://github.com/scientisst/BioSPPy/': Error in the HTTP2 framing layer\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/BioSPPy/temp_clone'...\nfatal: unable to access 'https://github.com/scientisst/BioSPPy/': Error in the HTTP2 framing layer\n"
+  ],
+  "recommendations": [
+    "add a minimal automated test suite for each exposed MCP endpoint (happy path + invalid inputs + edge cases) since test status is empty",
+    "fix repository structure/dependency detection mismatches by adding a modern `pyproject.toml` (and keeping `setup.py` compatibility if needed) so tooling reliably finds packages and requirements",
+    "pin and validate runtime dependencies in both root and `mcp_output/requirements.txt` (including optional deps behavior) to prevent environment drift",
+    "add strict request/response schemas for every endpoint via Pydantic models (signal shape",
+    "sampling rate",
+    "units",
+    "return fields) to harden API contracts",
+    "implement consistent error handling and domain-specific exceptions in `adapter.py`/`mcp_service.py` with clear user-facing messages",
+    "add input sanitization and resource guards (max array length",
+    "timeout limits",
+    "memory checks) for heavy signal-processing endpoints",
+    "create regression tests with bundled example datasets (ecg/eda/emg/ppg/eeg/hrv) and expected summary metrics to detect algorithm drift",
+    "add CI workflows for lint/type/test/build across multiple Python versions and OSes plus publish artifacts only after passing checks",
+    "introduce static quality gates (ruff/flake8",
+    "black",
+    "mypy/pyright",
+    "bandit) and enforce via pre-commit",
+    "improve MCP README with concrete endpoint examples",
+    "parameter defaults",
+    "error codes",
+    "and performance notes for large signals",
+    "add observability hooks (structured logs",
+    "per-endpoint latency",
+    "failure counts) and optional tracing for production MCP deployments",
+    "refactor oversized modules (e.g.",
+    "`signals/ecg.py`",
+    "`plotting.py`) into smaller submodules to improve maintainability and testability",
+    "cache/reuse expensive intermediate computations (filter coefficients",
+    "spectral windows) where safe to reduce repeated-call latency",
+    "add backward-compatibility/versioning policy for endpoint names and output schemas before future changes",
+    "include benchmark tests for representative signal lengths to track performance regressions over time"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Zip fallback import path recovered from git clone failure and successfully loaded repository contents (64 files).",
+      "Low-intrusiveness import adapter strategy (confidence 0.9) enabled MCP wrapper generation without invasive source changes.",
+      "Generated MCP service started healthy over stdio transport.",
+      "Domain-relevant endpoints were produced (ECG/EDA/EMG/PPG/RESP/EEG/HRV + DSP helpers + biometrics classes)."
+    ],
+    "failure_reasons": [
+      "Primary repository acquisition failed due to network/protocol issue: HTTP2 framing error during git clone.",
+      "Pipeline telemetry inconsistency: execution reports 0 files processed and 0 LLM calls, while analysis state shows successful zip fallback and detailed module extraction.",
+      "Dependency/structure detectors returned false negatives (requirements/setup present in file tree but detected as absent), indicating analyzer mismatch.",
+      "Quality gates were weak: no meaningful endpoint tests executed despite plugin health check passing."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Download node partially failed on git clone, then recovered via zip fallback. This likely added retry/fallback latency and reduced determinism.",
+      "analysis_time": "Analysis produced substantial module and dependency intelligence, but metadata counters are inconsistent; effective analysis quality is medium-high.",
+      "generation_time": "Generation completed quickly and produced expected scaffold files, but reported 0 LOC/0 endpoint count indicates instrumentation gaps.",
+      "test_time": "Minimal/placeholder validation only (service health), no functional endpoint verification; test confidence is low."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown from metrics (reported 0 MB likely means not captured). Expected moderate memory needs for biosignal arrays; add runtime profiling.",
+      "cpu_efficiency": "Unknown from metrics (reported 0%). Signal-processing endpoints are CPU-heavy; introduce per-endpoint CPU timing.",
+      "disk_usage": "Generated artifacts are small, but example datasets in repo are sizable; current disk telemetry is missing and should be instrumented."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 61,
+    "maintainability_score": 69,
+    "security_score": 85,
+    "scalability_score": 66
+  }
+}

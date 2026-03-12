@@ -1,0 +1,3413 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/astropy/astropy",
+    "summary": "Imported via zip fallback, file count: 1060",
+    "file_tree": {
+      ".circleci/config.yml": {
+        "size": 3690
+      },
+      ".devcontainer/devcontainer.json": {
+        "size": 585
+      },
+      ".devcontainer/welcome-message.txt": {
+        "size": 567
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.yaml": {
+        "size": 1729
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 184
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.yaml": {
+        "size": 1375
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 2048
+      },
+      ".github/dependabot.yml": {
+        "size": 740
+      },
+      ".github/labeler.yml": {
+        "size": 4658
+      },
+      ".github/workflows/CFF-test.yml": {
+        "size": 590
+      },
+      ".github/workflows/check_changelog.yml": {
+        "size": 724
+      },
+      ".github/workflows/check_milestone.yml": {
+        "size": 1129
+      },
+      ".github/workflows/ci_benchmark.yml": {
+        "size": 3288
+      },
+      ".github/workflows/ci_cron_daily.yml": {
+        "size": 2291
+      },
+      ".github/workflows/ci_cron_monthly.yml": {
+        "size": 3283
+      },
+      ".github/workflows/ci_cron_weekly.yml": {
+        "size": 6815
+      },
+      ".github/workflows/ci_workflows.yml": {
+        "size": 7194
+      },
+      ".github/workflows/codeql-analysis.yml": {
+        "size": 3241
+      },
+      ".github/workflows/open_actions.yml": {
+        "size": 3240
+      },
+      ".github/workflows/publish.yml": {
+        "size": 4233
+      },
+      ".github/workflows/sphinx_rc_workflows.yml": {
+        "size": 950
+      },
+      ".github/workflows/stalebot.yml": {
+        "size": 586
+      },
+      ".github/workflows/update_astropy_iers_data_pin.py": {
+        "size": 761
+      },
+      ".github/workflows/update_astropy_iers_data_pin.yml": {
+        "size": 2148
+      },
+      ".pre-commit-config.yaml": {
+        "size": 3662
+      },
+      ".pyinstaller/hooks/hook-astropy_iers_data.py": {
+        "size": 104
+      },
+      ".pyinstaller/hooks/hook-skyfield.py": {
+        "size": 241
+      },
+      ".pyinstaller/run_astropy_tests.py": {
+        "size": 4911
+      },
+      ".readthedocs.yaml": {
+        "size": 597
+      },
+      ".ruff.toml": {
+        "size": 12598
+      },
+      ".stubtest.ini": {
+        "size": 31
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 140
+      },
+      "CONTRIBUTING.md": {
+        "size": 9824
+      },
+      "GOVERNANCE.md": {
+        "size": 129
+      },
+      "SECURITY.md": {
+        "size": 1154
+      },
+      "astropy/__init__.py": {
+        "size": 6143
+      },
+      "astropy/config/__init__.py": {
+        "size": 204
+      },
+      "astropy/config/configuration.py": {
+        "size": 27434
+      },
+      "astropy/config/paths.py": {
+        "size": 11194
+      },
+      "astropy/config/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/config/tests/data/alias/astropy/astropy.cfg": {
+        "size": 54
+      },
+      "astropy/config/tests/data/deprecated/astropy/astropy.cfg": {
+        "size": 30
+      },
+      "astropy/config/tests/data/empty.cfg": {
+        "size": 422
+      },
+      "astropy/config/tests/data/not_empty.cfg": {
+        "size": 420
+      },
+      "astropy/config/tests/test_configs.py": {
+        "size": 23907
+      },
+      "astropy/conftest.py": {
+        "size": 5341
+      },
+      "astropy/constants/__init__.py": {
+        "size": 1563
+      },
+      "astropy/constants/astropyconst13.py": {
+        "size": 485
+      },
+      "astropy/constants/astropyconst20.py": {
+        "size": 2028
+      },
+      "astropy/constants/astropyconst40.py": {
+        "size": 2028
+      },
+      "astropy/constants/astropyconst80.py": {
+        "size": 2028
+      },
+      "astropy/constants/cgs.py": {
+        "size": 525
+      },
+      "astropy/constants/codata2010.py": {
+        "size": 3814
+      },
+      "astropy/constants/codata2014.py": {
+        "size": 3480
+      },
+      "astropy/constants/codata2018.py": {
+        "size": 3794
+      },
+      "astropy/constants/codata2022.py": {
+        "size": 3793
+      },
+      "astropy/constants/config.py": {
+        "size": 549
+      },
+      "astropy/constants/constant.py": {
+        "size": 9418
+      },
+      "astropy/constants/iau2012.py": {
+        "size": 2570
+      },
+      "astropy/constants/iau2015.py": {
+        "size": 3555
+      },
+      "astropy/constants/si.py": {
+        "size": 473
+      },
+      "astropy/constants/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/constants/tests/test_constant.py": {
+        "size": 4713
+      },
+      "astropy/constants/tests/test_pickle.py": {
+        "size": 507
+      },
+      "astropy/constants/tests/test_prior_version.py": {
+        "size": 7317
+      },
+      "astropy/constants/tests/test_sciencestate.py": {
+        "size": 1749
+      },
+      "astropy/constants/utils.py": {
+        "size": 2365
+      },
+      "astropy/convolution/__init__.py": {
+        "size": 264
+      },
+      "astropy/convolution/convolve.py": {
+        "size": 44244
+      },
+      "astropy/convolution/core.py": {
+        "size": 12098
+      },
+      "astropy/convolution/kernels.py": {
+        "size": 33634
+      },
+      "astropy/convolution/setup_package.py": {
+        "size": 858
+      },
+      "astropy/convolution/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/convolution/tests/test_convolve.py": {
+        "size": 43479
+      },
+      "astropy/convolution/tests/test_convolve_fft.py": {
+        "size": 37256
+      },
+      "astropy/convolution/tests/test_convolve_kernels.py": {
+        "size": 4403
+      },
+      "astropy/convolution/tests/test_convolve_models.py": {
+        "size": 3905
+      },
+      "astropy/convolution/tests/test_convolve_nddata.py": {
+        "size": 1836
+      },
+      "astropy/convolution/tests/test_discretize.py": {
+        "size": 7792
+      },
+      "astropy/convolution/tests/test_kernel_class.py": {
+        "size": 21824
+      },
+      "astropy/convolution/tests/test_pickle.py": {
+        "size": 852
+      },
+      "astropy/convolution/utils.py": {
+        "size": 12151
+      },
+      "astropy/coordinates/__init__.py": {
+        "size": 763
+      },
+      "astropy/coordinates/angles/__init__.py": {
+        "size": 308
+      },
+      "astropy/coordinates/angles/angle_lextab.py": {
+        "size": 4291
+      },
+      "astropy/coordinates/angles/angle_parsetab.py": {
+        "size": 6516
+      },
+      "astropy/coordinates/angles/core.py": {
+        "size": 27863
+      },
+      "astropy/coordinates/angles/errors.py": {
+        "size": 3928
+      },
+      "astropy/coordinates/angles/formats.py": {
+        "size": 13777
+      },
+      "astropy/coordinates/angles/utils.py": {
+        "size": 7679
+      },
+      "astropy/coordinates/attributes.py": {
+        "size": 19845
+      },
+      "astropy/coordinates/baseframe.py": {
+        "size": 93256
+      },
+      "astropy/coordinates/builtin_frames/__init__.py": {
+        "size": 7621
+      },
+      "astropy/coordinates/builtin_frames/altaz.py": {
+        "size": 5707
+      },
+      "astropy/coordinates/builtin_frames/baseradec.py": {
+        "size": 2017
+      },
+      "astropy/coordinates/builtin_frames/cirs.py": {
+        "size": 1550
+      },
+      "astropy/coordinates/builtin_frames/cirs_observed_transforms.py": {
+        "size": 3824
+      },
+      "astropy/coordinates/builtin_frames/ecliptic.py": {
+        "size": 9891
+      },
+      "astropy/coordinates/builtin_frames/ecliptic_transforms.py": {
+        "size": 10838
+      },
+      "astropy/coordinates/builtin_frames/equatorial.py": {
+        "size": 4865
+      },
+      "astropy/coordinates/builtin_frames/fk4.py": {
+        "size": 8286
+      },
+      "astropy/coordinates/builtin_frames/fk4_fk5_transforms.py": {
+        "size": 2730
+      },
+      "astropy/coordinates/builtin_frames/fk5.py": {
+        "size": 2311
+      },
+      "astropy/coordinates/builtin_frames/galactic.py": {
+        "size": 4082
+      },
+      "astropy/coordinates/builtin_frames/galactic_transforms.py": {
+        "size": 1697
+      },
+      "astropy/coordinates/builtin_frames/galactocentric.py": {
+        "size": 25250
+      },
+      "astropy/coordinates/builtin_frames/gcrs.py": {
+        "size": 5289
+      },
+      "astropy/coordinates/builtin_frames/hadec.py": {
+        "size": 5830
+      },
+      "astropy/coordinates/builtin_frames/hcrs.py": {
+        "size": 1610
+      },
+      "astropy/coordinates/builtin_frames/icrs.py": {
+        "size": 892
+      },
+      "astropy/coordinates/builtin_frames/icrs_cirs_transforms.py": {
+        "size": 11194
+      },
+      "astropy/coordinates/builtin_frames/icrs_fk5_transforms.py": {
+        "size": 1429
+      },
+      "astropy/coordinates/builtin_frames/icrs_observed_transforms.py": {
+        "size": 4874
+      },
+      "astropy/coordinates/builtin_frames/intermediate_rotation_transforms.py": {
+        "size": 11778
+      },
+      "astropy/coordinates/builtin_frames/itrs.py": {
+        "size": 4268
+      },
+      "astropy/coordinates/builtin_frames/itrs_observed_transforms.py": {
+        "size": 5630
+      },
+      "astropy/coordinates/builtin_frames/lsr.py": {
+        "size": 11267
+      },
+      "astropy/coordinates/builtin_frames/skyoffset.py": {
+        "size": 8120
+      },
+      "astropy/coordinates/builtin_frames/supergalactic.py": {
+        "size": 2589
+      },
+      "astropy/coordinates/builtin_frames/supergalactic_transforms.py": {
+        "size": 801
+      },
+      "astropy/coordinates/builtin_frames/utils.py": {
+        "size": 14566
+      },
+      "astropy/coordinates/calculation.py": {
+        "size": 7181
+      },
+      "astropy/coordinates/distances.py": {
+        "size": 9209
+      },
+      "astropy/coordinates/earth.py": {
+        "size": 34705
+      },
+      "astropy/coordinates/erfa_astrom.py": {
+        "size": 13119
+      },
+      "astropy/coordinates/errors.py": {
+        "size": 2881
+      },
+      "astropy/coordinates/funcs.py": {
+        "size": 14755
+      },
+      "astropy/coordinates/jparser.py": {
+        "size": 1865
+      },
+      "astropy/coordinates/matching.py": {
+        "size": 19913
+      },
+      "astropy/coordinates/matrix_utilities.py": {
+        "size": 8055
+      },
+      "astropy/coordinates/name_resolve.py": {
+        "size": 7217
+      },
+      "astropy/coordinates/polarization.py": {
+        "size": 8111
+      },
+      "astropy/coordinates/representation/__init__.py": {
+        "size": 2025
+      },
+      "astropy/coordinates/representation/base.py": {
+        "size": 64966
+      },
+      "astropy/coordinates/representation/cartesian.py": {
+        "size": 16354
+      },
+      "astropy/coordinates/representation/cylindrical.py": {
+        "size": 6118
+      },
+      "astropy/coordinates/representation/geodetic.py": {
+        "size": 6893
+      },
+      "astropy/coordinates/representation/spherical.py": {
+        "size": 59776
+      },
+      "astropy/coordinates/sites.py": {
+        "size": 4514
+      },
+      "astropy/coordinates/sky_coordinate.py": {
+        "size": 78816
+      },
+      "astropy/coordinates/sky_coordinate_parsers.py": {
+        "size": 26448
+      },
+      "astropy/coordinates/solar_system.py": {
+        "size": 18487
+      },
+      "astropy/coordinates/spectral_coordinate.py": {
+        "size": 31133
+      },
+      "astropy/coordinates/spectral_quantity.py": {
+        "size": 12384
+      },
+      "astropy/coordinates/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/coordinates/tests/accuracy/__init__.py": {
+        "size": 323
+      },
+      "astropy/coordinates/tests/accuracy/generate_ref_ast.py": {
+        "size": 9787
+      },
+      "astropy/coordinates/tests/accuracy/generate_spectralcoord_ref.py": {
+        "size": 3637
+      },
+      "astropy/coordinates/tests/accuracy/test_altaz_icrs.py": {
+        "size": 8701
+      },
+      "astropy/coordinates/tests/accuracy/test_ecliptic.py": {
+        "size": 10139
+      },
+      "astropy/coordinates/tests/accuracy/test_fk4_no_e_fk4.py": {
+        "size": 2089
+      },
+      "astropy/coordinates/tests/accuracy/test_fk4_no_e_fk5.py": {
+        "size": 2152
+      },
+      "astropy/coordinates/tests/accuracy/test_galactic_fk4.py": {
+        "size": 1905
+      },
+      "astropy/coordinates/tests/accuracy/test_icrs_fk5.py": {
+        "size": 1880
+      },
+      "astropy/coordinates/tests/helper.py": {
+        "size": 546
+      },
+      "astropy/coordinates/tests/test_angle_generators.py": {
+        "size": 1086
+      },
+      "astropy/coordinates/tests/test_angles.py": {
+        "size": 39611
+      },
+      "astropy/coordinates/tests/test_angular_separation.py": {
+        "size": 1628
+      },
+      "astropy/coordinates/tests/test_api_ape5.py": {
+        "size": 21145
+      },
+      "astropy/coordinates/tests/test_arrays.py": {
+        "size": 8386
+      },
+      "astropy/coordinates/tests/test_atc_replacements.py": {
+        "size": 1091
+      },
+      "astropy/coordinates/tests/test_celestial_transformations.py": {
+        "size": 15354
+      },
+      "astropy/coordinates/tests/test_distance.py": {
+        "size": 10660
+      },
+      "astropy/coordinates/tests/test_earth.py": {
+        "size": 16723
+      },
+      "astropy/coordinates/tests/test_erfa_astrom.py": {
+        "size": 4075
+      },
+      "astropy/coordinates/tests/test_exceptions.py": {
+        "size": 4041
+      },
+      "astropy/coordinates/tests/test_finite_difference_velocities.py": {
+        "size": 9500
+      },
+      "astropy/coordinates/tests/test_formatting.py": {
+        "size": 6562
+      },
+      "astropy/coordinates/tests/test_frames.py": {
+        "size": 58381
+      },
+      "astropy/coordinates/tests/test_frames_with_velocity.py": {
+        "size": 12359
+      },
+      "astropy/coordinates/tests/test_funcs.py": {
+        "size": 8329
+      },
+      "astropy/coordinates/tests/test_geodetic_representations.py": {
+        "size": 10163
+      },
+      "astropy/coordinates/tests/test_iau_fullstack.py": {
+        "size": 5210
+      },
+      "astropy/coordinates/tests/test_icrs_observed_transformations.py": {
+        "size": 2863
+      },
+      "astropy/coordinates/tests/test_intermediate_transformations.py": {
+        "size": 43851
+      },
+      "astropy/coordinates/tests/test_masked.py": {
+        "size": 16947
+      },
+      "astropy/coordinates/tests/test_matching.py": {
+        "size": 15761
+      },
+      "astropy/coordinates/tests/test_matrix_utilities.py": {
+        "size": 5529
+      },
+      "astropy/coordinates/tests/test_name_resolve.py": {
+        "size": 6110
+      },
+      "astropy/coordinates/tests/test_pickle.py": {
+        "size": 2247
+      },
+      "astropy/coordinates/tests/test_polarization.py": {
+        "size": 5580
+      },
+      "astropy/coordinates/tests/test_regression.py": {
+        "size": 27467
+      },
+      "astropy/coordinates/tests/test_representation.py": {
+        "size": 86529
+      },
+      "astropy/coordinates/tests/test_representation_arithmetic.py": {
+        "size": 60430
+      },
+      "astropy/coordinates/tests/test_representation_methods.py": {
+        "size": 18765
+      },
+      "astropy/coordinates/tests/test_separation.py": {
+        "size": 13309
+      },
+      "astropy/coordinates/tests/test_shape_manipulation.py": {
+        "size": 20082
+      },
+      "astropy/coordinates/tests/test_sites.py": {
+        "size": 5100
+      },
+      "astropy/coordinates/tests/test_sky_coord.py": {
+        "size": 72457
+      },
+      "astropy/coordinates/tests/test_sky_coord_velocities.py": {
+        "size": 9229
+      },
+      "astropy/coordinates/tests/test_skyoffset_transformations.py": {
+        "size": 13685
+      },
+      "astropy/coordinates/tests/test_solar_system.py": {
+        "size": 16401
+      },
+      "astropy/coordinates/tests/test_spectral_coordinate.py": {
+        "size": 41417
+      },
+      "astropy/coordinates/tests/test_spectral_quantity.py": {
+        "size": 9812
+      },
+      "astropy/coordinates/tests/test_transformations.py": {
+        "size": 21467
+      },
+      "astropy/coordinates/tests/test_unit_representation.py": {
+        "size": 2745
+      },
+      "astropy/coordinates/tests/test_utils.py": {
+        "size": 1850
+      },
+      "astropy/coordinates/tests/test_velocity_corrs.py": {
+        "size": 16570
+      },
+      "astropy/coordinates/transformations/__init__.py": {
+        "size": 946
+      },
+      "astropy/coordinates/transformations/affine.py": {
+        "size": 14186
+      },
+      "astropy/coordinates/transformations/base.py": {
+        "size": 4056
+      },
+      "astropy/coordinates/transformations/composite.py": {
+        "size": 10643
+      },
+      "astropy/coordinates/transformations/function.py": {
+        "size": 10292
+      },
+      "astropy/coordinates/transformations/graph.py": {
+        "size": 27815
+      },
+      "astropy/cosmology/__init__.py": {
+        "size": 1921
+      },
+      "astropy/cosmology/_src/__init__.py": {
+        "size": 162
+      },
+      "astropy/cosmology/_src/core.py": {
+        "size": 24655
+      },
+      "astropy/cosmology/_src/default.py": {
+        "size": 2991
+      },
+      "astropy/cosmology/_src/flrw/__init__.py": {
+        "size": 664
+      },
+      "astropy/cosmology/_src/flrw/base.py": {
+        "size": 46477
+      },
+      "astropy/cosmology/_src/flrw/lambdacdm.py": {
+        "size": 27780
+      },
+      "astropy/cosmology/_src/flrw/w0cdm.py": {
+        "size": 13358
+      },
+      "astropy/cosmology/_src/flrw/w0wacdm.py": {
+        "size": 11277
+      },
+      "astropy/cosmology/_src/flrw/w0wzcdm.py": {
+        "size": 10322
+      },
+      "astropy/cosmology/_src/flrw/wpwazpcdm.py": {
+        "size": 12902
+      },
+      "astropy/cosmology/_src/funcs/__init__.py": {
+        "size": 224
+      },
+      "astropy/cosmology/_src/funcs/comparison.py": {
+        "size": 13405
+      },
+      "astropy/cosmology/_src/funcs/optimize.py": {
+        "size": 19640
+      },
+      "astropy/cosmology/_src/io/__init__.py": {
+        "size": 173
+      },
+      "astropy/cosmology/_src/io/builtin/__init__.py": {
+        "size": 270
+      },
+      "astropy/cosmology/_src/io/builtin/cosmology.py": {
+        "size": 3698
+      },
+      "astropy/cosmology/_src/io/builtin/ecsv.py": {
+        "size": 18517
+      },
+      "astropy/cosmology/_src/io/builtin/html.py": {
+        "size": 12394
+      },
+      "astropy/cosmology/_src/io/builtin/latex.py": {
+        "size": 7357
+      },
+      "astropy/cosmology/_src/io/builtin/mapping.py": {
+        "size": 19488
+      },
+      "astropy/cosmology/_src/io/builtin/model.py": {
+        "size": 10627
+      },
+      "astropy/cosmology/_src/io/builtin/row.py": {
+        "size": 12086
+      },
+      "astropy/cosmology/_src/io/builtin/table.py": {
+        "size": 21314
+      },
+      "astropy/cosmology/_src/io/builtin/utils.py": {
+        "size": 1791
+      },
+      "astropy/cosmology/_src/io/builtin/yaml.py": {
+        "size": 9482
+      },
+      "astropy/cosmology/_src/io/connect.py": {
+        "size": 12683
+      },
+      "astropy/cosmology/_src/parameter/__init__.py": {
+        "size": 593
+      },
+      "astropy/cosmology/_src/parameter/converter.py": {
+        "size": 3379
+      },
+      "astropy/cosmology/_src/parameter/core.py": {
+        "size": 11317
+      },
+      "astropy/cosmology/_src/parameter/descriptors.py": {
+        "size": 2489
+      },
+      "astropy/cosmology/_src/parameter/utils.py": {
+        "size": 1092
+      },
+      "astropy/cosmology/_src/scipy_compat.py": {
+        "size": 635
+      },
+      "astropy/cosmology/_src/setup_package.py": {
+        "size": 872
+      },
+      "astropy/cosmology/_src/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/cosmology/_src/tests/conftest.py": {
+        "size": 262
+      },
+      "astropy/cosmology/_src/tests/flrw/__init__.py": {
+        "size": 0
+      },
+      "astropy/cosmology/_src/tests/flrw/conftest.py": {
+        "size": 956
+      },
+      "astropy/cosmology/_src/tests/flrw/test_base.py": {
+        "size": 20850
+      },
+      "astropy/cosmology/_src/tests/flrw/test_flrw.py": {
+        "size": 3834
+      },
+      "astropy/cosmology/_src/tests/flrw/test_lambdacdm.py": {
+        "size": 40064
+      },
+      "astropy/cosmology/_src/tests/flrw/test_parameters.py": {
+        "size": 20267
+      },
+      "astropy/cosmology/_src/tests/flrw/test_w.py": {
+        "size": 2916
+      },
+      "astropy/cosmology/_src/tests/flrw/test_w0cdm.py": {
+        "size": 7776
+      },
+      "astropy/cosmology/_src/tests/flrw/test_w0wacdm.py": {
+        "size": 10089
+      },
+      "astropy/cosmology/_src/tests/flrw/test_w0wzcdm.py": {
+        "size": 11093
+      },
+      "astropy/cosmology/_src/tests/flrw/test_wpwazpcdm.py": {
+        "size": 11683
+      },
+      "astropy/cosmology/_src/tests/funcs/__init__.py": {
+        "size": 0
+      },
+      "astropy/cosmology/_src/tests/funcs/test_comparison.py": {
+        "size": 11654
+      },
+      "astropy/cosmology/_src/tests/funcs/test_funcs.py": {
+        "size": 13217
+      },
+      "astropy/cosmology/_src/tests/helper.py": {
+        "size": 3030
+      },
+      "astropy/cosmology/_src/tests/io/__init__.py": {
+        "size": 0
+      },
+      "astropy/cosmology/_src/tests/io/base.py": {
+        "size": 7433
+      },
+      "astropy/cosmology/_src/tests/io/test_.py": {
+        "size": 842
+      },
+      "astropy/cosmology/_src/tests/io/test_connect.py": {
+        "size": 10478
+      },
+      "astropy/cosmology/_src/tests/io/test_cosmology.py": {
+        "size": 2308
+      },
+      "astropy/cosmology/_src/tests/io/test_ecsv.py": {
+        "size": 8260
+      },
+      "astropy/cosmology/_src/tests/io/test_html.py": {
+        "size": 10019
+      },
+      "astropy/cosmology/_src/tests/io/test_json.py": {
+        "size": 6017
+      },
+      "astropy/cosmology/_src/tests/io/test_latex.py": {
+        "size": 3639
+      },
+      "astropy/cosmology/_src/tests/io/test_mapping.py": {
+        "size": 9427
+      },
+      "astropy/cosmology/_src/tests/io/test_model.py": {
+        "size": 6636
+      },
+      "astropy/cosmology/_src/tests/io/test_row.py": {
+        "size": 5437
+      },
+      "astropy/cosmology/_src/tests/io/test_table.py": {
+        "size": 9833
+      },
+      "astropy/cosmology/_src/tests/io/test_yaml.py": {
+        "size": 6942
+      },
+      "astropy/cosmology/_src/tests/parameter/__init__.py": {
+        "size": 0
+      },
+      "astropy/cosmology/_src/tests/parameter/conftest.py": {
+        "size": 277
+      },
+      "astropy/cosmology/_src/tests/parameter/test_descriptors.py": {
+        "size": 5075
+      },
+      "astropy/cosmology/_src/tests/parameter/test_parameter.py": {
+        "size": 15709
+      },
+      "astropy/cosmology/_src/tests/parameter/test_utils.py": {
+        "size": 643
+      },
+      "astropy/cosmology/_src/tests/test_core.py": {
+        "size": 17371
+      },
+      "astropy/cosmology/_src/tests/test_parameters.py": {
+        "size": 1406
+      },
+      "astropy/cosmology/_src/tests/test_realizations.py": {
+        "size": 3589
+      },
+      "astropy/cosmology/_src/tests/test_scipy_compat.py": {
+        "size": 464
+      },
+      "astropy/cosmology/_src/tests/test_units.py": {
+        "size": 14573
+      },
+      "astropy/cosmology/_src/tests/test_utils.py": {
+        "size": 5588
+      },
+      "astropy/cosmology/_src/traits/__init__.py": {
+        "size": 943
+      },
+      "astropy/cosmology/_src/traits/baryons.py": {
+        "size": 1356
+      },
+      "astropy/cosmology/_src/traits/curvature.py": {
+        "size": 2448
+      },
+      "astropy/cosmology/_src/traits/darkenergy.py": {
+        "size": 5238
+      },
+      "astropy/cosmology/_src/traits/darkmatter.py": {
+        "size": 1463
+      },
+      "astropy/cosmology/_src/traits/hubble.py": {
+        "size": 1607
+      },
+      "astropy/cosmology/_src/traits/matter.py": {
+        "size": 1285
+      },
+      "astropy/cosmology/_src/traits/neutrino.py": {
+        "size": 8494
+      },
+      "astropy/cosmology/_src/traits/photoncomponent.py": {
+        "size": 1338
+      },
+      "astropy/cosmology/_src/traits/rhocrit.py": {
+        "size": 1130
+      },
+      "astropy/cosmology/_src/traits/scale_factor.py": {
+        "size": 1635
+      },
+      "astropy/cosmology/_src/traits/tcmb.py": {
+        "size": 1523
+      },
+      "astropy/cosmology/_src/traits/totalcomponent.py": {
+        "size": 1201
+      },
+      "astropy/cosmology/_src/typing.py": {
+        "size": 691
+      },
+      "astropy/cosmology/_src/units.py": {
+        "size": 1046
+      },
+      "astropy/cosmology/_src/units_equivalencies.py": {
+        "size": 12527
+      },
+      "astropy/cosmology/_src/utils.py": {
+        "size": 3862
+      },
+      "astropy/cosmology/io.py": {
+        "size": 985
+      },
+      "astropy/cosmology/parameters.py": {
+        "size": 1033
+      },
+      "astropy/cosmology/realizations.py": {
+        "size": 1684
+      },
+      "astropy/cosmology/tests/traits/__init__.py": {
+        "size": 60
+      },
+      "astropy/cosmology/tests/traits/helper.py": {
+        "size": 526
+      },
+      "astropy/cosmology/tests/traits/test_trait_baryons.py": {
+        "size": 584
+      },
+      "astropy/cosmology/tests/traits/test_trait_curvature.py": {
+        "size": 969
+      },
+      "astropy/cosmology/tests/traits/test_trait_darkenergy.py": {
+        "size": 1117
+      },
+      "astropy/cosmology/tests/traits/test_trait_darkmatter.py": {
+        "size": 631
+      },
+      "astropy/cosmology/tests/traits/test_trait_hubble.py": {
+        "size": 737
+      },
+      "astropy/cosmology/tests/traits/test_trait_matter.py": {
+        "size": 1189
+      },
+      "astropy/cosmology/tests/traits/test_trait_neutrino.py": {
+        "size": 919
+      },
+      "astropy/cosmology/tests/traits/test_trait_photoncomponent.py": {
+        "size": 633
+      },
+      "astropy/cosmology/tests/traits/test_trait_rhocrit.py": {
+        "size": 583
+      },
+      "astropy/cosmology/tests/traits/test_trait_scale_factor.py": {
+        "size": 940
+      },
+      "astropy/cosmology/tests/traits/test_trait_tcmb.py": {
+        "size": 496
+      },
+      "astropy/cosmology/tests/traits/test_trait_totalcomponent.py": {
+        "size": 482
+      },
+      "astropy/cosmology/traits.py": {
+        "size": 736
+      },
+      "astropy/cosmology/units.py": {
+        "size": 1281
+      },
+      "astropy/extern/__init__.py": {
+        "size": 457
+      },
+      "astropy/extern/_strptime.py": {
+        "size": 22516
+      },
+      "astropy/extern/configobj/__init__.py": {
+        "size": 0
+      },
+      "astropy/extern/configobj/configobj.py": {
+        "size": 87358
+      },
+      "astropy/extern/configobj/validate.py": {
+        "size": 46678
+      },
+      "astropy/extern/ply/__init__.py": {
+        "size": 103
+      },
+      "astropy/extern/ply/cpp.py": {
+        "size": 33639
+      },
+      "astropy/extern/ply/ctokens.py": {
+        "size": 3155
+      },
+      "astropy/extern/ply/lex.py": {
+        "size": 42905
+      },
+      "astropy/extern/ply/yacc.py": {
+        "size": 137736
+      },
+      "astropy/extern/ply/ygen.py": {
+        "size": 2246
+      },
+      "astropy/io/__init__.py": {
+        "size": 180
+      },
+      "astropy/io/ascii/__init__.py": {
+        "size": 1953
+      },
+      "astropy/io/ascii/basic.py": {
+        "size": 12363
+      },
+      "astropy/io/ascii/cds.py": {
+        "size": 17749
+      },
+      "astropy/io/ascii/connect.py": {
+        "size": 1741
+      },
+      "astropy/io/ascii/core.py": {
+        "size": 66609
+      },
+      "astropy/io/ascii/daophot.py": {
+        "size": 14751
+      },
+      "astropy/io/ascii/docs.py": {
+        "size": 8127
+      },
+      "astropy/io/ascii/ecsv.py": {
+        "size": 21538
+      },
+      "astropy/io/ascii/fastbasic.py": {
+        "size": 16272
+      },
+      "astropy/io/ascii/fixedwidth.py": {
+        "size": 17292
+      },
+      "astropy/io/ascii/html.py": {
+        "size": 18567
+      },
+      "astropy/io/ascii/ipac.py": {
+        "size": 21010
+      },
+      "astropy/io/ascii/latex.py": {
+        "size": 19148
+      },
+      "astropy/io/ascii/mesa.py": {
+        "size": 9757
+      },
+      "astropy/io/ascii/misc.py": {
+        "size": 4112
+      },
+      "astropy/io/ascii/mrt.py": {
+        "size": 28775
+      },
+      "astropy/io/ascii/qdp.py": {
+        "size": 20885
+      },
+      "astropy/io/ascii/rst.py": {
+        "size": 2826
+      },
+      "astropy/io/ascii/setup_package.py": {
+        "size": 501
+      },
+      "astropy/io/ascii/sextractor.py": {
+        "size": 6254
+      },
+      "astropy/io/ascii/tdat.py": {
+        "size": 31336
+      },
+      "astropy/io/ascii/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/io/ascii/tests/common.py": {
+        "size": 443
+      },
+      "astropy/io/ascii/tests/data/bad.txt": {
+        "size": 153
+      },
+      "astropy/io/ascii/tests/data/bars_at_ends.txt": {
+        "size": 253
+      },
+      "astropy/io/ascii/tests/data/cds_mrt_dashes.txt": {
+        "size": 1900
+      },
+      "astropy/io/ascii/tests/data/conf_py.txt": {
+        "size": 321
+      },
+      "astropy/io/ascii/tests/data/fill_values.txt": {
+        "size": 18
+      },
+      "astropy/io/ascii/tests/data/fixed_width_2_line.txt": {
+        "size": 100
+      },
+      "astropy/io/ascii/tests/data/simple.txt": {
+        "size": 125
+      },
+      "astropy/io/ascii/tests/data/simple2.txt": {
+        "size": 245
+      },
+      "astropy/io/ascii/tests/data/simple3.txt": {
+        "size": 100
+      },
+      "astropy/io/ascii/tests/data/simple4.txt": {
+        "size": 184
+      },
+      "astropy/io/ascii/tests/data/simple5.txt": {
+        "size": 239
+      },
+      "astropy/io/ascii/tests/data/space_delim_blank_lines.txt": {
+        "size": 235
+      },
+      "astropy/io/ascii/tests/test_c_reader.py": {
+        "size": 59983
+      },
+      "astropy/io/ascii/tests/test_cds.py": {
+        "size": 28006
+      },
+      "astropy/io/ascii/tests/test_cds_header_from_readme.py": {
+        "size": 9008
+      },
+      "astropy/io/ascii/tests/test_compressed.py": {
+        "size": 1956
+      },
+      "astropy/io/ascii/tests/test_connect.py": {
+        "size": 3802
+      },
+      "astropy/io/ascii/tests/test_ecsv.py": {
+        "size": 41981
+      },
+      "astropy/io/ascii/tests/test_fixedwidth.py": {
+        "size": 17702
+      },
+      "astropy/io/ascii/tests/test_html.py": {
+        "size": 23879
+      },
+      "astropy/io/ascii/tests/test_ipac_definitions.py": {
+        "size": 4596
+      },
+      "astropy/io/ascii/tests/test_mesa.py": {
+        "size": 10094
+      },
+      "astropy/io/ascii/tests/test_qdp.py": {
+        "size": 9484
+      },
+      "astropy/io/ascii/tests/test_read.py": {
+        "size": 70226
+      },
+      "astropy/io/ascii/tests/test_rst.py": {
+        "size": 5643
+      },
+      "astropy/io/ascii/tests/test_tdat.py": {
+        "size": 27143
+      },
+      "astropy/io/ascii/tests/test_types.py": {
+        "size": 3580
+      },
+      "astropy/io/ascii/tests/test_write.py": {
+        "size": 31785
+      },
+      "astropy/io/ascii/ui.py": {
+        "size": 41001
+      },
+      "astropy/io/fits/__init__.py": {
+        "size": 3397
+      },
+      "astropy/io/fits/card.py": {
+        "size": 50087
+      },
+      "astropy/io/fits/column.py": {
+        "size": 99793
+      },
+      "astropy/io/fits/connect.py": {
+        "size": 18789
+      },
+      "astropy/io/fits/convenience.py": {
+        "size": 42687
+      },
+      "astropy/io/fits/diff.py": {
+        "size": 60021
+      },
+      "astropy/io/fits/file.py": {
+        "size": 28373
+      },
+      "astropy/io/fits/fitsrec.py": {
+        "size": 56995
+      },
+      "astropy/io/fits/fitstime.py": {
+        "size": 24593
+      },
+      "astropy/io/fits/hdu/__init__.py": {
+        "size": 710
+      },
+      "astropy/io/fits/hdu/base.py": {
+        "size": 58010
+      },
+      "astropy/io/fits/hdu/compressed/__init__.py": {
+        "size": 181
+      },
+      "astropy/io/fits/hdu/compressed/_codecs.py": {
+        "size": 13838
+      },
+      "astropy/io/fits/hdu/compressed/_quantization.py": {
+        "size": 3988
+      },
+      "astropy/io/fits/hdu/compressed/_tiled_compression.py": {
+        "size": 22873
+      },
+      "astropy/io/fits/hdu/compressed/compbintable.py": {
+        "size": 397
+      },
+      "astropy/io/fits/hdu/compressed/compressed.py": {
+        "size": 32781
+      },
+      "astropy/io/fits/hdu/compressed/header.py": {
+        "size": 23621
+      },
+      "astropy/io/fits/hdu/compressed/section.py": {
+        "size": 4598
+      },
+      "astropy/io/fits/hdu/compressed/settings.py": {
+        "size": 993
+      },
+      "astropy/io/fits/hdu/compressed/setup_package.py": {
+        "size": 860
+      },
+      "astropy/io/fits/hdu/compressed/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/io/fits/hdu/compressed/tests/conftest.py": {
+        "size": 2874
+      },
+      "astropy/io/fits/hdu/compressed/tests/test_checksum.py": {
+        "size": 6795
+      },
+      "astropy/io/fits/hdu/compressed/tests/test_compressed.py": {
+        "size": 55144
+      },
+      "astropy/io/fits/hdu/compressed/tests/test_compression_failures.py": {
+        "size": 7131
+      },
+      "astropy/io/fits/hdu/compressed/tests/test_fitsio.py": {
+        "size": 8091
+      },
+      "astropy/io/fits/hdu/compressed/tests/test_tiled_compression.py": {
+        "size": 10343
+      },
+      "astropy/io/fits/hdu/compressed/utils.py": {
+        "size": 5465
+      },
+      "astropy/io/fits/hdu/groups.py": {
+        "size": 21182
+      },
+      "astropy/io/fits/hdu/hdulist.py": {
+        "size": 59899
+      },
+      "astropy/io/fits/hdu/image.py": {
+        "size": 48885
+      },
+      "astropy/io/fits/hdu/nonstandard.py": {
+        "size": 4189
+      },
+      "astropy/io/fits/hdu/streaming.py": {
+        "size": 7586
+      },
+      "astropy/io/fits/hdu/table.py": {
+        "size": 58478
+      },
+      "astropy/io/fits/header.py": {
+        "size": 79989
+      },
+      "astropy/io/fits/scripts/__init__.py": {
+        "size": 291
+      },
+      "astropy/io/fits/scripts/fitscheck.py": {
+        "size": 8285
+      },
+      "astropy/io/fits/scripts/fitsdiff.py": {
+        "size": 14061
+      },
+      "astropy/io/fits/scripts/fitsheader.py": {
+        "size": 17172
+      },
+      "astropy/io/fits/scripts/fitsinfo.py": {
+        "size": 2140
+      },
+      "astropy/io/fits/tests/__init__.py": {
+        "size": 63
+      },
+      "astropy/io/fits/tests/conftest.py": {
+        "size": 6139
+      },
+      "astropy/io/fits/tests/test_checksum.py": {
+        "size": 22120
+      },
+      "astropy/io/fits/tests/test_connect.py": {
+        "size": 43647
+      },
+      "astropy/io/fits/tests/test_convenience.py": {
+        "size": 19425
+      },
+      "astropy/io/fits/tests/test_core.py": {
+        "size": 60930
+      },
+      "astropy/io/fits/tests/test_diff.py": {
+        "size": 36036
+      },
+      "astropy/io/fits/tests/test_division.py": {
+        "size": 1115
+      },
+      "astropy/io/fits/tests/test_fitscheck.py": {
+        "size": 4442
+      },
+      "astropy/io/fits/tests/test_fitsdiff.py": {
+        "size": 12770
+      },
+      "astropy/io/fits/tests/test_fitsheader.py": {
+        "size": 8211
+      },
+      "astropy/io/fits/tests/test_fitsinfo.py": {
+        "size": 1655
+      },
+      "astropy/io/fits/tests/test_fitstime.py": {
+        "size": 22079
+      },
+      "astropy/io/fits/tests/test_fsspec.py": {
+        "size": 6493
+      },
+      "astropy/io/fits/tests/test_groups.py": {
+        "size": 9057
+      },
+      "astropy/io/fits/tests/test_hdulist.py": {
+        "size": 46570
+      },
+      "astropy/io/fits/tests/test_header.py": {
+        "size": 123429
+      },
+      "astropy/io/fits/tests/test_image.py": {
+        "size": 46962
+      },
+      "astropy/io/fits/tests/test_image_dask.py": {
+        "size": 5708
+      },
+      "astropy/io/fits/tests/test_nonstandard.py": {
+        "size": 2325
+      },
+      "astropy/io/fits/tests/test_structured.py": {
+        "size": 3116
+      },
+      "astropy/io/fits/tests/test_table.py": {
+        "size": 155061
+      },
+      "astropy/io/fits/tests/test_tilde_path.py": {
+        "size": 6151
+      },
+      "astropy/io/fits/tests/test_uint.py": {
+        "size": 6058
+      },
+      "astropy/io/fits/tests/test_util.py": {
+        "size": 7079
+      },
+      "astropy/io/fits/util.py": {
+        "size": 28287
+      },
+      "astropy/io/fits/verify.py": {
+        "size": 5506
+      },
+      "astropy/io/misc/__init__.py": {
+        "size": 193
+      },
+      "astropy/io/misc/connect.py": {
+        "size": 444
+      },
+      "astropy/io/misc/ecsv.py": {
+        "size": 46673
+      },
+      "astropy/io/misc/hdf5.py": {
+        "size": 14705
+      },
+      "astropy/io/misc/pandas/__init__.py": {
+        "size": 0
+      },
+      "astropy/io/misc/pandas/connect.py": {
+        "size": 3815
+      },
+      "astropy/io/misc/parquet.py": {
+        "size": 26414
+      },
+      "astropy/io/misc/pickle_helpers.py": {
+        "size": 3316
+      },
+      "astropy/io/misc/pyarrow/__init__.py": {
+        "size": 0
+      },
+      "astropy/io/misc/pyarrow/csv.py": {
+        "size": 20259
+      },
+      "astropy/io/misc/pyarrow/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/io/misc/pyarrow/tests/test_csv.py": {
+        "size": 22932
+      },
+      "astropy/io/misc/tests/__init__.py": {
+        "size": 64
+      },
+      "astropy/io/misc/tests/test_hdf5.py": {
+        "size": 29059
+      },
+      "astropy/io/misc/tests/test_pandas.py": {
+        "size": 3618
+      },
+      "astropy/io/misc/tests/test_parquet.py": {
+        "size": 29143
+      },
+      "astropy/io/misc/tests/test_parquet_votable.py": {
+        "size": 6856
+      },
+      "astropy/io/misc/tests/test_pickle_helpers.py": {
+        "size": 2876
+      },
+      "astropy/io/misc/tests/test_yaml.py": {
+        "size": 10385
+      },
+      "astropy/io/misc/yaml.py": {
+        "size": 13263
+      },
+      "astropy/io/registry/__init__.py": {
+        "size": 379
+      },
+      "astropy/io/registry/base.py": {
+        "size": 18287
+      },
+      "astropy/io/registry/compat.py": {
+        "size": 1896
+      },
+      "astropy/io/registry/core.py": {
+        "size": 14631
+      },
+      "astropy/io/registry/interface.py": {
+        "size": 5658
+      },
+      "astropy/io/registry/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/io/registry/tests/test_registries.py": {
+        "size": 50066
+      },
+      "astropy/io/registry/tests/test_registry_help.py": {
+        "size": 4680
+      },
+      "astropy/io/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/io/tests/mixin_columns.py": {
+        "size": 7633
+      },
+      "astropy/io/tests/safeio.py": {
+        "size": 360
+      },
+      "astropy/io/typing.py": {
+        "size": 1612
+      },
+      "astropy/io/votable/__init__.py": {
+        "size": 1254
+      },
+      "astropy/io/votable/connect.py": {
+        "size": 10592
+      },
+      "astropy/io/votable/converters.py": {
+        "size": 44194
+      },
+      "astropy/io/votable/data/ivoa-vocalubary_refframe-v20220222.json": {
+        "size": 5569
+      },
+      "astropy/io/votable/data/ucd1p-words.txt": {
+        "size": 40201
+      },
+      "astropy/io/votable/dataorigin.py": {
+        "size": 13751
+      },
+      "astropy/io/votable/exceptions.py": {
+        "size": 51302
+      },
+      "astropy/io/votable/setup_package.py": {
+        "size": 381
+      },
+      "astropy/io/votable/table.py": {
+        "size": 13564
+      },
+      "astropy/io/votable/tests/__init__.py": {
+        "size": 64
+      },
+      "astropy/io/votable/tests/data/no_resource.txt": {
+        "size": 200
+      },
+      "astropy/io/votable/tests/data/validation.txt": {
+        "size": 5639
+      },
+      "astropy/io/votable/tests/test_converter.py": {
+        "size": 10836
+      },
+      "astropy/io/votable/tests/test_coosys.py": {
+        "size": 4866
+      },
+      "astropy/io/votable/tests/test_dataorigin.py": {
+        "size": 2459
+      },
+      "astropy/io/votable/tests/test_exception.py": {
+        "size": 1725
+      },
+      "astropy/io/votable/tests/test_resource.py": {
+        "size": 1274
+      },
+      "astropy/io/votable/tests/test_schema_versions.py": {
+        "size": 2480
+      },
+      "astropy/io/votable/tests/test_table.py": {
+        "size": 30971
+      },
+      "astropy/io/votable/tests/test_tree.py": {
+        "size": 22108
+      },
+      "astropy/io/votable/tests/test_ucd.py": {
+        "size": 3577
+      },
+      "astropy/io/votable/tests/test_util.py": {
+        "size": 1671
+      },
+      "astropy/io/votable/tests/test_vo.py": {
+        "size": 40545
+      },
+      "astropy/io/votable/tree.py": {
+        "size": 152653
+      },
+      "astropy/io/votable/ucd.py": {
+        "size": 5757
+      },
+      "astropy/io/votable/util.py": {
+        "size": 6350
+      },
+      "astropy/io/votable/validator/__init__.py": {
+        "size": 157
+      },
+      "astropy/io/votable/validator/html.py": {
+        "size": 9889
+      },
+      "astropy/io/votable/validator/main.py": {
+        "size": 4745
+      },
+      "astropy/io/votable/validator/result.py": {
+        "size": 11779
+      },
+      "astropy/io/votable/volint.py": {
+        "size": 573
+      },
+      "astropy/io/votable/xmlutil.py": {
+        "size": 3528
+      },
+      "astropy/logger.py": {
+        "size": 20072
+      },
+      "astropy/modeling/__init__.py": {
+        "size": 402
+      },
+      "astropy/modeling/_fitting_parallel.py": {
+        "size": 30534
+      },
+      "astropy/modeling/bounding_box.py": {
+        "size": 52165
+      },
+      "astropy/modeling/convolution.py": {
+        "size": 4085
+      },
+      "astropy/modeling/core.py": {
+        "size": 183737
+      },
+      "astropy/modeling/fitting.py": {
+        "size": 89355
+      },
+      "astropy/modeling/functional_models.py": {
+        "size": 120945
+      },
+      "astropy/modeling/mappings.py": {
+        "size": 10841
+      },
+      "astropy/modeling/math_functions.py": {
+        "size": 2572
+      },
+      "astropy/modeling/models/__init__.py": {
+        "size": 2880
+      },
+      "astropy/modeling/optimizers.py": {
+        "size": 7513
+      },
+      "astropy/modeling/parameters.py": {
+        "size": 26450
+      },
+      "astropy/modeling/physical_models.py": {
+        "size": 26297
+      },
+      "astropy/modeling/polynomial.py": {
+        "size": 56834
+      },
+      "astropy/modeling/powerlaws.py": {
+        "size": 21235
+      },
+      "astropy/modeling/projections.py": {
+        "size": 46550
+      },
+      "astropy/modeling/rotations.py": {
+        "size": 17596
+      },
+      "astropy/modeling/separable.py": {
+        "size": 9866
+      },
+      "astropy/modeling/spline.py": {
+        "size": 27532
+      },
+      "astropy/modeling/statistic.py": {
+        "size": 5416
+      },
+      "astropy/modeling/tabular.py": {
+        "size": 12603
+      },
+      "astropy/modeling/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/modeling/tests/data/__init__.py": {
+        "size": 136
+      },
+      "astropy/modeling/tests/data/spec.txt": {
+        "size": 33385
+      },
+      "astropy/modeling/tests/example_models.py": {
+        "size": 13552
+      },
+      "astropy/modeling/tests/irafutil.py": {
+        "size": 3037
+      },
+      "astropy/modeling/tests/test_bounding_box.py": {
+        "size": 114325
+      },
+      "astropy/modeling/tests/test_compound.py": {
+        "size": 40190
+      },
+      "astropy/modeling/tests/test_constraints.py": {
+        "size": 24145
+      },
+      "astropy/modeling/tests/test_convolution.py": {
+        "size": 2624
+      },
+      "astropy/modeling/tests/test_core.py": {
+        "size": 50586
+      },
+      "astropy/modeling/tests/test_fitters.py": {
+        "size": 56184
+      },
+      "astropy/modeling/tests/test_fitting_parallel.py": {
+        "size": 36237
+      },
+      "astropy/modeling/tests/test_functional_models.py": {
+        "size": 20032
+      },
+      "astropy/modeling/tests/test_input.py": {
+        "size": 38992
+      },
+      "astropy/modeling/tests/test_mappings.py": {
+        "size": 5905
+      },
+      "astropy/modeling/tests/test_math_func.py": {
+        "size": 846
+      },
+      "astropy/modeling/tests/test_model_sets.py": {
+        "size": 19353
+      },
+      "astropy/modeling/tests/test_models.py": {
+        "size": 41848
+      },
+      "astropy/modeling/tests/test_models_quantities.py": {
+        "size": 35032
+      },
+      "astropy/modeling/tests/test_parameters.py": {
+        "size": 40928
+      },
+      "astropy/modeling/tests/test_physical_models.py": {
+        "size": 23389
+      },
+      "astropy/modeling/tests/test_pickle.py": {
+        "size": 5740
+      },
+      "astropy/modeling/tests/test_polynomial.py": {
+        "size": 23784
+      },
+      "astropy/modeling/tests/test_projections.py": {
+        "size": 43730
+      },
+      "astropy/modeling/tests/test_quantities_evaluation.py": {
+        "size": 12460
+      },
+      "astropy/modeling/tests/test_quantities_fitting.py": {
+        "size": 10549
+      },
+      "astropy/modeling/tests/test_quantities_model.py": {
+        "size": 3736
+      },
+      "astropy/modeling/tests/test_quantities_parameters.py": {
+        "size": 12123
+      },
+      "astropy/modeling/tests/test_quantities_rotations.py": {
+        "size": 3967
+      },
+      "astropy/modeling/tests/test_rotations.py": {
+        "size": 12410
+      },
+      "astropy/modeling/tests/test_separable.py": {
+        "size": 5510
+      },
+      "astropy/modeling/tests/test_spline.py": {
+        "size": 53658
+      },
+      "astropy/modeling/tests/test_statistics.py": {
+        "size": 2990
+      },
+      "astropy/modeling/tests/test_units_mapping.py": {
+        "size": 1665
+      },
+      "astropy/modeling/tests/test_utils.py": {
+        "size": 5521
+      },
+      "astropy/modeling/utils.py": {
+        "size": 10255
+      },
+      "astropy/nddata/__init__.py": {
+        "size": 1551
+      },
+      "astropy/nddata/_testing.py": {
+        "size": 1851
+      },
+      "astropy/nddata/bitmask.py": {
+        "size": 27392
+      },
+      "astropy/nddata/blocks.py": {
+        "size": 6794
+      },
+      "astropy/nddata/ccddata.py": {
+        "size": 32865
+      },
+      "astropy/nddata/compat.py": {
+        "size": 10196
+      },
+      "astropy/nddata/covariance.py": {
+        "size": 38197
+      },
+      "astropy/nddata/decorators.py": {
+        "size": 11689
+      },
+      "astropy/nddata/flag_collection.py": {
+        "size": 1491
+      },
+      "astropy/nddata/mixins/__init__.py": {
+        "size": 0
+      },
+      "astropy/nddata/mixins/ndarithmetic.py": {
+        "size": 34195
+      },
+      "astropy/nddata/mixins/ndio.py": {
+        "size": 3689
+      },
+      "astropy/nddata/mixins/ndslicing.py": {
+        "size": 4478
+      },
+      "astropy/nddata/mixins/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/nddata/mixins/tests/test_ndarithmetic.py": {
+        "size": 59516
+      },
+      "astropy/nddata/mixins/tests/test_ndio.py": {
+        "size": 280
+      },
+      "astropy/nddata/mixins/tests/test_ndslicing.py": {
+        "size": 6024
+      },
+      "astropy/nddata/nddata.py": {
+        "size": 16581
+      },
+      "astropy/nddata/nddata_base.py": {
+        "size": 1994
+      },
+      "astropy/nddata/nddata_withmixins.py": {
+        "size": 2209
+      },
+      "astropy/nddata/nduncertainty.py": {
+        "size": 44920
+      },
+      "astropy/nddata/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/nddata/tests/test_bitmask.py": {
+        "size": 11495
+      },
+      "astropy/nddata/tests/test_blocks.py": {
+        "size": 5977
+      },
+      "astropy/nddata/tests/test_ccddata.py": {
+        "size": 43601
+      },
+      "astropy/nddata/tests/test_compat.py": {
+        "size": 4855
+      },
+      "astropy/nddata/tests/test_covariance.py": {
+        "size": 23417
+      },
+      "astropy/nddata/tests/test_decorators.py": {
+        "size": 12516
+      },
+      "astropy/nddata/tests/test_flag_collection.py": {
+        "size": 1436
+      },
+      "astropy/nddata/tests/test_nddata.py": {
+        "size": 22202
+      },
+      "astropy/nddata/tests/test_nddata_base.py": {
+        "size": 1562
+      },
+      "astropy/nddata/tests/test_nduncertainty.py": {
+        "size": 15536
+      },
+      "astropy/nddata/tests/test_utils.py": {
+        "size": 25627
+      },
+      "astropy/nddata/utils.py": {
+        "size": 34739
+      },
+      "astropy/samp/__init__.py": {
+        "size": 1039
+      },
+      "astropy/samp/client.py": {
+        "size": 25371
+      },
+      "astropy/samp/constants.py": {
+        "size": 824
+      },
+      "astropy/samp/errors.py": {
+        "size": 738
+      },
+      "astropy/samp/hub.py": {
+        "size": 56042
+      },
+      "astropy/samp/hub_proxy.py": {
+        "size": 6061
+      },
+      "astropy/samp/hub_script.py": {
+        "size": 6296
+      },
+      "astropy/samp/integrated_client.py": {
+        "size": 17253
+      },
+      "astropy/samp/lockfile_helpers.py": {
+        "size": 8045
+      },
+      "astropy/samp/setup_package.py": {
+        "size": 0
+      },
+      "astropy/samp/standard_profile.py": {
+        "size": 5749
+      },
+      "astropy/samp/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/samp/tests/test_client.py": {
+        "size": 2119
+      },
+      "astropy/samp/tests/test_errors.py": {
+        "size": 617
+      },
+      "astropy/samp/tests/test_helpers.py": {
+        "size": 2198
+      },
+      "astropy/samp/tests/test_hub.py": {
+        "size": 1224
+      },
+      "astropy/samp/tests/test_hub_proxy.py": {
+        "size": 1381
+      },
+      "astropy/samp/tests/test_hub_script.py": {
+        "size": 891
+      },
+      "astropy/samp/tests/test_standard_profile.py": {
+        "size": 8894
+      },
+      "astropy/samp/tests/test_web_profile.py": {
+        "size": 2988
+      },
+      "astropy/samp/tests/web_profile_test_helpers.py": {
+        "size": 9422
+      },
+      "astropy/samp/utils.py": {
+        "size": 6660
+      },
+      "astropy/samp/web_profile.py": {
+        "size": 5739
+      },
+      "astropy/stats/__init__.py": {
+        "size": 1199
+      },
+      "astropy/stats/bayesian_blocks.py": {
+        "size": 21455
+      },
+      "astropy/stats/biweight.py": {
+        "size": 29030
+      },
+      "astropy/stats/circstats.py": {
+        "size": 22174
+      },
+      "astropy/stats/funcs.py": {
+        "size": 62177
+      },
+      "astropy/stats/histogram.py": {
+        "size": 13554
+      },
+      "astropy/stats/info_theory.py": {
+        "size": 15139
+      },
+      "astropy/stats/jackknife.py": {
+        "size": 6218
+      },
+      "astropy/stats/nanfunctions.py": {
+        "size": 5202
+      },
+      "astropy/stats/setup_package.py": {
+        "size": 795
+      },
+      "astropy/stats/sigma_clipping.py": {
+        "size": 50741
+      },
+      "astropy/stats/spatial.py": {
+        "size": 13929
+      },
+      "astropy/stats/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/stats/tests/test_bayesian_blocks.py": {
+        "size": 6316
+      },
+      "astropy/stats/tests/test_biweight.py": {
+        "size": 19405
+      },
+      "astropy/stats/tests/test_circstats.py": {
+        "size": 6194
+      },
+      "astropy/stats/tests/test_funcs.py": {
+        "size": 30693
+      },
+      "astropy/stats/tests/test_histogram.py": {
+        "size": 5644
+      },
+      "astropy/stats/tests/test_info_theory.py": {
+        "size": 2339
+      },
+      "astropy/stats/tests/test_jackknife.py": {
+        "size": 2094
+      },
+      "astropy/stats/tests/test_sigma_clipping.py": {
+        "size": 24889
+      },
+      "astropy/stats/tests/test_spatial.py": {
+        "size": 5447
+      },
+      "astropy/table/__init__.py": {
+        "size": 3913
+      },
+      "astropy/table/_dataframes.py": {
+        "size": 19146
+      },
+      "astropy/table/bst.py": {
+        "size": 14710
+      },
+      "astropy/table/column.py": {
+        "size": 66932
+      },
+      "astropy/table/connect.py": {
+        "size": 4574
+      },
+      "astropy/table/groups.py": {
+        "size": 13971
+      },
+      "astropy/table/index.py": {
+        "size": 45880
+      },
+      "astropy/table/info.py": {
+        "size": 7381
+      },
+      "astropy/table/jsviewer.py": {
+        "size": 7508
+      },
+      "astropy/table/meta.py": {
+        "size": 13553
+      },
+      "astropy/table/mixins/__init__.py": {
+        "size": 0
+      },
+      "astropy/table/mixins/dask.py": {
+        "size": 1008
+      },
+      "astropy/table/mixins/registry.py": {
+        "size": 2711
+      },
+      "astropy/table/mixins/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/table/mixins/tests/test_dask.py": {
+        "size": 2041
+      },
+      "astropy/table/mixins/tests/test_registry.py": {
+        "size": 3125
+      },
+      "astropy/table/ndarray_mixin.py": {
+        "size": 2118
+      },
+      "astropy/table/notebook_backends.py": {
+        "size": 4487
+      },
+      "astropy/table/operations.py": {
+        "size": 59629
+      },
+      "astropy/table/pandas.py": {
+        "size": 1159
+      },
+      "astropy/table/pprint.py": {
+        "size": 31484
+      },
+      "astropy/table/row.py": {
+        "size": 7122
+      },
+      "astropy/table/scripts/__init__.py": {
+        "size": 0
+      },
+      "astropy/table/scripts/showtable.py": {
+        "size": 6114
+      },
+      "astropy/table/serialize.py": {
+        "size": 20063
+      },
+      "astropy/table/setup_package.py": {
+        "size": 582
+      },
+      "astropy/table/soco.py": {
+        "size": 5614
+      },
+      "astropy/table/sorted_array.py": {
+        "size": 10128
+      },
+      "astropy/table/table.py": {
+        "size": 160141
+      },
+      "astropy/table/table_helpers.py": {
+        "size": 5071
+      },
+      "astropy/table/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/table/tests/conftest.py": {
+        "size": 7719
+      },
+      "astropy/table/tests/test_array.py": {
+        "size": 1331
+      },
+      "astropy/table/tests/test_bst.py": {
+        "size": 2637
+      },
+      "astropy/table/tests/test_column.py": {
+        "size": 38053
+      },
+      "astropy/table/tests/test_df.py": {
+        "size": 28294
+      },
+      "astropy/table/tests/test_groups.py": {
+        "size": 23838
+      },
+      "astropy/table/tests/test_index.py": {
+        "size": 28666
+      },
+      "astropy/table/tests/test_info.py": {
+        "size": 12182
+      },
+      "astropy/table/tests/test_init_table.py": {
+        "size": 23870
+      },
+      "astropy/table/tests/test_item_access.py": {
+        "size": 9267
+      },
+      "astropy/table/tests/test_jsviewer.py": {
+        "size": 7515
+      },
+      "astropy/table/tests/test_masked.py": {
+        "size": 26842
+      },
+      "astropy/table/tests/test_mixin.py": {
+        "size": 34338
+      },
+      "astropy/table/tests/test_operations.py": {
+        "size": 89944
+      },
+      "astropy/table/tests/test_pickle.py": {
+        "size": 4924
+      },
+      "astropy/table/tests/test_pprint.py": {
+        "size": 41990
+      },
+      "astropy/table/tests/test_row.py": {
+        "size": 12508
+      },
+      "astropy/table/tests/test_showtable.py": {
+        "size": 6395
+      },
+      "astropy/table/tests/test_subclass.py": {
+        "size": 2425
+      },
+      "astropy/table/tests/test_table.py": {
+        "size": 112214
+      },
+      "astropy/tests/__init__.py": {
+        "size": 229
+      },
+      "astropy/tests/figures/__init__.py": {
+        "size": 98
+      },
+      "astropy/tests/figures/helpers.py": {
+        "size": 1516
+      },
+      "astropy/tests/figures/py311-test-image-mpl380-cov.json": {
+        "size": 9320
+      },
+      "astropy/tests/figures/py311-test-image-mpldev-cov.json": {
+        "size": 9320
+      },
+      "astropy/tests/helper.py": {
+        "size": 5183
+      },
+      "astropy/tests/runner.py": {
+        "size": 21884
+      },
+      "astropy/tests/test_logger.py": {
+        "size": 16028
+      },
+      "astropy/tests/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/tests/tests/test_imports.py": {
+        "size": 1872
+      },
+      "astropy/tests/tests/test_quantity_helpers.py": {
+        "size": 1538
+      },
+      "astropy/tests/tests/test_run_tests.py": {
+        "size": 770
+      },
+      "astropy/tests/tests/test_runner.py": {
+        "size": 3000
+      },
+      "astropy/time/__init__.py": {
+        "size": 1710
+      },
+      "astropy/time/core.py": {
+        "size": 129444
+      },
+      "astropy/time/formats.py": {
+        "size": 90558
+      },
+      "astropy/time/setup_package.py": {
+        "size": 703
+      },
+      "astropy/time/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/time/tests/test_basic.py": {
+        "size": 103745
+      },
+      "astropy/time/tests/test_comparisons.py": {
+        "size": 7287
+      },
+      "astropy/time/tests/test_corrs.py": {
+        "size": 3040
+      },
+      "astropy/time/tests/test_custom_formats.py": {
+        "size": 7496
+      },
+      "astropy/time/tests/test_delta.py": {
+        "size": 28162
+      },
+      "astropy/time/tests/test_fast_parser.py": {
+        "size": 6366
+      },
+      "astropy/time/tests/test_functions.py": {
+        "size": 1881
+      },
+      "astropy/time/tests/test_guess.py": {
+        "size": 1075
+      },
+      "astropy/time/tests/test_mask.py": {
+        "size": 12636
+      },
+      "astropy/time/tests/test_methods.py": {
+        "size": 33993
+      },
+      "astropy/time/tests/test_pickle.py": {
+        "size": 1201
+      },
+      "astropy/time/tests/test_precision.py": {
+        "size": 29156
+      },
+      "astropy/time/tests/test_quantity_interaction.py": {
+        "size": 13326
+      },
+      "astropy/time/tests/test_sidereal.py": {
+        "size": 11843
+      },
+      "astropy/time/tests/test_update_leap_seconds.py": {
+        "size": 4037
+      },
+      "astropy/time/tests/test_ut1.py": {
+        "size": 5219
+      },
+      "astropy/time/time_helper/__init__.py": {
+        "size": 67
+      },
+      "astropy/time/time_helper/function_helpers.py": {
+        "size": 1069
+      },
+      "astropy/time/utils.py": {
+        "size": 8256
+      },
+      "astropy/timeseries/__init__.py": {
+        "size": 391
+      },
+      "astropy/timeseries/binned.py": {
+        "size": 16645
+      },
+      "astropy/timeseries/core.py": {
+        "size": 3526
+      },
+      "astropy/timeseries/downsample.py": {
+        "size": 12872
+      },
+      "astropy/timeseries/io/__init__.py": {
+        "size": 87
+      },
+      "astropy/timeseries/io/kepler.py": {
+        "size": 3829
+      },
+      "astropy/timeseries/io/tests/__init__.py": {
+        "size": 64
+      },
+      "astropy/timeseries/io/tests/test_kepler.py": {
+        "size": 5649
+      },
+      "astropy/timeseries/periodograms/__init__.py": {
+        "size": 227
+      },
+      "astropy/timeseries/periodograms/base.py": {
+        "size": 1966
+      },
+      "astropy/timeseries/periodograms/bls/__init__.py": {
+        "size": 368
+      },
+      "astropy/timeseries/periodograms/bls/core.py": {
+        "size": 34147
+      },
+      "astropy/timeseries/periodograms/bls/methods.py": {
+        "size": 5316
+      },
+      "astropy/timeseries/periodograms/bls/setup_package.py": {
+        "size": 503
+      },
+      "astropy/timeseries/periodograms/bls/tests/__init__.py": {
+        "size": 64
+      },
+      "astropy/timeseries/periodograms/bls/tests/test_bls.py": {
+        "size": 17516
+      },
+      "astropy/timeseries/periodograms/lombscargle/__init__.py": {
+        "size": 195
+      },
+      "astropy/timeseries/periodograms/lombscargle/_statistics.py": {
+        "size": 16195
+      },
+      "astropy/timeseries/periodograms/lombscargle/core.py": {
+        "size": 28092
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/__init__.py": {
+        "size": 323
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/chi2_impl.py": {
+        "size": 2892
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/fast_impl.py": {
+        "size": 4856
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/fastchi2_impl.py": {
+        "size": 4763
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/main.py": {
+        "size": 7552
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/mle.py": {
+        "size": 3175
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/scipy_impl.py": {
+        "size": 2440
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/slow_impl.py": {
+        "size": 3721
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/tests/test_mle.py": {
+        "size": 2007
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/tests/test_utils.py": {
+        "size": 2320
+      },
+      "astropy/timeseries/periodograms/lombscargle/implementations/utils.py": {
+        "size": 5004
+      },
+      "astropy/timeseries/periodograms/lombscargle/setup_package.py": {
+        "size": 482
+      },
+      "astropy/timeseries/periodograms/lombscargle/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/timeseries/periodograms/lombscargle/tests/test_lombscargle.py": {
+        "size": 15986
+      },
+      "astropy/timeseries/periodograms/lombscargle/tests/test_statistics.py": {
+        "size": 7140
+      },
+      "astropy/timeseries/periodograms/lombscargle/tests/test_utils.py": {
+        "size": 1372
+      },
+      "astropy/timeseries/periodograms/lombscargle/utils.py": {
+        "size": 3082
+      },
+      "astropy/timeseries/periodograms/lombscargle_multiband/__init__.py": {
+        "size": 104
+      },
+      "astropy/timeseries/periodograms/lombscargle_multiband/core.py": {
+        "size": 26317
+      },
+      "astropy/timeseries/periodograms/lombscargle_multiband/implementations/__init__.py": {
+        "size": 220
+      },
+      "astropy/timeseries/periodograms/lombscargle_multiband/implementations/main.py": {
+        "size": 1826
+      },
+      "astropy/timeseries/periodograms/lombscargle_multiband/implementations/mbfast_impl.py": {
+        "size": 1842
+      },
+      "astropy/timeseries/periodograms/lombscargle_multiband/implementations/mbflex_impl.py": {
+        "size": 3867
+      },
+      "astropy/timeseries/periodograms/lombscargle_multiband/implementations/mle.py": {
+        "size": 5178
+      },
+      "astropy/timeseries/periodograms/lombscargle_multiband/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/timeseries/periodograms/lombscargle_multiband/tests/test_lombscargle_multiband.py": {
+        "size": 19947
+      },
+      "astropy/timeseries/sampled.py": {
+        "size": 16664
+      },
+      "astropy/timeseries/tests/__init__.py": {
+        "size": 64
+      },
+      "astropy/timeseries/tests/test_binned.py": {
+        "size": 13562
+      },
+      "astropy/timeseries/tests/test_common.py": {
+        "size": 3288
+      },
+      "astropy/timeseries/tests/test_downsample.py": {
+        "size": 15535
+      },
+      "astropy/timeseries/tests/test_sampled.py": {
+        "size": 17683
+      },
+      "astropy/uncertainty/__init__.py": {
+        "size": 296
+      },
+      "astropy/uncertainty/core.py": {
+        "size": 27572
+      },
+      "astropy/uncertainty/distributions.py": {
+        "size": 6620
+      },
+      "astropy/uncertainty/function_helpers.py": {
+        "size": 5447
+      },
+      "astropy/uncertainty/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/uncertainty/tests/test_containers.py": {
+        "size": 8959
+      },
+      "astropy/uncertainty/tests/test_distribution.py": {
+        "size": 25742
+      },
+      "astropy/uncertainty/tests/test_functions.py": {
+        "size": 3472
+      },
+      "astropy/units/__init__.py": {
+        "size": 1756
+      },
+      "astropy/units/astrophys.py": {
+        "size": 5296
+      },
+      "astropy/units/cds.py": {
+        "size": 7614
+      },
+      "astropy/units/cgs.py": {
+        "size": 4076
+      },
+      "astropy/units/core.py": {
+        "size": 94645
+      },
+      "astropy/units/decorators.py": {
+        "size": 12517
+      },
+      "astropy/units/deprecated.py": {
+        "size": 2315
+      },
+      "astropy/units/docgen.py": {
+        "size": 3979
+      },
+      "astropy/units/enums.py": {
+        "size": 479
+      },
+      "astropy/units/equivalencies.py": {
+        "size": 30761
+      },
+      "astropy/units/errors.py": {
+        "size": 1199
+      },
+      "astropy/units/format/__init__.py": {
+        "size": 2318
+      },
+      "astropy/units/format/base.py": {
+        "size": 11817
+      },
+      "astropy/units/format/cds.py": {
+        "size": 8534
+      },
+      "astropy/units/format/cds_lextab.py": {
+        "size": 1445
+      },
+      "astropy/units/format/cds_parsetab.py": {
+        "size": 6031
+      },
+      "astropy/units/format/console.py": {
+        "size": 1869
+      },
+      "astropy/units/format/fits.py": {
+        "size": 3448
+      },
+      "astropy/units/format/generic.py": {
+        "size": 16953
+      },
+      "astropy/units/format/generic_lextab.py": {
+        "size": 1450
+      },
+      "astropy/units/format/generic_parsetab.py": {
+        "size": 13879
+      },
+      "astropy/units/format/latex.py": {
+        "size": 3006
+      },
+      "astropy/units/format/ogip.py": {
+        "size": 11578
+      },
+      "astropy/units/format/ogip_lextab.py": {
+        "size": 1685
+      },
+      "astropy/units/format/ogip_parsetab.py": {
+        "size": 8533
+      },
+      "astropy/units/format/unicode_format.py": {
+        "size": 1956
+      },
+      "astropy/units/format/vounit.py": {
+        "size": 8093
+      },
+      "astropy/units/function/__init__.py": {
+        "size": 505
+      },
+      "astropy/units/function/core.py": {
+        "size": 29585
+      },
+      "astropy/units/function/logarithmic.py": {
+        "size": 15151
+      },
+      "astropy/units/function/mixin.py": {
+        "size": 685
+      },
+      "astropy/units/function/units.py": {
+        "size": 3477
+      },
+      "astropy/units/imperial.py": {
+        "size": 5345
+      },
+      "astropy/units/misc.py": {
+        "size": 3965
+      },
+      "astropy/units/photometric.py": {
+        "size": 2159
+      },
+      "astropy/units/physical.py": {
+        "size": 22126
+      },
+      "astropy/units/quantity.py": {
+        "size": 87478
+      },
+      "astropy/units/quantity_helper/__init__.py": {
+        "size": 588
+      },
+      "astropy/units/quantity_helper/converters.py": {
+        "size": 15590
+      },
+      "astropy/units/quantity_helper/erfa.py": {
+        "size": 15415
+      },
+      "astropy/units/quantity_helper/function_helpers.py": {
+        "size": 51939
+      },
+      "astropy/units/quantity_helper/helpers.py": {
+        "size": 17805
+      },
+      "astropy/units/quantity_helper/scipy_special.py": {
+        "size": 3051
+      },
+      "astropy/units/required_by_vounit.py": {
+        "size": 1198
+      },
+      "astropy/units/si.py": {
+        "size": 10219
+      },
+      "astropy/units/structured.py": {
+        "size": 20503
+      },
+      "astropy/units/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/units/tests/test_aliases.py": {
+        "size": 3058
+      },
+      "astropy/units/tests/test_deprecated.py": {
+        "size": 2053
+      },
+      "astropy/units/tests/test_docgen.py": {
+        "size": 4116
+      },
+      "astropy/units/tests/test_equivalencies.py": {
+        "size": 34458
+      },
+      "astropy/units/tests/test_format.py": {
+        "size": 39498
+      },
+      "astropy/units/tests/test_logarithmic.py": {
+        "size": 36828
+      },
+      "astropy/units/tests/test_photometric.py": {
+        "size": 1167
+      },
+      "astropy/units/tests/test_physical.py": {
+        "size": 19063
+      },
+      "astropy/units/tests/test_quantity.py": {
+        "size": 70399
+      },
+      "astropy/units/tests/test_quantity_annotations.py": {
+        "size": 9880
+      },
+      "astropy/units/tests/test_quantity_array_methods.py": {
+        "size": 21367
+      },
+      "astropy/units/tests/test_quantity_decorator.py": {
+        "size": 12358
+      },
+      "astropy/units/tests/test_quantity_erfa_ufuncs.py": {
+        "size": 27523
+      },
+      "astropy/units/tests/test_quantity_helpers.py": {
+        "size": 724
+      },
+      "astropy/units/tests/test_quantity_info.py": {
+        "size": 5092
+      },
+      "astropy/units/tests/test_quantity_non_ufuncs.py": {
+        "size": 99109
+      },
+      "astropy/units/tests/test_quantity_typing.py": {
+        "size": 2573
+      },
+      "astropy/units/tests/test_quantity_ufuncs.py": {
+        "size": 60378
+      },
+      "astropy/units/tests/test_structured.py": {
+        "size": 30758
+      },
+      "astropy/units/tests/test_units.py": {
+        "size": 38237
+      },
+      "astropy/units/typing.py": {
+        "size": 2514
+      },
+      "astropy/units/typing_utils.py": {
+        "size": 2119
+      },
+      "astropy/units/utils.py": {
+        "size": 5014
+      },
+      "astropy/utils/__init__.py": {
+        "size": 813
+      },
+      "astropy/utils/codegen.py": {
+        "size": 4039
+      },
+      "astropy/utils/collections.py": {
+        "size": 1508
+      },
+      "astropy/utils/compat/__init__.py": {
+        "size": 565
+      },
+      "astropy/utils/compat/numpycompat.py": {
+        "size": 3020
+      },
+      "astropy/utils/compat/optional_deps.py": {
+        "size": 1487
+      },
+      "astropy/utils/console.py": {
+        "size": 32446
+      },
+      "astropy/utils/data.py": {
+        "size": 84767
+      },
+      "astropy/utils/data_info.py": {
+        "size": 27778
+      },
+      "astropy/utils/decorators.py": {
+        "size": 45419
+      },
+      "astropy/utils/diff.py": {
+        "size": 6225
+      },
+      "astropy/utils/exceptions.py": {
+        "size": 2502
+      },
+      "astropy/utils/iers/__init__.py": {
+        "size": 20
+      },
+      "astropy/utils/iers/iers.py": {
+        "size": 51880
+      },
+      "astropy/utils/iers/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/utils/iers/tests/test_iers.py": {
+        "size": 21634
+      },
+      "astropy/utils/iers/tests/test_leap_second.py": {
+        "size": 21239
+      },
+      "astropy/utils/introspection.py": {
+        "size": 13884
+      },
+      "astropy/utils/masked/__init__.py": {
+        "size": 362
+      },
+      "astropy/utils/masked/core.py": {
+        "size": 56253
+      },
+      "astropy/utils/masked/function_helpers.py": {
+        "size": 46052
+      },
+      "astropy/utils/masked/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/utils/masked/tests/test_containers.py": {
+        "size": 6191
+      },
+      "astropy/utils/masked/tests/test_dynamic_subclasses.py": {
+        "size": 751
+      },
+      "astropy/utils/masked/tests/test_function_helpers.py": {
+        "size": 62954
+      },
+      "astropy/utils/masked/tests/test_functions.py": {
+        "size": 26434
+      },
+      "astropy/utils/masked/tests/test_masked.py": {
+        "size": 60623
+      },
+      "astropy/utils/masked/tests/test_pickle.py": {
+        "size": 900
+      },
+      "astropy/utils/masked/tests/test_table.py": {
+        "size": 6569
+      },
+      "astropy/utils/metadata/__init__.py": {
+        "size": 482
+      },
+      "astropy/utils/metadata/core.py": {
+        "size": 7678
+      },
+      "astropy/utils/metadata/exceptions.py": {
+        "size": 318
+      },
+      "astropy/utils/metadata/merge.py": {
+        "size": 10348
+      },
+      "astropy/utils/metadata/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/utils/metadata/tests/test_metadata.py": {
+        "size": 9658
+      },
+      "astropy/utils/metadata/utils.py": {
+        "size": 2075
+      },
+      "astropy/utils/misc.py": {
+        "size": 18090
+      },
+      "astropy/utils/parsing.py": {
+        "size": 4843
+      },
+      "astropy/utils/shapes.py": {
+        "size": 19074
+      },
+      "astropy/utils/state.py": {
+        "size": 2127
+      },
+      "astropy/utils/system_info.py": {
+        "size": 1944
+      },
+      "astropy/utils/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/utils/tests/data/.hidden_file.txt": {
+        "size": 36
+      },
+      "astropy/utils/tests/data/alias.cfg": {
+        "size": 42
+      },
+      "astropy/utils/tests/data/test_package/__init__.py": {
+        "size": 129
+      },
+      "astropy/utils/tests/data/test_package/data/foo.txt": {
+        "size": 0
+      },
+      "astropy/utils/tests/data/unicode.txt": {
+        "size": 18
+      },
+      "astropy/utils/tests/test_codegen.py": {
+        "size": 1321
+      },
+      "astropy/utils/tests/test_collections.py": {
+        "size": 1737
+      },
+      "astropy/utils/tests/test_compat.py": {
+        "size": 617
+      },
+      "astropy/utils/tests/test_console.py": {
+        "size": 5295
+      },
+      "astropy/utils/tests/test_data.py": {
+        "size": 81929
+      },
+      "astropy/utils/tests/test_data_info.py": {
+        "size": 3127
+      },
+      "astropy/utils/tests/test_decorators.py": {
+        "size": 28427
+      },
+      "astropy/utils/tests/test_diff.py": {
+        "size": 5154
+      },
+      "astropy/utils/tests/test_introspection.py": {
+        "size": 5435
+      },
+      "astropy/utils/tests/test_misc.py": {
+        "size": 5936
+      },
+      "astropy/utils/tests/test_parsing.py": {
+        "size": 3079
+      },
+      "astropy/utils/tests/test_progress_bar_func.py": {
+        "size": 585
+      },
+      "astropy/utils/tests/test_shapes.py": {
+        "size": 2966
+      },
+      "astropy/utils/tests/test_state.py": {
+        "size": 601
+      },
+      "astropy/utils/tests/test_xml.py": {
+        "size": 3235
+      },
+      "astropy/utils/xml/__init__.py": {
+        "size": 0
+      },
+      "astropy/utils/xml/check.py": {
+        "size": 2189
+      },
+      "astropy/utils/xml/iterparser.py": {
+        "size": 5915
+      },
+      "astropy/utils/xml/setup_package.py": {
+        "size": 1656
+      },
+      "astropy/utils/xml/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/utils/xml/tests/test_iterparse.py": {
+        "size": 4758
+      },
+      "astropy/utils/xml/unescaper.py": {
+        "size": 1420
+      },
+      "astropy/utils/xml/validate.py": {
+        "size": 1518
+      },
+      "astropy/utils/xml/writer.py": {
+        "size": 10211
+      },
+      "astropy/version.py": {
+        "size": 692
+      },
+      "astropy/visualization/__init__.py": {
+        "size": 363
+      },
+      "astropy/visualization/basic_rgb.py": {
+        "size": 7277
+      },
+      "astropy/visualization/hist.py": {
+        "size": 2409
+      },
+      "astropy/visualization/interval.py": {
+        "size": 11601
+      },
+      "astropy/visualization/lupton_rgb.py": {
+        "size": 25129
+      },
+      "astropy/visualization/mpl_normalize.py": {
+        "size": 21477
+      },
+      "astropy/visualization/mpl_style.py": {
+        "size": 2122
+      },
+      "astropy/visualization/scripts/__init__.py": {
+        "size": 64
+      },
+      "astropy/visualization/scripts/fits2bitmap.py": {
+        "size": 7601
+      },
+      "astropy/visualization/scripts/tests/__init__.py": {
+        "size": 64
+      },
+      "astropy/visualization/scripts/tests/test_fits2bitmap.py": {
+        "size": 2300
+      },
+      "astropy/visualization/stretch.py": {
+        "size": 29206
+      },
+      "astropy/visualization/tests/__init__.py": {
+        "size": 64
+      },
+      "astropy/visualization/tests/test_basic_rgb.py": {
+        "size": 11760
+      },
+      "astropy/visualization/tests/test_histogram.py": {
+        "size": 2445
+      },
+      "astropy/visualization/tests/test_interval.py": {
+        "size": 6086
+      },
+      "astropy/visualization/tests/test_lupton_rgb.py": {
+        "size": 12780
+      },
+      "astropy/visualization/tests/test_norm.py": {
+        "size": 13114
+      },
+      "astropy/visualization/tests/test_stretch.py": {
+        "size": 5722
+      },
+      "astropy/visualization/tests/test_time.py": {
+        "size": 8620
+      },
+      "astropy/visualization/tests/test_units.py": {
+        "size": 5128
+      },
+      "astropy/visualization/time.py": {
+        "size": 9546
+      },
+      "astropy/visualization/transform.py": {
+        "size": 1083
+      },
+      "astropy/visualization/units.py": {
+        "size": 3459
+      },
+      "astropy/visualization/wcsaxes/__init__.py": {
+        "size": 1264
+      },
+      "astropy/visualization/wcsaxes/_auto.py": {
+        "size": 5134
+      },
+      "astropy/visualization/wcsaxes/axislabels.py": {
+        "size": 5061
+      },
+      "astropy/visualization/wcsaxes/coordinate_helpers.py": {
+        "size": 59287
+      },
+      "astropy/visualization/wcsaxes/coordinate_range.py": {
+        "size": 5379
+      },
+      "astropy/visualization/wcsaxes/coordinates_map.py": {
+        "size": 7643
+      },
+      "astropy/visualization/wcsaxes/core.py": {
+        "size": 38017
+      },
+      "astropy/visualization/wcsaxes/formatter_locator.py": {
+        "size": 22143
+      },
+      "astropy/visualization/wcsaxes/frame.py": {
+        "size": 13052
+      },
+      "astropy/visualization/wcsaxes/grid_paths.py": {
+        "size": 3977
+      },
+      "astropy/visualization/wcsaxes/helpers.py": {
+        "size": 6240
+      },
+      "astropy/visualization/wcsaxes/patches.py": {
+        "size": 7724
+      },
+      "astropy/visualization/wcsaxes/tests/__init__.py": {
+        "size": 300
+      },
+      "astropy/visualization/wcsaxes/tests/test_coordinate_helpers.py": {
+        "size": 13123
+      },
+      "astropy/visualization/wcsaxes/tests/test_display_world_coordinates.py": {
+        "size": 6580
+      },
+      "astropy/visualization/wcsaxes/tests/test_formatter_locator.py": {
+        "size": 22132
+      },
+      "astropy/visualization/wcsaxes/tests/test_frame.py": {
+        "size": 4620
+      },
+      "astropy/visualization/wcsaxes/tests/test_grid_paths.py": {
+        "size": 1050
+      },
+      "astropy/visualization/wcsaxes/tests/test_images.py": {
+        "size": 49960
+      },
+      "astropy/visualization/wcsaxes/tests/test_misc.py": {
+        "size": 26642
+      },
+      "astropy/visualization/wcsaxes/tests/test_transform_coord_meta.py": {
+        "size": 4721
+      },
+      "astropy/visualization/wcsaxes/tests/test_transforms.py": {
+        "size": 64
+      },
+      "astropy/visualization/wcsaxes/tests/test_utils.py": {
+        "size": 4224
+      },
+      "astropy/visualization/wcsaxes/tests/test_wcsapi.py": {
+        "size": 26518
+      },
+      "astropy/visualization/wcsaxes/ticklabels.py": {
+        "size": 12968
+      },
+      "astropy/visualization/wcsaxes/ticks.py": {
+        "size": 6582
+      },
+      "astropy/visualization/wcsaxes/transforms.py": {
+        "size": 6411
+      },
+      "astropy/visualization/wcsaxes/utils.py": {
+        "size": 5762
+      },
+      "astropy/visualization/wcsaxes/wcsapi.py": {
+        "size": 15476
+      },
+      "astropy/wcs/__init__.py": {
+        "size": 1409
+      },
+      "astropy/wcs/docstrings.py": {
+        "size": 82617
+      },
+      "astropy/wcs/setup_package.py": {
+        "size": 9960
+      },
+      "astropy/wcs/tests/__init__.py": {
+        "size": 64
+      },
+      "astropy/wcs/tests/conftest.py": {
+        "size": 983
+      },
+      "astropy/wcs/tests/data/validate.5.0.txt": {
+        "size": 605
+      },
+      "astropy/wcs/tests/data/validate.5.13.txt": {
+        "size": 599
+      },
+      "astropy/wcs/tests/data/validate.6.txt": {
+        "size": 606
+      },
+      "astropy/wcs/tests/data/validate.7.4.txt": {
+        "size": 731
+      },
+      "astropy/wcs/tests/data/validate.7.6.txt": {
+        "size": 688
+      },
+      "astropy/wcs/tests/data/validate.txt": {
+        "size": 595
+      },
+      "astropy/wcs/tests/helper.py": {
+        "size": 3787
+      },
+      "astropy/wcs/tests/test_auxprm.py": {
+        "size": 6097
+      },
+      "astropy/wcs/tests/test_celprm.py": {
+        "size": 2762
+      },
+      "astropy/wcs/tests/test_pickle.py": {
+        "size": 4949
+      },
+      "astropy/wcs/tests/test_prjprm.py": {
+        "size": 5445
+      },
+      "astropy/wcs/tests/test_profiling.py": {
+        "size": 2570
+      },
+      "astropy/wcs/tests/test_tab.py": {
+        "size": 3499
+      },
+      "astropy/wcs/tests/test_tabprm.py": {
+        "size": 3064
+      },
+      "astropy/wcs/tests/test_utils.py": {
+        "size": 59010
+      },
+      "astropy/wcs/tests/test_wcs.py": {
+        "size": 90035
+      },
+      "astropy/wcs/tests/test_wcsprm.py": {
+        "size": 28849
+      },
+      "astropy/wcs/tests/test_wtbarr.py": {
+        "size": 1531
+      },
+      "astropy/wcs/utils.py": {
+        "size": 46913
+      },
+      "astropy/wcs/wcs.py": {
+        "size": 141854
+      },
+      "astropy/wcs/wcsapi/__init__.py": {
+        "size": 142
+      },
+      "astropy/wcs/wcsapi/conftest.py": {
+        "size": 4405
+      },
+      "astropy/wcs/wcsapi/data/ucds.txt": {
+        "size": 7048
+      },
+      "astropy/wcs/wcsapi/fitswcs.py": {
+        "size": 33550
+      },
+      "astropy/wcs/wcsapi/high_level_api.py": {
+        "size": 12834
+      },
+      "astropy/wcs/wcsapi/high_level_wcs_wrapper.py": {
+        "size": 2332
+      },
+      "astropy/wcs/wcsapi/low_level_api.py": {
+        "size": 15916
+      },
+      "astropy/wcs/wcsapi/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/wcs/wcsapi/tests/test_fitswcs.py": {
+        "size": 52186
+      },
+      "astropy/wcs/wcsapi/tests/test_high_level_api.py": {
+        "size": 8153
+      },
+      "astropy/wcs/wcsapi/tests/test_high_level_wcs_wrapper.py": {
+        "size": 2106
+      },
+      "astropy/wcs/wcsapi/tests/test_low_level_api.py": {
+        "size": 738
+      },
+      "astropy/wcs/wcsapi/tests/test_utils.py": {
+        "size": 1475
+      },
+      "astropy/wcs/wcsapi/utils.py": {
+        "size": 5224
+      },
+      "astropy/wcs/wcsapi/wrappers/__init__.py": {
+        "size": 59
+      },
+      "astropy/wcs/wcsapi/wrappers/base.py": {
+        "size": 2014
+      },
+      "astropy/wcs/wcsapi/wrappers/sliced_wcs.py": {
+        "size": 11924
+      },
+      "astropy/wcs/wcsapi/wrappers/tests/__init__.py": {
+        "size": 0
+      },
+      "astropy/wcs/wcsapi/wrappers/tests/test_sliced_wcs.py": {
+        "size": 34599
+      },
+      "astropy/wcs/wcslint.py": {
+        "size": 633
+      },
+      "asv.ci.conf.json": {
+        "size": 384
+      },
+      "cextern/cfitsio/licenses/License.txt": {
+        "size": 1410
+      },
+      "cextern/expat/README.md": {
+        "size": 10154
+      },
+      "codecov.yml": {
+        "size": 244
+      },
+      "conftest.py": {
+        "size": 2906
+      },
+      "docs/conf.py": {
+        "size": 23231
+      },
+      "docs/conftest.py": {
+        "size": 1766
+      },
+      "docs/io/ascii/references.txt": {
+        "size": 176
+      },
+      "docs/io/ascii/toc.txt": {
+        "size": 116
+      },
+      "docs/io/votable/references.txt": {
+        "size": 2015
+      },
+      "docs/nddata/examples/cutout2d_tofits.py": {
+        "size": 1092
+      },
+      "docs/robots.txt": {
+        "size": 208
+      },
+      "docs/rtd_environment.yaml": {
+        "size": 90
+      },
+      "docs/wcs/examples/cube_wcs.py": {
+        "size": 504
+      },
+      "docs/wcs/examples/from_file.py": {
+        "size": 1875
+      },
+      "docs/wcs/examples/planetary_wcs.py": {
+        "size": 682
+      },
+      "docs/wcs/examples/programmatic.py": {
+        "size": 1862
+      },
+      "docs/wcs/references.txt": {
+        "size": 560
+      },
+      "pyproject.toml": {
+        "size": 27341
+      },
+      "scripts/check-lowest-resolved-tree.py": {
+        "size": 3395
+      },
+      "scripts/lowest-resolved-tree.txt": {
+        "size": 16777
+      },
+      "setup.py": {
+        "size": 1597
+      },
+      "tox.ini": {
+        "size": 9090
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.astropy",
+      "source.astropy.config",
+      "source.astropy.constants",
+      "source.astropy.convolution",
+      "source.astropy.coordinates",
+      "source.astropy.cosmology",
+      "source.astropy.extern",
+      "source.astropy.io",
+      "source.astropy.modeling",
+      "source.astropy.nddata",
+      "source.astropy.samp",
+      "source.astropy.stats",
+      "source.astropy.table",
+      "source.astropy.tests",
+      "source.astropy.time",
+      "source.astropy.timeseries",
+      "source.astropy.uncertainty",
+      "source.astropy.units",
+      "source.astropy.utils",
+      "source.astropy.visualization",
+      "source.astropy.wcs"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.astropy.units",
+        "module": "quantity",
+        "functions": [],
+        "classes": [
+          "Quantity"
+        ],
+        "description": "Core physical quantity type with units; foundational across Astropy subpackages and suitable as a stable MCP-facing abstraction."
+      },
+      {
+        "package": "source.astropy.units",
+        "module": "core",
+        "functions": [],
+        "classes": [
+          "Unit",
+          "CompositeUnit",
+          "IrreducibleUnit"
+        ],
+        "description": "Unit system core implementation and conversion logic; central for interoperability and safe numerical transformations."
+      },
+      {
+        "package": "source.astropy.coordinates",
+        "module": "sky_coordinate",
+        "functions": [],
+        "classes": [
+          "SkyCoord"
+        ],
+        "description": "High-level coordinate container and transformation API; key user entry point for coordinate workflows."
+      },
+      {
+        "package": "source.astropy.time",
+        "module": "core",
+        "functions": [],
+        "classes": [
+          "Time",
+          "TimeDelta"
+        ],
+        "description": "Time scale/format conversion core; widely used dependency in coordinates, timeseries, and ephemeris calculations."
+      },
+      {
+        "package": "source.astropy.table",
+        "module": "table",
+        "functions": [],
+        "classes": [
+          "Table",
+          "QTable"
+        ],
+        "description": "Primary structured tabular data model; central integration point with io.registry and serialization backends."
+      },
+      {
+        "package": "source.astropy.io",
+        "module": "registry.core",
+        "functions": [],
+        "classes": [
+          "UnifiedIORegistry"
+        ],
+        "description": "Unified I/O dispatch mechanism used by table/fits/ascii/votable and others; best target for low-intrusion format capability exposure."
+      },
+      {
+        "package": "source.astropy.io.fits",
+        "module": "convenience",
+        "functions": [
+          "open",
+          "getdata",
+          "getheader",
+          "writeto",
+          "append",
+          "update"
+        ],
+        "classes": [],
+        "description": "High-level FITS file access helpers; practical MCP tool surface for astronomy file workflows."
+      },
+      {
+        "package": "source.astropy.wcs",
+        "module": "wcs",
+        "functions": [],
+        "classes": [
+          "WCS"
+        ],
+        "description": "World Coordinate System transformations between pixel and world coordinates; common core for image/cube astronomy pipelines."
+      },
+      {
+        "package": "source.astropy.cosmology",
+        "module": "_src.flrw.lambdacdm",
+        "functions": [],
+        "classes": [
+          "LambdaCDM",
+          "FlatLambdaCDM"
+        ],
+        "description": "Cosmology model implementations frequently consumed in scientific workflows; useful optional MCP domain tools."
+      },
+      {
+        "package": "source.astropy.stats",
+        "module": "sigma_clipping",
+        "functions": [
+          "sigma_clip",
+          "sigma_clipped_stats"
+        ],
+        "classes": [
+          "SigmaClip"
+        ],
+        "description": "Robust statistics utilities commonly used in preprocessing and quality-control operations."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "fitscheck",
+        "module": "source.astropy.io.fits.scripts.fitscheck",
+        "description": "Validate FITS files and checksums from command line."
+      },
+      {
+        "name": "fitsdiff",
+        "module": "source.astropy.io.fits.scripts.fitsdiff",
+        "description": "Compare FITS files and report header/data differences."
+      },
+      {
+        "name": "fitsheader",
+        "module": "source.astropy.io.fits.scripts.fitsheader",
+        "description": "Print FITS header content from files/HDUs."
+      },
+      {
+        "name": "fitsinfo",
+        "module": "source.astropy.io.fits.scripts.fitsinfo",
+        "description": "Summarize FITS HDU structure and metadata."
+      },
+      {
+        "name": "showtable",
+        "module": "source.astropy.table.scripts.showtable",
+        "description": "Display tabular file contents through astropy table readers."
+      },
+      {
+        "name": "fits2bitmap",
+        "module": "source.astropy.visualization.scripts.fits2bitmap",
+        "description": "Convert FITS images to bitmap formats for visualization."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.94
+    },
+    "dependencies": {
+      "required": [
+        "python",
+        "numpy",
+        "pyerfa",
+        "packaging",
+        "PyYAML"
+      ],
+      "optional": [
+        "scipy",
+        "matplotlib",
+        "pandas",
+        "pyarrow",
+        "h5py",
+        "fsspec",
+        "dask",
+        "beautifulsoup4",
+        "lxml"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/astropy/astropy",
+    "repo_name": "astropy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

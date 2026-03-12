@@ -1,0 +1,522 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/uber/causalml",
+    "summary": "Imported via zip fallback, file count: 102",
+    "file_tree": {
+      ".github/.stale.yml": {
+        "size": 683
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 730
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 604
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 1616
+      },
+      ".github/workflows/black.yml": {
+        "size": 154
+      },
+      ".github/workflows/python-publish.yml": {
+        "size": 1958
+      },
+      ".github/workflows/python-test.yaml": {
+        "size": 963
+      },
+      ".github/workflows/test-build-from-source.yml": {
+        "size": 2040
+      },
+      ".github/workflows/test-pypi-install.yml": {
+        "size": 1056
+      },
+      ".pre-commit-config.yaml": {
+        "size": 261
+      },
+      ".readthedocs.yml": {
+        "size": 523
+      },
+      "ANTITRUST.md": {
+        "size": 1206
+      },
+      "CHARTER.md": {
+        "size": 4155
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 3224
+      },
+      "CONTRIBUTING.md": {
+        "size": 5638
+      },
+      "GOVERNANCE.md": {
+        "size": 3908
+      },
+      "MAINTAINERS.md": {
+        "size": 1310
+      },
+      "README.md": {
+        "size": 9061
+      },
+      "SECURITY.md": {
+        "size": 227
+      },
+      "STEERING_COMMITTEE.md": {
+        "size": 1098
+      },
+      "TRADEMARKS.md": {
+        "size": 4790
+      },
+      "causalml/__init__.py": {
+        "size": 149
+      },
+      "causalml/dataset/__init__.py": {
+        "size": 872
+      },
+      "causalml/dataset/classification.py": {
+        "size": 28659
+      },
+      "causalml/dataset/regression.py": {
+        "size": 8860
+      },
+      "causalml/dataset/semiSynthetic.py": {
+        "size": 36472
+      },
+      "causalml/dataset/synthetic.py": {
+        "size": 24679
+      },
+      "causalml/feature_selection/__init__.py": {
+        "size": 34
+      },
+      "causalml/feature_selection/filters.py": {
+        "size": 27676
+      },
+      "causalml/features.py": {
+        "size": 8366
+      },
+      "causalml/inference/__init__.py": {
+        "size": 0
+      },
+      "causalml/inference/iv/__init__.py": {
+        "size": 117
+      },
+      "causalml/inference/iv/drivlearner.py": {
+        "size": 37605
+      },
+      "causalml/inference/iv/iv_regression.py": {
+        "size": 1420
+      },
+      "causalml/inference/meta/__init__.py": {
+        "size": 474
+      },
+      "causalml/inference/meta/base.py": {
+        "size": 13633
+      },
+      "causalml/inference/meta/drlearner.py": {
+        "size": 25932
+      },
+      "causalml/inference/meta/explainer.py": {
+        "size": 11472
+      },
+      "causalml/inference/meta/rlearner.py": {
+        "size": 29178
+      },
+      "causalml/inference/meta/slearner.py": {
+        "size": 16127
+      },
+      "causalml/inference/meta/tlearner.py": {
+        "size": 15711
+      },
+      "causalml/inference/meta/tmle.py": {
+        "size": 8014
+      },
+      "causalml/inference/meta/utils.py": {
+        "size": 4276
+      },
+      "causalml/inference/meta/xlearner.py": {
+        "size": 26635
+      },
+      "causalml/inference/tf/__init__.py": {
+        "size": 33
+      },
+      "causalml/inference/tf/dragonnet.py": {
+        "size": 10594
+      },
+      "causalml/inference/tf/utils.py": {
+        "size": 6098
+      },
+      "causalml/inference/torch/__init__.py": {
+        "size": 25
+      },
+      "causalml/inference/torch/cevae.py": {
+        "size": 5470
+      },
+      "causalml/inference/tree/__init__.py": {
+        "size": 423
+      },
+      "causalml/inference/tree/_tree/__init__.py": {
+        "size": 302
+      },
+      "causalml/inference/tree/_tree/_classes.py": {
+        "size": 24699
+      },
+      "causalml/inference/tree/causal/__init__.py": {
+        "size": 0
+      },
+      "causalml/inference/tree/causal/_tree.py": {
+        "size": 10355
+      },
+      "causalml/inference/tree/causal/causalforest.py": {
+        "size": 20212
+      },
+      "causalml/inference/tree/causal/causaltree.py": {
+        "size": 17840
+      },
+      "causalml/inference/tree/plot.py": {
+        "size": 24071
+      },
+      "causalml/inference/tree/utils.py": {
+        "size": 11016
+      },
+      "causalml/match.py": {
+        "size": 20210
+      },
+      "causalml/metrics/__init__.py": {
+        "size": 743
+      },
+      "causalml/metrics/classification.py": {
+        "size": 975
+      },
+      "causalml/metrics/const.py": {
+        "size": 12
+      },
+      "causalml/metrics/regression.py": {
+        "size": 3193
+      },
+      "causalml/metrics/sensitivity.py": {
+        "size": 22288
+      },
+      "causalml/metrics/visualize.py": {
+        "size": 36966
+      },
+      "causalml/optimize/__init__.py": {
+        "size": 263
+      },
+      "causalml/optimize/pns.py": {
+        "size": 2765
+      },
+      "causalml/optimize/policylearner.py": {
+        "size": 5973
+      },
+      "causalml/optimize/unit_selection.py": {
+        "size": 9417
+      },
+      "causalml/optimize/utils.py": {
+        "size": 4210
+      },
+      "causalml/optimize/value_optimization.py": {
+        "size": 4094
+      },
+      "causalml/propensity.py": {
+        "size": 7229
+      },
+      "docs/conf.py": {
+        "size": 9212
+      },
+      "docs/environment-py311-rtd.yml": {
+        "size": 600
+      },
+      "docs/environment-py39-rtd.yml": {
+        "size": 605
+      },
+      "docs/issue-859-resolution.md": {
+        "size": 1016
+      },
+      "docs/plans/2026-01-30-scipy-1.16-support.md": {
+        "size": 11647
+      },
+      "docs/requirements.txt": {
+        "size": 114
+      },
+      "pyproject.toml": {
+        "size": 1590
+      },
+      "setup.cfg": {
+        "size": 660
+      },
+      "setup.py": {
+        "size": 1759
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/conftest.py": {
+        "size": 2622
+      },
+      "tests/const.py": {
+        "size": 392
+      },
+      "tests/test_causal_trees.py": {
+        "size": 9991
+      },
+      "tests/test_cevae.py": {
+        "size": 1490
+      },
+      "tests/test_counterfactual_unit_selection.py": {
+        "size": 2475
+      },
+      "tests/test_datasets.py": {
+        "size": 2379
+      },
+      "tests/test_dragonnet.py": {
+        "size": 661
+      },
+      "tests/test_feature_selection.py": {
+        "size": 2034
+      },
+      "tests/test_features.py": {
+        "size": 1632
+      },
+      "tests/test_ivlearner.py": {
+        "size": 2168
+      },
+      "tests/test_match.py": {
+        "size": 3026
+      },
+      "tests/test_meta_learners.py": {
+        "size": 38273
+      },
+      "tests/test_metrics.py": {
+        "size": 1074
+      },
+      "tests/test_propensity.py": {
+        "size": 1629
+      },
+      "tests/test_sensitivity.py": {
+        "size": 7568
+      },
+      "tests/test_uplift_trees.py": {
+        "size": 13552
+      },
+      "tests/test_utils.py": {
+        "size": 692
+      },
+      "tests/test_value_optimization.py": {
+        "size": 2735
+      },
+      "tests/test_visualize.py": {
+        "size": 1768
+      },
+      "tox.ini": {
+        "size": 307
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "causalml/dataset",
+        "module": "classification.py",
+        "functions": [
+          "make_uplift_classification",
+          "make_uplift_classification_logistic",
+          "simulate_randomized_trial"
+        ],
+        "classes": [],
+        "description": "Synthetic/semi-synthetic data generation utilities for uplift and treatment-effect classification workflows."
+      },
+      {
+        "package": "causalml/dataset",
+        "module": "regression.py",
+        "functions": [
+          "synthetic_data"
+        ],
+        "classes": [],
+        "description": "Regression-style synthetic data generation for treatment effect experiments."
+      },
+      {
+        "package": "causalml/inference/meta",
+        "module": "slearner.py",
+        "functions": [],
+        "classes": [
+          "BaseSLearner",
+          "LRSRegressor",
+          "XGBSRegressor",
+          "MLPSRegressor"
+        ],
+        "description": "S-learner family for conditional average treatment effect (CATE) estimation."
+      },
+      {
+        "package": "causalml/inference/meta",
+        "module": "tlearner.py",
+        "functions": [],
+        "classes": [
+          "BaseTLearner",
+          "BaseTRegressor",
+          "BaseTClassifier",
+          "XGBTRegressor",
+          "MLPTRegressor"
+        ],
+        "description": "T-learner variants with separate models per treatment arm."
+      },
+      {
+        "package": "causalml/inference/meta",
+        "module": "xlearner.py",
+        "functions": [],
+        "classes": [
+          "BaseXLearner",
+          "BaseXRegressor",
+          "BaseXClassifier",
+          "XGBXRegressor",
+          "MLPXRegressor"
+        ],
+        "description": "X-learner implementations for improved treatment effect estimation under imbalance."
+      },
+      {
+        "package": "causalml/inference/meta",
+        "module": "rlearner.py",
+        "functions": [],
+        "classes": [
+          "BaseRLearner",
+          "BaseRRegressor",
+          "XGBRRegressor"
+        ],
+        "description": "R-learner based orthogonalized treatment effect estimation."
+      },
+      {
+        "package": "causalml/inference/meta",
+        "module": "drlearner.py",
+        "functions": [],
+        "classes": [
+          "BaseDRLearner",
+          "BaseDRRegressor",
+          "BaseDRClassifier",
+          "XGBDRRegressor"
+        ],
+        "description": "Doubly robust learner implementations with nuisance models."
+      },
+      {
+        "package": "causalml/inference/tree/causal",
+        "module": "causalforest.py",
+        "functions": [],
+        "classes": [
+          "CausalRandomForestRegressor"
+        ],
+        "description": "Tree/forest-based heterogeneous treatment effect estimation."
+      },
+      {
+        "package": "causalml/inference/tree/causal",
+        "module": "causaltree.py",
+        "functions": [],
+        "classes": [
+          "CausalTreeRegressor"
+        ],
+        "description": "Single-tree causal partitioning model."
+      },
+      {
+        "package": "causalml/metrics",
+        "module": "visualize.py",
+        "functions": [
+          "plot_gain",
+          "plot_qini",
+          "plot_lift"
+        ],
+        "classes": [],
+        "description": "Uplift/causal model evaluation visualizations."
+      },
+      {
+        "package": "causalml/optimize",
+        "module": "policylearner.py",
+        "functions": [],
+        "classes": [
+          "PolicyLearner"
+        ],
+        "description": "Policy learning for treatment assignment optimization."
+      },
+      {
+        "package": "causalml",
+        "module": "propensity.py",
+        "functions": [
+          "compute_propensity_score",
+          "calibrate",
+          "elastic_net_propensity_model"
+        ],
+        "classes": [],
+        "description": "Propensity score estimation and calibration helpers."
+      },
+      {
+        "package": "causalml",
+        "module": "match.py",
+        "functions": [
+          "create_table_one",
+          "nearest_neighbor_match"
+        ],
+        "classes": [],
+        "description": "Matching and balance-table utilities for observational studies."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "pandas",
+        "scipy",
+        "scikit-learn",
+        "statsmodels",
+        "matplotlib"
+      ],
+      "optional": [
+        "xgboost",
+        "lightgbm",
+        "shap",
+        "tensorflow",
+        "torch",
+        "pydotplus",
+        "seaborn"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.92,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/uber/causalml",
+    "repo_name": "causalml",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.92,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

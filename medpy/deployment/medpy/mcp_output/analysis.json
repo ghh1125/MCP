@@ -1,0 +1,2514 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/loli/medpy",
+    "summary": "Imported via zip fallback, file count: 124",
+    "file_tree": {
+      ".github/workflows/README.md": {
+        "size": 1018
+      },
+      ".github/workflows/build-publish-test.yml": {
+        "size": 1666
+      },
+      ".github/workflows/pre-commit.yml": {
+        "size": 746
+      },
+      ".github/workflows/publish.yml": {
+        "size": 1554
+      },
+      ".github/workflows/run-tests-gc.yml": {
+        "size": 1942
+      },
+      ".github/workflows/run-tests.yml": {
+        "size": 1147
+      },
+      ".pre-commit-config.yaml": {
+        "size": 838
+      },
+      "CHANGES.txt": {
+        "size": 1297
+      },
+      "LICENSE.txt": {
+        "size": 35147
+      },
+      "README.md": {
+        "size": 1892
+      },
+      "README_PYPI.md": {
+        "size": 5614
+      },
+      "RELEASE.md": {
+        "size": 1077
+      },
+      "bin/medpy_anisotropic_diffusion.py": {
+        "size": 4486
+      },
+      "bin/medpy_apparent_diffusion_coefficient.py": {
+        "size": 7368
+      },
+      "bin/medpy_binary_resampling.py": {
+        "size": 10766
+      },
+      "bin/medpy_convert.py": {
+        "size": 3071
+      },
+      "bin/medpy_create_empty_volume_by_example.py": {
+        "size": 2984
+      },
+      "bin/medpy_dicom_slices_to_volume.py": {
+        "size": 3086
+      },
+      "bin/medpy_dicom_to_4D.py": {
+        "size": 6511
+      },
+      "bin/medpy_diff.py": {
+        "size": 3769
+      },
+      "bin/medpy_extract_contour.py": {
+        "size": 6209
+      },
+      "bin/medpy_extract_min_max.py": {
+        "size": 3669
+      },
+      "bin/medpy_extract_sub_volume.py": {
+        "size": 6589
+      },
+      "bin/medpy_extract_sub_volume_auto.py": {
+        "size": 6149
+      },
+      "bin/medpy_extract_sub_volume_by_example.py": {
+        "size": 6700
+      },
+      "bin/medpy_fit_into_shape.py": {
+        "size": 4225
+      },
+      "bin/medpy_gradient.py": {
+        "size": 3589
+      },
+      "bin/medpy_graphcut_label.py": {
+        "size": 7371
+      },
+      "bin/medpy_graphcut_label_bgreduced.py": {
+        "size": 9004
+      },
+      "bin/medpy_graphcut_label_w_regional.py": {
+        "size": 8936
+      },
+      "bin/medpy_graphcut_label_wsplit.py": {
+        "size": 5636
+      },
+      "bin/medpy_graphcut_voxel.py": {
+        "size": 8923
+      },
+      "bin/medpy_grid.py": {
+        "size": 9151
+      },
+      "bin/medpy_info.py": {
+        "size": 3332
+      },
+      "bin/medpy_intensity_range_standardization.py": {
+        "size": 10440
+      },
+      "bin/medpy_intersection.py": {
+        "size": 4582
+      },
+      "bin/medpy_join_masks.py": {
+        "size": 4645
+      },
+      "bin/medpy_join_xd_to_xplus1d.py": {
+        "size": 5622
+      },
+      "bin/medpy_label_count.py": {
+        "size": 3048
+      },
+      "bin/medpy_label_fit_to_mask.py": {
+        "size": 4521
+      },
+      "bin/medpy_label_superimposition.py": {
+        "size": 6311
+      },
+      "bin/medpy_merge.py": {
+        "size": 3361
+      },
+      "bin/medpy_morphology.py": {
+        "size": 5073
+      },
+      "bin/medpy_resample.py": {
+        "size": 4721
+      },
+      "bin/medpy_reslice_3d_to_4d.py": {
+        "size": 5650
+      },
+      "bin/medpy_set_pixel_spacing.py": {
+        "size": 2771
+      },
+      "bin/medpy_shrink_image.py": {
+        "size": 4676
+      },
+      "bin/medpy_split_xd_to_xminus1d.py": {
+        "size": 4587
+      },
+      "bin/medpy_stack_sub_volumes.py": {
+        "size": 5128
+      },
+      "bin/medpy_swap_dimensions.py": {
+        "size": 4357
+      },
+      "bin/medpy_watershed.py": {
+        "size": 4492
+      },
+      "bin/medpy_zoom_image.py": {
+        "size": 5514
+      },
+      "doc/README.md": {
+        "size": 225
+      },
+      "doc/source/conf.py": {
+        "size": 6612
+      },
+      "lib/maxflow/src/CMakeLists.txt": {
+        "size": 589
+      },
+      "lib/maxflow/src/get_edge_test.py": {
+        "size": 1970
+      },
+      "lib/maxflow/src/sum_edge_test.py": {
+        "size": 1931
+      },
+      "medpy/__init__.py": {
+        "size": 1002
+      },
+      "medpy/core/__init__.py": {
+        "size": 2282
+      },
+      "medpy/core/exceptions.py": {
+        "size": 1720
+      },
+      "medpy/core/logger.py": {
+        "size": 4681
+      },
+      "medpy/features/__init__.py": {
+        "size": 7493
+      },
+      "medpy/features/histogram.py": {
+        "size": 18892
+      },
+      "medpy/features/intensity.py": {
+        "size": 33952
+      },
+      "medpy/features/texture.py": {
+        "size": 12870
+      },
+      "medpy/features/utilities.py": {
+        "size": 6124
+      },
+      "medpy/filter/IntensityRangeStandardization.py": {
+        "size": 24588
+      },
+      "medpy/filter/__init__.py": {
+        "size": 5301
+      },
+      "medpy/filter/binary.py": {
+        "size": 4808
+      },
+      "medpy/filter/houghtransform.py": {
+        "size": 9622
+      },
+      "medpy/filter/image.py": {
+        "size": 19807
+      },
+      "medpy/filter/label.py": {
+        "size": 5891
+      },
+      "medpy/filter/noise.py": {
+        "size": 7399
+      },
+      "medpy/filter/smoothing.py": {
+        "size": 6120
+      },
+      "medpy/filter/utilities.py": {
+        "size": 11284
+      },
+      "medpy/graphcut/__init__.py": {
+        "size": 7613
+      },
+      "medpy/graphcut/energy_label.py": {
+        "size": 19015
+      },
+      "medpy/graphcut/energy_voxel.py": {
+        "size": 26949
+      },
+      "medpy/graphcut/generate.py": {
+        "size": 16053
+      },
+      "medpy/graphcut/graph.py": {
+        "size": 19756
+      },
+      "medpy/graphcut/wrapper.py": {
+        "size": 10794
+      },
+      "medpy/graphcut/write.py": {
+        "size": 2620
+      },
+      "medpy/io/__init__.py": {
+        "size": 2057
+      },
+      "medpy/io/header.py": {
+        "size": 10789
+      },
+      "medpy/io/load.py": {
+        "size": 4413
+      },
+      "medpy/io/save.py": {
+        "size": 4309
+      },
+      "medpy/iterators/__init__.py": {
+        "size": 1532
+      },
+      "medpy/iterators/patchwise.py": {
+        "size": 26214
+      },
+      "medpy/metric/__init__.py": {
+        "size": 5837
+      },
+      "medpy/metric/binary.py": {
+        "size": 44707
+      },
+      "medpy/metric/histogram.py": {
+        "size": 32470
+      },
+      "medpy/metric/image.py": {
+        "size": 4150
+      },
+      "medpy/neighbours/__init__.py": {
+        "size": 1387
+      },
+      "medpy/neighbours/knn.py": {
+        "size": 4364
+      },
+      "medpy/utilities/__init__.py": {
+        "size": 1138
+      },
+      "medpy/utilities/argparseu.py": {
+        "size": 7217
+      },
+      "notebooks/scripts/images/b0.txt": {
+        "size": 171
+      },
+      "notebooks/scripts/images/b1000.txt": {
+        "size": 171
+      },
+      "pytest.ini": {
+        "size": 43
+      },
+      "setup.py": {
+        "size": 8290
+      },
+      "tests/README.md": {
+        "size": 591
+      },
+      "tests/__init__.py": {
+        "size": 42
+      },
+      "tests/features_/__init__.py": {
+        "size": 289
+      },
+      "tests/features_/histogram.py": {
+        "size": 11950
+      },
+      "tests/features_/intensity.py": {
+        "size": 17154
+      },
+      "tests/features_/texture.py": {
+        "size": 5375
+      },
+      "tests/filter_/IntensityRangeStandardization.py": {
+        "size": 6566
+      },
+      "tests/filter_/__init__.py": {
+        "size": 263
+      },
+      "tests/filter_/anisotropic_diffusion.py": {
+        "size": 1535
+      },
+      "tests/filter_/houghtransform.py": {
+        "size": 8391
+      },
+      "tests/filter_/image.py": {
+        "size": 9081
+      },
+      "tests/filter_/utilities.py": {
+        "size": 4678
+      },
+      "tests/graphcut_/__init__.py": {
+        "size": 280
+      },
+      "tests/graphcut_/cut.py": {
+        "size": 7482
+      },
+      "tests/graphcut_/energy_label.py": {
+        "size": 11363
+      },
+      "tests/graphcut_/energy_voxel.py": {
+        "size": 7144
+      },
+      "tests/graphcut_/graph.py": {
+        "size": 3850
+      },
+      "tests/io_/__init__.py": {
+        "size": 191
+      },
+      "tests/io_/loadsave.py": {
+        "size": 13662
+      },
+      "tests/io_/metadata.py": {
+        "size": 19296
+      },
+      "tests/metric_/__init__.py": {
+        "size": 0
+      },
+      "tests/metric_/binary.py": {
+        "size": 1762
+      },
+      "tests/metric_/histogram.py": {
+        "size": 3360
+      },
+      "tests/support.py": {
+        "size": 889
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.medpy",
+      "source.medpy.core",
+      "source.medpy.features",
+      "source.medpy.filter",
+      "source.medpy.graphcut",
+      "source.medpy.io",
+      "source.medpy.iterators",
+      "source.medpy.metric",
+      "source.medpy.neighbours",
+      "source.medpy.utilities",
+      "source.tests",
+      "source.tests.features_",
+      "source.tests.filter_",
+      "source.tests.graphcut_",
+      "source.tests.io_",
+      "source.tests.metric_"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "setup",
+        "module": "setup",
+        "functions": [
+          "read",
+          "run_setup",
+          "try_find_library"
+        ],
+        "classes": [
+          "BuildFailed",
+          "TestCommand",
+          "ve_build_ext"
+        ],
+        "function_signatures": {
+          "read": [
+            "fname"
+          ],
+          "try_find_library": [
+            "lib_name"
+          ],
+          "run_setup": [
+            "with_compilation"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_reslice_3d_to_4d",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_extract_min_max",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_convert",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_extract_sub_volume_auto",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_dicom_to_4D",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_extract_sub_volume_by_example",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_grid",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "list_of_floats",
+          "list_of_integers",
+          "list_of_integers_or_int",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "list_of_integers_or_int": [
+            "string",
+            "separator"
+          ],
+          "list_of_integers": [
+            "string",
+            "separator"
+          ],
+          "list_of_floats": [
+            "string",
+            "separator"
+          ],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_graphcut_label_w_regional",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_morphology",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_join_masks",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_shrink_image",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_binary_resampling",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main",
+          "shape_based_slice_insertation",
+          "shape_based_slice_insertation_object_wise",
+          "shape_based_slice_interpolation"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "shape_based_slice_interpolation": [
+            "img",
+            "dim",
+            "nslices"
+          ],
+          "shape_based_slice_insertation_object_wise": [
+            "sl1",
+            "sl2",
+            "dim",
+            "nslices",
+            "order"
+          ],
+          "shape_based_slice_insertation": [
+            "sl1",
+            "sl2",
+            "dim",
+            "nslices",
+            "order"
+          ],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_extract_contour",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_apparent_diffusion_coefficient",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_fit_into_shape",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_intensity_range_standardization",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_extract_sub_volume",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_graphcut_label_wsplit",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_swap_dimensions",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_watershed",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_dicom_slices_to_volume",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_anisotropic_diffusion",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_label_fit_to_mask",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_stack_sub_volumes",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_diff",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_gradient",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_create_empty_volume_by_example",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_join_xd_to_xplus1d",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_graphcut_label_bgreduced",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_label_count",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_zoom_image",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main",
+          "zoom"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "zoom": [
+            "image",
+            "factor",
+            "dimension",
+            "hdr",
+            "order"
+          ],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_graphcut_label",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_merge",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_intersection",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_resample",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_label_superimposition",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_set_pixel_spacing",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_split_xd_to_xminus1d",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_info",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main",
+          "printInfo"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "printInfo": [
+            "data",
+            "header"
+          ],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "medpy_graphcut_voxel",
+        "functions": [
+          "getArguments",
+          "getParser",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "getArguments": [
+            "parser"
+          ],
+          "getParser": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lib.maxflow.src",
+        "module": "get_edge_test",
+        "functions": [
+          "main",
+          "p",
+          "p2",
+          "test"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "test": [
+            "graphtype",
+            "runs"
+          ],
+          "p": [
+            "g",
+            "f",
+            "t",
+            "exp"
+          ],
+          "p2": [
+            "g",
+            "f",
+            "t",
+            "exp"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lib.maxflow.src",
+        "module": "sum_edge_test",
+        "functions": [
+          "main",
+          "print_cut",
+          "test",
+          "test_multiple_arcs",
+          "test_overflow",
+          "test_sum"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [],
+          "test": [
+            "graphtype"
+          ],
+          "test_sum": [
+            "graphtype"
+          ],
+          "test_multiple_arcs": [
+            "graphtype"
+          ],
+          "test_overflow": [
+            "graphtype"
+          ],
+          "print_cut": [
+            "g",
+            "nodes"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.neighbours",
+        "module": "knn",
+        "functions": [
+          "mkneighbors_graph",
+          "pdist"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "mkneighbors_graph": [
+            "observations",
+            "n_neighbours",
+            "metric",
+            "mode",
+            "metric_params"
+          ],
+          "pdist": [
+            "objects",
+            "dmeasure",
+            "diagval"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.core",
+        "module": "logger",
+        "functions": [],
+        "classes": [
+          "Logger"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.core",
+        "module": "exceptions",
+        "functions": [],
+        "classes": [
+          "ArgumentError",
+          "DependencyError",
+          "FunctionError",
+          "ImageLoadingError",
+          "ImageSavingError",
+          "ImageTypeError",
+          "MetaDataError",
+          "SubprocessError"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.io",
+        "module": "save",
+        "functions": [
+          "save"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "save": [
+            "arr",
+            "filename",
+            "hdr",
+            "force",
+            "use_compression"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.io",
+        "module": "header",
+        "functions": [
+          "copy_meta_data",
+          "get_offset",
+          "get_pixel_spacing",
+          "get_voxel_spacing",
+          "set_offset",
+          "set_pixel_spacing",
+          "set_voxel_spacing"
+        ],
+        "classes": [
+          "Header"
+        ],
+        "function_signatures": {
+          "get_voxel_spacing": [
+            "hdr"
+          ],
+          "get_pixel_spacing": [
+            "hdr"
+          ],
+          "get_offset": [
+            "hdr"
+          ],
+          "set_voxel_spacing": [
+            "hdr",
+            "spacing"
+          ],
+          "set_pixel_spacing": [
+            "hdr",
+            "spacing"
+          ],
+          "set_offset": [
+            "hdr",
+            "offset"
+          ],
+          "copy_meta_data": [
+            "hdr_to",
+            "hdr_from"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.io",
+        "module": "load",
+        "functions": [
+          "load"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "load": [
+            "image"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.features",
+        "module": "histogram",
+        "functions": [
+          "fuzzy_histogram",
+          "gaussian_membership",
+          "sigmoidal_difference_membership",
+          "trapezoid_membership",
+          "triangular_membership"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "fuzzy_histogram": [
+            "a",
+            "bins",
+            "range",
+            "normed",
+            "membership",
+            "smoothness",
+            "guarantee"
+          ],
+          "triangular_membership": [
+            "bin_center",
+            "bin_width",
+            "smoothness"
+          ],
+          "trapezoid_membership": [
+            "bin_center",
+            "bin_width",
+            "smoothness"
+          ],
+          "gaussian_membership": [
+            "bin_center",
+            "bin_width",
+            "smoothness"
+          ],
+          "sigmoidal_difference_membership": [
+            "bin_center",
+            "bin_width",
+            "smoothness"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.features",
+        "module": "intensity",
+        "functions": [
+          "centerdistance",
+          "centerdistance_xdminus1",
+          "gaussian_gradient_magnitude",
+          "hemispheric_difference",
+          "indices",
+          "intensities",
+          "local_histogram",
+          "local_mean_gauss",
+          "mask_distance",
+          "median",
+          "shifted_mean_gauss"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "intensities": [
+            "image",
+            "mask"
+          ],
+          "centerdistance": [
+            "image",
+            "voxelspacing",
+            "mask"
+          ],
+          "centerdistance_xdminus1": [
+            "image",
+            "dim",
+            "voxelspacing",
+            "mask"
+          ],
+          "indices": [
+            "image",
+            "voxelspacing",
+            "mask"
+          ],
+          "shifted_mean_gauss": [
+            "image",
+            "offset",
+            "sigma",
+            "voxelspacing",
+            "mask"
+          ],
+          "mask_distance": [
+            "image",
+            "voxelspacing",
+            "mask"
+          ],
+          "local_mean_gauss": [
+            "image",
+            "sigma",
+            "voxelspacing",
+            "mask"
+          ],
+          "gaussian_gradient_magnitude": [
+            "image",
+            "sigma",
+            "voxelspacing",
+            "mask"
+          ],
+          "median": [
+            "image",
+            "size",
+            "voxelspacing",
+            "mask"
+          ],
+          "local_histogram": [
+            "image",
+            "bins",
+            "rang",
+            "cutoffp",
+            "size",
+            "footprint",
+            "output",
+            "mode",
+            "origin",
+            "mask"
+          ],
+          "hemispheric_difference": [
+            "image",
+            "sigma_active",
+            "sigma_reference",
+            "cut_plane",
+            "voxelspacing",
+            "mask"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.features",
+        "module": "texture",
+        "functions": [
+          "coarseness",
+          "contrast",
+          "directionality",
+          "find_valley_range",
+          "local_maxima",
+          "local_minima"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "coarseness": [
+            "image",
+            "voxelspacing",
+            "mask"
+          ],
+          "contrast": [
+            "image",
+            "mask"
+          ],
+          "directionality": [
+            "image",
+            "min_distance",
+            "threshold",
+            "voxelspacing",
+            "mask"
+          ],
+          "local_maxima": [
+            "vector",
+            "min_distance",
+            "brd_mode"
+          ],
+          "local_minima": [
+            "vector",
+            "min_distance",
+            "brd_mode"
+          ],
+          "find_valley_range": [
+            "vector",
+            "min_distance"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.features",
+        "module": "utilities",
+        "functions": [
+          "append",
+          "join",
+          "normalize",
+          "normalize_with_model"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "normalize": [
+            "vector",
+            "cutoffp",
+            "model"
+          ],
+          "normalize_with_model": [
+            "vector",
+            "model"
+          ],
+          "append": [],
+          "join": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.utilities",
+        "module": "argparseu",
+        "functions": [
+          "existingDirectory",
+          "sequenceOfFloats",
+          "sequenceOfFloatsGe",
+          "sequenceOfFloatsGt",
+          "sequenceOfFloatsLe",
+          "sequenceOfFloatsLt",
+          "sequenceOfIntegers",
+          "sequenceOfIntegersGe",
+          "sequenceOfIntegersGeAscendingStrict",
+          "sequenceOfIntegersGt",
+          "sequenceOfIntegersLe",
+          "sequenceOfIntegersLt",
+          "sequenceOfStrings"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "existingDirectory": [
+            "string"
+          ],
+          "sequenceOfStrings": [
+            "string"
+          ],
+          "sequenceOfIntegersGeAscendingStrict": [
+            "string"
+          ],
+          "sequenceOfIntegers": [
+            "string"
+          ],
+          "sequenceOfIntegersGt": [
+            "string"
+          ],
+          "sequenceOfIntegersGe": [
+            "string"
+          ],
+          "sequenceOfIntegersLt": [
+            "string"
+          ],
+          "sequenceOfIntegersLe": [
+            "string"
+          ],
+          "sequenceOfFloats": [
+            "string"
+          ],
+          "sequenceOfFloatsGt": [
+            "string"
+          ],
+          "sequenceOfFloatsGe": [
+            "string"
+          ],
+          "sequenceOfFloatsLt": [
+            "string"
+          ],
+          "sequenceOfFloatsLe": [
+            "string"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.graphcut",
+        "module": "wrapper",
+        "functions": [
+          "graphcut_split",
+          "graphcut_stawiaski",
+          "graphcut_subprocesses",
+          "split_marker"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "split_marker": [
+            "marker",
+            "fg_id",
+            "bg_id"
+          ],
+          "graphcut_split": [
+            "graphcut_function",
+            "regions",
+            "gradient",
+            "foreground",
+            "background",
+            "minimal_edge_length",
+            "overlap",
+            "processes"
+          ],
+          "graphcut_subprocesses": [
+            "graphcut_function",
+            "graphcut_arguments",
+            "processes"
+          ],
+          "graphcut_stawiaski": [
+            "regions",
+            "gradient",
+            "foreground",
+            "background"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.graphcut",
+        "module": "write",
+        "functions": [
+          "graph_to_dimacs"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "graph_to_dimacs": [
+            "g",
+            "f"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.graphcut",
+        "module": "generate",
+        "functions": [
+          "graph_from_labels",
+          "graph_from_voxels"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "graph_from_voxels": [
+            "fg_markers",
+            "bg_markers",
+            "regional_term",
+            "boundary_term",
+            "regional_term_args",
+            "boundary_term_args"
+          ],
+          "graph_from_labels": [
+            "label_image",
+            "fg_markers",
+            "bg_markers",
+            "regional_term",
+            "boundary_term",
+            "regional_term_args",
+            "boundary_term_args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.graphcut",
+        "module": "energy_voxel",
+        "functions": [
+          "boundary_difference_division",
+          "boundary_difference_exponential",
+          "boundary_difference_linear",
+          "boundary_difference_power",
+          "boundary_maximum_division",
+          "boundary_maximum_exponential",
+          "boundary_maximum_linear",
+          "boundary_maximum_power",
+          "regional_probability_map"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "regional_probability_map": [
+            "graph",
+            "xxx_todo_changeme"
+          ],
+          "boundary_maximum_linear": [
+            "graph",
+            "xxx_todo_changeme1"
+          ],
+          "boundary_difference_linear": [
+            "graph",
+            "xxx_todo_changeme2"
+          ],
+          "boundary_maximum_exponential": [
+            "graph",
+            "xxx_todo_changeme3"
+          ],
+          "boundary_difference_exponential": [
+            "graph",
+            "xxx_todo_changeme4"
+          ],
+          "boundary_maximum_division": [
+            "graph",
+            "xxx_todo_changeme5"
+          ],
+          "boundary_difference_division": [
+            "graph",
+            "xxx_todo_changeme6"
+          ],
+          "boundary_maximum_power": [
+            "graph",
+            "xxx_todo_changeme7"
+          ],
+          "boundary_difference_power": [
+            "graph",
+            "xxx_todo_changeme8"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.graphcut",
+        "module": "graph",
+        "functions": [],
+        "classes": [
+          "GCGraph",
+          "Graph"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.graphcut",
+        "module": "energy_label",
+        "functions": [
+          "boundary_difference_of_means",
+          "boundary_stawiaski",
+          "boundary_stawiaski_directed",
+          "regional_atlas"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "boundary_difference_of_means": [
+            "graph",
+            "label_image",
+            "original_image"
+          ],
+          "boundary_stawiaski": [
+            "graph",
+            "label_image",
+            "gradient_image"
+          ],
+          "boundary_stawiaski_directed": [
+            "graph",
+            "label_image",
+            "xxx_todo_changeme"
+          ],
+          "regional_atlas": [
+            "graph",
+            "label_image",
+            "xxx_todo_changeme1"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.filter",
+        "module": "binary",
+        "functions": [
+          "bounding_box",
+          "largest_connected_component",
+          "size_threshold"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "size_threshold": [
+            "img",
+            "thr",
+            "comp",
+            "structure"
+          ],
+          "largest_connected_component": [
+            "img",
+            "structure"
+          ],
+          "bounding_box": [
+            "img"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.filter",
+        "module": "IntensityRangeStandardization",
+        "functions": [],
+        "classes": [
+          "InformationLossException",
+          "IntensityRangeStandardization",
+          "SingleIntensityAccumulationError",
+          "UntrainedException"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.filter",
+        "module": "label",
+        "functions": [
+          "fit_labels_to_mask",
+          "relabel",
+          "relabel_map",
+          "relabel_non_zero"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "relabel_map": [
+            "label_image",
+            "mapping",
+            "key"
+          ],
+          "relabel": [
+            "label_image",
+            "start"
+          ],
+          "relabel_non_zero": [
+            "label_image",
+            "start"
+          ],
+          "fit_labels_to_mask": [
+            "label_image",
+            "mask"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.filter",
+        "module": "noise",
+        "functions": [
+          "immerkaer",
+          "immerkaer_local",
+          "separable_convolution"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "immerkaer_local": [
+            "input",
+            "size",
+            "output",
+            "mode",
+            "cval"
+          ],
+          "immerkaer": [
+            "input",
+            "mode",
+            "cval"
+          ],
+          "separable_convolution": [
+            "input",
+            "weights",
+            "output",
+            "mode",
+            "cval",
+            "origin"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.filter",
+        "module": "houghtransform",
+        "functions": [
+          "ght",
+          "ght_alternative",
+          "template_ellipsoid",
+          "template_sphere"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "ght_alternative": [
+            "img",
+            "template",
+            "indices"
+          ],
+          "ght": [
+            "img",
+            "template"
+          ],
+          "template_sphere": [
+            "radius",
+            "dimensions"
+          ],
+          "template_ellipsoid": [
+            "shape"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.filter",
+        "module": "smoothing",
+        "functions": [
+          "anisotropic_diffusion",
+          "gauss_xminus1d"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "gauss_xminus1d": [
+            "img",
+            "sigma",
+            "dim"
+          ],
+          "anisotropic_diffusion": [
+            "img",
+            "niter",
+            "kappa",
+            "gamma",
+            "voxelspacing",
+            "option"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.filter",
+        "module": "utilities",
+        "functions": [
+          "intersection",
+          "pad",
+          "xminus1d"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "xminus1d": [
+            "img",
+            "fun",
+            "dim"
+          ],
+          "pad": [
+            "input",
+            "size",
+            "footprint",
+            "output",
+            "mode",
+            "cval"
+          ],
+          "intersection": [
+            "i1",
+            "h1",
+            "i2",
+            "h2"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.filter",
+        "module": "image",
+        "functions": [
+          "average_filter",
+          "local_minima",
+          "otsu",
+          "resample",
+          "sls",
+          "ssd",
+          "sum_filter"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "sls": [
+            "minuend",
+            "subtrahend",
+            "metric",
+            "noise",
+            "signed",
+            "sn_size",
+            "sn_footprint",
+            "sn_mode",
+            "sn_cval",
+            "pn_size",
+            "pn_footprint",
+            "pn_mode",
+            "pn_cval"
+          ],
+          "ssd": [
+            "minuend",
+            "subtrahend",
+            "normalized",
+            "signed",
+            "size",
+            "footprint",
+            "mode",
+            "cval",
+            "origin"
+          ],
+          "average_filter": [
+            "input",
+            "size",
+            "footprint",
+            "output",
+            "mode",
+            "cval",
+            "origin"
+          ],
+          "sum_filter": [
+            "input",
+            "size",
+            "footprint",
+            "output",
+            "mode",
+            "cval",
+            "origin"
+          ],
+          "otsu": [
+            "img",
+            "bins"
+          ],
+          "local_minima": [
+            "img",
+            "min_distance"
+          ],
+          "resample": [
+            "img",
+            "hdr",
+            "target_spacing",
+            "bspline_order",
+            "mode"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.metric",
+        "module": "binary",
+        "functions": [
+          "asd",
+          "assd",
+          "dc",
+          "hd",
+          "hd95",
+          "jc",
+          "obj_asd",
+          "obj_assd",
+          "obj_fpr",
+          "obj_tpr",
+          "positive_predictive_value",
+          "precision",
+          "ravd",
+          "recall",
+          "sensitivity",
+          "specificity",
+          "true_negative_rate",
+          "true_positive_rate",
+          "volume_change_correlation",
+          "volume_correlation"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "dc": [
+            "result",
+            "reference"
+          ],
+          "jc": [
+            "result",
+            "reference"
+          ],
+          "precision": [
+            "result",
+            "reference"
+          ],
+          "recall": [
+            "result",
+            "reference"
+          ],
+          "sensitivity": [
+            "result",
+            "reference"
+          ],
+          "specificity": [
+            "result",
+            "reference"
+          ],
+          "true_negative_rate": [
+            "result",
+            "reference"
+          ],
+          "true_positive_rate": [
+            "result",
+            "reference"
+          ],
+          "positive_predictive_value": [
+            "result",
+            "reference"
+          ],
+          "hd": [
+            "result",
+            "reference",
+            "voxelspacing",
+            "connectivity"
+          ],
+          "hd95": [
+            "result",
+            "reference",
+            "voxelspacing",
+            "connectivity"
+          ],
+          "assd": [
+            "result",
+            "reference",
+            "voxelspacing",
+            "connectivity"
+          ],
+          "asd": [
+            "result",
+            "reference",
+            "voxelspacing",
+            "connectivity"
+          ],
+          "ravd": [
+            "result",
+            "reference"
+          ],
+          "volume_correlation": [
+            "results",
+            "references"
+          ],
+          "volume_change_correlation": [
+            "results",
+            "references"
+          ],
+          "obj_assd": [
+            "result",
+            "reference",
+            "voxelspacing",
+            "connectivity"
+          ],
+          "obj_asd": [
+            "result",
+            "reference",
+            "voxelspacing",
+            "connectivity"
+          ],
+          "obj_fpr": [
+            "result",
+            "reference",
+            "connectivity"
+          ],
+          "obj_tpr": [
+            "result",
+            "reference",
+            "connectivity"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.metric",
+        "module": "histogram",
+        "functions": [
+          "chebyshev",
+          "chebyshev_neg",
+          "chi_square",
+          "correlate",
+          "correlate_1",
+          "cosine",
+          "cosine_1",
+          "cosine_2",
+          "cosine_alt",
+          "euclidean",
+          "fidelity_based",
+          "histogram_intersection",
+          "histogram_intersection_1",
+          "jensen_shannon",
+          "kullback_leibler",
+          "manhattan",
+          "minowski",
+          "noelle_1",
+          "noelle_2",
+          "noelle_3",
+          "noelle_4",
+          "noelle_5",
+          "quadratic_forms",
+          "relative_bin_deviation",
+          "relative_deviation"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "minowski": [
+            "h1",
+            "h2",
+            "p"
+          ],
+          "manhattan": [
+            "h1",
+            "h2"
+          ],
+          "euclidean": [
+            "h1",
+            "h2"
+          ],
+          "chebyshev": [
+            "h1",
+            "h2"
+          ],
+          "chebyshev_neg": [
+            "h1",
+            "h2"
+          ],
+          "histogram_intersection": [
+            "h1",
+            "h2"
+          ],
+          "histogram_intersection_1": [
+            "h1",
+            "h2"
+          ],
+          "relative_deviation": [
+            "h1",
+            "h2"
+          ],
+          "relative_bin_deviation": [
+            "h1",
+            "h2"
+          ],
+          "chi_square": [
+            "h1",
+            "h2"
+          ],
+          "kullback_leibler": [
+            "h1",
+            "h2"
+          ],
+          "jensen_shannon": [
+            "h1",
+            "h2"
+          ],
+          "fidelity_based": [
+            "h1",
+            "h2"
+          ],
+          "noelle_1": [
+            "h1",
+            "h2"
+          ],
+          "noelle_2": [
+            "h1",
+            "h2"
+          ],
+          "noelle_3": [
+            "h1",
+            "h2"
+          ],
+          "noelle_4": [
+            "h1",
+            "h2"
+          ],
+          "noelle_5": [
+            "h1",
+            "h2"
+          ],
+          "cosine_alt": [
+            "h1",
+            "h2"
+          ],
+          "cosine": [
+            "h1",
+            "h2"
+          ],
+          "cosine_1": [
+            "h1",
+            "h2"
+          ],
+          "cosine_2": [
+            "h1",
+            "h2"
+          ],
+          "correlate": [
+            "h1",
+            "h2"
+          ],
+          "correlate_1": [
+            "h1",
+            "h2"
+          ],
+          "quadratic_forms": [
+            "h1",
+            "h2"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.metric",
+        "module": "image",
+        "functions": [
+          "mutual_information"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "mutual_information": [
+            "i1",
+            "i2",
+            "bins"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "medpy.iterators",
+        "module": "patchwise",
+        "functions": [
+          "is_integer"
+        ],
+        "classes": [
+          "CentredPatchIterator",
+          "CentredPatchIteratorOverlapping",
+          "SlidingWindowIterator"
+        ],
+        "function_signatures": {
+          "is_integer": [
+            "s"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.source",
+        "module": "conf",
+        "functions": [
+          "linkcode_resolve"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "linkcode_resolve": [
+            "domain",
+            "info"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "medpy_info",
+        "module": "bin/medpy_info.py",
+        "description": "Inspect image metadata and dimensional information."
+      },
+      {
+        "name": "medpy_convert",
+        "module": "bin/medpy_convert.py",
+        "description": "Convert medical image volumes between supported formats."
+      },
+      {
+        "name": "medpy_diff",
+        "module": "bin/medpy_diff.py",
+        "description": "Compare two images/volumes and report differences."
+      },
+      {
+        "name": "medpy_resample",
+        "module": "bin/medpy_resample.py",
+        "description": "Resample image volume to target spacing/shape."
+      },
+      {
+        "name": "medpy_anisotropic_diffusion",
+        "module": "bin/medpy_anisotropic_diffusion.py",
+        "description": "Apply anisotropic diffusion filtering to a volume."
+      },
+      {
+        "name": "medpy_watershed",
+        "module": "bin/medpy_watershed.py",
+        "description": "Run watershed segmentation on image data."
+      },
+      {
+        "name": "medpy_graphcut_voxel",
+        "module": "bin/medpy_graphcut_voxel.py",
+        "description": "Voxel-level graph-cut segmentation CLI workflow."
+      },
+      {
+        "name": "medpy_graphcut_label",
+        "module": "bin/medpy_graphcut_label.py",
+        "description": "Label-based graph-cut segmentation CLI workflow."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy"
+      ],
+      "optional": [
+        "SimpleITK",
+        "pydicom",
+        "networkx",
+        "maxflow/pymaxflow",
+        "nibabel"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.84,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/loli/medpy",
+    "repo_name": "medpy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.84,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

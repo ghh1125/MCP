@@ -1,0 +1,233 @@
+{
+  "repository": {
+    "name": "scvelo",
+    "url": "https://github.com/theislab/scvelo",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/scvelo",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773294442.0133219,
+    "end_time": 1773294643.397022,
+    "duration": 201.38370013237,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 11,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.scvelo",
+        "source.scvelo.core",
+        "source.scvelo.datasets",
+        "source.scvelo.inference",
+        "source.scvelo.logging",
+        "source.scvelo.plotting",
+        "source.scvelo.preprocessing",
+        "source.scvelo.tools",
+        "source.tests",
+        "source.tests.core",
+        "source.tests.preprocessing"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.88,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/theislab/scvelo",
+      "repo_name": "scvelo",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/scvelo/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "Add smoke tests for the generated MCP plugin (service startup",
+    "import path validation",
+    "and one minimal tool call)",
+    "Define and register explicit MCP endpoints/tools in `mcp_service.py` (currently empty) with typed Pydantic request/response schemas",
+    "Add contract tests that compare MCP endpoint outputs to direct `scvelo` function calls for core workflows (neighbors/moments/velocity/velocity_graph)",
+    "Pin and document a compatibility matrix for Python/scvelo/scanpy/anndata versions in `mcp_output/requirements.txt` and `README_MCP.md`",
+    "Introduce robust error translation in the adapter layer (map common AnnData/scanpy exceptions to structured MCP errors with actionable messages)",
+    "Implement timeout and cancellation handling for long-running computations (velocity graph",
+    "moments) plus progress logging hooks",
+    "Add input-data validation guards (required AnnData layers/obs/var fields",
+    "embedding availability) before invoking heavy `scvelo` routines",
+    "Create fixture-based integration tests using small bundled datasets to validate end-to-end MCP requests without large runtime cost",
+    "Add CI workflow for the MCP output package (lint",
+    "type-check",
+    "unit/integration tests",
+    "and basic cross-platform run)",
+    "Enable static typing checks (mypy/pyright) for `mcp_output` and tighten type hints in adapter/service boundaries",
+    "Add structured logging with correlation IDs for each MCP request and include runtime/shape metadata for debugging",
+    "Improve documentation with concrete MCP usage examples (request/response JSON",
+    "expected AnnData prerequisites",
+    "failure cases)",
+    "Add performance benchmarks for key MCP-exposed operations and track regressions in CI",
+    "Provide optional execution backends/config flags (single-thread/joblib/numba toggles) to control resource use in server environments",
+    "Add security hardening for server mode (input size limits",
+    "path restrictions for file loading",
+    "safe defaults for remote execution)",
+    "Fill currently empty dataset modules (`scvelo/datasets/_biomart.py`",
+    "`_load.py`) or clearly deprecate/remove references to reduce ambiguity",
+    "Refactor very large plotting/tool utility modules into smaller units to improve maintainability and targeted testing",
+    "Add release/versioning automation for the MCP plugin (semantic version tags",
+    "changelog",
+    "and compatibility notes with upstream scvelo)"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed all planned nodes (download, analysis, env, generate, run, review, finalize) with overall status=success.",
+      "Import-based adapter strategy was feasible (import_feasibility=0.88, low intrusiveness risk), reducing integration friction.",
+      "Generated MCP package bootstrapped successfully and reported healthy service state over stdio transport.",
+      "Repository structure and pyproject metadata were sufficient for static analysis and plugin scaffolding."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred; however, functional completeness is low because zero explicit MCP endpoints/tools were registered.",
+      "Original project test signal is unreliable (original_project.passed=false with execution_time=0 and empty test_files despite test_coverage='100%'), indicating test execution/collection mismatch.",
+      "DeepWiki analysis failed, reducing architecture/context confidence for advanced generation decisions.",
+      "Performance telemetry is missing (all zero/unknown), preventing runtime quality validation."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; likely efficient for ~91 files, but per-node timing not captured.",
+      "analysis_time": "Completed with medium-complexity findings and dependency mapping; no granular timing available.",
+      "generation_time": "Scaffolding finished quickly within total 201.38s workflow window; generated core files but with incomplete tool surface.",
+      "test_time": "MCP health check passed, but meaningful functional tests were not executed; timing reported as 0, indicating instrumentation gap."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to missing metrics (reported 0 MB).",
+      "cpu_efficiency": "Unknown due to missing metrics (reported 0%).",
+      "disk_usage": "Low apparent generated artifact footprint, but reported file size/LOC telemetry is zero and likely inaccurate."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 62,
+    "architecture_score": 68,
+    "performance_score": 45,
+    "maintainability_score": 64,
+    "security_score": 85,
+    "scalability_score": 58
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "repository": {
+    "name": "PyAbel",
+    "url": "https://github.com/PyAbel/PyAbel",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/PyAbel",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773251711.819446,
+    "end_time": 1773251987.3693628,
+    "duration": 275.5499167442322,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.92,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/PyAbel/PyAbel",
+      "repo_name": "PyAbel",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/PyAbel/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/PyAbel/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75001 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/PyAbel/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75001 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n"
+  ],
+  "recommendations": [
+    "Add and run a minimal MCP-focused test suite (unit + smoke tests for the `transform` endpoint) in CI",
+    "Fix dependency detection/parsing (analysis missed `pyproject.toml`/`setup.py`) and align packaging metadata validation checks",
+    "Define strict Pydantic request/response schemas for `transform` (method",
+    "direction",
+    "centering/options) with clear validation errors",
+    "Add input guards for numerical edge cases (NaN/inf",
+    "non-square arrays",
+    "dtype/shape constraints",
+    "invalid method params) and return actionable error messages",
+    "Introduce performance regression benchmarks for key algorithms (`basex`",
+    "`rbasex`",
+    "`hansenlaw`",
+    "`direct`) with size-based thresholds",
+    "Enable matrix CI across Python/NumPy/SciPy versions and OSes and publish a concise test summary artifact",
+    "Add golden-data consistency tests comparing MCP endpoint outputs to direct `abel.Transform` results across methods",
+    "Improve observability in MCP service (structured logs",
+    "timing",
+    "method selected",
+    "failure category) and add debug mode",
+    "Document endpoint contract and examples in `README_MCP.md` (common workflows",
+    "parameter presets",
+    "troubleshooting)",
+    "Add caching strategy controls for basis generation (warmup/precompute",
+    "cache location",
+    "invalidation) and test cache hit behavior",
+    "Create a small compatibility layer for optional deps (`matplotlib`) so runtime errors are deferred and informative",
+    "Add type checking and linting gates (mypy/ruff or flake8) for `mcp_output` plus basic docstring coverage",
+    "Implement payload size/rate limits and timeout controls in MCP service to prevent oversized transform requests",
+    "Add reproducible benchmark scripts and store baseline metrics in repo/CI artifacts for trend tracking",
+    "Add an end-to-end example client script that calls MCP `transform` and validates output shape/metadata"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status `success` and completed all planned nodes (`download`, `analysis`, `env`, `generate`, `run`, `review`, `finalize`).",
+      "Robust fallback behavior: clone failure was mitigated via zip fallback (`processed_by: zip_fallback`, 127 files discovered), allowing downstream analysis and generation to proceed.",
+      "MCP plugin boot/health checks passed (`service_health: healthy`, `transport_mode: stdio`).",
+      "Low intrusiveness import-adapter strategy (confidence ~0.9, import feasibility ~0.92) aligned well with PyAbel’s modular API."
+    ],
+    "failure_reasons": [
+      "Primary repository download path failed due to network/connectivity issue (`curl 28`, github.com:443 timeout).",
+      "Dependency/structure detectors produced false negatives (`pyproject.toml` and `setup.py` exist but were reported as absent), reducing analysis fidelity.",
+      "Quality telemetry is incomplete (`llm_calls`, `total_files_processed`, generated LOC/size, perf metrics reported as zero), limiting confidence in quantitative scoring.",
+      "DeepWiki analysis failed, reducing external contextual enrichment."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Download node experienced retry/fallback overhead due to clone timeout (~75s on failed git path); resilience was good because zip fallback recovered execution.",
+      "analysis_time": "Analysis completed functionally (core modules and repo tree identified), but metadata extraction quality was inconsistent (dependency parser mismatch).",
+      "generation_time": "Generation completed successfully and produced expected MCP scaffold files and endpoint wiring; likely efficient but exact node timing is unavailable.",
+      "test_time": "MCP plugin runtime health test passed quickly; original project tests were not executed meaningfully (reported failed with empty details), so validation depth is low."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB likely placeholder). No evidence of memory pressure in this run.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0% likely placeholder). No CPU bottleneck evidence captured.",
+      "disk_usage": "Low-to-moderate inferred usage (repo includes ~127 files plus generated plugin scaffold). Generated size metrics are missing/zero, so actual footprint is underreported."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 81,
+    "performance_score": 63,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

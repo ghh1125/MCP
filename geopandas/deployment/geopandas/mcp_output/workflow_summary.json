@@ -1,0 +1,215 @@
+{
+  "repository": {
+    "name": "geopandas",
+    "url": "https://github.com/geopandas/geopandas",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/geopandas",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773244745.058615,
+    "end_time": 1773245521.151846,
+    "duration": 776.0932309627533,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/geopandas/geopandas",
+      "repo_name": "geopandas",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/geopandas/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Command '['git', 'clone', 'https://github.com/geopandas/geopandas', '/Users/ghh/Documents/Code/Code2MCP-private/workspace/geopandas/temp_clone']' timed out after 600 seconds",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Command '['git', 'clone', 'https://github.com/geopandas/geopandas', '/Users/ghh/Documents/Code/Code2MCP-private/workspace/geopandas/temp_clone']' timed out after 600 seconds"
+  ],
+  "recommendations": [
+    "deduplicate and normalize MCP endpoints (current list repeats read_file/read_parquet/read_feather/read_postgis/sjoin/overlay/clip and has class/function naming inconsistencies like geodataframe/geoseries/geometryarray)",
+    "add a strict API contract layer with Pydantic schemas for geometries/CRS/IO args and standardized error mapping",
+    "introduce smoke and integration tests for the generated MCP plugin (import",
+    "endpoint discovery",
+    "round-trip I/O",
+    "optional-dependency gating)",
+    "add a CI workflow for mcp_output (lint + type checks + tests across minimal/latest dependency matrices)",
+    "improve dependency detection logic (it incorrectly reports no pyproject/environment despite files existing) to prevent bad setup guidance",
+    "implement capability-aware endpoint registration (enable/disable file/sql/arrow/sindex endpoints based on installed extras)",
+    "add timeout/resource guards for heavy operations (overlay/sjoin/read_file on large datasets)",
+    "expand README_MCP with backend matrix and concrete examples for pyogrio/fiona/pyarrow/postgis",
+    "add observability hooks (structured logs",
+    "per-endpoint latency/failure counters)",
+    "harden path/SQL input handling and document safe usage patterns for untrusted inputs",
+    "create regression tests for adapter_mode=import fallback behavior and version compatibility (Python 3.11–3.14)",
+    "benchmark high-cost endpoints and add basic performance budgets",
+    "reduce exposure of low-level constructors unless needed (from_wkb/from_wkt/from_shapely) or clearly mark them advanced/unstable in MCP docs"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Robust fallback behavior: after git clone timeout, pipeline continued via zip fallback and still analyzed ~127 files.",
+      "Import-mode adapter strategy was feasible (reported confidence ~0.9, feasibility 0.91) and produced runnable MCP scaffolding.",
+      "Generated plugin passed MCP health/startup checks (stdio transport, service_health=healthy)."
+    ],
+    "failure_reasons": [
+      "Primary repository acquisition path failed: git clone timed out at 600s (DownloadNode CloneFailed).",
+      "Metadata extraction inconsistencies: dependency scanner falsely reported missing pyproject/environment/requirements despite files being present.",
+      "Validation depth was weak: original project tests did not pass/run meaningfully (execution_time=0, empty details), reducing confidence in behavioral correctness.",
+      "Endpoint generation quality issues: duplicate endpoints and naming inconsistencies indicate incomplete normalization/dedup logic."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Dominant delay source; clone hit full 600s timeout before fallback. Primary bottleneck in wall-clock runtime.",
+      "analysis_time": "Completed successfully after fallback; produced useful module/dependency/risk insights but with partial metadata accuracy.",
+      "generation_time": "Fast enough to produce full MCP scaffold, but quality signals (0 LOC/size metrics, 0 tool_endpoints metrics mismatch) suggest instrumentation gaps.",
+      "test_time": "MCP plugin smoke health passed, but project/integration test coverage was effectively absent; test stage insufficient for production confidence."
+    },
+    "resource_usage": {
+      "memory_efficiency": "No reliable telemetry (reported 0 MB), so efficiency cannot be validated; likely under-instrumented.",
+      "cpu_efficiency": "No reliable telemetry (reported 0%), preventing CPU efficiency assessment.",
+      "disk_usage": "Generated artifacts exist and repository content processed via fallback, but reported generated size=0 suggests disk accounting/metrics bug."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 68,
+    "architecture_score": 74,
+    "performance_score": 55,
+    "maintainability_score": 70,
+    "security_score": 82,
+    "scalability_score": 64
+  }
+}

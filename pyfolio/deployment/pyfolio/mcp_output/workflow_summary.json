@@ -1,0 +1,227 @@
+{
+  "repository": {
+    "name": "pyfolio",
+    "url": "https://github.com/quantopian/pyfolio",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pyfolio",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773247983.6873899,
+    "end_time": 1773248211.577874,
+    "duration": 227.89048409461975,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 2,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.pyfolio",
+        "source.pyfolio.tests"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.92,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/quantopian/pyfolio",
+      "repo_name": "pyfolio",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pyfolio/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a modern CI matrix (GitHub Actions) for Python 3.9–3.12 with OS coverage and pinned dependency sets",
+    "replace Travis/versioneer-era packaging with `pyproject.toml` (PEP 517/518) and clean `setup.py` fallback",
+    "create explicit dependency groups (`core`",
+    "`plot`",
+    "`dev`",
+    "`docs`) plus a `requirements.txt` lock/constraints file for reproducible installs",
+    "fill the empty test status by running and publishing pytest results + coverage thresholds (especially for `plotting.py`",
+    "`tears.py`",
+    "`timeseries.py`)",
+    "add property-based and edge-case tests for financial math invariants (NaNs",
+    "timezone shifts",
+    "zero/negative capital",
+    "sparse transactions)",
+    "deduplicate and curate MCP endpoints (exclude internal/versioneer symbols and duplicate names like `get_versions`/`plot_returns` collisions)",
+    "introduce strict API contracts for MCP tools via Pydantic schemas (typed inputs",
+    "defaults",
+    "validation errors",
+    "examples)",
+    "add smoke/integration tests for generated MCP plugin (`start_mcp.py`",
+    "adapter/service wiring",
+    "endpoint discoverability)",
+    "improve docs from placeholder `docs/index.md` by adding quickstart",
+    "data-shape contracts",
+    "and per-module examples",
+    "standardize linting/formatting/type checks (ruff/black/mypy) and enforce in CI",
+    "refactor oversized modules (`plotting.py`",
+    "`tears.py`) into smaller submodules to reduce maintenance risk",
+    "add deprecation policy and changelog discipline with migration notes for renamed/removed functions",
+    "strengthen error handling and user-facing messages for missing optional deps (`zipline`",
+    "notebook stack)",
+    "cache heavy computations and vectorize hotspots in `timeseries`/`perf_attrib` paths with benchmarks",
+    "add security and supply-chain checks (Dependabot",
+    "pip-audit",
+    "pinned transitive deps)",
+    "publish a compatibility/support policy (Python/pandas/matplotlib versions) and test against latest pandas API changes"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow status is success with all expected nodes executed end-to-end (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy had high feasibility (0.92), reducing intrusive changes to source project.",
+      "Generated MCP plugin started healthy over stdio transport and passed plugin-level health checks.",
+      "Repository structure was analyzable via zip fallback and AST scan, enabling broad endpoint discovery."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure detected.",
+      "Quality gaps: original project tests were not executed/passing (reported passed=false with empty details), so runtime correctness of wrapped functions is unverified.",
+      "DeepWiki analysis failed, reducing external contextual enrichment.",
+      "Generated metadata appears incomplete/inconsistent (tool_endpoints=0 and total_lines_of_code=0 despite many discovered endpoints/files)."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; exact per-node timing unavailable. Repo imported via zip fallback (35 files), indicating robust but potentially slower fallback path.",
+      "analysis_time": "Completed successfully with extensive AST extraction across core modules; likely the dominant phase due to broad symbol discovery.",
+      "generation_time": "Completed successfully; 7 MCP output files created. Generation quality is functional but endpoint curation and metadata reporting need improvement.",
+      "test_time": "Plugin health check succeeded quickly; however, substantive functional/integration test execution is effectively missing for source and generated tool behavior."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Not measurable from provided metrics (reported 0). For a medium-complexity Python repo, usage is likely moderate.",
+      "cpu_efficiency": "Not measurable from provided metrics (reported 0). AST-based analysis likely CPU-bound during symbol extraction.",
+      "disk_usage": "Low-to-moderate; repo is small/medium (35 files) and plugin artifact footprint is limited, though file-size telemetry is missing."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 61,
+    "maintainability_score": 66,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

@@ -1,0 +1,916 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/root-11/graph-theory",
+    "summary": "Imported via zip fallback, file count: 62",
+    "file_tree": {
+      ".github/workflows/codecov.yml": {
+        "size": 758
+      },
+      ".github/workflows/publish.yml": {
+        "size": 533
+      },
+      ".github/workflows/python-test.yml": {
+        "size": 971
+      },
+      "README.md": {
+        "size": 21562
+      },
+      "datasets/readme.md": {
+        "size": 123
+      },
+      "examples/__init__.py": {
+        "size": 0
+      },
+      "examples/graphs.py": {
+        "size": 27277
+      },
+      "examples/readme.md": {
+        "size": 2079
+      },
+      "graph/__init__.py": {
+        "size": 61
+      },
+      "graph/adjacency_matrix.py": {
+        "size": 1109
+      },
+      "graph/all_pairs_shortest_path.py": {
+        "size": 1346
+      },
+      "graph/all_paths.py": {
+        "size": 2031
+      },
+      "graph/all_simple_paths.py": {
+        "size": 1026
+      },
+      "graph/assignment_problem.py": {
+        "size": 8343
+      },
+      "graph/base.py": {
+        "size": 17623
+      },
+      "graph/bfs.py": {
+        "size": 2255
+      },
+      "graph/core.py": {
+        "size": 14015
+      },
+      "graph/critical_path.py": {
+        "size": 7014
+      },
+      "graph/cycle.py": {
+        "size": 1500
+      },
+      "graph/dag.py": {
+        "size": 3984
+      },
+      "graph/degree_of_separation.py": {
+        "size": 529
+      },
+      "graph/dfs.py": {
+        "size": 3120
+      },
+      "graph/distance_map.py": {
+        "size": 2862
+      },
+      "graph/finite_state_machine.py": {
+        "size": 2187
+      },
+      "graph/hash_methods.py": {
+        "size": 4476
+      },
+      "graph/max_flow.py": {
+        "size": 3739
+      },
+      "graph/max_flow_min_cut.py": {
+        "size": 1155
+      },
+      "graph/maximum_flow_min_cut.py": {
+        "size": 1159
+      },
+      "graph/min_cost_flow.py": {
+        "size": 4099
+      },
+      "graph/minmax.py": {
+        "size": 453
+      },
+      "graph/minsum.py": {
+        "size": 469
+      },
+      "graph/partite.py": {
+        "size": 1511
+      },
+      "graph/random.py": {
+        "size": 2580
+      },
+      "graph/shortest_path.py": {
+        "size": 13708
+      },
+      "graph/shortest_tree_all_pairs.py": {
+        "size": 1347
+      },
+      "graph/topological_sort.py": {
+        "size": 1096
+      },
+      "graph/traffic_scheduling_problem.py": {
+        "size": 21370
+      },
+      "graph/transshipment_problem.py": {
+        "size": 9102
+      },
+      "graph/tsp.py": {
+        "size": 11203
+      },
+      "graph/version.py": {
+        "size": 131
+      },
+      "graph/visuals.py": {
+        "size": 5430
+      },
+      "requirements.txt": {
+        "size": 0
+      },
+      "setup.py": {
+        "size": 3104
+      },
+      "test-requirements.txt": {
+        "size": 29
+      },
+      "tests/__init__.py": {
+        "size": 673
+      },
+      "tests/test_assignment_problem.py": {
+        "size": 2876
+      },
+      "tests/test_basics.py": {
+        "size": 8869
+      },
+      "tests/test_facility_location_problem.py": {
+        "size": 1231
+      },
+      "tests/test_finite_state_machine.py": {
+        "size": 2614
+      },
+      "tests/test_flow_problem.py": {
+        "size": 7058
+      },
+      "tests/test_graph.py": {
+        "size": 354779
+      },
+      "tests/test_hashgraph.py": {
+        "size": 2681
+      },
+      "tests/test_random.py": {
+        "size": 1665
+      },
+      "tests/test_search.py": {
+        "size": 19202
+      },
+      "tests/test_spatial_graph.py": {
+        "size": 6926
+      },
+      "tests/test_topology.py": {
+        "size": 9945
+      },
+      "tests/test_traffic_scheduling_problem.py": {
+        "size": 30238
+      },
+      "tests/test_transform.py": {
+        "size": 677
+      },
+      "tests/test_transshipment_problem.py": {
+        "size": 4056
+      },
+      "tests/test_tsp.py": {
+        "size": 14852
+      },
+      "tests/test_visuals.py": {
+        "size": 861
+      },
+      "tests/test_wtap.py": {
+        "size": 8086
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.examples",
+      "source.graph",
+      "source.tests"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": true,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "graph",
+        "module": "all_simple_paths",
+        "functions": [
+          "all_simple_paths"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "all_simple_paths": [
+            "graph",
+            "start",
+            "end"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "topological_sort",
+        "functions": [
+          "topological_sort"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "topological_sort": [
+            "graph",
+            "key"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "traffic_scheduling_problem",
+        "functions": [
+          "check_user_input",
+          "is_ap_solvable",
+          "jam_solver",
+          "moves_to_synchronous_moves",
+          "path_to_moves"
+        ],
+        "classes": [
+          "JamSolver",
+          "Load",
+          "NoSolution",
+          "State",
+          "StopCondition",
+          "Timer",
+          "UnSolvable"
+        ],
+        "function_signatures": {
+          "check_user_input": [
+            "graph",
+            "loads"
+          ],
+          "is_ap_solvable": [
+            "assignments"
+          ],
+          "path_to_moves": [
+            "path"
+          ],
+          "moves_to_synchronous_moves": [
+            "moves",
+            "loads"
+          ],
+          "jam_solver": [
+            "graph",
+            "loads",
+            "timeout",
+            "synchronous_moves",
+            "return_on_first"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "cycle",
+        "functions": [
+          "cycle",
+          "has_cycles"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "cycle": [
+            "graph",
+            "start",
+            "mid",
+            "end"
+          ],
+          "has_cycles": [
+            "graph"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "all_paths",
+        "functions": [
+          "all_paths"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "all_paths": [
+            "graph",
+            "start",
+            "end"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "max_flow_min_cut",
+        "functions": [
+          "maximum_flow_min_cut"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "maximum_flow_min_cut": [
+            "graph",
+            "start",
+            "end"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "distance_map",
+        "functions": [
+          "distance_map"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "distance_map": [
+            "graph",
+            "starts",
+            "ends",
+            "reverse"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "assignment_problem",
+        "functions": [
+          "ap_solver",
+          "wtap_solver"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "ap_solver": [
+            "graph"
+          ],
+          "wtap_solver": [
+            "probabilities",
+            "weapons",
+            "target_values"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "dag",
+        "functions": [
+          "phase_lines",
+          "sources"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "phase_lines": [
+            "graph"
+          ],
+          "sources": [
+            "graph",
+            "n"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "finite_state_machine",
+        "functions": [],
+        "classes": [
+          "FiniteStateMachine"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "shortest_path",
+        "functions": [
+          "distance_from_path",
+          "shortest_path",
+          "shortest_path_bidirectional"
+        ],
+        "classes": [
+          "BiDirectionalSearch",
+          "SPLength",
+          "ScanThread",
+          "ShortestPathCache"
+        ],
+        "function_signatures": {
+          "shortest_path": [
+            "graph",
+            "start",
+            "end",
+            "avoids"
+          ],
+          "shortest_path_bidirectional": [
+            "graph",
+            "start",
+            "end",
+            "avoids"
+          ],
+          "distance_from_path": [
+            "graph",
+            "path"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "min_cost_flow",
+        "functions": [
+          "minimum_cost_flow_using_successive_shortest_path"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "minimum_cost_flow_using_successive_shortest_path": [
+            "costs",
+            "inventory",
+            "capacity"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "core",
+        "functions": [],
+        "classes": [
+          "Graph",
+          "Graph3D"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "minsum",
+        "functions": [
+          "minsum"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "minsum": [
+            "graph"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "critical_path",
+        "functions": [
+          "critical_path",
+          "critical_path_minimize_for_slack"
+        ],
+        "classes": [
+          "Task"
+        ],
+        "function_signatures": {
+          "critical_path": [
+            "graph"
+          ],
+          "critical_path_minimize_for_slack": [
+            "graph"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "maximum_flow_min_cut",
+        "functions": [
+          "maximum_flow_min_cut"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "maximum_flow_min_cut": [
+            "graph",
+            "start",
+            "end"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "partite",
+        "functions": [
+          "is_partite"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "is_partite": [
+            "graph",
+            "n"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "adjacency_matrix",
+        "functions": [
+          "adjacency_matrix"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "adjacency_matrix": [
+            "graph"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "transshipment_problem",
+        "functions": [
+          "clondike_transshipment_problem",
+          "find",
+          "find_perfect_circuit",
+          "jobs_from_path",
+          "path_from_schedule",
+          "schedule",
+          "schedule_rail_system"
+        ],
+        "classes": [
+          "Train"
+        ],
+        "function_signatures": {
+          "clondike_transshipment_problem": [],
+          "schedule_rail_system": [
+            "rail_network",
+            "trains",
+            "jobs"
+          ],
+          "find": [
+            "rail_network",
+            "stops",
+            "jobs"
+          ],
+          "schedule": [
+            "graph",
+            "start",
+            "jobs"
+          ],
+          "jobs_from_path": [
+            "path"
+          ],
+          "path_from_schedule": [
+            "jobs",
+            "start"
+          ],
+          "find_perfect_circuit": [
+            "graph",
+            "start",
+            "jobs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "random",
+        "functions": [
+          "random_xy_graph",
+          "xy_distance"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "xy_distance": [
+            "n1",
+            "n2"
+          ],
+          "random_xy_graph": [
+            "nodes",
+            "x_max",
+            "y_max",
+            "edges",
+            "seed"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "degree_of_separation",
+        "functions": [
+          "degree_of_separation"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "degree_of_separation": [
+            "graph",
+            "n1",
+            "n2"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "all_pairs_shortest_path",
+        "functions": [
+          "all_pairs_shortest_paths"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "all_pairs_shortest_paths": [
+            "graph"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "max_flow",
+        "functions": [
+          "maximum_flow"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "maximum_flow": [
+            "graph",
+            "start",
+            "end"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "tsp",
+        "functions": [
+          "brute_force",
+          "tsp_2023",
+          "tsp_branch_and_bound",
+          "tsp_greedy"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "tsp_branch_and_bound": [
+            "graph"
+          ],
+          "tsp_greedy": [
+            "graph"
+          ],
+          "brute_force": [
+            "graph"
+          ],
+          "tsp_2023": [
+            "graph"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "bfs",
+        "functions": [
+          "breadth_first_search",
+          "breadth_first_walk"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "breadth_first_search": [
+            "graph",
+            "start",
+            "end"
+          ],
+          "breadth_first_walk": [
+            "graph",
+            "start",
+            "end",
+            "reversed_walk"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "minmax",
+        "functions": [
+          "minmax"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "minmax": [
+            "graph"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "hash_methods",
+        "functions": [
+          "flow_graph_hash",
+          "graph_hash",
+          "merkle_tree"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "graph_hash": [
+            "graph"
+          ],
+          "flow_graph_hash": [
+            "graph"
+          ],
+          "merkle_tree": [
+            "data_blocks"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "shortest_tree_all_pairs",
+        "functions": [
+          "shortest_tree_all_pairs"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "shortest_tree_all_pairs": [
+            "graph"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "visuals",
+        "functions": [
+          "plot_2d",
+          "plot_3d",
+          "visualise"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "visualise": [
+            "func"
+          ],
+          "plot_2d": [
+            "graph",
+            "nodes",
+            "edges"
+          ],
+          "plot_3d": [
+            "graph",
+            "nodes",
+            "edges",
+            "rotation",
+            "maintain_aspect_ratio"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "base",
+        "functions": [
+          "components",
+          "has_path",
+          "is_subgraph",
+          "network_size",
+          "same_path",
+          "subgraph"
+        ],
+        "classes": [
+          "BasicGraph"
+        ],
+        "function_signatures": {
+          "subgraph": [
+            "graph",
+            "nodes"
+          ],
+          "is_subgraph": [
+            "graph1",
+            "graph2"
+          ],
+          "same_path": [
+            "path1",
+            "path2"
+          ],
+          "has_path": [
+            "graph",
+            "path"
+          ],
+          "network_size": [
+            "graph",
+            "n1",
+            "degrees_of_separation"
+          ],
+          "components": [
+            "graph"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "graph",
+        "module": "dfs",
+        "functions": [
+          "depth_first_search",
+          "depth_scan"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "depth_first_search": [
+            "graph",
+            "start",
+            "end"
+          ],
+          "depth_scan": [
+            "graph",
+            "start",
+            "criteria"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples",
+        "module": "graphs",
+        "functions": [
+          "grid",
+          "london_underground"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "grid": [
+            "x",
+            "y",
+            "bidirectional"
+          ],
+          "london_underground": []
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.x",
+        "standard-library"
+      ],
+      "optional": [
+        "matplotlib (for source.graph.visuals)",
+        "numpy (possible acceleration in optimization modules)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.95,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/root-11/graph-theory",
+    "repo_name": "graph-theory",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.95,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

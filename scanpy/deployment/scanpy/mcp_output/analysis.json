@@ -1,0 +1,1208 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/scverse/scanpy",
+    "summary": "Imported via zip fallback, file count: 332",
+    "file_tree": {
+      ".codecov.yml": {
+        "size": 260
+      },
+      ".cruft.json": {
+        "size": 1555
+      },
+      ".github/ISSUE_TEMPLATE/bug-report.yml": {
+        "size": 2451
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 192
+      },
+      ".github/ISSUE_TEMPLATE/enhancement-request.yml": {
+        "size": 744
+      },
+      ".github/dependabot.yml": {
+        "size": 193
+      },
+      ".github/pull_request_template.md": {
+        "size": 662
+      },
+      ".github/workflows/benchmark.yml": {
+        "size": 1392
+      },
+      ".github/workflows/check-pr.yml": {
+        "size": 2604
+      },
+      ".github/workflows/ci.yml": {
+        "size": 4007
+      },
+      ".github/workflows/publish.yml": {
+        "size": 622
+      },
+      ".pre-commit-config.yaml": {
+        "size": 1202
+      },
+      ".readthedocs.yml": {
+        "size": 734
+      },
+      ".taplo.toml": {
+        "size": 106
+      },
+      ".vscode/launch.json": {
+        "size": 778
+      },
+      ".vscode/settings.json": {
+        "size": 692
+      },
+      "CONTRIBUTING.md": {
+        "size": 948
+      },
+      "README.md": {
+        "size": 4681
+      },
+      "benchmarks/README.md": {
+        "size": 895
+      },
+      "benchmarks/asv.conf.json": {
+        "size": 6994
+      },
+      "benchmarks/benchmarks/__init__.py": {
+        "size": 38
+      },
+      "benchmarks/benchmarks/_utils.py": {
+        "size": 6345
+      },
+      "benchmarks/benchmarks/preprocessing_counts.py": {
+        "size": 3889
+      },
+      "benchmarks/benchmarks/preprocessing_log.py": {
+        "size": 2248
+      },
+      "benchmarks/benchmarks/tools.py": {
+        "size": 1201
+      },
+      "ci/scripts/low-vers.py": {
+        "size": 6881
+      },
+      "ci/scripts/towncrier_automation.py": {
+        "size": 3636
+      },
+      "docs/api/classes.md": {
+        "size": 280
+      },
+      "docs/api/datasets.md": {
+        "size": 426
+      },
+      "docs/api/deprecated.md": {
+        "size": 291
+      },
+      "docs/api/experimental.md": {
+        "size": 527
+      },
+      "docs/api/get.md": {
+        "size": 373
+      },
+      "docs/api/index.md": {
+        "size": 659
+      },
+      "docs/api/io.md": {
+        "size": 1078
+      },
+      "docs/api/metrics.md": {
+        "size": 334
+      },
+      "docs/api/plotting.md": {
+        "size": 2814
+      },
+      "docs/api/preprocessing.md": {
+        "size": 1574
+      },
+      "docs/api/queries.md": {
+        "size": 360
+      },
+      "docs/api/settings.md": {
+        "size": 1309
+      },
+      "docs/api/tools.md": {
+        "size": 1413
+      },
+      "docs/basic_usage.md": {
+        "size": 110
+      },
+      "docs/community.md": {
+        "size": 736
+      },
+      "docs/conf.py": {
+        "size": 10685
+      },
+      "docs/contributors.md": {
+        "size": 1344
+      },
+      "docs/dev/ci.md": {
+        "size": 959
+      },
+      "docs/dev/code.md": {
+        "size": 1098
+      },
+      "docs/dev/documentation.md": {
+        "size": 6711
+      },
+      "docs/dev/getting-set-up.md": {
+        "size": 3793
+      },
+      "docs/dev/index.md": {
+        "size": 535
+      },
+      "docs/dev/release.md": {
+        "size": 3378
+      },
+      "docs/dev/testing.md": {
+        "size": 4801
+      },
+      "docs/dev/versioning.md": {
+        "size": 2031
+      },
+      "docs/ecosystem.md": {
+        "size": 5064
+      },
+      "docs/extensions/array_support.py": {
+        "size": 6621
+      },
+      "docs/extensions/autosummary_skip_deprecated.py": {
+        "size": 799
+      },
+      "docs/extensions/autosummary_skip_inherited.py": {
+        "size": 1935
+      },
+      "docs/extensions/canonical_tutorial.py": {
+        "size": 669
+      },
+      "docs/extensions/debug_docstrings.py": {
+        "size": 778
+      },
+      "docs/extensions/function_images.py": {
+        "size": 862
+      },
+      "docs/extensions/git_ref.py": {
+        "size": 1499
+      },
+      "docs/extensions/has_attr_test.py": {
+        "size": 696
+      },
+      "docs/extensions/param_police.py": {
+        "size": 1784
+      },
+      "docs/extensions/patch_myst_nb.py": {
+        "size": 1618
+      },
+      "docs/external/exporting.md": {
+        "size": 221
+      },
+      "docs/external/index.md": {
+        "size": 619
+      },
+      "docs/external/plotting.md": {
+        "size": 233
+      },
+      "docs/external/preprocessing.md": {
+        "size": 633
+      },
+      "docs/external/tools.md": {
+        "size": 537
+      },
+      "docs/how-to/index.md": {
+        "size": 162
+      },
+      "docs/index.md": {
+        "size": 1929
+      },
+      "docs/installation.md": {
+        "size": 2911
+      },
+      "docs/news.md": {
+        "size": 4521
+      },
+      "docs/release-notes/0.1.0.md": {
+        "size": 339
+      },
+      "docs/release-notes/0.2.1.md": {
+        "size": 416
+      },
+      "docs/release-notes/0.2.9.md": {
+        "size": 458
+      },
+      "docs/release-notes/0.3.0.md": {
+        "size": 370
+      },
+      "docs/release-notes/0.3.2.md": {
+        "size": 161
+      },
+      "docs/release-notes/0.4.0.md": {
+        "size": 308
+      },
+      "docs/release-notes/0.4.2.md": {
+        "size": 143
+      },
+      "docs/release-notes/0.4.3.md": {
+        "size": 322
+      },
+      "docs/release-notes/0.4.4.md": {
+        "size": 359
+      },
+      "docs/release-notes/1.0.0.md": {
+        "size": 3841
+      },
+      "docs/release-notes/1.1.0.md": {
+        "size": 1178
+      },
+      "docs/release-notes/1.10.0.md": {
+        "size": 6772
+      },
+      "docs/release-notes/1.10.1.md": {
+        "size": 558
+      },
+      "docs/release-notes/1.10.2.md": {
+        "size": 1565
+      },
+      "docs/release-notes/1.10.3.md": {
+        "size": 1138
+      },
+      "docs/release-notes/1.10.4.md": {
+        "size": 1218
+      },
+      "docs/release-notes/1.11.0.md": {
+        "size": 3629
+      },
+      "docs/release-notes/1.11.1.md": {
+        "size": 472
+      },
+      "docs/release-notes/1.11.2.md": {
+        "size": 1289
+      },
+      "docs/release-notes/1.11.3.md": {
+        "size": 502
+      },
+      "docs/release-notes/1.11.4.md": {
+        "size": 668
+      },
+      "docs/release-notes/1.11.5.md": {
+        "size": 404
+      },
+      "docs/release-notes/1.12.0.md": {
+        "size": 4780
+      },
+      "docs/release-notes/1.2.0.md": {
+        "size": 211
+      },
+      "docs/release-notes/1.2.1.md": {
+        "size": 306
+      },
+      "docs/release-notes/1.3.1.md": {
+        "size": 1341
+      },
+      "docs/release-notes/1.3.3.md": {
+        "size": 614
+      },
+      "docs/release-notes/1.3.4.md": {
+        "size": 458
+      },
+      "docs/release-notes/1.3.5.md": {
+        "size": 106
+      },
+      "docs/release-notes/1.3.6.md": {
+        "size": 868
+      },
+      "docs/release-notes/1.3.7.md": {
+        "size": 249
+      },
+      "docs/release-notes/1.3.8.md": {
+        "size": 238
+      },
+      "docs/release-notes/1.4.1.md": {
+        "size": 1455
+      },
+      "docs/release-notes/1.4.2.md": {
+        "size": 1063
+      },
+      "docs/release-notes/1.4.3.md": {
+        "size": 388
+      },
+      "docs/release-notes/1.4.4.md": {
+        "size": 447
+      },
+      "docs/release-notes/1.4.5.md": {
+        "size": 1506
+      },
+      "docs/release-notes/1.4.6.md": {
+        "size": 849
+      },
+      "docs/release-notes/1.5.0.md": {
+        "size": 3331
+      },
+      "docs/release-notes/1.5.1.md": {
+        "size": 301
+      },
+      "docs/release-notes/1.6.0.md": {
+        "size": 4125
+      },
+      "docs/release-notes/1.7.0.md": {
+        "size": 5167
+      },
+      "docs/release-notes/1.7.1.md": {
+        "size": 707
+      },
+      "docs/release-notes/1.7.2.md": {
+        "size": 918
+      },
+      "docs/release-notes/1.8.0.md": {
+        "size": 4247
+      },
+      "docs/release-notes/1.8.1.md": {
+        "size": 489
+      },
+      "docs/release-notes/1.8.2.md": {
+        "size": 691
+      },
+      "docs/release-notes/1.9.0.md": {
+        "size": 4122
+      },
+      "docs/release-notes/1.9.1.md": {
+        "size": 262
+      },
+      "docs/release-notes/1.9.2.md": {
+        "size": 567
+      },
+      "docs/release-notes/1.9.3.md": {
+        "size": 132
+      },
+      "docs/release-notes/1.9.4.md": {
+        "size": 679
+      },
+      "docs/release-notes/1.9.5.md": {
+        "size": 160
+      },
+      "docs/release-notes/1.9.6.md": {
+        "size": 733
+      },
+      "docs/release-notes/1.9.7.md": {
+        "size": 839
+      },
+      "docs/release-notes/1.9.8.md": {
+        "size": 151
+      },
+      "docs/release-notes/3980.fix.md": {
+        "size": 150
+      },
+      "docs/release-notes/3984.chore.md": {
+        "size": 85
+      },
+      "docs/release-notes/3986.doc.md": {
+        "size": 133
+      },
+      "docs/release-notes/index.md": {
+        "size": 60
+      },
+      "docs/tutorials/basics/index.md": {
+        "size": 98
+      },
+      "docs/tutorials/experimental/index.md": {
+        "size": 70
+      },
+      "docs/tutorials/index.md": {
+        "size": 1261
+      },
+      "docs/tutorials/plotting/index.md": {
+        "size": 57
+      },
+      "docs/tutorials/trajectories/index.md": {
+        "size": 59
+      },
+      "docs/usage-principles.md": {
+        "size": 2694
+      },
+      "hatch.toml": {
+        "size": 1751
+      },
+      "pyproject.toml": {
+        "size": 12156
+      },
+      "src/scanpy/__init__.py": {
+        "size": 2199
+      },
+      "src/scanpy/__main__.py": {
+        "size": 113
+      },
+      "src/scanpy/_compat.py": {
+        "size": 6205
+      },
+      "src/scanpy/_settings/__init__.py": {
+        "size": 15808
+      },
+      "src/scanpy/_settings/verbosity.py": {
+        "size": 2527
+      },
+      "src/scanpy/_singleton.py": {
+        "size": 2302
+      },
+      "src/scanpy/_types.py": {
+        "size": 171
+      },
+      "src/scanpy/_utils/__init__.py": {
+        "size": 32783
+      },
+      "src/scanpy/_utils/_docs.py": {
+        "size": 3827
+      },
+      "src/scanpy/_utils/_doctests.py": {
+        "size": 778
+      },
+      "src/scanpy/_utils/random.py": {
+        "size": 6014
+      },
+      "src/scanpy/cli.py": {
+        "size": 4717
+      },
+      "src/scanpy/datasets/__init__.py": {
+        "size": 531
+      },
+      "src/scanpy/datasets/_datasets.py": {
+        "size": 19552
+      },
+      "src/scanpy/datasets/_ebi_expression_atlas.py": {
+        "size": 5738
+      },
+      "src/scanpy/datasets/_utils.py": {
+        "size": 441
+      },
+      "src/scanpy/datasets/krumsiek11.txt": {
+        "size": 59808
+      },
+      "src/scanpy/datasets/toggleswitch.txt": {
+        "size": 4200
+      },
+      "src/scanpy/experimental/__init__.py": {
+        "size": 114
+      },
+      "src/scanpy/experimental/_docs.py": {
+        "size": 2786
+      },
+      "src/scanpy/experimental/pp/__init__.py": {
+        "size": 504
+      },
+      "src/scanpy/experimental/pp/_highly_variable_genes.py": {
+        "size": 13984
+      },
+      "src/scanpy/experimental/pp/_normalization.py": {
+        "size": 8229
+      },
+      "src/scanpy/experimental/pp/_recipes.py": {
+        "size": 5084
+      },
+      "src/scanpy/external/__init__.py": {
+        "size": 294
+      },
+      "src/scanpy/external/exporting.py": {
+        "size": 21285
+      },
+      "src/scanpy/external/pl.py": {
+        "size": 8984
+      },
+      "src/scanpy/external/pp/__init__.py": {
+        "size": 722
+      },
+      "src/scanpy/external/pp/_bbknn.py": {
+        "size": 6489
+      },
+      "src/scanpy/external/pp/_dca.py": {
+        "size": 6744
+      },
+      "src/scanpy/external/pp/_harmony_integrate.py": {
+        "size": 3101
+      },
+      "src/scanpy/external/pp/_hashsolo.py": {
+        "size": 16544
+      },
+      "src/scanpy/external/pp/_magic.py": {
+        "size": 7355
+      },
+      "src/scanpy/external/pp/_mnn_correct.py": {
+        "size": 5964
+      },
+      "src/scanpy/external/pp/_scanorama_integrate.py": {
+        "size": 4495
+      },
+      "src/scanpy/external/tl/__init__.py": {
+        "size": 536
+      },
+      "src/scanpy/external/tl/_harmony_timeseries.py": {
+        "size": 6064
+      },
+      "src/scanpy/external/tl/_palantir.py": {
+        "size": 9860
+      },
+      "src/scanpy/external/tl/_phate.py": {
+        "size": 5458
+      },
+      "src/scanpy/external/tl/_phenograph.py": {
+        "size": 8963
+      },
+      "src/scanpy/external/tl/_pypairs.py": {
+        "size": 4994
+      },
+      "src/scanpy/external/tl/_sam.py": {
+        "size": 7913
+      },
+      "src/scanpy/external/tl/_trimap.py": {
+        "size": 4333
+      },
+      "src/scanpy/external/tl/_wishbone.py": {
+        "size": 4983
+      },
+      "src/scanpy/get/__init__.py": {
+        "size": 400
+      },
+      "src/scanpy/get/_aggregated.py": {
+        "size": 19436
+      },
+      "src/scanpy/get/get.py": {
+        "size": 16804
+      },
+      "src/scanpy/logging.py": {
+        "size": 7285
+      },
+      "src/scanpy/metrics/__init__.py": {
+        "size": 237
+      },
+      "src/scanpy/metrics/_common.py": {
+        "size": 4441
+      },
+      "src/scanpy/metrics/_gearys_c.py": {
+        "size": 7634
+      },
+      "src/scanpy/metrics/_metrics.py": {
+        "size": 7111
+      },
+      "src/scanpy/metrics/_morans_i.py": {
+        "size": 5470
+      },
+      "src/scanpy/neighbors/__init__.py": {
+        "size": 38354
+      },
+      "src/scanpy/neighbors/_backends/__init__.py": {
+        "size": 0
+      },
+      "src/scanpy/neighbors/_backends/_common.py": {
+        "size": 355
+      },
+      "src/scanpy/neighbors/_backends/rapids.py": {
+        "size": 2947
+      },
+      "src/scanpy/neighbors/_common.py": {
+        "size": 5329
+      },
+      "src/scanpy/neighbors/_connectivity.py": {
+        "size": 6223
+      },
+      "src/scanpy/neighbors/_doc.py": {
+        "size": 848
+      },
+      "src/scanpy/neighbors/_types.py": {
+        "size": 1564
+      },
+      "src/scanpy/plotting/__init__.py": {
+        "size": 2659
+      },
+      "src/scanpy/plotting/_anndata.py": {
+        "size": 89902
+      },
+      "src/scanpy/plotting/_baseplot_class.py": {
+        "size": 32296
+      },
+      "src/scanpy/plotting/_docs.py": {
+        "size": 13460
+      },
+      "src/scanpy/plotting/_dotplot.py": {
+        "size": 44419
+      },
+      "src/scanpy/plotting/_easter_egg.py": {
+        "size": 516
+      },
+      "src/scanpy/plotting/_matrixplot.py": {
+        "size": 13570
+      },
+      "src/scanpy/plotting/_preprocessing.py": {
+        "size": 4471
+      },
+      "src/scanpy/plotting/_qc.py": {
+        "size": 3639
+      },
+      "src/scanpy/plotting/_rcmod.py": {
+        "size": 1993
+      },
+      "src/scanpy/plotting/_scrublet.py": {
+        "size": 4887
+      },
+      "src/scanpy/plotting/_stacked_violin.py": {
+        "size": 29764
+      },
+      "src/scanpy/plotting/_tools/__init__.py": {
+        "size": 50452
+      },
+      "src/scanpy/plotting/_tools/paga.py": {
+        "size": 49303
+      },
+      "src/scanpy/plotting/_tools/scatterplots.py": {
+        "size": 46866
+      },
+      "src/scanpy/plotting/_utils.py": {
+        "size": 37532
+      },
+      "src/scanpy/plotting/palettes.py": {
+        "size": 4795
+      },
+      "src/scanpy/preprocessing/__init__.py": {
+        "size": 1185
+      },
+      "src/scanpy/preprocessing/_combat.py": {
+        "size": 11869
+      },
+      "src/scanpy/preprocessing/_deprecated/__init__.py": {
+        "size": 2035
+      },
+      "src/scanpy/preprocessing/_deprecated/highly_variable_genes.py": {
+        "size": 10387
+      },
+      "src/scanpy/preprocessing/_deprecated/sampling.py": {
+        "size": 1594
+      },
+      "src/scanpy/preprocessing/_distributed.py": {
+        "size": 1107
+      },
+      "src/scanpy/preprocessing/_docs.py": {
+        "size": 2820
+      },
+      "src/scanpy/preprocessing/_highly_variable_genes.py": {
+        "size": 29821
+      },
+      "src/scanpy/preprocessing/_normalization.py": {
+        "size": 10616
+      },
+      "src/scanpy/preprocessing/_pca/__init__.py": {
+        "size": 21565
+      },
+      "src/scanpy/preprocessing/_pca/_compat.py": {
+        "size": 2234
+      },
+      "src/scanpy/preprocessing/_pca/_dask.py": {
+        "size": 7288
+      },
+      "src/scanpy/preprocessing/_qc.py": {
+        "size": 14344
+      },
+      "src/scanpy/preprocessing/_recipes.py": {
+        "size": 5672
+      },
+      "src/scanpy/preprocessing/_scale.py": {
+        "size": 9417
+      },
+      "src/scanpy/preprocessing/_scrublet/__init__.py": {
+        "size": 21575
+      },
+      "src/scanpy/preprocessing/_scrublet/core.py": {
+        "size": 17285
+      },
+      "src/scanpy/preprocessing/_scrublet/pipeline.py": {
+        "size": 2760
+      },
+      "src/scanpy/preprocessing/_scrublet/sparse_utils.py": {
+        "size": 1882
+      },
+      "src/scanpy/preprocessing/_simple.py": {
+        "size": 39903
+      },
+      "src/scanpy/preprocessing/_utils.py": {
+        "size": 774
+      },
+      "src/scanpy/queries/__init__.py": {
+        "size": 298
+      },
+      "src/scanpy/queries/_queries.py": {
+        "size": 9191
+      },
+      "src/scanpy/readwrite.py": {
+        "size": 39916
+      },
+      "src/scanpy/sim_models/__init__.py": {
+        "size": 67
+      },
+      "src/scanpy/sim_models/krumsiek11.txt": {
+        "size": 1886
+      },
+      "src/scanpy/sim_models/krumsiek11_params.txt": {
+        "size": 141
+      },
+      "src/scanpy/sim_models/toggleswitch.txt": {
+        "size": 438
+      },
+      "src/scanpy/sim_models/toggleswitch_params.txt": {
+        "size": 146
+      },
+      "src/scanpy/tools/__init__.py": {
+        "size": 1320
+      },
+      "src/scanpy/tools/_dendrogram.py": {
+        "size": 6530
+      },
+      "src/scanpy/tools/_diffmap.py": {
+        "size": 3229
+      },
+      "src/scanpy/tools/_docs.py": {
+        "size": 1010
+      },
+      "src/scanpy/tools/_dpt.py": {
+        "size": 49914
+      },
+      "src/scanpy/tools/_draw_graph.py": {
+        "size": 7689
+      },
+      "src/scanpy/tools/_embedding_density.py": {
+        "size": 6224
+      },
+      "src/scanpy/tools/_ingest.py": {
+        "size": 17354
+      },
+      "src/scanpy/tools/_leiden.py": {
+        "size": 9578
+      },
+      "src/scanpy/tools/_louvain.py": {
+        "size": 9161
+      },
+      "src/scanpy/tools/_marker_gene_overlap.py": {
+        "size": 10860
+      },
+      "src/scanpy/tools/_paga.py": {
+        "size": 24886
+      },
+      "src/scanpy/tools/_rank_genes_groups.py": {
+        "size": 33445
+      },
+      "src/scanpy/tools/_score_genes.py": {
+        "size": 10961
+      },
+      "src/scanpy/tools/_sim.py": {
+        "size": 46403
+      },
+      "src/scanpy/tools/_tsne.py": {
+        "size": 7140
+      },
+      "src/scanpy/tools/_umap.py": {
+        "size": 10112
+      },
+      "src/scanpy/tools/_utils.py": {
+        "size": 3760
+      },
+      "src/scanpy/tools/_utils_clustering.py": {
+        "size": 1571
+      },
+      "src/testing/scanpy/__init__.py": {
+        "size": 86
+      },
+      "src/testing/scanpy/_helpers/__init__.py": {
+        "size": 6858
+      },
+      "src/testing/scanpy/_helpers/data.py": {
+        "size": 1490
+      },
+      "src/testing/scanpy/_pytest/__init__.py": {
+        "size": 4274
+      },
+      "src/testing/scanpy/_pytest/context.py": {
+        "size": 850
+      },
+      "src/testing/scanpy/_pytest/fixtures/__init__.py": {
+        "size": 1857
+      },
+      "src/testing/scanpy/_pytest/fixtures/data.py": {
+        "size": 3416
+      },
+      "src/testing/scanpy/_pytest/marks.py": {
+        "size": 2235
+      },
+      "src/testing/scanpy/_pytest/params.py": {
+        "size": 4854
+      },
+      "tests/_data/visium_data/1.0.0/spatial/scalefactors_json.json": {
+        "size": 179
+      },
+      "tests/conftest.py": {
+        "size": 4140
+      },
+      "tests/external/test_harmony_integrate.py": {
+        "size": 755
+      },
+      "tests/external/test_harmony_timeseries.py": {
+        "size": 1167
+      },
+      "tests/external/test_hashsolo.py": {
+        "size": 1568
+      },
+      "tests/external/test_magic.py": {
+        "size": 1476
+      },
+      "tests/external/test_palantir.py": {
+        "size": 398
+      },
+      "tests/external/test_phenograph.py": {
+        "size": 618
+      },
+      "tests/external/test_sam.py": {
+        "size": 652
+      },
+      "tests/external/test_scanorama_integrate.py": {
+        "size": 761
+      },
+      "tests/external/test_wishbone.py": {
+        "size": 723
+      },
+      "tests/notebooks/test_pbmc3k.py": {
+        "size": 7833
+      },
+      "tests/test_aggregated.py": {
+        "size": 17532
+      },
+      "tests/test_backed.py": {
+        "size": 3071
+      },
+      "tests/test_binary.py": {
+        "size": 2169
+      },
+      "tests/test_clustering.py": {
+        "size": 7521
+      },
+      "tests/test_combat.py": {
+        "size": 2766
+      },
+      "tests/test_datasets.py": {
+        "size": 6926
+      },
+      "tests/test_dendrogram.py": {
+        "size": 3257
+      },
+      "tests/test_deprecations.py": {
+        "size": 802
+      },
+      "tests/test_embedding.py": {
+        "size": 3197
+      },
+      "tests/test_embedding_density.py": {
+        "size": 964
+      },
+      "tests/test_filter_rank_genes_groups.py": {
+        "size": 3004
+      },
+      "tests/test_get.py": {
+        "size": 17728
+      },
+      "tests/test_helpers.py": {
+        "size": 282
+      },
+      "tests/test_highly_variable_genes.py": {
+        "size": 25693
+      },
+      "tests/test_ingest.py": {
+        "size": 4441
+      },
+      "tests/test_logging.py": {
+        "size": 4788
+      },
+      "tests/test_marker_gene_overlap.py": {
+        "size": 1952
+      },
+      "tests/test_metrics.py": {
+        "size": 13308
+      },
+      "tests/test_neighbors.py": {
+        "size": 10121
+      },
+      "tests/test_neighbors_common.py": {
+        "size": 3238
+      },
+      "tests/test_neighbors_key_added.py": {
+        "size": 3236
+      },
+      "tests/test_normalization.py": {
+        "size": 12357
+      },
+      "tests/test_package_structure.py": {
+        "size": 6634
+      },
+      "tests/test_paga.py": {
+        "size": 3912
+      },
+      "tests/test_pca.py": {
+        "size": 22776
+      },
+      "tests/test_performance.py": {
+        "size": 1831
+      },
+      "tests/test_plotting.py": {
+        "size": 62324
+      },
+      "tests/test_plotting_embedded/conftest.py": {
+        "size": 2077
+      },
+      "tests/test_plotting_embedded/test_embeddings.py": {
+        "size": 7749
+      },
+      "tests/test_plotting_embedded/test_spatial.py": {
+        "size": 8188
+      },
+      "tests/test_plotting_utils.py": {
+        "size": 2019
+      },
+      "tests/test_preprocessing.py": {
+        "size": 24633
+      },
+      "tests/test_preprocessing_distributed.py": {
+        "size": 4796
+      },
+      "tests/test_qc_metrics.py": {
+        "size": 11546
+      },
+      "tests/test_queries.py": {
+        "size": 1367
+      },
+      "tests/test_rank_genes_groups.py": {
+        "size": 9816
+      },
+      "tests/test_rank_genes_groups_logreg.py": {
+        "size": 2564
+      },
+      "tests/test_read_10x.py": {
+        "size": 7874
+      },
+      "tests/test_readwrite.py": {
+        "size": 4016
+      },
+      "tests/test_scaling.py": {
+        "size": 4856
+      },
+      "tests/test_score_genes.py": {
+        "size": 9779
+      },
+      "tests/test_scrublet.py": {
+        "size": 7352
+      },
+      "tests/test_settings.py": {
+        "size": 486
+      },
+      "tests/test_sim.py": {
+        "size": 446
+      },
+      "tests/test_utils.py": {
+        "size": 8497
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "src/scanpy/preprocessing/_simple.py",
+        "module": "scanpy.preprocessing._simple",
+        "functions": [
+          "filter_cells",
+          "filter_genes",
+          "log1p",
+          "normalize_per_cell",
+          "regress_out",
+          "scale",
+          "subsample",
+          "downsample_counts"
+        ],
+        "classes": [],
+        "description": "Core preprocessing primitives for QC filtering, normalization, scaling, regression, and sampling."
+      },
+      {
+        "package": "src/scanpy/preprocessing/_highly_variable_genes.py",
+        "module": "scanpy.preprocessing._highly_variable_genes",
+        "functions": [
+          "highly_variable_genes"
+        ],
+        "classes": [],
+        "description": "Highly variable gene selection workflows used in standard single-cell pipelines."
+      },
+      {
+        "package": "src/scanpy/preprocessing/_pca/__init__.py",
+        "module": "scanpy.preprocessing._pca",
+        "functions": [
+          "pca"
+        ],
+        "classes": [],
+        "description": "Principal component analysis entry points and backend selection."
+      },
+      {
+        "package": "src/scanpy/neighbors/__init__.py",
+        "module": "scanpy.neighbors",
+        "functions": [
+          "neighbors"
+        ],
+        "classes": [
+          "Neighbors"
+        ],
+        "description": "KNN graph computation and neighborhood graph container/operations."
+      },
+      {
+        "package": "src/scanpy/tools/_umap.py",
+        "module": "scanpy.tools._umap",
+        "functions": [
+          "umap"
+        ],
+        "classes": [],
+        "description": "UMAP embedding computation based on precomputed neighborhood graph."
+      },
+      {
+        "package": "src/scanpy/tools/_leiden.py",
+        "module": "scanpy.tools._leiden",
+        "functions": [
+          "leiden"
+        ],
+        "classes": [],
+        "description": "Leiden graph clustering tool."
+      },
+      {
+        "package": "src/scanpy/tools/_rank_genes_groups.py",
+        "module": "scanpy.tools._rank_genes_groups",
+        "functions": [
+          "rank_genes_groups",
+          "filter_rank_genes_groups"
+        ],
+        "classes": [],
+        "description": "Differential expression/ranking utilities for marker detection."
+      },
+      {
+        "package": "src/scanpy/plotting/_tools/scatterplots.py",
+        "module": "scanpy.plotting._tools.scatterplots",
+        "functions": [
+          "umap",
+          "tsne",
+          "diffmap",
+          "draw_graph",
+          "spatial"
+        ],
+        "classes": [],
+        "description": "Primary embedding visualization functions."
+      },
+      {
+        "package": "src/scanpy/readwrite.py",
+        "module": "scanpy.readwrite",
+        "functions": [
+          "read",
+          "read_h5ad",
+          "write"
+        ],
+        "classes": [],
+        "description": "I/O layer for AnnData and related formats."
+      },
+      {
+        "package": "src/scanpy/datasets/_datasets.py",
+        "module": "scanpy.datasets._datasets",
+        "functions": [
+          "pbmc3k",
+          "pbmc68k_reduced",
+          "visium_sge"
+        ],
+        "classes": [],
+        "description": "Built-in example/test dataset loaders useful for MCP smoke tests."
+      },
+      {
+        "package": "src/scanpy/get/get.py",
+        "module": "scanpy.get.get",
+        "functions": [
+          "obs_df",
+          "var_df",
+          "rank_genes_groups_df"
+        ],
+        "classes": [],
+        "description": "Structured extraction helpers for tabular outputs from AnnData/Scanpy results."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "scanpy",
+        "module": "src/scanpy/cli.py",
+        "description": "Top-level CLI entry module for Scanpy workflows and utility operations."
+      },
+      {
+        "name": "python -m scanpy",
+        "module": "src/scanpy/__main__.py",
+        "description": "Module execution entry point delegating to Scanpy CLI behavior."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "anndata",
+        "numpy",
+        "scipy",
+        "pandas",
+        "matplotlib",
+        "scikit-learn"
+      ],
+      "optional": [
+        "umap-learn",
+        "igraph",
+        "leidenalg",
+        "louvain",
+        "h5py",
+        "numba",
+        "dask",
+        "bbknn",
+        "harmonypy",
+        "scanorama",
+        "magic-impute",
+        "phate",
+        "phenograph"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/scverse/scanpy",
+    "repo_name": "scanpy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

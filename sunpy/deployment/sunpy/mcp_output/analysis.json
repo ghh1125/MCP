@@ -1,0 +1,1938 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/sunpy/sunpy",
+    "summary": "Imported via zip fallback, file count: 582",
+    "file_tree": {
+      ".circleci/config.yml": {
+        "size": 3761
+      },
+      ".codecov.yaml": {
+        "size": 155
+      },
+      ".cruft.json": {
+        "size": 1469
+      },
+      ".github/dependabot.yml": {
+        "size": 119
+      },
+      ".github/workflows/asv-regular.yml": {
+        "size": 2012
+      },
+      ".github/workflows/ci.yml": {
+        "size": 5163
+      },
+      ".github/workflows/ci_benchmarks.yml": {
+        "size": 1776
+      },
+      ".github/workflows/cron.yml": {
+        "size": 4549
+      },
+      ".github/workflows/label_sync.yml": {
+        "size": 704
+      },
+      ".github/workflows/scheduled_builds.yml": {
+        "size": 1566
+      },
+      ".github/workflows/stale_bot.yml": {
+        "size": 1756
+      },
+      ".github/workflows/sub_package_update.yml": {
+        "size": 5945
+      },
+      ".isort.cfg": {
+        "size": 424
+      },
+      ".pre-commit-config.yaml": {
+        "size": 1408
+      },
+      ".readthedocs.yaml": {
+        "size": 520
+      },
+      ".rtd-environment.yml": {
+        "size": 135
+      },
+      ".ruff.toml": {
+        "size": 2147
+      },
+      ".test_package_pins.txt": {
+        "size": 112
+      },
+      ".zenodo.json": {
+        "size": 30873
+      },
+      "_typos.toml": {
+        "size": 428
+      },
+      "asv.conf.json": {
+        "size": 658
+      },
+      "benchmarks/__init__.py": {
+        "size": 0
+      },
+      "benchmarks/coordinates.py": {
+        "size": 2957
+      },
+      "benchmarks/map.py": {
+        "size": 3218
+      },
+      "benchmarks/time.py": {
+        "size": 308
+      },
+      "docs/conf.py": {
+        "size": 17629
+      },
+      "docs/reference/sunpy_stability.yaml": {
+        "size": 1234
+      },
+      "docs/robots.txt": {
+        "size": 208
+      },
+      "examples/README.txt": {
+        "size": 444
+      },
+      "examples/acquiring_data/README.txt": {
+        "size": 92
+      },
+      "examples/acquiring_data/downloading_cutouts.py": {
+        "size": 2741
+      },
+      "examples/acquiring_data/fido_metadata_queries.py": {
+        "size": 2730
+      },
+      "examples/acquiring_data/querying_and_loading_SHARP_data.py": {
+        "size": 1758
+      },
+      "examples/acquiring_data/querying_the_GOES_event_list.py": {
+        "size": 2884
+      },
+      "examples/acquiring_data/search_cdaweb.py": {
+        "size": 1670
+      },
+      "examples/computer_vision_techniques/README.txt": {
+        "size": 122
+      },
+      "examples/computer_vision_techniques/finding_masking_bright_pixels.py": {
+        "size": 2050
+      },
+      "examples/computer_vision_techniques/loop_edge_enhance.py": {
+        "size": 1540
+      },
+      "examples/computer_vision_techniques/mask_disk.py": {
+        "size": 1714
+      },
+      "examples/computer_vision_techniques/off_limb_enhance.py": {
+        "size": 3277
+      },
+      "examples/differential_rotation/README.txt": {
+        "size": 201
+      },
+      "examples/differential_rotation/comparing_rotation_models.py": {
+        "size": 3532
+      },
+      "examples/differential_rotation/differentially_rotated_coordinate.py": {
+        "size": 2494
+      },
+      "examples/differential_rotation/differentially_rotated_gridlines.py": {
+        "size": 2153
+      },
+      "examples/differential_rotation/reprojected_map.py": {
+        "size": 3682
+      },
+      "examples/map/README.txt": {
+        "size": 57
+      },
+      "examples/map/brightness_pixel_location.py": {
+        "size": 1048
+      },
+      "examples/map/compare_rotation_results.py": {
+        "size": 3002
+      },
+      "examples/map/composite_map_AIA_HMI.py": {
+        "size": 2108
+      },
+      "examples/map/difference_images.py": {
+        "size": 3818
+      },
+      "examples/map/hmi_contours_wcsaxes.py": {
+        "size": 3934
+      },
+      "examples/map/image_bright_regions_gallery_example.py": {
+        "size": 2984
+      },
+      "examples/map/lasco_mask.py": {
+        "size": 2668
+      },
+      "examples/map/map_contouring.py": {
+        "size": 1312
+      },
+      "examples/map/map_data_histogram.py": {
+        "size": 2648
+      },
+      "examples/map/map_from_numpy_array.py": {
+        "size": 2057
+      },
+      "examples/map/map_metadata_modification.py": {
+        "size": 1647
+      },
+      "examples/map/map_resampling_and_superpixels.py": {
+        "size": 1930
+      },
+      "examples/map/map_rotation.py": {
+        "size": 1057
+      },
+      "examples/map/map_segment.py": {
+        "size": 4745
+      },
+      "examples/map/masking_hmi.py": {
+        "size": 4521
+      },
+      "examples/map/plot_frameless_image.py": {
+        "size": 1322
+      },
+      "examples/map/submaps_and_cropping.py": {
+        "size": 1248
+      },
+      "examples/map/track_active_region.py": {
+        "size": 3470
+      },
+      "examples/map_transformations/README.txt": {
+        "size": 158
+      },
+      "examples/map_transformations/autoalign_aia_hmi.py": {
+        "size": 2899
+      },
+      "examples/map_transformations/projection_custom_origin.py": {
+        "size": 3595
+      },
+      "examples/map_transformations/reprojection_aia_euvi_mosaic.py": {
+        "size": 7454
+      },
+      "examples/map_transformations/reprojection_align_aia_hmi.py": {
+        "size": 3321
+      },
+      "examples/map_transformations/reprojection_auto_extent.py": {
+        "size": 3474
+      },
+      "examples/map_transformations/reprojection_carrington.py": {
+        "size": 1882
+      },
+      "examples/map_transformations/reprojection_different_observers.py": {
+        "size": 5567
+      },
+      "examples/map_transformations/reprojection_helioprojective_radial.py": {
+        "size": 3888
+      },
+      "examples/map_transformations/reprojection_spherical_screen.py": {
+        "size": 3685
+      },
+      "examples/map_transformations/upside_down_hmi.py": {
+        "size": 1619
+      },
+      "examples/plotting/AIA_HMI_composite.py": {
+        "size": 2322
+      },
+      "examples/plotting/README.txt": {
+        "size": 64
+      },
+      "examples/plotting/adding_earth.py": {
+        "size": 3300
+      },
+      "examples/plotting/aia_example.py": {
+        "size": 1306
+      },
+      "examples/plotting/draw_wcs_extent.py": {
+        "size": 1772
+      },
+      "examples/plotting/fading_between_maps.py": {
+        "size": 1877
+      },
+      "examples/plotting/finding_local_peaks_in_solar_data.py": {
+        "size": 3128
+      },
+      "examples/plotting/finegrained_plot.py": {
+        "size": 2741
+      },
+      "examples/plotting/great_arc_example.py": {
+        "size": 2127
+      },
+      "examples/plotting/grid_plotting.py": {
+        "size": 1458
+      },
+      "examples/plotting/hmi_synoptic_maps.py": {
+        "size": 1464
+      },
+      "examples/plotting/lasco_overlay.py": {
+        "size": 3042
+      },
+      "examples/plotting/lat_lon_lines.py": {
+        "size": 2567
+      },
+      "examples/plotting/limb_plotting.py": {
+        "size": 1632
+      },
+      "examples/plotting/magnetogram_active_regions.py": {
+        "size": 2349
+      },
+      "examples/plotting/map_editcolormap.py": {
+        "size": 1530
+      },
+      "examples/plotting/masked_composite_plot.py": {
+        "size": 2530
+      },
+      "examples/plotting/offdisk_contours.py": {
+        "size": 3220
+      },
+      "examples/plotting/overplot_hek_polygon.py": {
+        "size": 2385
+      },
+      "examples/plotting/plot_equator_prime_meridian.py": {
+        "size": 1870
+      },
+      "examples/plotting/plot_rotated_rectangle.py": {
+        "size": 2016
+      },
+      "examples/plotting/plotting_blank_map.py": {
+        "size": 2852
+      },
+      "examples/plotting/quadrangle.py": {
+        "size": 1937
+      },
+      "examples/plotting/screen_blend_mode.py": {
+        "size": 3322
+      },
+      "examples/plotting/simple_differential_rotation.py": {
+        "size": 3038
+      },
+      "examples/plotting/solar_cycle_example.py": {
+        "size": 2448
+      },
+      "examples/plotting/sunpy_matplotlib_colormap.py": {
+        "size": 1343
+      },
+      "examples/plotting/three_map_composite.py": {
+        "size": 2726
+      },
+      "examples/plotting/wcsaxes_map_example.py": {
+        "size": 2368
+      },
+      "examples/plotting/wcsaxes_plotting_example.py": {
+        "size": 3795
+      },
+      "examples/plotting/xy_lims.py": {
+        "size": 2433
+      },
+      "examples/saving_and_loading_data/README.txt": {
+        "size": 85
+      },
+      "examples/saving_and_loading_data/coordinates_in_asdf.py": {
+        "size": 3671
+      },
+      "examples/saving_and_loading_data/genericmap_in_asdf.py": {
+        "size": 2048
+      },
+      "examples/saving_and_loading_data/genericmap_in_fits.py": {
+        "size": 2037
+      },
+      "examples/saving_and_loading_data/load_adapt_fits_into_map.py": {
+        "size": 3001
+      },
+      "examples/showcase/README.txt": {
+        "size": 86
+      },
+      "examples/showcase/eclipse_amount.py": {
+        "size": 3578
+      },
+      "examples/showcase/hmi_cutout.py": {
+        "size": 5003
+      },
+      "examples/showcase/los_simulation_box_intersection.py": {
+        "size": 11141
+      },
+      "examples/showcase/stereoscopic_3d.py": {
+        "size": 4805
+      },
+      "examples/showcase/time_distance.py": {
+        "size": 8025
+      },
+      "examples/showcase/where_is_stereo.py": {
+        "size": 6615
+      },
+      "examples/time_series/README.txt": {
+        "size": 71
+      },
+      "examples/time_series/goes_hek_m25.py": {
+        "size": 1836
+      },
+      "examples/time_series/goes_xrs_example.py": {
+        "size": 6581
+      },
+      "examples/time_series/goes_xrs_nrt_data.py": {
+        "size": 4199
+      },
+      "examples/time_series/power_spectra_example.py": {
+        "size": 1470
+      },
+      "examples/time_series/timeseries_convolution_filter.py": {
+        "size": 1631
+      },
+      "examples/time_series/timeseries_example.py": {
+        "size": 7506
+      },
+      "examples/time_series/timeseries_peak_finding.py": {
+        "size": 3818
+      },
+      "examples/time_series/timeseriesmetadata_example.py": {
+        "size": 4471
+      },
+      "examples/units_and_coordinates/AIA_limb_STEREO.py": {
+        "size": 3198
+      },
+      "examples/units_and_coordinates/AltAz_Coordinate_transform.py": {
+        "size": 2019
+      },
+      "examples/units_and_coordinates/ParkerSolarProbe_trajectory.py": {
+        "size": 3400
+      },
+      "examples/units_and_coordinates/README.txt": {
+        "size": 138
+      },
+      "examples/units_and_coordinates/SDO_to_STEREO_Coordinate_Conversion.py": {
+        "size": 4948
+      },
+      "examples/units_and_coordinates/STEREO_SECCHI_starfield.py": {
+        "size": 5532
+      },
+      "examples/units_and_coordinates/getting_lasco_observer_location.py": {
+        "size": 4373
+      },
+      "examples/units_and_coordinates/getting_observer_location.py": {
+        "size": 2164
+      },
+      "examples/units_and_coordinates/map_slit_extraction.py": {
+        "size": 2488
+      },
+      "examples/units_and_coordinates/north_offset_frame.py": {
+        "size": 1639
+      },
+      "examples/units_and_coordinates/planet_locations.py": {
+        "size": 1281
+      },
+      "examples/units_and_coordinates/radec_to_hpc_map.py": {
+        "size": 8406
+      },
+      "examples/units_and_coordinates/spice.py": {
+        "size": 7659
+      },
+      "examples/units_and_coordinates/venus_transit.py": {
+        "size": 2115
+      },
+      "pyproject.toml": {
+        "size": 7305
+      },
+      "pytest.ini": {
+        "size": 3288
+      },
+      "sunpy-dev-env.yml": {
+        "size": 1285
+      },
+      "sunpy/__init__.py": {
+        "size": 1298
+      },
+      "sunpy/_dev/__init__.py": {
+        "size": 189
+      },
+      "sunpy/_dev/scm_version.py": {
+        "size": 426
+      },
+      "sunpy/conftest.py": {
+        "size": 6325
+      },
+      "sunpy/coordinates/__init__.py": {
+        "size": 1090
+      },
+      "sunpy/coordinates/_transformations.py": {
+        "size": 62254
+      },
+      "sunpy/coordinates/data/igrf13coeffs.txt": {
+        "size": 40639
+      },
+      "sunpy/coordinates/ephemeris.py": {
+        "size": 17679
+      },
+      "sunpy/coordinates/frameattributes.py": {
+        "size": 5690
+      },
+      "sunpy/coordinates/frames.py": {
+        "size": 47746
+      },
+      "sunpy/coordinates/metaframes.py": {
+        "size": 10713
+      },
+      "sunpy/coordinates/offset_frame.py": {
+        "size": 2365
+      },
+      "sunpy/coordinates/screens.py": {
+        "size": 14451
+      },
+      "sunpy/coordinates/spice.py": {
+        "size": 22488
+      },
+      "sunpy/coordinates/sun.py": {
+        "size": 31541
+      },
+      "sunpy/coordinates/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/coordinates/tests/conftest.py": {
+        "size": 335
+      },
+      "sunpy/coordinates/tests/helpers.py": {
+        "size": 498
+      },
+      "sunpy/coordinates/tests/strategies.py": {
+        "size": 1391
+      },
+      "sunpy/coordinates/tests/test_ephemeris.py": {
+        "size": 7807
+      },
+      "sunpy/coordinates/tests/test_frameattributes.py": {
+        "size": 6649
+      },
+      "sunpy/coordinates/tests/test_frames.py": {
+        "size": 27190
+      },
+      "sunpy/coordinates/tests/test_metaframes.py": {
+        "size": 12672
+      },
+      "sunpy/coordinates/tests/test_offset_frame.py": {
+        "size": 2005
+      },
+      "sunpy/coordinates/tests/test_spice.py": {
+        "size": 10391
+      },
+      "sunpy/coordinates/tests/test_sun.py": {
+        "size": 25935
+      },
+      "sunpy/coordinates/tests/test_transformations.py": {
+        "size": 55280
+      },
+      "sunpy/coordinates/tests/test_utils.py": {
+        "size": 18750
+      },
+      "sunpy/coordinates/tests/test_wcs_utils.py": {
+        "size": 12972
+      },
+      "sunpy/coordinates/utils.py": {
+        "size": 22630
+      },
+      "sunpy/coordinates/wcs_utils.py": {
+        "size": 7562
+      },
+      "sunpy/data/__init__.py": {
+        "size": 937
+      },
+      "sunpy/data/_sample.py": {
+        "size": 7190
+      },
+      "sunpy/data/data_manager/__init__.py": {
+        "size": 301
+      },
+      "sunpy/data/data_manager/cache.py": {
+        "size": 5879
+      },
+      "sunpy/data/data_manager/downloader.py": {
+        "size": 1438
+      },
+      "sunpy/data/data_manager/manager.py": {
+        "size": 7297
+      },
+      "sunpy/data/data_manager/storage.py": {
+        "size": 4753
+      },
+      "sunpy/data/data_manager/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/data/data_manager/tests/conftest.py": {
+        "size": 2743
+      },
+      "sunpy/data/data_manager/tests/mocks.py": {
+        "size": 636
+      },
+      "sunpy/data/data_manager/tests/test_cache.py": {
+        "size": 3444
+      },
+      "sunpy/data/data_manager/tests/test_downloader.py": {
+        "size": 696
+      },
+      "sunpy/data/data_manager/tests/test_manager.py": {
+        "size": 8935
+      },
+      "sunpy/data/data_manager/tests/test_storage.py": {
+        "size": 1220
+      },
+      "sunpy/data/sample.py": {
+        "size": 2144
+      },
+      "sunpy/data/test/EVE_L0CS_DIODES_1m_truncated.txt": {
+        "size": 4159
+      },
+      "sunpy/data/test/SRS/19960106SRS.txt": {
+        "size": 719
+      },
+      "sunpy/data/test/SRS/19960430SRS.txt": {
+        "size": 604
+      },
+      "sunpy/data/test/SRS/19960513SRS.txt": {
+        "size": 695
+      },
+      "sunpy/data/test/SRS/20000922SRS.txt": {
+        "size": 1223
+      },
+      "sunpy/data/test/SRS/20000927SRS.txt": {
+        "size": 1289
+      },
+      "sunpy/data/test/SRS/20001001SRS.txt": {
+        "size": 1315
+      },
+      "sunpy/data/test/SRS/20020624SRS.txt": {
+        "size": 1776
+      },
+      "sunpy/data/test/SRS/20020628SRS.txt": {
+        "size": 1704
+      },
+      "sunpy/data/test/SRS/20100621SRS.txt": {
+        "size": 662
+      },
+      "sunpy/data/test/SRS/20150101SRS.txt": {
+        "size": 862
+      },
+      "sunpy/data/test/SRS/20150306SRS.txt": {
+        "size": 668
+      },
+      "sunpy/data/test/SRS/20150906SRS.txt": {
+        "size": 697
+      },
+      "sunpy/data/test/__init__.py": {
+        "size": 5101
+      },
+      "sunpy/data/test/_generate_asdf_test.py": {
+        "size": 657
+      },
+      "sunpy/data/test/eve/eve_01.txt": {
+        "size": 4159
+      },
+      "sunpy/data/test/eve/eve_02.txt": {
+        "size": 4159
+      },
+      "sunpy/data/test/eve/eve_03.txt": {
+        "size": 4159
+      },
+      "sunpy/data/test/eve/eve_04.txt": {
+        "size": 4159
+      },
+      "sunpy/data/test/eve/eve_05.txt": {
+        "size": 4159
+      },
+      "sunpy/data/test/observed-solar-cycle-indices-truncated.json": {
+        "size": 1561
+      },
+      "sunpy/data/test/predicted-solar-cycle-truncated.json": {
+        "size": 1287
+      },
+      "sunpy/data/test/waveunit/__init__.py": {
+        "size": 333
+      },
+      "sunpy/data/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/data/tests/test_sample.py": {
+        "size": 875
+      },
+      "sunpy/extern/__init__.py": {
+        "size": 281
+      },
+      "sunpy/extern/appdirs.py": {
+        "size": 24719
+      },
+      "sunpy/extern/appdirs_license.txt": {
+        "size": 1097
+      },
+      "sunpy/extern/distro.py": {
+        "size": 49430
+      },
+      "sunpy/extern/inflect.py": {
+        "size": 102537
+      },
+      "sunpy/extern/inflect_license.txt": {
+        "size": 1050
+      },
+      "sunpy/extern/parse.py": {
+        "size": 35530
+      },
+      "sunpy/extern/parse_license.txt": {
+        "size": 1085
+      },
+      "sunpy/image/__init__.py": {
+        "size": 126
+      },
+      "sunpy/image/resample.py": {
+        "size": 8079
+      },
+      "sunpy/image/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/image/tests/test_resample.py": {
+        "size": 3718
+      },
+      "sunpy/image/tests/test_transform.py": {
+        "size": 14494
+      },
+      "sunpy/image/transform.py": {
+        "size": 19079
+      },
+      "sunpy/io/__init__.py": {
+        "size": 231
+      },
+      "sunpy/io/_cdf.py": {
+        "size": 9708
+      },
+      "sunpy/io/_file_tools.py": {
+        "size": 8184
+      },
+      "sunpy/io/_fits.py": {
+        "size": 12277
+      },
+      "sunpy/io/_header.py": {
+        "size": 478
+      },
+      "sunpy/io/_jp2.py": {
+        "size": 5088
+      },
+      "sunpy/io/ana.py": {
+        "size": 3678
+      },
+      "sunpy/io/setup_package.py": {
+        "size": 873
+      },
+      "sunpy/io/special/__init__.py": {
+        "size": 39
+      },
+      "sunpy/io/special/asdf/__init__.py": {
+        "size": 0
+      },
+      "sunpy/io/special/asdf/converters/__init__.py": {
+        "size": 0
+      },
+      "sunpy/io/special/asdf/converters/frames.py": {
+        "size": 2759
+      },
+      "sunpy/io/special/asdf/converters/generic_map.py": {
+        "size": 1805
+      },
+      "sunpy/io/special/asdf/entry_points.py": {
+        "size": 2057
+      },
+      "sunpy/io/special/asdf/resources/__init__.py": {
+        "size": 0
+      },
+      "sunpy/io/special/asdf/resources/manifests/sunpy-1.0.0.yaml": {
+        "size": 2223
+      },
+      "sunpy/io/special/asdf/resources/manifests/sunpy-1.1.0.yaml": {
+        "size": 2683
+      },
+      "sunpy/io/special/asdf/resources/manifests/sunpy-1.1.1.yaml": {
+        "size": 2808
+      },
+      "sunpy/io/special/asdf/resources/manifests/sunpy-1.1.2.yaml": {
+        "size": 2968
+      },
+      "sunpy/io/special/asdf/resources/manifests/sunpy-1.2.0.yaml": {
+        "size": 2106
+      },
+      "sunpy/io/special/asdf/resources/manifests/sunpy-1.2.1.yaml": {
+        "size": 2266
+      },
+      "sunpy/io/special/asdf/resources/schemas/generic_map-1.0.0.yaml": {
+        "size": 685
+      },
+      "sunpy/io/special/asdf/resources/schemas/generic_map-1.1.0.yaml": {
+        "size": 626
+      },
+      "sunpy/io/special/asdf/resources/schemas/generic_map-1.1.1.yaml": {
+        "size": 691
+      },
+      "sunpy/io/special/asdf/resources/schemas/generic_map-1.2.0.yaml": {
+        "size": 687
+      },
+      "sunpy/io/special/asdf/resources/schemas/geocentricearthequatorial-1.0.0.yaml": {
+        "size": 1279
+      },
+      "sunpy/io/special/asdf/resources/schemas/geocentricearthequatorial-1.1.0.yaml": {
+        "size": 1275
+      },
+      "sunpy/io/special/asdf/resources/schemas/geocentricsolarecliptic-1.0.0.yaml": {
+        "size": 973
+      },
+      "sunpy/io/special/asdf/resources/schemas/geocentricsolarecliptic-1.1.0.yaml": {
+        "size": 971
+      },
+      "sunpy/io/special/asdf/resources/schemas/geocentricsolarmagnetospheric-1.0.0.yaml": {
+        "size": 1176
+      },
+      "sunpy/io/special/asdf/resources/schemas/geocentricsolarmagnetospheric-1.1.0.yaml": {
+        "size": 1174
+      },
+      "sunpy/io/special/asdf/resources/schemas/geomagnetic-1.0.0.yaml": {
+        "size": 1062
+      },
+      "sunpy/io/special/asdf/resources/schemas/geomagnetic-1.1.0.yaml": {
+        "size": 1060
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliocentric-1.0.0.yaml": {
+        "size": 2193
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliocentric-1.1.0.yaml": {
+        "size": 2097
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliocentricearthecliptic-1.0.0.yaml": {
+        "size": 985
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliocentricearthecliptic-1.1.0.yaml": {
+        "size": 983
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliocentricinertial-1.0.0.yaml": {
+        "size": 954
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliocentricinertial-1.1.0.yaml": {
+        "size": 952
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliographic_carrington-1.0.0.yaml": {
+        "size": 964
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliographic_carrington-1.1.0.yaml": {
+        "size": 2043
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliographic_carrington-1.2.0.yaml": {
+        "size": 2386
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliographic_carrington-1.3.0.yaml": {
+        "size": 2380
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliographic_stonyhurst-1.0.0.yaml": {
+        "size": 964
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliographic_stonyhurst-1.1.0.yaml": {
+        "size": 1213
+      },
+      "sunpy/io/special/asdf/resources/schemas/heliographic_stonyhurst-1.2.0.yaml": {
+        "size": 1209
+      },
+      "sunpy/io/special/asdf/resources/schemas/helioprojective-1.0.0.yaml": {
+        "size": 2476
+      },
+      "sunpy/io/special/asdf/resources/schemas/helioprojective-1.1.0.yaml": {
+        "size": 2378
+      },
+      "sunpy/io/special/asdf/resources/schemas/helioprojectiveradial-1.0.0.yaml": {
+        "size": 2416
+      },
+      "sunpy/io/special/asdf/resources/schemas/helioprojectiveradial-1.1.0.yaml": {
+        "size": 2416
+      },
+      "sunpy/io/special/asdf/resources/schemas/solarmagnetic-1.0.0.yaml": {
+        "size": 1076
+      },
+      "sunpy/io/special/asdf/resources/schemas/solarmagnetic-1.1.0.yaml": {
+        "size": 1074
+      },
+      "sunpy/io/special/asdf/tests/__init__.py": {
+        "size": 43
+      },
+      "sunpy/io/special/asdf/tests/test_coordinate_frames.py": {
+        "size": 3391
+      },
+      "sunpy/io/special/asdf/tests/test_genericmap.py": {
+        "size": 2228
+      },
+      "sunpy/io/special/asdf/tests/test_time.py": {
+        "size": 507
+      },
+      "sunpy/io/special/genx.py": {
+        "size": 10353
+      },
+      "sunpy/io/special/srs.py": {
+        "size": 11387
+      },
+      "sunpy/io/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/io/tests/test_ana.py": {
+        "size": 2752
+      },
+      "sunpy/io/tests/test_cdf.py": {
+        "size": 1364
+      },
+      "sunpy/io/tests/test_filetools.py": {
+        "size": 7262
+      },
+      "sunpy/io/tests/test_fits.py": {
+        "size": 9212
+      },
+      "sunpy/io/tests/test_genx.py": {
+        "size": 5150
+      },
+      "sunpy/io/tests/test_jp2.py": {
+        "size": 2024
+      },
+      "sunpy/io/tests/test_srs.py": {
+        "size": 6469
+      },
+      "sunpy/map/__init__.py": {
+        "size": 405
+      },
+      "sunpy/map/compositemap.py": {
+        "size": 18770
+      },
+      "sunpy/map/header_helper.py": {
+        "size": 18599
+      },
+      "sunpy/map/map_factory.py": {
+        "size": 14229
+      },
+      "sunpy/map/mapbase.py": {
+        "size": 134024
+      },
+      "sunpy/map/mapsequence.py": {
+        "size": 19055
+      },
+      "sunpy/map/maputils.py": {
+        "size": 19940
+      },
+      "sunpy/map/sources/__init__.py": {
+        "size": 680
+      },
+      "sunpy/map/sources/adapt.py": {
+        "size": 2309
+      },
+      "sunpy/map/sources/asos.py": {
+        "size": 5565
+      },
+      "sunpy/map/sources/gong.py": {
+        "size": 9103
+      },
+      "sunpy/map/sources/hinode.py": {
+        "size": 8339
+      },
+      "sunpy/map/sources/iris.py": {
+        "size": 2625
+      },
+      "sunpy/map/sources/mlso.py": {
+        "size": 3235
+      },
+      "sunpy/map/sources/proba2.py": {
+        "size": 1570
+      },
+      "sunpy/map/sources/psp.py": {
+        "size": 2271
+      },
+      "sunpy/map/sources/punch.py": {
+        "size": 1463
+      },
+      "sunpy/map/sources/rhessi.py": {
+        "size": 3662
+      },
+      "sunpy/map/sources/sdo.py": {
+        "size": 10808
+      },
+      "sunpy/map/sources/soho.py": {
+        "size": 15866
+      },
+      "sunpy/map/sources/solo.py": {
+        "size": 2838
+      },
+      "sunpy/map/sources/source_type.py": {
+        "size": 1527
+      },
+      "sunpy/map/sources/stereo.py": {
+        "size": 5032
+      },
+      "sunpy/map/sources/suit.py": {
+        "size": 2879
+      },
+      "sunpy/map/sources/suvi.py": {
+        "size": 4571
+      },
+      "sunpy/map/sources/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/map/sources/tests/helpers.py": {
+        "size": 283
+      },
+      "sunpy/map/sources/tests/test_adapt_source.py": {
+        "size": 1877
+      },
+      "sunpy/map/sources/tests/test_aia_source.py": {
+        "size": 3450
+      },
+      "sunpy/map/sources/tests/test_asos_hxi_source.py": {
+        "size": 3641
+      },
+      "sunpy/map/sources/tests/test_cor_source.py": {
+        "size": 1642
+      },
+      "sunpy/map/sources/tests/test_eit_l1_source.py": {
+        "size": 2999
+      },
+      "sunpy/map/sources/tests/test_eit_source.py": {
+        "size": 2220
+      },
+      "sunpy/map/sources/tests/test_eui_source.py": {
+        "size": 1847
+      },
+      "sunpy/map/sources/tests/test_euvi_source.py": {
+        "size": 2206
+      },
+      "sunpy/map/sources/tests/test_gong_halpha_source.py": {
+        "size": 2306
+      },
+      "sunpy/map/sources/tests/test_gong_magnetogram_source.py": {
+        "size": 2684
+      },
+      "sunpy/map/sources/tests/test_gong_synoptic_source.py": {
+        "size": 1797
+      },
+      "sunpy/map/sources/tests/test_hi_source.py": {
+        "size": 1610
+      },
+      "sunpy/map/sources/tests/test_hmi_source.py": {
+        "size": 5024
+      },
+      "sunpy/map/sources/tests/test_hmi_synoptic_source.py": {
+        "size": 1962
+      },
+      "sunpy/map/sources/tests/test_iris_source.py": {
+        "size": 1697
+      },
+      "sunpy/map/sources/tests/test_kcor_source.py": {
+        "size": 2480
+      },
+      "sunpy/map/sources/tests/test_lasco_source.py": {
+        "size": 3401
+      },
+      "sunpy/map/sources/tests/test_mdi_source.py": {
+        "size": 2864
+      },
+      "sunpy/map/sources/tests/test_punch_source.py": {
+        "size": 1361
+      },
+      "sunpy/map/sources/tests/test_rhessi_source.py": {
+        "size": 3147
+      },
+      "sunpy/map/sources/tests/test_sot_source.py": {
+        "size": 2736
+      },
+      "sunpy/map/sources/tests/test_source_type.py": {
+        "size": 1085
+      },
+      "sunpy/map/sources/tests/test_suit_source.py": {
+        "size": 1543
+      },
+      "sunpy/map/sources/tests/test_suvi_source.py": {
+        "size": 1883
+      },
+      "sunpy/map/sources/tests/test_swap_source.py": {
+        "size": 1474
+      },
+      "sunpy/map/sources/tests/test_sxt_source.py": {
+        "size": 2232
+      },
+      "sunpy/map/sources/tests/test_trace_source.py": {
+        "size": 1934
+      },
+      "sunpy/map/sources/tests/test_wispr_source.py": {
+        "size": 12208
+      },
+      "sunpy/map/sources/tests/test_xrt_source.py": {
+        "size": 2698
+      },
+      "sunpy/map/sources/trace.py": {
+        "size": 3492
+      },
+      "sunpy/map/sources/yohkoh.py": {
+        "size": 3535
+      },
+      "sunpy/map/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/map/tests/conftest.py": {
+        "size": 5677
+      },
+      "sunpy/map/tests/strategies.py": {
+        "size": 728
+      },
+      "sunpy/map/tests/test_compositemap.py": {
+        "size": 5288
+      },
+      "sunpy/map/tests/test_header.py": {
+        "size": 1100
+      },
+      "sunpy/map/tests/test_header_helper.py": {
+        "size": 13395
+      },
+      "sunpy/map/tests/test_map_factory.py": {
+        "size": 15470
+      },
+      "sunpy/map/tests/test_mapbase.py": {
+        "size": 75254
+      },
+      "sunpy/map/tests/test_mapbase_dask.py": {
+        "size": 2633
+      },
+      "sunpy/map/tests/test_mapsequence.py": {
+        "size": 8776
+      },
+      "sunpy/map/tests/test_maputils.py": {
+        "size": 14495
+      },
+      "sunpy/map/tests/test_plotting.py": {
+        "size": 15295
+      },
+      "sunpy/map/tests/test_reproject_to.py": {
+        "size": 11475
+      },
+      "sunpy/net/__init__.py": {
+        "size": 605
+      },
+      "sunpy/net/_attrs.py": {
+        "size": 9110
+      },
+      "sunpy/net/attr.py": {
+        "size": 25395
+      },
+      "sunpy/net/attrs.py": {
+        "size": 1497
+      },
+      "sunpy/net/base_client.py": {
+        "size": 16588
+      },
+      "sunpy/net/cdaweb/__init__.py": {
+        "size": 114
+      },
+      "sunpy/net/cdaweb/attrs.py": {
+        "size": 122
+      },
+      "sunpy/net/cdaweb/cdaweb.py": {
+        "size": 6105
+      },
+      "sunpy/net/cdaweb/data/attrs.json": {
+        "size": 379618
+      },
+      "sunpy/net/cdaweb/helpers.py": {
+        "size": 5006
+      },
+      "sunpy/net/cdaweb/test/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/cdaweb/test/test_cdaweb.py": {
+        "size": 1053
+      },
+      "sunpy/net/cdaweb/walker.py": {
+        "size": 857
+      },
+      "sunpy/net/dataretriever/__init__.py": {
+        "size": 820
+      },
+      "sunpy/net/dataretriever/attrs/__init__.py": {
+        "size": 55
+      },
+      "sunpy/net/dataretriever/attrs/adapt.py": {
+        "size": 1839
+      },
+      "sunpy/net/dataretriever/attrs/goes.py": {
+        "size": 252
+      },
+      "sunpy/net/dataretriever/client.py": {
+        "size": 11435
+      },
+      "sunpy/net/dataretriever/sources/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/dataretriever/sources/adapt.py": {
+        "size": 8069
+      },
+      "sunpy/net/dataretriever/sources/aia_synopsis.py": {
+        "size": 5474
+      },
+      "sunpy/net/dataretriever/sources/eve.py": {
+        "size": 2428
+      },
+      "sunpy/net/dataretriever/sources/fermi_gbm.py": {
+        "size": 3283
+      },
+      "sunpy/net/dataretriever/sources/goes.py": {
+        "size": 17791
+      },
+      "sunpy/net/dataretriever/sources/gong.py": {
+        "size": 2087
+      },
+      "sunpy/net/dataretriever/sources/lyra.py": {
+        "size": 2454
+      },
+      "sunpy/net/dataretriever/sources/noaa.py": {
+        "size": 7259
+      },
+      "sunpy/net/dataretriever/sources/norh.py": {
+        "size": 3949
+      },
+      "sunpy/net/dataretriever/sources/rhessi.py": {
+        "size": 9098
+      },
+      "sunpy/net/dataretriever/sources/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/dataretriever/sources/tests/test_adapt.py": {
+        "size": 4670
+      },
+      "sunpy/net/dataretriever/sources/tests/test_aia_synopsis.py": {
+        "size": 5261
+      },
+      "sunpy/net/dataretriever/sources/tests/test_eve.py": {
+        "size": 5416
+      },
+      "sunpy/net/dataretriever/sources/tests/test_fermi_gbm.py": {
+        "size": 4440
+      },
+      "sunpy/net/dataretriever/sources/tests/test_goes_suvi.py": {
+        "size": 4061
+      },
+      "sunpy/net/dataretriever/sources/tests/test_goes_ud.py": {
+        "size": 10087
+      },
+      "sunpy/net/dataretriever/sources/tests/test_gong_synoptic.py": {
+        "size": 3214
+      },
+      "sunpy/net/dataretriever/sources/tests/test_lyra_ud.py": {
+        "size": 4437
+      },
+      "sunpy/net/dataretriever/sources/tests/test_noaa.py": {
+        "size": 9325
+      },
+      "sunpy/net/dataretriever/sources/tests/test_norh.py": {
+        "size": 4502
+      },
+      "sunpy/net/dataretriever/sources/tests/test_rhessi.py": {
+        "size": 9755
+      },
+      "sunpy/net/dataretriever/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/dataretriever/tests/test_client.py": {
+        "size": 958
+      },
+      "sunpy/net/fido_factory.py": {
+        "size": 22421
+      },
+      "sunpy/net/hek/__init__.py": {
+        "size": 32
+      },
+      "sunpy/net/hek/attrs.py": {
+        "size": 17902
+      },
+      "sunpy/net/hek/data/coord_properties.json": {
+        "size": 17301
+      },
+      "sunpy/net/hek/data/unit_properties.json": {
+        "size": 97583
+      },
+      "sunpy/net/hek/hek.py": {
+        "size": 8484
+      },
+      "sunpy/net/hek/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/hek/tests/test_hek.py": {
+        "size": 12197
+      },
+      "sunpy/net/hek/tests/test_utils.py": {
+        "size": 8283
+      },
+      "sunpy/net/hek/utils.py": {
+        "size": 16116
+      },
+      "sunpy/net/hek2vso/__init__.py": {
+        "size": 293
+      },
+      "sunpy/net/hek2vso/hek2vso.py": {
+        "size": 7152
+      },
+      "sunpy/net/hek2vso/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/hek2vso/tests/test_hek2vso.py": {
+        "size": 4011
+      },
+      "sunpy/net/helio/__init__.py": {
+        "size": 187
+      },
+      "sunpy/net/helio/attrs.py": {
+        "size": 516
+      },
+      "sunpy/net/helio/chaincode.py": {
+        "size": 3828
+      },
+      "sunpy/net/helio/hec.py": {
+        "size": 9417
+      },
+      "sunpy/net/helio/parser.py": {
+        "size": 7635
+      },
+      "sunpy/net/helio/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/helio/tests/test_chaincode.py": {
+        "size": 1576
+      },
+      "sunpy/net/helio/tests/test_helio.py": {
+        "size": 11952
+      },
+      "sunpy/net/jsoc/__init__.py": {
+        "size": 69
+      },
+      "sunpy/net/jsoc/attrs.py": {
+        "size": 8506
+      },
+      "sunpy/net/jsoc/data/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/jsoc/data/attrs.json": {
+        "size": 45897
+      },
+      "sunpy/net/jsoc/jsoc.py": {
+        "size": 39569
+      },
+      "sunpy/net/jsoc/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/jsoc/tests/test_attr.py": {
+        "size": 3954
+      },
+      "sunpy/net/jsoc/tests/test_jsoc.py": {
+        "size": 15500
+      },
+      "sunpy/net/scraper.py": {
+        "size": 20045
+      },
+      "sunpy/net/scraper_utils.py": {
+        "size": 4187
+      },
+      "sunpy/net/solarnet/__init__.py": {
+        "size": 81
+      },
+      "sunpy/net/solarnet/attrs.py": {
+        "size": 1882
+      },
+      "sunpy/net/solarnet/data/datasets.json": {
+        "size": 3771
+      },
+      "sunpy/net/solarnet/data/tags.json": {
+        "size": 338
+      },
+      "sunpy/net/solarnet/solarnet.py": {
+        "size": 7754
+      },
+      "sunpy/net/solarnet/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/solarnet/tests/test_solarnet.py": {
+        "size": 2572
+      },
+      "sunpy/net/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/tests/helpers.py": {
+        "size": 1407
+      },
+      "sunpy/net/tests/strategies.py": {
+        "size": 3911
+      },
+      "sunpy/net/tests/test_attr.py": {
+        "size": 11258
+      },
+      "sunpy/net/tests/test_attr_walker.py": {
+        "size": 1870
+      },
+      "sunpy/net/tests/test_attrs.py": {
+        "size": 1093
+      },
+      "sunpy/net/tests/test_baseclient.py": {
+        "size": 1739
+      },
+      "sunpy/net/tests/test_fido.py": {
+        "size": 16775
+      },
+      "sunpy/net/tests/test_scraper.py": {
+        "size": 15356
+      },
+      "sunpy/net/tests/test_scraper_utils.py": {
+        "size": 2051
+      },
+      "sunpy/net/vso/__init__.py": {
+        "size": 199
+      },
+      "sunpy/net/vso/attrs.py": {
+        "size": 6191
+      },
+      "sunpy/net/vso/data/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/vso/data/attrs.json": {
+        "size": 23026
+      },
+      "sunpy/net/vso/exceptions.py": {
+        "size": 400
+      },
+      "sunpy/net/vso/table_response.py": {
+        "size": 4786
+      },
+      "sunpy/net/vso/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/net/vso/tests/conftest.py": {
+        "size": 100
+      },
+      "sunpy/net/vso/tests/test_attrs.py": {
+        "size": 6853
+      },
+      "sunpy/net/vso/tests/test_vso.py": {
+        "size": 16805
+      },
+      "sunpy/net/vso/vso.py": {
+        "size": 25755
+      },
+      "sunpy/net/vso/zeep_plugins.py": {
+        "size": 556
+      },
+      "sunpy/physics/__init__.py": {
+        "size": 0
+      },
+      "sunpy/physics/differential_rotation.py": {
+        "size": 25646
+      },
+      "sunpy/physics/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/physics/tests/reference/test_differential_rotation.txt": {
+        "size": 95355
+      },
+      "sunpy/physics/tests/test_differential_rotation.py": {
+        "size": 20509
+      },
+      "sunpy/sun/__init__.py": {
+        "size": 35
+      },
+      "sunpy/sun/_constants.py": {
+        "size": 9846
+      },
+      "sunpy/sun/constants.py": {
+        "size": 4311
+      },
+      "sunpy/sun/models.py": {
+        "size": 7421
+      },
+      "sunpy/sun/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/sun/tests/test_constants.py": {
+        "size": 2324
+      },
+      "sunpy/sun/tests/test_models.py": {
+        "size": 2038
+      },
+      "sunpy/tests/__init__.py": {
+        "size": 44
+      },
+      "sunpy/tests/figure_hashes_mpl_382_ft_261_astropy_702_animators_121.json": {
+        "size": 12483
+      },
+      "sunpy/tests/figure_hashes_mpl_dev_ft_261_astropy_dev_animators_dev.json": {
+        "size": 12483
+      },
+      "sunpy/tests/helpers.py": {
+        "size": 4728
+      },
+      "sunpy/tests/mocks.py": {
+        "size": 6565
+      },
+      "sunpy/tests/self_test.py": {
+        "size": 3792
+      },
+      "sunpy/tests/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/tests/tests/test_mocks.py": {
+        "size": 6126
+      },
+      "sunpy/tests/tests/test_self_test.py": {
+        "size": 1855
+      },
+      "sunpy/tests/tests/test_sunpy_data_filenames.py": {
+        "size": 671
+      },
+      "sunpy/time/__init__.py": {
+        "size": 102
+      },
+      "sunpy/time/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/time/tests/test_taiseconds.py": {
+        "size": 1272
+      },
+      "sunpy/time/tests/test_time.py": {
+        "size": 13027
+      },
+      "sunpy/time/tests/test_timerange.py": {
+        "size": 9885
+      },
+      "sunpy/time/tests/test_utime.py": {
+        "size": 485
+      },
+      "sunpy/time/time.py": {
+        "size": 14465
+      },
+      "sunpy/time/timeformats.py": {
+        "size": 3702
+      },
+      "sunpy/time/timerange.py": {
+        "size": 15384
+      },
+      "sunpy/timeseries/__init__.py": {
+        "size": 595
+      },
+      "sunpy/timeseries/conftest.py": {
+        "size": 5242
+      },
+      "sunpy/timeseries/metadata.py": {
+        "size": 28715
+      },
+      "sunpy/timeseries/sources/__init__.py": {
+        "size": 1012
+      },
+      "sunpy/timeseries/sources/eve.py": {
+        "size": 13902
+      },
+      "sunpy/timeseries/sources/fermi_gbm.py": {
+        "size": 8598
+      },
+      "sunpy/timeseries/sources/goes.py": {
+        "size": 13281
+      },
+      "sunpy/timeseries/sources/lyra.py": {
+        "size": 7220
+      },
+      "sunpy/timeseries/sources/noaa.py": {
+        "size": 12826
+      },
+      "sunpy/timeseries/sources/norh.py": {
+        "size": 6069
+      },
+      "sunpy/timeseries/sources/rhessi.py": {
+        "size": 8379
+      },
+      "sunpy/timeseries/sources/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/timeseries/sources/tests/test_eve.py": {
+        "size": 1545
+      },
+      "sunpy/timeseries/sources/tests/test_fermi_gbm.py": {
+        "size": 952
+      },
+      "sunpy/timeseries/sources/tests/test_goes.py": {
+        "size": 6381
+      },
+      "sunpy/timeseries/sources/tests/test_lyra.py": {
+        "size": 889
+      },
+      "sunpy/timeseries/sources/tests/test_noaa.py": {
+        "size": 1819
+      },
+      "sunpy/timeseries/sources/tests/test_norh.py": {
+        "size": 816
+      },
+      "sunpy/timeseries/sources/tests/test_rhessi.py": {
+        "size": 1025
+      },
+      "sunpy/timeseries/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/timeseries/tests/test_timeseries_factory.py": {
+        "size": 19254
+      },
+      "sunpy/timeseries/tests/test_timeseriesbase.py": {
+        "size": 23217
+      },
+      "sunpy/timeseries/tests/test_timeseriesmetadata.py": {
+        "size": 21764
+      },
+      "sunpy/timeseries/timeseries_factory.py": {
+        "size": 21252
+      },
+      "sunpy/timeseries/timeseriesbase.py": {
+        "size": 32737
+      },
+      "sunpy/util/__init__.py": {
+        "size": 169
+      },
+      "sunpy/util/config.py": {
+        "size": 6976
+      },
+      "sunpy/util/datatype_factory_base.py": {
+        "size": 5908
+      },
+      "sunpy/util/decorators.py": {
+        "size": 11444
+      },
+      "sunpy/util/exceptions.py": {
+        "size": 3693
+      },
+      "sunpy/util/functools.py": {
+        "size": 780
+      },
+      "sunpy/util/io.py": {
+        "size": 3262
+      },
+      "sunpy/util/logger.py": {
+        "size": 3327
+      },
+      "sunpy/util/metadata.py": {
+        "size": 7734
+      },
+      "sunpy/util/net.py": {
+        "size": 6598
+      },
+      "sunpy/util/parfive_helpers.py": {
+        "size": 921
+      },
+      "sunpy/util/sphinx/__init__.py": {
+        "size": 527
+      },
+      "sunpy/util/sphinx/doctest.py": {
+        "size": 1965
+      },
+      "sunpy/util/sphinx/generate.py": {
+        "size": 2320
+      },
+      "sunpy/util/sysinfo.py": {
+        "size": 8990
+      },
+      "sunpy/util/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/util/tests/test_config.py": {
+        "size": 7052
+      },
+      "sunpy/util/tests/test_datatype_factory_base.py": {
+        "size": 4606
+      },
+      "sunpy/util/tests/test_decorators.py": {
+        "size": 1866
+      },
+      "sunpy/util/tests/test_functools.py": {
+        "size": 2689
+      },
+      "sunpy/util/tests/test_logger.py": {
+        "size": 3984
+      },
+      "sunpy/util/tests/test_metadata.py": {
+        "size": 15975
+      },
+      "sunpy/util/tests/test_net.py": {
+        "size": 1185
+      },
+      "sunpy/util/tests/test_sysinfo.py": {
+        "size": 3345
+      },
+      "sunpy/util/tests/test_util.py": {
+        "size": 5918
+      },
+      "sunpy/util/tests/test_xml.py": {
+        "size": 8199
+      },
+      "sunpy/util/util.py": {
+        "size": 11763
+      },
+      "sunpy/util/xml.py": {
+        "size": 3208
+      },
+      "sunpy/version.py": {
+        "size": 699
+      },
+      "sunpy/visualization/__init__.py": {
+        "size": 234
+      },
+      "sunpy/visualization/animator/__init__.py": {
+        "size": 116
+      },
+      "sunpy/visualization/animator/mapsequenceanimator.py": {
+        "size": 4307
+      },
+      "sunpy/visualization/animator/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/visualization/animator/tests/test_mapsequenceanimator.py": {
+        "size": 1269
+      },
+      "sunpy/visualization/colormaps/__init__.py": {
+        "size": 308
+      },
+      "sunpy/visualization/colormaps/cm.py": {
+        "size": 7534
+      },
+      "sunpy/visualization/colormaps/color_tables.py": {
+        "size": 12206
+      },
+      "sunpy/visualization/colormaps/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/visualization/colormaps/tests/test_cm.py": {
+        "size": 1441
+      },
+      "sunpy/visualization/drawing.py": {
+        "size": 11926
+      },
+      "sunpy/visualization/tests/__init__.py": {
+        "size": 0
+      },
+      "sunpy/visualization/tests/test_drawing.py": {
+        "size": 5265
+      },
+      "sunpy/visualization/tests/test_visualization.py": {
+        "size": 1143
+      },
+      "sunpy/visualization/visualization.py": {
+        "size": 4163
+      },
+      "sunpy/visualization/wcsaxes_compat.py": {
+        "size": 6568
+      },
+      "tools/gen_tutorial_graph.py": {
+        "size": 1797
+      },
+      "tools/generate_github_changelog.py": {
+        "size": 428
+      },
+      "tools/hek_mkcls.py": {
+        "size": 13149
+      },
+      "tools/hektemplate.py": {
+        "size": 5456
+      },
+      "tools/resize_jp2.py": {
+        "size": 648
+      },
+      "tools/unify_section_headings.py": {
+        "size": 2362
+      },
+      "tools/update_attrs_json.py": {
+        "size": 692
+      },
+      "tools/update_extern.py": {
+        "size": 1869
+      },
+      "tools/update_zenodo.py": {
+        "size": 2097
+      },
+      "tools/version_bumps.py": {
+        "size": 7049
+      },
+      "tox.ini": {
+        "size": 5641
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.benchmarks",
+      "source.sunpy",
+      "source.sunpy._dev",
+      "source.sunpy.coordinates",
+      "source.sunpy.data",
+      "source.sunpy.extern",
+      "source.sunpy.image",
+      "source.sunpy.io",
+      "source.sunpy.map",
+      "source.sunpy.net",
+      "source.sunpy.physics",
+      "source.sunpy.sun",
+      "source.sunpy.tests",
+      "source.sunpy.time",
+      "source.sunpy.timeseries",
+      "source.sunpy.util",
+      "source.sunpy.visualization"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.sunpy.net",
+        "module": "fido_factory",
+        "functions": [],
+        "classes": [
+          "UnifiedDownloaderFactory"
+        ],
+        "description": "Primary high-level data discovery/download orchestration (Fido); best MCP-facing surface for search/fetch workflows."
+      },
+      {
+        "package": "source.sunpy.map",
+        "module": "map_factory",
+        "functions": [],
+        "classes": [
+          "MapFactory"
+        ],
+        "description": "Factory for constructing map objects from files/data; central entry point for image/map ingestion."
+      },
+      {
+        "package": "source.sunpy.map",
+        "module": "mapbase",
+        "functions": [],
+        "classes": [
+          "GenericMap"
+        ],
+        "description": "Core solar map abstraction with metadata, WCS-aware operations, and plotting hooks."
+      },
+      {
+        "package": "source.sunpy.timeseries",
+        "module": "timeseries_factory",
+        "functions": [],
+        "classes": [
+          "TimeSeriesFactory"
+        ],
+        "description": "Factory entry point for creating time series objects from multiple source formats."
+      },
+      {
+        "package": "source.sunpy.timeseries",
+        "module": "timeseriesbase",
+        "functions": [],
+        "classes": [
+          "GenericTimeSeries"
+        ],
+        "description": "Core time-series abstraction for solar/space-weather data analysis."
+      },
+      {
+        "package": "source.sunpy.coordinates",
+        "module": "frames",
+        "functions": [],
+        "classes": [
+          "Helioprojective",
+          "HeliographicStonyhurst",
+          "HeliographicCarrington",
+          "Heliocentric",
+          "HelioprojectiveRadial"
+        ],
+        "description": "Domain coordinate frame definitions used widely in map and ephemeris operations."
+      },
+      {
+        "package": "source.sunpy.coordinates",
+        "module": "sun",
+        "functions": [
+          "angular_radius",
+          "B0",
+          "L0",
+          "P",
+          "carrington_rotation_number"
+        ],
+        "classes": [],
+        "description": "Solar ephemeris/geometry utility functions suitable for stateless MCP tools."
+      },
+      {
+        "package": "source.sunpy.time",
+        "module": "time",
+        "functions": [
+          "parse_time",
+          "is_time",
+          "is_time_in_given_format"
+        ],
+        "classes": [],
+        "description": "Canonical time parsing/normalization helpers; useful as shared MCP utility layer."
+      },
+      {
+        "package": "source.sunpy.time",
+        "module": "timerange",
+        "functions": [],
+        "classes": [
+          "TimeRange"
+        ],
+        "description": "Time interval representation for queries and slicing."
+      },
+      {
+        "package": "source.sunpy.net",
+        "module": "attrs",
+        "functions": [],
+        "classes": [],
+        "description": "Attribute namespace used to build Fido/client queries; required for expressive search filters."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.91
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "astropy",
+        "packaging"
+      ],
+      "optional": [
+        "matplotlib",
+        "reproject",
+        "parfive",
+        "drms",
+        "zeep",
+        "asdf",
+        "scipy",
+        "pandas",
+        "aiohttp",
+        "h5py"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/sunpy/sunpy",
+    "repo_name": "sunpy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

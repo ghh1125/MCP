@@ -1,0 +1,44 @@
+default_language_version:
+  python: python3
+
+ci:
+  autofix_prs: true
+  autoupdate_commit_msg: '[pre-commit.ci] pre-commit suggestions'
+  autoupdate_schedule: quarterly
+  # submodules: true
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-toml
+      - id: check-case-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=1024']
+      - id: detect-private-key
+      - id: forbid-new-submodules
+      - id: pretty-format-json
+        args: ['--autofix', '--no-sort-keys', '--indent=4']
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.11
+    hooks:
+    -   id: ruff-check
+        args: ["--fix"]
+        exclude: |
+          (?x)(
+              ^versioneer.py|
+              ^monai/_version.py
+          )
+
+  - repo: https://github.com/hadialqattan/pycln
+    rev: v2.6.0
+    hooks:
+      - id: pycln
+        args: [--config=pyproject.toml]

@@ -1,0 +1,354 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/dateutil/dateutil",
+    "summary": "Imported via zip fallback, file count: 55",
+    "file_tree": {
+      ".github/pull_request_template.md": {
+        "size": 515
+      },
+      ".github/workflows/publish.yml": {
+        "size": 1955
+      },
+      ".github/workflows/validate.yml": {
+        "size": 5182
+      },
+      ".pre-commit-config.yaml": {
+        "size": 326
+      },
+      ".readthedocs.yml": {
+        "size": 210
+      },
+      "AUTHORS.md": {
+        "size": 6773
+      },
+      "CONTRIBUTING.md": {
+        "size": 6632
+      },
+      "appveyor.yml": {
+        "size": 1201
+      },
+      "ci_tools/make_zonefile_metadata.py": {
+        "size": 1524
+      },
+      "codecov.yml": {
+        "size": 120
+      },
+      "docs/conf.py": {
+        "size": 8963
+      },
+      "docs/exercises/solutions/mlk_day_rrule_solution.py": {
+        "size": 1080
+      },
+      "docs/requirements-docs.txt": {
+        "size": 68
+      },
+      "pyproject.toml": {
+        "size": 1396
+      },
+      "requirements-dev.txt": {
+        "size": 212
+      },
+      "requirements/3.3/constraints.txt": {
+        "size": 227
+      },
+      "requirements/3.3/requirements-dev.txt": {
+        "size": 118
+      },
+      "setup.cfg": {
+        "size": 2016
+      },
+      "setup.py": {
+        "size": 1375
+      },
+      "src/dateutil/__init__.py": {
+        "size": 620
+      },
+      "src/dateutil/_common.py": {
+        "size": 932
+      },
+      "src/dateutil/easter.py": {
+        "size": 2678
+      },
+      "src/dateutil/parser/__init__.py": {
+        "size": 1766
+      },
+      "src/dateutil/parser/_parser.py": {
+        "size": 58796
+      },
+      "src/dateutil/parser/isoparser.py": {
+        "size": 13230
+      },
+      "src/dateutil/relativedelta.py": {
+        "size": 24903
+      },
+      "src/dateutil/rrule.py": {
+        "size": 66557
+      },
+      "src/dateutil/tz/__init__.py": {
+        "size": 444
+      },
+      "src/dateutil/tz/_common.py": {
+        "size": 12977
+      },
+      "src/dateutil/tz/_factories.py": {
+        "size": 2569
+      },
+      "src/dateutil/tz/tz.py": {
+        "size": 62855
+      },
+      "src/dateutil/tz/win.py": {
+        "size": 12935
+      },
+      "src/dateutil/tzwin.py": {
+        "size": 59
+      },
+      "src/dateutil/utils.py": {
+        "size": 1965
+      },
+      "src/dateutil/zoneinfo/__init__.py": {
+        "size": 5889
+      },
+      "src/dateutil/zoneinfo/rebuild.py": {
+        "size": 2392
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/_common.py": {
+        "size": 6709
+      },
+      "tests/conftest.py": {
+        "size": 1059
+      },
+      "tests/property/test_isoparse_prop.py": {
+        "size": 824
+      },
+      "tests/property/test_parser_prop.py": {
+        "size": 550
+      },
+      "tests/property/test_tz_prop.py": {
+        "size": 963
+      },
+      "tests/test_easter.py": {
+        "size": 4250
+      },
+      "tests/test_import_star.py": {
+        "size": 1075
+      },
+      "tests/test_imports.py": {
+        "size": 6319
+      },
+      "tests/test_internals.py": {
+        "size": 2382
+      },
+      "tests/test_isoparser.py": {
+        "size": 18273
+      },
+      "tests/test_parser.py": {
+        "size": 38448
+      },
+      "tests/test_relativedelta.py": {
+        "size": 29326
+      },
+      "tests/test_rrule.py": {
+        "size": 216396
+      },
+      "tests/test_tz.py": {
+        "size": 100415
+      },
+      "tests/test_utils.py": {
+        "size": 1457
+      },
+      "tox.ini": {
+        "size": 4029
+      },
+      "updatezinfo.py": {
+        "size": 2171
+      },
+      "zonefile_metadata.json": {
+        "size": 578
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.src.dateutil",
+      "source.tests"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": true,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.src.dateutil",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level package initializer exposing version metadata and public submodule surface."
+      },
+      {
+        "package": "source.src.dateutil",
+        "module": "parser._parser",
+        "functions": [
+          "parse"
+        ],
+        "classes": [
+          "parser",
+          "parserinfo",
+          "_timelex",
+          "_resultbase",
+          "_tzparser",
+          "ParserError",
+          "UnknownTimezoneWarning"
+        ],
+        "description": "Primary free-form datetime parsing engine; central module for string-to-datetime conversion with locale/token behavior controls."
+      },
+      {
+        "package": "source.src.dateutil",
+        "module": "parser.isoparser",
+        "functions": [],
+        "classes": [
+          "isoparser"
+        ],
+        "description": "Strict ISO-8601 parser implementation for date/time/datetime strings."
+      },
+      {
+        "package": "source.src.dateutil",
+        "module": "relativedelta",
+        "functions": [],
+        "classes": [
+          "relativedelta"
+        ],
+        "description": "Calendar-aware datetime delta arithmetic (months/years/weekday semantics) beyond timedelta."
+      },
+      {
+        "package": "source.src.dateutil",
+        "module": "rrule",
+        "functions": [],
+        "classes": [
+          "rrule",
+          "rruleset",
+          "rrulestr",
+          "_rrulestr",
+          "weekday"
+        ],
+        "description": "Recurrence rule system (RFC 5545-like) for generating repeated datetimes and combined include/exclude schedules."
+      },
+      {
+        "package": "source.src.dateutil",
+        "module": "tz.tz",
+        "functions": [
+          "datetime_exists",
+          "datetime_ambiguous",
+          "resolve_imaginary",
+          "enfold"
+        ],
+        "classes": [
+          "tzutc",
+          "tzoffset",
+          "tzlocal",
+          "tzfile",
+          "tzrange",
+          "tzstr",
+          "tzical",
+          "tzwin",
+          "tzwinlocal"
+        ],
+        "description": "Timezone implementations and DST ambiguity handling utilities; core timezone behavior layer."
+      },
+      {
+        "package": "source.src.dateutil",
+        "module": "tz.win",
+        "functions": [],
+        "classes": [
+          "tzwin",
+          "tzwinlocal"
+        ],
+        "description": "Windows-specific timezone support via registry-backed implementations."
+      },
+      {
+        "package": "source.src.dateutil",
+        "module": "zoneinfo.__init__",
+        "functions": [
+          "get_zonefile_instance"
+        ],
+        "classes": [
+          "ZoneInfoFile"
+        ],
+        "description": "Bundled zoneinfo loader/access layer for timezone data files."
+      },
+      {
+        "package": "source.src.dateutil",
+        "module": "easter",
+        "functions": [
+          "easter"
+        ],
+        "classes": [],
+        "description": "Computes Easter date for a given year under supported calculation methods."
+      },
+      {
+        "package": "source.src.dateutil",
+        "module": "utils",
+        "functions": [
+          "today",
+          "default_tzinfo",
+          "within_delta"
+        ],
+        "classes": [],
+        "description": "General datetime helper utilities used by users and internals."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.95
+    },
+    "dependencies": {
+      "required": [
+        "python-dateutil runtime: Python standard library (datetime, re, calendar, io, bisect, warnings, functools, itertools, os, etc.)",
+        "six"
+      ],
+      "optional": [
+        "Windows registry access modules for tz.win/tzwin functionality on Windows",
+        "pytest/hypothesis (test-only, not runtime)",
+        "Sphinx/doc tooling (docs-only)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.96,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/dateutil/dateutil",
+    "repo_name": "dateutil",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.96,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

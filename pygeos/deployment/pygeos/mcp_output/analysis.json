@@ -1,0 +1,380 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/pygeos/pygeos",
+    "summary": "Imported via zip fallback, file count: 45",
+    "file_tree": {
+      ".github/workflows/lint.yml": {
+        "size": 320
+      },
+      ".github/workflows/release.yml": {
+        "size": 6117
+      },
+      ".github/workflows/test-pip.yml": {
+        "size": 5383
+      },
+      ".pre-commit-config.yaml": {
+        "size": 308
+      },
+      ".readthedocs.yml": {
+        "size": 539
+      },
+      ".travis.yml": {
+        "size": 2226
+      },
+      "asv.conf.json": {
+        "size": 6710
+      },
+      "benchmarks/__init__.py": {
+        "size": 1
+      },
+      "benchmarks/benchmarks.py": {
+        "size": 11471
+      },
+      "docs/conf.py": {
+        "size": 2248
+      },
+      "docs/environment.yml": {
+        "size": 162
+      },
+      "pygeos/__init__.py": {
+        "size": 681
+      },
+      "pygeos/_version.py": {
+        "size": 18515
+      },
+      "pygeos/constructive.py": {
+        "size": 33026
+      },
+      "pygeos/coordinates.py": {
+        "size": 7444
+      },
+      "pygeos/creation.py": {
+        "size": 20983
+      },
+      "pygeos/decorators.py": {
+        "size": 2547
+      },
+      "pygeos/enum.py": {
+        "size": 713
+      },
+      "pygeos/geometry.py": {
+        "size": 24889
+      },
+      "pygeos/io.py": {
+        "size": 19664
+      },
+      "pygeos/linear.py": {
+        "size": 6160
+      },
+      "pygeos/measurement.py": {
+        "size": 9957
+      },
+      "pygeos/predicates.py": {
+        "size": 30865
+      },
+      "pygeos/set_operations.py": {
+        "size": 17536
+      },
+      "pygeos/strtree.py": {
+        "size": 14013
+      },
+      "pygeos/testing.py": {
+        "size": 6312
+      },
+      "pygeos/tests/__init__.py": {
+        "size": 0
+      },
+      "pygeos/tests/common.py": {
+        "size": 2921
+      },
+      "pygeos/tests/test_constructive.py": {
+        "size": 27726
+      },
+      "pygeos/tests/test_coordinates.py": {
+        "size": 8982
+      },
+      "pygeos/tests/test_creation.py": {
+        "size": 15308
+      },
+      "pygeos/tests/test_creation_indices.py": {
+        "size": 13305
+      },
+      "pygeos/tests/test_geometry.py": {
+        "size": 24648
+      },
+      "pygeos/tests/test_io.py": {
+        "size": 30307
+      },
+      "pygeos/tests/test_linear.py": {
+        "size": 6687
+      },
+      "pygeos/tests/test_measurement.py": {
+        "size": 10281
+      },
+      "pygeos/tests/test_misc.py": {
+        "size": 5241
+      },
+      "pygeos/tests/test_predicates.py": {
+        "size": 8029
+      },
+      "pygeos/tests/test_set_operations.py": {
+        "size": 13766
+      },
+      "pygeos/tests/test_strtree.py": {
+        "size": 70354
+      },
+      "pygeos/tests/test_testing.py": {
+        "size": 3056
+      },
+      "pyproject.toml": {
+        "size": 225
+      },
+      "setup.cfg": {
+        "size": 307
+      },
+      "setup.py": {
+        "size": 7325
+      },
+      "versioneer.py": {
+        "size": 68611
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.benchmarks",
+      "source.pygeos",
+      "source.pygeos.tests"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": true,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.pygeos",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level API re-export module for vectorized geometry operations; likely exposes functions from creation, predicates, measurement, set_operations, constructive, io, and strtree."
+      },
+      {
+        "package": "source.pygeos",
+        "module": "creation",
+        "functions": [
+          "points",
+          "linestrings",
+          "linearrings",
+          "polygons",
+          "multipoints",
+          "multilinestrings",
+          "multipolygons",
+          "geometrycollections",
+          "box",
+          "from_wkt",
+          "from_wkb"
+        ],
+        "classes": [],
+        "description": "Geometry construction and parsing utilities, typically vectorized over NumPy arrays."
+      },
+      {
+        "package": "source.pygeos",
+        "module": "io",
+        "functions": [
+          "to_wkt",
+          "to_wkb",
+          "from_wkt",
+          "from_wkb"
+        ],
+        "classes": [],
+        "description": "Serialization/deserialization functions for WKT/WKB and related geometry I/O."
+      },
+      {
+        "package": "source.pygeos",
+        "module": "predicates",
+        "functions": [
+          "contains",
+          "within",
+          "intersects",
+          "touches",
+          "crosses",
+          "overlaps",
+          "covers",
+          "covered_by",
+          "disjoint",
+          "equals",
+          "is_valid",
+          "is_empty",
+          "is_simple"
+        ],
+        "classes": [],
+        "description": "Boolean spatial relationship and validity predicates, vectorized."
+      },
+      {
+        "package": "source.pygeos",
+        "module": "measurement",
+        "functions": [
+          "area",
+          "length",
+          "distance",
+          "hausdorff_distance",
+          "minimum_clearance",
+          "bounds",
+          "total_bounds"
+        ],
+        "classes": [],
+        "description": "Numeric geometry measurements and extent/bounds extraction."
+      },
+      {
+        "package": "source.pygeos",
+        "module": "set_operations",
+        "functions": [
+          "union",
+          "intersection",
+          "difference",
+          "symmetric_difference",
+          "unary_union"
+        ],
+        "classes": [],
+        "description": "Topological set operations on geometries."
+      },
+      {
+        "package": "source.pygeos",
+        "module": "constructive",
+        "functions": [
+          "buffer",
+          "centroid",
+          "convex_hull",
+          "concave_hull",
+          "envelope",
+          "boundary",
+          "simplify",
+          "make_valid"
+        ],
+        "classes": [],
+        "description": "Geometry-transforming operations producing new geometries."
+      },
+      {
+        "package": "source.pygeos",
+        "module": "linear",
+        "functions": [
+          "line_interpolate_point",
+          "line_locate_point",
+          "line_merge",
+          "shared_paths"
+        ],
+        "classes": [],
+        "description": "Linear-referencing and line-network oriented operations."
+      },
+      {
+        "package": "source.pygeos",
+        "module": "coordinates",
+        "functions": [
+          "get_x",
+          "get_y",
+          "get_z",
+          "get_coordinates",
+          "set_coordinates",
+          "transform"
+        ],
+        "classes": [],
+        "description": "Coordinate access/manipulation and coordinate transformation helpers."
+      },
+      {
+        "package": "source.pygeos",
+        "module": "geometry",
+        "functions": [
+          "get_type_id",
+          "get_dimensions",
+          "get_num_coordinates",
+          "get_num_geometries",
+          "get_geometry",
+          "get_exterior_ring",
+          "get_interior_ring",
+          "get_num_interior_rings",
+          "get_precision",
+          "set_precision"
+        ],
+        "classes": [],
+        "description": "Geometry metadata and component-extraction API."
+      },
+      {
+        "package": "source.pygeos",
+        "module": "strtree",
+        "functions": [],
+        "classes": [
+          "STRtree"
+        ],
+        "description": "Spatial index implementation for efficient spatial querying over geometry arrays."
+      },
+      {
+        "package": "source.benchmarks",
+        "module": "benchmarks",
+        "functions": [],
+        "classes": [],
+        "description": "Performance benchmark suite (ASV), not part of primary runtime API."
+      },
+      {
+        "package": "source.pygeos.tests",
+        "module": "test_*",
+        "functions": [],
+        "classes": [],
+        "description": "Comprehensive test modules that define behavioral contracts for API and edge cases."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.95
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "packaging",
+        "setuptools",
+        "GEOS (native C library, runtime-linked)",
+        "C extension build toolchain (for source builds)"
+      ],
+      "optional": [
+        "pytest (testing)",
+        "asv (benchmarks)",
+        "Sphinx / docs toolchain (documentation)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.87,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/pygeos/pygeos",
+    "repo_name": "pygeos",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.87,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

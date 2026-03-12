@@ -1,0 +1,229 @@
+{
+  "repository": {
+    "name": "PyPSA",
+    "url": "https://github.com/PyPSA/PyPSA",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/PyPSA",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773247009.2316318,
+    "end_time": 1773247481.608005,
+    "duration": 472.3763732910156,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 7,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.pypsa",
+        "source.pypsa.clustering",
+        "source.pypsa.components",
+        "source.pypsa.network",
+        "source.pypsa.optimization",
+        "source.pypsa.plot",
+        "source.pypsa.statistics"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/PyPSA/PyPSA",
+      "repo_name": "PyPSA",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/PyPSA/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke-test suite for the generated MCP plugin (startup",
+    "tool listing",
+    "and one call each for Network creation",
+    "import/export",
+    "optimize",
+    "pf/lpf)",
+    "deduplicate and namespace overlapping MCP endpoints (e.g.",
+    "optimize/pf/lpf/add/remove appear multiple times) to avoid ambiguous tool resolution",
+    "introduce strict pydantic schemas for all MCP tool inputs/outputs (especially DataFrame/xarray-like payloads) with clear serialization contracts",
+    "implement robust error mapping in the adapter layer (PyPSA exceptions → structured MCP error codes/messages with remediation hints)",
+    "pin and align plugin/runtime dependencies with PyPSA’s pyproject constraints and add optional extra groups for solver backends",
+    "add CI workflow for mcp_output (lint",
+    "type-check",
+    "smoke tests",
+    "matrix on Python 3.10–3.12)",
+    "generate endpoint-level docs in README_MCP.md with required/optional deps and solver availability notes",
+    "add capability detection at runtime (netcdf4/h5py/tables/cloudpathlib/plotting libs) and expose feature flags via an MCP “health/capabilities” tool",
+    "improve import-mode resilience by adding fallback guards for optional modules and version checks before tool registration",
+    "add regression tests for IO roundtrips (CSV/HDF5/NetCDF) using small fixtures and checksum/shape assertions",
+    "add performance guards for heavy operations (timeout/cancellation hooks",
+    "snapshot-size warnings",
+    "optional async execution for optimize/pf)",
+    "instrument structured logging and tracing (tool name",
+    "duration",
+    "outcome",
+    "solver used) with configurable verbosity",
+    "add security hardening for file-based tools (path allowlists",
+    "traversal protection",
+    "controlled overwrite behavior)",
+    "provide stable example workflows in tests_mcp (build network → solve → statistics → plot metadata) to catch integration breakage",
+    "and add a compatibility policy/versioning note for the MCP plugin tied to PyPSA release tags"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-mode adapter strategy was appropriate for PyPSA (import feasibility 0.9, low intrusiveness risk).",
+      "Core MCP service startup/health checks passed (transport=stdio, service_health=healthy).",
+      "Repository structure and key modules were correctly identified (network, io, optimization, power_flow, statistics).",
+      "No runtime errors or warnings were reported by the pipeline."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality gaps remain: generated metadata reports 0 LOC/0 tool_endpoints despite endpoint list existing, indicating instrumentation/reporting inconsistency.",
+      "Original project test result marked passed=false with empty details, so source baseline validation was not demonstrated.",
+      "DeepWiki analysis failed, reducing external knowledge enrichment and confidence in automated documentation mapping."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; likely moderate overhead due to archive-based retrieval of ~301 files.",
+      "analysis_time": "Completed successfully with broad package/dependency/module extraction; medium complexity repository analyzed adequately.",
+      "generation_time": "Generation succeeded and produced expected MCP scaffold files, but generated metrics (LOC/size/endpoints) appear incomplete.",
+      "test_time": "MCP plugin health test passed quickly; however, functional test depth is low (no meaningful smoke/integration coverage captured)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB); likely acceptable for orchestration, but current metrics are not reliable.",
+      "cpu_efficiency": "Unknown from telemetry (reported 0%); cannot validate efficiency without real measurements.",
+      "disk_usage": "Generated artifact set is small (7 files), but reported generated size=0 indicates missing or broken disk accounting."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 81,
+    "performance_score": 66,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

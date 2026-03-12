@@ -1,0 +1,222 @@
+{
+  "repository": {
+    "name": "climlab",
+    "url": "https://github.com/climlab/climlab",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/climlab",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773279772.405517,
+    "end_time": 1773280089.3925068,
+    "duration": 316.986989736557,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/climlab/climlab",
+      "repo_name": "climlab",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/climlab/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/climlab/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75002 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/climlab/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75002 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n"
+  ],
+  "recommendations": [
+    "Add a minimal smoke-test suite (import + instantiate key classes like EBM/RadiativeConvectiveModel + run 1–2 timesteps) and ensure it is wired into CI",
+    "Fix dependency metadata detection issues by modernizing packaging (complete `pyproject.toml` with core/optional extras and keep `setup.py` only as thin legacy shim)",
+    "Add explicit optional-dependency test matrix in GitHub Actions (base",
+    "xarray",
+    "radiation/rrtm extras) with graceful skips for missing compiled extensions",
+    "Deduplicate MCP endpoints (the insolation functions appear twice) and normalize endpoint naming/casing for a cleaner API surface",
+    "Add strict input/output schemas (Pydantic models) for MCP tools around arrays/fields to avoid ambiguous serialization and unit mismatches",
+    "Improve resilience of import-mode adapter by adding fallback wrappers for compiled-backend modules (e.g.",
+    "RRTMG) and clearer error messages with install guidance",
+    "Introduce benchmark tests for core numerics (advection-diffusion",
+    "radiation stepping",
+    "EBM integration) and track regressions in CI",
+    "Expand unit coverage for `Process`/`TimeDependentProcess` tree composition edge cases (subprocess ordering",
+    "diagnostics propagation",
+    "timestep coupling)",
+    "Add contract tests that compare `climlab.radiation.insolation` and `climlab.solar.insolation` outputs to prevent API drift between mirrored functions",
+    "Strengthen docs for plugin users with task-oriented MCP examples (common workflows",
+    "expected payload shapes",
+    "failure modes)",
+    "Add static quality gates (ruff/black + mypy on selected modules) to reduce maintenance risk in large core files",
+    "Create a reproducible dev environment file for plugin + core package integration tests (pin fastmcp/pydantic and climlab optional deps)",
+    "Add runtime capability introspection endpoint in MCP (reports available optional modules/features) so clients can adapt automatically",
+    "Refactor oversized modules incrementally (`model/ebm.py`",
+    "`process/process.py`) into smaller units with focused tests to reduce complexity and improve extensibility",
+    "Add numerical-validation regression fixtures (known climatology/energy-budget outputs) to catch silent scientific changes across releases"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Resilient fallback behavior: after git clone failure, pipeline continued via zip-based source ingestion and still produced MCP artifacts.",
+      "Import-mode adapter strategy matched repository characteristics (Python package with low intrusiveness risk, import feasibility 0.86).",
+      "Generated plugin booted successfully (service_health=healthy, stdio transport), validating minimum operational viability."
+    ],
+    "failure_reasons": [
+      "Primary source acquisition failed due to network/connectivity issue to github.com:443 (curl 28 timeout) during clone.",
+      "Metadata extraction inconsistency: execution/analysis fields report zero files and missing packaging files despite detailed state proving 105 files and pyproject/setup.py; indicates telemetry/instrumentation mismatch.",
+      "Validation depth was limited: original project tests marked failed/not executed while MCP plugin test passed, reducing confidence in scientific correctness of exposed tools."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Download node experienced retry/failure behavior (75s timeout observed) but recovered via fallback; likely dominant latency contributor.",
+      "analysis_time": "Analysis completed with meaningful module mapping and risk profiling; moderate runtime inferred from total duration.",
+      "generation_time": "Generation was efficient (7 files created, import adapter, endpoint generation), but quality signals conflict (0 LOC/size metrics).",
+      "test_time": "Plugin health check was fast and passed; project-level tests effectively absent, so test stage was shallow."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to missing metrics (reported 0 MB). No evidence of memory pressure, but observability is insufficient.",
+      "cpu_efficiency": "Unknown due to missing metrics (reported 0%). Runtime profile suggests mostly I/O + static analysis with low CPU intensity.",
+      "disk_usage": "Low-to-moderate expected footprint (repo ~105 files + generated plugin), but measured size telemetry is missing/zero."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 63,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

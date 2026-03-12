@@ -1,0 +1,217 @@
+{
+  "repository": {
+    "name": "causalml",
+    "url": "https://github.com/uber/causalml",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/causalml",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773240850.059595,
+    "end_time": 1773241612.983043,
+    "duration": 762.9234490394592,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.92,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/uber/causalml",
+      "repo_name": "causalml",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/causalml/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Command '['git', 'clone', 'https://github.com/uber/causalml', '/Users/ghh/Documents/Code/Code2MCP-private/workspace/causalml/temp_clone']' timed out after 600 seconds",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Command '['git', 'clone', 'https://github.com/uber/causalml', '/Users/ghh/Documents/Code/Code2MCP-private/workspace/causalml/temp_clone']' timed out after 600 seconds"
+  ],
+  "recommendations": [
+    "stabilize CI by adding a full test matrix across Python versions and optional dependency groups (tensorflow/torch/xgboost/lightgbm) with strict pass gates",
+    "add meaningful coverage thresholds and prioritize new tests for large high-risk modules (e.g.",
+    "tests/test_meta_learners.py and tree learners) plus edge cases for multi-treatment and missing-data inputs",
+    "fix packaging metadata consistency by consolidating pyproject.toml/setup.py/setup.cfg usage and explicitly declaring core vs optional extras to avoid environment-detection ambiguity",
+    "improve API ergonomics by standardizing class/function naming exposed through MCP endpoints (preserve original casing with aliases) and adding thin validated wrappers with consistent parameter schemas",
+    "harden plugin reliability with contract tests for every generated endpoint and smoke tests for import-mode startup via start_mcp.py",
+    "improve documentation by adding task-oriented examples for common workflows (uplift modeling",
+    "policy learning",
+    "propensity/matching diagnostics) and a compatibility table for optional backends",
+    "introduce benchmark and regression suites for key estimators (S/T/X/R/DR learners",
+    "causal forest/tree) to track quality and runtime across releases",
+    "add reproducibility controls by enforcing random_state propagation and documenting deterministic settings for numpy/sklearn/torch/tensorflow paths",
+    "strengthen observability by adding structured logging and clearer error messages around optional dependency import failures and model-fit preconditions",
+    "reduce technical debt in large modules via incremental refactors (shared base utilities",
+    "duplicated logic extraction",
+    "type hints) coupled with pre-commit enforcement (ruff/black/isort/mypy)",
+    "add security and supply-chain hygiene in CI (dependency pin ranges",
+    "pip-audit/safety",
+    "artifact attestations) and include MCP output validation in release checks"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status 'success' and executed all expected nodes (download, analysis, env, generate, run, review, finalize).",
+      "Robust fallback behavior: after git clone timeout, pipeline continued via zip fallback and still analyzed 102 files.",
+      "Import-mode MCP plugin scaffold was generated with runnable entrypoint (start_mcp.py) and healthy service status over stdio.",
+      "Core causalml modules/functions/classes were identified and mapped to MCP endpoints, enabling immediate baseline API exposure."
+    ],
+    "failure_reasons": [
+      "Primary repository acquisition failed: git clone timed out after 600s in DownloadNode.",
+      "Metadata inconsistency in analysis output (dependencies flags all false despite pyproject.toml/setup.py/setup.cfg existing in fallback file tree), indicating parser/state propagation defect.",
+      "Quality signals are incomplete/low-confidence: total_files_processed=0, llm_calls=0, tool_endpoints=0 conflict with detailed endpoint list in service info.",
+      "Original project tests were not executed successfully (passed=false), limiting confidence in functional parity."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Dominant bottleneck. Download node consumed most of the 762.9s runtime due to clone timeout (600s) before fallback.",
+      "analysis_time": "Completed and produced useful module inventory, but with inconsistent structured outputs; likely moderate runtime after fallback import.",
+      "generation_time": "Fast scaffold generation succeeded (7 files plus requirements/readme), but generated metrics reported as zero indicate instrumentation gaps.",
+      "test_time": "MCP smoke/health checks passed quickly; original project test phase effectively not run or failed early, so validation depth is low."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB). Efficiency cannot be validated; metrics pipeline likely not wired.",
+      "cpu_efficiency": "Unknown from telemetry (reported 0%). No reliable CPU profiling available.",
+      "disk_usage": "Likely moderate (repo + generated plugin), but reported generated size is 0, indicating disk accounting defect."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 58,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 69
+  }
+}

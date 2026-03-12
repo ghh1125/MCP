@@ -1,0 +1,225 @@
+{
+  "repository": {
+    "name": "astroML",
+    "url": "https://github.com/astroML/astroML",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/astroML",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773266182.241502,
+    "end_time": 1773266397.9835038,
+    "duration": 215.74200177192688,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 12,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.astroML",
+        "source.astroML.classification",
+        "source.astroML.clustering",
+        "source.astroML.datasets",
+        "source.astroML.density_estimation",
+        "source.astroML.dimensionality",
+        "source.astroML.linear_model",
+        "source.astroML.plotting",
+        "source.astroML.stats",
+        "source.astroML.tests",
+        "source.astroML.time_series",
+        "source.astroML.utils"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.94,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/astroML/astroML",
+      "repo_name": "astroML",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/astroML/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke test suite for generated MCP endpoints (import + one call per endpoint group)",
+    "define explicit endpoint schemas with Pydantic models (including ndarray/list coercion and shape validation)",
+    "remove duplicate/case-variant endpoint aliases (e.g.",
+    "FitnessFunc vs fitnessfunc) via a single naming convention",
+    "add robust error translation in adapter/service layers (ValueError/TypeError/network errors → structured MCP errors)",
+    "gate dataset-fetch endpoints behind optional network flags and clear offline fallbacks",
+    "pin and document compatible dependency ranges in `mcp_output/requirements.txt` (including astroML/scikit-learn/astropy compatibility)",
+    "add CI workflow for MCP plugin (lint",
+    "type-check",
+    "unit tests",
+    "packaging check)",
+    "introduce caching/timeouts/retry controls for remote dataset functions",
+    "improve README_MCP with per-endpoint examples and parameter contracts",
+    "add observability hooks (request timing",
+    "endpoint-level success/failure counts",
+    "debug logging toggles)",
+    "enforce static typing across plugin files and run mypy/pyright",
+    "add contract tests to ensure generated endpoint signatures stay in sync with upstream astroML APIs",
+    "add input-size guards for heavy computations (periodograms/bayesian blocks) to prevent pathological runtime",
+    "provide a versioned manifest of exposed endpoints for backward-compatibility tracking",
+    "add security hardening (dependency audit + safe handling for file/network paths)",
+    "include benchmark baselines for key endpoints to catch regressions"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow status is success with all planned nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy (confidence 0.95, import feasibility 0.94) fits astroML’s Python package structure well.",
+      "Generated MCP service started healthy over stdio and MCP plugin tests reported passed.",
+      "Repository has clear modular organization (classification, clustering, datasets, density_estimation, time_series, stats), enabling systematic endpoint extraction.",
+      "Low intrusiveness risk reduced integration friction with upstream code."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Original project test result is marked failed despite 100% coverage metadata and no details, indicating test orchestration/reporting inconsistency.",
+      "DeepWiki analysis failed, reducing external architectural/context enrichment.",
+      "Quality telemetry is incomplete (0 for LOC, file size, tool endpoint count, and performance metrics), limiting evidence-based validation."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; effective for reliability but may be slower/less metadata-rich than direct VCS clone.",
+      "analysis_time": "Completed with medium complexity assessment and broad module detection; quality is acceptable despite DeepWiki failure.",
+      "generation_time": "Generation completed and produced expected MCP scaffolding files; endpoint list indicates meaningful exposure of astroML capabilities.",
+      "test_time": "MCP plugin health checks passed; however, absence of detailed endpoint-level smoke/contract tests leaves functional depth unverified."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient data (reported 0 MB likely placeholder); cannot confirm efficiency.",
+      "cpu_efficiency": "Unknown/insufficient data (reported 0% likely placeholder); no reliable CPU profile available.",
+      "disk_usage": "Likely low-to-moderate based on 7 generated files, but generated size reported as 0 indicates missing instrumentation."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

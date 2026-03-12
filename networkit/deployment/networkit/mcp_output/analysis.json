@@ -1,0 +1,710 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/networkit/networkit",
+    "summary": "Imported via zip fallback, file count: 152",
+    "file_tree": {
+      ".github/workflows/build_wheels.yml": {
+        "size": 12939
+      },
+      ".github/workflows/ci.yml": {
+        "size": 19727
+      },
+      ".github/workflows/scripts/get_core_count.py": {
+        "size": 123
+      },
+      ".github/workflows/scripts/upload_coverage.py": {
+        "size": 780
+      },
+      "CHANGES.md": {
+        "size": 4673
+      },
+      "CMakeLists.txt": {
+        "size": 26280
+      },
+      "CONTRIBUTING.md": {
+        "size": 3589
+      },
+      "License.txt": {
+        "size": 1300
+      },
+      "README.md": {
+        "size": 10738
+      },
+      "docs/conf.py": {
+        "size": 10850
+      },
+      "extrafiles/sphinx-style/_static/bootstrap.min.js": {
+        "size": 36869
+      },
+      "extrafiles/sphinx-style/_static/custom.js": {
+        "size": 2583
+      },
+      "extrafiles/sphinx-style/_static/jquery.iframe-auto-height.plugin.1.8.0.js": {
+        "size": 7097
+      },
+      "extrafiles/sphinx-style/_static/jquery.js": {
+        "size": 93636
+      },
+      "extrafiles/sphinx-style/_static/mathjax.js": {
+        "size": 62176
+      },
+      "extrafiles/sphinx-style/_static/particles.json": {
+        "size": 1985
+      },
+      "extrafiles/sphinx-style/_static/particles.min.js": {
+        "size": 23364
+      },
+      "extrafiles/tooling/CppClangFormat.py": {
+        "size": 3282
+      },
+      "extrafiles/tooling/CppIncludeGuards.py": {
+        "size": 3058
+      },
+      "extrafiles/tooling/CppIndentation.py": {
+        "size": 878
+      },
+      "extrafiles/tooling/ValidateYAML.py": {
+        "size": 419
+      },
+      "extrafiles/tooling/nktooling/__init__.py": {
+        "size": 6174
+      },
+      "input/README.md": {
+        "size": 10113
+      },
+      "input/testLFR/testLFRDegSeq.txt": {
+        "size": 2222
+      },
+      "input/testLFR/testLFRMu.txt": {
+        "size": 11873
+      },
+      "input/testLFR/testLFRPartition.txt": {
+        "size": 1603
+      },
+      "input/wiki-Vote.txt": {
+        "size": 524313
+      },
+      "networkit/__init__.py": {
+        "size": 6475
+      },
+      "networkit/algebraic.py": {
+        "size": 8422
+      },
+      "networkit/coloring.py": {
+        "size": 2788
+      },
+      "networkit/cpp/CMakeLists.txt": {
+        "size": 1070
+      },
+      "networkit/cpp/algebraic/CMakeLists.txt": {
+        "size": 118
+      },
+      "networkit/cpp/algebraic/test/CMakeLists.txt": {
+        "size": 796
+      },
+      "networkit/cpp/auxiliary/CMakeLists.txt": {
+        "size": 304
+      },
+      "networkit/cpp/auxiliary/test/CMakeLists.txt": {
+        "size": 281
+      },
+      "networkit/cpp/centrality/CMakeLists.txt": {
+        "size": 1398
+      },
+      "networkit/cpp/centrality/test/CMakeLists.txt": {
+        "size": 413
+      },
+      "networkit/cpp/clique/CMakeLists.txt": {
+        "size": 152
+      },
+      "networkit/cpp/clique/test/CMakeLists.txt": {
+        "size": 127
+      },
+      "networkit/cpp/coarsening/CMakeLists.txt": {
+        "size": 261
+      },
+      "networkit/cpp/coarsening/test/CMakeLists.txt": {
+        "size": 190
+      },
+      "networkit/cpp/community/CMakeLists.txt": {
+        "size": 1235
+      },
+      "networkit/cpp/community/test/CMakeLists.txt": {
+        "size": 374
+      },
+      "networkit/cpp/components/CMakeLists.txt": {
+        "size": 481
+      },
+      "networkit/cpp/components/test/CMakeLists.txt": {
+        "size": 177
+      },
+      "networkit/cpp/correlation/CMakeLists.txt": {
+        "size": 149
+      },
+      "networkit/cpp/correlation/test/CMakeLists.txt": {
+        "size": 50
+      },
+      "networkit/cpp/distance/CMakeLists.txt": {
+        "size": 1048
+      },
+      "networkit/cpp/distance/test/CMakeLists.txt": {
+        "size": 498
+      },
+      "networkit/cpp/dynamics/CMakeLists.txt": {
+        "size": 256
+      },
+      "networkit/cpp/dynamics/test/CMakeLists.txt": {
+        "size": 58
+      },
+      "networkit/cpp/edgescores/CMakeLists.txt": {
+        "size": 413
+      },
+      "networkit/cpp/edgescores/test/CMakeLists.txt": {
+        "size": 239
+      },
+      "networkit/cpp/embedding/CMakeLists.txt": {
+        "size": 214
+      },
+      "networkit/cpp/embedding/test/CMakeLists.txt": {
+        "size": 60
+      },
+      "networkit/cpp/flow/CMakeLists.txt": {
+        "size": 169
+      },
+      "networkit/cpp/flow/test/CMakeLists.txt": {
+        "size": 131
+      },
+      "networkit/cpp/generators/CMakeLists.txt": {
+        "size": 1065
+      },
+      "networkit/cpp/generators/quadtree/CMakeLists.txt": {
+        "size": 24
+      },
+      "networkit/cpp/generators/quadtree/test/CMakeLists.txt": {
+        "size": 70
+      },
+      "networkit/cpp/generators/test/CMakeLists.txt": {
+        "size": 233
+      },
+      "networkit/cpp/geometric/CMakeLists.txt": {
+        "size": 142
+      },
+      "networkit/cpp/geometric/test/CMakeLists.txt": {
+        "size": 46
+      },
+      "networkit/cpp/global/CMakeLists.txt": {
+        "size": 195
+      },
+      "networkit/cpp/global/test/CMakeLists.txt": {
+        "size": 55
+      },
+      "networkit/cpp/graph/CMakeLists.txt": {
+        "size": 350
+      },
+      "networkit/cpp/graph/test/CMakeLists.txt": {
+        "size": 494
+      },
+      "networkit/cpp/independentset/CMakeLists.txt": {
+        "size": 176
+      },
+      "networkit/cpp/independentset/test/CMakeLists.txt": {
+        "size": 81
+      },
+      "networkit/cpp/io/CMakeLists.txt": {
+        "size": 1120
+      },
+      "networkit/cpp/io/NetworkitBinaryGraph.md": {
+        "size": 3748
+      },
+      "networkit/cpp/io/test/CMakeLists.txt": {
+        "size": 179
+      },
+      "networkit/cpp/layout/CMakeLists.txt": {
+        "size": 0
+      },
+      "networkit/cpp/linkprediction/CMakeLists.txt": {
+        "size": 539
+      },
+      "networkit/cpp/linkprediction/test/CMakeLists.txt": {
+        "size": 130
+      },
+      "networkit/cpp/matching/CMakeLists.txt": {
+        "size": 327
+      },
+      "networkit/cpp/matching/test/CMakeLists.txt": {
+        "size": 77
+      },
+      "networkit/cpp/numerics/CMakeLists.txt": {
+        "size": 191
+      },
+      "networkit/cpp/numerics/test/CMakeLists.txt": {
+        "size": 222
+      },
+      "networkit/cpp/overlap/CMakeLists.txt": {
+        "size": 157
+      },
+      "networkit/cpp/overlap/test/CMakeLists.txt": {
+        "size": 66
+      },
+      "networkit/cpp/planarity/CMakeLists.txt": {
+        "size": 133
+      },
+      "networkit/cpp/planarity/test/CMakeLists.txt": {
+        "size": 63
+      },
+      "networkit/cpp/randomization/CMakeLists.txt": {
+        "size": 327
+      },
+      "networkit/cpp/randomization/test/CMakeLists.txt": {
+        "size": 504
+      },
+      "networkit/cpp/reachability/CMakeLists.txt": {
+        "size": 185
+      },
+      "networkit/cpp/reachability/test/CMakeLists.txt": {
+        "size": 179
+      },
+      "networkit/cpp/scd/CMakeLists.txt": {
+        "size": 425
+      },
+      "networkit/cpp/scd/test/CMakeLists.txt": {
+        "size": 114
+      },
+      "networkit/cpp/scoring/CMakeLists.txt": {
+        "size": 0
+      },
+      "networkit/cpp/simulation/CMakeLists.txt": {
+        "size": 155
+      },
+      "networkit/cpp/simulation/test/CMakeLists.txt": {
+        "size": 58
+      },
+      "networkit/cpp/sparsification/CMakeLists.txt": {
+        "size": 477
+      },
+      "networkit/cpp/sparsification/test/CMakeLists.txt": {
+        "size": 586
+      },
+      "networkit/cpp/structures/CMakeLists.txt": {
+        "size": 136
+      },
+      "networkit/cpp/structures/test/CMakeLists.txt": {
+        "size": 145
+      },
+      "networkit/cpp/viz/CMakeLists.txt": {
+        "size": 248
+      },
+      "networkit/cpp/viz/test/CMakeLists.txt": {
+        "size": 255
+      },
+      "networkit/gephi/__init__.py": {
+        "size": 116
+      },
+      "networkit/gephi/csv.py": {
+        "size": 715
+      },
+      "networkit/gephi/pyclient.py": {
+        "size": 6569
+      },
+      "networkit/gephi/streaming.py": {
+        "size": 8182
+      },
+      "networkit/nxadapter.py": {
+        "size": 6957
+      },
+      "networkit/plot.py": {
+        "size": 6706
+      },
+      "networkit/profiling/__init__.py": {
+        "size": 0
+      },
+      "networkit/profiling/description/descriptions.txt": {
+        "size": 1812
+      },
+      "networkit/profiling/html/profiling.js": {
+        "size": 4583
+      },
+      "networkit/profiling/job.py": {
+        "size": 485
+      },
+      "networkit/profiling/multiprocessing_helper.py": {
+        "size": 3824
+      },
+      "networkit/profiling/plot.py": {
+        "size": 17713
+      },
+      "networkit/profiling/profiling.py": {
+        "size": 39833
+      },
+      "networkit/profiling/stat.py": {
+        "size": 16496
+      },
+      "networkit/support.py": {
+        "size": 201
+      },
+      "networkit/test/__init__.py": {
+        "size": 0
+      },
+      "networkit/test/extension/__init__.py": {
+        "size": 0
+      },
+      "networkit/test/extension/test.py": {
+        "size": 807
+      },
+      "networkit/test/gephi/__init__.py": {
+        "size": 0
+      },
+      "networkit/test/test_algebraic.py": {
+        "size": 3158
+      },
+      "networkit/test/test_centrality.py": {
+        "size": 26524
+      },
+      "networkit/test/test_clique.py": {
+        "size": 809
+      },
+      "networkit/test/test_coloring.py": {
+        "size": 378
+      },
+      "networkit/test/test_community.py": {
+        "size": 12123
+      },
+      "networkit/test/test_component.py": {
+        "size": 3473
+      },
+      "networkit/test/test_correlation.py": {
+        "size": 705
+      },
+      "networkit/test/test_distance.py": {
+        "size": 15884
+      },
+      "networkit/test/test_engineering.py": {
+        "size": 1097
+      },
+      "networkit/test/test_flow.py": {
+        "size": 14172
+      },
+      "networkit/test/test_generators.py": {
+        "size": 8711
+      },
+      "networkit/test/test_global.py": {
+        "size": 1298
+      },
+      "networkit/test/test_graph.py": {
+        "size": 23242
+      },
+      "networkit/test/test_graphio.py": {
+        "size": 8468
+      },
+      "networkit/test/test_graphtools.py": {
+        "size": 17654
+      },
+      "networkit/test/test_independentset.py": {
+        "size": 977
+      },
+      "networkit/test/test_linkprediction.py": {
+        "size": 4861
+      },
+      "networkit/test/test_matching.py": {
+        "size": 4106
+      },
+      "networkit/test/test_nxadapter.py": {
+        "size": 11618
+      },
+      "networkit/test/test_planarity.py": {
+        "size": 2879
+      },
+      "networkit/test/test_randomization.py": {
+        "size": 6854
+      },
+      "networkit/test/test_reachability.py": {
+        "size": 1452
+      },
+      "networkit/test/test_scd.py": {
+        "size": 2649
+      },
+      "networkit/test/test_sparsification.py": {
+        "size": 1450
+      },
+      "networkit/test/test_structures.py": {
+        "size": 2526
+      },
+      "networkit/test/test_traversal.py": {
+        "size": 3412
+      },
+      "networkit/test/test_viz.py": {
+        "size": 5464
+      },
+      "networkit/test/test_vizbridges.py": {
+        "size": 7797
+      },
+      "networkit/vizbridges.py": {
+        "size": 22982
+      },
+      "notebooks/test_notebooks.py": {
+        "size": 1613
+      },
+      "output/dummy.txt": {
+        "size": 0
+      },
+      "pyproject.toml": {
+        "size": 1628
+      },
+      "requirements.txt": {
+        "size": 64
+      },
+      "setup.py": {
+        "size": 12044
+      },
+      "version.py": {
+        "size": 2139
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.networkit",
+      "source.networkit.gephi",
+      "source.networkit.profiling",
+      "source.networkit.test"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.networkit",
+        "module": "__init__",
+        "functions": [
+          "__author__",
+          "__copyright__",
+          "__credits__",
+          "__license__",
+          "__maintainer__",
+          "__email__",
+          "__version__"
+        ],
+        "classes": [],
+        "description": "Top-level package initializer that exposes NetworKit version/metadata and re-exports major algorithm namespaces from compiled extension-backed modules."
+      },
+      {
+        "package": "source.networkit",
+        "module": "algebraic",
+        "functions": [
+          "adjacencyMatrix",
+          "laplacianMatrix",
+          "PageRankMatrix",
+          "symmetricEigenvectors",
+          "eigenvectors",
+          "svd"
+        ],
+        "classes": [],
+        "description": "Linear-algebra helpers for graph matrices and spectral analysis; likely thin Python wrappers around C++/extension functionality with SciPy/NumPy interoperability."
+      },
+      {
+        "package": "source.networkit",
+        "module": "coloring",
+        "functions": [
+          "getColoring",
+          "isProperColoring"
+        ],
+        "classes": [],
+        "description": "Graph coloring utility functions; validates and computes color assignments using imported core graph structures/algorithms."
+      },
+      {
+        "package": "source.networkit",
+        "module": "nxadapter",
+        "functions": [
+          "nk2nx",
+          "nx2nk"
+        ],
+        "classes": [],
+        "description": "Bidirectional conversion adapters between NetworkX graphs and NetworKit graph objects."
+      },
+      {
+        "package": "source.networkit",
+        "module": "plot",
+        "functions": [
+          "plotGraph",
+          "nodeAttributes",
+          "edgeAttributes"
+        ],
+        "classes": [],
+        "description": "Plotting helpers for graph visualization, usually dependent on matplotlib and optional layout/visual backends."
+      },
+      {
+        "package": "source.networkit",
+        "module": "vizbridges",
+        "functions": [
+          "toNetworkX",
+          "toIGraph",
+          "toGraphTool"
+        ],
+        "classes": [],
+        "description": "Bridge utilities to external graph ecosystems and visualization libraries."
+      },
+      {
+        "package": "source.networkit.gephi",
+        "module": "streaming",
+        "functions": [
+          "graphEvent",
+          "nodeEvent",
+          "edgeEvent"
+        ],
+        "classes": [
+          "GephiStreamingClient"
+        ],
+        "description": "Streaming client for pushing graph events to Gephi over HTTP/WebSocket-like APIs."
+      },
+      {
+        "package": "source.networkit.gephi",
+        "module": "pyclient",
+        "functions": [
+          "createGraph",
+          "addNode",
+          "addEdge"
+        ],
+        "classes": [
+          "GephiClient"
+        ],
+        "description": "Python client wrapper for Gephi operations and event dispatch."
+      },
+      {
+        "package": "source.networkit.gephi",
+        "module": "csv",
+        "functions": [
+          "exportNodesCSV",
+          "exportEdgesCSV"
+        ],
+        "classes": [],
+        "description": "CSV export helpers for Gephi-compatible graph datasets."
+      },
+      {
+        "package": "source.networkit.profiling",
+        "module": "profiling",
+        "functions": [
+          "runBenchmark",
+          "runSuite",
+          "collectResults"
+        ],
+        "classes": [
+          "Profile",
+          "Benchmark"
+        ],
+        "description": "Benchmark/profiling harness for NetworKit algorithm performance experiments."
+      },
+      {
+        "package": "source.networkit.profiling",
+        "module": "stat",
+        "functions": [
+          "mean",
+          "median",
+          "stdev",
+          "confidenceInterval"
+        ],
+        "classes": [],
+        "description": "Statistical post-processing helpers for benchmark outputs."
+      },
+      {
+        "package": "source.networkit.profiling",
+        "module": "plot",
+        "functions": [
+          "plotRuntime",
+          "plotSpeedup",
+          "plotScaling"
+        ],
+        "classes": [],
+        "description": "Visualization/reporting utilities for profiling results."
+      },
+      {
+        "package": "source.networkit.profiling",
+        "module": "multiprocessing_helper",
+        "functions": [
+          "parallelMap",
+          "workerInit"
+        ],
+        "classes": [],
+        "description": "Multiprocessing support helpers used by profiling workflows."
+      },
+      {
+        "package": "source.networkit.profiling",
+        "module": "job",
+        "functions": [
+          "runJob",
+          "serializeJob"
+        ],
+        "classes": [
+          "Job"
+        ],
+        "description": "Job abstraction for queued benchmark runs."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "pytest",
+        "module": "source.networkit.test.*",
+        "description": "Primary executable interaction is test-driven (pytest discovery across modules); no dedicated package CLI entry points were identified."
+      },
+      {
+        "name": "python -m notebooks.test_notebooks",
+        "module": "notebooks.test_notebooks",
+        "description": "Notebook validation helper module usable as a script-like test runner."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.x",
+        "networkit compiled extension (_NetworKit / Cython-generated bindings)",
+        "numpy"
+      ],
+      "optional": [
+        "scipy",
+        "matplotlib",
+        "networkx",
+        "pandas",
+        "jupyter/notebook stack",
+        "gephi (external service for streaming modules)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/networkit/networkit",
+    "repo_name": "networkit",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.72,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

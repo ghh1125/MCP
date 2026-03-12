@@ -1,0 +1,632 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/GeoStat-Framework/GStools",
+    "summary": "Imported via zip fallback, file count: 139",
+    "file_tree": {
+      ".git_archival.txt": {
+        "size": 144
+      },
+      ".github/workflows/main.yml": {
+        "size": 3938
+      },
+      ".readthedocs.yml": {
+        "size": 220
+      },
+      ".zenodo.json": {
+        "size": 1450
+      },
+      "AUTHORS.md": {
+        "size": 663
+      },
+      "CHANGELOG.md": {
+        "size": 34781
+      },
+      "CONTRIBUTING.md": {
+        "size": 1444
+      },
+      "README.md": {
+        "size": 17315
+      },
+      "docs/source/conf.py": {
+        "size": 11196
+      },
+      "examples/00_misc/00_tpl_stable.py": {
+        "size": 1974
+      },
+      "examples/00_misc/01_export.py": {
+        "size": 669
+      },
+      "examples/00_misc/02_check_rand_meth_sampling.py": {
+        "size": 2130
+      },
+      "examples/00_misc/04_herten.py": {
+        "size": 11160
+      },
+      "examples/00_misc/05_standalone_field.py": {
+        "size": 839
+      },
+      "examples/00_misc/grid_dim_origin_spacing.txt": {
+        "size": 150
+      },
+      "examples/01_random_field/00_gaussian.py": {
+        "size": 1373
+      },
+      "examples/01_random_field/01_srf_ensemble.py": {
+        "size": 1662
+      },
+      "examples/01_random_field/02_fancier.py": {
+        "size": 949
+      },
+      "examples/01_random_field/03_unstr_srf_export.py": {
+        "size": 1118
+      },
+      "examples/01_random_field/04_srf_merge.py": {
+        "size": 1648
+      },
+      "examples/01_random_field/05_mesh_ensemble.py": {
+        "size": 3278
+      },
+      "examples/01_random_field/06_pyvista_support.py": {
+        "size": 2171
+      },
+      "examples/01_random_field/07_higher_dimensions.py": {
+        "size": 2498
+      },
+      "examples/01_random_field/08_fourier.py": {
+        "size": 1528
+      },
+      "examples/01_random_field/09_fourier_trans.py": {
+        "size": 1814
+      },
+      "examples/02_cov_model/00_intro.py": {
+        "size": 2336
+      },
+      "examples/02_cov_model/01_basic_methods.py": {
+        "size": 1219
+      },
+      "examples/02_cov_model/02_aniso_rotation.py": {
+        "size": 1992
+      },
+      "examples/02_cov_model/03_spectral_methods.py": {
+        "size": 1596
+      },
+      "examples/02_cov_model/04_different_scales.py": {
+        "size": 2152
+      },
+      "examples/02_cov_model/05_additional_para.py": {
+        "size": 1436
+      },
+      "examples/02_cov_model/06_fitting_para_ranges.py": {
+        "size": 2277
+      },
+      "examples/03_variogram/00_fit_variogram.py": {
+        "size": 1067
+      },
+      "examples/03_variogram/01_find_best_model.py": {
+        "size": 2042
+      },
+      "examples/03_variogram/02_multi_vario.py": {
+        "size": 1558
+      },
+      "examples/03_variogram/03_directional_2d.py": {
+        "size": 2170
+      },
+      "examples/03_variogram/04_directional_3d.py": {
+        "size": 3300
+      },
+      "examples/03_variogram/05_auto_fit_variogram.py": {
+        "size": 1223
+      },
+      "examples/03_variogram/06_auto_bin_latlon.py": {
+        "size": 3015
+      },
+      "examples/04_vector_field/00_2d_vector_field.py": {
+        "size": 1582
+      },
+      "examples/04_vector_field/01_3d_vector_field.py": {
+        "size": 2051
+      },
+      "examples/05_kriging/00_simple_kriging.py": {
+        "size": 1396
+      },
+      "examples/05_kriging/01_ordinary_kriging.py": {
+        "size": 1506
+      },
+      "examples/05_kriging/02_pykrige_interface.py": {
+        "size": 2124
+      },
+      "examples/05_kriging/03_compare_kriging.py": {
+        "size": 1048
+      },
+      "examples/05_kriging/04_extdrift_kriging.py": {
+        "size": 696
+      },
+      "examples/05_kriging/05_universal_kriging.py": {
+        "size": 1342
+      },
+      "examples/05_kriging/06_detrended_kriging.py": {
+        "size": 852
+      },
+      "examples/05_kriging/07_detrended_ordinary_kriging.py": {
+        "size": 875
+      },
+      "examples/05_kriging/08_measurement_errors.py": {
+        "size": 1634
+      },
+      "examples/05_kriging/09_pseudo_inverse.py": {
+        "size": 1208
+      },
+      "examples/06_conditioned_fields/00_condition_ensemble.py": {
+        "size": 2297
+      },
+      "examples/06_conditioned_fields/01_2D_condition_ensemble.py": {
+        "size": 2570
+      },
+      "examples/07_transformations/00_log_normal.py": {
+        "size": 430
+      },
+      "examples/07_transformations/01_binary.py": {
+        "size": 491
+      },
+      "examples/07_transformations/02_discrete.py": {
+        "size": 1427
+      },
+      "examples/07_transformations/03_zinn_harvey.py": {
+        "size": 705
+      },
+      "examples/07_transformations/04_bimodal.py": {
+        "size": 696
+      },
+      "examples/07_transformations/05_combinations.py": {
+        "size": 1530
+      },
+      "examples/08_geo_coordinates/00_field_generation.py": {
+        "size": 2184
+      },
+      "examples/08_geo_coordinates/01_dwd_krige.py": {
+        "size": 6796
+      },
+      "examples/08_geo_coordinates/de_borders.txt": {
+        "size": 24600
+      },
+      "examples/08_geo_coordinates/temp_obs.txt": {
+        "size": 49321
+      },
+      "examples/09_spatio_temporal/01_precip_1d.py": {
+        "size": 4651
+      },
+      "examples/09_spatio_temporal/02_precip_2d.py": {
+        "size": 2083
+      },
+      "examples/09_spatio_temporal/03_geographic_coordinates.py": {
+        "size": 1111
+      },
+      "examples/10_normalizer/00_lognormal_kriging.py": {
+        "size": 1984
+      },
+      "examples/10_normalizer/01_auto_fit.py": {
+        "size": 3689
+      },
+      "examples/10_normalizer/02_compare.py": {
+        "size": 2204
+      },
+      "examples/11_plurigaussian/00_simple.py": {
+        "size": 2804
+      },
+      "examples/11_plurigaussian/01_pgs.py": {
+        "size": 3698
+      },
+      "examples/11_plurigaussian/02_spatial_relations.py": {
+        "size": 3906
+      },
+      "examples/11_plurigaussian/03_correlations.py": {
+        "size": 2325
+      },
+      "examples/11_plurigaussian/04_3d_pgs.py": {
+        "size": 2657
+      },
+      "examples/11_plurigaussian/05_conditioned.py": {
+        "size": 5355
+      },
+      "examples/11_plurigaussian/06_periodic.py": {
+        "size": 2874
+      },
+      "examples/12_sum_model/00_simple_sum_model.py": {
+        "size": 2311
+      },
+      "examples/12_sum_model/01_fitting_sum_model.py": {
+        "size": 3287
+      },
+      "pyproject.toml": {
+        "size": 3193
+      },
+      "src/gstools/__init__.py": {
+        "size": 4253
+      },
+      "src/gstools/config.py": {
+        "size": 316
+      },
+      "src/gstools/covmodel/__init__.py": {
+        "size": 1515
+      },
+      "src/gstools/covmodel/base.py": {
+        "size": 62663
+      },
+      "src/gstools/covmodel/fit.py": {
+        "size": 29723
+      },
+      "src/gstools/covmodel/models.py": {
+        "size": 30714
+      },
+      "src/gstools/covmodel/plot.py": {
+        "size": 9701
+      },
+      "src/gstools/covmodel/sum_tools.py": {
+        "size": 8304
+      },
+      "src/gstools/covmodel/tools.py": {
+        "size": 19134
+      },
+      "src/gstools/covmodel/tpl_models.py": {
+        "size": 18601
+      },
+      "src/gstools/field/__init__.py": {
+        "size": 643
+      },
+      "src/gstools/field/base.py": {
+        "size": 23802
+      },
+      "src/gstools/field/cond_srf.py": {
+        "size": 10315
+      },
+      "src/gstools/field/generator.py": {
+        "size": 29699
+      },
+      "src/gstools/field/pgs.py": {
+        "size": 5758
+      },
+      "src/gstools/field/plot.py": {
+        "size": 13182
+      },
+      "src/gstools/field/srf.py": {
+        "size": 7999
+      },
+      "src/gstools/field/tools.py": {
+        "size": 9217
+      },
+      "src/gstools/field/upscaling.py": {
+        "size": 2850
+      },
+      "src/gstools/krige/__init__.py": {
+        "size": 441
+      },
+      "src/gstools/krige/base.py": {
+        "size": 30424
+      },
+      "src/gstools/krige/methods.py": {
+        "size": 21018
+      },
+      "src/gstools/krige/tools.py": {
+        "size": 2554
+      },
+      "src/gstools/normalizer/__init__.py": {
+        "size": 903
+      },
+      "src/gstools/normalizer/base.py": {
+        "size": 8573
+      },
+      "src/gstools/normalizer/methods.py": {
+        "size": 10331
+      },
+      "src/gstools/normalizer/tools.py": {
+        "size": 6386
+      },
+      "src/gstools/random/__init__.py": {
+        "size": 483
+      },
+      "src/gstools/random/rng.py": {
+        "size": 7760
+      },
+      "src/gstools/random/tools.py": {
+        "size": 4912
+      },
+      "src/gstools/tools/__init__.py": {
+        "size": 2709
+      },
+      "src/gstools/tools/export.py": {
+        "size": 7839
+      },
+      "src/gstools/tools/geometric.py": {
+        "size": 22069
+      },
+      "src/gstools/tools/misc.py": {
+        "size": 4261
+      },
+      "src/gstools/tools/special.py": {
+        "size": 7422
+      },
+      "src/gstools/transform/__init__.py": {
+        "size": 1549
+      },
+      "src/gstools/transform/array.py": {
+        "size": 11201
+      },
+      "src/gstools/transform/field.py": {
+        "size": 20373
+      },
+      "src/gstools/variogram/__init__.py": {
+        "size": 667
+      },
+      "src/gstools/variogram/binning.py": {
+        "size": 3494
+      },
+      "src/gstools/variogram/variogram.py": {
+        "size": 20991
+      },
+      "tests/data/variogram.txt": {
+        "size": 5000
+      },
+      "tests/test_condition.py": {
+        "size": 6012
+      },
+      "tests/test_covmodel.py": {
+        "size": 16534
+      },
+      "tests/test_export.py": {
+        "size": 1974
+      },
+      "tests/test_field.py": {
+        "size": 4053
+      },
+      "tests/test_fouriergen.py": {
+        "size": 3566
+      },
+      "tests/test_incomprrandmeth.py": {
+        "size": 2110
+      },
+      "tests/test_krige.py": {
+        "size": 11094
+      },
+      "tests/test_latlon.py": {
+        "size": 5935
+      },
+      "tests/test_normalizer.py": {
+        "size": 7142
+      },
+      "tests/test_pgs.py": {
+        "size": 7161
+      },
+      "tests/test_randmeth.py": {
+        "size": 2744
+      },
+      "tests/test_rng.py": {
+        "size": 4257
+      },
+      "tests/test_srf.py": {
+        "size": 12933
+      },
+      "tests/test_sum_model.py": {
+        "size": 8835
+      },
+      "tests/test_temporal.py": {
+        "size": 2304
+      },
+      "tests/test_transform.py": {
+        "size": 6352
+      },
+      "tests/test_variogram_structured.py": {
+        "size": 11183
+      },
+      "tests/test_variogram_unstructured.py": {
+        "size": 15024
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.src.gstools"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level API re-export hub for covariance models, random fields, kriging, variogram, normalizers, transforms, and tools."
+      },
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.covmodel.base",
+        "functions": [
+          "vario_axis",
+          "cov_axis",
+          "cor_axis",
+          "spectrum_axis"
+        ],
+        "classes": [
+          "CovModel"
+        ],
+        "description": "Core covariance model abstraction and math backbone (variogram/covariance/correlation/spectrum behavior, anisotropy, rotation, dimensional handling)."
+      },
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.covmodel.models",
+        "functions": [],
+        "classes": [
+          "Gaussian",
+          "Exponential",
+          "Matern",
+          "Stable",
+          "Rational",
+          "Cubic",
+          "Linear",
+          "Circular",
+          "Spherical",
+          "HyperSpherical",
+          "SuperSpherical",
+          "JBessel"
+        ],
+        "description": "Concrete covariance model family implementations used throughout simulation, variogram fitting, and kriging."
+      },
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.covmodel.fit",
+        "functions": [
+          "fit_variogram",
+          "fit_variogram_auto"
+        ],
+        "classes": [],
+        "description": "Parameter fitting utilities linking empirical variograms to covariance model parameters."
+      },
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.field.srf",
+        "functions": [],
+        "classes": [
+          "SRF"
+        ],
+        "description": "Spatial random field generation interface; central simulation workflow object."
+      },
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.field.cond_srf",
+        "functions": [],
+        "classes": [
+          "CondSRF"
+        ],
+        "description": "Conditioned random field generation based on kriging constraints."
+      },
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.field.generator",
+        "functions": [],
+        "classes": [
+          "RandMeth",
+          "IncomprRandMeth",
+          "Fourier"
+        ],
+        "description": "Low-level random field generator engines (randomization and Fourier-based backends)."
+      },
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.krige.methods",
+        "functions": [],
+        "classes": [
+          "Simple",
+          "Ordinary",
+          "Universal",
+          "ExternalDrift",
+          "Detrended",
+          "DetrendedOrdinary"
+        ],
+        "description": "Kriging method implementations for interpolation/estimation workflows."
+      },
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.variogram.variogram",
+        "functions": [
+          "vario_estimate",
+          "vario_estimate_axis",
+          "standard_bins"
+        ],
+        "classes": [],
+        "description": "Empirical variogram estimation for structured/unstructured data and directional analysis."
+      },
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.normalizer.methods",
+        "functions": [],
+        "classes": [
+          "LogNormal",
+          "BoxCox",
+          "YeoJohnson",
+          "Modulus",
+          "Manly"
+        ],
+        "description": "Distribution normalizers used in preprocessing and kriging chains."
+      },
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.transform.field",
+        "functions": [
+          "binary",
+          "discrete",
+          "zinnharvey",
+          "normal_to_lognormal",
+          "normal_force_moments"
+        ],
+        "classes": [],
+        "description": "Field-level transformations for categorical/lognormal and geostatistical post-processing."
+      },
+      {
+        "package": "source.src.gstools",
+        "module": "source.src.gstools.tools.export",
+        "functions": [
+          "to_vtk",
+          "to_pyvista",
+          "to_structured"
+        ],
+        "classes": [],
+        "description": "Export and interoperability helpers for visualization/mesh pipelines."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.95
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy"
+      ],
+      "optional": [
+        "matplotlib",
+        "meshio",
+        "pyevtk",
+        "emcee",
+        "hankel",
+        "gstools-cython"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.95,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/GeoStat-Framework/GStools",
+    "repo_name": "GStools",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.95,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

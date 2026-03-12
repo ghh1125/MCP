@@ -1,0 +1,8 @@
+fastmcp
+fastapi
+uvicorn[standard]
+pydantic>=2.0.0
+setuptools (build-time)
+Cython (build-time for source builds)
+htslib/samtools/bcftools components vendored/linked through pysam build
+zlib/bz2/lzma/curl/system compression+IO libs as platform-linked transitive requirements

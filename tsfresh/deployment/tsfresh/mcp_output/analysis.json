@@ -1,0 +1,1265 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/blue-yonder/tsfresh",
+    "summary": "Imported via zip fallback, file count: 85",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug-report.md": {
+        "size": 1290
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 446
+      },
+      ".github/workflows/benchmark_default_branch.yml": {
+        "size": 856
+      },
+      ".github/workflows/deploy.yml": {
+        "size": 702
+      },
+      ".github/workflows/stylecheck.yml": {
+        "size": 218
+      },
+      ".github/workflows/test.yml": {
+        "size": 1451
+      },
+      ".github/workflows/test_all.yml": {
+        "size": 1094
+      },
+      ".pre-commit-config.yaml": {
+        "size": 537
+      },
+      ".readthedocs.yml": {
+        "size": 527
+      },
+      "LICENSE.txt": {
+        "size": 1092
+      },
+      "README.md": {
+        "size": 9370
+      },
+      "binder/requirements.txt": {
+        "size": 14
+      },
+      "docs/conf.py": {
+        "size": 4619
+      },
+      "setup.cfg": {
+        "size": 4270
+      },
+      "setup.py": {
+        "size": 571
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/benchmark.py": {
+        "size": 1532
+      },
+      "tests/fixtures.py": {
+        "size": 12730
+      },
+      "tests/integrations/__init__.py": {
+        "size": 0
+      },
+      "tests/integrations/examples/__init__.py": {
+        "size": 0
+      },
+      "tests/integrations/examples/test_driftbif_simulation.py": {
+        "size": 4645
+      },
+      "tests/integrations/examples/test_har_dataset.py": {
+        "size": 1176
+      },
+      "tests/integrations/examples/test_robot_execution_failures.py": {
+        "size": 1900
+      },
+      "tests/integrations/test_bindings.py": {
+        "size": 1082
+      },
+      "tests/integrations/test_feature_extraction.py": {
+        "size": 8708
+      },
+      "tests/integrations/test_full_pipeline.py": {
+        "size": 2570
+      },
+      "tests/integrations/test_notebooks.py": {
+        "size": 4617
+      },
+      "tests/integrations/test_relevant_feature_extraction.py": {
+        "size": 6215
+      },
+      "tests/units/__init__.py": {
+        "size": 0
+      },
+      "tests/units/feature_extraction/__init__.py": {
+        "size": 0
+      },
+      "tests/units/feature_extraction/test_data.py": {
+        "size": 18301
+      },
+      "tests/units/feature_extraction/test_extraction.py": {
+        "size": 15098
+      },
+      "tests/units/feature_extraction/test_feature_calculations.py": {
+        "size": 83450
+      },
+      "tests/units/feature_extraction/test_settings.py": {
+        "size": 14252
+      },
+      "tests/units/feature_selection/__init__.py": {
+        "size": 0
+      },
+      "tests/units/feature_selection/test_checks.py": {
+        "size": 5673
+      },
+      "tests/units/feature_selection/test_fdr_control.py": {
+        "size": 1567
+      },
+      "tests/units/feature_selection/test_feature_significance.py": {
+        "size": 10593
+      },
+      "tests/units/feature_selection/test_relevance.py": {
+        "size": 9321
+      },
+      "tests/units/feature_selection/test_selection.py": {
+        "size": 3169
+      },
+      "tests/units/feature_selection/test_significance_tests.py": {
+        "size": 6511
+      },
+      "tests/units/scripts/__init__.py": {
+        "size": 0
+      },
+      "tests/units/scripts/test_run_tsfresh.py": {
+        "size": 4295
+      },
+      "tests/units/transformers/__init__.py": {
+        "size": 0
+      },
+      "tests/units/transformers/test_feature_augmenter.py": {
+        "size": 3864
+      },
+      "tests/units/transformers/test_feature_selector.py": {
+        "size": 6774
+      },
+      "tests/units/transformers/test_per_column_imputer.py": {
+        "size": 7465
+      },
+      "tests/units/transformers/test_relevant_feature_augmenter.py": {
+        "size": 8078
+      },
+      "tests/units/utilities/__init__.py": {
+        "size": 0
+      },
+      "tests/units/utilities/test_dataframe_functions.py": {
+        "size": 46624
+      },
+      "tests/units/utilities/test_distribution.py": {
+        "size": 7842
+      },
+      "tests/units/utilities/test_string_manipilations.py": {
+        "size": 1191
+      },
+      "tsfresh/__init__.py": {
+        "size": 861
+      },
+      "tsfresh/convenience/__init__.py": {
+        "size": 132
+      },
+      "tsfresh/convenience/bindings.py": {
+        "size": 9597
+      },
+      "tsfresh/convenience/relevant_extraction.py": {
+        "size": 9380
+      },
+      "tsfresh/defaults.py": {
+        "size": 629
+      },
+      "tsfresh/examples/__init__.py": {
+        "size": 379
+      },
+      "tsfresh/examples/driftbif_simulation.py": {
+        "size": 6527
+      },
+      "tsfresh/examples/har_dataset.py": {
+        "size": 3426
+      },
+      "tsfresh/examples/robot_execution_failures.py": {
+        "size": 4610
+      },
+      "tsfresh/feature_extraction/__init__.py": {
+        "size": 318
+      },
+      "tsfresh/feature_extraction/data.py": {
+        "size": 16831
+      },
+      "tsfresh/feature_extraction/extraction.py": {
+        "size": 14940
+      },
+      "tsfresh/feature_extraction/feature_calculators.py": {
+        "size": 82258
+      },
+      "tsfresh/feature_extraction/settings.py": {
+        "size": 15403
+      },
+      "tsfresh/feature_selection/__init__.py": {
+        "size": 586
+      },
+      "tsfresh/feature_selection/relevance.py": {
+        "size": 15972
+      },
+      "tsfresh/feature_selection/selection.py": {
+        "size": 8174
+      },
+      "tsfresh/feature_selection/significance_tests.py": {
+        "size": 8684
+      },
+      "tsfresh/scripts/__init__.py": {
+        "size": 0
+      },
+      "tsfresh/scripts/data.txt": {
+        "size": 524313
+      },
+      "tsfresh/scripts/measure_execution_time.py": {
+        "size": 5804
+      },
+      "tsfresh/scripts/run_tsfresh.py": {
+        "size": 4300
+      },
+      "tsfresh/scripts/test_timing.py": {
+        "size": 2607
+      },
+      "tsfresh/transformers/__init__.py": {
+        "size": 413
+      },
+      "tsfresh/transformers/feature_augmenter.py": {
+        "size": 11206
+      },
+      "tsfresh/transformers/feature_selector.py": {
+        "size": 10619
+      },
+      "tsfresh/transformers/per_column_imputer.py": {
+        "size": 5205
+      },
+      "tsfresh/transformers/relevant_feature_augmenter.py": {
+        "size": 23301
+      },
+      "tsfresh/utilities/__init__.py": {
+        "size": 138
+      },
+      "tsfresh/utilities/dataframe_functions.py": {
+        "size": 28650
+      },
+      "tsfresh/utilities/distribution.py": {
+        "size": 18819
+      },
+      "tsfresh/utilities/profiling.py": {
+        "size": 2574
+      },
+      "tsfresh/utilities/string_manipulation.py": {
+        "size": 2528
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.tests",
+      "source.tests.integrations",
+      "source.tests.units",
+      "source.tsfresh",
+      "source.tsfresh.convenience",
+      "source.tsfresh.examples",
+      "source.tsfresh.feature_extraction",
+      "source.tsfresh.feature_selection",
+      "source.tsfresh.scripts",
+      "source.tsfresh.transformers",
+      "source.tsfresh.utilities"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": true,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "tsfresh.feature_extraction",
+        "module": "feature_calculators",
+        "functions": [
+          "abs_energy",
+          "absolute_maximum",
+          "absolute_sum_of_changes",
+          "agg_autocorrelation",
+          "agg_linear_trend",
+          "approximate_entropy",
+          "ar_coefficient",
+          "augmented_dickey_fuller",
+          "autocorrelation",
+          "benford_correlation",
+          "binned_entropy",
+          "c3",
+          "change_quantiles",
+          "cid_ce",
+          "count_above",
+          "count_above_mean",
+          "count_below",
+          "count_below_mean",
+          "cwt_coefficients",
+          "energy_ratio_by_chunks",
+          "fft_aggregated",
+          "fft_coefficient",
+          "first_location_of_maximum",
+          "first_location_of_minimum",
+          "fourier_entropy",
+          "friedrich_coefficients",
+          "has_duplicate",
+          "has_duplicate_max",
+          "has_duplicate_min",
+          "index_mass_quantile",
+          "kurtosis",
+          "large_standard_deviation",
+          "last_location_of_maximum",
+          "last_location_of_minimum",
+          "lempel_ziv_complexity",
+          "length",
+          "linear_trend",
+          "linear_trend_timewise",
+          "longest_strike_above_mean",
+          "longest_strike_below_mean",
+          "matrix_profile",
+          "max_langevin_fixed_point",
+          "maximum",
+          "mean",
+          "mean_abs_change",
+          "mean_change",
+          "mean_n_absolute_max",
+          "mean_second_derivative_central",
+          "median",
+          "minimum",
+          "number_crossing_m",
+          "number_cwt_peaks",
+          "number_peaks",
+          "partial_autocorrelation",
+          "percentage_of_reoccurring_datapoints_to_all_datapoints",
+          "percentage_of_reoccurring_values_to_all_values",
+          "permutation_entropy",
+          "quantile",
+          "query_similarity_count",
+          "range_count",
+          "ratio_beyond_r_sigma",
+          "ratio_value_number_to_time_series_length",
+          "root_mean_square",
+          "sample_entropy",
+          "set_property",
+          "skewness",
+          "spkt_welch_density",
+          "standard_deviation",
+          "sum_of_reoccurring_data_points",
+          "sum_of_reoccurring_values",
+          "sum_values",
+          "symmetry_looking",
+          "time_reversal_asymmetry_statistic",
+          "value_count",
+          "variance",
+          "variance_larger_than_standard_deviation",
+          "variation_coefficient"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "set_property": [
+            "key",
+            "value"
+          ],
+          "variance_larger_than_standard_deviation": [
+            "x"
+          ],
+          "ratio_beyond_r_sigma": [
+            "x",
+            "r"
+          ],
+          "large_standard_deviation": [
+            "x",
+            "r"
+          ],
+          "symmetry_looking": [
+            "x",
+            "param"
+          ],
+          "has_duplicate_max": [
+            "x"
+          ],
+          "has_duplicate_min": [
+            "x"
+          ],
+          "has_duplicate": [
+            "x"
+          ],
+          "sum_values": [
+            "x"
+          ],
+          "agg_autocorrelation": [
+            "x",
+            "param"
+          ],
+          "partial_autocorrelation": [
+            "x",
+            "param"
+          ],
+          "augmented_dickey_fuller": [
+            "x",
+            "param"
+          ],
+          "abs_energy": [
+            "x"
+          ],
+          "cid_ce": [
+            "x",
+            "normalize"
+          ],
+          "mean_abs_change": [
+            "x"
+          ],
+          "mean_change": [
+            "x"
+          ],
+          "mean_second_derivative_central": [
+            "x"
+          ],
+          "median": [
+            "x"
+          ],
+          "mean": [
+            "x"
+          ],
+          "length": [
+            "x"
+          ],
+          "standard_deviation": [
+            "x"
+          ],
+          "variation_coefficient": [
+            "x"
+          ],
+          "variance": [
+            "x"
+          ],
+          "skewness": [
+            "x"
+          ],
+          "kurtosis": [
+            "x"
+          ],
+          "root_mean_square": [
+            "x"
+          ],
+          "absolute_sum_of_changes": [
+            "x"
+          ],
+          "longest_strike_below_mean": [
+            "x"
+          ],
+          "longest_strike_above_mean": [
+            "x"
+          ],
+          "count_above_mean": [
+            "x"
+          ],
+          "count_below_mean": [
+            "x"
+          ],
+          "last_location_of_maximum": [
+            "x"
+          ],
+          "first_location_of_maximum": [
+            "x"
+          ],
+          "last_location_of_minimum": [
+            "x"
+          ],
+          "first_location_of_minimum": [
+            "x"
+          ],
+          "percentage_of_reoccurring_values_to_all_values": [
+            "x"
+          ],
+          "percentage_of_reoccurring_datapoints_to_all_datapoints": [
+            "x"
+          ],
+          "sum_of_reoccurring_values": [
+            "x"
+          ],
+          "sum_of_reoccurring_data_points": [
+            "x"
+          ],
+          "ratio_value_number_to_time_series_length": [
+            "x"
+          ],
+          "fft_coefficient": [
+            "x",
+            "param"
+          ],
+          "fft_aggregated": [
+            "x",
+            "param"
+          ],
+          "number_peaks": [
+            "x",
+            "n"
+          ],
+          "index_mass_quantile": [
+            "x",
+            "param"
+          ],
+          "number_cwt_peaks": [
+            "x",
+            "n"
+          ],
+          "linear_trend": [
+            "x",
+            "param"
+          ],
+          "cwt_coefficients": [
+            "x",
+            "param"
+          ],
+          "spkt_welch_density": [
+            "x",
+            "param"
+          ],
+          "ar_coefficient": [
+            "x",
+            "param"
+          ],
+          "change_quantiles": [
+            "x",
+            "ql",
+            "qh",
+            "isabs",
+            "f_agg"
+          ],
+          "time_reversal_asymmetry_statistic": [
+            "x",
+            "lag"
+          ],
+          "c3": [
+            "x",
+            "lag"
+          ],
+          "mean_n_absolute_max": [
+            "x",
+            "number_of_maxima"
+          ],
+          "binned_entropy": [
+            "x",
+            "max_bins"
+          ],
+          "sample_entropy": [
+            "x"
+          ],
+          "approximate_entropy": [
+            "x",
+            "m",
+            "r"
+          ],
+          "fourier_entropy": [
+            "x",
+            "bins"
+          ],
+          "lempel_ziv_complexity": [
+            "x",
+            "bins"
+          ],
+          "permutation_entropy": [
+            "x",
+            "tau",
+            "dimension"
+          ],
+          "autocorrelation": [
+            "x",
+            "lag"
+          ],
+          "quantile": [
+            "x",
+            "q"
+          ],
+          "number_crossing_m": [
+            "x",
+            "m"
+          ],
+          "maximum": [
+            "x"
+          ],
+          "absolute_maximum": [
+            "x"
+          ],
+          "minimum": [
+            "x"
+          ],
+          "value_count": [
+            "x",
+            "value"
+          ],
+          "range_count": [
+            "x",
+            "min",
+            "max"
+          ],
+          "friedrich_coefficients": [
+            "x",
+            "param"
+          ],
+          "max_langevin_fixed_point": [
+            "x",
+            "r",
+            "m"
+          ],
+          "agg_linear_trend": [
+            "x",
+            "param"
+          ],
+          "energy_ratio_by_chunks": [
+            "x",
+            "param"
+          ],
+          "linear_trend_timewise": [
+            "x",
+            "param"
+          ],
+          "count_above": [
+            "x",
+            "t"
+          ],
+          "count_below": [
+            "x",
+            "t"
+          ],
+          "benford_correlation": [
+            "x"
+          ],
+          "matrix_profile": [
+            "x",
+            "param"
+          ],
+          "query_similarity_count": [
+            "x",
+            "param"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.feature_extraction",
+        "module": "extraction",
+        "functions": [
+          "extract_features"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "extract_features": [
+            "timeseries_container",
+            "default_fc_parameters",
+            "kind_to_fc_parameters",
+            "column_id",
+            "column_sort",
+            "column_kind",
+            "column_value",
+            "chunksize",
+            "n_jobs",
+            "show_warnings",
+            "disable_progressbar",
+            "impute_function",
+            "profile",
+            "profiling_filename",
+            "profiling_sorting",
+            "distributor",
+            "pivot"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.feature_extraction",
+        "module": "settings",
+        "functions": [
+          "from_columns",
+          "include_function"
+        ],
+        "classes": [
+          "ComprehensiveFCParameters",
+          "EfficientFCParameters",
+          "IndexBasedFCParameters",
+          "MinimalFCParameters",
+          "PickableSettings",
+          "TimeBasedFCParameters"
+        ],
+        "function_signatures": {
+          "from_columns": [
+            "columns",
+            "columns_to_ignore"
+          ],
+          "include_function": [
+            "func",
+            "exclusion_attr"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.feature_extraction",
+        "module": "data",
+        "functions": [
+          "to_tsdata"
+        ],
+        "classes": [
+          "DaskTsAdapter",
+          "LongTsFrameAdapter",
+          "PartitionedTsData",
+          "Timeseries",
+          "TsData",
+          "TsDictAdapter",
+          "WideTsFrameAdapter"
+        ],
+        "function_signatures": {
+          "to_tsdata": [
+            "df",
+            "column_id",
+            "column_kind",
+            "column_value",
+            "column_sort"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.feature_selection",
+        "module": "significance_tests",
+        "functions": [
+          "target_binary_feature_binary_test",
+          "target_binary_feature_real_test",
+          "target_real_feature_binary_test",
+          "target_real_feature_real_test"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "target_binary_feature_binary_test": [
+            "x",
+            "y"
+          ],
+          "target_binary_feature_real_test": [
+            "x",
+            "y",
+            "test"
+          ],
+          "target_real_feature_binary_test": [
+            "x",
+            "y"
+          ],
+          "target_real_feature_real_test": [
+            "x",
+            "y"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.feature_selection",
+        "module": "selection",
+        "functions": [
+          "select_features"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "select_features": [
+            "X",
+            "y",
+            "test_for_binary_target_binary_feature",
+            "test_for_binary_target_real_feature",
+            "test_for_real_target_binary_feature",
+            "test_for_real_target_real_feature",
+            "fdr_level",
+            "hypotheses_independent",
+            "n_jobs",
+            "show_warnings",
+            "chunksize",
+            "ml_task",
+            "multiclass",
+            "n_significant"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.feature_selection",
+        "module": "relevance",
+        "functions": [
+          "calculate_relevance_table",
+          "combine_relevance_tables",
+          "get_feature_type",
+          "infer_ml_task"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "calculate_relevance_table": [
+            "X",
+            "y",
+            "ml_task",
+            "multiclass",
+            "n_significant",
+            "n_jobs",
+            "show_warnings",
+            "chunksize",
+            "test_for_binary_target_binary_feature",
+            "test_for_binary_target_real_feature",
+            "test_for_real_target_binary_feature",
+            "test_for_real_target_real_feature",
+            "fdr_level",
+            "hypotheses_independent"
+          ],
+          "infer_ml_task": [
+            "y"
+          ],
+          "combine_relevance_tables": [
+            "relevance_tables"
+          ],
+          "get_feature_type": [
+            "feature_column"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.utilities",
+        "module": "dataframe_functions",
+        "functions": [
+          "add_sub_time_series_index",
+          "check_for_nans_in_columns",
+          "get_ids",
+          "get_range_values_per_column",
+          "impute",
+          "impute_dataframe_range",
+          "impute_dataframe_zero",
+          "make_forecasting_frame",
+          "restrict_input_to_index",
+          "roll_time_series"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "check_for_nans_in_columns": [
+            "df",
+            "columns"
+          ],
+          "impute": [
+            "df_impute"
+          ],
+          "impute_dataframe_zero": [
+            "df_impute"
+          ],
+          "impute_dataframe_range": [
+            "df_impute",
+            "col_to_max",
+            "col_to_min",
+            "col_to_median"
+          ],
+          "get_range_values_per_column": [
+            "df"
+          ],
+          "restrict_input_to_index": [
+            "df_or_dict",
+            "column_id",
+            "index"
+          ],
+          "get_ids": [
+            "df_or_dict",
+            "column_id"
+          ],
+          "roll_time_series": [
+            "df_or_dict",
+            "column_id",
+            "column_sort",
+            "column_kind",
+            "rolling_direction",
+            "max_timeshift",
+            "min_timeshift",
+            "chunksize",
+            "n_jobs",
+            "show_warnings",
+            "disable_progressbar",
+            "distributor"
+          ],
+          "make_forecasting_frame": [
+            "x",
+            "kind",
+            "max_timeshift",
+            "rolling_direction"
+          ],
+          "add_sub_time_series_index": [
+            "df_or_dict",
+            "sub_length",
+            "column_id",
+            "column_sort",
+            "column_kind"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.utilities",
+        "module": "distribution",
+        "functions": [
+          "initialize_warnings_in_workers"
+        ],
+        "classes": [
+          "ApplyDistributor",
+          "ClusterDaskDistributor",
+          "DistributorBaseClass",
+          "IterableDistributorBaseClass",
+          "LocalDaskDistributor",
+          "MapDistributor",
+          "MultiprocessingDistributor"
+        ],
+        "function_signatures": {
+          "initialize_warnings_in_workers": [
+            "show_warnings"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.utilities",
+        "module": "string_manipulation",
+        "functions": [
+          "convert_to_output_format",
+          "get_config_from_string"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_config_from_string": [
+            "parts"
+          ],
+          "convert_to_output_format": [
+            "param"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.utilities",
+        "module": "profiling",
+        "functions": [
+          "end_profiling",
+          "get_n_jobs",
+          "set_n_jobs",
+          "start_profiling"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "start_profiling": [],
+          "end_profiling": [
+            "profiler",
+            "filename",
+            "sorting"
+          ],
+          "get_n_jobs": [],
+          "set_n_jobs": [
+            "n_jobs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.transformers",
+        "module": "feature_selector",
+        "functions": [],
+        "classes": [
+          "FeatureSelector"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.transformers",
+        "module": "per_column_imputer",
+        "functions": [],
+        "classes": [
+          "PerColumnImputer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.transformers",
+        "module": "feature_augmenter",
+        "functions": [],
+        "classes": [
+          "FeatureAugmenter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.transformers",
+        "module": "relevant_feature_augmenter",
+        "functions": [],
+        "classes": [
+          "RelevantFeatureAugmenter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.examples",
+        "module": "robot_execution_failures",
+        "functions": [
+          "download_robot_execution_failures",
+          "load_robot_execution_failures"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "download_robot_execution_failures": [
+            "file_name"
+          ],
+          "load_robot_execution_failures": [
+            "multiclass",
+            "file_name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.examples",
+        "module": "driftbif_simulation",
+        "functions": [
+          "load_driftbif",
+          "sample_tau"
+        ],
+        "classes": [
+          "velocity"
+        ],
+        "function_signatures": {
+          "sample_tau": [
+            "n",
+            "kappa_3",
+            "ratio",
+            "rel_increase"
+          ],
+          "load_driftbif": [
+            "n",
+            "length",
+            "m",
+            "classification",
+            "kappa_3",
+            "seed"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.examples",
+        "module": "har_dataset",
+        "functions": [
+          "download_har_dataset",
+          "load_har_classes",
+          "load_har_dataset"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "download_har_dataset": [
+            "folder_name"
+          ],
+          "load_har_dataset": [
+            "folder_name"
+          ],
+          "load_har_classes": [
+            "folder_name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.scripts",
+        "module": "test_timing",
+        "functions": [
+          "measure_temporal_complexity",
+          "plot_results",
+          "simulate_with_length"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "simulate_with_length": [
+            "length",
+            "df"
+          ],
+          "plot_results": [],
+          "measure_temporal_complexity": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.scripts",
+        "module": "run_tsfresh",
+        "functions": [
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [
+            "console_args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.scripts",
+        "module": "measure_execution_time",
+        "functions": [],
+        "classes": [
+          "CombinerTask",
+          "DataCreationTask",
+          "FullTimingTask",
+          "TimingTask"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.convenience",
+        "module": "relevant_extraction",
+        "functions": [
+          "extract_relevant_features"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "extract_relevant_features": [
+            "timeseries_container",
+            "y",
+            "X",
+            "default_fc_parameters",
+            "kind_to_fc_parameters",
+            "column_id",
+            "column_sort",
+            "column_kind",
+            "column_value",
+            "show_warnings",
+            "disable_progressbar",
+            "profile",
+            "profiling_filename",
+            "profiling_sorting",
+            "test_for_binary_target_binary_feature",
+            "test_for_binary_target_real_feature",
+            "test_for_real_target_binary_feature",
+            "test_for_real_target_real_feature",
+            "fdr_level",
+            "hypotheses_independent",
+            "n_jobs",
+            "distributor",
+            "chunksize",
+            "ml_task"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tsfresh.convenience",
+        "module": "bindings",
+        "functions": [
+          "dask_feature_extraction_on_chunk",
+          "spark_feature_extraction_on_chunk"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "dask_feature_extraction_on_chunk": [
+            "df",
+            "column_id",
+            "column_kind",
+            "column_value",
+            "column_sort",
+            "default_fc_parameters",
+            "kind_to_fc_parameters"
+          ],
+          "spark_feature_extraction_on_chunk": [
+            "df",
+            "column_id",
+            "column_kind",
+            "column_value",
+            "column_sort",
+            "default_fc_parameters",
+            "kind_to_fc_parameters"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "run_tsfresh",
+        "module": "source.tsfresh.scripts.run_tsfresh",
+        "description": "CLI script entry for running feature extraction from command line over input data."
+      },
+      {
+        "name": "measure_execution_time",
+        "module": "source.tsfresh.scripts.measure_execution_time",
+        "description": "Benchmark-oriented command script to measure tsfresh execution performance."
+      },
+      {
+        "name": "test_timing",
+        "module": "source.tsfresh.scripts.test_timing",
+        "description": "Timing test utility script for performance diagnostics."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "pandas",
+        "scipy",
+        "statsmodels",
+        "scikit-learn",
+        "tqdm",
+        "requests",
+        "stumpy",
+        "cloudpickle",
+        "distributed (dask distributed runtime for some execution modes)"
+      ],
+      "optional": [
+        "dask[dataframe]",
+        "matplotlib (examples/visualization contexts)",
+        "notebook stack for integration notebook tests"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.93,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/blue-yonder/tsfresh",
+    "repo_name": "tsfresh",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.93,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

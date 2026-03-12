@@ -1,0 +1,228 @@
+{
+  "repository": {
+    "name": "PlasmaPy",
+    "url": "https://github.com/PlasmaPy/PlasmaPy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/PlasmaPy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773251339.9139042,
+    "end_time": 1773251532.505476,
+    "duration": 192.59157180786133,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 11,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.src.plasmapy",
+        "source.tests",
+        "source.tests.analysis",
+        "source.tests.diagnostics",
+        "source.tests.dispersion",
+        "source.tests.formulary",
+        "source.tests.particles",
+        "source.tests.plasma",
+        "source.tests.simulation",
+        "source.tests.utils",
+        "source.tools"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/PlasmaPy/PlasmaPy",
+      "repo_name": "PlasmaPy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/PlasmaPy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke test suite for generated MCP endpoints (at least import + one valid call per endpoint) and wire it into CI",
+    "pin and constrain MCP runtime dependencies (fastmcp/pydantic plus PlasmaPy-compatible ranges) to avoid resolver drift",
+    "validate endpoint naming/casing consistency (e.g.",
+    "`Alfven_speed` vs snake_case conventions) and add backward-compatible aliases",
+    "add structured input validation schemas for Astropy Quantity-bearing functions (units",
+    "equivalencies",
+    "defaults",
+    "and clear error messages)",
+    "prioritize exposing stateless formulary/atomic functions first and gate complex class-based endpoints (`MHDWave`",
+    "grid classes) behind an “experimental” flag",
+    "add timeout/guardrails for computationally heavy calls (e.g.",
+    "`spectral_density`) with configurable limits",
+    "generate richer endpoint docs in `README_MCP.md` including parameter units",
+    "examples",
+    "and expected return shapes/types",
+    "add contract tests comparing MCP endpoint outputs to direct PlasmaPy calls for numeric parity within tolerances",
+    "introduce caching for immutable dataset-backed lookups (atomic/isotope metadata) to reduce repeated overhead",
+    "add observability hooks (structured logs",
+    "per-endpoint latency/error counters) for runtime diagnostics",
+    "include a compatibility matrix (Python/PlasmaPy versions) and automate it via CI jobs",
+    "harden fallback behavior from zip-import analysis by recording confidence and emitting warnings when introspection is partial",
+    "create a small set of end-to-end client examples (CLI and programmatic MCP client) to validate real usage",
+    "add security checks for exposed endpoints (input size limits",
+    "deny dangerous object construction paths",
+    "sanitize exceptions)",
+    "split generated plugin code into stable hand-maintained wrappers vs regenerated stubs to reduce overwrite risk during re-generation"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow status is success with all planned nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Low intrusiveness risk and high import feasibility (0.91) supported adapter_mode=import generation.",
+      "Repository has a modern pyproject.toml, enabling cleaner dependency/introspection paths.",
+      "Generated MCP service started healthy over stdio and plugin-level tests passed.",
+      "No runtime errors or warnings were reported during workflow execution."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki analysis failed (non-blocking), reducing external documentation/context enrichment.",
+      "Original project test result is marked failed/empty despite reported 100% coverage metadata, indicating test instrumentation inconsistency rather than validated upstream breakage.",
+      "Quality telemetry gaps: node-level timings, LOC/size, and performance metrics are zero/unknown, limiting confidence in operational profiling."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Node completed successfully, but per-node duration not captured; repository ingestion used zip fallback over ~286 files.",
+      "analysis_time": "Completed with medium complexity classification and high import confidence; DeepWiki sub-step failed but fallback LLM direct analysis succeeded.",
+      "generation_time": "Completed successfully; MCP scaffold and service files were created with import-based adapter and 22 endpoints exposed.",
+      "test_time": "Plugin health/run checks passed; original project tests were not meaningfully executed/recorded (0s), so validation depth is limited."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to missing metrics (reported 0 MB); cannot assess empirically.",
+      "cpu_efficiency": "Unknown due to missing metrics (reported 0%); likely under-instrumented rather than zero usage.",
+      "disk_usage": "Generated artifacts exist, but reported generated size is 0; disk accounting/instrumentation appears incomplete."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 82,
+    "performance_score": 68,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 72
+  }
+}

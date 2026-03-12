@@ -1,0 +1,5084 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/sktime/sktime",
+    "summary": "Imported via zip fallback, file count: 1612",
+    "file_tree": {
+      ".codecov.yml": {
+        "size": 522
+      },
+      ".github/FUNDING.yml": {
+        "size": 371
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 1063
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 404
+      },
+      ".github/ISSUE_TEMPLATE/doc_improvement.md": {
+        "size": 608
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 794
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 4276
+      },
+      ".github/actions/test-base/action.yml": {
+        "size": 1562
+      },
+      ".github/actions/test-component/action.yml": {
+        "size": 1803
+      },
+      ".github/dependabot.yml": {
+        "size": 427
+      },
+      ".github/release-drafter.yml": {
+        "size": 440
+      },
+      ".github/release.yml": {
+        "size": 446
+      },
+      ".github/schema/schema_contributorsrc.json": {
+        "size": 1737
+      },
+      ".github/workflows/contributors_checks.yml": {
+        "size": 635
+      },
+      ".github/workflows/test.yml": {
+        "size": 15330
+      },
+      ".github/workflows/test_all.yml": {
+        "size": 7315
+      },
+      ".github/workflows/test_base.yml": {
+        "size": 1199
+      },
+      ".github/workflows/test_datasets.yml": {
+        "size": 2565
+      },
+      ".github/workflows/test_module.yml": {
+        "size": 2472
+      },
+      ".github/workflows/test_other.yml": {
+        "size": 2745
+      },
+      ".github/workflows/update_contributors.yml": {
+        "size": 1895
+      },
+      ".github/workflows/wheels.yml": {
+        "size": 3234
+      },
+      ".pre-commit-config.yaml": {
+        "size": 1072
+      },
+      ".readthedocs.yml": {
+        "size": 341
+      },
+      "CHANGELOG.md": {
+        "size": 114
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 138
+      },
+      "CONTRIBUTING.md": {
+        "size": 141
+      },
+      "CONTRIBUTORS.md": {
+        "size": 163759
+      },
+      "ESTIMATOR_OVERVIEW.md": {
+        "size": 275
+      },
+      "GOVERNANCE.md": {
+        "size": 134
+      },
+      "README.md": {
+        "size": 16490
+      },
+      "build_tools/changelog.py": {
+        "size": 12495
+      },
+      "build_tools/check_backticks.py": {
+        "size": 3832
+      },
+      "build_tools/make_release.py": {
+        "size": 8774
+      },
+      "build_tools/nb_json_formatter.py": {
+        "size": 1599
+      },
+      "conftest.py": {
+        "size": 1831
+      },
+      "docs/source/_static/js/dynamic_table.js": {
+        "size": 1331
+      },
+      "docs/source/about/citation.md": {
+        "size": 599
+      },
+      "docs/source/about/contributors.md": {
+        "size": 42
+      },
+      "docs/source/conf.py": {
+        "size": 22204
+      },
+      "docs/source/estimator_overview.md": {
+        "size": 9788
+      },
+      "docs/source/events/gsoc_2022.md": {
+        "size": 9679
+      },
+      "examples/blog_posts/README.md": {
+        "size": 336
+      },
+      "examples/transformation/fracdiff/fig/spx.py": {
+        "size": 1157
+      },
+      "extension_templates/alignment.py": {
+        "size": 12346
+      },
+      "extension_templates/catalogue.py": {
+        "size": 3509
+      },
+      "extension_templates/classification.py": {
+        "size": 16365
+      },
+      "extension_templates/clustering.py": {
+        "size": 11870
+      },
+      "extension_templates/detection.py": {
+        "size": 15646
+      },
+      "extension_templates/dist_kern_panel.py": {
+        "size": 9087
+      },
+      "extension_templates/dist_kern_tab.py": {
+        "size": 9089
+      },
+      "extension_templates/early_classification.py": {
+        "size": 17531
+      },
+      "extension_templates/forecasting.py": {
+        "size": 33860
+      },
+      "extension_templates/forecasting_global_supersimple.py": {
+        "size": 13543
+      },
+      "extension_templates/forecasting_simple.py": {
+        "size": 12972
+      },
+      "extension_templates/forecasting_supersimple.py": {
+        "size": 10761
+      },
+      "extension_templates/metric_detection.py": {
+        "size": 10114
+      },
+      "extension_templates/param_est.py": {
+        "size": 14313
+      },
+      "extension_templates/split.py": {
+        "size": 12883
+      },
+      "extension_templates/transformer.py": {
+        "size": 27319
+      },
+      "extension_templates/transformer_simple.py": {
+        "size": 16289
+      },
+      "extension_templates/transformer_supersimple.py": {
+        "size": 10370
+      },
+      "extension_templates/transformer_supersimple_features.py": {
+        "size": 10353
+      },
+      "funding.json": {
+        "size": 2769
+      },
+      "pyproject.toml": {
+        "size": 15541
+      },
+      "setup.cfg": {
+        "size": 758
+      },
+      "sktime/__init__.py": {
+        "size": 230
+      },
+      "sktime/_contrib/__init__.py": {
+        "size": 209
+      },
+      "sktime/_contrib/_plot_path.py": {
+        "size": 6567
+      },
+      "sktime/_contrib/classification_examples.py": {
+        "size": 3335
+      },
+      "sktime/_contrib/classification_experiments.py": {
+        "size": 4343
+      },
+      "sktime/_contrib/classifier_capabilities_table.py": {
+        "size": 1815
+      },
+      "sktime/_contrib/clustering/__init__.py": {
+        "size": 0
+      },
+      "sktime/_contrib/clustering/_dba_plotting.py": {
+        "size": 1278
+      },
+      "sktime/_contrib/clustering/clustering_examples.py": {
+        "size": 818
+      },
+      "sktime/_contrib/clustering_experiments.py": {
+        "size": 6285
+      },
+      "sktime/_contrib/data_io.py": {
+        "size": 7121
+      },
+      "sktime/_contrib/distance_based/__init__.py": {
+        "size": 0
+      },
+      "sktime/_contrib/distance_based/elastic_ensemble_from_file.py": {
+        "size": 12488
+      },
+      "sktime/_contrib/distance_refactor.py": {
+        "size": 8279
+      },
+      "sktime/_contrib/notebooks/__init__.py": {
+        "size": 0
+      },
+      "sktime/_contrib/notebooks/img/__init__.py": {
+        "size": 0
+      },
+      "sktime/_contrib/notebooks/img/windows_installation/__init__.py": {
+        "size": 0
+      },
+      "sktime/_contrib/set_classifier.py": {
+        "size": 7419
+      },
+      "sktime/_contrib/set_clusterer.py": {
+        "size": 1381
+      },
+      "sktime/_contrib/tests/__init__.py": {
+        "size": 0
+      },
+      "sktime/_contrib/tests/test_experiments.py": {
+        "size": 1809
+      },
+      "sktime/_nopytest_tests.py": {
+        "size": 339
+      },
+      "sktime/alignment/__init__.py": {
+        "size": 49
+      },
+      "sktime/alignment/base.py": {
+        "size": 13427
+      },
+      "sktime/alignment/dtaidist.py": {
+        "size": 7531
+      },
+      "sktime/alignment/dtw_numba.py": {
+        "size": 11509
+      },
+      "sktime/alignment/dtw_python.py": {
+        "size": 17837
+      },
+      "sktime/alignment/edit_numba.py": {
+        "size": 11055
+      },
+      "sktime/alignment/lucky.py": {
+        "size": 5976
+      },
+      "sktime/alignment/naive.py": {
+        "size": 5235
+      },
+      "sktime/alignment/tests/__init__.py": {
+        "size": 13
+      },
+      "sktime/alignment/tests/test_all_aligners.py": {
+        "size": 4989
+      },
+      "sktime/alignment/utils/__init__.py": {
+        "size": 39
+      },
+      "sktime/alignment/utils/utils_align.py": {
+        "size": 3354
+      },
+      "sktime/base/__init__.py": {
+        "size": 544
+      },
+      "sktime/base/_base.py": {
+        "size": 30166
+      },
+      "sktime/base/_base_panel.py": {
+        "size": 21046
+      },
+      "sktime/base/_meta.py": {
+        "size": 38116
+      },
+      "sktime/base/_panel/__init__.py": {
+        "size": 154
+      },
+      "sktime/base/_panel/forest/__init__.py": {
+        "size": 116
+      },
+      "sktime/base/_panel/forest/_composable.py": {
+        "size": 13036
+      },
+      "sktime/base/_panel/forest/_tsf.py": {
+        "size": 8243
+      },
+      "sktime/base/_panel/forest/tests/__init__.py": {
+        "size": 37
+      },
+      "sktime/base/_panel/forest/tests/test_feature_importances_.py": {
+        "size": 6438
+      },
+      "sktime/base/_panel/forest/tests/test_tsf.py": {
+        "size": 7534
+      },
+      "sktime/base/_panel/knn.py": {
+        "size": 7272
+      },
+      "sktime/base/_proba/__init__.py": {
+        "size": 139
+      },
+      "sktime/base/_proba/_base.py": {
+        "size": 27176
+      },
+      "sktime/base/_proba/_mixin.py": {
+        "size": 15715
+      },
+      "sktime/base/_proba/_normal.py": {
+        "size": 5486
+      },
+      "sktime/base/_serialize.py": {
+        "size": 5453
+      },
+      "sktime/base/adapters/__init__.py": {
+        "size": 314
+      },
+      "sktime/base/adapters/_pyts.py": {
+        "size": 4890
+      },
+      "sktime/base/adapters/_tslearn.py": {
+        "size": 3367
+      },
+      "sktime/base/tests/__init__.py": {
+        "size": 13
+      },
+      "sktime/base/tests/test_base.py": {
+        "size": 17256
+      },
+      "sktime/base/tests/test_base_sktime.py": {
+        "size": 2308
+      },
+      "sktime/base/tests/test_tagaliaser.py": {
+        "size": 3160
+      },
+      "sktime/benchmarking/__init__.py": {
+        "size": 27
+      },
+      "sktime/benchmarking/_benchmarking_dataclasses.py": {
+        "size": 10927
+      },
+      "sktime/benchmarking/_storage_handlers.py": {
+        "size": 14005
+      },
+      "sktime/benchmarking/_utils.py": {
+        "size": 642
+      },
+      "sktime/benchmarking/base.py": {
+        "size": 6903
+      },
+      "sktime/benchmarking/benchmarks.py": {
+        "size": 18223
+      },
+      "sktime/benchmarking/classification.py": {
+        "size": 6928
+      },
+      "sktime/benchmarking/critical_difference.py": {
+        "size": 16884
+      },
+      "sktime/benchmarking/data.py": {
+        "size": 3373
+      },
+      "sktime/benchmarking/evaluation.py": {
+        "size": 30840
+      },
+      "sktime/benchmarking/experiments.py": {
+        "size": 18336
+      },
+      "sktime/benchmarking/forecasting.py": {
+        "size": 9462
+      },
+      "sktime/benchmarking/metrics.py": {
+        "size": 4983
+      },
+      "sktime/benchmarking/orchestration.py": {
+        "size": 13414
+      },
+      "sktime/benchmarking/results.py": {
+        "size": 9798
+      },
+      "sktime/benchmarking/strategies.py": {
+        "size": 8510
+      },
+      "sktime/benchmarking/tasks.py": {
+        "size": 7781
+      },
+      "sktime/benchmarking/tests/__init__.py": {
+        "size": 44
+      },
+      "sktime/benchmarking/tests/test_TSCStrategy.py": {
+        "size": 1075
+      },
+      "sktime/benchmarking/tests/test_add_methods.py": {
+        "size": 2826
+      },
+      "sktime/benchmarking/tests/test_classification.py": {
+        "size": 6495
+      },
+      "sktime/benchmarking/tests/test_evaluator.py": {
+        "size": 9345
+      },
+      "sktime/benchmarking/tests/test_experiments.py": {
+        "size": 2666
+      },
+      "sktime/benchmarking/tests/test_forecasting.py": {
+        "size": 13550
+      },
+      "sktime/benchmarking/tests/test_orchestration.py": {
+        "size": 7377
+      },
+      "sktime/benchmarking/tests/test_storage_handlers.py": {
+        "size": 4061
+      },
+      "sktime/benchmarking/tests/test_tasks.py": {
+        "size": 1951
+      },
+      "sktime/catalogues/__init__.py": {
+        "size": 272
+      },
+      "sktime/catalogues/base/__init__.py": {
+        "size": 118
+      },
+      "sktime/catalogues/base/_base.py": {
+        "size": 3283
+      },
+      "sktime/catalogues/classification/__init__.py": {
+        "size": 190
+      },
+      "sktime/catalogues/classification/dummy/__init__.py": {
+        "size": 198
+      },
+      "sktime/catalogues/classification/dummy/_dummy_classification.py": {
+        "size": 1150
+      },
+      "sktime/catalogues/forecasting/__init__.py": {
+        "size": 177
+      },
+      "sktime/catalogues/forecasting/dummy/__init__.py": {
+        "size": 186
+      },
+      "sktime/catalogues/forecasting/dummy/_dummy_forecasting.py": {
+        "size": 1188
+      },
+      "sktime/catalogues/tests/__init__.py": {
+        "size": 23
+      },
+      "sktime/catalogues/tests/test_all_catalogues.py": {
+        "size": 3207
+      },
+      "sktime/catalogues/tests/test_base.py": {
+        "size": 1936
+      },
+      "sktime/catalogues/tests/test_dummy_catalogues_benchmarking.py": {
+        "size": 2055
+      },
+      "sktime/classification/__init__.py": {
+        "size": 115
+      },
+      "sktime/classification/_delegate.py": {
+        "size": 7056
+      },
+      "sktime/classification/all/__init__.py": {
+        "size": 628
+      },
+      "sktime/classification/base.py": {
+        "size": 29639
+      },
+      "sktime/classification/compose/__init__.py": {
+        "size": 627
+      },
+      "sktime/classification/compose/_column_ensemble.py": {
+        "size": 16962
+      },
+      "sktime/classification/compose/_multiplexer.py": {
+        "size": 8934
+      },
+      "sktime/classification/compose/_pipeline.py": {
+        "size": 29183
+      },
+      "sktime/classification/compose/tests/__init__.py": {
+        "size": 46
+      },
+      "sktime/classification/compose/tests/test_multiplex.py": {
+        "size": 1628
+      },
+      "sktime/classification/compose/tests/test_pipeline.py": {
+        "size": 3767
+      },
+      "sktime/classification/deep_learning/__init__.py": {
+        "size": 1626
+      },
+      "sktime/classification/deep_learning/_pytorch.py": {
+        "size": 9852
+      },
+      "sktime/classification/deep_learning/base/__init__.py": {
+        "size": 328
+      },
+      "sktime/classification/deep_learning/base/_base_tf.py": {
+        "size": 15386
+      },
+      "sktime/classification/deep_learning/base/_base_torch.py": {
+        "size": 31197
+      },
+      "sktime/classification/deep_learning/cnn.py": {
+        "size": 11531
+      },
+      "sktime/classification/deep_learning/cntc.py": {
+        "size": 13734
+      },
+      "sktime/classification/deep_learning/convtimenet.py": {
+        "size": 8957
+      },
+      "sktime/classification/deep_learning/fcn.py": {
+        "size": 8481
+      },
+      "sktime/classification/deep_learning/gru.py": {
+        "size": 15865
+      },
+      "sktime/classification/deep_learning/inceptiontime.py": {
+        "size": 12233
+      },
+      "sktime/classification/deep_learning/lstmfcn/__init__.py": {
+        "size": 413
+      },
+      "sktime/classification/deep_learning/lstmfcn/_lstmfcn_tf.py": {
+        "size": 9620
+      },
+      "sktime/classification/deep_learning/lstmfcn/_lstmfcn_torch.py": {
+        "size": 11198
+      },
+      "sktime/classification/deep_learning/macnn.py": {
+        "size": 9950
+      },
+      "sktime/classification/deep_learning/mcdcnn/__init__.py": {
+        "size": 392
+      },
+      "sktime/classification/deep_learning/mcdcnn/_mcdcnn_tf.py": {
+        "size": 8960
+      },
+      "sktime/classification/deep_learning/mcdcnn/_mcdcnn_torch.py": {
+        "size": 10690
+      },
+      "sktime/classification/deep_learning/mlp/__init__.py": {
+        "size": 417
+      },
+      "sktime/classification/deep_learning/mlp/_mlp_tf.py": {
+        "size": 8812
+      },
+      "sktime/classification/deep_learning/mlp/_mlp_torch.py": {
+        "size": 12901
+      },
+      "sktime/classification/deep_learning/mvts_transformer.py": {
+        "size": 9827
+      },
+      "sktime/classification/deep_learning/resnet.py": {
+        "size": 8541
+      },
+      "sktime/classification/deep_learning/rnn/__init__.py": {
+        "size": 377
+      },
+      "sktime/classification/deep_learning/rnn/_rnn_tf.py": {
+        "size": 11180
+      },
+      "sktime/classification/deep_learning/rnn/_rnn_torch.py": {
+        "size": 12891
+      },
+      "sktime/classification/deep_learning/tapnet.py": {
+        "size": 10952
+      },
+      "sktime/classification/dictionary_based/__init__.py": {
+        "size": 722
+      },
+      "sktime/classification/dictionary_based/_boss.py": {
+        "size": 29921
+      },
+      "sktime/classification/dictionary_based/_boss_pyts.py": {
+        "size": 6712
+      },
+      "sktime/classification/dictionary_based/_cboss.py": {
+        "size": 18115
+      },
+      "sktime/classification/dictionary_based/_muse.py": {
+        "size": 16187
+      },
+      "sktime/classification/dictionary_based/_tde.py": {
+        "size": 37849
+      },
+      "sktime/classification/dictionary_based/_tde_numba.py": {
+        "size": 497
+      },
+      "sktime/classification/dictionary_based/_weasel.py": {
+        "size": 13547
+      },
+      "sktime/classification/dictionary_based/tests/__init__.py": {
+        "size": 34
+      },
+      "sktime/classification/dictionary_based/tests/test_boss.py": {
+        "size": 4262
+      },
+      "sktime/classification/dictionary_based/tests/test_tde.py": {
+        "size": 1786
+      },
+      "sktime/classification/distance_based/__init__.py": {
+        "size": 935
+      },
+      "sktime/classification/distance_based/_elastic_ensemble.py": {
+        "size": 20619
+      },
+      "sktime/classification/distance_based/_proximity_forest.py": {
+        "size": 58578
+      },
+      "sktime/classification/distance_based/_shape_dtw.py": {
+        "size": 21216
+      },
+      "sktime/classification/distance_based/_time_series_neighbors.py": {
+        "size": 11397
+      },
+      "sktime/classification/distance_based/_time_series_neighbors_pyts.py": {
+        "size": 6377
+      },
+      "sktime/classification/distance_based/_time_series_neighbors_tslearn.py": {
+        "size": 5695
+      },
+      "sktime/classification/distance_based/tests/__init__.py": {
+        "size": 32
+      },
+      "sktime/classification/distance_based/tests/test_time_series_neighbors.py": {
+        "size": 4734
+      },
+      "sktime/classification/dummy/__init__.py": {
+        "size": 126
+      },
+      "sktime/classification/dummy/_dummy.py": {
+        "size": 6687
+      },
+      "sktime/classification/dummy/tests/__init__.py": {
+        "size": 34
+      },
+      "sktime/classification/dummy/tests/test_dummy.py": {
+        "size": 848
+      },
+      "sktime/classification/early_classification/__init__.py": {
+        "size": 425
+      },
+      "sktime/classification/early_classification/_probability_threshold.py": {
+        "size": 12473
+      },
+      "sktime/classification/early_classification/_teaser.py": {
+        "size": 23393
+      },
+      "sktime/classification/early_classification/base.py": {
+        "size": 29780
+      },
+      "sktime/classification/early_classification/tests/__init__.py": {
+        "size": 38
+      },
+      "sktime/classification/early_classification/tests/test_all_early_classifiers.py": {
+        "size": 3192
+      },
+      "sktime/classification/early_classification/tests/test_probability_threshold.py": {
+        "size": 2489
+      },
+      "sktime/classification/early_classification/tests/test_teaser.py": {
+        "size": 5336
+      },
+      "sktime/classification/ensemble/__init__.py": {
+        "size": 464
+      },
+      "sktime/classification/ensemble/_bagging.py": {
+        "size": 10760
+      },
+      "sktime/classification/ensemble/_ctsf.py": {
+        "size": 25907
+      },
+      "sktime/classification/ensemble/_weighted.py": {
+        "size": 12263
+      },
+      "sktime/classification/ensemble/tests/__init__.py": {
+        "size": 38
+      },
+      "sktime/classification/ensemble/tests/test_ensemble.py": {
+        "size": 5127
+      },
+      "sktime/classification/feature_based/__init__.py": {
+        "size": 894
+      },
+      "sktime/classification/feature_based/_catch22_classifier.py": {
+        "size": 6373
+      },
+      "sktime/classification/feature_based/_fresh_prince.py": {
+        "size": 8792
+      },
+      "sktime/classification/feature_based/_matrix_profile_classifier.py": {
+        "size": 7196
+      },
+      "sktime/classification/feature_based/_random_interval_classifier.py": {
+        "size": 8128
+      },
+      "sktime/classification/feature_based/_signature_classifier.py": {
+        "size": 9168
+      },
+      "sktime/classification/feature_based/_summary_classifier.py": {
+        "size": 7891
+      },
+      "sktime/classification/feature_based/_tsfresh_classifier.py": {
+        "size": 10056
+      },
+      "sktime/classification/feature_based/tests/__init__.py": {
+        "size": 0
+      },
+      "sktime/classification/feature_based/tests/test_tsfresh_classifier.py": {
+        "size": 1002
+      },
+      "sktime/classification/foundation_models/__init__.py": {
+        "size": 162
+      },
+      "sktime/classification/foundation_models/momentfm.py": {
+        "size": 19766
+      },
+      "sktime/classification/hybrid/__init__.py": {
+        "size": 220
+      },
+      "sktime/classification/hybrid/_hivecote_v1.py": {
+        "size": 14053
+      },
+      "sktime/classification/hybrid/_hivecote_v2.py": {
+        "size": 15147
+      },
+      "sktime/classification/hybrid/tests/__init__.py": {
+        "size": 24
+      },
+      "sktime/classification/hybrid/tests/test_hivecote_v2.py": {
+        "size": 1327
+      },
+      "sktime/classification/interval_based/__init__.py": {
+        "size": 601
+      },
+      "sktime/classification/interval_based/_cif.py": {
+        "size": 15842
+      },
+      "sktime/classification/interval_based/_drcif.py": {
+        "size": 25146
+      },
+      "sktime/classification/interval_based/_rise.py": {
+        "size": 16432
+      },
+      "sktime/classification/interval_based/_rise_numba.py": {
+        "size": 4428
+      },
+      "sktime/classification/interval_based/_stsf.py": {
+        "size": 15672
+      },
+      "sktime/classification/interval_based/_tsf.py": {
+        "size": 12847
+      },
+      "sktime/classification/interval_based/tests/__init__.py": {
+        "size": 32
+      },
+      "sktime/classification/interval_based/tests/test_drcif.py": {
+        "size": 867
+      },
+      "sktime/classification/interval_based/tests/test_tsf.py": {
+        "size": 4658
+      },
+      "sktime/classification/kernel_based/__init__.py": {
+        "size": 423
+      },
+      "sktime/classification/kernel_based/_arsenal.py": {
+        "size": 17178
+      },
+      "sktime/classification/kernel_based/_rocket_classifier.py": {
+        "size": 10266
+      },
+      "sktime/classification/kernel_based/_svc.py": {
+        "size": 11812
+      },
+      "sktime/classification/kernel_based/_svc_tslearn.py": {
+        "size": 8142
+      },
+      "sktime/classification/kernel_based/tests/__init__.py": {
+        "size": 30
+      },
+      "sktime/classification/kernel_based/tests/test_arsenal.py": {
+        "size": 766
+      },
+      "sktime/classification/model_evaluation/__init__.py": {
+        "size": 257
+      },
+      "sktime/classification/model_evaluation/_functions.py": {
+        "size": 17695
+      },
+      "sktime/classification/model_evaluation/tests/__init__.py": {
+        "size": 50
+      },
+      "sktime/classification/model_evaluation/tests/test_evaluate.py": {
+        "size": 7230
+      },
+      "sktime/classification/model_selection/__init__.py": {
+        "size": 302
+      },
+      "sktime/classification/model_selection/_hyperactive.py": {
+        "size": 9214
+      },
+      "sktime/classification/model_selection/_tune.py": {
+        "size": 17585
+      },
+      "sktime/classification/plotting/__init__.py": {
+        "size": 50
+      },
+      "sktime/classification/plotting/temporal_importance_diagram.py": {
+        "size": 2591
+      },
+      "sktime/classification/shapelet_based/__init__.py": {
+        "size": 625
+      },
+      "sktime/classification/shapelet_based/_learning_pyts.py": {
+        "size": 10974
+      },
+      "sktime/classification/shapelet_based/_learning_tslearn.py": {
+        "size": 6127
+      },
+      "sktime/classification/shapelet_based/_mrseql.py": {
+        "size": 4871
+      },
+      "sktime/classification/shapelet_based/_mrsqm.py": {
+        "size": 5277
+      },
+      "sktime/classification/shapelet_based/_stc.py": {
+        "size": 15020
+      },
+      "sktime/classification/shapelet_based/tests/__init__.py": {
+        "size": 32
+      },
+      "sktime/classification/shapelet_based/tests/test_stc.py": {
+        "size": 1115
+      },
+      "sktime/classification/sklearn/__init__.py": {
+        "size": 276
+      },
+      "sktime/classification/sklearn/_continuous_interval_tree.py": {
+        "size": 19697
+      },
+      "sktime/classification/sklearn/_continuous_interval_tree_numba.py": {
+        "size": 4428
+      },
+      "sktime/classification/sklearn/_rotation_forest.py": {
+        "size": 18030
+      },
+      "sktime/classification/sklearn/tests/__init__.py": {
+        "size": 36
+      },
+      "sktime/classification/sklearn/tests/test_all_classifiers.py": {
+        "size": 1722
+      },
+      "sktime/classification/sklearn/tests/test_continuous_interval_tree.py": {
+        "size": 773
+      },
+      "sktime/classification/sklearn/tests/test_rotation_forest.py": {
+        "size": 1466
+      },
+      "sktime/classification/tests/__init__.py": {
+        "size": 24
+      },
+      "sktime/classification/tests/_classification_test_reproduction.py": {
+        "size": 18024
+      },
+      "sktime/classification/tests/_expected_outputs.py": {
+        "size": 11738
+      },
+      "sktime/classification/tests/test_all_classifiers.py": {
+        "size": 11605
+      },
+      "sktime/classification/tests/test_base.py": {
+        "size": 21225
+      },
+      "sktime/classification/tests/test_sklearn_compatibility.py": {
+        "size": 5690
+      },
+      "sktime/clustering/__init__.py": {
+        "size": 123
+      },
+      "sktime/clustering/base.py": {
+        "size": 20034
+      },
+      "sktime/clustering/compose/__init__.py": {
+        "size": 416
+      },
+      "sktime/clustering/compose/_as_transform.py": {
+        "size": 9053
+      },
+      "sktime/clustering/compose/_pipeline.py": {
+        "size": 28327
+      },
+      "sktime/clustering/compose/tests/__init__.py": {
+        "size": 40
+      },
+      "sktime/clustering/compose/tests/test_pipeline.py": {
+        "size": 3509
+      },
+      "sktime/clustering/dbscan.py": {
+        "size": 10468
+      },
+      "sktime/clustering/k_means/__init__.py": {
+        "size": 247
+      },
+      "sktime/clustering/k_means/_k_means.py": {
+        "size": 9591
+      },
+      "sktime/clustering/k_means/_k_means_tslearn.py": {
+        "size": 7301
+      },
+      "sktime/clustering/k_medoids.py": {
+        "size": 7770
+      },
+      "sktime/clustering/k_shapes.py": {
+        "size": 5127
+      },
+      "sktime/clustering/kernel_k_means.py": {
+        "size": 6345
+      },
+      "sktime/clustering/kvisibility.py": {
+        "size": 8531
+      },
+      "sktime/clustering/metrics/__init__.py": {
+        "size": 195
+      },
+      "sktime/clustering/metrics/averaging/__init__.py": {
+        "size": 222
+      },
+      "sktime/clustering/metrics/averaging/_averaging.py": {
+        "size": 1681
+      },
+      "sktime/clustering/metrics/averaging/_dba.py": {
+        "size": 2854
+      },
+      "sktime/clustering/metrics/averaging/_dba_numba.py": {
+        "size": 1527
+      },
+      "sktime/clustering/metrics/medoids.py": {
+        "size": 1334
+      },
+      "sktime/clustering/partitioning/__init__.py": {
+        "size": 203
+      },
+      "sktime/clustering/partitioning/_lloyds.py": {
+        "size": 18602
+      },
+      "sktime/clustering/spatio_temporal/__init__.py": {
+        "size": 147
+      },
+      "sktime/clustering/spatio_temporal/_st_dbscan.py": {
+        "size": 14367
+      },
+      "sktime/clustering/tests/__init__.py": {
+        "size": 28
+      },
+      "sktime/clustering/tests/metrics/__init__.py": {
+        "size": 35
+      },
+      "sktime/clustering/tests/metrics/test_dba.py": {
+        "size": 3345
+      },
+      "sktime/clustering/tests/metrics/test_medoids.py": {
+        "size": 831
+      },
+      "sktime/clustering/tests/spatio_temporal/__init__.py": {
+        "size": 44
+      },
+      "sktime/clustering/tests/spatio_temporal/test_st_dbscan.py": {
+        "size": 4151
+      },
+      "sktime/clustering/tests/test_all_clusterers.py": {
+        "size": 4436
+      },
+      "sktime/clustering/tests/test_k_means.py": {
+        "size": 4084
+      },
+      "sktime/clustering/tests/test_k_medoids.py": {
+        "size": 2756
+      },
+      "sktime/clustering/tests/test_k_shapes.py": {
+        "size": 1800
+      },
+      "sktime/clustering/tests/test_kernel_k_means.py": {
+        "size": 1853
+      },
+      "sktime/clustering/tests/test_lloyds.py": {
+        "size": 2342
+      },
+      "sktime/clustering/utils/__init__.py": {
+        "size": 28
+      },
+      "sktime/clustering/utils/plotting/__init__.py": {
+        "size": 38
+      },
+      "sktime/clustering/utils/plotting/_plot_partitions.py": {
+        "size": 2793
+      },
+      "sktime/clustering/utils/toy_data_generation/__init__.py": {
+        "size": 41
+      },
+      "sktime/clustering/utils/toy_data_generation/_make_moving_blobs.py": {
+        "size": 2155
+      },
+      "sktime/datasets/__init__.py": {
+        "size": 3496
+      },
+      "sktime/datasets/_data_io.py": {
+        "size": 16077
+      },
+      "sktime/datasets/_dataset_downloader.py": {
+        "size": 15498
+      },
+      "sktime/datasets/_fpp3_loaders.py": {
+        "size": 12163
+      },
+      "sktime/datasets/_hierarchical_demo.py": {
+        "size": 2253
+      },
+      "sktime/datasets/_readers_writers/__init__.py": {
+        "size": 37
+      },
+      "sktime/datasets/_readers_writers/arff.py": {
+        "size": 9188
+      },
+      "sktime/datasets/_readers_writers/long.py": {
+        "size": 1527
+      },
+      "sktime/datasets/_readers_writers/ts.py": {
+        "size": 46259
+      },
+      "sktime/datasets/_readers_writers/tsf.py": {
+        "size": 13099
+      },
+      "sktime/datasets/_readers_writers/tsv.py": {
+        "size": 1526
+      },
+      "sktime/datasets/_readers_writers/utils.py": {
+        "size": 11636
+      },
+      "sktime/datasets/_single_problem_loaders.py": {
+        "size": 65547
+      },
+      "sktime/datasets/base/__init__.py": {
+        "size": 162
+      },
+      "sktime/datasets/base/_base.py": {
+        "size": 8298
+      },
+      "sktime/datasets/classification/__init__.py": {
+        "size": 810
+      },
+      "sktime/datasets/classification/_base.py": {
+        "size": 2379
+      },
+      "sktime/datasets/classification/acsf1.py": {
+        "size": 1496
+      },
+      "sktime/datasets/classification/arrow_head.py": {
+        "size": 1525
+      },
+      "sktime/datasets/classification/basic_motions.py": {
+        "size": 1468
+      },
+      "sktime/datasets/classification/gunpoint.py": {
+        "size": 1738
+      },
+      "sktime/datasets/classification/italy_power_demand.py": {
+        "size": 1416
+      },
+      "sktime/datasets/classification/japanese_vowels.py": {
+        "size": 1736
+      },
+      "sktime/datasets/classification/osuleaf.py": {
+        "size": 1426
+      },
+      "sktime/datasets/classification/plaid.py": {
+        "size": 717
+      },
+      "sktime/datasets/classification/ucr_uea_archive/__init__.py": {
+        "size": 171
+      },
+      "sktime/datasets/classification/ucr_uea_archive/_tags.py": {
+        "size": 33142
+      },
+      "sktime/datasets/classification/ucr_uea_archive/_ucr_uea_datasets.py": {
+        "size": 5814
+      },
+      "sktime/datasets/data/ACSF1/ACSF1_TEST.ts": {
+        "size": 524312
+      },
+      "sktime/datasets/data/ACSF1/ACSF1_TRAIN.ts": {
+        "size": 524312
+      },
+      "sktime/datasets/data/ArrowHead/ArrowHead_TEST.ts": {
+        "size": 484894
+      },
+      "sktime/datasets/data/ArrowHead/ArrowHead_TRAIN.ts": {
+        "size": 100357
+      },
+      "sktime/datasets/data/BasicMotions/BasicMotions_TEST.ts": {
+        "size": 227713
+      },
+      "sktime/datasets/data/BasicMotions/BasicMotions_TRAIN.ts": {
+        "size": 227790
+      },
+      "sktime/datasets/data/Covid3Month/Covid3Month_TEST.ts": {
+        "size": 22689
+      },
+      "sktime/datasets/data/Covid3Month/Covid3Month_TRAIN.ts": {
+        "size": 51542
+      },
+      "sktime/datasets/data/GunPoint/GunPoint_TEST.ts": {
+        "size": 252305
+      },
+      "sktime/datasets/data/GunPoint/GunPoint_TRAIN.ts": {
+        "size": 84188
+      },
+      "sktime/datasets/data/ItalyPowerDemand/ItalyPowerDemand_TEST.ts": {
+        "size": 274054
+      },
+      "sktime/datasets/data/ItalyPowerDemand/ItalyPowerDemand_TRAIN.ts": {
+        "size": 18300
+      },
+      "sktime/datasets/data/JapaneseVowels/JapaneseVowels_TEST.ts": {
+        "size": 524313
+      },
+      "sktime/datasets/data/JapaneseVowels/JapaneseVowels_TRAIN.ts": {
+        "size": 487971
+      },
+      "sktime/datasets/data/OSULeaf/OSULeaf_TEST.ts": {
+        "size": 524313
+      },
+      "sktime/datasets/data/OSULeaf/OSULeaf_TRAIN.ts": {
+        "size": 524313
+      },
+      "sktime/datasets/data/PLAID/PLAID_TEST.ts": {
+        "size": 524310
+      },
+      "sktime/datasets/data/PLAID/PLAID_TRAIN.ts": {
+        "size": 524310
+      },
+      "sktime/datasets/data/Tecator/Tecator_TEST.ts": {
+        "size": 34978
+      },
+      "sktime/datasets/data/Tecator/Tecator_TRAIN.ts": {
+        "size": 137455
+      },
+      "sktime/datasets/data/UnitTest/UnitTest_TEST.ts": {
+        "size": 3640
+      },
+      "sktime/datasets/data/UnitTest/UnitTest_TRAIN.ts": {
+        "size": 3308
+      },
+      "sktime/datasets/data/dataset_lists.py": {
+        "size": 181
+      },
+      "sktime/datasets/forecasting/__init__.py": {
+        "size": 941
+      },
+      "sktime/datasets/forecasting/_base.py": {
+        "size": 5001
+      },
+      "sktime/datasets/forecasting/airline.py": {
+        "size": 1475
+      },
+      "sktime/datasets/forecasting/hierarchical_sales_toydata.py": {
+        "size": 1445
+      },
+      "sktime/datasets/forecasting/longley.py": {
+        "size": 2353
+      },
+      "sktime/datasets/forecasting/lynx.py": {
+        "size": 1970
+      },
+      "sktime/datasets/forecasting/m5_competition.py": {
+        "size": 8156
+      },
+      "sktime/datasets/forecasting/macroeconomic.py": {
+        "size": 1962
+      },
+      "sktime/datasets/forecasting/monash/__init__.py": {
+        "size": 148
+      },
+      "sktime/datasets/forecasting/monash/_forecasting_data.py": {
+        "size": 6888
+      },
+      "sktime/datasets/forecasting/monash/_tags.py": {
+        "size": 12058
+      },
+      "sktime/datasets/forecasting/pbs.py": {
+        "size": 1489
+      },
+      "sktime/datasets/forecasting/shampoo_sales.py": {
+        "size": 1444
+      },
+      "sktime/datasets/forecasting/solar.py": {
+        "size": 3553
+      },
+      "sktime/datasets/forecasting/uschange.py": {
+        "size": 2180
+      },
+      "sktime/datasets/regression/__init__.py": {
+        "size": 92
+      },
+      "sktime/datasets/regression/_base.py": {
+        "size": 2128
+      },
+      "sktime/datasets/regression/tecator.py": {
+        "size": 2018
+      },
+      "sktime/datasets/setup.py": {
+        "size": 1152
+      },
+      "sktime/datasets/tests/__init__.py": {
+        "size": 13
+      },
+      "sktime/datasets/tests/test_all_classification_datasets.py": {
+        "size": 1809
+      },
+      "sktime/datasets/tests/test_all_datasets.py": {
+        "size": 5160
+      },
+      "sktime/datasets/tests/test_all_forecasting_datasets.py": {
+        "size": 3851
+      },
+      "sktime/datasets/tests/test_all_regression_datasets.py": {
+        "size": 1307
+      },
+      "sktime/datasets/tests/test_data_io.py": {
+        "size": 5617
+      },
+      "sktime/datasets/tests/test_datadownload.py": {
+        "size": 5553
+      },
+      "sktime/datasets/tests/test_dataset_downloader.py": {
+        "size": 2238
+      },
+      "sktime/datasets/tests/test_hierarchical_demo.py": {
+        "size": 494
+      },
+      "sktime/datasets/tests/test_loaders.py": {
+        "size": 470
+      },
+      "sktime/datasets/tests/test_readers_writers.py": {
+        "size": 49275
+      },
+      "sktime/datasets/tests/test_single_problem_loaders.py": {
+        "size": 2165
+      },
+      "sktime/datasets/tsc_dataset_names.py": {
+        "size": 9077
+      },
+      "sktime/datasets/tsf_dataset_names.py": {
+        "size": 2715
+      },
+      "sktime/datatypes/__init__.py": {
+        "size": 2099
+      },
+      "sktime/datatypes/_adapter/__init__.py": {
+        "size": 170
+      },
+      "sktime/datatypes/_adapter/dask_to_pd.py": {
+        "size": 8441
+      },
+      "sktime/datatypes/_adapter/gluonts.py": {
+        "size": 13420
+      },
+      "sktime/datatypes/_adapter/gluonts_to_pd_multiindex.py": {
+        "size": 1450
+      },
+      "sktime/datatypes/_adapter/pd_multiindex_to_list_dataset.py": {
+        "size": 2891
+      },
+      "sktime/datatypes/_adapter/polars.py": {
+        "size": 9370
+      },
+      "sktime/datatypes/_adapter/tests/__init__.py": {
+        "size": 49
+      },
+      "sktime/datatypes/_adapter/tests/test_dask_pd.py": {
+        "size": 3501
+      },
+      "sktime/datatypes/_adapter/tests/test_gluonts.py": {
+        "size": 4369
+      },
+      "sktime/datatypes/_adapter/tests/test_polars.py": {
+        "size": 5554
+      },
+      "sktime/datatypes/_alignment/__init__.py": {
+        "size": 59
+      },
+      "sktime/datatypes/_alignment/_base.py": {
+        "size": 796
+      },
+      "sktime/datatypes/_alignment/_check.py": {
+        "size": 8867
+      },
+      "sktime/datatypes/_alignment/_examples.py": {
+        "size": 1833
+      },
+      "sktime/datatypes/_base/__init__.py": {
+        "size": 176
+      },
+      "sktime/datatypes/_base/_base.py": {
+        "size": 16855
+      },
+      "sktime/datatypes/_base/_common.py": {
+        "size": 1367
+      },
+      "sktime/datatypes/_check.py": {
+        "size": 23242
+      },
+      "sktime/datatypes/_convert.py": {
+        "size": 13608
+      },
+      "sktime/datatypes/_convert_utils/__init__.py": {
+        "size": 38
+      },
+      "sktime/datatypes/_convert_utils/_coerce.py": {
+        "size": 1042
+      },
+      "sktime/datatypes/_convert_utils/_convert.py": {
+        "size": 3024
+      },
+      "sktime/datatypes/_dtypekind.py": {
+        "size": 5614
+      },
+      "sktime/datatypes/_examples.py": {
+        "size": 3994
+      },
+      "sktime/datatypes/_hierarchical/__init__.py": {
+        "size": 227
+      },
+      "sktime/datatypes/_hierarchical/_base.py": {
+        "size": 5596
+      },
+      "sktime/datatypes/_hierarchical/_check.py": {
+        "size": 14969
+      },
+      "sktime/datatypes/_hierarchical/_convert.py": {
+        "size": 2661
+      },
+      "sktime/datatypes/_hierarchical/_examples.py": {
+        "size": 6076
+      },
+      "sktime/datatypes/_panel/__init__.py": {
+        "size": 190
+      },
+      "sktime/datatypes/_panel/_base.py": {
+        "size": 4057
+      },
+      "sktime/datatypes/_panel/_check.py": {
+        "size": 63355
+      },
+      "sktime/datatypes/_panel/_convert.py": {
+        "size": 35528
+      },
+      "sktime/datatypes/_panel/_examples.py": {
+        "size": 16876
+      },
+      "sktime/datatypes/_proba/__init__.py": {
+        "size": 199
+      },
+      "sktime/datatypes/_proba/_base.py": {
+        "size": 950
+      },
+      "sktime/datatypes/_proba/_check.py": {
+        "size": 9563
+      },
+      "sktime/datatypes/_proba/_convert.py": {
+        "size": 6148
+      },
+      "sktime/datatypes/_proba/_examples.py": {
+        "size": 3628
+      },
+      "sktime/datatypes/_registry.py": {
+        "size": 13610
+      },
+      "sktime/datatypes/_series/__init__.py": {
+        "size": 194
+      },
+      "sktime/datatypes/_series/_base.py": {
+        "size": 3425
+      },
+      "sktime/datatypes/_series/_check.py": {
+        "size": 43171
+      },
+      "sktime/datatypes/_series/_convert.py": {
+        "size": 11425
+      },
+      "sktime/datatypes/_series/_examples.py": {
+        "size": 11163
+      },
+      "sktime/datatypes/_series/_mtypes.py": {
+        "size": 1059
+      },
+      "sktime/datatypes/_series_as_panel/__init__.py": {
+        "size": 293
+      },
+      "sktime/datatypes/_series_as_panel/_convert.py": {
+        "size": 10414
+      },
+      "sktime/datatypes/_table/__init__.py": {
+        "size": 191
+      },
+      "sktime/datatypes/_table/_base.py": {
+        "size": 3121
+      },
+      "sktime/datatypes/_table/_check.py": {
+        "size": 30896
+      },
+      "sktime/datatypes/_table/_convert.py": {
+        "size": 8706
+      },
+      "sktime/datatypes/_table/_examples.py": {
+        "size": 5629
+      },
+      "sktime/datatypes/_utilities.py": {
+        "size": 22665
+      },
+      "sktime/datatypes/_vectorize.py": {
+        "size": 28864
+      },
+      "sktime/datatypes/tests/__init__.py": {
+        "size": 35
+      },
+      "sktime/datatypes/tests/test_check.py": {
+        "size": 17847
+      },
+      "sktime/datatypes/tests/test_convert.py": {
+        "size": 4912
+      },
+      "sktime/datatypes/tests/test_convert_bugfixes.py": {
+        "size": 1392
+      },
+      "sktime/datatypes/tests/test_convert_to.py": {
+        "size": 5841
+      },
+      "sktime/datatypes/tests/test_feature_kind_inference.py": {
+        "size": 7203
+      },
+      "sktime/datatypes/tests/test_lookup.py": {
+        "size": 3555
+      },
+      "sktime/datatypes/tests/test_panel_converters.py": {
+        "size": 15595
+      },
+      "sktime/datatypes/tests/test_series_to_panel_converters.py": {
+        "size": 2563
+      },
+      "sktime/datatypes/tests/test_utils.py": {
+        "size": 16129
+      },
+      "sktime/datatypes/tests/test_vectorize.py": {
+        "size": 17738
+      },
+      "sktime/detection/__init__.py": {
+        "size": 64
+      },
+      "sktime/detection/_datatypes/__init__.py": {
+        "size": 86
+      },
+      "sktime/detection/_datatypes/_check.py": {
+        "size": 1497
+      },
+      "sktime/detection/_datatypes/_convert.py": {
+        "size": 2273
+      },
+      "sktime/detection/_datatypes/_examples.py": {
+        "size": 1773
+      },
+      "sktime/detection/_datatypes/test/__init__.py": {
+        "size": 76
+      },
+      "sktime/detection/_datatypes/test/test_convert.py": {
+        "size": 1645
+      },
+      "sktime/detection/adapters/__init__.py": {
+        "size": 269
+      },
+      "sktime/detection/adapters/_pyod.py": {
+        "size": 4662
+      },
+      "sktime/detection/base/__init__.py": {
+        "size": 241
+      },
+      "sktime/detection/base/_base.py": {
+        "size": 41997
+      },
+      "sktime/detection/base/tests/__init__.py": {
+        "size": 123
+      },
+      "sktime/detection/base/tests/test_base.py": {
+        "size": 734
+      },
+      "sktime/detection/bs.py": {
+        "size": 7223
+      },
+      "sktime/detection/clasp.py": {
+        "size": 11949
+      },
+      "sktime/detection/clust.py": {
+        "size": 3805
+      },
+      "sktime/detection/compose/__init__.py": {
+        "size": 459
+      },
+      "sktime/detection/compose/_as_transform.py": {
+        "size": 5982
+      },
+      "sktime/detection/compose/_pipeline.py": {
+        "size": 14843
+      },
+      "sktime/detection/datagen.py": {
+        "size": 13301
+      },
+      "sktime/detection/dummy/__init__.py": {
+        "size": 521
+      },
+      "sktime/detection/dummy/_dummy_regular_an.py": {
+        "size": 4477
+      },
+      "sktime/detection/dummy/_dummy_regular_cp.py": {
+        "size": 1012
+      },
+      "sktime/detection/dummy/_zero_an.py": {
+        "size": 1641
+      },
+      "sktime/detection/dummy/_zero_cp.py": {
+        "size": 810
+      },
+      "sktime/detection/dummy/_zero_seg.py": {
+        "size": 1763
+      },
+      "sktime/detection/eagglo.py": {
+        "size": 15460
+      },
+      "sktime/detection/ggs.py": {
+        "size": 21045
+      },
+      "sktime/detection/hmm.py": {
+        "size": 19401
+      },
+      "sktime/detection/hmm_learn/__init__.py": {
+        "size": 448
+      },
+      "sktime/detection/hmm_learn/base.py": {
+        "size": 3230
+      },
+      "sktime/detection/hmm_learn/gaussian.py": {
+        "size": 7609
+      },
+      "sktime/detection/hmm_learn/gmm.py": {
+        "size": 7756
+      },
+      "sktime/detection/hmm_learn/poisson.py": {
+        "size": 5720
+      },
+      "sktime/detection/igts.py": {
+        "size": 17950
+      },
+      "sktime/detection/lof.py": {
+        "size": 9541
+      },
+      "sktime/detection/naive/__init__.py": {
+        "size": 184
+      },
+      "sktime/detection/naive/_threshold.py": {
+        "size": 5199
+      },
+      "sktime/detection/plotting/__init__.py": {
+        "size": 152
+      },
+      "sktime/detection/plotting/utils.py": {
+        "size": 5184
+      },
+      "sktime/detection/skchange_aseg/__init__.py": {
+        "size": 440
+      },
+      "sktime/detection/skchange_aseg/capa.py": {
+        "size": 4527
+      },
+      "sktime/detection/skchange_aseg/circular_binseg.py": {
+        "size": 4848
+      },
+      "sktime/detection/skchange_aseg/mvcapa.py": {
+        "size": 4632
+      },
+      "sktime/detection/skchange_aseg/statthreshold.py": {
+        "size": 1877
+      },
+      "sktime/detection/skchange_cp/__init__.py": {
+        "size": 335
+      },
+      "sktime/detection/skchange_cp/moving_window.py": {
+        "size": 3582
+      },
+      "sktime/detection/skchange_cp/pelt.py": {
+        "size": 2341
+      },
+      "sktime/detection/skchange_cp/seeded_binseg.py": {
+        "size": 4324
+      },
+      "sktime/detection/stray.py": {
+        "size": 10152
+      },
+      "sktime/detection/tests/__init__.py": {
+        "size": 39
+      },
+      "sktime/detection/tests/test_all_detectors.py": {
+        "size": 4691
+      },
+      "sktime/detection/tests/test_base.py": {
+        "size": 6238
+      },
+      "sktime/detection/tests/test_bs.py": {
+        "size": 2350
+      },
+      "sktime/detection/tests/test_clasp.py": {
+        "size": 2285
+      },
+      "sktime/detection/tests/test_datagen.py": {
+        "size": 880
+      },
+      "sktime/detection/tests/test_dummy.py": {
+        "size": 609
+      },
+      "sktime/detection/tests/test_eagglo.py": {
+        "size": 4093
+      },
+      "sktime/detection/tests/test_ggs.py": {
+        "size": 1259
+      },
+      "sktime/detection/tests/test_hmm.py": {
+        "size": 3573
+      },
+      "sktime/detection/tests/test_hmm_learn.py": {
+        "size": 2907
+      },
+      "sktime/detection/tests/test_igts.py": {
+        "size": 2386
+      },
+      "sktime/detection/tests/test_lof.py": {
+        "size": 2826
+      },
+      "sktime/detection/tests/test_plotting.py": {
+        "size": 2287
+      },
+      "sktime/detection/tests/test_stray.py": {
+        "size": 7885
+      },
+      "sktime/detection/utils/__init__.py": {
+        "size": 37
+      },
+      "sktime/detection/utils/_arr_to_seg.py": {
+        "size": 2789
+      },
+      "sktime/detection/utils/_seg_middle.py": {
+        "size": 1338
+      },
+      "sktime/detection/wclust.py": {
+        "size": 8969
+      },
+      "sktime/distances/__init__.py": {
+        "size": 1378
+      },
+      "sktime/distances/_ddtw.py": {
+        "size": 9197
+      },
+      "sktime/distances/_ddtw_numba.py": {
+        "size": 1292
+      },
+      "sktime/distances/_distance.py": {
+        "size": 93246
+      },
+      "sktime/distances/_distance_alignment_paths.py": {
+        "size": 5611
+      },
+      "sktime/distances/_distance_pairwise.py": {
+        "size": 2588
+      },
+      "sktime/distances/_dtw.py": {
+        "size": 8903
+      },
+      "sktime/distances/_dtw_numba.py": {
+        "size": 1905
+      },
+      "sktime/distances/_edr.py": {
+        "size": 8504
+      },
+      "sktime/distances/_edr_numba.py": {
+        "size": 2252
+      },
+      "sktime/distances/_erp.py": {
+        "size": 6747
+      },
+      "sktime/distances/_erp_numba.py": {
+        "size": 2586
+      },
+      "sktime/distances/_euclidean.py": {
+        "size": 1179
+      },
+      "sktime/distances/_euclidean_numba.py": {
+        "size": 1293
+      },
+      "sktime/distances/_lcss.py": {
+        "size": 9172
+      },
+      "sktime/distances/_lcss_numba.py": {
+        "size": 2062
+      },
+      "sktime/distances/_lower_bounding_numba.py": {
+        "size": 7747
+      },
+      "sktime/distances/_msm.py": {
+        "size": 8268
+      },
+      "sktime/distances/_msm_numba.py": {
+        "size": 2901
+      },
+      "sktime/distances/_numba_utils.py": {
+        "size": 5307
+      },
+      "sktime/distances/_resolve_metric.py": {
+        "size": 7178
+      },
+      "sktime/distances/_squared.py": {
+        "size": 1001
+      },
+      "sktime/distances/_squared_numba.py": {
+        "size": 1182
+      },
+      "sktime/distances/_twe.py": {
+        "size": 7857
+      },
+      "sktime/distances/_twe_numba.py": {
+        "size": 4382
+      },
+      "sktime/distances/_wddtw.py": {
+        "size": 9281
+      },
+      "sktime/distances/_wdtw.py": {
+        "size": 8367
+      },
+      "sktime/distances/_wdtw_numba.py": {
+        "size": 2088
+      },
+      "sktime/distances/base/__init__.py": {
+        "size": 599
+      },
+      "sktime/distances/base/_base.py": {
+        "size": 8984
+      },
+      "sktime/distances/base/_types.py": {
+        "size": 969
+      },
+      "sktime/distances/lower_bounding.py": {
+        "size": 9236
+      },
+      "sktime/distances/mpdist.py": {
+        "size": 5665
+      },
+      "sktime/distances/tests/__init__.py": {
+        "size": 13
+      },
+      "sktime/distances/tests/_expected_results.py": {
+        "size": 2584
+      },
+      "sktime/distances/tests/_shared_tests.py": {
+        "size": 3451
+      },
+      "sktime/distances/tests/_utils.py": {
+        "size": 2104
+      },
+      "sktime/distances/tests/test_distance_alignment_path.py": {
+        "size": 3617
+      },
+      "sktime/distances/tests/test_distance_correctness.py": {
+        "size": 4083
+      },
+      "sktime/distances/tests/test_lower_bounding.py": {
+        "size": 7676
+      },
+      "sktime/distances/tests/test_numba_distance_parameters.py": {
+        "size": 3672
+      },
+      "sktime/distances/tests/test_numba_distances.py": {
+        "size": 9434
+      },
+      "sktime/distances/tests/test_pairwise_distances.py": {
+        "size": 10554
+      },
+      "sktime/distances/tests/test_twe_index_error.py": {
+        "size": 553
+      },
+      "sktime/dists_kernels/__init__.py": {
+        "size": 877
+      },
+      "sktime/dists_kernels/algebra.py": {
+        "size": 9952
+      },
+      "sktime/dists_kernels/base/__init__.py": {
+        "size": 234
+      },
+      "sktime/dists_kernels/base/_base.py": {
+        "size": 21845
+      },
+      "sktime/dists_kernels/base/_delegate.py": {
+        "size": 2576
+      },
+      "sktime/dists_kernels/base/adapters/__init__.py": {
+        "size": 272
+      },
+      "sktime/dists_kernels/base/adapters/_sklearn.py": {
+        "size": 7913
+      },
+      "sktime/dists_kernels/base/adapters/_tslearn.py": {
+        "size": 4846
+      },
+      "sktime/dists_kernels/compose.py": {
+        "size": 10706
+      },
+      "sktime/dists_kernels/compose_from_align.py": {
+        "size": 3013
+      },
+      "sktime/dists_kernels/compose_tab_to_panel.py": {
+        "size": 10004
+      },
+      "sktime/dists_kernels/ctw.py": {
+        "size": 4822
+      },
+      "sktime/dists_kernels/dist_to_kern.py": {
+        "size": 9698
+      },
+      "sktime/dists_kernels/dtw/__init__.py": {
+        "size": 549
+      },
+      "sktime/dists_kernels/dtw/_dtw_dtaidist.py": {
+        "size": 15325
+      },
+      "sktime/dists_kernels/dtw/_dtw_python.py": {
+        "size": 4681
+      },
+      "sktime/dists_kernels/dtw/_dtw_sktime.py": {
+        "size": 9894
+      },
+      "sktime/dists_kernels/dtw/_dtw_tslearn.py": {
+        "size": 7331
+      },
+      "sktime/dists_kernels/dummy.py": {
+        "size": 2938
+      },
+      "sktime/dists_kernels/edit_dist.py": {
+        "size": 8582
+      },
+      "sktime/dists_kernels/gak.py": {
+        "size": 3038
+      },
+      "sktime/dists_kernels/indep.py": {
+        "size": 6524
+      },
+      "sktime/dists_kernels/lcss.py": {
+        "size": 4042
+      },
+      "sktime/dists_kernels/lucky.py": {
+        "size": 2874
+      },
+      "sktime/dists_kernels/scipy_dist.py": {
+        "size": 6732
+      },
+      "sktime/dists_kernels/signature_kernel.py": {
+        "size": 33813
+      },
+      "sktime/dists_kernels/tests/__init__.py": {
+        "size": 44
+      },
+      "sktime/dists_kernels/tests/test_all_dist_kernels.py": {
+        "size": 4552
+      },
+      "sktime/dists_kernels/tests/test_compose_tab_to_panel.py": {
+        "size": 2639
+      },
+      "sktime/dists_kernels/tests/test_dist_kernels_dunders.py": {
+        "size": 6593
+      },
+      "sktime/dists_kernels/tests/test_scipy_dist.py": {
+        "size": 3619
+      },
+      "sktime/exceptions.py": {
+        "size": 1006
+      },
+      "sktime/forecasting/__init__.py": {
+        "size": 65
+      },
+      "sktime/forecasting/adapters/__init__.py": {
+        "size": 264
+      },
+      "sktime/forecasting/adapters/_hcrystalball.py": {
+        "size": 5082
+      },
+      "sktime/forecasting/all/__init__.py": {
+        "size": 3752
+      },
+      "sktime/forecasting/arar/__init__.py": {
+        "size": 123
+      },
+      "sktime/forecasting/arar/_arar_forecaster.py": {
+        "size": 21039
+      },
+      "sktime/forecasting/arch/__init__.py": {
+        "size": 305
+      },
+      "sktime/forecasting/arch/_statsforecast_arch.py": {
+        "size": 5234
+      },
+      "sktime/forecasting/arch/_uarch.py": {
+        "size": 21687
+      },
+      "sktime/forecasting/ardl.py": {
+        "size": 24087
+      },
+      "sktime/forecasting/arima/__init__.py": {
+        "size": 250
+      },
+      "sktime/forecasting/arima/_pmdarima.py": {
+        "size": 34756
+      },
+      "sktime/forecasting/arima/_statsmodels.py": {
+        "size": 14448
+      },
+      "sktime/forecasting/auto_reg.py": {
+        "size": 9375
+      },
+      "sktime/forecasting/autots.py": {
+        "size": 30682
+      },
+      "sktime/forecasting/base/__init__.py": {
+        "size": 361
+      },
+      "sktime/forecasting/base/_base.py": {
+        "size": 141921
+      },
+      "sktime/forecasting/base/_clone_plugin.py": {
+        "size": 2404
+      },
+      "sktime/forecasting/base/_delegate.py": {
+        "size": 13528
+      },
+      "sktime/forecasting/base/_fh.py": {
+        "size": 38866
+      },
+      "sktime/forecasting/base/_meta.py": {
+        "size": 5445
+      },
+      "sktime/forecasting/base/_sktime.py": {
+        "size": 5542
+      },
+      "sktime/forecasting/base/adapters/__init__.py": {
+        "size": 1058
+      },
+      "sktime/forecasting/base/adapters/_darts.py": {
+        "size": 29429
+      },
+      "sktime/forecasting/base/adapters/_fbprophet.py": {
+        "size": 14531
+      },
+      "sktime/forecasting/base/adapters/_generalised_statsforecast.py": {
+        "size": 24981
+      },
+      "sktime/forecasting/base/adapters/_neuralforecast.py": {
+        "size": 23913
+      },
+      "sktime/forecasting/base/adapters/_pmdarima.py": {
+        "size": 13638
+      },
+      "sktime/forecasting/base/adapters/_pytorch.py": {
+        "size": 9547
+      },
+      "sktime/forecasting/base/adapters/_pytorchforecasting.py": {
+        "size": 27149
+      },
+      "sktime/forecasting/base/adapters/_statsforecast.py": {
+        "size": 10879
+      },
+      "sktime/forecasting/base/adapters/_statsmodels.py": {
+        "size": 10952
+      },
+      "sktime/forecasting/base/adapters/_tbats.py": {
+        "size": 11420
+      },
+      "sktime/forecasting/base/tests/__init__.py": {
+        "size": 156
+      },
+      "sktime/forecasting/base/tests/randomtest.py": {
+        "size": 1137
+      },
+      "sktime/forecasting/base/tests/test_base.py": {
+        "size": 19600
+      },
+      "sktime/forecasting/base/tests/test_base_bugs.py": {
+        "size": 3001
+      },
+      "sktime/forecasting/base/tests/test_fh.py": {
+        "size": 39072
+      },
+      "sktime/forecasting/bats.py": {
+        "size": 6019
+      },
+      "sktime/forecasting/boxcox_bias_adjusted_forecaster.py": {
+        "size": 7497
+      },
+      "sktime/forecasting/causal/__init__.py": {
+        "size": 240
+      },
+      "sktime/forecasting/causal/_dmlf.py": {
+        "size": 20419
+      },
+      "sktime/forecasting/chronos.py": {
+        "size": 26154
+      },
+      "sktime/forecasting/compose/__init__.py": {
+        "size": 2698
+      },
+      "sktime/forecasting/compose/_bagging.py": {
+        "size": 16675
+      },
+      "sktime/forecasting/compose/_column_ensemble.py": {
+        "size": 16345
+      },
+      "sktime/forecasting/compose/_ensemble.py": {
+        "size": 17437
+      },
+      "sktime/forecasting/compose/_fallback.py": {
+        "size": 12512
+      },
+      "sktime/forecasting/compose/_fhplex.py": {
+        "size": 18595
+      },
+      "sktime/forecasting/compose/_grouped.py": {
+        "size": 29260
+      },
+      "sktime/forecasting/compose/_hierarchy_ensemble.py": {
+        "size": 31422
+      },
+      "sktime/forecasting/compose/_ignore_x.py": {
+        "size": 2578
+      },
+      "sktime/forecasting/compose/_multiplexer.py": {
+        "size": 10347
+      },
+      "sktime/forecasting/compose/_pipeline.py": {
+        "size": 90481
+      },
+      "sktime/forecasting/compose/_reduce.py": {
+        "size": 119115
+      },
+      "sktime/forecasting/compose/_skforecast_reduce.py": {
+        "size": 36449
+      },
+      "sktime/forecasting/compose/_stack.py": {
+        "size": 6818
+      },
+      "sktime/forecasting/compose/_transform_select_forecaster.py": {
+        "size": 21803
+      },
+      "sktime/forecasting/compose/tests/__init__.py": {
+        "size": 39
+      },
+      "sktime/forecasting/compose/tests/test_autoensemble.py": {
+        "size": 2242
+      },
+      "sktime/forecasting/compose/tests/test_bagging.py": {
+        "size": 2948
+      },
+      "sktime/forecasting/compose/tests/test_column_ensemble.py": {
+        "size": 4129
+      },
+      "sktime/forecasting/compose/tests/test_ensemble.py": {
+        "size": 5365
+      },
+      "sktime/forecasting/compose/tests/test_fallback.py": {
+        "size": 26568
+      },
+      "sktime/forecasting/compose/tests/test_forecastx.py": {
+        "size": 14473
+      },
+      "sktime/forecasting/compose/tests/test_groupbycategoryforecaster.py": {
+        "size": 3367
+      },
+      "sktime/forecasting/compose/tests/test_hierarchy_ensemble.py": {
+        "size": 11385
+      },
+      "sktime/forecasting/compose/tests/test_ignorex.py": {
+        "size": 1200
+      },
+      "sktime/forecasting/compose/tests/test_multiplex.py": {
+        "size": 6267
+      },
+      "sktime/forecasting/compose/tests/test_pipeline.py": {
+        "size": 31769
+      },
+      "sktime/forecasting/compose/tests/test_reduce.py": {
+        "size": 31866
+      },
+      "sktime/forecasting/compose/tests/test_reduce_global.py": {
+        "size": 12034
+      },
+      "sktime/forecasting/compose/tests/test_skforecast_reduce.py": {
+        "size": 11454
+      },
+      "sktime/forecasting/compose/tests/test_transformer_select_forecaster.py": {
+        "size": 7067
+      },
+      "sktime/forecasting/conditional_invertible_neural_network.py": {
+        "size": 23884
+      },
+      "sktime/forecasting/conformal.py": {
+        "size": 22285
+      },
+      "sktime/forecasting/convtimenet.py": {
+        "size": 15876
+      },
+      "sktime/forecasting/croston.py": {
+        "size": 6138
+      },
+      "sktime/forecasting/darts.py": {
+        "size": 30191
+      },
+      "sktime/forecasting/dummy.py": {
+        "size": 7836
+      },
+      "sktime/forecasting/dummy_global.py": {
+        "size": 10652
+      },
+      "sktime/forecasting/dynamic_factor.py": {
+        "size": 23970
+      },
+      "sktime/forecasting/enbpi.py": {
+        "size": 11606
+      },
+      "sktime/forecasting/es_rnn.py": {
+        "size": 10154
+      },
+      "sktime/forecasting/ets.py": {
+        "size": 19644
+      },
+      "sktime/forecasting/exp_smoothing.py": {
+        "size": 10490
+      },
+      "sktime/forecasting/fbprophet.py": {
+        "size": 10581
+      },
+      "sktime/forecasting/greykite.py": {
+        "size": 9079
+      },
+      "sktime/forecasting/hf_momentfm_forecaster.py": {
+        "size": 27196
+      },
+      "sktime/forecasting/hf_transformers_forecaster.py": {
+        "size": 18936
+      },
+      "sktime/forecasting/ltsf.py": {
+        "size": 43741
+      },
+      "sktime/forecasting/mapa.py": {
+        "size": 25231
+      },
+      "sktime/forecasting/model_evaluation/__init__.py": {
+        "size": 254
+      },
+      "sktime/forecasting/model_evaluation/_functions.py": {
+        "size": 33990
+      },
+      "sktime/forecasting/model_evaluation/tests/__init__.py": {
+        "size": 47
+      },
+      "sktime/forecasting/model_evaluation/tests/test_evaluate.py": {
+        "size": 21616
+      },
+      "sktime/forecasting/model_selection/__init__.py": {
+        "size": 3606
+      },
+      "sktime/forecasting/model_selection/_base.py": {
+        "size": 13314
+      },
+      "sktime/forecasting/model_selection/_gridsearch.py": {
+        "size": 15912
+      },
+      "sktime/forecasting/model_selection/_hyperactive.py": {
+        "size": 10832
+      },
+      "sktime/forecasting/model_selection/_optuna.py": {
+        "size": 15685
+      },
+      "sktime/forecasting/model_selection/_randomsearch.py": {
+        "size": 13009
+      },
+      "sktime/forecasting/model_selection/_skopt.py": {
+        "size": 28630
+      },
+      "sktime/forecasting/model_selection/tests/__init__.py": {
+        "size": 46
+      },
+      "sktime/forecasting/model_selection/tests/test_tune.py": {
+        "size": 17419
+      },
+      "sktime/forecasting/moirai_forecaster.py": {
+        "size": 24669
+      },
+      "sktime/forecasting/naive/__init__.py": {
+        "size": 156
+      },
+      "sktime/forecasting/naive/_naive.py": {
+        "size": 35662
+      },
+      "sktime/forecasting/neuralforecast.py": {
+        "size": 81500
+      },
+      "sktime/forecasting/online_learning/__init__.py": {
+        "size": 509
+      },
+      "sktime/forecasting/online_learning/_online_ensemble.py": {
+        "size": 4698
+      },
+      "sktime/forecasting/online_learning/_prediction_weighted_ensembler.py": {
+        "size": 8722
+      },
+      "sktime/forecasting/online_learning/tests/__init__.py": {
+        "size": 58
+      },
+      "sktime/forecasting/online_learning/tests/test_online_learning.py": {
+        "size": 3955
+      },
+      "sktime/forecasting/patch_tst.py": {
+        "size": 25209
+      },
+      "sktime/forecasting/prophetverse.py": {
+        "size": 11662
+      },
+      "sktime/forecasting/pykan_forecaster.py": {
+        "size": 12132
+      },
+      "sktime/forecasting/pytorchforecasting.py": {
+        "size": 47158
+      },
+      "sktime/forecasting/rbf_forecaster.py": {
+        "size": 14509
+      },
+      "sktime/forecasting/reconcile.py": {
+        "size": 16918
+      },
+      "sktime/forecasting/residual_booster.py": {
+        "size": 9223
+      },
+      "sktime/forecasting/sarimax.py": {
+        "size": 19990
+      },
+      "sktime/forecasting/scinet.py": {
+        "size": 8197
+      },
+      "sktime/forecasting/squaring_residuals.py": {
+        "size": 16907
+      },
+      "sktime/forecasting/statsforecast.py": {
+        "size": 42985
+      },
+      "sktime/forecasting/stream/__init__.py": {
+        "size": 316
+      },
+      "sktime/forecasting/stream/_update.py": {
+        "size": 23203
+      },
+      "sktime/forecasting/structural.py": {
+        "size": 23346
+      },
+      "sktime/forecasting/tbats.py": {
+        "size": 6536
+      },
+      "sktime/forecasting/tests/__init__.py": {
+        "size": 29
+      },
+      "sktime/forecasting/tests/_config.py": {
+        "size": 3689
+      },
+      "sktime/forecasting/tests/test_all_forecasters.py": {
+        "size": 63261
+      },
+      "sktime/forecasting/tests/test_arar.py": {
+        "size": 4931
+      },
+      "sktime/forecasting/tests/test_arch.py": {
+        "size": 3548
+      },
+      "sktime/forecasting/tests/test_ardl.py": {
+        "size": 6402
+      },
+      "sktime/forecasting/tests/test_auto_reg.py": {
+        "size": 3291
+      },
+      "sktime/forecasting/tests/test_autots_custom.py": {
+        "size": 3574
+      },
+      "sktime/forecasting/tests/test_categorical.py": {
+        "size": 2948
+      },
+      "sktime/forecasting/tests/test_conformal.py": {
+        "size": 3513
+      },
+      "sktime/forecasting/tests/test_croston.py": {
+        "size": 1391
+      },
+      "sktime/forecasting/tests/test_darts.py": {
+        "size": 6463
+      },
+      "sktime/forecasting/tests/test_dummy_global.py": {
+        "size": 11394
+      },
+      "sktime/forecasting/tests/test_dynamic_factor.py": {
+        "size": 4423
+      },
+      "sktime/forecasting/tests/test_ets.py": {
+        "size": 3466
+      },
+      "sktime/forecasting/tests/test_exp_smoothing.py": {
+        "size": 2992
+      },
+      "sktime/forecasting/tests/test_hf_transformers_forecaster.py": {
+        "size": 1562
+      },
+      "sktime/forecasting/tests/test_interval_wrappers.py": {
+        "size": 4237
+      },
+      "sktime/forecasting/tests/test_known_values.py": {
+        "size": 2141
+      },
+      "sktime/forecasting/tests/test_mapa.py": {
+        "size": 8046
+      },
+      "sktime/forecasting/tests/test_naive.py": {
+        "size": 17130
+      },
+      "sktime/forecasting/tests/test_neuralforecast.py": {
+        "size": 13708
+      },
+      "sktime/forecasting/tests/test_pmdarima.py": {
+        "size": 685
+      },
+      "sktime/forecasting/tests/test_prophet.py": {
+        "size": 6705
+      },
+      "sktime/forecasting/tests/test_pytorchforecasting.py": {
+        "size": 3805
+      },
+      "sktime/forecasting/tests/test_reconcile.py": {
+        "size": 7397
+      },
+      "sktime/forecasting/tests/test_sarimax.py": {
+        "size": 5243
+      },
+      "sktime/forecasting/tests/test_statsforecast.py": {
+        "size": 3985
+      },
+      "sktime/forecasting/tests/test_structural.py": {
+        "size": 10527
+      },
+      "sktime/forecasting/tests/test_tbats.py": {
+        "size": 1042
+      },
+      "sktime/forecasting/tests/test_theta.py": {
+        "size": 4583
+      },
+      "sktime/forecasting/tests/test_timesfm.py": {
+        "size": 939
+      },
+      "sktime/forecasting/tests/test_tsb.py": {
+        "size": 889
+      },
+      "sktime/forecasting/tests/test_var.py": {
+        "size": 1560
+      },
+      "sktime/forecasting/tests/test_varmax.py": {
+        "size": 3184
+      },
+      "sktime/forecasting/tests/test_varreduce.py": {
+        "size": 749
+      },
+      "sktime/forecasting/tests/test_vecm.py": {
+        "size": 1660
+      },
+      "sktime/forecasting/tests/test_window_forecasters.py": {
+        "size": 2281
+      },
+      "sktime/forecasting/theta.py": {
+        "size": 22355
+      },
+      "sktime/forecasting/time_llm.py": {
+        "size": 10656
+      },
+      "sktime/forecasting/timemoe.py": {
+        "size": 18037
+      },
+      "sktime/forecasting/timesfm_forecaster.py": {
+        "size": 17528
+      },
+      "sktime/forecasting/tirex.py": {
+        "size": 9256
+      },
+      "sktime/forecasting/toto.py": {
+        "size": 15981
+      },
+      "sktime/forecasting/trend/__init__.py": {
+        "size": 872
+      },
+      "sktime/forecasting/trend/_curve_fit_forecaster.py": {
+        "size": 7621
+      },
+      "sktime/forecasting/trend/_polynomial_trend_forecaster.py": {
+        "size": 10648
+      },
+      "sktime/forecasting/trend/_pwl_trend_forecaster.py": {
+        "size": 8686
+      },
+      "sktime/forecasting/trend/_spline_trend_forecaster.py": {
+        "size": 6391
+      },
+      "sktime/forecasting/trend/_stl_forecaster.py": {
+        "size": 16479
+      },
+      "sktime/forecasting/trend/_trend_forecaster.py": {
+        "size": 5600
+      },
+      "sktime/forecasting/trend/_util.py": {
+        "size": 527
+      },
+      "sktime/forecasting/trend/tests/__init__.py": {
+        "size": 35
+      },
+      "sktime/forecasting/trend/tests/test_pwl_trend.py": {
+        "size": 4600
+      },
+      "sktime/forecasting/trend/tests/test_stl.py": {
+        "size": 876
+      },
+      "sktime/forecasting/trend/tests/test_trend.py": {
+        "size": 6554
+      },
+      "sktime/forecasting/tsb.py": {
+        "size": 5084
+      },
+      "sktime/forecasting/ttm.py": {
+        "size": 34820
+      },
+      "sktime/forecasting/var.py": {
+        "size": 12030
+      },
+      "sktime/forecasting/var_reduce.py": {
+        "size": 15823
+      },
+      "sktime/forecasting/varmax.py": {
+        "size": 19401
+      },
+      "sktime/forecasting/vecm.py": {
+        "size": 12717
+      },
+      "sktime/libs/README.md": {
+        "size": 3113
+      },
+      "sktime/libs/__init__.py": {
+        "size": 41
+      },
+      "sktime/libs/_aws_fortuna_enbpi/LICENSE.txt": {
+        "size": 10142
+      },
+      "sktime/libs/_aws_fortuna_enbpi/NOTICE.txt": {
+        "size": 67
+      },
+      "sktime/libs/_aws_fortuna_enbpi/README.md": {
+        "size": 117
+      },
+      "sktime/libs/_aws_fortuna_enbpi/__init__.py": {
+        "size": 32
+      },
+      "sktime/libs/_aws_fortuna_enbpi/enbpi.py": {
+        "size": 5790
+      },
+      "sktime/libs/_keras_self_attention/__init__.py": {
+        "size": 1904
+      },
+      "sktime/libs/_keras_self_attention/real_former.py": {
+        "size": 2822
+      },
+      "sktime/libs/_keras_self_attention/scaled_dot_attention.py": {
+        "size": 3474
+      },
+      "sktime/libs/_keras_self_attention/seq_self_attention.py": {
+        "size": 12163
+      },
+      "sktime/libs/_keras_self_attention/seq_weighted_attention.py": {
+        "size": 2811
+      },
+      "sktime/libs/_keras_self_attention/tests/__init__.py": {
+        "size": 38
+      },
+      "sktime/libs/_keras_self_attention/tests/scaled_dot_attention/__init__.py": {
+        "size": 0
+      },
+      "sktime/libs/_keras_self_attention/tests/scaled_dot_attention/test_history.py": {
+        "size": 2075
+      },
+      "sktime/libs/_keras_self_attention/tests/scaled_dot_attention/test_real_former.py": {
+        "size": 4117
+      },
+      "sktime/libs/_keras_self_attention/tests/scaled_dot_attention/test_sample.py": {
+        "size": 1703
+      },
+      "sktime/libs/_keras_self_attention/tests/scaled_dot_attention/test_save_load.py": {
+        "size": 1660
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_self_attention/__init__.py": {
+        "size": 0
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_self_attention/test_activation.py": {
+        "size": 1015
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_self_attention/test_bias.py": {
+        "size": 1068
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_self_attention/test_history.py": {
+        "size": 1010
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_self_attention/test_local.py": {
+        "size": 1233
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_self_attention/test_loss.py": {
+        "size": 1341
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_self_attention/test_mask.py": {
+        "size": 930
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_self_attention/test_mul.py": {
+        "size": 1186
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_self_attention/test_save_load.py": {
+        "size": 2157
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_self_attention/util.py": {
+        "size": 3452
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_weighted_attention/__init__.py": {
+        "size": 0
+      },
+      "sktime/libs/_keras_self_attention/tests/seq_weighted_attention/test_save_load.py": {
+        "size": 2305
+      },
+      "sktime/libs/chronos/README.md": {
+        "size": 832
+      },
+      "sktime/libs/chronos/__init__.py": {
+        "size": 12525
+      },
+      "sktime/libs/chronos/chronos.py": {
+        "size": 19801
+      },
+      "sktime/libs/chronos/chronos_bolt.py": {
+        "size": 27509
+      },
+      "sktime/libs/fracdiff/README.md": {
+        "size": 8041
+      },
+      "sktime/libs/fracdiff/__init__.py": {
+        "size": 2029
+      },
+      "sktime/libs/fracdiff/fdiff.py": {
+        "size": 6478
+      },
+      "sktime/libs/fracdiff/sklearn/__init__.py": {
+        "size": 144
+      },
+      "sktime/libs/fracdiff/sklearn/fracdiff.py": {
+        "size": 6000
+      },
+      "sktime/libs/fracdiff/sklearn/tol.py": {
+        "size": 2741
+      },
+      "sktime/libs/fracdiff/tests/__init__.py": {
+        "size": 0
+      },
+      "sktime/libs/fracdiff/tests/sklearn/__init__.py": {
+        "size": 0
+      },
+      "sktime/libs/fracdiff/tests/sklearn/test_fracdiff.py": {
+        "size": 1511
+      },
+      "sktime/libs/fracdiff/tests/sklearn/test_sklearn.py": {
+        "size": 2704
+      },
+      "sktime/libs/fracdiff/tests/sklearn/test_tol.py": {
+        "size": 1167
+      },
+      "sktime/libs/fracdiff/tests/test_fdiff.py": {
+        "size": 8237
+      },
+      "sktime/libs/granite_ttm/__init__.py": {
+        "size": 12243
+      },
+      "sktime/libs/granite_ttm/configuration_tinytimemixer.py": {
+        "size": 12439
+      },
+      "sktime/libs/granite_ttm/modeling_tinytimemixer.py": {
+        "size": 56166
+      },
+      "sktime/libs/momentfm/README.md": {
+        "size": 1707
+      },
+      "sktime/libs/momentfm/__init__.py": {
+        "size": 2044
+      },
+      "sktime/libs/momentfm/common.py": {
+        "size": 291
+      },
+      "sktime/libs/momentfm/data/__init__.py": {
+        "size": 58
+      },
+      "sktime/libs/momentfm/data/base.py": {
+        "size": 518
+      },
+      "sktime/libs/momentfm/models/__init__.py": {
+        "size": 45
+      },
+      "sktime/libs/momentfm/models/layers/__init__.py": {
+        "size": 51
+      },
+      "sktime/libs/momentfm/models/layers/embed.py": {
+        "size": 10731
+      },
+      "sktime/libs/momentfm/models/layers/revin.py": {
+        "size": 3662
+      },
+      "sktime/libs/momentfm/models/moment.py": {
+        "size": 26961
+      },
+      "sktime/libs/momentfm/utils/__init__.py": {
+        "size": 44
+      },
+      "sktime/libs/momentfm/utils/anomaly_detection_metrics.py": {
+        "size": 2716
+      },
+      "sktime/libs/momentfm/utils/data.py": {
+        "size": 7812
+      },
+      "sktime/libs/momentfm/utils/forecasting_metrics.py": {
+        "size": 13359
+      },
+      "sktime/libs/momentfm/utils/masking.py": {
+        "size": 5016
+      },
+      "sktime/libs/momentfm/utils/utils.py": {
+        "size": 4812
+      },
+      "sktime/libs/pykalman/__init__.py": {
+        "size": 3221
+      },
+      "sktime/libs/pykalman/datasets/__init__.py": {
+        "size": 85
+      },
+      "sktime/libs/pykalman/datasets/base.py": {
+        "size": 2585
+      },
+      "sktime/libs/pykalman/datasets/descr/__init__.py": {
+        "size": 45
+      },
+      "sktime/libs/pykalman/sqrt/__init__.py": {
+        "size": 447
+      },
+      "sktime/libs/pykalman/sqrt/bierman.py": {
+        "size": 35472
+      },
+      "sktime/libs/pykalman/sqrt/cholesky.py": {
+        "size": 30166
+      },
+      "sktime/libs/pykalman/sqrt/tests/__init__.py": {
+        "size": 37
+      },
+      "sktime/libs/pykalman/sqrt/tests/test_unscented.py": {
+        "size": 5484
+      },
+      "sktime/libs/pykalman/sqrt/unscented.py": {
+        "size": 29780
+      },
+      "sktime/libs/pykalman/standard.py": {
+        "size": 60882
+      },
+      "sktime/libs/pykalman/tests/__init__.py": {
+        "size": 26
+      },
+      "sktime/libs/pykalman/tests/test_standard.py": {
+        "size": 7810
+      },
+      "sktime/libs/pykalman/tests/test_unscented.py": {
+        "size": 10649
+      },
+      "sktime/libs/pykalman/unscented.py": {
+        "size": 51189
+      },
+      "sktime/libs/pykalman/utils.py": {
+        "size": 5527
+      },
+      "sktime/libs/pykalman/utils_numpy.py": {
+        "size": 581
+      },
+      "sktime/libs/time_llm/TimeLLM.py": {
+        "size": 14598
+      },
+      "sktime/libs/time_llm/__init__.py": {
+        "size": 11067
+      },
+      "sktime/libs/time_llm/layers/Embed.py": {
+        "size": 8372
+      },
+      "sktime/libs/time_llm/layers/StandardNorm.py": {
+        "size": 2490
+      },
+      "sktime/libs/time_llm/layers/__init__.py": {
+        "size": 32
+      },
+      "sktime/libs/timemoe/__init__.py": {
+        "size": 12039
+      },
+      "sktime/libs/timemoe/timemoe.py": {
+        "size": 57660
+      },
+      "sktime/libs/timemoe/timemoe_config.py": {
+        "size": 3276
+      },
+      "sktime/libs/timemoe/ts_generation_mixin.py": {
+        "size": 13405
+      },
+      "sktime/libs/timesfm/__init__.py": {
+        "size": 12192
+      },
+      "sktime/libs/timesfm/data_loader.py": {
+        "size": 8681
+      },
+      "sktime/libs/timesfm/patched_decoder.py": {
+        "size": 16522
+      },
+      "sktime/libs/timesfm/time_features.py": {
+        "size": 6320
+      },
+      "sktime/libs/timesfm/timesfm.py": {
+        "size": 27026
+      },
+      "sktime/libs/timesfm/xreg_lib.py": {
+        "size": 13839
+      },
+      "sktime/libs/uni2ts/__init__.py": {
+        "size": 12124
+      },
+      "sktime/libs/uni2ts/common/__init__.py": {
+        "size": 0
+      },
+      "sktime/libs/uni2ts/common/core.py": {
+        "size": 2144
+      },
+      "sktime/libs/uni2ts/common/torch_util.py": {
+        "size": 3001
+      },
+      "sktime/libs/uni2ts/distribution/__init__.py": {
+        "size": 231
+      },
+      "sktime/libs/uni2ts/distribution/_base.py": {
+        "size": 5829
+      },
+      "sktime/libs/uni2ts/distribution/log_normal.py": {
+        "size": 1593
+      },
+      "sktime/libs/uni2ts/distribution/mixture.py": {
+        "size": 7982
+      },
+      "sktime/libs/uni2ts/distribution/negative_binomial.py": {
+        "size": 4075
+      },
+      "sktime/libs/uni2ts/distribution/normal.py": {
+        "size": 2148
+      },
+      "sktime/libs/uni2ts/distribution/student_t.py": {
+        "size": 1502
+      },
+      "sktime/libs/uni2ts/forecast.py": {
+        "size": 34459
+      },
+      "sktime/libs/uni2ts/loss/__init__.py": {
+        "size": 34
+      },
+      "sktime/libs/uni2ts/loss/packed/__init__.py": {
+        "size": 70
+      },
+      "sktime/libs/uni2ts/loss/packed/_base.py": {
+        "size": 3203
+      },
+      "sktime/libs/uni2ts/loss/packed/distribution.py": {
+        "size": 1047
+      },
+      "sktime/libs/uni2ts/module/__init__.py": {
+        "size": 0
+      },
+      "sktime/libs/uni2ts/module/attention.py": {
+        "size": 9503
+      },
+      "sktime/libs/uni2ts/module/ffn.py": {
+        "size": 2745
+      },
+      "sktime/libs/uni2ts/module/norm.py": {
+        "size": 1897
+      },
+      "sktime/libs/uni2ts/module/packed_scaler.py": {
+        "size": 3608
+      },
+      "sktime/libs/uni2ts/module/position/__init__.py": {
+        "size": 124
+      },
+      "sktime/libs/uni2ts/module/position/attn_bias.py": {
+        "size": 2366
+      },
+      "sktime/libs/uni2ts/module/position/attn_projection.py": {
+        "size": 5744
+      },
+      "sktime/libs/uni2ts/module/transformer.py": {
+        "size": 6197
+      },
+      "sktime/libs/uni2ts/module/ts_embed.py": {
+        "size": 6156
+      },
+      "sktime/libs/uni2ts/moirai_module.py": {
+        "size": 5483
+      },
+      "sktime/libs/vmdpy/README.md": {
+        "size": 2693
+      },
+      "sktime/libs/vmdpy/__init__.py": {
+        "size": 1554
+      },
+      "sktime/libs/vmdpy/tests/__init__.py": {
+        "size": 31
+      },
+      "sktime/libs/vmdpy/tests/test_readme_example.py": {
+        "size": 1690
+      },
+      "sktime/libs/vmdpy/vmdpy.py": {
+        "size": 6660
+      },
+      "sktime/networks/__init__.py": {
+        "size": 226
+      },
+      "sktime/networks/base.py": {
+        "size": 802
+      },
+      "sktime/networks/cinn.py": {
+        "size": 6734
+      },
+      "sktime/networks/cnn.py": {
+        "size": 7579
+      },
+      "sktime/networks/cntc.py": {
+        "size": 8223
+      },
+      "sktime/networks/convtimenet/__init__.py": {
+        "size": 24
+      },
+      "sktime/networks/convtimenet/_convtimenet.py": {
+        "size": 3336
+      },
+      "sktime/networks/convtimenet/_convtimenet_backbone.py": {
+        "size": 8859
+      },
+      "sktime/networks/convtimenet/_dlutils.py": {
+        "size": 11662
+      },
+      "sktime/networks/convtimenet/forecaster/__init__.py": {
+        "size": 35
+      },
+      "sktime/networks/convtimenet/forecaster/_convtimenet.py": {
+        "size": 2610
+      },
+      "sktime/networks/convtimenet/forecaster/_convtimenet_backbone.py": {
+        "size": 11410
+      },
+      "sktime/networks/convtimenet/forecaster/_patch_layers.py": {
+        "size": 6642
+      },
+      "sktime/networks/convtimenet/forecaster/_revin.py": {
+        "size": 2192
+      },
+      "sktime/networks/es_rnn.py": {
+        "size": 11825
+      },
+      "sktime/networks/fcn.py": {
+        "size": 4000
+      },
+      "sktime/networks/gru.py": {
+        "size": 11797
+      },
+      "sktime/networks/inceptiontime.py": {
+        "size": 5620
+      },
+      "sktime/networks/lstmfcn/__init__.py": {
+        "size": 287
+      },
+      "sktime/networks/lstmfcn/_lstmfcn_tf.py": {
+        "size": 5652
+      },
+      "sktime/networks/lstmfcn/_lstmfcn_torch.py": {
+        "size": 10218
+      },
+      "sktime/networks/ltsf/__init__.py": {
+        "size": 17
+      },
+      "sktime/networks/ltsf/data/__init__.py": {
+        "size": 17
+      },
+      "sktime/networks/ltsf/data/dataset.py": {
+        "size": 2707
+      },
+      "sktime/networks/ltsf/layers/__init__.py": {
+        "size": 19
+      },
+      "sktime/networks/ltsf/layers/attention.py": {
+        "size": 8886
+      },
+      "sktime/networks/ltsf/layers/auto_correlation.py": {
+        "size": 9073
+      },
+      "sktime/networks/ltsf/layers/embed.py": {
+        "size": 7289
+      },
+      "sktime/networks/ltsf/layers/enc_dec.py": {
+        "size": 7642
+      },
+      "sktime/networks/ltsf/models/__init__.py": {
+        "size": 19
+      },
+      "sktime/networks/ltsf/models/linear.py": {
+        "size": 11943
+      },
+      "sktime/networks/ltsf/models/transformers.py": {
+        "size": 11163
+      },
+      "sktime/networks/ltsf/utils/__init__.py": {
+        "size": 18
+      },
+      "sktime/networks/ltsf/utils/extras.py": {
+        "size": 1913
+      },
+      "sktime/networks/ltsf/utils/masking.py": {
+        "size": 1237
+      },
+      "sktime/networks/ltsf/utils/timefeatures.py": {
+        "size": 3463
+      },
+      "sktime/networks/macnn.py": {
+        "size": 8274
+      },
+      "sktime/networks/mcdcnn/__init__.py": {
+        "size": 272
+      },
+      "sktime/networks/mcdcnn/_mcdcnn_tf.py": {
+        "size": 4946
+      },
+      "sktime/networks/mcdcnn/_mcdcnn_torch.py": {
+        "size": 7387
+      },
+      "sktime/networks/mlp/__init__.py": {
+        "size": 282
+      },
+      "sktime/networks/mlp/_mlp_tf.py": {
+        "size": 4084
+      },
+      "sktime/networks/mlp/_mlp_torch.py": {
+        "size": 11338
+      },
+      "sktime/networks/mvts_transformer.py": {
+        "size": 8808
+      },
+      "sktime/networks/rbf.py": {
+        "size": 7206
+      },
+      "sktime/networks/resnet.py": {
+        "size": 6710
+      },
+      "sktime/networks/rnn/__init__.py": {
+        "size": 255
+      },
+      "sktime/networks/rnn/_rnn_tf.py": {
+        "size": 5853
+      },
+      "sktime/networks/rnn/_rnn_torch.py": {
+        "size": 11008
+      },
+      "sktime/networks/scinet.py": {
+        "size": 35669
+      },
+      "sktime/networks/tapnet.py": {
+        "size": 10281
+      },
+      "sktime/networks/tests/__init__.py": {
+        "size": 36
+      },
+      "sktime/networks/tests/test_all_networks.py": {
+        "size": 1306
+      },
+      "sktime/param_est/__init__.py": {
+        "size": 82
+      },
+      "sktime/param_est/base.py": {
+        "size": 20425
+      },
+      "sktime/param_est/cointegration/__init__.py": {
+        "size": 466
+      },
+      "sktime/param_est/cointegration/_johansen.py": {
+        "size": 9216
+      },
+      "sktime/param_est/compose/__init__.py": {
+        "size": 360
+      },
+      "sktime/param_est/compose/_func_fitter.py": {
+        "size": 6301
+      },
+      "sktime/param_est/compose/_pipeline.py": {
+        "size": 12633
+      },
+      "sktime/param_est/fixed.py": {
+        "size": 3100
+      },
+      "sktime/param_est/lag/__init__.py": {
+        "size": 550
+      },
+      "sktime/param_est/lag/_acorrljungbox.py": {
+        "size": 3992
+      },
+      "sktime/param_est/lag/_arlag.py": {
+        "size": 5669
+      },
+      "sktime/param_est/plugin/__init__.py": {
+        "size": 343
+      },
+      "sktime/param_est/plugin/_common.py": {
+        "size": 2477
+      },
+      "sktime/param_est/plugin/_forecaster.py": {
+        "size": 13271
+      },
+      "sktime/param_est/plugin/_transformer.py": {
+        "size": 10301
+      },
+      "sktime/param_est/plugin/tests/__init__.py": {
+        "size": 132
+      },
+      "sktime/param_est/plugin/tests/test_plugin.py": {
+        "size": 3797
+      },
+      "sktime/param_est/residuals/__init__.py": {
+        "size": 184
+      },
+      "sktime/param_est/residuals/_jarquebera.py": {
+        "size": 2712
+      },
+      "sktime/param_est/seasonality.py": {
+        "size": 25321
+      },
+      "sktime/param_est/stationarity/__init__.py": {
+        "size": 789
+      },
+      "sktime/param_est/stationarity/_arch.py": {
+        "size": 30291
+      },
+      "sktime/param_est/stationarity/_sm_breakvar.py": {
+        "size": 4382
+      },
+      "sktime/param_est/stationarity/_statsmodels.py": {
+        "size": 13638
+      },
+      "sktime/param_est/tests/__init__.py": {
+        "size": 13
+      },
+      "sktime/param_est/tests/test_all_param_est.py": {
+        "size": 2198
+      },
+      "sktime/param_est/tests/test_cointegration.py": {
+        "size": 1671
+      },
+      "sktime/param_est/tests/test_lag.py": {
+        "size": 1087
+      },
+      "sktime/param_est/tests/test_plugin.py": {
+        "size": 2756
+      },
+      "sktime/param_est/tests/test_seasonality.py": {
+        "size": 1976
+      },
+      "sktime/param_est/tests/test_stationarity.py": {
+        "size": 1142
+      },
+      "sktime/performance_metrics/__init__.py": {
+        "size": 47
+      },
+      "sktime/performance_metrics/annotation/__init__.py": {
+        "size": 222
+      },
+      "sktime/performance_metrics/annotation/metrics.py": {
+        "size": 4546
+      },
+      "sktime/performance_metrics/base/__init__.py": {
+        "size": 262
+      },
+      "sktime/performance_metrics/base/_base.py": {
+        "size": 1704
+      },
+      "sktime/performance_metrics/detection/__init__.py": {
+        "size": 626
+      },
+      "sktime/performance_metrics/detection/_base.py": {
+        "size": 6695
+      },
+      "sktime/performance_metrics/detection/_chamfer.py": {
+        "size": 4305
+      },
+      "sktime/performance_metrics/detection/_count.py": {
+        "size": 3658
+      },
+      "sktime/performance_metrics/detection/_f1score.py": {
+        "size": 4405
+      },
+      "sktime/performance_metrics/detection/_hausdorff.py": {
+        "size": 2796
+      },
+      "sktime/performance_metrics/detection/_randindex.py": {
+        "size": 11471
+      },
+      "sktime/performance_metrics/detection/_ts_auprc.py": {
+        "size": 7367
+      },
+      "sktime/performance_metrics/detection/tests/__init__.py": {
+        "size": 35
+      },
+      "sktime/performance_metrics/detection/tests/test_all_metrics_detection.py": {
+        "size": 2743
+      },
+      "sktime/performance_metrics/detection/tests/test_base.py": {
+        "size": 1130
+      },
+      "sktime/performance_metrics/detection/tests/test_chamfer.py": {
+        "size": 1098
+      },
+      "sktime/performance_metrics/detection/tests/test_hausdorff.py": {
+        "size": 1121
+      },
+      "sktime/performance_metrics/detection/utils/__init__.py": {
+        "size": 546
+      },
+      "sktime/performance_metrics/detection/utils/_bias_cardinality.py": {
+        "size": 4603
+      },
+      "sktime/performance_metrics/detection/utils/_closest.py": {
+        "size": 1252
+      },
+      "sktime/performance_metrics/detection/utils/_window.py": {
+        "size": 2748
+      },
+      "sktime/performance_metrics/forecasting/__init__.py": {
+        "size": 4941
+      },
+      "sktime/performance_metrics/forecasting/_base.py": {
+        "size": 44281
+      },
+      "sktime/performance_metrics/forecasting/_coerce.py": {
+        "size": 1283
+      },
+      "sktime/performance_metrics/forecasting/_common.py": {
+        "size": 4284
+      },
+      "sktime/performance_metrics/forecasting/_functions.py": {
+        "size": 113597
+      },
+      "sktime/performance_metrics/forecasting/_gmae.py": {
+        "size": 8347
+      },
+      "sktime/performance_metrics/forecasting/_gmrelae.py": {
+        "size": 4059
+      },
+      "sktime/performance_metrics/forecasting/_gmrelse.py": {
+        "size": 5673
+      },
+      "sktime/performance_metrics/forecasting/_gmse.py": {
+        "size": 6598
+      },
+      "sktime/performance_metrics/forecasting/_maape.py": {
+        "size": 5727
+      },
+      "sktime/performance_metrics/forecasting/_mae.py": {
+        "size": 5481
+      },
+      "sktime/performance_metrics/forecasting/_mape.py": {
+        "size": 9262
+      },
+      "sktime/performance_metrics/forecasting/_mase.py": {
+        "size": 8941
+      },
+      "sktime/performance_metrics/forecasting/_masyme.py": {
+        "size": 8000
+      },
+      "sktime/performance_metrics/forecasting/_medae.py": {
+        "size": 5849
+      },
+      "sktime/performance_metrics/forecasting/_medape.py": {
+        "size": 9445
+      },
+      "sktime/performance_metrics/forecasting/_medase.py": {
+        "size": 6381
+      },
+      "sktime/performance_metrics/forecasting/_medrelae.py": {
+        "size": 3962
+      },
+      "sktime/performance_metrics/forecasting/_medse.py": {
+        "size": 8267
+      },
+      "sktime/performance_metrics/forecasting/_medspe.py": {
+        "size": 7149
+      },
+      "sktime/performance_metrics/forecasting/_medsse.py": {
+        "size": 5912
+      },
+      "sktime/performance_metrics/forecasting/_mlinex.py": {
+        "size": 7200
+      },
+      "sktime/performance_metrics/forecasting/_mrelae.py": {
+        "size": 3952
+      },
+      "sktime/performance_metrics/forecasting/_mse.py": {
+        "size": 10101
+      },
+      "sktime/performance_metrics/forecasting/_msep.py": {
+        "size": 7846
+      },
+      "sktime/performance_metrics/forecasting/_msle.py": {
+        "size": 2909
+      },
+      "sktime/performance_metrics/forecasting/_mspe.py": {
+        "size": 6867
+      },
+      "sktime/performance_metrics/forecasting/_msse.py": {
+        "size": 5873
+      },
+      "sktime/performance_metrics/forecasting/_rell.py": {
+        "size": 5718
+      },
+      "sktime/performance_metrics/forecasting/probabilistic/__init__.py": {
+        "size": 879
+      },
+      "sktime/performance_metrics/forecasting/probabilistic/_classes.py": {
+        "size": 49996
+      },
+      "sktime/performance_metrics/forecasting/probabilistic/tests/__init__.py": {
+        "size": 39
+      },
+      "sktime/performance_metrics/forecasting/probabilistic/tests/test_distr_metrics.py": {
+        "size": 1492
+      },
+      "sktime/performance_metrics/forecasting/probabilistic/tests/test_probabilistic_metrics.py": {
+        "size": 11641
+      },
+      "sktime/performance_metrics/forecasting/sample_weight/__init__.py": {
+        "size": 451
+      },
+      "sktime/performance_metrics/forecasting/sample_weight/_base.py": {
+        "size": 2892
+      },
+      "sktime/performance_metrics/forecasting/sample_weight/_types.py": {
+        "size": 3899
+      },
+      "sktime/performance_metrics/forecasting/sample_weight/tests/__init__.py": {
+        "size": 49
+      },
+      "sktime/performance_metrics/forecasting/sample_weight/tests/test_sample_weight_generator.py": {
+        "size": 8673
+      },
+      "sktime/performance_metrics/forecasting/tests/__init__.py": {
+        "size": 51
+      },
+      "sktime/performance_metrics/forecasting/tests/test_all_metrics_forecasting.py": {
+        "size": 7264
+      },
+      "sktime/performance_metrics/forecasting/tests/test_metrics.py": {
+        "size": 7785
+      },
+      "sktime/performance_metrics/tests/__init__.py": {
+        "size": 37
+      },
+      "sktime/performance_metrics/tests/_config.py": {
+        "size": 411
+      },
+      "sktime/performance_metrics/tests/test_annotation_metrics.py": {
+        "size": 2506
+      },
+      "sktime/performance_metrics/tests/test_metrics_classes.py": {
+        "size": 3563
+      },
+      "sktime/performance_metrics/tests/test_numpy_metrics.py": {
+        "size": 1963
+      },
+      "sktime/performance_metrics/tests/test_performance_metrics_forecasting.py": {
+        "size": 23200
+      },
+      "sktime/performance_metrics/tests/test_segmentation_metrics.py": {
+        "size": 2362
+      },
+      "sktime/pipeline/__init__.py": {
+        "size": 261
+      },
+      "sktime/pipeline/_make_pipeline.py": {
+        "size": 1772
+      },
+      "sktime/pipeline/_sklearn_to_sktime.py": {
+        "size": 1145
+      },
+      "sktime/pipeline/pipeline.py": {
+        "size": 29311
+      },
+      "sktime/pipeline/step.py": {
+        "size": 8255
+      },
+      "sktime/pipeline/tests/__init__.py": {
+        "size": 39
+      },
+      "sktime/pipeline/tests/regression_tests/__init__.py": {
+        "size": 46
+      },
+      "sktime/pipeline/tests/regression_tests/test_pipeline_regression.py": {
+        "size": 13511
+      },
+      "sktime/pipeline/tests/test_pipeline.py": {
+        "size": 5707
+      },
+      "sktime/pipeline/tests/test_step.py": {
+        "size": 2020
+      },
+      "sktime/registry/README.md": {
+        "size": 273
+      },
+      "sktime/registry/__init__.py": {
+        "size": 2033
+      },
+      "sktime/registry/_alias.py": {
+        "size": 2271
+      },
+      "sktime/registry/_alias_str.py": {
+        "size": 682
+      },
+      "sktime/registry/_base_classes.py": {
+        "size": 26779
+      },
+      "sktime/registry/_craft.py": {
+        "size": 7581
+      },
+      "sktime/registry/_lookup.py": {
+        "size": 16166
+      },
+      "sktime/registry/_lookup_sklearn.py": {
+        "size": 4651
+      },
+      "sktime/registry/_scitype.py": {
+        "size": 6915
+      },
+      "sktime/registry/_scitype_coercion.py": {
+        "size": 6207
+      },
+      "sktime/registry/_tags.py": {
+        "size": 136221
+      },
+      "sktime/registry/tests/__init__.py": {
+        "size": 22
+      },
+      "sktime/registry/tests/test_craft.py": {
+        "size": 4913
+      },
+      "sktime/registry/tests/test_lookup.py": {
+        "size": 9690
+      },
+      "sktime/registry/tests/test_scitype.py": {
+        "size": 5687
+      },
+      "sktime/registry/tests/test_tags.py": {
+        "size": 964
+      },
+      "sktime/regression/__init__.py": {
+        "size": 63
+      },
+      "sktime/regression/_delegate.py": {
+        "size": 5700
+      },
+      "sktime/regression/all/__init__.py": {
+        "size": 423
+      },
+      "sktime/regression/base.py": {
+        "size": 15778
+      },
+      "sktime/regression/compose/__init__.py": {
+        "size": 462
+      },
+      "sktime/regression/compose/_ensemble.py": {
+        "size": 19332
+      },
+      "sktime/regression/compose/_multiplexer.py": {
+        "size": 8855
+      },
+      "sktime/regression/compose/_pipeline.py": {
+        "size": 26176
+      },
+      "sktime/regression/deep_learning/__init__.py": {
+        "size": 1167
+      },
+      "sktime/regression/deep_learning/base/__init__.py": {
+        "size": 311
+      },
+      "sktime/regression/deep_learning/base/_base_tf.py": {
+        "size": 12095
+      },
+      "sktime/regression/deep_learning/base/_base_torch.py": {
+        "size": 20104
+      },
+      "sktime/regression/deep_learning/cnn.py": {
+        "size": 11470
+      },
+      "sktime/regression/deep_learning/cntc.py": {
+        "size": 12222
+      },
+      "sktime/regression/deep_learning/fcn.py": {
+        "size": 7623
+      },
+      "sktime/regression/deep_learning/inceptiontime.py": {
+        "size": 8404
+      },
+      "sktime/regression/deep_learning/lstmfcn/__init__.py": {
+        "size": 390
+      },
+      "sktime/regression/deep_learning/lstmfcn/_lstmfcn_tf.py": {
+        "size": 8674
+      },
+      "sktime/regression/deep_learning/lstmfcn/_lstmfcn_torch.py": {
+        "size": 10704
+      },
+      "sktime/regression/deep_learning/macnn.py": {
+        "size": 9414
+      },
+      "sktime/regression/deep_learning/mcdcnn/__init__.py": {
+        "size": 369
+      },
+      "sktime/regression/deep_learning/mcdcnn/_mcdcnn_tf.py": {
+        "size": 8606
+      },
+      "sktime/regression/deep_learning/mcdcnn/_mcdcnn_torch.py": {
+        "size": 9938
+      },
+      "sktime/regression/deep_learning/mlp.py": {
+        "size": 8599
+      },
+      "sktime/regression/deep_learning/resnet.py": {
+        "size": 8052
+      },
+      "sktime/regression/deep_learning/rnn/__init__.py": {
+        "size": 363
+      },
+      "sktime/regression/deep_learning/rnn/_rnn_tf.py": {
+        "size": 10656
+      },
+      "sktime/regression/deep_learning/rnn/_rnn_torch.py": {
+        "size": 10320
+      },
+      "sktime/regression/deep_learning/tapnet.py": {
+        "size": 10035
+      },
+      "sktime/regression/distance_based/__init__.py": {
+        "size": 198
+      },
+      "sktime/regression/distance_based/_time_series_neighbors.py": {
+        "size": 9420
+      },
+      "sktime/regression/distance_based/tests/__init__.py": {
+        "size": 32
+      },
+      "sktime/regression/distance_based/tests/test_time_series_neighbors.py": {
+        "size": 1109
+      },
+      "sktime/regression/dummy/__init__.py": {
+        "size": 119
+      },
+      "sktime/regression/dummy/_dummy.py": {
+        "size": 3809
+      },
+      "sktime/regression/dummy/tests/__init__.py": {
+        "size": 33
+      },
+      "sktime/regression/dummy/tests/test_dummy.py": {
+        "size": 700
+      },
+      "sktime/regression/interval_based/__init__.py": {
+        "size": 235
+      },
+      "sktime/regression/interval_based/_tsf.py": {
+        "size": 6478
+      },
+      "sktime/regression/kernel_based/__init__.py": {
+        "size": 253
+      },
+      "sktime/regression/kernel_based/_rocket_regressor.py": {
+        "size": 9693
+      },
+      "sktime/regression/kernel_based/_svr_tslearn.py": {
+        "size": 6235
+      },
+      "sktime/regression/model_selection/__init__.py": {
+        "size": 213
+      },
+      "sktime/regression/model_selection/_tune.py": {
+        "size": 17131
+      },
+      "sktime/regression/model_selection/tests/__init__.py": {
+        "size": 45
+      },
+      "sktime/regression/model_selection/tests/test_tune.py": {
+        "size": 0
+      },
+      "sktime/regression/tests/__init__.py": {
+        "size": 44
+      },
+      "sktime/regression/tests/test_all_regressors.py": {
+        "size": 4666
+      },
+      "sktime/regression/tests/test_base.py": {
+        "size": 14377
+      },
+      "sktime/regression/tests/test_categorical_in_composite.py": {
+        "size": 2440
+      },
+      "sktime/split/__init__.py": {
+        "size": 1450
+      },
+      "sktime/split/_legacy_splitters.py": {
+        "size": 5727
+      },
+      "sktime/split/base/__init__.py": {
+        "size": 344
+      },
+      "sktime/split/base/_base_splitter.py": {
+        "size": 19003
+      },
+      "sktime/split/base/_base_windowsplitter.py": {
+        "size": 14134
+      },
+      "sktime/split/base/_common.py": {
+        "size": 5065
+      },
+      "sktime/split/base/tests/__init__.py": {
+        "size": 115
+      },
+      "sktime/split/base/tests/test_base.py": {
+        "size": 4787
+      },
+      "sktime/split/compose/__init__.py": {
+        "size": 177
+      },
+      "sktime/split/compose/_repeat.py": {
+        "size": 6925
+      },
+      "sktime/split/cutoff.py": {
+        "size": 12856
+      },
+      "sktime/split/expandingcutoff.py": {
+        "size": 7709
+      },
+      "sktime/split/expandinggreedy.py": {
+        "size": 4857
+      },
+      "sktime/split/expandingslidingwindow.py": {
+        "size": 5009
+      },
+      "sktime/split/expandingwindow.py": {
+        "size": 4284
+      },
+      "sktime/split/fh.py": {
+        "size": 3741
+      },
+      "sktime/split/instance.py": {
+        "size": 3787
+      },
+      "sktime/split/sameloc.py": {
+        "size": 5558
+      },
+      "sktime/split/singlewindow.py": {
+        "size": 6561
+      },
+      "sktime/split/slidinggreedy.py": {
+        "size": 5217
+      },
+      "sktime/split/slidingwindow.py": {
+        "size": 5486
+      },
+      "sktime/split/temporal_train_test_split.py": {
+        "size": 11108
+      },
+      "sktime/split/testplustrain.py": {
+        "size": 4618
+      },
+      "sktime/split/tests/__init__.py": {
+        "size": 46
+      },
+      "sktime/split/tests/test_all_splitters.py": {
+        "size": 5194
+      },
+      "sktime/split/tests/test_cutoff.py": {
+        "size": 2424
+      },
+      "sktime/split/tests/test_expandingcutoff.py": {
+        "size": 11207
+      },
+      "sktime/split/tests/test_expandinggreedy.py": {
+        "size": 4853
+      },
+      "sktime/split/tests/test_expandingwindow.py": {
+        "size": 4735
+      },
+      "sktime/split/tests/test_sameloc.py": {
+        "size": 2547
+      },
+      "sktime/split/tests/test_singlewindow.py": {
+        "size": 3385
+      },
+      "sktime/split/tests/test_slidinggreedy.py": {
+        "size": 10037
+      },
+      "sktime/split/tests/test_slidingwindow.py": {
+        "size": 6517
+      },
+      "sktime/split/tests/test_split.py": {
+        "size": 5136
+      },
+      "sktime/split/tests/test_temporaltraintest.py": {
+        "size": 5622
+      },
+      "sktime/tests/__init__.py": {
+        "size": 31
+      },
+      "sktime/tests/_config.py": {
+        "size": 12599
+      },
+      "sktime/tests/_test_vm.py": {
+        "size": 1909
+      },
+      "sktime/tests/test_all_estimators.py": {
+        "size": 73200
+      },
+      "sktime/tests/test_class_register.py": {
+        "size": 2571
+      },
+      "sktime/tests/test_doctest.py": {
+        "size": 3609
+      },
+      "sktime/tests/test_softdeps.py": {
+        "size": 15358
+      },
+      "sktime/tests/test_switch.py": {
+        "size": 18352
+      },
+      "sktime/tests/test_vm_classes_limit.py": {
+        "size": 662
+      },
+      "sktime/tests/tests/__init__.py": {
+        "size": 36
+      },
+      "sktime/tests/tests/test_test_utils.py": {
+        "size": 6173
+      },
+      "sktime/transformations/__init__.py": {
+        "size": 23
+      },
+      "sktime/transformations/_delegate.py": {
+        "size": 8186
+      },
+      "sktime/transformations/all/__init__.py": {
+        "size": 368
+      },
+      "sktime/transformations/base.py": {
+        "size": 71680
+      },
+      "sktime/transformations/bootstrap/__init__.py": {
+        "size": 737
+      },
+      "sktime/transformations/bootstrap/_mbb.py": {
+        "size": 29142
+      },
+      "sktime/transformations/bootstrap/_repeat.py": {
+        "size": 3442
+      },
+      "sktime/transformations/bootstrap/_splitterboot.py": {
+        "size": 9659
+      },
+      "sktime/transformations/bootstrap/_tsbootstrap.py": {
+        "size": 6095
+      },
+      "sktime/transformations/bootstrap/tests/__init__.py": {
+        "size": 36
+      },
+      "sktime/transformations/bootstrap/tests/test_mbb.py": {
+        "size": 4927
+      },
+      "sktime/transformations/compose/__init__.py": {
+        "size": 1551
+      },
+      "sktime/transformations/compose/_arithmetic.py": {
+        "size": 7628
+      },
+      "sktime/transformations/compose/_column.py": {
+        "size": 23898
+      },
+      "sktime/transformations/compose/_common.py": {
+        "size": 798
+      },
+      "sktime/transformations/compose/_featureunion.py": {
+        "size": 10527
+      },
+      "sktime/transformations/compose/_fitintransform.py": {
+        "size": 5979
+      },
+      "sktime/transformations/compose/_grouped.py": {
+        "size": 5811
+      },
+      "sktime/transformations/compose/_id.py": {
+        "size": 2691
+      },
+      "sktime/transformations/compose/_invert.py": {
+        "size": 6541
+      },
+      "sktime/transformations/compose/_ixtox.py": {
+        "size": 7381
+      },
+      "sktime/transformations/compose/_logger.py": {
+        "size": 9583
+      },
+      "sktime/transformations/compose/_multiplex.py": {
+        "size": 10668
+      },
+      "sktime/transformations/compose/_optional.py": {
+        "size": 6169
+      },
+      "sktime/transformations/compose/_pipeline.py": {
+        "size": 21029
+      },
+      "sktime/transformations/compose/_transformif.py": {
+        "size": 11124
+      },
+      "sktime/transformations/compose/_ytox.py": {
+        "size": 7082
+      },
+      "sktime/transformations/hierarchical/__init__.py": {
+        "size": 62
+      },
+      "sktime/transformations/hierarchical/aggregate.py": {
+        "size": 10661
+      },
+      "sktime/transformations/hierarchical/reconcile/__init__.py": {
+        "size": 457
+      },
+      "sktime/transformations/hierarchical/reconcile/_base.py": {
+        "size": 5460
+      },
+      "sktime/transformations/hierarchical/reconcile/_bottom_up.py": {
+        "size": 2038
+      },
+      "sktime/transformations/hierarchical/reconcile/_middle_out.py": {
+        "size": 10821
+      },
+      "sktime/transformations/hierarchical/reconcile/_optimal.py": {
+        "size": 13838
+      },
+      "sktime/transformations/hierarchical/reconcile/_reconcile.py": {
+        "size": 19945
+      },
+      "sktime/transformations/hierarchical/reconcile/_topdown.py": {
+        "size": 9489
+      },
+      "sktime/transformations/hierarchical/reconcile/_utils.py": {
+        "size": 8228
+      },
+      "sktime/transformations/hierarchical/squeeze_hierarchy.py": {
+        "size": 5145
+      },
+      "sktime/transformations/hierarchical/tests/__init__.py": {
+        "size": 57
+      },
+      "sktime/transformations/hierarchical/tests/reconcile/__init__.py": {
+        "size": 40
+      },
+      "sktime/transformations/hierarchical/tests/reconcile/test_full_hierarchy.py": {
+        "size": 7302
+      },
+      "sktime/transformations/hierarchical/tests/reconcile/test_middle_out.py": {
+        "size": 1738
+      },
+      "sktime/transformations/hierarchical/tests/reconcile/test_reconcile.py": {
+        "size": 4601
+      },
+      "sktime/transformations/hierarchical/tests/reconcile/test_squeeze_hierarchy.py": {
+        "size": 5225
+      },
+      "sktime/transformations/hierarchical/tests/reconcile/test_utils.py": {
+        "size": 4832
+      },
+      "sktime/transformations/hierarchical/tests/test_aggregate.py": {
+        "size": 3890
+      },
+      "sktime/transformations/merger.py": {
+        "size": 5076
+      },
+      "sktime/transformations/panel/__init__.py": {
+        "size": 13
+      },
+      "sktime/transformations/panel/_catch22_numba.py": {
+        "size": 25324
+      },
+      "sktime/transformations/panel/_shapelet_transform_numba.py": {
+        "size": 8174
+      },
+      "sktime/transformations/panel/catch22.py": {
+        "size": 22112
+      },
+      "sktime/transformations/panel/catch22wrapper.py": {
+        "size": 10931
+      },
+      "sktime/transformations/panel/channel_selection.py": {
+        "size": 15203
+      },
+      "sktime/transformations/panel/compose.py": {
+        "size": 14208
+      },
+      "sktime/transformations/panel/compose_distance.py": {
+        "size": 5645
+      },
+      "sktime/transformations/panel/dictionary_based/__init__.py": {
+        "size": 366
+      },
+      "sktime/transformations/panel/dictionary_based/_paa.py": {
+        "size": 5277
+      },
+      "sktime/transformations/panel/dictionary_based/_sax.py": {
+        "size": 7638
+      },
+      "sktime/transformations/panel/dictionary_based/_sfa.py": {
+        "size": 33043
+      },
+      "sktime/transformations/panel/dictionary_based/_sfa_fast.py": {
+        "size": 24495
+      },
+      "sktime/transformations/panel/dictionary_based/_sfa_fast_numba.py": {
+        "size": 13781
+      },
+      "sktime/transformations/panel/dictionary_based/_sfa_numba.py": {
+        "size": 4803
+      },
+      "sktime/transformations/panel/dictionary_based/tests/__init__.py": {
+        "size": 47
+      },
+      "sktime/transformations/panel/dictionary_based/tests/test_paa.py": {
+        "size": 4021
+      },
+      "sktime/transformations/panel/dictionary_based/tests/test_sfa.py": {
+        "size": 6736
+      },
+      "sktime/transformations/panel/dwt.py": {
+        "size": 6010
+      },
+      "sktime/transformations/panel/hog1d.py": {
+        "size": 9502
+      },
+      "sktime/transformations/panel/interpolate.py": {
+        "size": 3650
+      },
+      "sktime/transformations/panel/matrix_profile.py": {
+        "size": 7362
+      },
+      "sktime/transformations/panel/padder.py": {
+        "size": 5015
+      },
+      "sktime/transformations/panel/pca.py": {
+        "size": 6483
+      },
+      "sktime/transformations/panel/random_intervals.py": {
+        "size": 6785
+      },
+      "sktime/transformations/panel/reduce.py": {
+        "size": 6888
+      },
+      "sktime/transformations/panel/rocket/__init__.py": {
+        "size": 824
+      },
+      "sktime/transformations/panel/rocket/_minirocket.py": {
+        "size": 6715
+      },
+      "sktime/transformations/panel/rocket/_minirocket_multi_numba.py": {
+        "size": 17949
+      },
+      "sktime/transformations/panel/rocket/_minirocket_multi_var_numba.py": {
+        "size": 18853
+      },
+      "sktime/transformations/panel/rocket/_minirocket_multivariate.py": {
+        "size": 7979
+      },
+      "sktime/transformations/panel/rocket/_minirocket_multivariate_variable.py": {
+        "size": 14205
+      },
+      "sktime/transformations/panel/rocket/_minirocket_numba.py": {
+        "size": 15034
+      },
+      "sktime/transformations/panel/rocket/_multirocket.py": {
+        "size": 9829
+      },
+      "sktime/transformations/panel/rocket/_multirocket_multi_numba.py": {
+        "size": 24975
+      },
+      "sktime/transformations/panel/rocket/_multirocket_multivariate.py": {
+        "size": 10450
+      },
+      "sktime/transformations/panel/rocket/_multirocket_numba.py": {
+        "size": 22447
+      },
+      "sktime/transformations/panel/rocket/_rocket.py": {
+        "size": 6582
+      },
+      "sktime/transformations/panel/rocket/_rocket_numba.py": {
+        "size": 5951
+      },
+      "sktime/transformations/panel/rocket/_rocket_pyts.py": {
+        "size": 5354
+      },
+      "sktime/transformations/panel/rocket/tests/__init__.py": {
+        "size": 25
+      },
+      "sktime/transformations/panel/rocket/tests/test_MiniRocket.py": {
+        "size": 2013
+      },
+      "sktime/transformations/panel/rocket/tests/test_MiniRocketMultivariate.py": {
+        "size": 2113
+      },
+      "sktime/transformations/panel/rocket/tests/test_MiniRocketMultivariateVariable.py": {
+        "size": 2487
+      },
+      "sktime/transformations/panel/rocket/tests/test_MultiRocket.py": {
+        "size": 2062
+      },
+      "sktime/transformations/panel/rocket/tests/test_MultiRocketMultivariate.py": {
+        "size": 2162
+      },
+      "sktime/transformations/panel/rocket/tests/test_Rocket.py": {
+        "size": 1958
+      },
+      "sktime/transformations/panel/segment.py": {
+        "size": 20252
+      },
+      "sktime/transformations/panel/shapelet_transform/__init__.py": {
+        "size": 382
+      },
+      "sktime/transformations/panel/shapelet_transform/_shapelet_transform.py": {
+        "size": 54849
+      },
+      "sktime/transformations/panel/shapelet_transform/_shapelet_transform_pyts.py": {
+        "size": 8145
+      },
+      "sktime/transformations/panel/shapelet_transform/tests/__init__.py": {
+        "size": 37
+      },
+      "sktime/transformations/panel/shapelet_transform/tests/test_shapelet_transform.py": {
+        "size": 2763
+      },
+      "sktime/transformations/panel/shapelet_transform/tests/test_shapelet_transform_pyts.py": {
+        "size": 1363
+      },
+      "sktime/transformations/panel/signature_based/__init__.py": {
+        "size": 185
+      },
+      "sktime/transformations/panel/signature_based/_augmentations.py": {
+        "size": 8080
+      },
+      "sktime/transformations/panel/signature_based/_checks.py": {
+        "size": 2420
+      },
+      "sktime/transformations/panel/signature_based/_compute.py": {
+        "size": 3948
+      },
+      "sktime/transformations/panel/signature_based/_rescaling.py": {
+        "size": 2189
+      },
+      "sktime/transformations/panel/signature_based/_signature_method.py": {
+        "size": 6925
+      },
+      "sktime/transformations/panel/signature_based/_window.py": {
+        "size": 6376
+      },
+      "sktime/transformations/panel/signature_based/tests/__init__.py": {
+        "size": 46
+      },
+      "sktime/transformations/panel/signature_based/tests/test_augmentations.py": {
+        "size": 2546
+      },
+      "sktime/transformations/panel/signature_based/tests/test_method.py": {
+        "size": 2823
+      },
+      "sktime/transformations/panel/slope.py": {
+        "size": 7159
+      },
+      "sktime/transformations/panel/summarize/__init__.py": {
+        "size": 419
+      },
+      "sktime/transformations/panel/summarize/_extract.py": {
+        "size": 16767
+      },
+      "sktime/transformations/panel/summarize/tests/__init__.py": {
+        "size": 33
+      },
+      "sktime/transformations/panel/summarize/tests/test_FittedParamExtractor.py": {
+        "size": 1155
+      },
+      "sktime/transformations/panel/summarize/tests/test_PlateauFinder.py": {
+        "size": 1829
+      },
+      "sktime/transformations/panel/summarize/tests/test_RandomIntervalFeatureExtractor.py": {
+        "size": 6269
+      },
+      "sktime/transformations/panel/supervised_intervals.py": {
+        "size": 19418
+      },
+      "sktime/transformations/panel/tests/__init__.py": {
+        "size": 23
+      },
+      "sktime/transformations/panel/tests/test_ColumnConcatenator.py": {
+        "size": 1083
+      },
+      "sktime/transformations/panel/tests/test_PCATransformer.py": {
+        "size": 904
+      },
+      "sktime/transformations/panel/tests/test_Padder.py": {
+        "size": 2176
+      },
+      "sktime/transformations/panel/tests/test_Truncate.py": {
+        "size": 4044
+      },
+      "sktime/transformations/panel/tests/test_catch22.py": {
+        "size": 29180
+      },
+      "sktime/transformations/panel/tests/test_channel_selection.py": {
+        "size": 1057
+      },
+      "sktime/transformations/panel/tests/test_compose.py": {
+        "size": 1580
+      },
+      "sktime/transformations/panel/tests/test_dwt.py": {
+        "size": 5466
+      },
+      "sktime/transformations/panel/tests/test_hog1d_transformer.py": {
+        "size": 6121
+      },
+      "sktime/transformations/panel/tests/test_interpolate.py": {
+        "size": 2207
+      },
+      "sktime/transformations/panel/tests/test_intervals.py": {
+        "size": 36678
+      },
+      "sktime/transformations/panel/tests/test_segment.py": {
+        "size": 4822
+      },
+      "sktime/transformations/panel/tests/test_sliding_window_segmenter_transformer.py": {
+        "size": 4308
+      },
+      "sktime/transformations/panel/tests/test_slope_transformer.py": {
+        "size": 4353
+      },
+      "sktime/transformations/panel/tests/test_timebinner.py": {
+        "size": 1996
+      },
+      "sktime/transformations/panel/tests/test_tsfeatures.py": {
+        "size": 3500
+      },
+      "sktime/transformations/panel/tests/test_tsfresh.py": {
+        "size": 2751
+      },
+      "sktime/transformations/panel/truncation.py": {
+        "size": 6540
+      },
+      "sktime/transformations/panel/tsfeatures.py": {
+        "size": 9404
+      },
+      "sktime/transformations/panel/tsfresh.py": {
+        "size": 31542
+      },
+      "sktime/transformations/series/__init__.py": {
+        "size": 85
+      },
+      "sktime/transformations/series/_clasp_numba.py": {
+        "size": 9416
+      },
+      "sktime/transformations/series/acf.py": {
+        "size": 9723
+      },
+      "sktime/transformations/series/adapt.py": {
+        "size": 23986
+      },
+      "sktime/transformations/series/adi_cv.py": {
+        "size": 10342
+      },
+      "sktime/transformations/series/augmenter.py": {
+        "size": 9271
+      },
+      "sktime/transformations/series/basisfunction.py": {
+        "size": 13717
+      },
+      "sktime/transformations/series/binning.py": {
+        "size": 6731
+      },
+      "sktime/transformations/series/bkfilter.py": {
+        "size": 5559
+      },
+      "sktime/transformations/series/bollinger.py": {
+        "size": 5652
+      },
+      "sktime/transformations/series/boxcox.py": {
+        "size": 22868
+      },
+      "sktime/transformations/series/cffilter.py": {
+        "size": 5238
+      },
+      "sktime/transformations/series/clasp.py": {
+        "size": 5856
+      },
+      "sktime/transformations/series/clear_sky.py": {
+        "size": 13299
+      },
+      "sktime/transformations/series/cos.py": {
+        "size": 2681
+      },
+      "sktime/transformations/series/date.py": {
+        "size": 17974
+      },
+      "sktime/transformations/series/degree_day.py": {
+        "size": 9314
+      },
+      "sktime/transformations/series/detrend/__init__.py": {
+        "size": 581
+      },
+      "sktime/transformations/series/detrend/_deseasonalize.py": {
+        "size": 22729
+      },
+      "sktime/transformations/series/detrend/_detrend.py": {
+        "size": 9728
+      },
+      "sktime/transformations/series/detrend/mstl.py": {
+        "size": 14704
+      },
+      "sktime/transformations/series/detrend/tests/__init__.py": {
+        "size": 127
+      },
+      "sktime/transformations/series/detrend/tests/test_deseasonalise.py": {
+        "size": 4551
+      },
+      "sktime/transformations/series/detrend/tests/test_detrend.py": {
+        "size": 4882
+      },
+      "sktime/transformations/series/detrend/tests/test_mstl.py": {
+        "size": 3561
+      },
+      "sktime/transformations/series/difference.py": {
+        "size": 14503
+      },
+      "sktime/transformations/series/dilation_mapping.py": {
+        "size": 4876
+      },
+      "sktime/transformations/series/dobin.py": {
+        "size": 8453
+      },
+      "sktime/transformations/series/dropna.py": {
+        "size": 9858
+      },
+      "sktime/transformations/series/dummies.py": {
+        "size": 10172
+      },
+      "sktime/transformations/series/exponent.py": {
+        "size": 10037
+      },
+      "sktime/transformations/series/fabba.py": {
+        "size": 51930
+      },
+      "sktime/transformations/series/feature_selection.py": {
+        "size": 8427
+      },
+      "sktime/transformations/series/filter.py": {
+        "size": 5270
+      },
+      "sktime/transformations/series/fourier.py": {
+        "size": 17520
+      },
+      "sktime/transformations/series/func_transform.py": {
+        "size": 7830
+      },
+      "sktime/transformations/series/hidalgo.py": {
+        "size": 24163
+      },
+      "sktime/transformations/series/holiday/__init__.py": {
+        "size": 511
+      },
+      "sktime/transformations/series/holiday/_holidayfeats.py": {
+        "size": 19439
+      },
+      "sktime/transformations/series/holiday/country_holidays.py": {
+        "size": 6769
+      },
+      "sktime/transformations/series/holiday/financial_holidays.py": {
+        "size": 6405
+      },
+      "sktime/transformations/series/holiday/tests/__init__.py": {
+        "size": 38
+      },
+      "sktime/transformations/series/holiday/tests/test_holidays.py": {
+        "size": 6963
+      },
+      "sktime/transformations/series/hpfilter.py": {
+        "size": 4961
+      },
+      "sktime/transformations/series/hurst.py": {
+        "size": 10183
+      },
+      "sktime/transformations/series/impute.py": {
+        "size": 16102
+      },
+      "sktime/transformations/series/kalman_filter/__init__.py": {
+        "size": 496
+      },
+      "sktime/transformations/series/kalman_filter/_base.py": {
+        "size": 9693
+      },
+      "sktime/transformations/series/kalman_filter/_kalman_filter.py": {
+        "size": 42810
+      },
+      "sktime/transformations/series/kalman_filter/_simdkalman.py": {
+        "size": 13020
+      },
+      "sktime/transformations/series/kinematic.py": {
+        "size": 7271
+      },
+      "sktime/transformations/series/lag.py": {
+        "size": 25626
+      },
+      "sktime/transformations/series/matrix_profile.py": {
+        "size": 4179
+      },
+      "sktime/transformations/series/outlier_detection.py": {
+        "size": 6987
+      },
+      "sktime/transformations/series/paa.py": {
+        "size": 5678
+      },
+      "sktime/transformations/series/peak.py": {
+        "size": 24392
+      },
+      "sktime/transformations/series/sax.py": {
+        "size": 5651
+      },
+      "sktime/transformations/series/scaledasinh.py": {
+        "size": 7331
+      },
+      "sktime/transformations/series/scaledlogit.py": {
+        "size": 8354
+      },
+      "sktime/transformations/series/signature.py": {
+        "size": 6424
+      },
+      "sktime/transformations/series/subsequence_extraction.py": {
+        "size": 7150
+      },
+      "sktime/transformations/series/subset.py": {
+        "size": 9452
+      },
+      "sktime/transformations/series/summarize.py": {
+        "size": 36730
+      },
+      "sktime/transformations/series/temporian.py": {
+        "size": 5815
+      },
+      "sktime/transformations/series/tests/__init__.py": {
+        "size": 24
+      },
+      "sktime/transformations/series/tests/test_adapt.py": {
+        "size": 1462
+      },
+      "sktime/transformations/series/tests/test_adi_cv.py": {
+        "size": 5970
+      },
+      "sktime/transformations/series/tests/test_augmenter.py": {
+        "size": 3602
+      },
+      "sktime/transformations/series/tests/test_bollinger.py": {
+        "size": 1363
+      },
+      "sktime/transformations/series/tests/test_boxcox.py": {
+        "size": 2585
+      },
+      "sktime/transformations/series/tests/test_clear_sky.py": {
+        "size": 3084
+      },
+      "sktime/transformations/series/tests/test_date.py": {
+        "size": 12810
+      },
+      "sktime/transformations/series/tests/test_degree_day.py": {
+        "size": 6365
+      },
+      "sktime/transformations/series/tests/test_differencer.py": {
+        "size": 10993
+      },
+      "sktime/transformations/series/tests/test_dobin.py": {
+        "size": 8969
+      },
+      "sktime/transformations/series/tests/test_dropna.py": {
+        "size": 6749
+      },
+      "sktime/transformations/series/tests/test_dummies.py": {
+        "size": 1321
+      },
+      "sktime/transformations/series/tests/test_exponent.py": {
+        "size": 1785
+      },
+      "sktime/transformations/series/tests/test_featureizer.py": {
+        "size": 1243
+      },
+      "sktime/transformations/series/tests/test_fourier.py": {
+        "size": 5371
+      },
+      "sktime/transformations/series/tests/test_hidalgo.py": {
+        "size": 6793
+      },
+      "sktime/transformations/series/tests/test_imputer.py": {
+        "size": 3782
+      },
+      "sktime/transformations/series/tests/test_kalman_filter.py": {
+        "size": 38978
+      },
+      "sktime/transformations/series/tests/test_kinematic.py": {
+        "size": 1012
+      },
+      "sktime/transformations/series/tests/test_lag.py": {
+        "size": 4463
+      },
+      "sktime/transformations/series/tests/test_optional_passthrough.py": {
+        "size": 1607
+      },
+      "sktime/transformations/series/tests/test_paa.py": {
+        "size": 1832
+      },
+      "sktime/transformations/series/tests/test_sax.py": {
+        "size": 1992
+      },
+      "sktime/transformations/series/tests/test_scaledlogit.py": {
+        "size": 1932
+      },
+      "sktime/transformations/series/tests/test_sklearn_adaptor.py": {
+        "size": 1002
+      },
+      "sktime/transformations/series/tests/test_subset.py": {
+        "size": 2793
+      },
+      "sktime/transformations/series/tests/test_summarize.py": {
+        "size": 4809
+      },
+      "sktime/transformations/series/tests/test_temporian.py": {
+        "size": 6956
+      },
+      "sktime/transformations/series/tests/test_theta.py": {
+        "size": 1751
+      },
+      "sktime/transformations/series/tests/test_time_since.py": {
+        "size": 9901
+      },
+      "sktime/transformations/series/tests/test_vmd.py": {
+        "size": 2001
+      },
+      "sktime/transformations/series/tests/test_window_summarizer.py": {
+        "size": 11784
+      },
+      "sktime/transformations/series/theta.py": {
+        "size": 5820
+      },
+      "sktime/transformations/series/time_since.py": {
+        "size": 15061
+      },
+      "sktime/transformations/series/tsfel/__init__.py": {
+        "size": 221
+      },
+      "sktime/transformations/series/tsfel/_tsfel.py": {
+        "size": 13435
+      },
+      "sktime/transformations/series/tsfel/tests/__init__.py": {
+        "size": 108
+      },
+      "sktime/transformations/series/tsfel/tests/test_tsfel.py": {
+        "size": 6712
+      },
+      "sktime/transformations/series/vmd.py": {
+        "size": 10109
+      },
+      "sktime/transformations/tests/__init__.py": {
+        "size": 39
+      },
+      "sktime/transformations/tests/test_all_reconcilers.py": {
+        "size": 4479
+      },
+      "sktime/transformations/tests/test_all_transformers.py": {
+        "size": 12309
+      },
+      "sktime/transformations/tests/test_base.py": {
+        "size": 39202
+      },
+      "sktime/transformations/tests/test_bkfilter.py": {
+        "size": 981
+      },
+      "sktime/transformations/tests/test_categorical_in_composite.py": {
+        "size": 2020
+      },
+      "sktime/transformations/tests/test_cffilter.py": {
+        "size": 998
+      },
+      "sktime/transformations/tests/test_check_estimator.py": {
+        "size": 4751
+      },
+      "sktime/transformations/tests/test_compose.py": {
+        "size": 15315
+      },
+      "sktime/transformations/tests/test_fitintransform.py": {
+        "size": 1159
+      },
+      "sktime/transformations/tests/test_hampelfilter.py": {
+        "size": 1566
+      },
+      "sktime/transformations/tests/test_hpfilter.py": {
+        "size": 1004
+      },
+      "sktime/transformations/tests/test_multiplexer.py": {
+        "size": 7018
+      },
+      "sktime/transformations/tests/test_optionalpassthrough.py": {
+        "size": 3534
+      },
+      "sktime/transformations/tests/test_pipeline.py": {
+        "size": 2283
+      },
+      "sktime/transformations/tests/test_transformif.py": {
+        "size": 1005
+      },
+      "sktime/utils/__init__.py": {
+        "size": 210
+      },
+      "sktime/utils/_estimator_html_repr.py": {
+        "size": 11755
+      },
+      "sktime/utils/_maint/__init__.py": {
+        "size": 0
+      },
+      "sktime/utils/_maint/_show_versions.py": {
+        "size": 3958
+      },
+      "sktime/utils/_maint/tests/__init__.py": {
+        "size": 43
+      },
+      "sktime/utils/_maint/tests/test_show_versions.py": {
+        "size": 1711
+      },
+      "sktime/utils/_testing/__init__.py": {
+        "size": 74
+      },
+      "sktime/utils/_testing/_conditional_fixtures.py": {
+        "size": 10588
+      },
+      "sktime/utils/_testing/detection.py": {
+        "size": 1225
+      },
+      "sktime/utils/_testing/estimator_checks.py": {
+        "size": 6647
+      },
+      "sktime/utils/_testing/forecasting.py": {
+        "size": 5573
+      },
+      "sktime/utils/_testing/hierarchical.py": {
+        "size": 7616
+      },
+      "sktime/utils/_testing/panel.py": {
+        "size": 6459
+      },
+      "sktime/utils/_testing/scenarios.py": {
+        "size": 10187
+      },
+      "sktime/utils/_testing/scenarios_aligners.py": {
+        "size": 2704
+      },
+      "sktime/utils/_testing/scenarios_classification.py": {
+        "size": 8537
+      },
+      "sktime/utils/_testing/scenarios_clustering.py": {
+        "size": 6864
+      },
+      "sktime/utils/_testing/scenarios_detection.py": {
+        "size": 1693
+      },
+      "sktime/utils/_testing/scenarios_forecasting.py": {
+        "size": 10186
+      },
+      "sktime/utils/_testing/scenarios_getter.py": {
+        "size": 5063
+      },
+      "sktime/utils/_testing/scenarios_param_est.py": {
+        "size": 3033
+      },
+      "sktime/utils/_testing/scenarios_transformers.py": {
+        "size": 15803
+      },
+      "sktime/utils/_testing/scenarios_transformers_pairwise.py": {
+        "size": 6384
+      },
+      "sktime/utils/_testing/series.py": {
+        "size": 4225
+      },
+      "sktime/utils/_testing/tests/__init__.py": {
+        "size": 65
+      },
+      "sktime/utils/_testing/tests/test_check_imports.py": {
+        "size": 480
+      },
+      "sktime/utils/_testing/tests/test_forecasting.py": {
+        "size": 394
+      },
+      "sktime/utils/_testing/tests/test_panel.py": {
+        "size": 3495
+      },
+      "sktime/utils/_testing/tests/test_testscenario_getter.py": {
+        "size": 1684
+      },
+      "sktime/utils/_testing/tests/test_testscenarios.py": {
+        "size": 4603
+      },
+      "sktime/utils/adapters/__init__.py": {
+        "size": 46
+      },
+      "sktime/utils/adapters/_safe_call.py": {
+        "size": 1946
+      },
+      "sktime/utils/adapters/forward.py": {
+        "size": 2423
+      },
+      "sktime/utils/datetime.py": {
+        "size": 8624
+      },
+      "sktime/utils/deep_equals/__init__.py": {
+        "size": 212
+      },
+      "sktime/utils/deep_equals/_deep_equals.py": {
+        "size": 8909
+      },
+      "sktime/utils/deep_equals/tests/__init__.py": {
+        "size": 37
+      },
+      "sktime/utils/deep_equals/tests/test_deep_equals.py": {
+        "size": 1976
+      },
+      "sktime/utils/dependencies/__init__.py": {
+        "size": 746
+      },
+      "sktime/utils/dependencies/_dependencies.py": {
+        "size": 29305
+      },
+      "sktime/utils/dependencies/_isinstance.py": {
+        "size": 1281
+      },
+      "sktime/utils/dependencies/_placeholder.py": {
+        "size": 3764
+      },
+      "sktime/utils/dependencies/_safe_import.py": {
+        "size": 4357
+      },
+      "sktime/utils/dependencies/tests/__init__.py": {
+        "size": 38
+      },
+      "sktime/utils/dependencies/tests/test_dependencies.py": {
+        "size": 3037
+      },
+      "sktime/utils/dependencies/tests/test_safe_import.py": {
+        "size": 2815
+      },
+      "sktime/utils/estimator_checks.py": {
+        "size": 9669
+      },
+      "sktime/utils/estimators/__init__.py": {
+        "size": 453
+      },
+      "sktime/utils/estimators/_base.py": {
+        "size": 3695
+      },
+      "sktime/utils/estimators/_forecasters.py": {
+        "size": 14830
+      },
+      "sktime/utils/estimators/dispatch.py": {
+        "size": 1202
+      },
+      "sktime/utils/estimators/tests/__init__.py": {
+        "size": 63
+      },
+      "sktime/utils/estimators/tests/test_base.py": {
+        "size": 6940
+      },
+      "sktime/utils/estimators/tests/test_forecasters.py": {
+        "size": 2134
+      },
+      "sktime/utils/git_diff.py": {
+        "size": 5306
+      },
+      "sktime/utils/index.py": {
+        "size": 538
+      },
+      "sktime/utils/mlflow_sktime.py": {
+        "size": 31409
+      },
+      "sktime/utils/multiindex.py": {
+        "size": 7156
+      },
+      "sktime/utils/numba/__init__.py": {
+        "size": 35
+      },
+      "sktime/utils/numba/general.py": {
+        "size": 3271
+      },
+      "sktime/utils/numba/njit.py": {
+        "size": 653
+      },
+      "sktime/utils/numba/stats.py": {
+        "size": 10367
+      },
+      "sktime/utils/numba/tests/__init__.py": {
+        "size": 59
+      },
+      "sktime/utils/numba/tests/test_general.py": {
+        "size": 892
+      },
+      "sktime/utils/pandas.py": {
+        "size": 620
+      },
+      "sktime/utils/parallel.py": {
+        "size": 10552
+      },
+      "sktime/utils/plotting.py": {
+        "size": 25140
+      },
+      "sktime/utils/profiling.py": {
+        "size": 4016
+      },
+      "sktime/utils/random_state.py": {
+        "size": 1342
+      },
+      "sktime/utils/retrieval.py": {
+        "size": 2627
+      },
+      "sktime/utils/sampling.py": {
+        "size": 3909
+      },
+      "sktime/utils/seasonality.py": {
+        "size": 7855
+      },
+      "sktime/utils/singleton.py": {
+        "size": 683
+      },
+      "sktime/utils/sklearn/__init__.py": {
+        "size": 610
+      },
+      "sktime/utils/sklearn/_adapt_df.py": {
+        "size": 872
+      },
+      "sktime/utils/sklearn/_metrics.py": {
+        "size": 9042
+      },
+      "sktime/utils/sklearn/_scitype.py": {
+        "size": 8949
+      },
+      "sktime/utils/sklearn/_tag_adapter.py": {
+        "size": 2191
+      },
+      "sktime/utils/sklearn/_version_bridge.py": {
+        "size": 887
+      },
+      "sktime/utils/sklearn/tests/__init__.py": {
+        "size": 55
+      },
+      "sktime/utils/sklearn/tests/test_sklearn_df_adapt.py": {
+        "size": 1260
+      },
+      "sktime/utils/sklearn/tests/test_sklearn_typing.py": {
+        "size": 2455
+      },
+      "sktime/utils/slope_and_trend.py": {
+        "size": 2197
+      },
+      "sktime/utils/stats.py": {
+        "size": 6079
+      },
+      "sktime/utils/strtobool.py": {
+        "size": 1026
+      },
+      "sktime/utils/tests/__init__.py": {
+        "size": 27
+      },
+      "sktime/utils/tests/test_check_estimator.py": {
+        "size": 5645
+      },
+      "sktime/utils/tests/test_datetime.py": {
+        "size": 4842
+      },
+      "sktime/utils/tests/test_estimator_html_repr.py": {
+        "size": 1105
+      },
+      "sktime/utils/tests/test_mlflow_sktime_model_export.py": {
+        "size": 31262
+      },
+      "sktime/utils/tests/test_multiindex.py": {
+        "size": 5033
+      },
+      "sktime/utils/tests/test_parallel.py": {
+        "size": 866
+      },
+      "sktime/utils/tests/test_parallelize.py": {
+        "size": 921
+      },
+      "sktime/utils/tests/test_plotting.py": {
+        "size": 16077
+      },
+      "sktime/utils/tests/test_retrieval.py": {
+        "size": 1110
+      },
+      "sktime/utils/tests/test_sampling.py": {
+        "size": 2846
+      },
+      "sktime/utils/tests/test_seasonal.py": {
+        "size": 4237
+      },
+      "sktime/utils/tests/test_singleton.py": {
+        "size": 1616
+      },
+      "sktime/utils/tests/test_utils_time_series.py": {
+        "size": 2184
+      },
+      "sktime/utils/tests/test_warnings.py": {
+        "size": 801
+      },
+      "sktime/utils/unique_str.py": {
+        "size": 916
+      },
+      "sktime/utils/validation/__init__.py": {
+        "size": 5995
+      },
+      "sktime/utils/validation/detection.py": {
+        "size": 1806
+      },
+      "sktime/utils/validation/forecasting.py": {
+        "size": 15448
+      },
+      "sktime/utils/validation/panel.py": {
+        "size": 6115
+      },
+      "sktime/utils/validation/series.py": {
+        "size": 10544
+      },
+      "sktime/utils/validation/tests/__init__.py": {
+        "size": 41
+      },
+      "sktime/utils/validation/tests/test_check_window_length.py": {
+        "size": 1364
+      },
+      "sktime/utils/validation/tests/test_forecasting.py": {
+        "size": 768
+      },
+      "sktime/utils/validation/tests/test_panel.py": {
+        "size": 2583
+      },
+      "sktime/utils/validation/tests/test_series.py": {
+        "size": 814
+      },
+      "sktime/utils/warnings.py": {
+        "size": 2213
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "sktime/forecasting/base/_base.py",
+        "module": "BaseForecaster",
+        "functions": [
+          "fit",
+          "predict",
+          "update",
+          "predict_interval",
+          "predict_quantiles",
+          "predict_proba",
+          "score"
+        ],
+        "classes": [
+          "BaseForecaster"
+        ],
+        "description": "Primary forecasting estimator interface and lifecycle methods; central abstraction for forecasting plugins."
+      },
+      {
+        "package": "sktime/transformations/base.py",
+        "module": "BaseTransformer",
+        "functions": [
+          "fit",
+          "transform",
+          "fit_transform",
+          "inverse_transform",
+          "update"
+        ],
+        "classes": [
+          "BaseTransformer"
+        ],
+        "description": "Core transformer API across series/panel/hierarchical data, useful for generic transformation MCP tools."
+      },
+      {
+        "package": "sktime/classification/base.py",
+        "module": "BaseClassifier",
+        "functions": [
+          "fit",
+          "predict",
+          "predict_proba",
+          "score"
+        ],
+        "classes": [
+          "BaseClassifier"
+        ],
+        "description": "Unified time-series classification base interface."
+      },
+      {
+        "package": "sktime/regression/base.py",
+        "module": "BaseRegressor",
+        "functions": [
+          "fit",
+          "predict",
+          "score"
+        ],
+        "classes": [
+          "BaseRegressor"
+        ],
+        "description": "Unified time-series regression base interface."
+      },
+      {
+        "package": "sktime/clustering/base.py",
+        "module": "BaseClusterer",
+        "functions": [
+          "fit",
+          "predict",
+          "fit_predict",
+          "score"
+        ],
+        "classes": [
+          "BaseClusterer"
+        ],
+        "description": "Core clustering interface for time-series clusterers."
+      },
+      {
+        "package": "sktime/detection/base/_base.py",
+        "module": "BaseDetector",
+        "functions": [
+          "fit",
+          "predict",
+          "update",
+          "transform"
+        ],
+        "classes": [
+          "BaseDetector"
+        ],
+        "description": "Base interface for anomaly/changepoint/segmentation style detectors."
+      },
+      {
+        "package": "sktime/registry/_lookup.py",
+        "module": "registry lookup utilities",
+        "functions": [
+          "all_estimators"
+        ],
+        "classes": [],
+        "description": "Dynamic estimator discovery entrypoint; key for MCP-side model listing without hard-coding modules."
+      },
+      {
+        "package": "sktime/datasets/__init__.py",
+        "module": "dataset loaders",
+        "functions": [
+          "load_airline",
+          "load_longley",
+          "load_lynx",
+          "load_shampoo_sales",
+          "load_basic_motions",
+          "load_gunpoint",
+          "load_italy_power_demand",
+          "load_osuleaf",
+          "load_arrow_head",
+          "load_acsf1",
+          "load_japanese_vowels",
+          "load_plaid",
+          "load_tecator"
+        ],
+        "classes": [],
+        "description": "Convenient built-in datasets for zero-friction MCP examples/tests."
+      },
+      {
+        "package": "sktime/performance_metrics/forecasting/__init__.py",
+        "module": "forecasting metrics",
+        "functions": [
+          "mean_absolute_error",
+          "mean_squared_error",
+          "mean_absolute_percentage_error",
+          "mean_absolute_scaled_error"
+        ],
+        "classes": [],
+        "description": "Evaluation metrics for forecasting outputs."
+      },
+      {
+        "package": "sktime/split/__init__.py",
+        "module": "temporal splitters",
+        "functions": [
+          "temporal_train_test_split"
+        ],
+        "classes": [
+          "SlidingWindowSplitter",
+          "ExpandingWindowSplitter",
+          "SingleWindowSplitter",
+          "CutoffSplitter"
+        ],
+        "description": "Time-series cross-validation and holdout split interfaces."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "No first-class end-user CLI detected",
+        "module": "N/A",
+        "description": "Repository does not expose clear console_scripts entrypoints in provided scan; build_tools scripts are maintainer utilities."
+      },
+      {
+        "name": "python build_tools/make_release.py",
+        "module": "build_tools/make_release.py",
+        "description": "Release automation utility (project maintenance, not MCP runtime target)."
+      },
+      {
+        "name": "python build_tools/changelog.py",
+        "module": "build_tools/changelog.py",
+        "description": "Changelog generation utility (maintenance only)."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.10",
+        "numpy",
+        "pandas",
+        "scikit-learn",
+        "scipy",
+        "packaging"
+      ],
+      "optional": [
+        "statsmodels",
+        "pmdarima",
+        "prophet/fbprophet",
+        "darts",
+        "neuralforecast",
+        "pytorch-forecasting",
+        "torch",
+        "tensorflow",
+        "tslearn",
+        "pyts",
+        "numba",
+        "mlflow",
+        "polars",
+        "dask",
+        "gluonts",
+        "tbats",
+        "arch",
+        "skopt",
+        "optuna",
+        "hyperactive"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/sktime/sktime",
+    "repo_name": "sktime",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

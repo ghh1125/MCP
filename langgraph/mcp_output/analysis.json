@@ -1,0 +1,1336 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/langchain-ai/langgraph",
+    "summary": "Imported via zip fallback, file count: 402",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug-report.yml": {
+        "size": 4322
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 668
+      },
+      ".github/ISSUE_TEMPLATE/privileged.yml": {
+        "size": 1320
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 2197
+      },
+      ".github/dependabot.yml": {
+        "size": 2162
+      },
+      ".github/scripts/check_sdk_methods.py": {
+        "size": 2550
+      },
+      ".github/scripts/run_langgraph_cli_test.py": {
+        "size": 6215
+      },
+      ".github/workflows/_integration_test.yml": {
+        "size": 6834
+      },
+      ".github/workflows/_lint.yml": {
+        "size": 3757
+      },
+      ".github/workflows/_test.yml": {
+        "size": 1735
+      },
+      ".github/workflows/_test_langgraph.yml": {
+        "size": 1721
+      },
+      ".github/workflows/_test_release.yml": {
+        "size": 3247
+      },
+      ".github/workflows/baseline.yml": {
+        "size": 919
+      },
+      ".github/workflows/bench.yml": {
+        "size": 1993
+      },
+      ".github/workflows/ci.yml": {
+        "size": 5536
+      },
+      ".github/workflows/deploy-redirects.yml": {
+        "size": 994
+      },
+      ".github/workflows/pr_lint.yml": {
+        "size": 925
+      },
+      ".github/workflows/release.yml": {
+        "size": 11493
+      },
+      ".github/workflows/uv_lock_ugprade.yml": {
+        "size": 1280
+      },
+      "AGENTS.md": {
+        "size": 1802
+      },
+      "CLAUDE.md": {
+        "size": 1799
+      },
+      "README.md": {
+        "size": 5892
+      },
+      "docs/generate_redirects.py": {
+        "size": 4497
+      },
+      "docs/llms.txt": {
+        "size": 1962
+      },
+      "docs/redirects.json": {
+        "size": 28152
+      },
+      "examples/README.md": {
+        "size": 370
+      },
+      "examples/chatbot-simulation-evaluation/simulation_utils.py": {
+        "size": 6486
+      },
+      "libs/checkpoint-conformance/README.md": {
+        "size": 2954
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/__init__.py": {
+        "size": 292
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/capabilities.py": {
+        "size": 2608
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/initializer.py": {
+        "size": 2979
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/report.py": {
+        "size": 6647
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/spec/__init__.py": {
+        "size": 991
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/spec/test_copy_thread.py": {
+        "size": 7839
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/spec/test_delete_for_runs.py": {
+        "size": 7267
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/spec/test_delete_thread.py": {
+        "size": 4707
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/spec/test_get_tuple.py": {
+        "size": 8541
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/spec/test_list.py": {
+        "size": 12670
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/spec/test_prune.py": {
+        "size": 7018
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/spec/test_put.py": {
+        "size": 15075
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/spec/test_put_writes.py": {
+        "size": 11369
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/test_utils.py": {
+        "size": 6903
+      },
+      "libs/checkpoint-conformance/langgraph/checkpoint/conformance/validate.py": {
+        "size": 5008
+      },
+      "libs/checkpoint-conformance/pyproject.toml": {
+        "size": 1560
+      },
+      "libs/checkpoint-conformance/tests/test_validate_memory.py": {
+        "size": 621
+      },
+      "libs/checkpoint-postgres/README.md": {
+        "size": 4108
+      },
+      "libs/checkpoint-postgres/langgraph/checkpoint/postgres/__init__.py": {
+        "size": 18474
+      },
+      "libs/checkpoint-postgres/langgraph/checkpoint/postgres/_ainternal.py": {
+        "size": 731
+      },
+      "libs/checkpoint-postgres/langgraph/checkpoint/postgres/_internal.py": {
+        "size": 646
+      },
+      "libs/checkpoint-postgres/langgraph/checkpoint/postgres/aio.py": {
+        "size": 22775
+      },
+      "libs/checkpoint-postgres/langgraph/checkpoint/postgres/base.py": {
+        "size": 10605
+      },
+      "libs/checkpoint-postgres/langgraph/checkpoint/postgres/shallow.py": {
+        "size": 36920
+      },
+      "libs/checkpoint-postgres/langgraph/store/postgres/__init__.py": {
+        "size": 193
+      },
+      "libs/checkpoint-postgres/langgraph/store/postgres/aio.py": {
+        "size": 22492
+      },
+      "libs/checkpoint-postgres/langgraph/store/postgres/base.py": {
+        "size": 52499
+      },
+      "libs/checkpoint-postgres/pyproject.toml": {
+        "size": 1882
+      },
+      "libs/checkpoint-postgres/tests/__init__.py": {
+        "size": 0
+      },
+      "libs/checkpoint-postgres/tests/compose-postgres.yml": {
+        "size": 445
+      },
+      "libs/checkpoint-postgres/tests/conftest.py": {
+        "size": 1394
+      },
+      "libs/checkpoint-postgres/tests/embed_test_utils.py": {
+        "size": 1827
+      },
+      "libs/checkpoint-postgres/tests/test_async.py": {
+        "size": 12862
+      },
+      "libs/checkpoint-postgres/tests/test_async_store.py": {
+        "size": 23644
+      },
+      "libs/checkpoint-postgres/tests/test_store.py": {
+        "size": 30081
+      },
+      "libs/checkpoint-postgres/tests/test_sync.py": {
+        "size": 12286
+      },
+      "libs/checkpoint-sqlite/README.md": {
+        "size": 2180
+      },
+      "libs/checkpoint-sqlite/langgraph/cache/sqlite/__init__.py": {
+        "size": 4781
+      },
+      "libs/checkpoint-sqlite/langgraph/checkpoint/sqlite/__init__.py": {
+        "size": 21862
+      },
+      "libs/checkpoint-sqlite/langgraph/checkpoint/sqlite/aio.py": {
+        "size": 25002
+      },
+      "libs/checkpoint-sqlite/langgraph/checkpoint/sqlite/utils.py": {
+        "size": 4264
+      },
+      "libs/checkpoint-sqlite/langgraph/store/sqlite/__init__.py": {
+        "size": 155
+      },
+      "libs/checkpoint-sqlite/langgraph/store/sqlite/aio.py": {
+        "size": 23044
+      },
+      "libs/checkpoint-sqlite/langgraph/store/sqlite/base.py": {
+        "size": 55629
+      },
+      "libs/checkpoint-sqlite/pyproject.toml": {
+        "size": 1844
+      },
+      "libs/checkpoint-sqlite/tests/__init__.py": {
+        "size": 0
+      },
+      "libs/checkpoint-sqlite/tests/test_aiosqlite.py": {
+        "size": 7765
+      },
+      "libs/checkpoint-sqlite/tests/test_async_store.py": {
+        "size": 26940
+      },
+      "libs/checkpoint-sqlite/tests/test_sqlite.py": {
+        "size": 12795
+      },
+      "libs/checkpoint-sqlite/tests/test_store.py": {
+        "size": 46975
+      },
+      "libs/checkpoint-sqlite/tests/test_ttl.py": {
+        "size": 13531
+      },
+      "libs/checkpoint/README.md": {
+        "size": 4291
+      },
+      "libs/checkpoint/langgraph/cache/base/__init__.py": {
+        "size": 1835
+      },
+      "libs/checkpoint/langgraph/cache/memory/__init__.py": {
+        "size": 3071
+      },
+      "libs/checkpoint/langgraph/cache/redis/__init__.py": {
+        "size": 5188
+      },
+      "libs/checkpoint/langgraph/checkpoint/base/__init__.py": {
+        "size": 20047
+      },
+      "libs/checkpoint/langgraph/checkpoint/base/id.py": {
+        "size": 3647
+      },
+      "libs/checkpoint/langgraph/checkpoint/memory/__init__.py": {
+        "size": 22290
+      },
+      "libs/checkpoint/langgraph/checkpoint/serde/__init__.py": {
+        "size": 0
+      },
+      "libs/checkpoint/langgraph/checkpoint/serde/_msgpack.py": {
+        "size": 3180
+      },
+      "libs/checkpoint/langgraph/checkpoint/serde/base.py": {
+        "size": 1933
+      },
+      "libs/checkpoint/langgraph/checkpoint/serde/encrypted.py": {
+        "size": 3180
+      },
+      "libs/checkpoint/langgraph/checkpoint/serde/event_hooks.py": {
+        "size": 1235
+      },
+      "libs/checkpoint/langgraph/checkpoint/serde/jsonplus.py": {
+        "size": 28727
+      },
+      "libs/checkpoint/langgraph/checkpoint/serde/types.py": {
+        "size": 1068
+      },
+      "libs/checkpoint/langgraph/store/base/__init__.py": {
+        "size": 42764
+      },
+      "libs/checkpoint/langgraph/store/base/batch.py": {
+        "size": 10934
+      },
+      "libs/checkpoint/langgraph/store/base/embed.py": {
+        "size": 14497
+      },
+      "libs/checkpoint/langgraph/store/memory/__init__.py": {
+        "size": 21155
+      },
+      "libs/checkpoint/pyproject.toml": {
+        "size": 1734
+      },
+      "libs/checkpoint/tests/__init__.py": {
+        "size": 0
+      },
+      "libs/checkpoint/tests/embed_test_utils.py": {
+        "size": 1827
+      },
+      "libs/checkpoint/tests/test_encrypted.py": {
+        "size": 15511
+      },
+      "libs/checkpoint/tests/test_jsonplus.py": {
+        "size": 31082
+      },
+      "libs/checkpoint/tests/test_memory.py": {
+        "size": 10192
+      },
+      "libs/checkpoint/tests/test_redis_cache.py": {
+        "size": 10616
+      },
+      "libs/checkpoint/tests/test_store.py": {
+        "size": 36026
+      },
+      "libs/cli/README.md": {
+        "size": 3122
+      },
+      "libs/cli/examples/graph_prerelease_reqs/agent.py": {
+        "size": 2704
+      },
+      "libs/cli/examples/graph_prerelease_reqs/deps/additional_deps/pyproject.toml": {
+        "size": 204
+      },
+      "libs/cli/examples/graph_prerelease_reqs/deps/zuper_deps/pyproject.toml": {
+        "size": 206
+      },
+      "libs/cli/examples/graph_prerelease_reqs/langgraph.json": {
+        "size": 214
+      },
+      "libs/cli/examples/graph_prerelease_reqs/pyproject.toml": {
+        "size": 286
+      },
+      "libs/cli/examples/graph_prerelease_reqs_fail/agent.py": {
+        "size": 2810
+      },
+      "libs/cli/examples/graph_prerelease_reqs_fail/langgraph.json": {
+        "size": 155
+      },
+      "libs/cli/examples/graph_prerelease_reqs_fail/pyproject.toml": {
+        "size": 254
+      },
+      "libs/cli/examples/graphs/agent.py": {
+        "size": 3145
+      },
+      "libs/cli/examples/graphs/langgraph.json": {
+        "size": 330
+      },
+      "libs/cli/examples/graphs/storm.py": {
+        "size": 20871
+      },
+      "libs/cli/examples/graphs_reqs_a/__init__.py": {
+        "size": 0
+      },
+      "libs/cli/examples/graphs_reqs_a/graphs_submod/__init__.py": {
+        "size": 0
+      },
+      "libs/cli/examples/graphs_reqs_a/graphs_submod/agent.py": {
+        "size": 3301
+      },
+      "libs/cli/examples/graphs_reqs_a/graphs_submod/subprompt.txt": {
+        "size": 0
+      },
+      "libs/cli/examples/graphs_reqs_a/hello.py": {
+        "size": 60
+      },
+      "libs/cli/examples/graphs_reqs_a/langgraph.json": {
+        "size": 154
+      },
+      "libs/cli/examples/graphs_reqs_a/prompt.txt": {
+        "size": 0
+      },
+      "libs/cli/examples/graphs_reqs_a/requirements.txt": {
+        "size": 66
+      },
+      "libs/cli/examples/graphs_reqs_b/graphs_submod/agent.py": {
+        "size": 3302
+      },
+      "libs/cli/examples/graphs_reqs_b/graphs_submod/subprompt.txt": {
+        "size": 0
+      },
+      "libs/cli/examples/graphs_reqs_b/hello.py": {
+        "size": 87
+      },
+      "libs/cli/examples/graphs_reqs_b/langgraph.json": {
+        "size": 154
+      },
+      "libs/cli/examples/graphs_reqs_b/prompt.txt": {
+        "size": 0
+      },
+      "libs/cli/examples/graphs_reqs_b/requirements.txt": {
+        "size": 66
+      },
+      "libs/cli/examples/graphs_reqs_b/utils/__init__.py": {
+        "size": 0
+      },
+      "libs/cli/examples/graphs_reqs_b/utils/greeter.py": {
+        "size": 40
+      },
+      "libs/cli/examples/langgraph.json": {
+        "size": 339
+      },
+      "libs/cli/examples/my_app.py": {
+        "size": 1748
+      },
+      "libs/cli/examples/pipconf.txt": {
+        "size": 22
+      },
+      "libs/cli/examples/pyproject.toml": {
+        "size": 419
+      },
+      "libs/cli/generate_schema.py": {
+        "size": 8870
+      },
+      "libs/cli/js-examples/README.md": {
+        "size": 5369
+      },
+      "libs/cli/js-examples/jest.config.js": {
+        "size": 342
+      },
+      "libs/cli/js-examples/langgraph.json": {
+        "size": 177
+      },
+      "libs/cli/js-examples/package.json": {
+        "size": 1597
+      },
+      "libs/cli/js-examples/src/agent/graph.ts": {
+        "size": 3131
+      },
+      "libs/cli/js-examples/src/agent/state.ts": {
+        "size": 2537
+      },
+      "libs/cli/js-examples/tests/agent.test.ts": {
+        "size": 260
+      },
+      "libs/cli/js-examples/tests/graph.int.test.ts": {
+        "size": 717
+      },
+      "libs/cli/js-examples/tsconfig.json": {
+        "size": 701
+      },
+      "libs/cli/js-monorepo-example/apps/agent/langgraph.json": {
+        "size": 105
+      },
+      "libs/cli/js-monorepo-example/apps/agent/package.json": {
+        "size": 369
+      },
+      "libs/cli/js-monorepo-example/apps/agent/src/graph.ts": {
+        "size": 1106
+      },
+      "libs/cli/js-monorepo-example/apps/agent/src/state.ts": {
+        "size": 446
+      },
+      "libs/cli/js-monorepo-example/apps/agent/tsconfig.json": {
+        "size": 180
+      },
+      "libs/cli/js-monorepo-example/libs/shared/package.json": {
+        "size": 265
+      },
+      "libs/cli/js-monorepo-example/libs/shared/src/index.ts": {
+        "size": 138
+      },
+      "libs/cli/js-monorepo-example/libs/shared/tsconfig.json": {
+        "size": 180
+      },
+      "libs/cli/js-monorepo-example/package.json": {
+        "size": 946
+      },
+      "libs/cli/js-monorepo-example/tsconfig.json": {
+        "size": 394
+      },
+      "libs/cli/js-monorepo-example/turbo.json": {
+        "size": 252
+      },
+      "libs/cli/langgraph_cli/__init__.py": {
+        "size": 23
+      },
+      "libs/cli/langgraph_cli/__main__.py": {
+        "size": 59
+      },
+      "libs/cli/langgraph_cli/analytics.py": {
+        "size": 2462
+      },
+      "libs/cli/langgraph_cli/cli.py": {
+        "size": 60906
+      },
+      "libs/cli/langgraph_cli/config.py": {
+        "size": 56136
+      },
+      "libs/cli/langgraph_cli/constants.py": {
+        "size": 362
+      },
+      "libs/cli/langgraph_cli/docker.py": {
+        "size": 8811
+      },
+      "libs/cli/langgraph_cli/exec.py": {
+        "size": 5195
+      },
+      "libs/cli/langgraph_cli/host_backend.py": {
+        "size": 3910
+      },
+      "libs/cli/langgraph_cli/progress.py": {
+        "size": 2863
+      },
+      "libs/cli/langgraph_cli/schemas.py": {
+        "size": 26348
+      },
+      "libs/cli/langgraph_cli/templates.py": {
+        "size": 8623
+      },
+      "libs/cli/langgraph_cli/util.py": {
+        "size": 2059
+      },
+      "libs/cli/langgraph_cli/version.py": {
+        "size": 308
+      },
+      "libs/cli/pyproject.toml": {
+        "size": 1620
+      },
+      "libs/cli/python-monorepo-example/apps/agent/langgraph.json": {
+        "size": 194
+      },
+      "libs/cli/python-monorepo-example/apps/agent/pyproject.toml": {
+        "size": 408
+      },
+      "libs/cli/python-monorepo-example/apps/agent/src/agent/__init__.py": {
+        "size": 21
+      },
+      "libs/cli/python-monorepo-example/apps/agent/src/agent/graph.py": {
+        "size": 1021
+      },
+      "libs/cli/python-monorepo-example/apps/agent/src/agent/state.py": {
+        "size": 336
+      },
+      "libs/cli/python-monorepo-example/libs/common/__init__.py": {
+        "size": 112
+      },
+      "libs/cli/python-monorepo-example/libs/common/helpers.py": {
+        "size": 131
+      },
+      "libs/cli/python-monorepo-example/libs/shared/pyproject.toml": {
+        "size": 441
+      },
+      "libs/cli/python-monorepo-example/libs/shared/src/shared/__init__.py": {
+        "size": 103
+      },
+      "libs/cli/python-monorepo-example/libs/shared/src/shared/utils.py": {
+        "size": 149
+      },
+      "libs/cli/python-monorepo-example/pyproject.toml": {
+        "size": 1129
+      },
+      "libs/cli/schemas/schema.json": {
+        "size": 42973
+      },
+      "libs/cli/schemas/schema.v0.json": {
+        "size": 42973
+      },
+      "libs/cli/schemas/version.schema.json": {
+        "size": 1140
+      },
+      "libs/cli/tests/__init__.py": {
+        "size": 0
+      },
+      "libs/cli/tests/integration_tests/__init__.py": {
+        "size": 0
+      },
+      "libs/cli/tests/integration_tests/test_cli.py": {
+        "size": 524
+      },
+      "libs/cli/tests/unit_tests/__init__.py": {
+        "size": 0
+      },
+      "libs/cli/tests/unit_tests/agent.py": {
+        "size": 2145
+      },
+      "libs/cli/tests/unit_tests/cli/__init__.py": {
+        "size": 0
+      },
+      "libs/cli/tests/unit_tests/cli/langgraph.json": {
+        "size": 0
+      },
+      "libs/cli/tests/unit_tests/cli/pyproject.toml": {
+        "size": 0
+      },
+      "libs/cli/tests/unit_tests/cli/test_cli.py": {
+        "size": 38477
+      },
+      "libs/cli/tests/unit_tests/cli/test_templates.py": {
+        "size": 2581
+      },
+      "libs/cli/tests/unit_tests/conftest.py": {
+        "size": 529
+      },
+      "libs/cli/tests/unit_tests/graphs/agent.py": {
+        "size": 88
+      },
+      "libs/cli/tests/unit_tests/helpers.py": {
+        "size": 98
+      },
+      "libs/cli/tests/unit_tests/multiplatform/python.py": {
+        "size": 0
+      },
+      "libs/cli/tests/unit_tests/pipconfig.txt": {
+        "size": 0
+      },
+      "libs/cli/tests/unit_tests/test_config.json": {
+        "size": 371
+      },
+      "libs/cli/tests/unit_tests/test_config.py": {
+        "size": 72790
+      },
+      "libs/cli/tests/unit_tests/test_deploy_helpers.py": {
+        "size": 5023
+      },
+      "libs/cli/tests/unit_tests/test_docker.py": {
+        "size": 13266
+      },
+      "libs/cli/tests/unit_tests/test_host_backend.py": {
+        "size": 5982
+      },
+      "libs/cli/tests/unit_tests/test_util.py": {
+        "size": 7147
+      },
+      "libs/langgraph/README.md": {
+        "size": 5856
+      },
+      "libs/langgraph/bench/__init__.py": {
+        "size": 0
+      },
+      "libs/langgraph/bench/__main__.py": {
+        "size": 15058
+      },
+      "libs/langgraph/bench/fanout_to_subgraph.py": {
+        "size": 4023
+      },
+      "libs/langgraph/bench/pydantic_state.py": {
+        "size": 11808
+      },
+      "libs/langgraph/bench/react_agent.py": {
+        "size": 2513
+      },
+      "libs/langgraph/bench/sequential.py": {
+        "size": 1292
+      },
+      "libs/langgraph/bench/serde_allowlist.py": {
+        "size": 1628
+      },
+      "libs/langgraph/bench/wide_dict.py": {
+        "size": 4891
+      },
+      "libs/langgraph/bench/wide_state.py": {
+        "size": 5430
+      },
+      "libs/langgraph/langgraph/_internal/__init__.py": {
+        "size": 121
+      },
+      "libs/langgraph/langgraph/_internal/_cache.py": {
+        "size": 1199
+      },
+      "libs/langgraph/langgraph/_internal/_config.py": {
+        "size": 10811
+      },
+      "libs/langgraph/langgraph/_internal/_constants.py": {
+        "size": 4780
+      },
+      "libs/langgraph/langgraph/_internal/_fields.py": {
+        "size": 7368
+      },
+      "libs/langgraph/langgraph/_internal/_future.py": {
+        "size": 7259
+      },
+      "libs/langgraph/langgraph/_internal/_pydantic.py": {
+        "size": 8801
+      },
+      "libs/langgraph/langgraph/_internal/_queue.py": {
+        "size": 4451
+      },
+      "libs/langgraph/langgraph/_internal/_replay.py": {
+        "size": 3302
+      },
+      "libs/langgraph/langgraph/_internal/_retry.py": {
+        "size": 773
+      },
+      "libs/langgraph/langgraph/_internal/_runnable.py": {
+        "size": 31846
+      },
+      "libs/langgraph/langgraph/_internal/_scratchpad.py": {
+        "size": 434
+      },
+      "libs/langgraph/langgraph/_internal/_serde.py": {
+        "size": 7306
+      },
+      "libs/langgraph/langgraph/_internal/_typing.py": {
+        "size": 1536
+      },
+      "libs/langgraph/langgraph/channels/__init__.py": {
+        "size": 798
+      },
+      "libs/langgraph/langgraph/channels/any_value.py": {
+        "size": 1985
+      },
+      "libs/langgraph/langgraph/channels/base.py": {
+        "size": 3643
+      },
+      "libs/langgraph/langgraph/channels/binop.py": {
+        "size": 4484
+      },
+      "libs/langgraph/langgraph/channels/ephemeral_value.py": {
+        "size": 2402
+      },
+      "libs/langgraph/langgraph/channels/last_value.py": {
+        "size": 4324
+      },
+      "libs/langgraph/langgraph/channels/named_barrier_value.py": {
+        "size": 5165
+      },
+      "libs/langgraph/langgraph/channels/topic.py": {
+        "size": 2863
+      },
+      "libs/langgraph/langgraph/channels/untracked_value.py": {
+        "size": 2186
+      },
+      "libs/langgraph/langgraph/config.py": {
+        "size": 5603
+      },
+      "libs/langgraph/langgraph/constants.py": {
+        "size": 1930
+      },
+      "libs/langgraph/langgraph/errors.py": {
+        "size": 3610
+      },
+      "libs/langgraph/langgraph/func/__init__.py": {
+        "size": 21548
+      },
+      "libs/langgraph/langgraph/graph/__init__.py": {
+        "size": 284
+      },
+      "libs/langgraph/langgraph/graph/_branch.py": {
+        "size": 7515
+      },
+      "libs/langgraph/langgraph/graph/_node.py": {
+        "size": 3011
+      },
+      "libs/langgraph/langgraph/graph/message.py": {
+        "size": 13013
+      },
+      "libs/langgraph/langgraph/graph/state.py": {
+        "size": 65168
+      },
+      "libs/langgraph/langgraph/graph/ui.py": {
+        "size": 6593
+      },
+      "libs/langgraph/langgraph/managed/__init__.py": {
+        "size": 114
+      },
+      "libs/langgraph/langgraph/managed/base.py": {
+        "size": 639
+      },
+      "libs/langgraph/langgraph/managed/is_last_step.py": {
+        "size": 634
+      },
+      "libs/langgraph/langgraph/pregel/__init__.py": {
+        "size": 91
+      },
+      "libs/langgraph/langgraph/pregel/_algo.py": {
+        "size": 44380
+      },
+      "libs/langgraph/langgraph/pregel/_call.py": {
+        "size": 8893
+      },
+      "libs/langgraph/langgraph/pregel/_checkpoint.py": {
+        "size": 2742
+      },
+      "libs/langgraph/langgraph/pregel/_config.py": {
+        "size": 0
+      },
+      "libs/langgraph/langgraph/pregel/_draw.py": {
+        "size": 10464
+      },
+      "libs/langgraph/langgraph/pregel/_executor.py": {
+        "size": 8185
+      },
+      "libs/langgraph/langgraph/pregel/_io.py": {
+        "size": 5826
+      },
+      "libs/langgraph/langgraph/pregel/_log.py": {
+        "size": 56
+      },
+      "libs/langgraph/langgraph/pregel/_loop.py": {
+        "size": 55122
+      },
+      "libs/langgraph/langgraph/pregel/_messages.py": {
+        "size": 8680
+      },
+      "libs/langgraph/langgraph/pregel/_read.py": {
+        "size": 9224
+      },
+      "libs/langgraph/langgraph/pregel/_retry.py": {
+        "size": 8892
+      },
+      "libs/langgraph/langgraph/pregel/_runner.py": {
+        "size": 27935
+      },
+      "libs/langgraph/langgraph/pregel/_utils.py": {
+        "size": 6957
+      },
+      "libs/langgraph/langgraph/pregel/_validate.py": {
+        "size": 4473
+      },
+      "libs/langgraph/langgraph/pregel/_write.py": {
+        "size": 7309
+      },
+      "libs/langgraph/langgraph/pregel/debug.py": {
+        "size": 8930
+      },
+      "libs/langgraph/langgraph/pregel/main.py": {
+        "size": 145606
+      },
+      "libs/langgraph/langgraph/pregel/protocol.py": {
+        "size": 8597
+      },
+      "libs/langgraph/langgraph/pregel/remote.py": {
+        "size": 43497
+      },
+      "libs/langgraph/langgraph/pregel/types.py": {
+        "size": 737
+      },
+      "libs/langgraph/langgraph/runtime.py": {
+        "size": 5331
+      },
+      "libs/langgraph/langgraph/types.py": {
+        "size": 28651
+      },
+      "libs/langgraph/langgraph/typing.py": {
+        "size": 1260
+      },
+      "libs/langgraph/langgraph/utils/__init__.py": {
+        "size": 52
+      },
+      "libs/langgraph/langgraph/utils/config.py": {
+        "size": 228
+      },
+      "libs/langgraph/langgraph/utils/runnable.py": {
+        "size": 164
+      },
+      "libs/langgraph/langgraph/version.py": {
+        "size": 331
+      },
+      "libs/langgraph/langgraph/warnings.py": {
+        "size": 2482
+      },
+      "libs/langgraph/pyproject.toml": {
+        "size": 4009
+      },
+      "libs/langgraph/tests/__init__.py": {
+        "size": 0
+      },
+      "libs/langgraph/tests/agents.py": {
+        "size": 805
+      },
+      "libs/langgraph/tests/any_int.py": {
+        "size": 162
+      },
+      "libs/langgraph/tests/any_str.py": {
+        "size": 2406
+      },
+      "libs/langgraph/tests/compose-postgres.yml": {
+        "size": 368
+      },
+      "libs/langgraph/tests/compose-redis.yml": {
+        "size": 382
+      },
+      "libs/langgraph/tests/conftest.py": {
+        "size": 7081
+      },
+      "libs/langgraph/tests/conftest_checkpointer.py": {
+        "size": 7963
+      },
+      "libs/langgraph/tests/conftest_store.py": {
+        "size": 4688
+      },
+      "libs/langgraph/tests/example_app/example_graph.py": {
+        "size": 2448
+      },
+      "libs/langgraph/tests/example_app/langgraph.json": {
+        "size": 162
+      },
+      "libs/langgraph/tests/example_app/requirements.txt": {
+        "size": 19
+      },
+      "libs/langgraph/tests/fake_chat.py": {
+        "size": 5620
+      },
+      "libs/langgraph/tests/fake_tracer.py": {
+        "size": 3559
+      },
+      "libs/langgraph/tests/memory_assert.py": {
+        "size": 3385
+      },
+      "libs/langgraph/tests/messages.py": {
+        "size": 1463
+      },
+      "libs/langgraph/tests/test_algo.py": {
+        "size": 1840
+      },
+      "libs/langgraph/tests/test_channels.py": {
+        "size": 3974
+      },
+      "libs/langgraph/tests/test_checkpoint_migration.py": {
+        "size": 70609
+      },
+      "libs/langgraph/tests/test_config_async.py": {
+        "size": 684
+      },
+      "libs/langgraph/tests/test_deprecation.py": {
+        "size": 12935
+      },
+      "libs/langgraph/tests/test_interrupt_migration.py": {
+        "size": 2352
+      },
+      "libs/langgraph/tests/test_interruption.py": {
+        "size": 3470
+      },
+      "libs/langgraph/tests/test_large_cases.py": {
+        "size": 214323
+      },
+      "libs/langgraph/tests/test_large_cases_async.py": {
+        "size": 127084
+      },
+      "libs/langgraph/tests/test_managed_values.py": {
+        "size": 683
+      },
+      "libs/langgraph/tests/test_messages_state.py": {
+        "size": 10989
+      },
+      "libs/langgraph/tests/test_parent_command.py": {
+        "size": 1696
+      },
+      "libs/langgraph/tests/test_parent_command_async.py": {
+        "size": 1918
+      },
+      "libs/langgraph/tests/test_pregel.py": {
+        "size": 297070
+      },
+      "libs/langgraph/tests/test_pregel_async.py": {
+        "size": 305690
+      },
+      "libs/langgraph/tests/test_pydantic.py": {
+        "size": 11217
+      },
+      "libs/langgraph/tests/test_remote_graph.py": {
+        "size": 40039
+      },
+      "libs/langgraph/tests/test_retry.py": {
+        "size": 12033
+      },
+      "libs/langgraph/tests/test_runnable.py": {
+        "size": 12805
+      },
+      "libs/langgraph/tests/test_runtime.py": {
+        "size": 12390
+      },
+      "libs/langgraph/tests/test_serde_allowlist.py": {
+        "size": 4915
+      },
+      "libs/langgraph/tests/test_state.py": {
+        "size": 10983
+      },
+      "libs/langgraph/tests/test_stream_v2.py": {
+        "size": 42459
+      },
+      "libs/langgraph/tests/test_subgraph_persistence.py": {
+        "size": 21859
+      },
+      "libs/langgraph/tests/test_subgraph_persistence_async.py": {
+        "size": 22634
+      },
+      "libs/langgraph/tests/test_time_travel.py": {
+        "size": 107792
+      },
+      "libs/langgraph/tests/test_time_travel_async.py": {
+        "size": 95241
+      },
+      "libs/langgraph/tests/test_tracing_interops.py": {
+        "size": 3744
+      },
+      "libs/langgraph/tests/test_type_checking.py": {
+        "size": 4922
+      },
+      "libs/langgraph/tests/test_utils.py": {
+        "size": 10745
+      },
+      "libs/prebuilt/.claude/settings.local.json": {
+        "size": 519
+      },
+      "libs/prebuilt/README.md": {
+        "size": 4039
+      },
+      "libs/prebuilt/langgraph/prebuilt/__init__.py": {
+        "size": 527
+      },
+      "libs/prebuilt/langgraph/prebuilt/chat_agent_executor.py": {
+        "size": 39821
+      },
+      "libs/prebuilt/langgraph/prebuilt/interrupt.py": {
+        "size": 3975
+      },
+      "libs/prebuilt/langgraph/prebuilt/tool_node.py": {
+        "size": 71943
+      },
+      "libs/prebuilt/langgraph/prebuilt/tool_validator.py": {
+        "size": 9089
+      },
+      "libs/prebuilt/pyproject.toml": {
+        "size": 2608
+      },
+      "libs/prebuilt/tests/__init__.py": {
+        "size": 0
+      },
+      "libs/prebuilt/tests/any_str.py": {
+        "size": 456
+      },
+      "libs/prebuilt/tests/compose-postgres.yml": {
+        "size": 368
+      },
+      "libs/prebuilt/tests/compose-redis.yml": {
+        "size": 388
+      },
+      "libs/prebuilt/tests/conftest.py": {
+        "size": 5523
+      },
+      "libs/prebuilt/tests/conftest_checkpointer.py": {
+        "size": 5909
+      },
+      "libs/prebuilt/tests/conftest_store.py": {
+        "size": 4688
+      },
+      "libs/prebuilt/tests/memory_assert.py": {
+        "size": 1892
+      },
+      "libs/prebuilt/tests/messages.py": {
+        "size": 842
+      },
+      "libs/prebuilt/tests/model.py": {
+        "size": 3123
+      },
+      "libs/prebuilt/tests/test_deprecation.py": {
+        "size": 1454
+      },
+      "libs/prebuilt/tests/test_on_tool_call.py": {
+        "size": 44086
+      },
+      "libs/prebuilt/tests/test_react_agent.py": {
+        "size": 70580
+      },
+      "libs/prebuilt/tests/test_react_agent_graph.py": {
+        "size": 1280
+      },
+      "libs/prebuilt/tests/test_tool_node.py": {
+        "size": 64626
+      },
+      "libs/prebuilt/tests/test_tool_node_interceptor_unregistered.py": {
+        "size": 25460
+      },
+      "libs/prebuilt/tests/test_tool_node_validation_error_filtering.py": {
+        "size": 15383
+      },
+      "libs/prebuilt/tests/test_validation_node.py": {
+        "size": 2419
+      },
+      "libs/sdk-js/README.md": {
+        "size": 125
+      },
+      "libs/sdk-py/README.md": {
+        "size": 1122
+      },
+      "libs/sdk-py/langgraph_sdk/__init__.py": {
+        "size": 318
+      },
+      "libs/sdk-py/langgraph_sdk/_async/__init__.py": {
+        "size": 585
+      },
+      "libs/sdk-py/langgraph_sdk/_async/assistants.py": {
+        "size": 26755
+      },
+      "libs/sdk-py/langgraph_sdk/_async/client.py": {
+        "size": 6147
+      },
+      "libs/sdk-py/langgraph_sdk/_async/cron.py": {
+        "size": 21724
+      },
+      "libs/sdk-py/langgraph_sdk/_async/http.py": {
+        "size": 10919
+      },
+      "libs/sdk-py/langgraph_sdk/_async/runs.py": {
+        "size": 47178
+      },
+      "libs/sdk-py/langgraph_sdk/_async/store.py": {
+        "size": 10617
+      },
+      "libs/sdk-py/langgraph_sdk/_async/threads.py": {
+        "size": 25625
+      },
+      "libs/sdk-py/langgraph_sdk/_shared/__init__.py": {
+        "size": 51
+      },
+      "libs/sdk-py/langgraph_sdk/_shared/types.py": {
+        "size": 219
+      },
+      "libs/sdk-py/langgraph_sdk/_shared/utilities.py": {
+        "size": 6058
+      },
+      "libs/sdk-py/langgraph_sdk/_sync/__init__.py": {
+        "size": 643
+      },
+      "libs/sdk-py/langgraph_sdk/_sync/assistants.py": {
+        "size": 26672
+      },
+      "libs/sdk-py/langgraph_sdk/_sync/client.py": {
+        "size": 4210
+      },
+      "libs/sdk-py/langgraph_sdk/_sync/cron.py": {
+        "size": 21278
+      },
+      "libs/sdk-py/langgraph_sdk/_sync/http.py": {
+        "size": 10299
+      },
+      "libs/sdk-py/langgraph_sdk/_sync/runs.py": {
+        "size": 46222
+      },
+      "libs/sdk-py/langgraph_sdk/_sync/store.py": {
+        "size": 10418
+      },
+      "libs/sdk-py/langgraph_sdk/_sync/threads.py": {
+        "size": 24797
+      },
+      "libs/sdk-py/langgraph_sdk/auth/__init__.py": {
+        "size": 30944
+      },
+      "libs/sdk-py/langgraph_sdk/auth/exceptions.py": {
+        "size": 1744
+      },
+      "libs/sdk-py/langgraph_sdk/auth/types.py": {
+        "size": 31350
+      },
+      "libs/sdk-py/langgraph_sdk/cache.py": {
+        "size": 1755
+      },
+      "libs/sdk-py/langgraph_sdk/client.py": {
+        "size": 1951
+      },
+      "libs/sdk-py/langgraph_sdk/encryption/__init__.py": {
+        "size": 15993
+      },
+      "libs/sdk-py/langgraph_sdk/encryption/types.py": {
+        "size": 5224
+      },
+      "libs/sdk-py/langgraph_sdk/errors.py": {
+        "size": 6611
+      },
+      "libs/sdk-py/langgraph_sdk/runtime.py": {
+        "size": 8457
+      },
+      "libs/sdk-py/langgraph_sdk/schema.py": {
+        "size": 28606
+      },
+      "libs/sdk-py/langgraph_sdk/sse.py": {
+        "size": 4709
+      },
+      "libs/sdk-py/pyproject.toml": {
+        "size": 2118
+      },
+      "libs/sdk-py/tests/fixtures/response.txt": {
+        "size": 262349
+      },
+      "libs/sdk-py/tests/test_api_parity.py": {
+        "size": 4186
+      },
+      "libs/sdk-py/tests/test_assistants_client.py": {
+        "size": 2921
+      },
+      "libs/sdk-py/tests/test_client_exports.py": {
+        "size": 2616
+      },
+      "libs/sdk-py/tests/test_client_stream.py": {
+        "size": 14509
+      },
+      "libs/sdk-py/tests/test_crons_client.py": {
+        "size": 16061
+      },
+      "libs/sdk-py/tests/test_encryption.py": {
+        "size": 2064
+      },
+      "libs/sdk-py/tests/test_errors.py": {
+        "size": 4254
+      },
+      "libs/sdk-py/tests/test_serde.py": {
+        "size": 1676
+      },
+      "libs/sdk-py/tests/test_serde_schema.py": {
+        "size": 519
+      },
+      "libs/sdk-py/tests/test_skip_auto_load_api_key.py": {
+        "size": 2986
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "libs/langgraph/langgraph/graph/state.py",
+        "module": "state",
+        "functions": [],
+        "classes": [
+          "StateGraph"
+        ],
+        "description": "Primary graph-construction surface for LangGraph stateful workflows; most suitable integration anchor for MCP tool wrapping with minimal code changes."
+      },
+      {
+        "package": "libs/langgraph/langgraph/pregel/main.py",
+        "module": "main",
+        "functions": [],
+        "classes": [
+          "Pregel"
+        ],
+        "description": "Core execution runtime for compiled graphs; central for invocation, streaming, and orchestration behaviors."
+      },
+      {
+        "package": "libs/prebuilt/langgraph/prebuilt/chat_agent_executor.py",
+        "module": "chat_agent_executor",
+        "functions": [
+          "create_react_agent"
+        ],
+        "classes": [],
+        "description": "High-level prebuilt agent constructor; best low-intrusion entrypoint for exposing a ready-made MCP-compatible agent tool."
+      },
+      {
+        "package": "libs/prebuilt/langgraph/prebuilt/tool_node.py",
+        "module": "tool_node",
+        "functions": [],
+        "classes": [
+          "ToolNode"
+        ],
+        "description": "Tool execution node abstraction; natural attachment point to bridge MCP tools into graph-native tool-calling."
+      },
+      {
+        "package": "libs/sdk-py/langgraph_sdk/client.py",
+        "module": "client",
+        "functions": [
+          "get_client",
+          "get_sync_client"
+        ],
+        "classes": [],
+        "description": "SDK client factory for remote LangGraph deployments; enables black-box MCP plugin implementation without internal graph imports."
+      },
+      {
+        "package": "libs/cli/langgraph_cli/cli.py",
+        "module": "cli",
+        "functions": [],
+        "classes": [],
+        "description": "CLI orchestration module for local dev/deploy flows; useful as operational fallback when direct imports are constrained."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "langgraph",
+        "module": "libs/cli/langgraph_cli/cli.py",
+        "description": "Primary CLI entrypoint for project config validation, build/run/deploy workflows around LangGraph applications."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "langgraph (libs/langgraph)",
+        "langgraph-prebuilt (libs/prebuilt) for ready agent/tool nodes",
+        "langgraph-sdk (libs/sdk-py) for remote execution mode",
+        "pydantic (state/schema typing)",
+        "httpx (SDK HTTP transport)"
+      ],
+      "optional": [
+        "checkpoint backends: libs/checkpoint, libs/checkpoint-sqlite, libs/checkpoint-postgres",
+        "redis (cache/checkpoint optional runtime)",
+        "postgres (production checkpoint/store backend)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/langchain-ai/langgraph",
+    "repo_name": "langgraph",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.86,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

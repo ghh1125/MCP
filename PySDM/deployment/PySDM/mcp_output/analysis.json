@@ -1,0 +1,2878 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/atmos-cloud-sim-uj/PySDM",
+    "summary": "Imported via zip fallback, file count: 900",
+    "file_tree": {
+      ".binder/apt.txt": {
+        "size": 7
+      },
+      ".binder/requirements.txt": {
+        "size": 15
+      },
+      ".codecov.yml": {
+        "size": 72
+      },
+      ".github/actions/env-setup/action.yml": {
+        "size": 2080
+      },
+      ".github/actions/set-pip-path-and-cache-key/action.yml": {
+        "size": 673
+      },
+      ".github/dependabot.yml": {
+        "size": 176
+      },
+      ".github/workflows/cancel.yml": {
+        "size": 284
+      },
+      ".github/workflows/pdoc.yml": {
+        "size": 1046
+      },
+      ".github/workflows/precommit.yml": {
+        "size": 1154
+      },
+      ".github/workflows/pypi.yml": {
+        "size": 2979
+      },
+      ".github/workflows/readme_snippets.yml": {
+        "size": 3187
+      },
+      ".github/workflows/stale.yml": {
+        "size": 802
+      },
+      ".github/workflows/tests.yml": {
+        "size": 14155
+      },
+      ".github/workflows/urlcheck.yml": {
+        "size": 1275
+      },
+      ".pre-commit-config.yaml": {
+        "size": 893
+      },
+      ".zenodo.json": {
+        "size": 4962
+      },
+      "PySDM/__init__.py": {
+        "size": 504
+      },
+      "PySDM/attributes/__init__.py": {
+        "size": 171
+      },
+      "PySDM/attributes/chemistry/__init__.py": {
+        "size": 223
+      },
+      "PySDM/attributes/chemistry/acidity.py": {
+        "size": 1642
+      },
+      "PySDM/attributes/chemistry/concentration.py": {
+        "size": 782
+      },
+      "PySDM/attributes/chemistry/hydrogen_ion_concentration.py": {
+        "size": 475
+      },
+      "PySDM/attributes/ice/__init__.py": {
+        "size": 222
+      },
+      "PySDM/attributes/ice/cooling_rate.py": {
+        "size": 1320
+      },
+      "PySDM/attributes/ice/freezing_temperature.py": {
+        "size": 1428
+      },
+      "PySDM/attributes/ice/immersed_surface_area.py": {
+        "size": 376
+      },
+      "PySDM/attributes/impl/__init__.py": {
+        "size": 608
+      },
+      "PySDM/attributes/impl/attribute.py": {
+        "size": 1156
+      },
+      "PySDM/attributes/impl/attribute_registry.py": {
+        "size": 1897
+      },
+      "PySDM/attributes/impl/base_attribute.py": {
+        "size": 470
+      },
+      "PySDM/attributes/impl/cell_attribute.py": {
+        "size": 220
+      },
+      "PySDM/attributes/impl/derived_attribute.py": {
+        "size": 844
+      },
+      "PySDM/attributes/impl/dummy_attribute.py": {
+        "size": 418
+      },
+      "PySDM/attributes/impl/extensive_attribute.py": {
+        "size": 224
+      },
+      "PySDM/attributes/impl/intensive_attribute.py": {
+        "size": 548
+      },
+      "PySDM/attributes/impl/maximum_attribute.py": {
+        "size": 391
+      },
+      "PySDM/attributes/impl/mole_amount.py": {
+        "size": 410
+      },
+      "PySDM/attributes/impl/temperature_variation_option_attribute.py": {
+        "size": 755
+      },
+      "PySDM/attributes/isotopes/__init__.py": {
+        "size": 149
+      },
+      "PySDM/attributes/isotopes/bolin_numbers.py": {
+        "size": 2408
+      },
+      "PySDM/attributes/isotopes/delta.py": {
+        "size": 1565
+      },
+      "PySDM/attributes/isotopes/moles.py": {
+        "size": 3404
+      },
+      "PySDM/attributes/numerics/__init__.py": {
+        "size": 202
+      },
+      "PySDM/attributes/numerics/cell_id.py": {
+        "size": 288
+      },
+      "PySDM/attributes/numerics/cell_origin.py": {
+        "size": 379
+      },
+      "PySDM/attributes/numerics/position_in_cell.py": {
+        "size": 405
+      },
+      "PySDM/attributes/physics/__init__.py": {
+        "size": 855
+      },
+      "PySDM/attributes/physics/area.py": {
+        "size": 574
+      },
+      "PySDM/attributes/physics/critical_saturation.py": {
+        "size": 1931
+      },
+      "PySDM/attributes/physics/critical_volume.py": {
+        "size": 2878
+      },
+      "PySDM/attributes/physics/diffusional_growth_mass_change.py": {
+        "size": 1152
+      },
+      "PySDM/attributes/physics/dry_radius.py": {
+        "size": 541
+      },
+      "PySDM/attributes/physics/dry_volume.py": {
+        "size": 2003
+      },
+      "PySDM/attributes/physics/equilibrium_saturation.py": {
+        "size": 1396
+      },
+      "PySDM/attributes/physics/heat.py": {
+        "size": 314
+      },
+      "PySDM/attributes/physics/hygroscopicity.py": {
+        "size": 931
+      },
+      "PySDM/attributes/physics/multiplicity.py": {
+        "size": 471
+      },
+      "PySDM/attributes/physics/radius.py": {
+        "size": 913
+      },
+      "PySDM/attributes/physics/relative_fall_velocity.py": {
+        "size": 1258
+      },
+      "PySDM/attributes/physics/reynolds_number.py": {
+        "size": 1081
+      },
+      "PySDM/attributes/physics/temperature.py": {
+        "size": 340
+      },
+      "PySDM/attributes/physics/terminal_velocity.py": {
+        "size": 1577
+      },
+      "PySDM/attributes/physics/volume.py": {
+        "size": 587
+      },
+      "PySDM/attributes/physics/water_mass.py": {
+        "size": 1604
+      },
+      "PySDM/backends/__init__.py": {
+        "size": 2801
+      },
+      "PySDM/backends/impl_common/__init__.py": {
+        "size": 35
+      },
+      "PySDM/backends/impl_common/backend_methods.py": {
+        "size": 560
+      },
+      "PySDM/backends/impl_common/freezing_attributes.py": {
+        "size": 1253
+      },
+      "PySDM/backends/impl_common/index.py": {
+        "size": 1765
+      },
+      "PySDM/backends/impl_common/indexed_storage.py": {
+        "size": 1723
+      },
+      "PySDM/backends/impl_common/pair_indicator.py": {
+        "size": 567
+      },
+      "PySDM/backends/impl_common/pairwise_storage.py": {
+        "size": 1383
+      },
+      "PySDM/backends/impl_common/random_common.py": {
+        "size": 282
+      },
+      "PySDM/backends/impl_common/storage_utils.py": {
+        "size": 1958
+      },
+      "PySDM/backends/impl_numba/__init__.py": {
+        "size": 34
+      },
+      "PySDM/backends/impl_numba/atomic_operations.py": {
+        "size": 4941
+      },
+      "PySDM/backends/impl_numba/conf.py": {
+        "size": 216
+      },
+      "PySDM/backends/impl_numba/methods/__init__.py": {
+        "size": 716
+      },
+      "PySDM/backends/impl_numba/methods/chemistry_methods.py": {
+        "size": 15443
+      },
+      "PySDM/backends/impl_numba/methods/collisions_methods.py": {
+        "size": 26302
+      },
+      "PySDM/backends/impl_numba/methods/condensation_methods.py": {
+        "size": 26070
+      },
+      "PySDM/backends/impl_numba/methods/deposition_methods.py": {
+        "size": 14228
+      },
+      "PySDM/backends/impl_numba/methods/displacement_methods.py": {
+        "size": 7569
+      },
+      "PySDM/backends/impl_numba/methods/fragmentation_methods.py": {
+        "size": 17240
+      },
+      "PySDM/backends/impl_numba/methods/freezing_methods.py": {
+        "size": 10354
+      },
+      "PySDM/backends/impl_numba/methods/index_methods.py": {
+        "size": 1427
+      },
+      "PySDM/backends/impl_numba/methods/isotope_methods.py": {
+        "size": 7241
+      },
+      "PySDM/backends/impl_numba/methods/moments_methods.py": {
+        "size": 5512
+      },
+      "PySDM/backends/impl_numba/methods/pair_methods.py": {
+        "size": 6259
+      },
+      "PySDM/backends/impl_numba/methods/physics_methods.py": {
+        "size": 7092
+      },
+      "PySDM/backends/impl_numba/methods/seeding_methods.py": {
+        "size": 2580
+      },
+      "PySDM/backends/impl_numba/methods/terminal_velocity_methods.py": {
+        "size": 4771
+      },
+      "PySDM/backends/impl_numba/random.py": {
+        "size": 514
+      },
+      "PySDM/backends/impl_numba/storage.py": {
+        "size": 6241
+      },
+      "PySDM/backends/impl_numba/storage_impl.py": {
+        "size": 1957
+      },
+      "PySDM/backends/impl_numba/test_helpers/__init__.py": {
+        "size": 92
+      },
+      "PySDM/backends/impl_numba/test_helpers/scipy_ode_condensation_solver.py": {
+        "size": 10059
+      },
+      "PySDM/backends/impl_numba/toms748.py": {
+        "size": 6484
+      },
+      "PySDM/backends/impl_numba/warnings.py": {
+        "size": 649
+      },
+      "PySDM/backends/impl_thrust_rtc/__init__.py": {
+        "size": 34
+      },
+      "PySDM/backends/impl_thrust_rtc/bisection.py": {
+        "size": 1369
+      },
+      "PySDM/backends/impl_thrust_rtc/conf.py": {
+        "size": 1181
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/__init__.py": {
+        "size": 40
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/collisions_methods.py": {
+        "size": 34482
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/condensation_methods.py": {
+        "size": 19460
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/displacement_methods.py": {
+        "size": 4985
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/freezing_methods.py": {
+        "size": 9657
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/index_methods.py": {
+        "size": 2201
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/isotope_methods.py": {
+        "size": 3215
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/moments_methods.py": {
+        "size": 7922
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/pair_methods.py": {
+        "size": 6997
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/physics_methods.py": {
+        "size": 7134
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/terminal_velocity_methods.py": {
+        "size": 5788
+      },
+      "PySDM/backends/impl_thrust_rtc/methods/thrust_rtc_backend_methods.py": {
+        "size": 811
+      },
+      "PySDM/backends/impl_thrust_rtc/nice_thrust.py": {
+        "size": 472
+      },
+      "PySDM/backends/impl_thrust_rtc/random.py": {
+        "size": 1214
+      },
+      "PySDM/backends/impl_thrust_rtc/storage.py": {
+        "size": 17980
+      },
+      "PySDM/backends/impl_thrust_rtc/test_helpers/__init__.py": {
+        "size": 145
+      },
+      "PySDM/backends/impl_thrust_rtc/test_helpers/cpp2python.py": {
+        "size": 6022
+      },
+      "PySDM/backends/impl_thrust_rtc/test_helpers/fake_thrust_rtc.py": {
+        "size": 7962
+      },
+      "PySDM/backends/impl_thrust_rtc/test_helpers/flag.py": {
+        "size": 170
+      },
+      "PySDM/backends/numba.py": {
+        "size": 4036
+      },
+      "PySDM/backends/thrust_rtc.py": {
+        "size": 2646
+      },
+      "PySDM/builder.py": {
+        "size": 5339
+      },
+      "PySDM/dynamics/__init__.py": {
+        "size": 838
+      },
+      "PySDM/dynamics/ambient_thermodynamics.py": {
+        "size": 353
+      },
+      "PySDM/dynamics/aqueous_chemistry.py": {
+        "size": 4823
+      },
+      "PySDM/dynamics/collisions/__init__.py": {
+        "size": 554
+      },
+      "PySDM/dynamics/collisions/breakup_efficiencies/__init__.py": {
+        "size": 59
+      },
+      "PySDM/dynamics/collisions/breakup_efficiencies/constEb.py": {
+        "size": 313
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/__init__.py": {
+        "size": 329
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/always_n.py": {
+        "size": 493
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/constant_mass.py": {
+        "size": 498
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/expon_frag.py": {
+        "size": 306
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/exponential.py": {
+        "size": 1157
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/feingold1988.py": {
+        "size": 1351
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/gaussian.py": {
+        "size": 1170
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/impl/__init__.py": {
+        "size": 125
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/impl/volume_based.py": {
+        "size": 783
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/lowlist82.py": {
+        "size": 4114
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/slams.py": {
+        "size": 1226
+      },
+      "PySDM/dynamics/collisions/breakup_fragmentations/straub2010.py": {
+        "size": 3909
+      },
+      "PySDM/dynamics/collisions/coalescence_efficiencies/__init__.py": {
+        "size": 246
+      },
+      "PySDM/dynamics/collisions/coalescence_efficiencies/_gravitational.py": {
+        "size": 484
+      },
+      "PySDM/dynamics/collisions/coalescence_efficiencies/_parameterized.py": {
+        "size": 648
+      },
+      "PySDM/dynamics/collisions/coalescence_efficiencies/berry1967.py": {
+        "size": 353
+      },
+      "PySDM/dynamics/collisions/coalescence_efficiencies/constEc.py": {
+        "size": 287
+      },
+      "PySDM/dynamics/collisions/coalescence_efficiencies/lowlist1982.py": {
+        "size": 3746
+      },
+      "PySDM/dynamics/collisions/coalescence_efficiencies/specified_eff.py": {
+        "size": 578
+      },
+      "PySDM/dynamics/collisions/coalescence_efficiencies/straub2010.py": {
+        "size": 1672
+      },
+      "PySDM/dynamics/collisions/collision.py": {
+        "size": 13359
+      },
+      "PySDM/dynamics/collisions/collision_kernels/__init__.py": {
+        "size": 532
+      },
+      "PySDM/dynamics/collisions/collision_kernels/constantK.py": {
+        "size": 279
+      },
+      "PySDM/dynamics/collisions/collision_kernels/electric.py": {
+        "size": 458
+      },
+      "PySDM/dynamics/collisions/collision_kernels/geometric.py": {
+        "size": 732
+      },
+      "PySDM/dynamics/collisions/collision_kernels/golovin.py": {
+        "size": 1304
+      },
+      "PySDM/dynamics/collisions/collision_kernels/hydrodynamic.py": {
+        "size": 435
+      },
+      "PySDM/dynamics/collisions/collision_kernels/impl/__init__.py": {
+        "size": 53
+      },
+      "PySDM/dynamics/collisions/collision_kernels/impl/gravitational.py": {
+        "size": 528
+      },
+      "PySDM/dynamics/collisions/collision_kernels/impl/parameterized.py": {
+        "size": 974
+      },
+      "PySDM/dynamics/collisions/collision_kernels/linear.py": {
+        "size": 445
+      },
+      "PySDM/dynamics/collisions/collision_kernels/simple_geometric.py": {
+        "size": 842
+      },
+      "PySDM/dynamics/condensation.py": {
+        "size": 4509
+      },
+      "PySDM/dynamics/displacement.py": {
+        "size": 6170
+      },
+      "PySDM/dynamics/eulerian_advection.py": {
+        "size": 682
+      },
+      "PySDM/dynamics/freezing.py": {
+        "size": 3497
+      },
+      "PySDM/dynamics/impl/__init__.py": {
+        "size": 103
+      },
+      "PySDM/dynamics/impl/chemistry_utils.py": {
+        "size": 5243
+      },
+      "PySDM/dynamics/impl/random_generator_optimizer.py": {
+        "size": 1515
+      },
+      "PySDM/dynamics/impl/random_generator_optimizer_nopair.py": {
+        "size": 1059
+      },
+      "PySDM/dynamics/impl/register_dynamic.py": {
+        "size": 497
+      },
+      "PySDM/dynamics/isotopic_fractionation.py": {
+        "size": 1652
+      },
+      "PySDM/dynamics/relaxed_velocity.py": {
+        "size": 3138
+      },
+      "PySDM/dynamics/seeding.py": {
+        "size": 3841
+      },
+      "PySDM/dynamics/terminal_velocity/__init__.py": {
+        "size": 413
+      },
+      "PySDM/dynamics/terminal_velocity/columnar_ice_crystal.py": {
+        "size": 863
+      },
+      "PySDM/dynamics/terminal_velocity/gunn_and_kinzer.py": {
+        "size": 6495
+      },
+      "PySDM/dynamics/terminal_velocity/power_series.py": {
+        "size": 1621
+      },
+      "PySDM/dynamics/terminal_velocity/rogers_and_yau.py": {
+        "size": 437
+      },
+      "PySDM/dynamics/terminal_velocity/spheres_ice.py": {
+        "size": 563
+      },
+      "PySDM/dynamics/vapour_deposition_on_ice.py": {
+        "size": 721
+      },
+      "PySDM/environments/__init__.py": {
+        "size": 246
+      },
+      "PySDM/environments/box.py": {
+        "size": 1095
+      },
+      "PySDM/environments/impl/__init__.py": {
+        "size": 145
+      },
+      "PySDM/environments/impl/moist.py": {
+        "size": 4102
+      },
+      "PySDM/environments/impl/register_environment.py": {
+        "size": 634
+      },
+      "PySDM/environments/kinematic_1d.py": {
+        "size": 3230
+      },
+      "PySDM/environments/kinematic_2d.py": {
+        "size": 3419
+      },
+      "PySDM/environments/parcel.py": {
+        "size": 5070
+      },
+      "PySDM/exporters/__init__.py": {
+        "size": 328
+      },
+      "PySDM/exporters/netcdf_exporter.py": {
+        "size": 4268
+      },
+      "PySDM/exporters/netcdf_exporter_1d.py": {
+        "size": 5212
+      },
+      "PySDM/exporters/vtk_exporter.py": {
+        "size": 5690
+      },
+      "PySDM/exporters/vtk_exporter_1d.py": {
+        "size": 2180
+      },
+      "PySDM/exporters/vtk_exporter_parcel.py": {
+        "size": 5543
+      },
+      "PySDM/formulae.py": {
+        "size": 15568
+      },
+      "PySDM/impl/__init__.py": {
+        "size": 51
+      },
+      "PySDM/impl/arakawa_c.py": {
+        "size": 331
+      },
+      "PySDM/impl/camel_case.py": {
+        "size": 367
+      },
+      "PySDM/impl/mesh.py": {
+        "size": 2842
+      },
+      "PySDM/impl/null_physics_class.py": {
+        "size": 128
+      },
+      "PySDM/impl/particle_attributes.py": {
+        "size": 3702
+      },
+      "PySDM/impl/particle_attributes_factory.py": {
+        "size": 4687
+      },
+      "PySDM/impl/wall_timer.py": {
+        "size": 465
+      },
+      "PySDM/initialisation/__init__.py": {
+        "size": 294
+      },
+      "PySDM/initialisation/aerosol_composition/__init__.py": {
+        "size": 207
+      },
+      "PySDM/initialisation/aerosol_composition/dry_aerosol.py": {
+        "size": 4373
+      },
+      "PySDM/initialisation/discretise_multiplicities.py": {
+        "size": 1040
+      },
+      "PySDM/initialisation/hygroscopic_equilibrium.py": {
+        "size": 6130
+      },
+      "PySDM/initialisation/impl/__init__.py": {
+        "size": 122
+      },
+      "PySDM/initialisation/impl/spectrum.py": {
+        "size": 1138
+      },
+      "PySDM/initialisation/init_fall_momenta.py": {
+        "size": 1429
+      },
+      "PySDM/initialisation/sampling/__init__.py": {
+        "size": 40
+      },
+      "PySDM/initialisation/sampling/spatial_sampling.py": {
+        "size": 1419
+      },
+      "PySDM/initialisation/sampling/spectral_sampling.py": {
+        "size": 4865
+      },
+      "PySDM/initialisation/sampling/spectro_glacial_sampling.py": {
+        "size": 1662
+      },
+      "PySDM/initialisation/spectra/__init__.py": {
+        "size": 309
+      },
+      "PySDM/initialisation/spectra/exponential.py": {
+        "size": 364
+      },
+      "PySDM/initialisation/spectra/gamma.py": {
+        "size": 385
+      },
+      "PySDM/initialisation/spectra/gaussian.py": {
+        "size": 362
+      },
+      "PySDM/initialisation/spectra/lognormal.py": {
+        "size": 1169
+      },
+      "PySDM/initialisation/spectra/sum.py": {
+        "size": 1502
+      },
+      "PySDM/initialisation/spectra/top_hat.py": {
+        "size": 563
+      },
+      "PySDM/particulator.py": {
+        "size": 23153
+      },
+      "PySDM/physics/__init__.py": {
+        "size": 2152
+      },
+      "PySDM/physics/air_dynamic_viscosity/__init__.py": {
+        "size": 88
+      },
+      "PySDM/physics/air_dynamic_viscosity/zografos_et_al_1987.py": {
+        "size": 616
+      },
+      "PySDM/physics/bulk_phase_partitioning/__init__.py": {
+        "size": 160
+      },
+      "PySDM/physics/bulk_phase_partitioning/kaul_et_al_2015.py": {
+        "size": 763
+      },
+      "PySDM/physics/constants.py": {
+        "size": 1475
+      },
+      "PySDM/physics/constants_defaults.py": {
+        "size": 25593
+      },
+      "PySDM/physics/diffusion_coordinate/__init__.py": {
+        "size": 165
+      },
+      "PySDM/physics/diffusion_coordinate/water_mass.py": {
+        "size": 442
+      },
+      "PySDM/physics/diffusion_coordinate/water_mass_logarithm.py": {
+        "size": 563
+      },
+      "PySDM/physics/diffusion_ice_capacity/__init__.py": {
+        "size": 136
+      },
+      "PySDM/physics/diffusion_ice_capacity/columnar.py": {
+        "size": 802
+      },
+      "PySDM/physics/diffusion_ice_capacity/spherical.py": {
+        "size": 310
+      },
+      "PySDM/physics/diffusion_ice_kinetics/__init__.py": {
+        "size": 162
+      },
+      "PySDM/physics/diffusion_ice_kinetics/neglect.py": {
+        "size": 511
+      },
+      "PySDM/physics/diffusion_ice_kinetics/standard.py": {
+        "size": 1059
+      },
+      "PySDM/physics/diffusion_kinetics/__init__.py": {
+        "size": 261
+      },
+      "PySDM/physics/diffusion_kinetics/fuchs_sutugin.py": {
+        "size": 1025
+      },
+      "PySDM/physics/diffusion_kinetics/grabowski_et_al_2011.py": {
+        "size": 197
+      },
+      "PySDM/physics/diffusion_kinetics/lowe_et_al_2019.py": {
+        "size": 666
+      },
+      "PySDM/physics/diffusion_kinetics/neglect.py": {
+        "size": 500
+      },
+      "PySDM/physics/diffusion_kinetics/pruppacher_and_klett_2010.py": {
+        "size": 729
+      },
+      "PySDM/physics/diffusion_thermics/__init__.py": {
+        "size": 279
+      },
+      "PySDM/physics/diffusion_thermics/grabowski_et_al_2011.py": {
+        "size": 732
+      },
+      "PySDM/physics/diffusion_thermics/lowe_et_al_2019.py": {
+        "size": 452
+      },
+      "PySDM/physics/diffusion_thermics/neglect.py": {
+        "size": 312
+      },
+      "PySDM/physics/diffusion_thermics/seinfeld_and_pandis_2010.py": {
+        "size": 316
+      },
+      "PySDM/physics/diffusion_thermics/tracy_welch_porter.py": {
+        "size": 424
+      },
+      "PySDM/physics/dimensional_analysis.py": {
+        "size": 790
+      },
+      "PySDM/physics/drop_growth/__init__.py": {
+        "size": 161
+      },
+      "PySDM/physics/drop_growth/fick.py": {
+        "size": 1018
+      },
+      "PySDM/physics/drop_growth/howell_1949.py": {
+        "size": 1332
+      },
+      "PySDM/physics/drop_growth/mason_1971.py": {
+        "size": 756
+      },
+      "PySDM/physics/fragmentation_function/__init__.py": {
+        "size": 366
+      },
+      "PySDM/physics/fragmentation_function/always_n.py": {
+        "size": 187
+      },
+      "PySDM/physics/fragmentation_function/constant_mass.py": {
+        "size": 197
+      },
+      "PySDM/physics/fragmentation_function/expon_frag.py": {
+        "size": 319
+      },
+      "PySDM/physics/fragmentation_function/exponential.py": {
+        "size": 194
+      },
+      "PySDM/physics/fragmentation_function/feingold1988.py": {
+        "size": 304
+      },
+      "PySDM/physics/fragmentation_function/gaussian.py": {
+        "size": 121
+      },
+      "PySDM/physics/fragmentation_function/lowlist82.py": {
+        "size": 5827
+      },
+      "PySDM/physics/fragmentation_function/slams.py": {
+        "size": 182
+      },
+      "PySDM/physics/fragmentation_function/straub2010nf.py": {
+        "size": 1130
+      },
+      "PySDM/physics/freezing_temperature_spectrum/__init__.py": {
+        "size": 202
+      },
+      "PySDM/physics/freezing_temperature_spectrum/bigg_1953.py": {
+        "size": 742
+      },
+      "PySDM/physics/freezing_temperature_spectrum/niemand_et_al_2012.py": {
+        "size": 1343
+      },
+      "PySDM/physics/freezing_temperature_spectrum/null.py": {
+        "size": 267
+      },
+      "PySDM/physics/heterogeneous_ice_nucleation_rate/__init__.py": {
+        "size": 137
+      },
+      "PySDM/physics/heterogeneous_ice_nucleation_rate/abifm.py": {
+        "size": 450
+      },
+      "PySDM/physics/heterogeneous_ice_nucleation_rate/constant.py": {
+        "size": 309
+      },
+      "PySDM/physics/heterogeneous_ice_nucleation_rate/null.py": {
+        "size": 309
+      },
+      "PySDM/physics/homogeneous_ice_nucleation_rate/__init__.py": {
+        "size": 220
+      },
+      "PySDM/physics/homogeneous_ice_nucleation_rate/constant.py": {
+        "size": 516
+      },
+      "PySDM/physics/homogeneous_ice_nucleation_rate/koop.py": {
+        "size": 931
+      },
+      "PySDM/physics/homogeneous_ice_nucleation_rate/koop_corr.py": {
+        "size": 1147
+      },
+      "PySDM/physics/homogeneous_ice_nucleation_rate/koop_murray.py": {
+        "size": 1179
+      },
+      "PySDM/physics/homogeneous_ice_nucleation_rate/null.py": {
+        "size": 596
+      },
+      "PySDM/physics/hydrostatics/__init__.py": {
+        "size": 231
+      },
+      "PySDM/physics/hydrostatics/constant_g_vapour_mixing_ratio_and_theta_std.py": {
+        "size": 1398
+      },
+      "PySDM/physics/hydrostatics/variable_g_isothermal.py": {
+        "size": 737
+      },
+      "PySDM/physics/hygroscopicity/__init__.py": {
+        "size": 210
+      },
+      "PySDM/physics/hygroscopicity/kappa_koehler.py": {
+        "size": 606
+      },
+      "PySDM/physics/hygroscopicity/kappa_koehler_leading_terms.py": {
+        "size": 711
+      },
+      "PySDM/physics/impl/__init__.py": {
+        "size": 154
+      },
+      "PySDM/physics/impl/fake_unit_registry.py": {
+        "size": 1844
+      },
+      "PySDM/physics/impl/flag.py": {
+        "size": 189
+      },
+      "PySDM/physics/isotope_diffusivity_ratios/__init__.py": {
+        "size": 242
+      },
+      "PySDM/physics/isotope_diffusivity_ratios/grahams_law.py": {
+        "size": 729
+      },
+      "PySDM/physics/isotope_diffusivity_ratios/hellmann_and_harvey_2020.py": {
+        "size": 1400
+      },
+      "PySDM/physics/isotope_diffusivity_ratios/stewart_1975.py": {
+        "size": 1598
+      },
+      "PySDM/physics/isotope_equilibrium_fractionation_factors/__init__.py": {
+        "size": 568
+      },
+      "PySDM/physics/isotope_equilibrium_fractionation_factors/barkan_and_luz_2005.py": {
+        "size": 350
+      },
+      "PySDM/physics/isotope_equilibrium_fractionation_factors/ellehoj_et_al_2013.py": {
+        "size": 480
+      },
+      "PySDM/physics/isotope_equilibrium_fractionation_factors/horita_and_wesolowski_1994.py": {
+        "size": 1018
+      },
+      "PySDM/physics/isotope_equilibrium_fractionation_factors/lamb_et_al_2017.py": {
+        "size": 472
+      },
+      "PySDM/physics/isotope_equilibrium_fractionation_factors/majoube_1970.py": {
+        "size": 550
+      },
+      "PySDM/physics/isotope_equilibrium_fractionation_factors/majoube_1971.py": {
+        "size": 693
+      },
+      "PySDM/physics/isotope_equilibrium_fractionation_factors/merlivat_and_nief_1967.py": {
+        "size": 705
+      },
+      "PySDM/physics/isotope_equilibrium_fractionation_factors/van_hook_1968.py": {
+        "size": 3470
+      },
+      "PySDM/physics/isotope_kinetic_fractionation_factors/__init__.py": {
+        "size": 208
+      },
+      "PySDM/physics/isotope_kinetic_fractionation_factors/craig_gordon.py": {
+        "size": 684
+      },
+      "PySDM/physics/isotope_kinetic_fractionation_factors/jouzel_and_merlivat_1984.py": {
+        "size": 1070
+      },
+      "PySDM/physics/isotope_meteoric_water_line/__init__.py": {
+        "size": 285
+      },
+      "PySDM/physics/isotope_meteoric_water_line/barkan_and_luz_2007.py": {
+        "size": 626
+      },
+      "PySDM/physics/isotope_meteoric_water_line/dansgaard_1964.py": {
+        "size": 651
+      },
+      "PySDM/physics/isotope_meteoric_water_line/picciotto_et_al_1960.py": {
+        "size": 485
+      },
+      "PySDM/physics/isotope_ratio_evolution/__init__.py": {
+        "size": 295
+      },
+      "PySDM/physics/isotope_ratio_evolution/gedzelman_and_arnold_1994.py": {
+        "size": 679
+      },
+      "PySDM/physics/isotope_ratio_evolution/merlivat_and_jouzel_1979.py": {
+        "size": 531
+      },
+      "PySDM/physics/isotope_ratio_evolution/rayleigh_distillation.py": {
+        "size": 342
+      },
+      "PySDM/physics/isotope_relaxation_timescale/__init__.py": {
+        "size": 253
+      },
+      "PySDM/physics/isotope_relaxation_timescale/bolin_1958.py": {
+        "size": 358
+      },
+      "PySDM/physics/isotope_relaxation_timescale/jouzel_et_al_1975.py": {
+        "size": 1081
+      },
+      "PySDM/physics/isotope_relaxation_timescale/miyake_et_al_1968.py": {
+        "size": 871
+      },
+      "PySDM/physics/isotope_relaxation_timescale/zaba_et_al.py": {
+        "size": 1419
+      },
+      "PySDM/physics/isotope_temperature_inference/__init__.py": {
+        "size": 251
+      },
+      "PySDM/physics/isotope_temperature_inference/picciotto_et_al_1960.py": {
+        "size": 574
+      },
+      "PySDM/physics/isotope_ventilation_ratio/__init__.py": {
+        "size": 168
+      },
+      "PySDM/physics/isotope_ventilation_ratio/brutsaert_1982.py": {
+        "size": 598
+      },
+      "PySDM/physics/isotope_ventilation_ratio/neglect.py": {
+        "size": 302
+      },
+      "PySDM/physics/latent_heat_sublimation/__init__.py": {
+        "size": 138
+      },
+      "PySDM/physics/latent_heat_sublimation/murphy_koop_2005.py": {
+        "size": 481
+      },
+      "PySDM/physics/latent_heat_vapourisation/__init__.py": {
+        "size": 185
+      },
+      "PySDM/physics/latent_heat_vapourisation/constant.py": {
+        "size": 263
+      },
+      "PySDM/physics/latent_heat_vapourisation/kirchhoff.py": {
+        "size": 384
+      },
+      "PySDM/physics/latent_heat_vapourisation/lowe2019.py": {
+        "size": 582
+      },
+      "PySDM/physics/latent_heat_vapourisation/seinfeld_and_pandis_2010.py": {
+        "size": 316
+      },
+      "PySDM/physics/optical_albedo/__init__.py": {
+        "size": 132
+      },
+      "PySDM/physics/optical_albedo/bohren1987.py": {
+        "size": 342
+      },
+      "PySDM/physics/optical_depth/__init__.py": {
+        "size": 138
+      },
+      "PySDM/physics/optical_depth/stephens_1978.py": {
+        "size": 380
+      },
+      "PySDM/physics/particle_advection/__init__.py": {
+        "size": 169
+      },
+      "PySDM/physics/particle_advection/explicit_in_space.py": {
+        "size": 293
+      },
+      "PySDM/physics/particle_advection/implicit_in_space.py": {
+        "size": 352
+      },
+      "PySDM/physics/particle_shape_and_density/__init__.py": {
+        "size": 226
+      },
+      "PySDM/physics/particle_shape_and_density/columnar_ice.py": {
+        "size": 1498
+      },
+      "PySDM/physics/particle_shape_and_density/liquid_spheres.py": {
+        "size": 1278
+      },
+      "PySDM/physics/particle_shape_and_density/mixed_phase_spheres.py": {
+        "size": 1400
+      },
+      "PySDM/physics/particle_shape_and_density/porous_spheroids.py": {
+        "size": 861
+      },
+      "PySDM/physics/saturation_vapour_pressure/__init__.py": {
+        "size": 352
+      },
+      "PySDM/physics/saturation_vapour_pressure/august_roche_magnus.py": {
+        "size": 609
+      },
+      "PySDM/physics/saturation_vapour_pressure/bolton_1980.py": {
+        "size": 597
+      },
+      "PySDM/physics/saturation_vapour_pressure/flatau_walko_cotton.py": {
+        "size": 1908
+      },
+      "PySDM/physics/saturation_vapour_pressure/lowe1977.py": {
+        "size": 1307
+      },
+      "PySDM/physics/saturation_vapour_pressure/murphy_koop_2005.py": {
+        "size": 1059
+      },
+      "PySDM/physics/saturation_vapour_pressure/wexler_1976.py": {
+        "size": 778
+      },
+      "PySDM/physics/state_variable_triplet/__init__.py": {
+        "size": 113
+      },
+      "PySDM/physics/state_variable_triplet/libcloudphplusplus.py": {
+        "size": 1895
+      },
+      "PySDM/physics/surface_tension/__init__.py": {
+        "size": 250
+      },
+      "PySDM/physics/surface_tension/compressed_film_ovadnevaite.py": {
+        "size": 1479
+      },
+      "PySDM/physics/surface_tension/compressed_film_ruehl.py": {
+        "size": 3599
+      },
+      "PySDM/physics/surface_tension/constant.py": {
+        "size": 447
+      },
+      "PySDM/physics/surface_tension/szyszkowski_langmuir.py": {
+        "size": 2529
+      },
+      "PySDM/physics/terminal_velocity/__init__.py": {
+        "size": 171
+      },
+      "PySDM/physics/terminal_velocity/gunn_kinzer_1949.py": {
+        "size": 202
+      },
+      "PySDM/physics/terminal_velocity/power_series.py": {
+        "size": 134
+      },
+      "PySDM/physics/terminal_velocity/rogers_yau.py": {
+        "size": 690
+      },
+      "PySDM/physics/terminal_velocity_ice/__init__.py": {
+        "size": 140
+      },
+      "PySDM/physics/terminal_velocity_ice/columnar_ice_crystal.py": {
+        "size": 1617
+      },
+      "PySDM/physics/terminal_velocity_ice/spheres_ice.py": {
+        "size": 582
+      },
+      "PySDM/physics/trivia.py": {
+        "size": 8125
+      },
+      "PySDM/physics/ventilation/__init__.py": {
+        "size": 181
+      },
+      "PySDM/physics/ventilation/froessling_1938.py": {
+        "size": 414
+      },
+      "PySDM/physics/ventilation/neglect.py": {
+        "size": 330
+      },
+      "PySDM/physics/ventilation/pruppacher_rasmussen_1979.py": {
+        "size": 1474
+      },
+      "PySDM/products/__init__.py": {
+        "size": 314
+      },
+      "PySDM/products/ambient_thermodynamics/__init__.py": {
+        "size": 477
+      },
+      "PySDM/products/ambient_thermodynamics/ambient_dry_air_density.py": {
+        "size": 300
+      },
+      "PySDM/products/ambient_thermodynamics/ambient_dry_air_potential_temperature.py": {
+        "size": 362
+      },
+      "PySDM/products/ambient_thermodynamics/ambient_pressure.py": {
+        "size": 282
+      },
+      "PySDM/products/ambient_thermodynamics/ambient_relative_humidity.py": {
+        "size": 620
+      },
+      "PySDM/products/ambient_thermodynamics/ambient_temperature.py": {
+        "size": 287
+      },
+      "PySDM/products/ambient_thermodynamics/ambient_water_vapour_mixing_ratio.py": {
+        "size": 367
+      },
+      "PySDM/products/aqueous_chemistry/__init__.py": {
+        "size": 354
+      },
+      "PySDM/products/aqueous_chemistry/acidity.py": {
+        "size": 1589
+      },
+      "PySDM/products/aqueous_chemistry/aqueous_mass_spectrum.py": {
+        "size": 2540
+      },
+      "PySDM/products/aqueous_chemistry/aqueous_mole_fraction.py": {
+        "size": 1194
+      },
+      "PySDM/products/aqueous_chemistry/gaseous_mole_fraction.py": {
+        "size": 890
+      },
+      "PySDM/products/aqueous_chemistry/total_dry_mass_mixing_ratio.py": {
+        "size": 824
+      },
+      "PySDM/products/collision/__init__.py": {
+        "size": 442
+      },
+      "PySDM/products/collision/collision_rates.py": {
+        "size": 1501
+      },
+      "PySDM/products/collision/collision_timestep_mean.py": {
+        "size": 1285
+      },
+      "PySDM/products/collision/collision_timestep_min.py": {
+        "size": 822
+      },
+      "PySDM/products/condensation/__init__.py": {
+        "size": 336
+      },
+      "PySDM/products/condensation/activable_fraction.py": {
+        "size": 1301
+      },
+      "PySDM/products/condensation/condensation_timestep.py": {
+        "size": 1907
+      },
+      "PySDM/products/condensation/event_rates.py": {
+        "size": 1902
+      },
+      "PySDM/products/condensation/peak_saturation.py": {
+        "size": 1289
+      },
+      "PySDM/products/displacement/__init__.py": {
+        "size": 315
+      },
+      "PySDM/products/displacement/averaged_terminal_velocity.py": {
+        "size": 1195
+      },
+      "PySDM/products/displacement/flow_velocity_component.py": {
+        "size": 1315
+      },
+      "PySDM/products/displacement/max_courant_number.py": {
+        "size": 985
+      },
+      "PySDM/products/displacement/surface_precipitation.py": {
+        "size": 1464
+      },
+      "PySDM/products/freezing/__init__.py": {
+        "size": 503
+      },
+      "PySDM/products/freezing/cooling_rate.py": {
+        "size": 498
+      },
+      "PySDM/products/freezing/freezable_specific_concentration.py": {
+        "size": 1566
+      },
+      "PySDM/products/freezing/frozen_particle_concentration.py": {
+        "size": 1497
+      },
+      "PySDM/products/freezing/ice_nuclei_concentration.py": {
+        "size": 1361
+      },
+      "PySDM/products/freezing/total_unfrozen_immersed_surface_area.py": {
+        "size": 767
+      },
+      "PySDM/products/housekeeping/__init__.py": {
+        "size": 261
+      },
+      "PySDM/products/housekeeping/dynamic_wall_time.py": {
+        "size": 673
+      },
+      "PySDM/products/housekeeping/super_droplet_count_per_gridbox.py": {
+        "size": 1026
+      },
+      "PySDM/products/housekeeping/time.py": {
+        "size": 487
+      },
+      "PySDM/products/housekeeping/timers.py": {
+        "size": 1135
+      },
+      "PySDM/products/impl/__init__.py": {
+        "size": 612
+      },
+      "PySDM/products/impl/activation_filtered_product.py": {
+        "size": 828
+      },
+      "PySDM/products/impl/concentration_product.py": {
+        "size": 1505
+      },
+      "PySDM/products/impl/moist_environment_product.py": {
+        "size": 889
+      },
+      "PySDM/products/impl/moment_product.py": {
+        "size": 1488
+      },
+      "PySDM/products/impl/product.py": {
+        "size": 3247
+      },
+      "PySDM/products/impl/rate_product.py": {
+        "size": 1099
+      },
+      "PySDM/products/impl/register_product.py": {
+        "size": 524
+      },
+      "PySDM/products/impl/spectrum_moment_product.py": {
+        "size": 1670
+      },
+      "PySDM/products/optical/__init__.py": {
+        "size": 121
+      },
+      "PySDM/products/optical/cloud_albedo.py": {
+        "size": 345
+      },
+      "PySDM/products/optical/cloud_optical_depth.py": {
+        "size": 421
+      },
+      "PySDM/products/parcel/__init__.py": {
+        "size": 155
+      },
+      "PySDM/products/parcel/cloud_water_path.py": {
+        "size": 1798
+      },
+      "PySDM/products/parcel/parcel_displacement.py": {
+        "size": 683
+      },
+      "PySDM/products/size_spectral/__init__.py": {
+        "size": 1600
+      },
+      "PySDM/products/size_spectral/arbitrary_moment.py": {
+        "size": 1972
+      },
+      "PySDM/products/size_spectral/cloud_water_content.py": {
+        "size": 2857
+      },
+      "PySDM/products/size_spectral/effective_radius.py": {
+        "size": 1901
+      },
+      "PySDM/products/size_spectral/effective_radius_activated.py": {
+        "size": 1326
+      },
+      "PySDM/products/size_spectral/mean_radius.py": {
+        "size": 1130
+      },
+      "PySDM/products/size_spectral/mean_radius_activated.py": {
+        "size": 945
+      },
+      "PySDM/products/size_spectral/mean_volume_radius.py": {
+        "size": 909
+      },
+      "PySDM/products/size_spectral/number_size_spectrum.py": {
+        "size": 1436
+      },
+      "PySDM/products/size_spectral/particle_concentration.py": {
+        "size": 1413
+      },
+      "PySDM/products/size_spectral/particle_concentration_activated.py": {
+        "size": 1554
+      },
+      "PySDM/products/size_spectral/particle_size_spectrum.py": {
+        "size": 3216
+      },
+      "PySDM/products/size_spectral/particle_volume_versus_radius_logarithm_spectrum.py": {
+        "size": 1725
+      },
+      "PySDM/products/size_spectral/radius_binned_number_averaged_terminal_velocity.py": {
+        "size": 1372
+      },
+      "PySDM/products/size_spectral/size_standard_deviation.py": {
+        "size": 2173
+      },
+      "PySDM/products/size_spectral/total_particle_concentration.py": {
+        "size": 470
+      },
+      "PySDM/products/size_spectral/total_particle_specific_concentration.py": {
+        "size": 476
+      },
+      "PySDM/products/size_spectral/water_mixing_ratio.py": {
+        "size": 1483
+      },
+      "README.md": {
+        "size": 14636
+      },
+      "docs/bibliography.json": {
+        "size": 47484
+      },
+      "docs/generate_html.py": {
+        "size": 5430
+      },
+      "docs/markdown/pysdm_landing.md": {
+        "size": 31347
+      },
+      "docs/templates/README.md": {
+        "size": 83
+      },
+      "examples/PySDM_examples/Abade_and_Albuquerque_2024/__init__.py": {
+        "size": 279
+      },
+      "examples/PySDM_examples/Abade_and_Albuquerque_2024/settings.py": {
+        "size": 2077
+      },
+      "examples/PySDM_examples/Abade_and_Albuquerque_2024/simulation.py": {
+        "size": 4032
+      },
+      "examples/PySDM_examples/Abdul_Razzak_Ghan_2000/__init__.py": {
+        "size": 311
+      },
+      "examples/PySDM_examples/Abdul_Razzak_Ghan_2000/aerosol.py": {
+        "size": 3405
+      },
+      "examples/PySDM_examples/Abdul_Razzak_Ghan_2000/data_from_ARG2000_paper.py": {
+        "size": 11585
+      },
+      "examples/PySDM_examples/Abdul_Razzak_Ghan_2000/data_from_CloudMicrophysics_ARG.py": {
+        "size": 11547
+      },
+      "examples/PySDM_examples/Abdul_Razzak_Ghan_2000/run_ARG_parcel.py": {
+        "size": 5507
+      },
+      "examples/PySDM_examples/Alpert_and_Knopf_2016/__init__.py": {
+        "size": 519
+      },
+      "examples/PySDM_examples/Alpert_and_Knopf_2016/simulation.py": {
+        "size": 10169
+      },
+      "examples/PySDM_examples/Alpert_and_Knopf_2016/table.py": {
+        "size": 228
+      },
+      "examples/PySDM_examples/Alpert_and_Knopf_2016/table_1.py": {
+        "size": 3791
+      },
+      "examples/PySDM_examples/Alpert_and_Knopf_2016/table_2.py": {
+        "size": 1857
+      },
+      "examples/PySDM_examples/Arabas_and_Shima_2017/__init__.py": {
+        "size": 237
+      },
+      "examples/PySDM_examples/Arabas_and_Shima_2017/example.py": {
+        "size": 253
+      },
+      "examples/PySDM_examples/Arabas_and_Shima_2017/settings.py": {
+        "size": 2370
+      },
+      "examples/PySDM_examples/Arabas_and_Shima_2017/simulation.py": {
+        "size": 4162
+      },
+      "examples/PySDM_examples/Arabas_et_al_2015/__init__.py": {
+        "size": 292
+      },
+      "examples/PySDM_examples/Arabas_et_al_2015/example.py": {
+        "size": 826
+      },
+      "examples/PySDM_examples/Arabas_et_al_2015/example_benchmark.py": {
+        "size": 2367
+      },
+      "examples/PySDM_examples/Arabas_et_al_2015/settings.py": {
+        "size": 1028
+      },
+      "examples/PySDM_examples/Arabas_et_al_2015/spin_up.py": {
+        "size": 736
+      },
+      "examples/PySDM_examples/Arabas_et_al_2025/__init__.py": {
+        "size": 770
+      },
+      "examples/PySDM_examples/Arabas_et_al_2025/commons.py": {
+        "size": 662
+      },
+      "examples/PySDM_examples/Arabas_et_al_2025/curved_text.py": {
+        "size": 5338
+      },
+      "examples/PySDM_examples/Arabas_et_al_2025/frozen_fraction.py": {
+        "size": 783
+      },
+      "examples/PySDM_examples/Arabas_et_al_2025/make_particulator.py": {
+        "size": 2436
+      },
+      "examples/PySDM_examples/Arabas_et_al_2025/plots.py": {
+        "size": 5031
+      },
+      "examples/PySDM_examples/Arabas_et_al_2025/run_simulation.py": {
+        "size": 1281
+      },
+      "examples/PySDM_examples/Bartman_2020_MasterThesis/__init__.py": {
+        "size": 136
+      },
+      "examples/PySDM_examples/Bartman_2020_MasterThesis/fig_4_adaptive_sdm.py": {
+        "size": 2376
+      },
+      "examples/PySDM_examples/Bartman_2020_MasterThesis/fig_5_SCIPY_VS_ADAPTIVE.py": {
+        "size": 4237
+      },
+      "examples/PySDM_examples/Bartman_et_al_2021/__init__.py": {
+        "size": 255
+      },
+      "examples/PySDM_examples/Bartman_et_al_2021/label.py": {
+        "size": 523
+      },
+      "examples/PySDM_examples/Berry_1967/__init__.py": {
+        "size": 248
+      },
+      "examples/PySDM_examples/Berry_1967/example.py": {
+        "size": 2506
+      },
+      "examples/PySDM_examples/Berry_1967/example_fig_6.py": {
+        "size": 3101
+      },
+      "examples/PySDM_examples/Berry_1967/settings.py": {
+        "size": 1617
+      },
+      "examples/PySDM_examples/Berry_1967/spectrum_plotter.py": {
+        "size": 1105
+      },
+      "examples/PySDM_examples/Bieli_et_al_2022/__init__.py": {
+        "size": 205
+      },
+      "examples/PySDM_examples/Bieli_et_al_2022/settings.py": {
+        "size": 1679
+      },
+      "examples/PySDM_examples/Bieli_et_al_2022/simulation.py": {
+        "size": 1338
+      },
+      "examples/PySDM_examples/Bolin_1958/__init__.py": {
+        "size": 175
+      },
+      "examples/PySDM_examples/Bolot_et_al_2013/__init__.py": {
+        "size": 187
+      },
+      "examples/PySDM_examples/Bulenok_2023_MasterThesis/__init__.py": {
+        "size": 164
+      },
+      "examples/PySDM_examples/Bulenok_2023_MasterThesis/performance_comparison_Srivastava_Setup.py": {
+        "size": 7272
+      },
+      "examples/PySDM_examples/Bulenok_2023_MasterThesis/setups.py": {
+        "size": 3424
+      },
+      "examples/PySDM_examples/Bulenok_2023_MasterThesis/utils.py": {
+        "size": 7832
+      },
+      "examples/PySDM_examples/Ervens_and_Feingold_2012/__init__.py": {
+        "size": 159
+      },
+      "examples/PySDM_examples/Ervens_and_Feingold_2012/settings.py": {
+        "size": 456
+      },
+      "examples/PySDM_examples/Fisher_1991/__init__.py": {
+        "size": 380
+      },
+      "examples/PySDM_examples/Gedzelman_and_Arnold_1994/__init__.py": {
+        "size": 303
+      },
+      "examples/PySDM_examples/Gonfiantini_1986/__init__.py": {
+        "size": 312
+      },
+      "examples/PySDM_examples/Grabowski_and_Pawlowska_2023/__init__.py": {
+        "size": 535
+      },
+      "examples/PySDM_examples/Grabowski_and_Pawlowska_2023/settings.py": {
+        "size": 3231
+      },
+      "examples/PySDM_examples/Grabowski_and_Pawlowska_2023/simulation.py": {
+        "size": 4608
+      },
+      "examples/PySDM_examples/Graf_et_al_2019/__init__.py": {
+        "size": 252
+      },
+      "examples/PySDM_examples/Jaruga_and_Pawlowska_2018/__init__.py": {
+        "size": 263
+      },
+      "examples/PySDM_examples/Jensen_and_Nugent_2017/__init__.py": {
+        "size": 478
+      },
+      "examples/PySDM_examples/Jensen_and_Nugent_2017/plotting.py": {
+        "size": 3605
+      },
+      "examples/PySDM_examples/Jensen_and_Nugent_2017/settings.py": {
+        "size": 2245
+      },
+      "examples/PySDM_examples/Jensen_and_Nugent_2017/simulation.py": {
+        "size": 4869
+      },
+      "examples/PySDM_examples/Jensen_and_Nugent_2017/table_3.py": {
+        "size": 952
+      },
+      "examples/PySDM_examples/Jouzel_and_Merlivat_1984/__init__.py": {
+        "size": 335
+      },
+      "examples/PySDM_examples/Jouzel_and_Merlivat_1984/thermodynamic_profiles.py": {
+        "size": 927
+      },
+      "examples/PySDM_examples/Kinzer_And_Gunn_1951/__init__.py": {
+        "size": 118
+      },
+      "examples/PySDM_examples/Kinzer_And_Gunn_1951/table_1_and_2.py": {
+        "size": 3130
+      },
+      "examples/PySDM_examples/Kreidenweis_et_al_2003/__init__.py": {
+        "size": 277
+      },
+      "examples/PySDM_examples/Kreidenweis_et_al_2003/settings.py": {
+        "size": 2988
+      },
+      "examples/PySDM_examples/Kreidenweis_et_al_2003/simulation.py": {
+        "size": 4759
+      },
+      "examples/PySDM_examples/Lamb_et_al_2017/__init__.py": {
+        "size": 235
+      },
+      "examples/PySDM_examples/Lowe_et_al_2019/__init__.py": {
+        "size": 443
+      },
+      "examples/PySDM_examples/Lowe_et_al_2019/aerosol.py": {
+        "size": 6827
+      },
+      "examples/PySDM_examples/Lowe_et_al_2019/aerosol_code.py": {
+        "size": 9666
+      },
+      "examples/PySDM_examples/Lowe_et_al_2019/constants_def.py": {
+        "size": 480
+      },
+      "examples/PySDM_examples/Lowe_et_al_2019/plot_helper.py": {
+        "size": 6427
+      },
+      "examples/PySDM_examples/Lowe_et_al_2019/settings.py": {
+        "size": 2651
+      },
+      "examples/PySDM_examples/Lowe_et_al_2019/simulation.py": {
+        "size": 5834
+      },
+      "examples/PySDM_examples/Matsushima_et_al_2023/__init__.py": {
+        "size": 181
+      },
+      "examples/PySDM_examples/Merlivat_and_Nief_1967/__init__.py": {
+        "size": 178
+      },
+      "examples/PySDM_examples/Miyake_et_al_1968/__init__.py": {
+        "size": 202
+      },
+      "examples/PySDM_examples/Morrison_and_Grabowski_2007/__init__.py": {
+        "size": 203
+      },
+      "examples/PySDM_examples/Morrison_and_Grabowski_2007/common.py": {
+        "size": 5227
+      },
+      "examples/PySDM_examples/Morrison_and_Grabowski_2007/strato_cumulus.py": {
+        "size": 1096
+      },
+      "examples/PySDM_examples/Niedermeier_et_al_2014/__init__.py": {
+        "size": 199
+      },
+      "examples/PySDM_examples/Niedermeier_et_al_2014/settings.py": {
+        "size": 1557
+      },
+      "examples/PySDM_examples/Niedermeier_et_al_2014/simulation.py": {
+        "size": 3596
+      },
+      "examples/PySDM_examples/Pierchala_et_al_2022/__init__.py": {
+        "size": 242
+      },
+      "examples/PySDM_examples/Pierchala_et_al_2022/commons.py": {
+        "size": 1021
+      },
+      "examples/PySDM_examples/Pruppacher_and_Rasmussen_1979/__init__.py": {
+        "size": 220
+      },
+      "examples/PySDM_examples/Pyrcel/__init__.py": {
+        "size": 284
+      },
+      "examples/PySDM_examples/Pyrcel/profile_plotter.py": {
+        "size": 2354
+      },
+      "examples/PySDM_examples/Pyrcel/settings.py": {
+        "size": 2101
+      },
+      "examples/PySDM_examples/Pyrcel/simulation.py": {
+        "size": 4229
+      },
+      "examples/PySDM_examples/Rogers_1975/__init__.py": {
+        "size": 171
+      },
+      "examples/PySDM_examples/Rozanski_and_Sonntag_1982/__init__.py": {
+        "size": 260
+      },
+      "examples/PySDM_examples/Rozanski_and_Sonntag_1982/multibox.py": {
+        "size": 3594
+      },
+      "examples/PySDM_examples/Shima_et_al_2009/__init__.py": {
+        "size": 234
+      },
+      "examples/PySDM_examples/Shima_et_al_2009/error_measure.py": {
+        "size": 222
+      },
+      "examples/PySDM_examples/Shima_et_al_2009/example.py": {
+        "size": 2396
+      },
+      "examples/PySDM_examples/Shima_et_al_2009/example_timing.py": {
+        "size": 1844
+      },
+      "examples/PySDM_examples/Shima_et_al_2009/settings.py": {
+        "size": 1176
+      },
+      "examples/PySDM_examples/Shima_et_al_2009/spectrum_plotter.py": {
+        "size": 5622
+      },
+      "examples/PySDM_examples/Shima_et_al_2009/tutorial_example.py": {
+        "size": 1677
+      },
+      "examples/PySDM_examples/Shima_et_al_2009/tutorial_plotter.py": {
+        "size": 4190
+      },
+      "examples/PySDM_examples/Shima_et_al_2009/tutorial_settings.py": {
+        "size": 1176
+      },
+      "examples/PySDM_examples/Shipway_and_Hill_2012/__init__.py": {
+        "size": 299
+      },
+      "examples/PySDM_examples/Shipway_and_Hill_2012/mpdata_1d.py": {
+        "size": 2341
+      },
+      "examples/PySDM_examples/Shipway_and_Hill_2012/plot.py": {
+        "size": 3616
+      },
+      "examples/PySDM_examples/Shipway_and_Hill_2012/settings.py": {
+        "size": 6404
+      },
+      "examples/PySDM_examples/Shipway_and_Hill_2012/simulation.py": {
+        "size": 10338
+      },
+      "examples/PySDM_examples/Singer_Ward/__init__.py": {
+        "size": 161
+      },
+      "examples/PySDM_examples/Singer_Ward/aerosol.py": {
+        "size": 5805
+      },
+      "examples/PySDM_examples/Spichtinger_et_al_2023/__init__.py": {
+        "size": 232
+      },
+      "examples/PySDM_examples/Spichtinger_et_al_2023/data/__init__.py": {
+        "size": 0
+      },
+      "examples/PySDM_examples/Spichtinger_et_al_2023/data/reference_bulk.py": {
+        "size": 1540
+      },
+      "examples/PySDM_examples/Spichtinger_et_al_2023/data/simulation_data.py": {
+        "size": 782
+      },
+      "examples/PySDM_examples/Spichtinger_et_al_2023/settings.py": {
+        "size": 2001
+      },
+      "examples/PySDM_examples/Spichtinger_et_al_2023/simulation.py": {
+        "size": 3737
+      },
+      "examples/PySDM_examples/Srivastava_1982/__init__.py": {
+        "size": 564
+      },
+      "examples/PySDM_examples/Srivastava_1982/equations.py": {
+        "size": 3251
+      },
+      "examples/PySDM_examples/Srivastava_1982/example.py": {
+        "size": 8576
+      },
+      "examples/PySDM_examples/Srivastava_1982/settings.py": {
+        "size": 2275
+      },
+      "examples/PySDM_examples/Srivastava_1982/simulation.py": {
+        "size": 3039
+      },
+      "examples/PySDM_examples/Stewart_1975/__init__.py": {
+        "size": 140
+      },
+      "examples/PySDM_examples/Strzabala_2025_BEng/__init__.py": {
+        "size": 240
+      },
+      "examples/PySDM_examples/Strzabala_2025_BEng/paraview_parcel_model.py": {
+        "size": 7598
+      },
+      "examples/PySDM_examples/Toon_et_al_1980/__init__.py": {
+        "size": 0
+      },
+      "examples/PySDM_examples/Van_Hook_1968/__init__.py": {
+        "size": 170
+      },
+      "examples/PySDM_examples/Ware_et_al_2025/__init__.py": {
+        "size": 196
+      },
+      "examples/PySDM_examples/Yang_et_al_2018/__init__.py": {
+        "size": 279
+      },
+      "examples/PySDM_examples/Yang_et_al_2018/settings.py": {
+        "size": 2278
+      },
+      "examples/PySDM_examples/Yang_et_al_2018/simulation.py": {
+        "size": 4368
+      },
+      "examples/PySDM_examples/Zaba_et_al/__init__.py": {
+        "size": 183
+      },
+      "examples/PySDM_examples/_HOWTOs/__init__.py": {
+        "size": 169
+      },
+      "examples/PySDM_examples/__init__.py": {
+        "size": 284
+      },
+      "examples/PySDM_examples/deJong_Azimi/__init__.py": {
+        "size": 376
+      },
+      "examples/PySDM_examples/deJong_Azimi/cloudy_data.py": {
+        "size": 11258
+      },
+      "examples/PySDM_examples/deJong_Azimi/cloudy_data_0d.py": {
+        "size": 12260
+      },
+      "examples/PySDM_examples/deJong_Azimi/settings1D.py": {
+        "size": 2232
+      },
+      "examples/PySDM_examples/deJong_Azimi/simulation_0D.py": {
+        "size": 2023
+      },
+      "examples/PySDM_examples/deJong_Mackay_et_al_2023/__init__.py": {
+        "size": 760
+      },
+      "examples/PySDM_examples/deJong_Mackay_et_al_2023/plot_rates.py": {
+        "size": 2428
+      },
+      "examples/PySDM_examples/deJong_Mackay_et_al_2023/settings1D.py": {
+        "size": 3058
+      },
+      "examples/PySDM_examples/deJong_Mackay_et_al_2023/settings_0D.py": {
+        "size": 1918
+      },
+      "examples/PySDM_examples/deJong_Mackay_et_al_2023/simulation1D.py": {
+        "size": 2430
+      },
+      "examples/PySDM_examples/deJong_Mackay_et_al_2023/simulation_0D.py": {
+        "size": 4649
+      },
+      "examples/PySDM_examples/deJong_Mackay_et_al_2023/simulation_ss.py": {
+        "size": 5864
+      },
+      "examples/PySDM_examples/seeding/__init__.py": {
+        "size": 220
+      },
+      "examples/PySDM_examples/seeding/settings.py": {
+        "size": 2238
+      },
+      "examples/PySDM_examples/seeding/simulation.py": {
+        "size": 4124
+      },
+      "examples/PySDM_examples/utils/__init__.py": {
+        "size": 217
+      },
+      "examples/PySDM_examples/utils/basic_simulation.py": {
+        "size": 698
+      },
+      "examples/PySDM_examples/utils/dummy_controller.py": {
+        "size": 741
+      },
+      "examples/PySDM_examples/utils/kinematic_2d/__init__.py": {
+        "size": 989
+      },
+      "examples/PySDM_examples/utils/kinematic_2d/fields.py": {
+        "size": 1584
+      },
+      "examples/PySDM_examples/utils/kinematic_2d/gui.py": {
+        "size": 1314
+      },
+      "examples/PySDM_examples/utils/kinematic_2d/gui_controller.py": {
+        "size": 4283
+      },
+      "examples/PySDM_examples/utils/kinematic_2d/gui_settings.py": {
+        "size": 14456
+      },
+      "examples/PySDM_examples/utils/kinematic_2d/gui_viewer.py": {
+        "size": 13162
+      },
+      "examples/PySDM_examples/utils/kinematic_2d/make_default_product_collection.py": {
+        "size": 4700
+      },
+      "examples/PySDM_examples/utils/kinematic_2d/mpdata_2d.py": {
+        "size": 4441
+      },
+      "examples/PySDM_examples/utils/kinematic_2d/plots.py": {
+        "size": 7001
+      },
+      "examples/PySDM_examples/utils/kinematic_2d/simulation.py": {
+        "size": 10403
+      },
+      "examples/PySDM_examples/utils/kinematic_2d/storage.py": {
+        "size": 2579
+      },
+      "examples/PySDM_examples/utils/progbar_controller.py": {
+        "size": 470
+      },
+      "examples/PySDM_examples/utils/pvanim.py": {
+        "size": 10980
+      },
+      "examples/PySDM_examples/utils/read_vtk_1d.py": {
+        "size": 966
+      },
+      "examples/PySDM_examples/utils/widgets/__init__.py": {
+        "size": 519
+      },
+      "examples/PySDM_examples/utils/widgets/freezer.py": {
+        "size": 407
+      },
+      "examples/PySDM_examples/utils/widgets/progbar_updater.py": {
+        "size": 267
+      },
+      "examples/README.md": {
+        "size": 680
+      },
+      "examples/docs/pysdm_examples_landing.md": {
+        "size": 9951
+      },
+      "examples/pyproject.toml": {
+        "size": 175
+      },
+      "examples/setup.py": {
+        "size": 2105
+      },
+      "pyproject.toml": {
+        "size": 1583
+      },
+      "setup.py": {
+        "size": 1356
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/examples_tests/__init__.py": {
+        "size": 0
+      },
+      "tests/examples_tests/conftest.py": {
+        "size": 6752
+      },
+      "tests/examples_tests/test_run_examples.py": {
+        "size": 393
+      },
+      "tests/examples_tests/test_run_notebooks.py": {
+        "size": 207
+      },
+      "tests/examples_tests/test_tests_completeness.py": {
+        "size": 1758
+      },
+      "tests/smoke_tests/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/box/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/box/alpert_and_knopf_2016/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/box/alpert_and_knopf_2016/test_ak16_fig_1.py": {
+        "size": 3198
+      },
+      "tests/smoke_tests/box/alpert_and_knopf_2016/test_frozen_fraction.py": {
+        "size": 770
+      },
+      "tests/smoke_tests/box/berry_1967/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/box/berry_1967/test_coalescence.py": {
+        "size": 2916
+      },
+      "tests/smoke_tests/box/bieli_et_al_2022/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/box/bieli_et_al_2022/test_moments.py": {
+        "size": 2188
+      },
+      "tests/smoke_tests/box/dejong_and_mackay_et_al_2023/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/box/dejong_and_mackay_et_al_2023/test_collision.py": {
+        "size": 1292
+      },
+      "tests/smoke_tests/box/dejong_and_mackay_et_al_2023/test_fig_6.py": {
+        "size": 3352
+      },
+      "tests/smoke_tests/box/dejong_and_mackay_et_al_2023/test_fig_7.py": {
+        "size": 6263
+      },
+      "tests/smoke_tests/box/dejong_and_mackay_et_al_2023/test_fig_8.py": {
+        "size": 2416
+      },
+      "tests/smoke_tests/box/dejong_azimi/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/box/dejong_azimi/test_box.py": {
+        "size": 3039
+      },
+      "tests/smoke_tests/box/partmc/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/box/partmc/test_dry_wet_equilibration.py": {
+        "size": 3870
+      },
+      "tests/smoke_tests/box/shima_et_al_2009/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/box/shima_et_al_2009/test_convergence.py": {
+        "size": 2899
+      },
+      "tests/smoke_tests/box/shima_et_al_2009/test_lwc_constant.py": {
+        "size": 2874
+      },
+      "tests/smoke_tests/box/srivastava_1982/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/box/srivastava_1982/test_eq_10.py": {
+        "size": 3207
+      },
+      "tests/smoke_tests/box/srivastava_1982/test_eq_13.py": {
+        "size": 2441
+      },
+      "tests/smoke_tests/box/srivastava_1982/test_equations.py": {
+        "size": 1754
+      },
+      "tests/smoke_tests/conftest.py": {
+        "size": 200
+      },
+      "tests/smoke_tests/kinematic_1d/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/kinematic_1d/deJong_Azimi/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/kinematic_1d/deJong_Azimi/test_few_steps.py": {
+        "size": 1749
+      },
+      "tests/smoke_tests/kinematic_1d/deJong_Azimi/test_initial_condition.py": {
+        "size": 1563
+      },
+      "tests/smoke_tests/kinematic_1d/shipway_and_hill_2012/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/kinematic_1d/shipway_and_hill_2012/test_1d_exporters.py": {
+        "size": 5977
+      },
+      "tests/smoke_tests/kinematic_1d/shipway_and_hill_2012/test_few_steps.py": {
+        "size": 3927
+      },
+      "tests/smoke_tests/kinematic_1d/shipway_and_hill_2012/test_initial_condition.py": {
+        "size": 3408
+      },
+      "tests/smoke_tests/kinematic_1d/shipway_and_hill_2012/test_settings.py": {
+        "size": 1044
+      },
+      "tests/smoke_tests/kinematic_2d/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/kinematic_2d/arabas_et_al_2015/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/kinematic_2d/arabas_et_al_2015/dummy_storage.py": {
+        "size": 556
+      },
+      "tests/smoke_tests/kinematic_2d/arabas_et_al_2015/test_adaptive_displacement.py": {
+        "size": 2543
+      },
+      "tests/smoke_tests/kinematic_2d/arabas_et_al_2015/test_environment.py": {
+        "size": 992
+      },
+      "tests/smoke_tests/kinematic_2d/arabas_et_al_2015/test_export.py": {
+        "size": 3143
+      },
+      "tests/smoke_tests/kinematic_2d/arabas_et_al_2015/test_freezing.py": {
+        "size": 1779
+      },
+      "tests/smoke_tests/kinematic_2d/arabas_et_al_2015/test_gui_settings.py": {
+        "size": 686
+      },
+      "tests/smoke_tests/kinematic_2d/arabas_et_al_2015/test_initialisation.py": {
+        "size": 3515
+      },
+      "tests/smoke_tests/kinematic_2d/arabas_et_al_2015/test_spin_up.py": {
+        "size": 1683
+      },
+      "tests/smoke_tests/no_env/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/bolin_1958/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/bolin_1958/test_table_1.py": {
+        "size": 1858
+      },
+      "tests/smoke_tests/no_env/gedzelman_and_arnold_1994/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/gedzelman_and_arnold_1994/test_fig_2.py": {
+        "size": 2771
+      },
+      "tests/smoke_tests/no_env/gonfiantini_1986/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/gonfiantini_1986/test_fig_3_1.py": {
+        "size": 1446
+      },
+      "tests/smoke_tests/no_env/jouzel_and_merlivat_1984/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/jouzel_and_merlivat_1984/test_thermodynamic_profiles.py": {
+        "size": 2099
+      },
+      "tests/smoke_tests/no_env/kinzer_and_gunn_1951/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/kinzer_and_gunn_1951/test_table_1_and_2.py": {
+        "size": 649
+      },
+      "tests/smoke_tests/no_env/lamb_et_al_2017/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/lamb_et_al_2017/test_fig_4.py": {
+        "size": 1617
+      },
+      "tests/smoke_tests/no_env/matsushima_et_al_2023/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/matsushima_et_al_2023/test_fig_1.py": {
+        "size": 2525
+      },
+      "tests/smoke_tests/no_env/miyake_et_al_1968/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/miyake_et_al_1968/test_fig_19.py": {
+        "size": 2125
+      },
+      "tests/smoke_tests/no_env/pierchala_et_al_2022/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/pierchala_et_al_2022/test_fig_3.py": {
+        "size": 4185
+      },
+      "tests/smoke_tests/no_env/pierchala_et_al_2022/test_fig_4.py": {
+        "size": 2396
+      },
+      "tests/smoke_tests/no_env/pierchala_et_al_2022/test_supplement.py": {
+        "size": 848
+      },
+      "tests/smoke_tests/no_env/pruppacher_and_rasmussen_1979/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/pruppacher_and_rasmussen_1979/test_fig_1.py": {
+        "size": 1556
+      },
+      "tests/smoke_tests/no_env/stewart_1975/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/stewart_1975/test_fig_1.py": {
+        "size": 1604
+      },
+      "tests/smoke_tests/no_env/toon_et_al_1980/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/toon_et_al_1980/test_fig_1.py": {
+        "size": 1933
+      },
+      "tests/smoke_tests/no_env/zaba_et_al/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/no_env/zaba_et_al/test_global_meteoric_water_line.py": {
+        "size": 1091
+      },
+      "tests/smoke_tests/parcel_a/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_a/lowe_et_al_2019/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_a/lowe_et_al_2019/conftest.py": {
+        "size": 583
+      },
+      "tests/smoke_tests/parcel_a/lowe_et_al_2019/test_dz_sensitivity.py": {
+        "size": 2238
+      },
+      "tests/smoke_tests/parcel_a/lowe_et_al_2019/test_fig_1.py": {
+        "size": 4717
+      },
+      "tests/smoke_tests/parcel_a/lowe_et_al_2019/test_fig_2.py": {
+        "size": 3373
+      },
+      "tests/smoke_tests/parcel_a/lowe_et_al_2019/test_fig_s2.py": {
+        "size": 2386
+      },
+      "tests/smoke_tests/parcel_a/lowe_et_al_2019/test_surface_tension_models.py": {
+        "size": 12461
+      },
+      "tests/smoke_tests/parcel_a/lowe_et_al_2019/test_zero_forg.py": {
+        "size": 3803
+      },
+      "tests/smoke_tests/parcel_a/pyrcel/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_a/pyrcel/test_parcel_example.py": {
+        "size": 2526
+      },
+      "tests/smoke_tests/parcel_b/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_b/arabas_and_shima_2017/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_b/arabas_and_shima_2017/test_conservation.py": {
+        "size": 3297
+      },
+      "tests/smoke_tests/parcel_b/arabas_and_shima_2017/test_displacement.py": {
+        "size": 821
+      },
+      "tests/smoke_tests/parcel_b/arabas_and_shima_2017/test_event_rates.py": {
+        "size": 1238
+      },
+      "tests/smoke_tests/parcel_b/arabas_and_shima_2017/test_initialisation.py": {
+        "size": 2592
+      },
+      "tests/smoke_tests/parcel_b/arabas_and_shima_2017/test_vs_scipy.py": {
+        "size": 1296
+      },
+      "tests/smoke_tests/parcel_c/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_c/abade_and_albuquerque_2024/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_c/abade_and_albuquerque_2024/test_fig_2.py": {
+        "size": 3701
+      },
+      "tests/smoke_tests/parcel_c/abdul_razzak_ghan_2000/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_c/abdul_razzak_ghan_2000/test_ARG_example.py": {
+        "size": 2565
+      },
+      "tests/smoke_tests/parcel_c/abdul_razzak_ghan_2000/test_just_do_it.py": {
+        "size": 459
+      },
+      "tests/smoke_tests/parcel_c/abdul_razzak_ghan_2000/test_single_supersaturation_peak.py": {
+        "size": 4534
+      },
+      "tests/smoke_tests/parcel_c/grabowski_and_pawlowska_2023/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_c/grabowski_and_pawlowska_2023/test_condensation_tolerance.py": {
+        "size": 1548
+      },
+      "tests/smoke_tests/parcel_c/grabowski_and_pawlowska_2023/test_figure_1_and_2.py": {
+        "size": 3966
+      },
+      "tests/smoke_tests/parcel_c/grabowski_and_pawlowska_2023/test_figure_3.py": {
+        "size": 2998
+      },
+      "tests/smoke_tests/parcel_c/grabowski_and_pawlowska_2023/test_figure_4.py": {
+        "size": 1538
+      },
+      "tests/smoke_tests/parcel_c/grabowski_and_pawlowska_2023/test_ripening_rate.py": {
+        "size": 1566
+      },
+      "tests/smoke_tests/parcel_d/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_d/graf_et_al_2019/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_d/graf_et_al_2019/test_fig_4.py": {
+        "size": 786
+      },
+      "tests/smoke_tests/parcel_d/graf_et_al_2019/test_table_1.py": {
+        "size": 2007
+      },
+      "tests/smoke_tests/parcel_d/jensen_and_nugent_2017/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_d/jensen_and_nugent_2017/test_fig_1.py": {
+        "size": 1301
+      },
+      "tests/smoke_tests/parcel_d/jensen_and_nugent_2017/test_fig_3_and_tab_4_upper_rows.py": {
+        "size": 4726
+      },
+      "tests/smoke_tests/parcel_d/jensen_and_nugent_2017/test_fig_4_and_7_and_tab_4_bottom_rows.py": {
+        "size": 6898
+      },
+      "tests/smoke_tests/parcel_d/jensen_and_nugent_2017/test_fig_5.py": {
+        "size": 2684
+      },
+      "tests/smoke_tests/parcel_d/jensen_and_nugent_2017/test_fig_6.py": {
+        "size": 2639
+      },
+      "tests/smoke_tests/parcel_d/jensen_and_nugent_2017/test_table_3.py": {
+        "size": 797
+      },
+      "tests/smoke_tests/parcel_d/kreidenweis_et_al_2003/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_d/kreidenweis_et_al_2003/test_fig_1.py": {
+        "size": 3081
+      },
+      "tests/smoke_tests/parcel_d/kreidenweis_et_al_2003/test_ionic_strength.py": {
+        "size": 3619
+      },
+      "tests/smoke_tests/parcel_d/kreidenweis_et_al_2003/test_spectrum_at_t_0.py": {
+        "size": 1722
+      },
+      "tests/smoke_tests/parcel_d/kreidenweis_et_al_2003/test_table_3.py": {
+        "size": 4306
+      },
+      "tests/smoke_tests/parcel_d/niedermeier_et_al_2013/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_d/niedermeier_et_al_2013/test_temperature_profile.py": {
+        "size": 1031
+      },
+      "tests/smoke_tests/parcel_d/rogers_1975/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_d/rogers_1975/test_fig_1.py": {
+        "size": 1754
+      },
+      "tests/smoke_tests/parcel_d/rozanski_and_sonntag_1982/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_d/rozanski_and_sonntag_1982/test_figs_4_5_6.py": {
+        "size": 2361
+      },
+      "tests/smoke_tests/parcel_d/seeding/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_d/seeding/test_hello_world.py": {
+        "size": 1591
+      },
+      "tests/smoke_tests/parcel_d/seeding/test_seeding_no_collisions.py": {
+        "size": 1047
+      },
+      "tests/smoke_tests/parcel_d/yang_et_al_2018/__init__.py": {
+        "size": 0
+      },
+      "tests/smoke_tests/parcel_d/yang_et_al_2018/test_displacement.py": {
+        "size": 884
+      },
+      "tests/smoke_tests/parcel_d/yang_et_al_2018/test_initialisation.py": {
+        "size": 2575
+      },
+      "tests/smoke_tests/parcel_d/yang_et_al_2018/test_just_do_it.py": {
+        "size": 1856
+      },
+      "tests/tutorials_tests/__init__.py": {
+        "size": 0
+      },
+      "tests/tutorials_tests/conftest.py": {
+        "size": 397
+      },
+      "tests/tutorials_tests/test_run_notebooks.py": {
+        "size": 207
+      },
+      "tests/unit_tests/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/attributes/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/attributes/test_acidity.py": {
+        "size": 5671
+      },
+      "tests/unit_tests/attributes/test_area_radius.py": {
+        "size": 2246
+      },
+      "tests/unit_tests/attributes/test_critical_saturation.py": {
+        "size": 1003
+      },
+      "tests/unit_tests/attributes/test_diffusional_growth_mass_change.py": {
+        "size": 2694
+      },
+      "tests/unit_tests/attributes/test_fall_velocity.py": {
+        "size": 6133
+      },
+      "tests/unit_tests/attributes/test_impl_attribute_registry.py": {
+        "size": 2054
+      },
+      "tests/unit_tests/attributes/test_isotopes.py": {
+        "size": 6824
+      },
+      "tests/unit_tests/attributes/test_multiplicities.py": {
+        "size": 1344
+      },
+      "tests/unit_tests/attributes/test_reynolds_number.py": {
+        "size": 1120
+      },
+      "tests/unit_tests/backends/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/backends/storage/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/backends/storage/test_basic_ops.py": {
+        "size": 1671
+      },
+      "tests/unit_tests/backends/storage/test_index.py": {
+        "size": 956
+      },
+      "tests/unit_tests/backends/storage/test_setitem.py": {
+        "size": 477
+      },
+      "tests/unit_tests/backends/test_collisions_methods.py": {
+        "size": 11166
+      },
+      "tests/unit_tests/backends/test_ctor_defaults_and_warnings.py": {
+        "size": 1265
+      },
+      "tests/unit_tests/backends/test_fake_thrust.py": {
+        "size": 456
+      },
+      "tests/unit_tests/backends/test_instance_cache.py": {
+        "size": 670
+      },
+      "tests/unit_tests/backends/test_isotope_methods.py": {
+        "size": 1940
+      },
+      "tests/unit_tests/backends/test_moments_methods.py": {
+        "size": 1168
+      },
+      "tests/unit_tests/backends/test_oxidation.py": {
+        "size": 5882
+      },
+      "tests/unit_tests/backends/test_pair_methods.py": {
+        "size": 3642
+      },
+      "tests/unit_tests/backends/test_physics_methods.py": {
+        "size": 3635
+      },
+      "tests/unit_tests/backends/test_seeding_methods.py": {
+        "size": 5382
+      },
+      "tests/unit_tests/backends/test_toms748.py": {
+        "size": 1070
+      },
+      "tests/unit_tests/conftest.py": {
+        "size": 434
+      },
+      "tests/unit_tests/dummy_environment.py": {
+        "size": 2143
+      },
+      "tests/unit_tests/dummy_particulator.py": {
+        "size": 761
+      },
+      "tests/unit_tests/dynamics/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/dynamics/collisions/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/dynamics/collisions/conftest.py": {
+        "size": 2497
+      },
+      "tests/unit_tests/dynamics/collisions/test_croupiers.py": {
+        "size": 1744
+      },
+      "tests/unit_tests/dynamics/collisions/test_defaults.py": {
+        "size": 701
+      },
+      "tests/unit_tests/dynamics/collisions/test_efficiencies.py": {
+        "size": 3824
+      },
+      "tests/unit_tests/dynamics/collisions/test_fragmentations.py": {
+        "size": 13842
+      },
+      "tests/unit_tests/dynamics/collisions/test_kernels.py": {
+        "size": 3076
+      },
+      "tests/unit_tests/dynamics/collisions/test_sdm_breakup.py": {
+        "size": 34120
+      },
+      "tests/unit_tests/dynamics/collisions/test_sdm_multi_cell.py": {
+        "size": 1645
+      },
+      "tests/unit_tests/dynamics/collisions/test_sdm_single_cell.py": {
+        "size": 10464
+      },
+      "tests/unit_tests/dynamics/condensation/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/dynamics/condensation/test_diagnostics.py": {
+        "size": 3829
+      },
+      "tests/unit_tests/dynamics/condensation/test_parcel_sanity_checks.py": {
+        "size": 7464
+      },
+      "tests/unit_tests/dynamics/condensation/test_ventilation.py": {
+        "size": 2828
+      },
+      "tests/unit_tests/dynamics/displacement/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/dynamics/displacement/displacement_settings.py": {
+        "size": 1876
+      },
+      "tests/unit_tests/dynamics/displacement/test_advection.py": {
+        "size": 6897
+      },
+      "tests/unit_tests/dynamics/displacement/test_courant_product.py": {
+        "size": 1672
+      },
+      "tests/unit_tests/dynamics/displacement/test_sedimentation.py": {
+        "size": 1397
+      },
+      "tests/unit_tests/dynamics/test_eulerian_advection.py": {
+        "size": 1296
+      },
+      "tests/unit_tests/dynamics/test_freezing.py": {
+        "size": 12880
+      },
+      "tests/unit_tests/dynamics/test_impl_register_dynamic.py": {
+        "size": 1178
+      },
+      "tests/unit_tests/dynamics/test_isotopic_fractionation.py": {
+        "size": 8760
+      },
+      "tests/unit_tests/dynamics/test_relaxed_velocity.py": {
+        "size": 5672
+      },
+      "tests/unit_tests/dynamics/test_seeding.py": {
+        "size": 8811
+      },
+      "tests/unit_tests/dynamics/test_terminal_velocity.py": {
+        "size": 7749
+      },
+      "tests/unit_tests/dynamics/test_vapour_deposition_on_ice.py": {
+        "size": 12477
+      },
+      "tests/unit_tests/environments/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/environments/test_impl.py": {
+        "size": 1660
+      },
+      "tests/unit_tests/environments/test_moist.py": {
+        "size": 2488
+      },
+      "tests/unit_tests/exporters/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/exporters/test_vtk_exporter.py": {
+        "size": 1534
+      },
+      "tests/unit_tests/exporters/test_vtk_exporter_parcel.py": {
+        "size": 7326
+      },
+      "tests/unit_tests/impl/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/impl/test_camel_case.py": {
+        "size": 488
+      },
+      "tests/unit_tests/impl/test_mesh.py": {
+        "size": 3628
+      },
+      "tests/unit_tests/impl/test_moments.py": {
+        "size": 4541
+      },
+      "tests/unit_tests/impl/test_particle_attributes.py": {
+        "size": 10612
+      },
+      "tests/unit_tests/initialisation/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/initialisation/test_aerosol_init.py": {
+        "size": 1751
+      },
+      "tests/unit_tests/initialisation/test_alpha_sampling.py": {
+        "size": 1827
+      },
+      "tests/unit_tests/initialisation/test_discretise_multiplicities.py": {
+        "size": 1984
+      },
+      "tests/unit_tests/initialisation/test_hygroscopic_equilibrium.py": {
+        "size": 5588
+      },
+      "tests/unit_tests/initialisation/test_init_fall_momenta.py": {
+        "size": 1921
+      },
+      "tests/unit_tests/initialisation/test_spatial_discretisation.py": {
+        "size": 2478
+      },
+      "tests/unit_tests/initialisation/test_spectra_lognormal.py": {
+        "size": 1244
+      },
+      "tests/unit_tests/initialisation/test_spectra_sum.py": {
+        "size": 753
+      },
+      "tests/unit_tests/initialisation/test_spectral_discretisation.py": {
+        "size": 3208
+      },
+      "tests/unit_tests/initialisation/test_spectro_glacial_discretisation.py": {
+        "size": 1780
+      },
+      "tests/unit_tests/physics/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/physics/test_accommodation_coefficients.py": {
+        "size": 945
+      },
+      "tests/unit_tests/physics/test_air_dynamic_viscosity.py": {
+        "size": 1793
+      },
+      "tests/unit_tests/physics/test_bulk_phase_partitioning.py": {
+        "size": 906
+      },
+      "tests/unit_tests/physics/test_constants.py": {
+        "size": 5851
+      },
+      "tests/unit_tests/physics/test_diffusion_ice_capacity.py": {
+        "size": 4231
+      },
+      "tests/unit_tests/physics/test_dimensional_analysis.py": {
+        "size": 1245
+      },
+      "tests/unit_tests/physics/test_drop_growth.py": {
+        "size": 3070
+      },
+      "tests/unit_tests/physics/test_fake_unit_registry.py": {
+        "size": 376
+      },
+      "tests/unit_tests/physics/test_formulae.py": {
+        "size": 4871
+      },
+      "tests/unit_tests/physics/test_fragmentation_functions.py": {
+        "size": 4952
+      },
+      "tests/unit_tests/physics/test_freezing_temperature_spectra.py": {
+        "size": 1692
+      },
+      "tests/unit_tests/physics/test_homogeneous_nucleation_rates.py": {
+        "size": 3691
+      },
+      "tests/unit_tests/physics/test_hydrostatics_var_g.py": {
+        "size": 1758
+      },
+      "tests/unit_tests/physics/test_hygroscopicity_fierce_diagrams.py": {
+        "size": 2582
+      },
+      "tests/unit_tests/physics/test_isotope_diffusivity_ratios.py": {
+        "size": 6114
+      },
+      "tests/unit_tests/physics/test_isotope_equilibrium_fractionation_factors.py": {
+        "size": 3863
+      },
+      "tests/unit_tests/physics/test_isotope_kinetic_fractionation_factors.py": {
+        "size": 6139
+      },
+      "tests/unit_tests/physics/test_isotope_meteoric_water_line.py": {
+        "size": 5566
+      },
+      "tests/unit_tests/physics/test_isotope_ratio_evolution.py": {
+        "size": 6750
+      },
+      "tests/unit_tests/physics/test_isotope_relaxation_timescale.py": {
+        "size": 3190
+      },
+      "tests/unit_tests/physics/test_isotope_temperature_inference.py": {
+        "size": 2177
+      },
+      "tests/unit_tests/physics/test_isotope_ventilation_ratio.py": {
+        "size": 1148
+      },
+      "tests/unit_tests/physics/test_latent_heat.py": {
+        "size": 2121
+      },
+      "tests/unit_tests/physics/test_optical.py": {
+        "size": 1417
+      },
+      "tests/unit_tests/physics/test_particle_shape_and_density.py": {
+        "size": 6262
+      },
+      "tests/unit_tests/physics/test_saturation_vapour_pressure.py": {
+        "size": 3826
+      },
+      "tests/unit_tests/physics/test_spectra.py": {
+        "size": 3169
+      },
+      "tests/unit_tests/physics/test_spectra_top_hat.py": {
+        "size": 1914
+      },
+      "tests/unit_tests/physics/test_surface_tension.py": {
+        "size": 2680
+      },
+      "tests/unit_tests/physics/test_terminal_velocity.py": {
+        "size": 2152
+      },
+      "tests/unit_tests/physics/test_thermal_conductivity.py": {
+        "size": 1338
+      },
+      "tests/unit_tests/physics/test_trivia.py": {
+        "size": 10082
+      },
+      "tests/unit_tests/physics/test_ventilation_coefficient.py": {
+        "size": 5811
+      },
+      "tests/unit_tests/products/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/products/test_activation_criteria.py": {
+        "size": 4194
+      },
+      "tests/unit_tests/products/test_ambient_relative_humidity.py": {
+        "size": 1257
+      },
+      "tests/unit_tests/products/test_arbitrary_moment.py": {
+        "size": 3669
+      },
+      "tests/unit_tests/products/test_averaged_terminal_velocity.py": {
+        "size": 2416
+      },
+      "tests/unit_tests/products/test_collision_rates.py": {
+        "size": 11852
+      },
+      "tests/unit_tests/products/test_concentration_product.py": {
+        "size": 2024
+      },
+      "tests/unit_tests/products/test_cooling_rate.py": {
+        "size": 5079
+      },
+      "tests/unit_tests/products/test_effective_radii.py": {
+        "size": 1856
+      },
+      "tests/unit_tests/products/test_impl.py": {
+        "size": 5902
+      },
+      "tests/unit_tests/products/test_mixed_phase_moments.py": {
+        "size": 2804
+      },
+      "tests/unit_tests/products/test_parcel_liquid_water_path.py": {
+        "size": 2724
+      },
+      "tests/unit_tests/products/test_particle_size_product.py": {
+        "size": 4664
+      },
+      "tests/unit_tests/products/test_particle_size_spectrum.py": {
+        "size": 4283
+      },
+      "tests/unit_tests/products/test_surface_precipitation.py": {
+        "size": 3603
+      },
+      "tests/unit_tests/test_builder.py": {
+        "size": 2388
+      },
+      "tests/unit_tests/test_formulae.py": {
+        "size": 5285
+      },
+      "tests/unit_tests/test_imports.py": {
+        "size": 1453
+      },
+      "tests/unit_tests/test_particulator.py": {
+        "size": 4177
+      },
+      "tutorials/README.md": {
+        "size": 2883
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.PySDM",
+      "source.PySDM.attributes",
+      "source.PySDM.backends",
+      "source.PySDM.dynamics",
+      "source.PySDM.environments",
+      "source.PySDM.exporters",
+      "source.PySDM.impl",
+      "source.PySDM.initialisation",
+      "source.PySDM.physics",
+      "source.PySDM.products",
+      "source.examples.PySDM_examples",
+      "source.tests",
+      "source.tests.examples_tests",
+      "source.tests.smoke_tests",
+      "source.tests.tutorials_tests",
+      "source.tests.unit_tests"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.PySDM",
+        "module": "source.PySDM.builder",
+        "functions": [],
+        "classes": [
+          "Builder"
+        ],
+        "description": "Primary simulation assembly API; wires backend, environment, dynamics, products, and attributes into a runnable particulator."
+      },
+      {
+        "package": "source.PySDM",
+        "module": "source.PySDM.particulator",
+        "functions": [],
+        "classes": [
+          "Particulator"
+        ],
+        "description": "Main runtime engine coordinating timestep execution, registered dynamics, and product evaluation."
+      },
+      {
+        "package": "source.PySDM",
+        "module": "source.PySDM.formulae",
+        "functions": [],
+        "classes": [
+          "Formulae"
+        ],
+        "description": "Configurable physics/formula registry used across dynamics and products."
+      },
+      {
+        "package": "source.PySDM.backends",
+        "module": "source.PySDM.backends.numba",
+        "functions": [],
+        "classes": [
+          "Numba"
+        ],
+        "description": "CPU backend implementation; most suitable default execution target for MCP integration."
+      },
+      {
+        "package": "source.PySDM.backends",
+        "module": "source.PySDM.backends.thrust_rtc",
+        "functions": [],
+        "classes": [
+          "ThrustRTC"
+        ],
+        "description": "GPU-oriented backend; optional/high-performance path with additional runtime requirements."
+      },
+      {
+        "package": "source.PySDM.environments",
+        "module": "source.PySDM.environments.box",
+        "functions": [],
+        "classes": [
+          "Box"
+        ],
+        "description": "Minimal environment for zero-dimensional box simulations; good low-friction MCP starting point."
+      },
+      {
+        "package": "source.PySDM.environments",
+        "module": "source.PySDM.environments.parcel",
+        "functions": [],
+        "classes": [
+          "Parcel"
+        ],
+        "description": "Parcel-model environment commonly used in examples and smoke tests."
+      },
+      {
+        "package": "source.PySDM.dynamics",
+        "module": "source.PySDM.dynamics.condensation",
+        "functions": [],
+        "classes": [
+          "Condensation"
+        ],
+        "description": "Core microphysics dynamic for diffusional growth/evaporation."
+      },
+      {
+        "package": "source.PySDM.dynamics",
+        "module": "source.PySDM.dynamics.collisions.collision",
+        "functions": [],
+        "classes": [
+          "Collision"
+        ],
+        "description": "Collision-coalescence/breakup dynamic; central for warm-rain process simulations."
+      },
+      {
+        "package": "source.PySDM.products",
+        "module": "source.PySDM.products.impl.product",
+        "functions": [],
+        "classes": [
+          "Product"
+        ],
+        "description": "Base product abstraction for extracting diagnostics from simulation state."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "numba",
+        "scipy"
+      ],
+      "optional": [
+        "matplotlib",
+        "PySDM-examples extras stack",
+        "netCDF4",
+        "vtk",
+        "ThrustRTC/CUDA runtime"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/atmos-cloud-sim-uj/PySDM",
+    "repo_name": "PySDM",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.91,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE version="1.4" xmlns="http://www.ivoa.net/xml/VOTable/v1.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.3 http://www.ivoa.net/xml/VOTable/votable-1.4.xsd">
+<RESOURCE type="results">
+
+<INFO name="JOBID" value="b2242729-f44b-11f0-a3b5-bc97e148b76b-O"><![CDATA[b2242729-f44b-11f0-a3b5-bc97e148b76b-O]]></INFO>
+<INFO name="JOBNAME" value=""></INFO>
+<INFO name="QUERY_STATUS" value="OK"/>
+<INFO name="QUERY" value="SELECT TOP 1 solution_id, source_id FROM gaiadr1.gaia_source "><![CDATA[SELECT TOP 1 solution_id, source_id FROM gaiadr1.gaia_source ]]></INFO>
+
+<PARAM name="CITATION" ucd="meta.bib" datatype="char" arraysize="*" value="https://www.cosmos.esa.int/web/gaia-users/credits">
+<DESCRIPTION>How to cite and acknowledge Gaia:</DESCRIPTION>
+</PARAM>
+<PARAM name="RELEASE" ucd="meta.version" datatype="char" arraysize="*" value="Gaia DR1">
+<DESCRIPTION>Gaia data release</DESCRIPTION>
+</PARAM>
+<PARAM name="HELP" ucd="meta.ref.url" datatype="char" arraysize="*" value="https://www.cosmos.esa.int/web/gaia-users/archive">
+<DESCRIPTION>Tutorials, documentation, and help:</DESCRIPTION>
+</PARAM>
+<PARAM name="ISSUES" ucd="meta.ref.url" datatype="char" arraysize="*" value="https://www.cosmos.esa.int/web/gaia-users/known-issues">
+<DESCRIPTION>Known issues in the data:</DESCRIPTION>
+</PARAM>
+<PARAM name="DATA" ucd="meta.ref.url" datatype="char" arraysize="*" value="https://www.cosmos.esa.int/web/gaia/data-access">
+<DESCRIPTION>Gaia data:</DESCRIPTION>
+</PARAM>
+<PARAM name="TERMS" ucd="meta.ref.url" datatype="char" arraysize="*" value="https://www.cosmos.esa.int/web/esdc/terms-and-conditions">
+<DESCRIPTION>Terms and conditions for use of Gaia data:</DESCRIPTION>
+</PARAM>
+<PARAM name="HOME" ucd="meta.ref.url" datatype="char" arraysize="*" value="https://www.cosmos.esa.int/web/gaia">
+<DESCRIPTION>Gaia mission home:</DESCRIPTION>
+</PARAM>
+<PARAM name="PUBLISHER" ucd="meta.id;meta.curation" datatype="char" arraysize="*" value="ESA/Gaia/DPAC">
+<DESCRIPTION>Dataset publisher</DESCRIPTION>
+</PARAM>
+<PARAM name="CREATOR" ucd="meta.ref" datatype="char" arraysize="*" value="Gaia Collaboration">
+<DESCRIPTION>Dataset creator</DESCRIPTION>
+</PARAM>
+
+
+<TABLE>
+<FIELD datatype="long" name="solution_id" ucd="meta.version">
+<DESCRIPTION>All Gaia data processed by the Data Processing and Analysis Consortium
+comes tagged with a solution identifier. This is a numeric field
+attached to each table row that can be used to unequivocally identify
+the version of all the subsystems that where used in the generation of
+the data as well as the input data used. It is mainly for internal DPAC
+use but is included in the published data releases to enable end users
+to examine the provenance of processed data products. To decode a given
+solution ID visit</DESCRIPTION>
+</FIELD>
+<FIELD datatype="long" name="source_id" ucd="meta.id;meta.main">
+<DESCRIPTION>A unique single numerical identifier of the source.
+
+For the contents of Gaia DR1, which does not include Solar System
+objects, the source ID consists consists of a 64-bit integer, least
+significant bit = 1 and most significant bit = 64, comprising:
+
+-   a HEALPix index number (sky pixel) in bits 36 - 63; by definition
+    the smallest HEALPix index number is zero.
+
+-   a 2-bit Data Processing Centre code in bits 34 - 35; for example
+    MOD(sourceId / 4294967296, 8) can be used to distinguish between
+    sources initialised via the Initial Gaia Source List by the Torino
+    DPC (code = 0) and sources otherwise detected and assigned by Gaia
+    observations (code &gt;0)
+
+-   a 25-bit plus 7 bit sequence number within the HEALPix pixel in bits
+    1 - 32 split into:
+
+    -   a 25 bit running number in bits 8 – 32; the running numbers are
+        defined to be positive, i.e. never zero (except in the case of
+        forced empty windows)
+
+    -   a 7-bit component number in bits 1 – 7
+
+-   one spare bit in bit 33
+
+This means that the HEALpix index level 12 of a given source is
+contained in the most significant bits. HEALpix index of 12 and lower
+levels can thus be retrieved as follows:
+
+-   HEALpix level 12 = source_id / 34359738368
+
+-   HEALpix level 11 = source_id / 137438953472
+
+-   HEALpix level 10 = source_id / 549755813888
+
+-   HEALpix level n = source_id / 2 ^ 35 * 4 ^ (12 - level).
+
+Additional details can be found in the Gaia DPAC public document Source
+Identifiers — Assignment and Usage throughout DPAC (document code
+GAIA–C3–TN–ARI–BAS–020) available from</DESCRIPTION>
+</FIELD>
+<DATA>
+<BINARY2>
+<STREAM encoding='base64'>
+ABayCAAAAAAAQI2BCAAEM4A=
+</STREAM>
+</BINARY2>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>

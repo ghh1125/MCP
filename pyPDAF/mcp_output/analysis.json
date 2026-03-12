@@ -1,0 +1,616 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/yumengch/pyPDAF",
+    "summary": "Imported via zip fallback, file count: 165",
+    "file_tree": {
+      ".github/workflows/conda_build_linux.yaml": {
+        "size": 1029
+      },
+      ".github/workflows/conda_build_mac_intel.yaml": {
+        "size": 1018
+      },
+      ".github/workflows/conda_build_mac_m1.yaml": {
+        "size": 1010
+      },
+      ".github/workflows/conda_build_win.yaml": {
+        "size": 1297
+      },
+      "README.md": {
+        "size": 4185
+      },
+      "conda.recipe/conda_build_config.yaml": {
+        "size": 533
+      },
+      "conda.recipe/meta.yaml": {
+        "size": 946
+      },
+      "docs/source/conf.py": {
+        "size": 2529
+      },
+      "docs/source/develop.md": {
+        "size": 14515
+      },
+      "docs/source/hidden_functions.md": {
+        "size": 31818
+      },
+      "docs/source/install.md": {
+        "size": 3251
+      },
+      "docs/source/introduction.md": {
+        "size": 2573
+      },
+      "docs/source/links.md": {
+        "size": 1071
+      },
+      "docs/source/naming_convention.md": {
+        "size": 1775
+      },
+      "docs/source/parallel.md": {
+        "size": 6287
+      },
+      "example/inputs_offline/ens_1.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/ens_2.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/ens_3.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/ens_4.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/ens_5.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/ens_6.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/ens_7.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/ens_8.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/ens_9.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/obs.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/obsB.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/obsC.txt": {
+        "size": 479
+      },
+      "example/inputs_offline/state_ini.txt": {
+        "size": 9090
+      },
+      "example/inputs_offline/true.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ensB_1.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ensB_2.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ensB_3.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ensB_4.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ensB_5.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ensB_6.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ensB_7.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ensB_8.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ensB_9.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ens_1.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ens_2.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ens_3.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ens_4.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ens_5.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ens_6.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ens_7.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ens_8.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/ens_9.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/iobs_step1.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step10.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step11.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step12.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step13.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step14.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step15.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step16.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step17.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step18.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step2.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step3.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step4.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step5.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step6.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step7.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step8.txt": {
+        "size": 479
+      },
+      "example/inputs_online/iobs_step9.txt": {
+        "size": 479
+      },
+      "example/inputs_online/obs_step1.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step10.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step11.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step12.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step13.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step14.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step15.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step16.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step17.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step18.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step2.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step3.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step4.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step5.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step6.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step7.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step8.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/obs_step9.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/state_ini.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_initial.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step1.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step10.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step11.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step12.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step13.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step14.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step15.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step16.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step17.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step18.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step2.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step3.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step4.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step5.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step6.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step7.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step8.txt": {
+        "size": 9090
+      },
+      "example/inputs_online/true_step9.txt": {
+        "size": 9090
+      },
+      "example/offline/collector.py": {
+        "size": 2839
+      },
+      "example/offline/config.py": {
+        "size": 3345
+      },
+      "example/offline/config_obsA.py": {
+        "size": 2409
+      },
+      "example/offline/config_obsB.py": {
+        "size": 2403
+      },
+      "example/offline/filter_options.py": {
+        "size": 2692
+      },
+      "example/offline/localisation.py": {
+        "size": 4961
+      },
+      "example/offline/log.py": {
+        "size": 982
+      },
+      "example/offline/main.py": {
+        "size": 1486
+      },
+      "example/offline/model.py": {
+        "size": 3062
+      },
+      "example/offline/obs_a.py": {
+        "size": 13595
+      },
+      "example/offline/obs_b.py": {
+        "size": 12620
+      },
+      "example/offline/obs_factory.py": {
+        "size": 4945
+      },
+      "example/offline/parallelisation.py": {
+        "size": 11633
+      },
+      "example/offline/pdaf_system.py": {
+        "size": 4891
+      },
+      "example/offline/prepost_processing.py": {
+        "size": 7523
+      },
+      "example/offline/state_vector.py": {
+        "size": 1527
+      },
+      "example/online/collector.py": {
+        "size": 3219
+      },
+      "example/online/config.py": {
+        "size": 3421
+      },
+      "example/online/config_obsA.py": {
+        "size": 2416
+      },
+      "example/online/config_obsB.py": {
+        "size": 2410
+      },
+      "example/online/distributor.py": {
+        "size": 2449
+      },
+      "example/online/filter_options.py": {
+        "size": 2702
+      },
+      "example/online/localisation.py": {
+        "size": 4958
+      },
+      "example/online/log.py": {
+        "size": 982
+      },
+      "example/online/main.py": {
+        "size": 1799
+      },
+      "example/online/model.py": {
+        "size": 4492
+      },
+      "example/online/model_integrator.py": {
+        "size": 2846
+      },
+      "example/online/obs_a.py": {
+        "size": 13587
+      },
+      "example/online/obs_b.py": {
+        "size": 12612
+      },
+      "example/online/obs_factory.py": {
+        "size": 4937
+      },
+      "example/online/parallelisation.py": {
+        "size": 11700
+      },
+      "example/online/pdaf_system.py": {
+        "size": 5094
+      },
+      "example/online/prepost_processing.py": {
+        "size": 7018
+      },
+      "example/online/state_vector.py": {
+        "size": 1481
+      },
+      "pyproject.toml": {
+        "size": 464
+      },
+      "src/pyPDAF/PDAF/__init__.py": {
+        "size": 1474
+      },
+      "src/pyPDAF/PDAF3/__init__.py": {
+        "size": 1393
+      },
+      "src/pyPDAF/PDAFlocal/__init__.py": {
+        "size": 119
+      },
+      "src/pyPDAF/PDAFlocalomi/__init__.py": {
+        "size": 36
+      },
+      "src/pyPDAF/PDAFomi/__init__.py": {
+        "size": 1467
+      },
+      "src/pyPDAF/README.md": {
+        "size": 102
+      },
+      "src/pyPDAF/__init__.py": {
+        "size": 4136
+      },
+      "tests/test_example.py": {
+        "size": 2042
+      },
+      "tests/test_init.py": {
+        "size": 4467
+      },
+      "tool/compare_subroutines.py": {
+        "size": 4014
+      },
+      "tool/docstring/__init__.py": {
+        "size": 11
+      },
+      "tool/docstring/docstrings.py": {
+        "size": 55894
+      },
+      "tool/docstring/pdaf_assimilate_docstrings.py": {
+        "size": 47100
+      },
+      "tool/docstring/pdaf_diag_docstrings.py": {
+        "size": 4040
+      },
+      "tool/docstring/pdaf_put_state_docstrings.py": {
+        "size": 53643
+      },
+      "tool/docstring/pdaflocal_assimilate_docstrings.py": {
+        "size": 44589
+      },
+      "tool/docstring/pdaflocalomi_assimilate_docstrings.py": {
+        "size": 15307
+      },
+      "tool/docstring/pdaflocalomi_put_state_docstrings.py": {
+        "size": 19539
+      },
+      "tool/docstring/pdafomi_assimilate_docstrings.py": {
+        "size": 43817
+      },
+      "tool/docstring/pdafomi_put_state_docstrings.py": {
+        "size": 54897
+      },
+      "tool/get_decls.py": {
+        "size": 6809
+      },
+      "tool/get_decls_cb.py": {
+        "size": 8181
+      },
+      "tool/write_binding.py": {
+        "size": 16180
+      },
+      "tool/write_cb_pxd.py": {
+        "size": 3050
+      },
+      "tool/write_cb_pyx.py": {
+        "size": 11250
+      },
+      "tool/write_pdaf_pxd.py": {
+        "size": 5172
+      },
+      "tool/write_pdaf_pyx.py": {
+        "size": 20775
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.src.pyPDAF",
+      "source.tool.docstring"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.src.pyPDAF",
+        "module": "source.src.pyPDAF.__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level package initializer for pyPDAF; likely exposes versioning and re-exports subpackages. No direct function/class definitions can be confirmed from provided metadata."
+      },
+      {
+        "package": "source.src.pyPDAF",
+        "module": "source.src.pyPDAF.PDAF.__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Core PDAF binding namespace (generated/wrapped API surface expected). Primary candidate for import-based MCP integration."
+      },
+      {
+        "package": "source.src.pyPDAF",
+        "module": "source.src.pyPDAF.PDAF3.__init__",
+        "functions": [],
+        "classes": [],
+        "description": "PDAF3 compatibility/variant binding namespace; likely mirrors PDAF APIs for a specific PDAF major version."
+      },
+      {
+        "package": "source.src.pyPDAF",
+        "module": "source.src.pyPDAF.PDAFomi.__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Observation-minus-model interface (OMI) related PDAF wrapper namespace; assimilation-specific API surface expected."
+      },
+      {
+        "package": "source.src.pyPDAF",
+        "module": "source.src.pyPDAF.PDAFlocal.__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Localization-related PDAF wrapper namespace; likely contains local filter variants."
+      },
+      {
+        "package": "source.src.pyPDAF",
+        "module": "source.src.pyPDAF.PDAFlocalomi.__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Localized OMI wrapper namespace; likely combines localization and OMI workflows."
+      },
+      {
+        "package": "source.tool.docstring",
+        "module": "source.tool.docstring.docstrings",
+        "functions": [],
+        "classes": [],
+        "description": "Docstring metadata store/generator support module used by binding-generation tooling; not runtime core for assimilation execution."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.74
+    },
+    "dependencies": {
+      "required": [
+        "python",
+        "numpy",
+        "mpi4py"
+      ],
+      "optional": [
+        "pdaf native/compiled libraries (backend expected by wrappers)",
+        "cython (build-time, inferred from tooling)",
+        "pytest (test-time)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/yumengch/pyPDAF",
+    "repo_name": "pyPDAF",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.72,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

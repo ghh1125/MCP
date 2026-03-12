@@ -1,0 +1,236 @@
+{
+  "repository": {
+    "name": "nilearn",
+    "url": "https://github.com/nilearn/nilearn",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/nilearn",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "simple",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773271458.581331,
+    "end_time": 1773272597.610898,
+    "duration": 1139.0295679569244,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 18,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.asv_benchmarks.benchmarks",
+        "source.nilearn",
+        "source.nilearn._utils",
+        "source.nilearn.connectome",
+        "source.nilearn.datasets",
+        "source.nilearn.decoding",
+        "source.nilearn.decomposition",
+        "source.nilearn.glm",
+        "source.nilearn.image",
+        "source.nilearn.interfaces",
+        "source.nilearn.maskers",
+        "source.nilearn.mass_univariate",
+        "source.nilearn.plotting",
+        "source.nilearn.regions",
+        "source.nilearn.reporting",
+        "source.nilearn.surface",
+        "source.nilearn.tests",
+        "source.nilearn.utils"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.5,
+      "intrusiveness_risk": "low",
+      "complexity": "simple"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/nilearn/nilearn",
+      "repo_name": "nilearn",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/nilearn/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "define stable MCP tool contracts instead of exposing a generic `main` endpoint (add explicit tools for common Nilearn workflows)",
+    "increase import-analysis confidence by replacing zip-fallback blackbox discovery with AST/static introspection plus targeted runtime probes",
+    "add a focused MCP test suite under `mcp_output/tests_mcp` covering adapter/service/main startup and tool I/O schemas",
+    "wire MCP tests into existing GitHub Actions/tox matrices (including minimum and nightly deps)",
+    "pin and constrain MCP plugin dependencies in `mcp_output/requirements.txt` and align with root `pyproject.toml` policies",
+    "add structured error handling and user-facing diagnostics in `adapter.py`/`mcp_service.py` (input validation",
+    "nilearn import failures",
+    "dataset download issues)",
+    "implement request timeouts/cancellation and resource guards for heavy Nilearn operations to prevent long-running MCP calls",
+    "add response models with Pydantic for every tool and version them for backward compatibility",
+    "introduce lightweight caching for repeated dataset fetches and expensive transforms with clear cache invalidation controls",
+    "expand README_MCP.md with concrete examples",
+    "expected inputs/outputs",
+    "failure modes",
+    "and environment setup for reproducible runs",
+    "add observability (structured logs",
+    "optional tracing",
+    "per-tool latency and error metrics) for MCP operations",
+    "create smoke benchmarks for MCP-exposed high-cost paths using existing `asv_benchmarks` patterns",
+    "enforce pre-commit/lint/type checks on generated MCP code to match repo quality standards",
+    "add security hardening for path/input handling and restrict arbitrary file/network access from MCP calls",
+    "document compatibility matrix across Python versions (including free-threaded workflow) and nilearn/scikit-learn versions",
+    "split large integration surfaces into smaller adapter modules by domain (plotting",
+    "datasets",
+    "maskers",
+    "GLM) to reduce maintenance risk",
+    "add golden tests for serialized outputs where deterministic (JSON schema snapshots)",
+    "define deprecation policy and changelog section for MCP API evolution"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow status is success with all expected nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "MCP plugin started and passed health checks over stdio transport.",
+      "Low intrusiveness risk and import-mode adapter reduced integration friction.",
+      "Repository has clear Python packaging via pyproject.toml, enabling baseline dependency discovery."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki analysis failed, reducing semantic discovery depth.",
+      "Original project test result is marked failed/empty despite reported 100% coverage, indicating test telemetry inconsistency.",
+      "Generated service appears minimal/generic (single 'main' endpoint) with low functional coverage of Nilearn capabilities."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; exact per-node duration not provided. Repository ingestion used zip fallback over ~547 files, which likely increased I/O/parsing time.",
+      "analysis_time": "Completed with moderate confidence (import feasibility 0.5). Static/semantic analysis quality limited by fallback discovery and DeepWiki failure.",
+      "generation_time": "Completed and produced 7 files, but output metrics report 0 LOC/0 size, suggesting instrumentation gaps rather than true zero output.",
+      "test_time": "MCP plugin test passed (healthy startup). Original project tests not meaningfully executed/recorded; test timing metrics are zero."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to missing telemetry (reported as 0 MB). Cannot validate memory behavior under realistic Nilearn workloads.",
+      "cpu_efficiency": "Unknown due to missing telemetry (reported as 0%). CPU-bound paths (GLM/decoding/maskers) remain unprofiled.",
+      "disk_usage": "Repository is large and data-heavy; zip fallback and dataset operations may increase disk pressure. Generated artifact size metric is unreliable (0)."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 70,
+    "architecture_score": 68,
+    "performance_score": 55,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 60
+  }
+}

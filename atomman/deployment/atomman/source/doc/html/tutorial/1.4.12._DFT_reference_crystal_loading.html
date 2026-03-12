@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to atomman: DFT reference crystal loading &#8212; atomman 1.4.11 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=eeb27264" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=651a37ba"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to atomman: Primitive cell dumping" href="1.4.13._primitive_cell_dumping.html" />
+    <link rel="prev" title="Introduction to atomman: crystal loading" href="1.4.11._crystal_loading.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="1.4.13._primitive_cell_dumping.html" title="Introduction to atomman: Primitive cell dumping"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="1.4.11._crystal_loading.html" title="Introduction to atomman: crystal loading"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">atomman 1.4.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction to atomman: DFT reference crystal loading</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="Introduction-to-atomman:-DFT-reference-crystal-loading">
+<h1>Introduction to atomman: DFT reference crystal loading<a class="headerlink" href="#Introduction-to-atomman:-DFT-reference-crystal-loading" title="Link to this heading">¶</a></h1>
+<p><strong>Lucas M. Hale</strong>, <a class="reference external" href="mailto:lucas&#46;hale&#37;&#52;&#48;nist&#46;gov?Subject=ipr-demo">lucas<span>&#46;</span>hale<span>&#64;</span>nist<span>&#46;</span>gov</a>, <em>Materials Science and Engineering Division, NIST</em>.</p>
+<p><a class="reference external" href="http://www.nist.gov/public_affairs/disclaimer.cfm">Disclaimers</a></p>
+<section id="1.-Introduction">
+<h2>1. Introduction<a class="headerlink" href="#1.-Introduction" title="Link to this heading">¶</a></h2>
+<p>In addition to the crystal structures in the NIST Repository, crystal structures can also be obtained directly from the <a class="reference external" href="https://materialsproject.org/">Materials Project</a> and <a class="reference external" href="http://oqmd.org/">OQMD</a> DFT databases. This provides a means of performing direct comparisons of crystal structure predictions between DFT and classical potentials and offers the opportunity to explore more proposed crystal structures.</p>
+<p><em>Added version 1.4.0</em></p>
+<p><strong>NOTE</strong>: Fetching records from Materials Project requires that pymatgen be installed.</p>
+<p><strong>Library Imports</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard Python libraries</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># http://www.numpy.org/</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">atomman</span> <span class="k">as</span> <span class="nn">am</span>
+<span class="kn">import</span> <span class="nn">atomman.unitconvert</span> <span class="k">as</span> <span class="nn">uc</span>
+
+<span class="c1"># Show atomman version</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;atomman version =&#39;</span><span class="p">,</span> <span class="n">am</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="c1"># Show date of Notebook execution</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Notebook executed on&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+atomman version = 1.4.11
+Notebook executed on 2024-04-29
+</pre></div></div>
+</div>
+</section>
+<section id="2.-atomman.load('prototype')">
+<h2>2. atomman.load(‘prototype’)<a class="headerlink" href="#2.-atomman.load('prototype')" title="Link to this heading">¶</a></h2>
+<p>Accesses the potentials database to retrieve a crystal_prototype record and generate a unit cell System based on it.</p>
+<p>Query parameters</p>
+<ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) The reference crystal’s unique id. Combines a database tag “mp-” or “oqmd-” and the DFT database’s entry id.</p></li>
+<li><p><strong>api_key</strong> (<em>str, optional</em>) The user’s Materials Project API key or path to a file containing the key. Only needed for fetching structures from Materials Project and if the key is not set to the “MAPI_KEY” environment variable.</p></li>
+</ul>
+<p>Database option parameters</p>
+<ul class="simple">
+<li><p><strong>database</strong> (<em>atomman.library.Database, optional</em>) A pre-defined Database object to use. If not given, will initialize a new Database object. Passing in a database can save time if multiple calls are made for the same record type.</p></li>
+<li><p><strong>local</strong> (<em>bool, optional</em>) Indicates if the Database object is to look for local records. Default is True. Ignored if database is given.</p></li>
+<li><p><strong>remote</strong> (<em>bool, optional</em>) Indicates if the Database object is to look for remote records. Default is True. Ignored if database is given.</p></li>
+<li><p><strong>refresh_cache</strong> (<em>bool, optional</em>) If the local database is of style “local”, indicates if the metadata cache file is to be refreshed. If False, metadata for new records will be added but the old record metadata fields will not be updated. If True, then the metadata for all records will be regenerated, which is needed to update the metadata for modified records.</p></li>
+<li><p><strong>verbose</strong> (<em>bool, optional</em>) If True, info messages will be printed during operations. Default value is False.</p></li>
+</ul>
+<p>Returns</p>
+<ul class="simple">
+<li><p><strong>system</strong> (<em>atomman.System</em>) The system object generated from the crystal prototype.</p></li>
+</ul>
+<p>Fetch the relaxed fcc Au structure from both databases</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mp_api_key</span> <span class="o">=</span> <span class="s1">&#39;C:/Users/lmh1/Documents/Materials Project/API key.txt&#39;</span>
+
+<span class="n">ucell</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;dft_reference&#39;</span><span class="p">,</span> <span class="s1">&#39;mp-81&#39;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="n">mp_api_key</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ucell</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/home/lmh1/anaconda3/envs/py11/lib/python3.11/site-packages/pymatgen/ext/matproj.py:186: UserWarning: You are using the legacy MPRester. This version of the MPRester will no longer be updated. To access the latest data with the new MPRester, obtain a new API key from https://materialsproject.org/api and consult the docs at https://docs.materialsproject.org/ for more information.
+  warnings.warn(
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">MPRestError</span>                               Traceback (most recent call last)
+File <span class="ansi-green-fg">~/anaconda3/envs/py11/lib/python3.11/site-packages/pymatgen/ext/matproj.py:288</span>, in <span class="ansi-cyan-fg">_MPResterLegacy._make_request</span><span class="ansi-blue-fg">(self, sub_url, payload, method, mp_decode)</span>
+<span class="ansi-green-intense-fg ansi-bold">    286</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> MPRestError(data[<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">error</span><span style="color: rgb(175,0,0)">&#34;</span>])
+<span class="ansi-green-fg">--&gt; 288</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> MPRestError(<span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">REST query returned with error status code </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>response<span style="color: rgb(98,98,98)">.</span>status_code<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">    290</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">Exception</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> exc:
+
+<span class="ansi-red-fg">MPRestError</span>: REST query returned with error status code 403
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">MPRestError</span>                               Traceback (most recent call last)
+File <span class="ansi-green-fg">~/Python-packages/atomman/atomman/library/Database/_reference_crystal.py:481</span>, in <span class="ansi-cyan-fg">fetch_mp_crystals</span><span class="ansi-blue-fg">(self, id, api_key)</span>
+<span class="ansi-green-intense-fg ansi-bold">    480</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">--&gt; 481</span>     entries <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">m</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">query</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">{</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">material_id</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">{</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">$in</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">aslist</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">id</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">}</span><span class="ansi-yellow-bg">}</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">material_id</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">cif</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    482</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span>:
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py11/lib/python3.11/site-packages/pymatgen/ext/matproj.py:1035</span>, in <span class="ansi-cyan-fg">_MPResterLegacy.query</span><span class="ansi-blue-fg">(self, criteria, properties, chunk_size, max_tries_per_chunk, mp_decode, show_progress_bar)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1034</span> count_payload[<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">options</span><span style="color: rgb(175,0,0)">&#34;</span>] <span style="color: rgb(98,98,98)">=</span> json<span style="color: rgb(98,98,98)">.</span>dumps({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">count_only</span><span style="color: rgb(175,0,0)">&#34;</span>: <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>})
+<span class="ansi-green-fg">-&gt; 1035</span> num_results <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_make_request</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">/query</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">payload</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">count_payload</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">POST</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1036</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> num_results <span style="color: rgb(98,98,98)">&lt;</span><span style="color: rgb(98,98,98)">=</span> chunk_size:
+
+File <span class="ansi-green-fg">~/anaconda3/envs/py11/lib/python3.11/site-packages/pymatgen/ext/matproj.py:292</span>, in <span class="ansi-cyan-fg">_MPResterLegacy._make_request</span><span class="ansi-blue-fg">(self, sub_url, payload, method, mp_decode)</span>
+<span class="ansi-green-intense-fg ansi-bold">    291</span> msg <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>exc<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">. Content: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span><span style="color: rgb(0,135,0)">getattr</span>(response,<span style="color: rgb(188,188,188)"> </span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">content</span><span style="color: rgb(175,0,0)">&#39;</span>,<span style="color: rgb(188,188,188)"> </span><span style="color: rgb(0,135,0)">str</span>(exc))<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-fg">--&gt; 292</span> <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> MPRestError(msg)
+
+<span class="ansi-red-fg">MPRestError</span>: REST query returned with error status code 403. Content: b&#39;{&#34;valid_response&#34;: false, &#34;error&#34;: &#34;API_KEY is not a valid key.&#34;, &#34;version&#34;: {&#34;db&#34;: &#34;2020_09_08&#34;, &#34;pymatgen&#34;: &#34;2022.0.8&#34;, &#34;rest&#34;: &#34;2.0&#34;}, &#34;created_at&#34;: &#34;2024-04-29T13:01:15.685814&#34;}&#39;
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[3], line 3</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> mp_api_key <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">C:/Users/lmh1/Documents/Materials Project/API key.txt</span><span style="color: rgb(175,0,0)">&#39;</span>
+<span class="ansi-green-fg">----&gt; 3</span> ucell <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">am</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">load</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">dft_reference</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">mp-81</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">api_key</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">mp_api_key</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">verbose</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span style="color: rgb(0,135,0)">print</span>(ucell)
+
+File <span class="ansi-green-fg">~/Python-packages/atomman/atomman/load/__init__.py:32</span>, in <span class="ansi-cyan-fg">load</span><span class="ansi-blue-fg">(style, *args, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">     13</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     14</span> <span style="color: rgb(175,0,0)">Load a System from another format.</span>
+<span class="ansi-green-intense-fg ansi-bold">     15</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">     28</span> <span style="color: rgb(175,0,0)">    The system object associated with the data model.</span>
+<span class="ansi-green-intense-fg ansi-bold">     29</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     31</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> style <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> load_styles:
+<span class="ansi-green-fg">---&gt; 32</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">load_styles</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">style</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     33</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> style <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> failed_load_styles:
+<span class="ansi-green-intense-fg ansi-bold">     34</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> failed_load_styles[style]
+
+File <span class="ansi-green-fg">~/Python-packages/atomman/atomman/load/dft_reference/load.py:64</span>, in <span class="ansi-cyan-fg">load</span><span class="ansi-blue-fg">(id, api_key, database, local, remote, refresh_cache, verbose)</span>
+<span class="ansi-green-intense-fg ansi-bold">     61</span>     database <span style="color: rgb(98,98,98)">=</span> Database<span style="color: rgb(98,98,98)">.</span>Database()
+<span class="ansi-green-intense-fg ansi-bold">     63</span> <span style="color: rgb(95,135,135)"># Fetch crystal from NIST or DFT database</span>
+<span class="ansi-green-fg">---&gt; 64</span> crystal <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">database</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fetch_reference_crystal</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">id</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">api_key</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">api_key</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span> <span class="ansi-yellow-bg">                                           </span><span class="ansi-yellow-bg">local</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">local</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     66</span> <span class="ansi-yellow-bg">                                           </span><span class="ansi-yellow-bg">remote</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">remote</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span> <span class="ansi-yellow-bg">                                           </span><span class="ansi-yellow-bg">refresh_cache</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">refresh_cache</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span> <span class="ansi-yellow-bg">                                           </span><span class="ansi-yellow-bg">verbose</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">verbose</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     70</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> crystal<span style="color: rgb(98,98,98)">.</span>ucell
+
+File <span class="ansi-green-fg">~/Python-packages/atomman/atomman/library/Database/_reference_crystal.py:437</span>, in <span class="ansi-cyan-fg">fetch_reference_crystal</span><span class="ansi-blue-fg">(self, id, api_key, local, remote, refresh_cache, verbose)</span>
+<span class="ansi-green-intense-fg ansi-bold">    435</span>         <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Crystal retrieved from OQMD</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-intense-fg ansi-bold">    436</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">--&gt; 437</span>     record <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fetch_mp_crystal</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">id</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">api_key</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">api_key</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    438</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> verbose:
+<span class="ansi-green-intense-fg ansi-bold">    439</span>         <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Crystal retrieved from Materials Project</span><span style="color: rgb(175,0,0)">&#39;</span>)
+
+File <span class="ansi-green-fg">~/Python-packages/atomman/atomman/library/Database/_reference_crystal.py:525</span>, in <span class="ansi-cyan-fg">fetch_mp_crystal</span><span class="ansi-blue-fg">(self, id, api_key)</span>
+<span class="ansi-green-intense-fg ansi-bold">    522</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> <span style="color: rgb(0,135,0)">open</span>(api_key) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> f:
+<span class="ansi-green-intense-fg ansi-bold">    523</span>         api_key <span style="color: rgb(98,98,98)">=</span> f<span style="color: rgb(98,98,98)">.</span>read()<span style="color: rgb(98,98,98)">.</span>strip()
+<span class="ansi-green-fg">--&gt; 525</span> records <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fetch_mp_crystals</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">id</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">api_key</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">api_key</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    526</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">len</span>(records) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">1</span>:
+<span class="ansi-green-intense-fg ansi-bold">    527</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> records[<span style="color: rgb(98,98,98)">0</span>]
+
+File <span class="ansi-green-fg">~/Python-packages/atomman/atomman/library/Database/_reference_crystal.py:483</span>, in <span class="ansi-cyan-fg">fetch_mp_crystals</span><span class="ansi-blue-fg">(self, id, api_key)</span>
+<span class="ansi-green-intense-fg ansi-bold">    481</span>     entries <span style="color: rgb(98,98,98)">=</span> m<span style="color: rgb(98,98,98)">.</span>query({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">material_id</span><span style="color: rgb(175,0,0)">&#34;</span>: {<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">$in</span><span style="color: rgb(175,0,0)">&#34;</span>: aslist(<span style="color: rgb(0,135,0)">id</span>)}}, [<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">material_id</span><span style="color: rgb(175,0,0)">&#39;</span>, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">cif</span><span style="color: rgb(175,0,0)">&#39;</span>])
+<span class="ansi-green-intense-fg ansi-bold">    482</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span>:
+<span class="ansi-green-fg">--&gt; 483</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">Failed to find Materials Project information</span><span style="color: rgb(175,0,0)">&#39;</span>)
+<span class="ansi-green-intense-fg ansi-bold">    484</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">    485</span>     <span style="color: rgb(95,135,135)"># Convert cif to model and save</span>
+<span class="ansi-green-intense-fg ansi-bold">    486</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> entry <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> entries:
+
+<span class="ansi-red-fg">ValueError</span>: Failed to find Materials Project information
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ucell</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;dft_reference&#39;</span><span class="p">,</span> <span class="s1">&#39;oqmd-592562&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ucell</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Crystal retrieved from OQMD
+avect =  [ 4.125,  0.000,  0.000]
+bvect =  [ 0.000,  4.125,  0.000]
+cvect =  [ 0.000,  0.000,  4.125]
+origin = [ 0.000,  0.000,  0.000]
+natoms = 4
+natypes = 1
+symbols = (&#39;Au&#39;,)
+pbc = [ True  True  True]
+per-atom properties = [&#39;atype&#39;, &#39;pos&#39;]
+     id |   atype |  pos[0] |  pos[1] |  pos[2]
+      0 |       1 |   0.000 |   0.000 |   0.000
+      1 |       1 |   2.063 |   2.063 |   0.000
+      2 |       1 |   2.063 |   0.000 |   2.063
+      3 |       1 |   0.000 |   2.063 |   2.063
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Introduction to atomman: DFT reference crystal loading</a><ul>
+<li><a class="reference internal" href="#1.-Introduction">1. Introduction</a></li>
+<li><a class="reference internal" href="#2.-atomman.load('prototype')">2. atomman.load(‘prototype’)</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="1.4.11._crystal_loading.html"
+                          title="previous chapter">Introduction to atomman: crystal loading</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="1.4.13._primitive_cell_dumping.html"
+                          title="next chapter">Introduction to atomman: Primitive cell dumping</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="1.4.13._primitive_cell_dumping.html" title="Introduction to atomman: Primitive cell dumping"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="1.4.11._crystal_loading.html" title="Introduction to atomman: crystal loading"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">atomman 1.4.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction to atomman: DFT reference crystal loading</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
+    </div>
+  </body>
+</html>

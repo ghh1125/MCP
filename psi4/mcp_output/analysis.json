@@ -1,0 +1,5588 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/psi4/psi4",
+    "summary": "Imported via zip fallback, file count: 1822",
+    "file_tree": {
+      ".azure-pipelines/azure-pipelines-linux.yml": {
+        "size": 6748
+      },
+      ".azure-pipelines/azure-pipelines-windows.yml": {
+        "size": 13093
+      },
+      ".codecov.yml": {
+        "size": 283
+      },
+      ".github/CONTRIBUTING.md": {
+        "size": 3089
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 819
+      },
+      ".github/SUPPORT.md": {
+        "size": 1485
+      },
+      ".github/workflows/README.md": {
+        "size": 1799
+      },
+      ".github/workflows/docs-pr.yml": {
+        "size": 4014
+      },
+      ".github/workflows/docs.yml": {
+        "size": 4768
+      },
+      ".github/workflows/ecosystem.yml": {
+        "size": 15838
+      },
+      ".isort.cfg": {
+        "size": 198
+      },
+      ".lgtm.yml": {
+        "size": 330
+      },
+      ".pre-commit-config.yaml": {
+        "size": 360
+      },
+      "CMakeLists.txt": {
+        "size": 21939
+      },
+      "README.md": {
+        "size": 8963
+      },
+      "azure-pipelines.yml": {
+        "size": 289
+      },
+      "cdash/CMakeLists.txt": {
+        "size": 351
+      },
+      "codedeps.yaml": {
+        "size": 48185
+      },
+      "codemeta.json": {
+        "size": 23065
+      },
+      "conda/_conda_vers.py": {
+        "size": 1481
+      },
+      "conda/psi4-path-advisor.py": {
+        "size": 50038
+      },
+      "conda/win/meta.yaml": {
+        "size": 2917
+      },
+      "devtools/conda-envs/docs-cf.yaml": {
+        "size": 1259
+      },
+      "devtools/conda-envs/linux-64-buildrun-addons.yaml": {
+        "size": 2207
+      },
+      "devtools/conda-envs/linux-64-buildrun.yaml": {
+        "size": 1301
+      },
+      "devtools/conda-envs/linux-64-docs.yaml": {
+        "size": 1763
+      },
+      "devtools/conda-envs/osx-64-buildrun-addons.yaml": {
+        "size": 2150
+      },
+      "devtools/conda-envs/osx-64-buildrun.yaml": {
+        "size": 1244
+      },
+      "devtools/conda-envs/osx-arm64-buildrun-addons.yaml": {
+        "size": 2157
+      },
+      "devtools/conda-envs/osx-arm64-buildrun.yaml": {
+        "size": 1251
+      },
+      "devtools/conda-envs/win-64-buildrun-addons.yaml": {
+        "size": 1785
+      },
+      "devtools/conda-envs/win-64-buildrun.yaml": {
+        "size": 1421
+      },
+      "devtools/scripts/ci_print_failing.py": {
+        "size": 1801
+      },
+      "devtools/scripts/ci_run_test.py": {
+        "size": 1358
+      },
+      "doc/CMakeLists.txt": {
+        "size": 54
+      },
+      "doc/doxygen/CMakeLists.txt": {
+        "size": 612
+      },
+      "doc/sphinxman/CMakeLists.txt": {
+        "size": 29254
+      },
+      "doc/sphinxman/document_capabilities.py": {
+        "size": 29769
+      },
+      "doc/sphinxman/document_cfour.py": {
+        "size": 2631
+      },
+      "doc/sphinxman/document_databases.py": {
+        "size": 1858
+      },
+      "doc/sphinxman/document_driver.py": {
+        "size": 4545
+      },
+      "doc/sphinxman/document_efpfrag.py": {
+        "size": 5032
+      },
+      "doc/sphinxman/document_plugins.py": {
+        "size": 15222
+      },
+      "doc/sphinxman/document_psifiles.py": {
+        "size": 3195
+      },
+      "doc/sphinxman/document_stubs.py": {
+        "size": 1895
+      },
+      "doc/sphinxman/extract_changeset.py": {
+        "size": 1763
+      },
+      "doc/sphinxman/source/attic/README.md": {
+        "size": 271
+      },
+      "doc/sphinxman/source/extensions/psidomain.py": {
+        "size": 1186
+      },
+      "doc/sphinxman/source/extensions/relbar_toc.py": {
+        "size": 2629
+      },
+      "doc/sphinxman/source/psistyle.py": {
+        "size": 474
+      },
+      "environment.yml": {
+        "size": 153
+      },
+      "external/common/CMakeLists.txt": {
+        "size": 80
+      },
+      "external/common/hdf5/CMakeLists.txt": {
+        "size": 2221
+      },
+      "external/common/lapack/CMakeLists.txt": {
+        "size": 3950
+      },
+      "external/downstream/CMakeLists.txt": {
+        "size": 187
+      },
+      "external/downstream/adcc/CMakeLists.txt": {
+        "size": 1511
+      },
+      "external/downstream/cct3/CMakeLists.txt": {
+        "size": 2564
+      },
+      "external/downstream/gpu_dfcc/CMakeLists.txt": {
+        "size": 2561
+      },
+      "external/downstream/pasture/CMakeLists.txt": {
+        "size": 862
+      },
+      "external/downstream/psi4fockci/CMakeLists.txt": {
+        "size": 1469
+      },
+      "external/downstream/snsmp2/CMakeLists.txt": {
+        "size": 1888
+      },
+      "external/downstream/v2rdm_casscf/CMakeLists.txt": {
+        "size": 2765
+      },
+      "external/upstream/CMakeLists.txt": {
+        "size": 696
+      },
+      "external/upstream/ambit/CMakeLists.txt": {
+        "size": 4078
+      },
+      "external/upstream/brianqc/CMakeLists.txt": {
+        "size": 818
+      },
+      "external/upstream/bse/CMakeLists.txt": {
+        "size": 1808
+      },
+      "external/upstream/chemps2/CMakeLists.txt": {
+        "size": 3629
+      },
+      "external/upstream/cppe/CMakeLists.txt": {
+        "size": 2955
+      },
+      "external/upstream/ddx/CMakeLists.txt": {
+        "size": 1661
+      },
+      "external/upstream/dkh/CMakeLists.txt": {
+        "size": 2648
+      },
+      "external/upstream/ecpint/CMakeLists.txt": {
+        "size": 2436
+      },
+      "external/upstream/einsums/CMakeLists.txt": {
+        "size": 3500
+      },
+      "external/upstream/gau2grid/CMakeLists.txt": {
+        "size": 2355
+      },
+      "external/upstream/gauxc/CMakeLists.txt": {
+        "size": 5710
+      },
+      "external/upstream/gdma/CMakeLists.txt": {
+        "size": 3144
+      },
+      "external/upstream/gtfock/CMakeLists.txt": {
+        "size": 2421
+      },
+      "external/upstream/integratorxx/CMakeLists.txt": {
+        "size": 1945
+      },
+      "external/upstream/libefp/CMakeLists.txt": {
+        "size": 2802
+      },
+      "external/upstream/libint2/CMakeLists.txt": {
+        "size": 13721
+      },
+      "external/upstream/libxc/CMakeLists.txt": {
+        "size": 2659
+      },
+      "external/upstream/mdi/CMakeLists.txt": {
+        "size": 2559
+      },
+      "external/upstream/openorbitaloptimizer/CMakeLists.txt": {
+        "size": 2391
+      },
+      "external/upstream/optking/CMakeLists.txt": {
+        "size": 1419
+      },
+      "external/upstream/pcmsolver/CMakeLists.txt": {
+        "size": 3597
+      },
+      "external/upstream/pybind11/CMakeLists.txt": {
+        "size": 1908
+      },
+      "external/upstream/pylibefp/CMakeLists.txt": {
+        "size": 3440
+      },
+      "external/upstream/qcelemental/CMakeLists.txt": {
+        "size": 1679
+      },
+      "external/upstream/qcengine/CMakeLists.txt": {
+        "size": 2778
+      },
+      "external/upstream/qcmanybody/CMakeLists.txt": {
+        "size": 1836
+      },
+      "external/upstream/simint/CMakeLists.txt": {
+        "size": 3088
+      },
+      "media/README.md": {
+        "size": 1052
+      },
+      "psi4/CMakeLists.txt": {
+        "size": 18239
+      },
+      "psi4/__init__.py": {
+        "size": 5065
+      },
+      "psi4/driver/CMakeLists.txt": {
+        "size": 1898
+      },
+      "psi4/driver/__init__.py": {
+        "size": 1683
+      },
+      "psi4/driver/aliases.py": {
+        "size": 8405
+      },
+      "psi4/driver/constants.py": {
+        "size": 2134
+      },
+      "psi4/driver/diatomic.py": {
+        "size": 11509
+      },
+      "psi4/driver/driver.py": {
+        "size": 132821
+      },
+      "psi4/driver/driver_cbs.py": {
+        "size": 75871
+      },
+      "psi4/driver/driver_cbs_helper.py": {
+        "size": 26206
+      },
+      "psi4/driver/driver_findif.py": {
+        "size": 64705
+      },
+      "psi4/driver/driver_nbody.py": {
+        "size": 70425
+      },
+      "psi4/driver/driver_util.py": {
+        "size": 21760
+      },
+      "psi4/driver/endorsed_plugins.py": {
+        "size": 1612
+      },
+      "psi4/driver/frac.py": {
+        "size": 27129
+      },
+      "psi4/driver/gaussian_n.py": {
+        "size": 7087
+      },
+      "psi4/driver/inputparser.py": {
+        "size": 28910
+      },
+      "psi4/driver/ipi_broker.py": {
+        "size": 5420
+      },
+      "psi4/driver/mdi_engine.py": {
+        "size": 16642
+      },
+      "psi4/driver/molutil.py": {
+        "size": 11197
+      },
+      "psi4/driver/p4util/CMakeLists.txt": {
+        "size": 1000
+      },
+      "psi4/driver/p4util/__init__.py": {
+        "size": 1343
+      },
+      "psi4/driver/p4util/exceptions.py": {
+        "size": 18209
+      },
+      "psi4/driver/p4util/fchk.py": {
+        "size": 9776
+      },
+      "psi4/driver/p4util/fcidump.py": {
+        "size": 18222
+      },
+      "psi4/driver/p4util/inpsight.py": {
+        "size": 23336
+      },
+      "psi4/driver/p4util/numpy_helper.py": {
+        "size": 21293
+      },
+      "psi4/driver/p4util/optproc.py": {
+        "size": 6542
+      },
+      "psi4/driver/p4util/p4regex.py": {
+        "size": 1262
+      },
+      "psi4/driver/p4util/procutil.py": {
+        "size": 23558
+      },
+      "psi4/driver/p4util/prop_util.py": {
+        "size": 5277
+      },
+      "psi4/driver/p4util/python_helpers.py": {
+        "size": 63816
+      },
+      "psi4/driver/p4util/solvers.py": {
+        "size": 38094
+      },
+      "psi4/driver/p4util/spectrum.py": {
+        "size": 14096
+      },
+      "psi4/driver/p4util/testing.py": {
+        "size": 14342
+      },
+      "psi4/driver/p4util/text.py": {
+        "size": 4715
+      },
+      "psi4/driver/p4util/util.py": {
+        "size": 13153
+      },
+      "psi4/driver/p4util/writer.py": {
+        "size": 17779
+      },
+      "psi4/driver/pluginutil.py": {
+        "size": 6150
+      },
+      "psi4/driver/procrouting/CMakeLists.txt": {
+        "size": 1542
+      },
+      "psi4/driver/procrouting/__init__.py": {
+        "size": 1169
+      },
+      "psi4/driver/procrouting/dft/CMakeLists.txt": {
+        "size": 1006
+      },
+      "psi4/driver/procrouting/dft/__init__.py": {
+        "size": 1064
+      },
+      "psi4/driver/procrouting/dft/dft_builder.py": {
+        "size": 20421
+      },
+      "psi4/driver/procrouting/dft/dh_functionals.py": {
+        "size": 19123
+      },
+      "psi4/driver/procrouting/dft/gga_functionals.py": {
+        "size": 9390
+      },
+      "psi4/driver/procrouting/dft/hyb_functionals.py": {
+        "size": 16360
+      },
+      "psi4/driver/procrouting/dft/lda_functionals.py": {
+        "size": 1353
+      },
+      "psi4/driver/procrouting/dft/libxc_functionals.py": {
+        "size": 13425
+      },
+      "psi4/driver/procrouting/dft/mgga_functionals.py": {
+        "size": 8006
+      },
+      "psi4/driver/procrouting/dft/superfunctionals.py": {
+        "size": 10061
+      },
+      "psi4/driver/procrouting/diis.py": {
+        "size": 19686
+      },
+      "psi4/driver/procrouting/empirical_dispersion.py": {
+        "size": 20105
+      },
+      "psi4/driver/procrouting/findif_response_utils/CMakeLists.txt": {
+        "size": 918
+      },
+      "psi4/driver/procrouting/findif_response_utils/__init__.py": {
+        "size": 1235
+      },
+      "psi4/driver/procrouting/findif_response_utils/data_collection_helper.py": {
+        "size": 4104
+      },
+      "psi4/driver/procrouting/findif_response_utils/db_helper.py": {
+        "size": 6238
+      },
+      "psi4/driver/procrouting/interface_cfour.py": {
+        "size": 19462
+      },
+      "psi4/driver/procrouting/libcubeprop/__init__.py": {
+        "size": 937
+      },
+      "psi4/driver/procrouting/libcubeprop/cubeprop.py": {
+        "size": 1684
+      },
+      "psi4/driver/procrouting/mcscf/CMakeLists.txt": {
+        "size": 900
+      },
+      "psi4/driver/procrouting/mcscf/__init__.py": {
+        "size": 953
+      },
+      "psi4/driver/procrouting/mcscf/augmented_hessian.py": {
+        "size": 5775
+      },
+      "psi4/driver/procrouting/mcscf/mcscf_solver.py": {
+        "size": 11381
+      },
+      "psi4/driver/procrouting/proc.py": {
+        "size": 240477
+      },
+      "psi4/driver/procrouting/proc_data.py": {
+        "size": 9300
+      },
+      "psi4/driver/procrouting/proc_table.py": {
+        "size": 13529
+      },
+      "psi4/driver/procrouting/proc_util.py": {
+        "size": 13329
+      },
+      "psi4/driver/procrouting/response/CMakeLists.txt": {
+        "size": 898
+      },
+      "psi4/driver/procrouting/response/__init__.py": {
+        "size": 955
+      },
+      "psi4/driver/procrouting/response/scf_products.py": {
+        "size": 23181
+      },
+      "psi4/driver/procrouting/response/scf_response.py": {
+        "size": 43429
+      },
+      "psi4/driver/procrouting/roa.py": {
+        "size": 6351
+      },
+      "psi4/driver/procrouting/sapt/CMakeLists.txt": {
+        "size": 951
+      },
+      "psi4/driver/procrouting/sapt/__init__.py": {
+        "size": 993
+      },
+      "psi4/driver/procrouting/sapt/fisapt_proc.py": {
+        "size": 14724
+      },
+      "psi4/driver/procrouting/sapt/fsapt.py": {
+        "size": 68587
+      },
+      "psi4/driver/procrouting/sapt/sapt_jk_terms.py": {
+        "size": 25424
+      },
+      "psi4/driver/procrouting/sapt/sapt_mp2_terms.py": {
+        "size": 12273
+      },
+      "psi4/driver/procrouting/sapt/sapt_proc.py": {
+        "size": 30187
+      },
+      "psi4/driver/procrouting/sapt/sapt_sf_terms.py": {
+        "size": 10369
+      },
+      "psi4/driver/procrouting/sapt/sapt_util.py": {
+        "size": 7817
+      },
+      "psi4/driver/procrouting/scf_proc/CMakeLists.txt": {
+        "size": 883
+      },
+      "psi4/driver/procrouting/scf_proc/__init__.py": {
+        "size": 1028
+      },
+      "psi4/driver/procrouting/scf_proc/scf_iterator.py": {
+        "size": 44777
+      },
+      "psi4/driver/procrouting/scf_proc/subclass_methods.py": {
+        "size": 11238
+      },
+      "psi4/driver/procrouting/solvent/CMakeLists.txt": {
+        "size": 885
+      },
+      "psi4/driver/procrouting/solvent/__init__.py": {
+        "size": 1155
+      },
+      "psi4/driver/procrouting/solvent/ddx.py": {
+        "size": 13353
+      },
+      "psi4/driver/procrouting/solvent/efp.py": {
+        "size": 6014
+      },
+      "psi4/driver/procrouting/solvent/pol_embed.py": {
+        "size": 8381
+      },
+      "psi4/driver/procrouting/wrappers_cfour.py": {
+        "size": 36392
+      },
+      "psi4/driver/psifiles.py": {
+        "size": 11003
+      },
+      "psi4/driver/qcdb/__init__.py": {
+        "size": 1854
+      },
+      "psi4/driver/qcdb/align.py": {
+        "size": 6569
+      },
+      "psi4/driver/qcdb/basislist.py": {
+        "size": 8527
+      },
+      "psi4/driver/qcdb/basislistdunning.py": {
+        "size": 40640
+      },
+      "psi4/driver/qcdb/basislistother.py": {
+        "size": 32918
+      },
+      "psi4/driver/qcdb/bfs.py": {
+        "size": 8282
+      },
+      "psi4/driver/qcdb/cfour.py": {
+        "size": 53901
+      },
+      "psi4/driver/qcdb/constants.py": {
+        "size": 162
+      },
+      "psi4/driver/qcdb/dbproc.py": {
+        "size": 3856
+      },
+      "psi4/driver/qcdb/dbwrap.py": {
+        "size": 174502
+      },
+      "psi4/driver/qcdb/exceptions.py": {
+        "size": 5478
+      },
+      "psi4/driver/qcdb/gradparse.py": {
+        "size": 4004
+      },
+      "psi4/driver/qcdb/hessparse.py": {
+        "size": 2556
+      },
+      "psi4/driver/qcdb/jajo.py": {
+        "size": 17941
+      },
+      "psi4/driver/qcdb/libmintsbasisset.py": {
+        "size": 69358
+      },
+      "psi4/driver/qcdb/libmintsbasissetparser.py": {
+        "size": 18350
+      },
+      "psi4/driver/qcdb/libmintscoordentry.py": {
+        "size": 24482
+      },
+      "psi4/driver/qcdb/libmintsgshell.py": {
+        "size": 12926
+      },
+      "psi4/driver/qcdb/libmintsmolecule.py": {
+        "size": 121824
+      },
+      "psi4/driver/qcdb/libmintspointgrp.py": {
+        "size": 58318
+      },
+      "psi4/driver/qcdb/modelchems.py": {
+        "size": 30569
+      },
+      "psi4/driver/qcdb/molecule.py": {
+        "size": 89207
+      },
+      "psi4/driver/qcdb/molpro.py": {
+        "size": 13999
+      },
+      "psi4/driver/qcdb/molpro2.py": {
+        "size": 27451
+      },
+      "psi4/driver/qcdb/molpro_basissets.py": {
+        "size": 196834
+      },
+      "psi4/driver/qcdb/mpl.py": {
+        "size": 54233
+      },
+      "psi4/driver/qcdb/options.py": {
+        "size": 11047
+      },
+      "psi4/driver/qcdb/orca.py": {
+        "size": 13099
+      },
+      "psi4/driver/qcdb/orient.py": {
+        "size": 18405
+      },
+      "psi4/driver/qcdb/parker.py": {
+        "size": 6567
+      },
+      "psi4/driver/qcdb/pdict.py": {
+        "size": 4456
+      },
+      "psi4/driver/qcdb/psiutil.py": {
+        "size": 5058
+      },
+      "psi4/driver/qcdb/psivardefs.py": {
+        "size": 17399
+      },
+      "psi4/driver/qcdb/psivarrosetta.py": {
+        "size": 18416
+      },
+      "psi4/driver/qcdb/pytest/addons.py": {
+        "size": 3615
+      },
+      "psi4/driver/qcdb/pytest/test_bfs.py": {
+        "size": 4096
+      },
+      "psi4/driver/qcdb/pytest/test_from_string.py": {
+        "size": 38751
+      },
+      "psi4/driver/qcdb/pytest/test_mints4.py": {
+        "size": 5689
+      },
+      "psi4/driver/qcdb/pytest/test_mints5_molecule_symmetry.py": {
+        "size": 28446
+      },
+      "psi4/driver/qcdb/pytest/test_mints9_basisset.py": {
+        "size": 19482
+      },
+      "psi4/driver/qcdb/pytest/test_to_string.py": {
+        "size": 4704
+      },
+      "psi4/driver/qcdb/pytest/utils.py": {
+        "size": 1848
+      },
+      "psi4/driver/qcdb/qcformat.py": {
+        "size": 4080
+      },
+      "psi4/driver/qcdb/qchem.py": {
+        "size": 18398
+      },
+      "psi4/driver/qcdb/qcprog_psi4.py": {
+        "size": 12630
+      },
+      "psi4/driver/qcdb/subsetgenerator.py": {
+        "size": 4294
+      },
+      "psi4/driver/qcdb/testing.py": {
+        "size": 9091
+      },
+      "psi4/driver/qcdb/tests/bfs1/input.py": {
+        "size": 3059
+      },
+      "psi4/driver/qcdb/tests/litdb1/mard_data.py": {
+        "size": 5049
+      },
+      "psi4/driver/qcdb/textables.py": {
+        "size": 18652
+      },
+      "psi4/driver/qcdb/util/__init__.py": {
+        "size": 984
+      },
+      "psi4/driver/qcdb/util/mpl.py": {
+        "size": 2303
+      },
+      "psi4/driver/qcdb/util/regex.py": {
+        "size": 2596
+      },
+      "psi4/driver/qcdb/vecutil.py": {
+        "size": 11359
+      },
+      "psi4/driver/qcdb/vib.py": {
+        "size": 53767
+      },
+      "psi4/driver/qmmm.py": {
+        "size": 6406
+      },
+      "psi4/driver/schema_wrapper.py": {
+        "size": 27430
+      },
+      "psi4/driver/task_base.py": {
+        "size": 10345
+      },
+      "psi4/driver/task_planner.py": {
+        "size": 11864
+      },
+      "psi4/driver/util/__init__.py": {
+        "size": 913
+      },
+      "psi4/driver/util/tty/__init__.py": {
+        "size": 4335
+      },
+      "psi4/driver/util/tty/color.py": {
+        "size": 7143
+      },
+      "psi4/driver/wrapper_autofrag.py": {
+        "size": 2537
+      },
+      "psi4/driver/wrapper_database.py": {
+        "size": 26090
+      },
+      "psi4/extras.py": {
+        "size": 11520
+      },
+      "psi4/header.py": {
+        "size": 6058
+      },
+      "psi4/metadata.py": {
+        "size": 153
+      },
+      "psi4/run_psi4.py": {
+        "size": 17909
+      },
+      "psi4/share/psi4/basis/primitives/diff_gbs.py": {
+        "size": 4695
+      },
+      "psi4/share/psi4/basis/primitives/dunning_prepend_and_checknew.py": {
+        "size": 2193
+      },
+      "psi4/share/psi4/databases/A24.py": {
+        "size": 29690
+      },
+      "psi4/share/psi4/databases/A24alt.py": {
+        "size": 29759
+      },
+      "psi4/share/psi4/databases/ACENES.py": {
+        "size": 162819
+      },
+      "psi4/share/psi4/databases/BAKERJCC93.py": {
+        "size": 42457
+      },
+      "psi4/share/psi4/databases/BAKERJCC96.py": {
+        "size": 16143
+      },
+      "psi4/share/psi4/databases/BASIC.py": {
+        "size": 4190
+      },
+      "psi4/share/psi4/databases/BBI.py": {
+        "size": 150765
+      },
+      "psi4/share/psi4/databases/BENCH12.py": {
+        "size": 60275
+      },
+      "psi4/share/psi4/databases/CORE.py": {
+        "size": 23803
+      },
+      "psi4/share/psi4/databases/HBC6.py": {
+        "size": 161642
+      },
+      "psi4/share/psi4/databases/HSG.py": {
+        "size": 46405
+      },
+      "psi4/share/psi4/databases/HTBH.py": {
+        "size": 38476
+      },
+      "psi4/share/psi4/databases/HTR40.py": {
+        "size": 41502
+      },
+      "psi4/share/psi4/databases/JSCH.py": {
+        "size": 287170
+      },
+      "psi4/share/psi4/databases/NBC10.py": {
+        "size": 98454
+      },
+      "psi4/share/psi4/databases/NCB31.py": {
+        "size": 53528
+      },
+      "psi4/share/psi4/databases/NHTBH.py": {
+        "size": 36620
+      },
+      "psi4/share/psi4/databases/O24by5.py": {
+        "size": 51619
+      },
+      "psi4/share/psi4/databases/O24by5mb.py": {
+        "size": 58598
+      },
+      "psi4/share/psi4/databases/RGC10.py": {
+        "size": 81941
+      },
+      "psi4/share/psi4/databases/RSE42.py": {
+        "size": 77098
+      },
+      "psi4/share/psi4/databases/S22.py": {
+        "size": 43408
+      },
+      "psi4/share/psi4/databases/S22by5.py": {
+        "size": 176349
+      },
+      "psi4/share/psi4/databases/S66.py": {
+        "size": 148398
+      },
+      "psi4/share/psi4/databases/S66by8.py": {
+        "size": 524313
+      },
+      "psi4/share/psi4/databases/SSI.py": {
+        "size": 524313
+      },
+      "psi4/share/psi4/fsapt/copy_pymol.py": {
+        "size": 1344
+      },
+      "psi4/share/psi4/fsapt/copy_pymol2.py": {
+        "size": 1345
+      },
+      "psi4/share/psi4/fsapt/fsapt.py": {
+        "size": 161
+      },
+      "psi4/share/psi4/fsapt/fsaptdiff.py": {
+        "size": 4193
+      },
+      "psi4/share/psi4/quadratures/1_x/write_binary_files.py": {
+        "size": 33174
+      },
+      "psi4/share/psi4/scripts/apply_license.py": {
+        "size": 3508
+      },
+      "psi4/share/psi4/scripts/ixyz2database.py": {
+        "size": 17755
+      },
+      "psi4/share/psi4/scripts/merge_stdsuite.py": {
+        "size": 3893
+      },
+      "psi4/share/psi4/scripts/test_threading.py": {
+        "size": 10838
+      },
+      "psi4/share/psi4/scripts/vmd_cube.py": {
+        "size": 16496
+      },
+      "psi4/src/CMakeLists.txt": {
+        "size": 6834
+      },
+      "psi4/src/psi4/CMakeLists.txt": {
+        "size": 585
+      },
+      "psi4/src/psi4/ambit_interface/CMakeLists.txt": {
+        "size": 208
+      },
+      "psi4/src/psi4/cc/CMakeLists.txt": {
+        "size": 752
+      },
+      "psi4/src/psi4/cc/ccdensity/CMakeLists.txt": {
+        "size": 6124
+      },
+      "psi4/src/psi4/cc/ccenergy/CMakeLists.txt": {
+        "size": 3124
+      },
+      "psi4/src/psi4/cc/cceom/CMakeLists.txt": {
+        "size": 2331
+      },
+      "psi4/src/psi4/cc/cchbar/CMakeLists.txt": {
+        "size": 1387
+      },
+      "psi4/src/psi4/cc/cclambda/CMakeLists.txt": {
+        "size": 2355
+      },
+      "psi4/src/psi4/cc/ccresponse/CMakeLists.txt": {
+        "size": 1807
+      },
+      "psi4/src/psi4/cc/cctriples/CMakeLists.txt": {
+        "size": 1138
+      },
+      "psi4/src/psi4/cctransort/CMakeLists.txt": {
+        "size": 413
+      },
+      "psi4/src/psi4/dct/CMakeLists.txt": {
+        "size": 1297
+      },
+      "psi4/src/psi4/dct/README.txt": {
+        "size": 621
+      },
+      "psi4/src/psi4/detci/CMakeLists.txt": {
+        "size": 854
+      },
+      "psi4/src/psi4/dfep2/CMakeLists.txt": {
+        "size": 70
+      },
+      "psi4/src/psi4/dfmp2/CMakeLists.txt": {
+        "size": 249
+      },
+      "psi4/src/psi4/dfmp2/README.txt": {
+        "size": 2699
+      },
+      "psi4/src/psi4/dfocc/CMakeLists.txt": {
+        "size": 2235
+      },
+      "psi4/src/psi4/dfocc/TODO.txt": {
+        "size": 161
+      },
+      "psi4/src/psi4/dlpno/CMakeLists.txt": {
+        "size": 168
+      },
+      "psi4/src/psi4/dmrg/CMakeLists.txt": {
+        "size": 176
+      },
+      "psi4/src/psi4/dummy_einsums/CMakeLists.txt": {
+        "size": 939
+      },
+      "psi4/src/psi4/dummy_integratorxx/CMakeLists.txt": {
+        "size": 992
+      },
+      "psi4/src/psi4/f12/CMakeLists.txt": {
+        "size": 955
+      },
+      "psi4/src/psi4/fisapt/CMakeLists.txt": {
+        "size": 281
+      },
+      "psi4/src/psi4/fnocc/CMakeLists.txt": {
+        "size": 319
+      },
+      "psi4/src/psi4/lib3index/CMakeLists.txt": {
+        "size": 284
+      },
+      "psi4/src/psi4/libciomr/CMakeLists.txt": {
+        "size": 331
+      },
+      "psi4/src/psi4/libcubeprop/CMakeLists.txt": {
+        "size": 85
+      },
+      "psi4/src/psi4/libdiis/CMakeLists.txt": {
+        "size": 129
+      },
+      "psi4/src/psi4/libdisp/CMakeLists.txt": {
+        "size": 74
+      },
+      "psi4/src/psi4/libdpd/CMakeLists.txt": {
+        "size": 2181
+      },
+      "psi4/src/psi4/libfilesystem/CMakeLists.txt": {
+        "size": 74
+      },
+      "psi4/src/psi4/libfock/CMakeLists.txt": {
+        "size": 1214
+      },
+      "psi4/src/psi4/libfunctional/CMakeLists.txt": {
+        "size": 195
+      },
+      "psi4/src/psi4/libiwl/CMakeLists.txt": {
+        "size": 199
+      },
+      "psi4/src/psi4/libmints/CMakeLists.txt": {
+        "size": 4157
+      },
+      "psi4/src/psi4/libmoinfo/CMakeLists.txt": {
+        "size": 244
+      },
+      "psi4/src/psi4/liboptions/CMakeLists.txt": {
+        "size": 87
+      },
+      "psi4/src/psi4/libplugin/CMakeLists.txt": {
+        "size": 254
+      },
+      "psi4/src/psi4/libpsi4util/CMakeLists.txt": {
+        "size": 162
+      },
+      "psi4/src/psi4/libpsio/CMakeLists.txt": {
+        "size": 525
+      },
+      "psi4/src/psi4/libpsipcm/CMakeLists.txt": {
+        "size": 516
+      },
+      "psi4/src/psi4/libqt/CMakeLists.txt": {
+        "size": 2088
+      },
+      "psi4/src/psi4/libsapt_solver/CMakeLists.txt": {
+        "size": 623
+      },
+      "psi4/src/psi4/libscf_solver/CMakeLists.txt": {
+        "size": 1128
+      },
+      "psi4/src/psi4/libtrans/CMakeLists.txt": {
+        "size": 516
+      },
+      "psi4/src/psi4/libtrans/README.txt": {
+        "size": 1048
+      },
+      "psi4/src/psi4/mcscf/CMakeLists.txt": {
+        "size": 594
+      },
+      "psi4/src/psi4/mrcc/CMakeLists.txt": {
+        "size": 130
+      },
+      "psi4/src/psi4/occ/CMakeLists.txt": {
+        "size": 1004
+      },
+      "psi4/src/psi4/occ/README.txt": {
+        "size": 524
+      },
+      "psi4/src/psi4/psimrcc/CMakeLists.txt": {
+        "size": 1632
+      },
+      "psi4/src/psi4/sapt/CMakeLists.txt": {
+        "size": 71
+      },
+      "psi4/src/psi4/scfgrad/CMakeLists.txt": {
+        "size": 521
+      },
+      "psi4/versioner.py": {
+        "size": 15534
+      },
+      "pytest.ini": {
+        "size": 5465
+      },
+      "samples/json/schema-1-energy/input.py": {
+        "size": 3543
+      },
+      "samples/json/schema-1-energy/test.py": {
+        "size": 4922
+      },
+      "samples/json/schema-1-ghost/input.py": {
+        "size": 1114
+      },
+      "samples/json/schema-1-ghost/test.py": {
+        "size": 1577
+      },
+      "samples/json/schema-1-gradient/input.py": {
+        "size": 1301
+      },
+      "samples/json/schema-1-gradient/test.py": {
+        "size": 1697
+      },
+      "samples/json/schema-1-orient/input.py": {
+        "size": 999
+      },
+      "samples/json/schema-1-orient/test.py": {
+        "size": 2220
+      },
+      "samples/json/schema-1-properties/input.py": {
+        "size": 3212
+      },
+      "samples/json/schema-1-properties/test.py": {
+        "size": 4606
+      },
+      "samples/json/schema-1-response/input.py": {
+        "size": 4678
+      },
+      "samples/json/schema-1-response/test.py": {
+        "size": 4992
+      },
+      "samples/json/schema-1-tamps/input.py": {
+        "size": 2169
+      },
+      "samples/json/schema-1-tamps/test.py": {
+        "size": 2169
+      },
+      "samples/json/schema-1-throws/input.py": {
+        "size": 1188
+      },
+      "samples/json/schema-1-throws/test.py": {
+        "size": 1793
+      },
+      "samples/psi4numpy/cphf/input.py": {
+        "size": 2435
+      },
+      "samples/psi4numpy/cphf/test.py": {
+        "size": 2679
+      },
+      "samples/psi4numpy/dfmp2/input.py": {
+        "size": 3617
+      },
+      "samples/psi4numpy/dfmp2/test.py": {
+        "size": 3617
+      },
+      "samples/psi4numpy/fci/input.py": {
+        "size": 4224
+      },
+      "samples/psi4numpy/fci/test.py": {
+        "size": 4224
+      },
+      "samples/psi4numpy/rhf-gradient/input.py": {
+        "size": 5211
+      },
+      "samples/psi4numpy/rhf-gradient/test.py": {
+        "size": 5578
+      },
+      "samples/psi4numpy/rhf-hessian/input.py": {
+        "size": 10474
+      },
+      "samples/psi4numpy/rhf-hessian/test.py": {
+        "size": 10548
+      },
+      "samples/psi4numpy/rhf/input.py": {
+        "size": 3412
+      },
+      "samples/psi4numpy/rhf/test.py": {
+        "size": 3412
+      },
+      "samples/python/3-index-transforms/input.py": {
+        "size": 5094
+      },
+      "samples/python/3-index-transforms/test.py": {
+        "size": 5094
+      },
+      "samples/python/cc-amps/input.py": {
+        "size": 4035
+      },
+      "samples/python/cc-amps/test.py": {
+        "size": 4035
+      },
+      "samples/python/cc54/input.py": {
+        "size": 3057
+      },
+      "samples/python/cc54/test.py": {
+        "size": 3400
+      },
+      "samples/python/curve/input.py": {
+        "size": 710
+      },
+      "samples/python/curve/test.py": {
+        "size": 710
+      },
+      "samples/python/databases/input.py": {
+        "size": 600
+      },
+      "samples/python/databases/test.py": {
+        "size": 600
+      },
+      "samples/python/energy/input.py": {
+        "size": 466
+      },
+      "samples/python/energy/test.py": {
+        "size": 466
+      },
+      "samples/python/mints13/input.py": {
+        "size": 4179
+      },
+      "samples/python/mints13/test.py": {
+        "size": 4179
+      },
+      "samples/python/mints14/input.py": {
+        "size": 13461
+      },
+      "samples/python/mints14/test.py": {
+        "size": 13461
+      },
+      "samples/python/mints2/input.py": {
+        "size": 4019
+      },
+      "samples/python/mints2/test.py": {
+        "size": 4325
+      },
+      "samples/python/mints9/input.py": {
+        "size": 4482
+      },
+      "samples/python/mints9/test.py": {
+        "size": 9024
+      },
+      "samples/python/pubchem/input.py": {
+        "size": 1063
+      },
+      "samples/python/pubchem/test.py": {
+        "size": 1449
+      },
+      "samples/stdsuite_psi4.txt": {
+        "size": 524313
+      },
+      "tests/CMakeLists.txt": {
+        "size": 12339
+      },
+      "tests/aediis-1/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/aediis-1/test_input.py": {
+        "size": 100
+      },
+      "tests/aediis-2/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/aediis-2/test_input.py": {
+        "size": 122
+      },
+      "tests/ao-casscf-sp/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/ao-casscf-sp/test_input.py": {
+        "size": 111
+      },
+      "tests/ao-dfcasscf-sp/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/ao-dfcasscf-sp/test_input.py": {
+        "size": 113
+      },
+      "tests/basis-ecp/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/basis-ecp/test_input.py": {
+        "size": 118
+      },
+      "tests/brianqc/CMakeLists.txt": {
+        "size": 667
+      },
+      "tests/brianqc/frequency-hf-uhf/CMakeLists.txt": {
+        "size": 111
+      },
+      "tests/brianqc/frequency-hf/CMakeLists.txt": {
+        "size": 107
+      },
+      "tests/brianqc/geometry-optimization-dft-lrc/CMakeLists.txt": {
+        "size": 127
+      },
+      "tests/brianqc/geometry-optimization-dft/CMakeLists.txt": {
+        "size": 123
+      },
+      "tests/brianqc/geometry-optimization-hf-rohf/CMakeLists.txt": {
+        "size": 123
+      },
+      "tests/brianqc/geometry-optimization-hf-uhf/CMakeLists.txt": {
+        "size": 122
+      },
+      "tests/brianqc/geometry-optimization-hf/CMakeLists.txt": {
+        "size": 118
+      },
+      "tests/brianqc/high-angular-momentum/CMakeLists.txt": {
+        "size": 115
+      },
+      "tests/brianqc/linear-dependence/CMakeLists.txt": {
+        "size": 111
+      },
+      "tests/brianqc/pentacene/CMakeLists.txt": {
+        "size": 103
+      },
+      "tests/brianqc/single-point-dft-lrc/CMakeLists.txt": {
+        "size": 118
+      },
+      "tests/brianqc/single-point-dft-nlc/CMakeLists.txt": {
+        "size": 118
+      },
+      "tests/brianqc/single-point-dft-uhf/CMakeLists.txt": {
+        "size": 118
+      },
+      "tests/brianqc/single-point-dft/CMakeLists.txt": {
+        "size": 114
+      },
+      "tests/brianqc/single-point-hf-rohf/CMakeLists.txt": {
+        "size": 114
+      },
+      "tests/brianqc/single-point-hf-uhf/CMakeLists.txt": {
+        "size": 113
+      },
+      "tests/brianqc/single-point-hf/CMakeLists.txt": {
+        "size": 109
+      },
+      "tests/casscf-fzc-sp/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/casscf-fzc-sp/test_input.py": {
+        "size": 112
+      },
+      "tests/casscf-sa-sp/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/casscf-sa-sp/test_input.py": {
+        "size": 111
+      },
+      "tests/casscf-semi/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/casscf-semi/test_input.py": {
+        "size": 110
+      },
+      "tests/casscf-sp/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/casscf-sp/test_input.py": {
+        "size": 114
+      },
+      "tests/castup1/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/castup1/test_input.py": {
+        "size": 98
+      },
+      "tests/castup2/CMakeLists.txt": {
+        "size": 63
+      },
+      "tests/castup2/test_input.py": {
+        "size": 92
+      },
+      "tests/castup3/CMakeLists.txt": {
+        "size": 63
+      },
+      "tests/castup3/test_input.py": {
+        "size": 92
+      },
+      "tests/cbs-delta-energy/CMakeLists.txt": {
+        "size": 83
+      },
+      "tests/cbs-delta-energy/test_input.py": {
+        "size": 107
+      },
+      "tests/cbs-parser/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/cbs-parser/test_input.py": {
+        "size": 95
+      },
+      "tests/cbs-xtpl-alpha/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/cbs-xtpl-alpha/test_input.py": {
+        "size": 99
+      },
+      "tests/cbs-xtpl-dict/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/cbs-xtpl-dict/test_input.py": {
+        "size": 104
+      },
+      "tests/cbs-xtpl-energy-conv/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/cbs-xtpl-energy-conv/test_input.py": {
+        "size": 111
+      },
+      "tests/cbs-xtpl-energy/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/cbs-xtpl-energy/test_input.py": {
+        "size": 359
+      },
+      "tests/cbs-xtpl-freq/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/cbs-xtpl-freq/test_input.py": {
+        "size": 104
+      },
+      "tests/cbs-xtpl-func/CMakeLists.txt": {
+        "size": 133
+      },
+      "tests/cbs-xtpl-func/test_input.py": {
+        "size": 106
+      },
+      "tests/cbs-xtpl-gradient/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/cbs-xtpl-gradient/test_input.py": {
+        "size": 113
+      },
+      "tests/cbs-xtpl-nbody/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/cbs-xtpl-nbody/test_input.py": {
+        "size": 105
+      },
+      "tests/cbs-xtpl-opt/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cbs-xtpl-opt/test_input.py": {
+        "size": 97
+      },
+      "tests/cbs-xtpl-wrapper/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/cbs-xtpl-wrapper/test_input.py": {
+        "size": 378
+      },
+      "tests/cc-module/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/cc-module/test_input.py": {
+        "size": 99
+      },
+      "tests/cc1/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/cc1/test_input.py": {
+        "size": 99
+      },
+      "tests/cc10/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cc10/test_input.py": {
+        "size": 93
+      },
+      "tests/cc11/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cc11/test_input.py": {
+        "size": 93
+      },
+      "tests/cc12/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cc12/test_input.py": {
+        "size": 97
+      },
+      "tests/cc13/CMakeLists.txt": {
+        "size": 59
+      },
+      "tests/cc13/test_input.py": {
+        "size": 88
+      },
+      "tests/cc13a/CMakeLists.txt": {
+        "size": 116
+      },
+      "tests/cc13a/test_input.py": {
+        "size": 97
+      },
+      "tests/cc13b/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/cc13b/test_input.py": {
+        "size": 95
+      },
+      "tests/cc13c/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/cc13c/test_input.py": {
+        "size": 94
+      },
+      "tests/cc13d/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/cc13d/test_input.py": {
+        "size": 96
+      },
+      "tests/cc14/CMakeLists.txt": {
+        "size": 59
+      },
+      "tests/cc14/test_input.py": {
+        "size": 88
+      },
+      "tests/cc15/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/cc15/test_input.py": {
+        "size": 94
+      },
+      "tests/cc16/CMakeLists.txt": {
+        "size": 59
+      },
+      "tests/cc16/test_input.py": {
+        "size": 88
+      },
+      "tests/cc17/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/cc17/test_input.py": {
+        "size": 103
+      },
+      "tests/cc18/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/cc18/test_input.py": {
+        "size": 99
+      },
+      "tests/cc19/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cc19/test_input.py": {
+        "size": 93
+      },
+      "tests/cc2/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/cc2/test_input.py": {
+        "size": 94
+      },
+      "tests/cc21/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/cc21/test_input.py": {
+        "size": 109
+      },
+      "tests/cc22/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cc22/test_input.py": {
+        "size": 97
+      },
+      "tests/cc23/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/cc23/test_input.py": {
+        "size": 109
+      },
+      "tests/cc24/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/cc24/test_input.py": {
+        "size": 347
+      },
+      "tests/cc25/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/cc25/test_input.py": {
+        "size": 109
+      },
+      "tests/cc26/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/cc26/test_input.py": {
+        "size": 109
+      },
+      "tests/cc27/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/cc27/test_input.py": {
+        "size": 109
+      },
+      "tests/cc28/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/cc28/test_input.py": {
+        "size": 94
+      },
+      "tests/cc29/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cc29/test_input.py": {
+        "size": 93
+      },
+      "tests/cc3/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/cc3/test_input.py": {
+        "size": 94
+      },
+      "tests/cc30/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cc30/test_input.py": {
+        "size": 93
+      },
+      "tests/cc31/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/cc31/test_input.py": {
+        "size": 99
+      },
+      "tests/cc32/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/cc32/test_input.py": {
+        "size": 99
+      },
+      "tests/cc33/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/cc33/test_input.py": {
+        "size": 98
+      },
+      "tests/cc34/CMakeLists.txt": {
+        "size": 59
+      },
+      "tests/cc34/test_input.py": {
+        "size": 88
+      },
+      "tests/cc35/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/cc35/test_input.py": {
+        "size": 98
+      },
+      "tests/cc36/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cc36/test_input.py": {
+        "size": 93
+      },
+      "tests/cc37/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/cc37/test_input.py": {
+        "size": 98
+      },
+      "tests/cc38/CMakeLists.txt": {
+        "size": 59
+      },
+      "tests/cc38/test_input.py": {
+        "size": 88
+      },
+      "tests/cc39/CMakeLists.txt": {
+        "size": 59
+      },
+      "tests/cc39/test_input.py": {
+        "size": 88
+      },
+      "tests/cc4/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/cc4/test_input.py": {
+        "size": 103
+      },
+      "tests/cc40/CMakeLists.txt": {
+        "size": 59
+      },
+      "tests/cc40/test_input.py": {
+        "size": 88
+      },
+      "tests/cc41/CMakeLists.txt": {
+        "size": 59
+      },
+      "tests/cc41/test_input.py": {
+        "size": 88
+      },
+      "tests/cc42/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cc42/test_input.py": {
+        "size": 93
+      },
+      "tests/cc43/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cc43/test_input.py": {
+        "size": 93
+      },
+      "tests/cc44/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cc44/test_input.py": {
+        "size": 97
+      },
+      "tests/cc45/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cc45/test_input.py": {
+        "size": 97
+      },
+      "tests/cc46/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/cc46/test_input.py": {
+        "size": 108
+      },
+      "tests/cc47/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cc47/test_input.py": {
+        "size": 97
+      },
+      "tests/cc48/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cc48/test_input.py": {
+        "size": 97
+      },
+      "tests/cc49/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/cc49/test_input.py": {
+        "size": 103
+      },
+      "tests/cc4a/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/cc4a/test_input.py": {
+        "size": 98
+      },
+      "tests/cc5/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cc5/test_input.py": {
+        "size": 97
+      },
+      "tests/cc50/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cc50/test_input.py": {
+        "size": 97
+      },
+      "tests/cc51/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/cc51/test_input.py": {
+        "size": 102
+      },
+      "tests/cc52/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cc52/test_input.py": {
+        "size": 93
+      },
+      "tests/cc53/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cc53/test_input.py": {
+        "size": 93
+      },
+      "tests/cc54/CMakeLists.txt": {
+        "size": 59
+      },
+      "tests/cc54/test_input.py": {
+        "size": 88
+      },
+      "tests/cc55/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cc55/test_input.py": {
+        "size": 97
+      },
+      "tests/cc56/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cc56/test_input.py": {
+        "size": 97
+      },
+      "tests/cc6/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cc6/test_input.py": {
+        "size": 97
+      },
+      "tests/cc7/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/cc7/test_input.py": {
+        "size": 108
+      },
+      "tests/cc8/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/cc8/test_input.py": {
+        "size": 98
+      },
+      "tests/cc8a/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/cc8a/test_input.py": {
+        "size": 98
+      },
+      "tests/cc8b/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/cc8b/test_input.py": {
+        "size": 98
+      },
+      "tests/cc8c/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/cc8c/test_input.py": {
+        "size": 98
+      },
+      "tests/cc9/CMakeLists.txt": {
+        "size": 63
+      },
+      "tests/cc9/test_input.py": {
+        "size": 92
+      },
+      "tests/cc9a/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cc9a/test_input.py": {
+        "size": 93
+      },
+      "tests/cdomp2-1/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/cdomp2-1/test_input.py": {
+        "size": 102
+      },
+      "tests/cdomp2-2/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/cdomp2-2/test_input.py": {
+        "size": 102
+      },
+      "tests/cdoremp-energy1/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/cdoremp-energy1/test_input.py": {
+        "size": 102
+      },
+      "tests/cdoremp-energy2/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/cdoremp-energy2/test_input.py": {
+        "size": 102
+      },
+      "tests/cdremp-1/CMakeLists.txt": {
+        "size": 66
+      },
+      "tests/cdremp-1/test_input.py": {
+        "size": 95
+      },
+      "tests/cdremp-2/CMakeLists.txt": {
+        "size": 66
+      },
+      "tests/cdremp-2/test_input.py": {
+        "size": 95
+      },
+      "tests/cepa-module/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/cepa-module/test_input.py": {
+        "size": 102
+      },
+      "tests/cepa1/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cepa1/test_input.py": {
+        "size": 97
+      },
+      "tests/cepa2/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/cepa2/test_input.py": {
+        "size": 108
+      },
+      "tests/cepa3/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/cepa3/test_input.py": {
+        "size": 108
+      },
+      "tests/cfour/CMakeLists.txt": {
+        "size": 1889
+      },
+      "tests/cfour/deliberate-fails/CMakeLists.txt": {
+        "size": 97
+      },
+      "tests/cfour/dfmp2-1/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/cfour/kw-1/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/cfour/kw-2/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/cfour/kw-3/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/cfour/kw-4/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/cfour/kw-5/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/cfour/kw-6/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/cfour/kw-7/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/cfour/kw-8/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/cfour/mints5-grad/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/cfour/mints5/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/cfour/mp2-1/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/cfour/opt-rhf-ccsd_t_-ecc/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/cfour/opt-rhf-ccsd_t_/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/cfour/opt-rhf-mp2/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/cfour/opt-rhf-scf/CMakeLists.txt": {
+        "size": 96
+      },
+      "tests/cfour/psi-a24-grad/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/cfour/psi-ghost-grad/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/cfour/psi-mp4/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/cfour/psi-rhf-mp3/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/cfour/psi-rhf-scsmp2/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/cfour/psi-rohf-scsmp2/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/cfour/psi-uhf-mp3/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/cfour/psi-uhf-scsmp2/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/cfour/puream/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/cfour/pywrap-alias/CMakeLists.txt": {
+        "size": 93
+      },
+      "tests/cfour/pywrap-all/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/cfour/pywrap-basis/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/cfour/pywrap-cbs1/CMakeLists.txt": {
+        "size": 99
+      },
+      "tests/cfour/pywrap-db1/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/cfour/scf4/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/cfour/sp-rhf-cc3/CMakeLists.txt": {
+        "size": 83
+      },
+      "tests/cfour/sp-rhf-ccsd-ao/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/cfour/sp-rhf-ccsd/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/cfour/sp-rhf-ccsd_t_-ao-ecc/CMakeLists.txt": {
+        "size": 94
+      },
+      "tests/cfour/sp-rhf-ccsd_t_-ao/CMakeLists.txt": {
+        "size": 90
+      },
+      "tests/cfour/sp-rhf-ccsd_t_-ecc/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/cfour/sp-rhf-ccsd_t_-fc/CMakeLists.txt": {
+        "size": 90
+      },
+      "tests/cfour/sp-rhf-ccsd_t_/CMakeLists.txt": {
+        "size": 109
+      },
+      "tests/cfour/sp-rhf-ccsdt/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/cfour/sp-rhf-mp2/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/cfour/sp-rhf-scf/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/cfour/sp-rohf-ccsd-ao/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/cfour/sp-rohf-ccsd/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/cfour/sp-rohf-ccsd_t_-ao-ecc/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/cfour/sp-rohf-ccsd_t_-ao/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/cfour/sp-rohf-ccsd_t_-fc/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/cfour/sp-rohf-ccsd_t_/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/cfour/sp-rohf-ccsdt/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/cfour/sp-rohf-mp2-sc/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/cfour/sp-rohf-mp2-std/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/cfour/sp-rohf-mp4-sc/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/cfour/sp-rohf-scf/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/cfour/sp-uhf-cc3/CMakeLists.txt": {
+        "size": 83
+      },
+      "tests/cfour/sp-uhf-ccsd/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/cfour/sp-uhf-ccsd_t_-ao-ecc/CMakeLists.txt": {
+        "size": 94
+      },
+      "tests/cfour/sp-uhf-ccsd_t_-ao/CMakeLists.txt": {
+        "size": 90
+      },
+      "tests/cfour/sp-uhf-ccsd_t_-ecc/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/cfour/sp-uhf-ccsd_t_/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/cfour/sp-uhf-ccsdt/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/cfour/sp-uhf-mp2/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/cfour/sp-uhf-scf/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/chemps2/CMakeLists.txt": {
+        "size": 143
+      },
+      "tests/chemps2/caspt2-n2/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/chemps2/caspt2-n2/test_input.py": {
+        "size": 122
+      },
+      "tests/chemps2/caspt2-small/CMakeLists.txt": {
+        "size": 102
+      },
+      "tests/chemps2/caspt2-small/test_input.py": {
+        "size": 131
+      },
+      "tests/chemps2/ci-h2o/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/chemps2/ci-h2o/test_input.py": {
+        "size": 119
+      },
+      "tests/chemps2/natural-orbital/CMakeLists.txt": {
+        "size": 94
+      },
+      "tests/chemps2/natural-orbital/test_input.py": {
+        "size": 128
+      },
+      "tests/chemps2/scf-n2/CMakeLists.txt": {
+        "size": 107
+      },
+      "tests/chemps2/scf-n2/test_input.py": {
+        "size": 131
+      },
+      "tests/ci-multi/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/ci-multi/test_input.py": {
+        "size": 105
+      },
+      "tests/ci-property/CMakeLists.txt": {
+        "size": 161
+      },
+      "tests/ci-property/test_input.py": {
+        "size": 154
+      },
+      "tests/cisd-h2o+-0/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/cisd-h2o+-0/test_input.py": {
+        "size": 106
+      },
+      "tests/cisd-h2o+-1/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/cisd-h2o+-1/test_input.py": {
+        "size": 111
+      },
+      "tests/cisd-h2o+-2/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/cisd-h2o+-2/test_input.py": {
+        "size": 100
+      },
+      "tests/cisd-h2o-clpse/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/cisd-h2o-clpse/test_input.py": {
+        "size": 100
+      },
+      "tests/cisd-opt-fd/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/cisd-opt-fd/test_input.py": {
+        "size": 104
+      },
+      "tests/cisd-sp-2/CMakeLists.txt": {
+        "size": 66
+      },
+      "tests/cisd-sp-2/test_input.py": {
+        "size": 95
+      },
+      "tests/cisd-sp/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/cisd-sp/test_input.py": {
+        "size": 93
+      },
+      "tests/cookbook/CMakeLists.txt": {
+        "size": 109
+      },
+      "tests/cookbook/manual-fd-hess-energy/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/cookbook/manual-fd-hess-energy/test_input.py": {
+        "size": 112
+      },
+      "tests/cookbook/manual-fd-hess-grad/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/cookbook/manual-fd-hess-grad/test_input.py": {
+        "size": 110
+      },
+      "tests/cookbook/rohf-orb-rot/CMakeLists.txt": {
+        "size": 92
+      },
+      "tests/cookbook/rohf-orb-rot/test_input.py": {
+        "size": 112
+      },
+      "tests/cubeprop-esp/CMakeLists.txt": {
+        "size": 210
+      },
+      "tests/cubeprop-esp/test_input.py": {
+        "size": 178
+      },
+      "tests/cubeprop-frontier/CMakeLists.txt": {
+        "size": 510
+      },
+      "tests/cubeprop-frontier/test_input.py": {
+        "size": 323
+      },
+      "tests/cubeprop/CMakeLists.txt": {
+        "size": 761
+      },
+      "tests/cubeprop/test_input.py": {
+        "size": 409
+      },
+      "tests/dct-grad1/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/dct-grad1/test_input.py": {
+        "size": 99
+      },
+      "tests/dct-grad2/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/dct-grad2/test_input.py": {
+        "size": 105
+      },
+      "tests/dct-grad3/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/dct-grad3/test_input.py": {
+        "size": 94
+      },
+      "tests/dct-grad4/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/dct-grad4/test_input.py": {
+        "size": 94
+      },
+      "tests/dct1/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/dct1/test_input.py": {
+        "size": 100
+      },
+      "tests/dct10/CMakeLists.txt": {
+        "size": 61
+      },
+      "tests/dct10/test_input.py": {
+        "size": 90
+      },
+      "tests/dct11/CMakeLists.txt": {
+        "size": 66
+      },
+      "tests/dct11/test_input.py": {
+        "size": 95
+      },
+      "tests/dct12/CMakeLists.txt": {
+        "size": 66
+      },
+      "tests/dct12/test_input.py": {
+        "size": 95
+      },
+      "tests/dct2/CMakeLists.txt": {
+        "size": 60
+      },
+      "tests/dct2/test_input.py": {
+        "size": 89
+      },
+      "tests/dct3/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/dct3/test_input.py": {
+        "size": 100
+      },
+      "tests/dct4/CMakeLists.txt": {
+        "size": 60
+      },
+      "tests/dct4/test_input.py": {
+        "size": 89
+      },
+      "tests/dct5/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/dct5/test_input.py": {
+        "size": 94
+      },
+      "tests/dct6/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/dct6/test_input.py": {
+        "size": 94
+      },
+      "tests/dct7/CMakeLists.txt": {
+        "size": 112
+      },
+      "tests/dct7/test_input.py": {
+        "size": 94
+      },
+      "tests/dct8/CMakeLists.txt": {
+        "size": 60
+      },
+      "tests/dct8/test_input.py": {
+        "size": 89
+      },
+      "tests/dct9/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/dct9/test_input.py": {
+        "size": 94
+      },
+      "tests/ddd-deriv/CMakeLists.txt": {
+        "size": 90
+      },
+      "tests/ddd-deriv/test_input.py": {
+        "size": 363
+      },
+      "tests/ddd-function-kwargs/CMakeLists.txt": {
+        "size": 93
+      },
+      "tests/ddd-function-kwargs/test_input.py": {
+        "size": 122
+      },
+      "tests/decontract/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/decontract/test_input.py": {
+        "size": 105
+      },
+      "tests/density-screen-1/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/density-screen-1/test_input.py": {
+        "size": 107
+      },
+      "tests/density-screen-2/CMakeLists.txt": {
+        "size": 143
+      },
+      "tests/density-screen-2/test_input.py": {
+        "size": 113
+      },
+      "tests/dfcasscf-fzc-sp/CMakeLists.txt": {
+        "size": 90
+      },
+      "tests/dfcasscf-fzc-sp/test_input.py": {
+        "size": 114
+      },
+      "tests/dfcasscf-sa-sp/CMakeLists.txt": {
+        "size": 94
+      },
+      "tests/dfcasscf-sa-sp/test_input.py": {
+        "size": 118
+      },
+      "tests/dfcasscf-sp/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/dfcasscf-sp/test_input.py": {
+        "size": 110
+      },
+      "tests/dfccd-grad1/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/dfccd-grad1/test_input.py": {
+        "size": 106
+      },
+      "tests/dfccd1/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/dfccd1/test_input.py": {
+        "size": 102
+      },
+      "tests/dfccdl1/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/dfccdl1/test_input.py": {
+        "size": 98
+      },
+      "tests/dfccsd-grad1/CMakeLists.txt": {
+        "size": 90
+      },
+      "tests/dfccsd-grad1/test_input.py": {
+        "size": 114
+      },
+      "tests/dfccsd-grad2/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/dfccsd-grad2/test_input.py": {
+        "size": 108
+      },
+      "tests/dfccsd-t-grad1/CMakeLists.txt": {
+        "size": 94
+      },
+      "tests/dfccsd-t-grad1/test_input.py": {
+        "size": 118
+      },
+      "tests/dfccsd-t-grad2/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/dfccsd-t-grad2/test_input.py": {
+        "size": 111
+      },
+      "tests/dfccsd1/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/dfccsd1/test_input.py": {
+        "size": 104
+      },
+      "tests/dfccsdat1/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/dfccsdat1/test_input.py": {
+        "size": 102
+      },
+      "tests/dfccsdat2/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/dfccsdat2/test_input.py": {
+        "size": 102
+      },
+      "tests/dfccsdl1/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/dfccsdl1/test_input.py": {
+        "size": 106
+      },
+      "tests/dfccsdt1/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/dfccsdt1/test_input.py": {
+        "size": 100
+      },
+      "tests/dfccsdt2/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/dfccsdt2/test_input.py": {
+        "size": 100
+      },
+      "tests/dfep2-1/CMakeLists.txt": {
+        "size": 99
+      },
+      "tests/dfep2-1/test_input.py": {
+        "size": 123
+      },
+      "tests/dfep2-2/CMakeLists.txt": {
+        "size": 99
+      },
+      "tests/dfep2-2/test_input.py": {
+        "size": 123
+      },
+      "tests/dfmp2-1/CMakeLists.txt": {
+        "size": 101
+      },
+      "tests/dfmp2-1/test_input.py": {
+        "size": 120
+      },
+      "tests/dfmp2-2/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/dfmp2-2/test_input.py": {
+        "size": 97
+      },
+      "tests/dfmp2-3/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/dfmp2-3/test_input.py": {
+        "size": 102
+      },
+      "tests/dfmp2-4/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/dfmp2-4/test_input.py": {
+        "size": 97
+      },
+      "tests/dfmp2-5/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/dfmp2-5/test_input.py": {
+        "size": 97
+      },
+      "tests/dfmp2-ecp/CMakeLists.txt": {
+        "size": 100
+      },
+      "tests/dfmp2-ecp/test_input.py": {
+        "size": 370
+      },
+      "tests/dfmp2-fc/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/dfmp2-fc/test_input.py": {
+        "size": 110
+      },
+      "tests/dfmp2-freq1/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/dfmp2-freq1/test_input.py": {
+        "size": 119
+      },
+      "tests/dfmp2-freq2/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/dfmp2-freq2/test_input.py": {
+        "size": 119
+      },
+      "tests/dfmp2-grad1/CMakeLists.txt": {
+        "size": 92
+      },
+      "tests/dfmp2-grad1/test_input.py": {
+        "size": 116
+      },
+      "tests/dfmp2-grad2/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/dfmp2-grad2/test_input.py": {
+        "size": 110
+      },
+      "tests/dfmp2-grad3/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/dfmp2-grad3/test_input.py": {
+        "size": 110
+      },
+      "tests/dfmp2-grad4/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/dfmp2-grad4/test_input.py": {
+        "size": 110
+      },
+      "tests/dfmp2-grad5/CMakeLists.txt": {
+        "size": 93
+      },
+      "tests/dfmp2-grad5/test_input.py": {
+        "size": 122
+      },
+      "tests/dfmp2f12-1/CMakeLists.txt": {
+        "size": 111
+      },
+      "tests/dfmp2f12-1/test_input.py": {
+        "size": 129
+      },
+      "tests/dfomp2-1/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/dfomp2-1/test_input.py": {
+        "size": 105
+      },
+      "tests/dfomp2-2/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/dfomp2-2/test_input.py": {
+        "size": 99
+      },
+      "tests/dfomp2-3/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/dfomp2-3/test_input.py": {
+        "size": 99
+      },
+      "tests/dfomp2-4/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/dfomp2-4/test_input.py": {
+        "size": 99
+      },
+      "tests/dfomp2-grad1/CMakeLists.txt": {
+        "size": 83
+      },
+      "tests/dfomp2-grad1/test_input.py": {
+        "size": 112
+      },
+      "tests/dfomp2-grad2/CMakeLists.txt": {
+        "size": 83
+      },
+      "tests/dfomp2-grad2/test_input.py": {
+        "size": 112
+      },
+      "tests/dfomp2-grad3/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/dfomp2-grad3/test_input.py": {
+        "size": 124
+      },
+      "tests/dfomp2p5-1/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/dfomp2p5-1/test_input.py": {
+        "size": 103
+      },
+      "tests/dfomp2p5-2/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/dfomp2p5-2/test_input.py": {
+        "size": 103
+      },
+      "tests/dfomp2p5-grad1/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/dfomp2p5-grad1/test_input.py": {
+        "size": 107
+      },
+      "tests/dfomp2p5-grad2/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/dfomp2p5-grad2/test_input.py": {
+        "size": 107
+      },
+      "tests/dfomp3-1/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/dfomp3-1/test_input.py": {
+        "size": 105
+      },
+      "tests/dfomp3-2/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/dfomp3-2/test_input.py": {
+        "size": 99
+      },
+      "tests/dfomp3-grad1/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/dfomp3-grad1/test_input.py": {
+        "size": 103
+      },
+      "tests/dfomp3-grad2/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/dfomp3-grad2/test_input.py": {
+        "size": 109
+      },
+      "tests/dforemp-grad1/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/dforemp-grad1/test_input.py": {
+        "size": 100
+      },
+      "tests/dforemp-grad2/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/dforemp-grad2/test_input.py": {
+        "size": 100
+      },
+      "tests/dfrasscf-sp/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/dfrasscf-sp/test_input.py": {
+        "size": 110
+      },
+      "tests/dfremp-1/CMakeLists.txt": {
+        "size": 66
+      },
+      "tests/dfremp-1/test_input.py": {
+        "size": 95
+      },
+      "tests/dfremp-2/CMakeLists.txt": {
+        "size": 66
+      },
+      "tests/dfremp-2/test_input.py": {
+        "size": 95
+      },
+      "tests/dfscf-bz2/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/dfscf-bz2/test_input.py": {
+        "size": 99
+      },
+      "tests/dft-b2plyp/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/dft-b2plyp/test_input.py": {
+        "size": 99
+      },
+      "tests/dft-b3lyp/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/dft-b3lyp/test_input.py": {
+        "size": 98
+      },
+      "tests/dft-custom-dhdf/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/dft-custom-dhdf/test_input.py": {
+        "size": 110
+      },
+      "tests/dft-custom-gga/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/dft-custom-gga/test_input.py": {
+        "size": 103
+      },
+      "tests/dft-custom-hybrid/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/dft-custom-hybrid/test_input.py": {
+        "size": 106
+      },
+      "tests/dft-custom-mgga/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/dft-custom-mgga/test_input.py": {
+        "size": 104
+      },
+      "tests/dft-custom/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/dft-custom/test_input.py": {
+        "size": 99
+      },
+      "tests/dft-dens-cut/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/dft-dens-cut/test_input.py": {
+        "size": 112
+      },
+      "tests/dft-freq-analytic1/CMakeLists.txt": {
+        "size": 96
+      },
+      "tests/dft-freq-analytic1/test_input.py": {
+        "size": 120
+      },
+      "tests/dft-freq-analytic2/CMakeLists.txt": {
+        "size": 96
+      },
+      "tests/dft-freq-analytic2/test_input.py": {
+        "size": 120
+      },
+      "tests/dft-freq/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/dft-freq/test_input.py": {
+        "size": 104
+      },
+      "tests/dft-ghost/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/dft-ghost/test_input.py": {
+        "size": 98
+      },
+      "tests/dft-grac/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/dft-grac/test_input.py": {
+        "size": 108
+      },
+      "tests/dft-grad-disk/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/dft-grad-disk/test_input.py": {
+        "size": 102
+      },
+      "tests/dft-grad-lr1/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/dft-grad-lr1/test_input.py": {
+        "size": 101
+      },
+      "tests/dft-grad-lr2/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/dft-grad-lr2/test_input.py": {
+        "size": 108
+      },
+      "tests/dft-grad-lr3/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/dft-grad-lr3/test_input.py": {
+        "size": 101
+      },
+      "tests/dft-grad-meta/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/dft-grad-meta/test_input.py": {
+        "size": 107
+      },
+      "tests/dft-grad1/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/dft-grad1/test_input.py": {
+        "size": 103
+      },
+      "tests/dft-grad2/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/dft-grad2/test_input.py": {
+        "size": 114
+      },
+      "tests/dft-jk/CMakeLists.txt": {
+        "size": 66
+      },
+      "tests/dft-jk/test_input.py": {
+        "size": 95
+      },
+      "tests/dft-omega/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/dft-omega/test_input.py": {
+        "size": 98
+      },
+      "tests/dft-pruning/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/dft-pruning/test_input.py": {
+        "size": 100
+      },
+      "tests/dft-psivar/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/dft-psivar/test_input.py": {
+        "size": 99
+      },
+      "tests/dft-reference/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/dft-reference/test_input.py": {
+        "size": 106
+      },
+      "tests/dft-smoke/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/dft-smoke/test_input.py": {
+        "size": 104
+      },
+      "tests/dft-vv10/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/dft-vv10/test_input.py": {
+        "size": 108
+      },
+      "tests/dft1-alt/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/dft1-alt/test_input.py": {
+        "size": 97
+      },
+      "tests/dft1/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/dft1/test_input.py": {
+        "size": 93
+      },
+      "tests/dft2/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/dft2/test_input.py": {
+        "size": 93
+      },
+      "tests/dft3/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/dft3/test_input.py": {
+        "size": 93
+      },
+      "tests/dftd3/CMakeLists.txt": {
+        "size": 137
+      },
+      "tests/dftd3/energy/CMakeLists.txt": {
+        "size": 103
+      },
+      "tests/dftd3/energy/test_input.py": {
+        "size": 126
+      },
+      "tests/dftd3/grad/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/dftd3/grad/test_input.py": {
+        "size": 112
+      },
+      "tests/dftd3/nbody-cp-gradient/CMakeLists.txt": {
+        "size": 107
+      },
+      "tests/dftd3/nbody-cp-gradient/test_input.py": {
+        "size": 140
+      },
+      "tests/dftd3/psithon2/CMakeLists.txt": {
+        "size": 231
+      },
+      "tests/dftd3/psithon2/psiaux1/S33.py": {
+        "size": 42450
+      },
+      "tests/dftd3/psithon2/psiaux1/myplugin1/__init__.py": {
+        "size": 294
+      },
+      "tests/dftd3/psithon2/psiaux1/myplugin1/pymodule.py": {
+        "size": 790
+      },
+      "tests/dftd3/psithon2/psiaux2/S44.py": {
+        "size": 42450
+      },
+      "tests/dftd3/psithon2/test_input.py": {
+        "size": 570
+      },
+      "tests/dftd3/version/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/dftd3/version/test_input.py": {
+        "size": 115
+      },
+      "tests/dftd4/CMakeLists.txt": {
+        "size": 50
+      },
+      "tests/dftd4/energy/CMakeLists.txt": {
+        "size": 103
+      },
+      "tests/dftd4/energy/test_input.py": {
+        "size": 127
+      },
+      "tests/dftd4/r2scan/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/dftd4/r2scan/test_input.py": {
+        "size": 116
+      },
+      "tests/dkh/CMakeLists.txt": {
+        "size": 32
+      },
+      "tests/dkh/molpro-2order/CMakeLists.txt": {
+        "size": 106
+      },
+      "tests/dkh/molpro-2order/test_input.py": {
+        "size": 129
+      },
+      "tests/dlpnocc-1/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/dlpnocc-1/test_input.py": {
+        "size": 103
+      },
+      "tests/dlpnocc-2/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/dlpnocc-2/test_input.py": {
+        "size": 103
+      },
+      "tests/dlpnocc-3/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/dlpnocc-3/test_input.py": {
+        "size": 103
+      },
+      "tests/dlpnocc-4/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/dlpnocc-4/test_input.py": {
+        "size": 105
+      },
+      "tests/dlpnomp2-1/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/dlpnomp2-1/test_input.py": {
+        "size": 101
+      },
+      "tests/dlpnomp2-2/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/dlpnomp2-2/test_input.py": {
+        "size": 105
+      },
+      "tests/dlpnomp2-3/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/dlpnomp2-3/test_input.py": {
+        "size": 101
+      },
+      "tests/docs-bases/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/docs-bases/test_input.py": {
+        "size": 101
+      },
+      "tests/docs-dft/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/docs-dft/test_input.py": {
+        "size": 99
+      },
+      "tests/embpot1/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/embpot1/test_input.py": {
+        "size": 114
+      },
+      "tests/explicit-am-basis/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/explicit-am-basis/test_input.py": {
+        "size": 108
+      },
+      "tests/extern1/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/extern1/test_input.py": {
+        "size": 112
+      },
+      "tests/extern2/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/extern2/test_input.py": {
+        "size": 111
+      },
+      "tests/extern3/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/extern3/test_input.py": {
+        "size": 104
+      },
+      "tests/extern4/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/extern4/test_input.py": {
+        "size": 112
+      },
+      "tests/extern5/CMakeLists.txt": {
+        "size": 93
+      },
+      "tests/extern5/test_input.py": {
+        "size": 117
+      },
+      "tests/extern6/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/extern6/test_input.py": {
+        "size": 105
+      },
+      "tests/fci-coverage/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/fci-coverage/test_input.py": {
+        "size": 101
+      },
+      "tests/fci-dipole/CMakeLists.txt": {
+        "size": 92
+      },
+      "tests/fci-dipole/test_input.py": {
+        "size": 116
+      },
+      "tests/fci-h2o-2/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/fci-h2o-2/test_input.py": {
+        "size": 99
+      },
+      "tests/fci-h2o-fzcv/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/fci-h2o-fzcv/test_input.py": {
+        "size": 107
+      },
+      "tests/fci-h2o/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/fci-h2o/test_input.py": {
+        "size": 96
+      },
+      "tests/fci-tdm-2/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/fci-tdm-2/test_input.py": {
+        "size": 114
+      },
+      "tests/fci-tdm/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/fci-tdm/test_input.py": {
+        "size": 107
+      },
+      "tests/fcidump/CMakeLists.txt": {
+        "size": 479
+      },
+      "tests/fcidump/test_input.py": {
+        "size": 321
+      },
+      "tests/fd-freq-energy-large/CMakeLists.txt": {
+        "size": 192
+      },
+      "tests/fd-freq-energy-large/test_input.py": {
+        "size": 123
+      },
+      "tests/fd-freq-energy/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/fd-freq-energy/test_input.py": {
+        "size": 107
+      },
+      "tests/fd-freq-gradient-large/CMakeLists.txt": {
+        "size": 164
+      },
+      "tests/fd-freq-gradient-large/test_input.py": {
+        "size": 128
+      },
+      "tests/fd-freq-gradient/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/fd-freq-gradient/test_input.py": {
+        "size": 109
+      },
+      "tests/fd-gradient/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/fd-gradient/test_input.py": {
+        "size": 108
+      },
+      "tests/fisapt-siao1/CMakeLists.txt": {
+        "size": 186
+      },
+      "tests/fisapt-siao1/test_input.py": {
+        "size": 274
+      },
+      "tests/fnocc1/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/fnocc1/test_input.py": {
+        "size": 93
+      },
+      "tests/fnocc2/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/fnocc2/test_input.py": {
+        "size": 99
+      },
+      "tests/fnocc3/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/fnocc3/test_input.py": {
+        "size": 93
+      },
+      "tests/fnocc4/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/fnocc4/test_input.py": {
+        "size": 99
+      },
+      "tests/fnocc5/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/fnocc5/test_input.py": {
+        "size": 99
+      },
+      "tests/fnocc6/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/fnocc6/test_input.py": {
+        "size": 99
+      },
+      "tests/fnocc7/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/fnocc7/test_input.py": {
+        "size": 93
+      },
+      "tests/frac-ip-fitting/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/frac-ip-fitting/test_input.py": {
+        "size": 101
+      },
+      "tests/frac-sym/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/frac-sym/test_input.py": {
+        "size": 103
+      },
+      "tests/frac-traverse/CMakeLists.txt": {
+        "size": 131
+      },
+      "tests/frac-traverse/test_input.py": {
+        "size": 104
+      },
+      "tests/frac/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/frac/test_input.py": {
+        "size": 103
+      },
+      "tests/freq-isotope1/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/freq-isotope1/test_input.py": {
+        "size": 104
+      },
+      "tests/freq-isotope2/CMakeLists.txt": {
+        "size": 92
+      },
+      "tests/freq-isotope2/test_input.py": {
+        "size": 115
+      },
+      "tests/freq-masses/CMakeLists.txt": {
+        "size": 83
+      },
+      "tests/freq-masses/test_input.py": {
+        "size": 111
+      },
+      "tests/fsapt-allterms/CMakeLists.txt": {
+        "size": 263
+      },
+      "tests/fsapt-allterms/test_input.py": {
+        "size": 288
+      },
+      "tests/fsapt-d/CMakeLists.txt": {
+        "size": 97
+      },
+      "tests/fsapt-d/test_input.py": {
+        "size": 133
+      },
+      "tests/fsapt-d4/CMakeLists.txt": {
+        "size": 221
+      },
+      "tests/fsapt-d4/test_input.py": {
+        "size": 324
+      },
+      "tests/fsapt-ext-abc-au/CMakeLists.txt": {
+        "size": 219
+      },
+      "tests/fsapt-ext-abc-au/test_input.py": {
+        "size": 297
+      },
+      "tests/fsapt-ext-abc/CMakeLists.txt": {
+        "size": 222
+      },
+      "tests/fsapt-ext-abc/test_input.py": {
+        "size": 300
+      },
+      "tests/fsapt-ext-abc2/CMakeLists.txt": {
+        "size": 223
+      },
+      "tests/fsapt-ext-abc2/test_input.py": {
+        "size": 301
+      },
+      "tests/fsapt-ext/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/fsapt-ext/test_input.py": {
+        "size": 119
+      },
+      "tests/fsapt-terms/CMakeLists.txt": {
+        "size": 213
+      },
+      "tests/fsapt-terms/test_input.py": {
+        "size": 291
+      },
+      "tests/fsapt1/CMakeLists.txt": {
+        "size": 131
+      },
+      "tests/fsapt1/test_input.py": {
+        "size": 111
+      },
+      "tests/fsapt2/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/fsapt2/test_input.py": {
+        "size": 109
+      },
+      "tests/fsaptd-terms/CMakeLists.txt": {
+        "size": 214
+      },
+      "tests/fsaptd-terms/test_input.py": {
+        "size": 309
+      },
+      "tests/gcp/CMakeLists.txt": {
+        "size": 198
+      },
+      "tests/gcp/b973c/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/gcp/b973c/test_input.py": {
+        "size": 135
+      },
+      "tests/gcp/dft-custom-hybrid/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/gcp/dft-custom-hybrid/test_input.py": {
+        "size": 138
+      },
+      "tests/gcp/hf3c-gradient/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/gcp/hf3c-gradient/test_input.py": {
+        "size": 139
+      },
+      "tests/gcp/hf3c-hessian/CMakeLists.txt": {
+        "size": 93
+      },
+      "tests/gcp/hf3c-hessian/test_input.py": {
+        "size": 144
+      },
+      "tests/gcp/hf3c/CMakeLists.txt": {
+        "size": 92
+      },
+      "tests/gcp/hf3c/test_input.py": {
+        "size": 133
+      },
+      "tests/gcp/pbeh3c/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/gcp/pbeh3c/test_input.py": {
+        "size": 128
+      },
+      "tests/gcp/r2scan3c/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/gcp/r2scan3c/test_input.py": {
+        "size": 140
+      },
+      "tests/gdma/CMakeLists.txt": {
+        "size": 24
+      },
+      "tests/gdma/gdma1/CMakeLists.txt": {
+        "size": 104
+      },
+      "tests/gdma/gdma1/test_input.py": {
+        "size": 128
+      },
+      "tests/ghosts/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/ghosts/test_input.py": {
+        "size": 97
+      },
+      "tests/gibbs/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/gibbs/test_input.py": {
+        "size": 102
+      },
+      "tests/gpu_dfcc/CMakeLists.txt": {
+        "size": 54
+      },
+      "tests/gpu_dfcc/gpudfcc1/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/gpu_dfcc/gpudfcc1/test_input.py": {
+        "size": 119
+      },
+      "tests/gpu_dfcc/gpudfcc2/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/gpu_dfcc/gpudfcc2/test_input.py": {
+        "size": 119
+      },
+      "tests/isapt-charged/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/isapt-charged/test_input.py": {
+        "size": 107
+      },
+      "tests/isapt-siao1/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/isapt-siao1/test_input.py": {
+        "size": 97
+      },
+      "tests/isapt1/CMakeLists.txt": {
+        "size": 112
+      },
+      "tests/isapt1/test_input.py": {
+        "size": 92
+      },
+      "tests/isapt2/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/isapt2/test_input.py": {
+        "size": 97
+      },
+      "tests/json/CMakeLists.txt": {
+        "size": 278
+      },
+      "tests/json/schema-1-energy/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/json/schema-1-energy/input.py": {
+        "size": 4922
+      },
+      "tests/json/schema-1-energy/test_input.py": {
+        "size": 112
+      },
+      "tests/json/schema-1-ghost/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/json/schema-1-ghost/input.py": {
+        "size": 1577
+      },
+      "tests/json/schema-1-ghost/test_input.py": {
+        "size": 105
+      },
+      "tests/json/schema-1-gradient/CMakeLists.txt": {
+        "size": 101
+      },
+      "tests/json/schema-1-gradient/input.py": {
+        "size": 1697
+      },
+      "tests/json/schema-1-gradient/test_input.py": {
+        "size": 120
+      },
+      "tests/json/schema-1-orient/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/json/schema-1-orient/input.py": {
+        "size": 2220
+      },
+      "tests/json/schema-1-orient/test_input.py": {
+        "size": 106
+      },
+      "tests/json/schema-1-properties/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/json/schema-1-properties/input.py": {
+        "size": 4606
+      },
+      "tests/json/schema-1-properties/test_input.py": {
+        "size": 110
+      },
+      "tests/json/schema-1-response/CMakeLists.txt": {
+        "size": 90
+      },
+      "tests/json/schema-1-response/input.py": {
+        "size": 4992
+      },
+      "tests/json/schema-1-response/test_input.py": {
+        "size": 119
+      },
+      "tests/json/schema-1-tamps/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/json/schema-1-tamps/input.py": {
+        "size": 2169
+      },
+      "tests/json/schema-1-tamps/test_input.py": {
+        "size": 105
+      },
+      "tests/json/schema-1-throws/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/json/schema-1-throws/input.py": {
+        "size": 1793
+      },
+      "tests/json/schema-1-throws/test_input.py": {
+        "size": 106
+      },
+      "tests/lccd-grad1/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/lccd-grad1/test_input.py": {
+        "size": 101
+      },
+      "tests/lccd-grad2/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/lccd-grad2/test_input.py": {
+        "size": 101
+      },
+      "tests/libefp/CMakeLists.txt": {
+        "size": 166
+      },
+      "tests/libefp/efp-grad/CMakeLists.txt": {
+        "size": 96
+      },
+      "tests/libefp/efp-grad/test_input.py": {
+        "size": 125
+      },
+      "tests/libefp/qchem-efp-sp/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/libefp/qchem-efp-sp/test_input.py": {
+        "size": 123
+      },
+      "tests/libefp/qchem-qmefp-puream-sp/CMakeLists.txt": {
+        "size": 113
+      },
+      "tests/libefp/qchem-qmefp-puream-sp/test_input.py": {
+        "size": 142
+      },
+      "tests/libefp/qchem-qmefp-sp/CMakeLists.txt": {
+        "size": 117
+      },
+      "tests/libefp/qchem-qmefp-sp/test_input.py": {
+        "size": 141
+      },
+      "tests/libefp/qmefp-moldomains/CMakeLists.txt": {
+        "size": 97
+      },
+      "tests/libefp/qmefp-moldomains/test_input.py": {
+        "size": 131
+      },
+      "tests/linK-1/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/linK-1/test_input.py": {
+        "size": 108
+      },
+      "tests/linK-2/CMakeLists.txt": {
+        "size": 134
+      },
+      "tests/linK-2/test_input.py": {
+        "size": 114
+      },
+      "tests/linK-3/CMakeLists.txt": {
+        "size": 122
+      },
+      "tests/linK-3/test_input.py": {
+        "size": 102
+      },
+      "tests/matrix1/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/matrix1/test_input.py": {
+        "size": 104
+      },
+      "tests/matrix2/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/matrix2/test_input.py": {
+        "size": 99
+      },
+      "tests/mbis-1/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/mbis-1/test_input.py": {
+        "size": 104
+      },
+      "tests/mbis-2/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/mbis-2/test_input.py": {
+        "size": 98
+      },
+      "tests/mbis-3/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/mbis-3/test_input.py": {
+        "size": 98
+      },
+      "tests/mbis-4/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/mbis-4/test_input.py": {
+        "size": 98
+      },
+      "tests/mbis-5/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/mbis-5/test_input.py": {
+        "size": 98
+      },
+      "tests/mbis-6/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/mbis-6/test_input.py": {
+        "size": 104
+      },
+      "tests/mcscf1/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/mcscf1/test_input.py": {
+        "size": 104
+      },
+      "tests/mcscf2/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/mcscf2/test_input.py": {
+        "size": 98
+      },
+      "tests/mcscf3/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/mcscf3/test_input.py": {
+        "size": 98
+      },
+      "tests/mints-benchmark/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/mints-benchmark/test_input.py": {
+        "size": 107
+      },
+      "tests/mints-helper/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/mints-helper/test_input.py": {
+        "size": 99
+      },
+      "tests/mints1/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/mints1/test_input.py": {
+        "size": 104
+      },
+      "tests/mints10/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/mints10/test_input.py": {
+        "size": 100
+      },
+      "tests/mints12/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/mints12/test_input.py": {
+        "size": 104
+      },
+      "tests/mints15/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/mints15/test_input.py": {
+        "size": 99
+      },
+      "tests/mints2-bse/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/mints2-bse/test_input.py": {
+        "size": 129
+      },
+      "tests/mints2/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/mints2/test_input.py": {
+        "size": 104
+      },
+      "tests/mints3/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/mints3/test_input.py": {
+        "size": 589
+      },
+      "tests/mints4/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/mints4/test_input.py": {
+        "size": 93
+      },
+      "tests/mints5/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/mints5/test_input.py": {
+        "size": 93
+      },
+      "tests/mints6/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/mints6/test_input.py": {
+        "size": 93
+      },
+      "tests/mints8/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/mints8/test_input.py": {
+        "size": 93
+      },
+      "tests/mints9/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/mints9/test_input.py": {
+        "size": 103
+      },
+      "tests/molden1/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/molden1/test_input.py": {
+        "size": 104
+      },
+      "tests/molden2/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/molden2/test_input.py": {
+        "size": 104
+      },
+      "tests/mom-h2o-3/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/mom-h2o-3/test_input.py": {
+        "size": 103
+      },
+      "tests/mom-h2o-4/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/mom-h2o-4/test_input.py": {
+        "size": 109
+      },
+      "tests/mom/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/mom/test_input.py": {
+        "size": 97
+      },
+      "tests/mp2-1/CMakeLists.txt": {
+        "size": 61
+      },
+      "tests/mp2-1/test_input.py": {
+        "size": 90
+      },
+      "tests/mp2-def2/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/mp2-def2/test_input.py": {
+        "size": 104
+      },
+      "tests/mp2-grad1/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/mp2-grad1/test_input.py": {
+        "size": 94
+      },
+      "tests/mp2-grad2/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/mp2-grad2/test_input.py": {
+        "size": 94
+      },
+      "tests/mp2-h/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/mp2-h/test_input.py": {
+        "size": 97
+      },
+      "tests/mp2-property/CMakeLists.txt": {
+        "size": 160
+      },
+      "tests/mp2-property/test_input.py": {
+        "size": 153
+      },
+      "tests/mp2f12-1/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/mp2f12-1/test_input.py": {
+        "size": 118
+      },
+      "tests/mp2p5-grad1/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/mp2p5-grad1/test_input.py": {
+        "size": 102
+      },
+      "tests/mp2p5-grad2/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/mp2p5-grad2/test_input.py": {
+        "size": 96
+      },
+      "tests/mp3-grad1/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/mp3-grad1/test_input.py": {
+        "size": 94
+      },
+      "tests/mp3-grad2/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/mp3-grad2/test_input.py": {
+        "size": 94
+      },
+      "tests/mpn-bh/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/mpn-bh/test_input.py": {
+        "size": 102
+      },
+      "tests/mrcc/CMakeLists.txt": {
+        "size": 135
+      },
+      "tests/mrcc/ccsd_t_/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/mrcc/ccsd_t_/test_input.py": {
+        "size": 118
+      },
+      "tests/mrcc/ccsdt/CMakeLists.txt": {
+        "size": 98
+      },
+      "tests/mrcc/ccsdt/test_input.py": {
+        "size": 122
+      },
+      "tests/mrcc/ccsdt_q_/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/mrcc/ccsdt_q_/test_input.py": {
+        "size": 113
+      },
+      "tests/mrcc/optfreq/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/mrcc/optfreq/test_input.py": {
+        "size": 121
+      },
+      "tests/mrcc/rohf_ccsdt_q_/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/mrcc/rohf_ccsdt_q_/test_input.py": {
+        "size": 123
+      },
+      "tests/nbo/CMakeLists.txt": {
+        "size": 59
+      },
+      "tests/nbo/test_input.py": {
+        "size": 88
+      },
+      "tests/nbody-convergence/CMakeLists.txt": {
+        "size": 174
+      },
+      "tests/nbody-convergence/test_input.py": {
+        "size": 113
+      },
+      "tests/nbody-cp-gradient/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/nbody-cp-gradient/test_input.py": {
+        "size": 366
+      },
+      "tests/nbody-freq/CMakeLists.txt": {
+        "size": 177
+      },
+      "tests/nbody-freq/test_input.py": {
+        "size": 123
+      },
+      "tests/nbody-he-4b/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/nbody-he-4b/test_input.py": {
+        "size": 356
+      },
+      "tests/nbody-he-cluster/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/nbody-he-cluster/test_input.py": {
+        "size": 108
+      },
+      "tests/nbody-hessian/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/nbody-hessian/test_input.py": {
+        "size": 108
+      },
+      "tests/nbody-intermediates/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/nbody-intermediates/test_input.py": {
+        "size": 106
+      },
+      "tests/nbody-multi-level-2/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/nbody-multi-level-2/test_input.py": {
+        "size": 106
+      },
+      "tests/nbody-multi-level/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/nbody-multi-level/test_input.py": {
+        "size": 461
+      },
+      "tests/nbody-nocp-gradient/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/nbody-nocp-gradient/test_input.py": {
+        "size": 115
+      },
+      "tests/nbody-vmfc-gradient/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/nbody-vmfc-gradient/test_input.py": {
+        "size": 115
+      },
+      "tests/nbody-vmfc-hessian/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/nbody-vmfc-hessian/test_input.py": {
+        "size": 374
+      },
+      "tests/numint1/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/numint1/test_input.py": {
+        "size": 110
+      },
+      "tests/numpy-array-interface/CMakeLists.txt": {
+        "size": 102
+      },
+      "tests/numpy-array-interface/test_input.py": {
+        "size": 126
+      },
+      "tests/olccd-freq1/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/olccd-freq1/test_input.py": {
+        "size": 115
+      },
+      "tests/olccd-grad1/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/olccd-grad1/test_input.py": {
+        "size": 98
+      },
+      "tests/olccd-grad2/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/olccd-grad2/test_input.py": {
+        "size": 104
+      },
+      "tests/olccd1/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/olccd1/test_input.py": {
+        "size": 99
+      },
+      "tests/olccd2/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/olccd2/test_input.py": {
+        "size": 93
+      },
+      "tests/olccd3/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/olccd3/test_input.py": {
+        "size": 93
+      },
+      "tests/omp2-1/CMakeLists.txt": {
+        "size": 62
+      },
+      "tests/omp2-1/test_input.py": {
+        "size": 91
+      },
+      "tests/omp2-2/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/omp2-2/test_input.py": {
+        "size": 97
+      },
+      "tests/omp2-3/CMakeLists.txt": {
+        "size": 62
+      },
+      "tests/omp2-3/test_input.py": {
+        "size": 91
+      },
+      "tests/omp2-4/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/omp2-4/test_input.py": {
+        "size": 98
+      },
+      "tests/omp2-5/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/omp2-5/test_input.py": {
+        "size": 98
+      },
+      "tests/omp2-grad1/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/omp2-grad1/test_input.py": {
+        "size": 110
+      },
+      "tests/omp2-grad2/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/omp2-grad2/test_input.py": {
+        "size": 104
+      },
+      "tests/omp2p5-1/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/omp2p5-1/test_input.py": {
+        "size": 93
+      },
+      "tests/omp2p5-2/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/omp2p5-2/test_input.py": {
+        "size": 99
+      },
+      "tests/omp2p5-grad1/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/omp2p5-grad1/test_input.py": {
+        "size": 106
+      },
+      "tests/omp2p5-grad2/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/omp2p5-grad2/test_input.py": {
+        "size": 106
+      },
+      "tests/omp3-1/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/omp3-1/test_input.py": {
+        "size": 97
+      },
+      "tests/omp3-2/CMakeLists.txt": {
+        "size": 62
+      },
+      "tests/omp3-2/test_input.py": {
+        "size": 91
+      },
+      "tests/omp3-3/CMakeLists.txt": {
+        "size": 62
+      },
+      "tests/omp3-3/test_input.py": {
+        "size": 91
+      },
+      "tests/omp3-4/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/omp3-4/test_input.py": {
+        "size": 98
+      },
+      "tests/omp3-5/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/omp3-5/test_input.py": {
+        "size": 98
+      },
+      "tests/omp3-grad1/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/omp3-grad1/test_input.py": {
+        "size": 104
+      },
+      "tests/omp3-grad2/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/omp3-grad2/test_input.py": {
+        "size": 104
+      },
+      "tests/opt-freeze-coords/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/opt-freeze-coords/test_input.py": {
+        "size": 113
+      },
+      "tests/opt-full-hess-every/CMakeLists.txt": {
+        "size": 129
+      },
+      "tests/opt-full-hess-every/test_input.py": {
+        "size": 110
+      },
+      "tests/opt-irc-1/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/opt-irc-1/test_input.py": {
+        "size": 111
+      },
+      "tests/opt-irc-2/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/opt-irc-2/test_input.py": {
+        "size": 106
+      },
+      "tests/opt-irc-3/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/opt-irc-3/test_input.py": {
+        "size": 106
+      },
+      "tests/opt-lindep-change/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/opt-lindep-change/test_input.py": {
+        "size": 102
+      },
+      "tests/opt1-fd/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/opt1-fd/test_input.py": {
+        "size": 99
+      },
+      "tests/opt1/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/opt1/test_input.py": {
+        "size": 95
+      },
+      "tests/opt11/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/opt11/test_input.py": {
+        "size": 100
+      },
+      "tests/opt12/CMakeLists.txt": {
+        "size": 61
+      },
+      "tests/opt12/test_input.py": {
+        "size": 90
+      },
+      "tests/opt13/CMakeLists.txt": {
+        "size": 124
+      },
+      "tests/opt13/test_input.py": {
+        "size": 100
+      },
+      "tests/opt14/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/opt14/test_input.py": {
+        "size": 100
+      },
+      "tests/opt15/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/opt15/test_input.py": {
+        "size": 100
+      },
+      "tests/opt16/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/opt16/test_input.py": {
+        "size": 102
+      },
+      "tests/opt2-fd/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/opt2-fd/test_input.py": {
+        "size": 97
+      },
+      "tests/opt2/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/opt2/test_input.py": {
+        "size": 332
+      },
+      "tests/opt3/CMakeLists.txt": {
+        "size": 60
+      },
+      "tests/opt3/test_input.py": {
+        "size": 89
+      },
+      "tests/opt4/CMakeLists.txt": {
+        "size": 60
+      },
+      "tests/opt4/test_input.py": {
+        "size": 89
+      },
+      "tests/opt5/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/opt5/test_input.py": {
+        "size": 94
+      },
+      "tests/opt6/CMakeLists.txt": {
+        "size": 60
+      },
+      "tests/opt6/test_input.py": {
+        "size": 89
+      },
+      "tests/opt7/CMakeLists.txt": {
+        "size": 60
+      },
+      "tests/opt7/test_input.py": {
+        "size": 89
+      },
+      "tests/opt8/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/opt8/test_input.py": {
+        "size": 94
+      },
+      "tests/opt9/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/opt9/test_input.py": {
+        "size": 94
+      },
+      "tests/options1/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/options1/test_input.py": {
+        "size": 106
+      },
+      "tests/oremp-grad1/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/oremp-grad1/test_input.py": {
+        "size": 96
+      },
+      "tests/oremp-grad2/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/oremp-grad2/test_input.py": {
+        "size": 96
+      },
+      "tests/pasture-ccsorttransqt2/CMakeLists.txt": {
+        "size": 64
+      },
+      "tests/pasture-ccsorttransqt2/bccd_driver/CMakeLists.txt": {
+        "size": 105
+      },
+      "tests/pasture-ccsorttransqt2/ccenergy_driver/CMakeLists.txt": {
+        "size": 120
+      },
+      "tests/pcmsolver/CMakeLists.txt": {
+        "size": 221
+      },
+      "tests/pcmsolver/alpha/CMakeLists.txt": {
+        "size": 111
+      },
+      "tests/pcmsolver/alpha/test_input.py": {
+        "size": 135
+      },
+      "tests/pcmsolver/ccsd-pte/CMakeLists.txt": {
+        "size": 109
+      },
+      "tests/pcmsolver/ccsd-pte/test_input.py": {
+        "size": 138
+      },
+      "tests/pcmsolver/dft/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/pcmsolver/dft/test_input.py": {
+        "size": 128
+      },
+      "tests/pcmsolver/dipole/CMakeLists.txt": {
+        "size": 118
+      },
+      "tests/pcmsolver/dipole/test_input.py": {
+        "size": 146
+      },
+      "tests/pcmsolver/ghost/CMakeLists.txt": {
+        "size": 112
+      },
+      "tests/pcmsolver/ghost/test_input.py": {
+        "size": 136
+      },
+      "tests/pcmsolver/opt-fd/CMakeLists.txt": {
+        "size": 119
+      },
+      "tests/pcmsolver/opt-fd/test_input.py": {
+        "size": 143
+      },
+      "tests/pcmsolver/scf/CMakeLists.txt": {
+        "size": 112
+      },
+      "tests/pcmsolver/scf/test_input.py": {
+        "size": 136
+      },
+      "tests/pcmsolver/tdscf/CMakeLists.txt": {
+        "size": 112
+      },
+      "tests/pcmsolver/tdscf/test_input.py": {
+        "size": 135
+      },
+      "tests/pcmsolver/uhf-tdscf/CMakeLists.txt": {
+        "size": 115
+      },
+      "tests/pcmsolver/uhf-tdscf/test_input.py": {
+        "size": 139
+      },
+      "tests/phi-ao/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/phi-ao/test_input.py": {
+        "size": 104
+      },
+      "tests/plugins/CMakeLists.txt": {
+        "size": 304
+      },
+      "tests/plugins/skeleton/CMakeLists.txt": {
+        "size": 265
+      },
+      "tests/plugins/skeletonambit/CMakeLists.txt": {
+        "size": 270
+      },
+      "tests/plugins/skeletonaointegrals/CMakeLists.txt": {
+        "size": 282
+      },
+      "tests/plugins/skeletondfmp2/CMakeLists.txt": {
+        "size": 291
+      },
+      "tests/plugins/skeletonmointegrals/CMakeLists.txt": {
+        "size": 282
+      },
+      "tests/plugins/skeletonscf/CMakeLists.txt": {
+        "size": 266
+      },
+      "tests/plugins/skeletonsointegrals/CMakeLists.txt": {
+        "size": 282
+      },
+      "tests/plugins/skeletonwavefunction/CMakeLists.txt": {
+        "size": 284
+      },
+      "tests/props1/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/props1/test_input.py": {
+        "size": 98
+      },
+      "tests/props2/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/props2/test_input.py": {
+        "size": 98
+      },
+      "tests/props3/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/props3/test_input.py": {
+        "size": 103
+      },
+      "tests/props4/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/props4/test_input.py": {
+        "size": 109
+      },
+      "tests/psi4numpy/CMakeLists.txt": {
+        "size": 152
+      },
+      "tests/psi4numpy/cphf/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/psi4numpy/cphf/input.py": {
+        "size": 2679
+      },
+      "tests/psi4numpy/cphf/test_input.py": {
+        "size": 100
+      },
+      "tests/psi4numpy/dfmp2/CMakeLists.txt": {
+        "size": 93
+      },
+      "tests/psi4numpy/dfmp2/input.py": {
+        "size": 3617
+      },
+      "tests/psi4numpy/dfmp2/test_input.py": {
+        "size": 107
+      },
+      "tests/psi4numpy/fci/CMakeLists.txt": {
+        "size": 83
+      },
+      "tests/psi4numpy/fci/input.py": {
+        "size": 4224
+      },
+      "tests/psi4numpy/fci/test_input.py": {
+        "size": 102
+      },
+      "tests/psi4numpy/rhf-gradient/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/psi4numpy/rhf-gradient/input.py": {
+        "size": 5578
+      },
+      "tests/psi4numpy/rhf-gradient/test_input.py": {
+        "size": 109
+      },
+      "tests/psi4numpy/rhf-hessian/CMakeLists.txt": {
+        "size": 112
+      },
+      "tests/psi4numpy/rhf-hessian/input.py": {
+        "size": 10548
+      },
+      "tests/psi4numpy/rhf-hessian/test_input.py": {
+        "size": 121
+      },
+      "tests/psi4numpy/rhf/CMakeLists.txt": {
+        "size": 97
+      },
+      "tests/psi4numpy/rhf/input.py": {
+        "size": 3412
+      },
+      "tests/psi4numpy/rhf/test_input.py": {
+        "size": 106
+      },
+      "tests/psimrcc-ccsd_t-1/CMakeLists.txt": {
+        "size": 97
+      },
+      "tests/psimrcc-ccsd_t-1/test_input.py": {
+        "size": 121
+      },
+      "tests/psimrcc-ccsd_t-2/CMakeLists.txt": {
+        "size": 97
+      },
+      "tests/psimrcc-ccsd_t-2/test_input.py": {
+        "size": 121
+      },
+      "tests/psimrcc-ccsd_t-3/CMakeLists.txt": {
+        "size": 97
+      },
+      "tests/psimrcc-ccsd_t-3/test_input.py": {
+        "size": 121
+      },
+      "tests/psimrcc-ccsd_t-4/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/psimrcc-ccsd_t-4/test_input.py": {
+        "size": 115
+      },
+      "tests/psimrcc-fd-freq1/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/psimrcc-fd-freq1/test_input.py": {
+        "size": 117
+      },
+      "tests/psimrcc-fd-freq2/CMakeLists.txt": {
+        "size": 93
+      },
+      "tests/psimrcc-fd-freq2/test_input.py": {
+        "size": 122
+      },
+      "tests/psimrcc-pt2/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/psimrcc-pt2/test_input.py": {
+        "size": 111
+      },
+      "tests/psimrcc-sp1/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/psimrcc-sp1/test_input.py": {
+        "size": 111
+      },
+      "tests/psithon1/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/psithon1/test_input.py": {
+        "size": 100
+      },
+      "tests/psithon2/CMakeLists.txt": {
+        "size": 182
+      },
+      "tests/psithon2/psiaux1/S33.py": {
+        "size": 42450
+      },
+      "tests/psithon2/psiaux1/myplugin1/__init__.py": {
+        "size": 294
+      },
+      "tests/psithon2/psiaux1/myplugin1/pymodule.py": {
+        "size": 790
+      },
+      "tests/psithon2/psiaux2/S44.py": {
+        "size": 42450
+      },
+      "tests/psithon2/test_input.py": {
+        "size": 434
+      },
+      "tests/pubchem1/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/pubchem1/test_input.py": {
+        "size": 99
+      },
+      "tests/pubchem2/CMakeLists.txt": {
+        "size": 70
+      },
+      "tests/pubchem2/test_input.py": {
+        "size": 99
+      },
+      "tests/pytests/CMakeLists.txt": {
+        "size": 974
+      },
+      "tests/pytests/addons.py": {
+        "size": 8861
+      },
+      "tests/pytests/conftest.py": {
+        "size": 2170
+      },
+      "tests/pytests/data_dft-bench/orca_water_dimer_data.txt": {
+        "size": 358
+      },
+      "tests/pytests/f12_libint1.json": {
+        "size": 524313
+      },
+      "tests/pytests/occ_methods.txt": {
+        "size": 761
+      },
+      "tests/pytests/oei_reference_data.json": {
+        "size": 85089
+      },
+      "tests/pytests/standard_suite_ref_local.py": {
+        "size": 15147
+      },
+      "tests/pytests/standard_suite_runner.py": {
+        "size": 22973
+      },
+      "tests/pytests/tdscf_reference_data.json": {
+        "size": 115612
+      },
+      "tests/pytests/test_aaa_profiling.py": {
+        "size": 1844
+      },
+      "tests/pytests/test_adcc.py": {
+        "size": 6415
+      },
+      "tests/pytests/test_adcc/adcc_reference_data.json": {
+        "size": 37129
+      },
+      "tests/pytests/test_adcc/generate_reference_data_adcc.py": {
+        "size": 6317
+      },
+      "tests/pytests/test_addons.py": {
+        "size": 58061
+      },
+      "tests/pytests/test_addons_qcschema.py": {
+        "size": 67629
+      },
+      "tests/pytests/test_ccresponse.py": {
+        "size": 8845
+      },
+      "tests/pytests/test_composite.py": {
+        "size": 2466
+      },
+      "tests/pytests/test_compositejk.py": {
+        "size": 14180
+      },
+      "tests/pytests/test_comprehensive_jk_screening.py": {
+        "size": 4320
+      },
+      "tests/pytests/test_cppe.py": {
+        "size": 21777
+      },
+      "tests/pytests/test_ddx.py": {
+        "size": 14474
+      },
+      "tests/pytests/test_dertype.py": {
+        "size": 4969
+      },
+      "tests/pytests/test_detci_opdm.py": {
+        "size": 1949
+      },
+      "tests/pytests/test_dfjk.py": {
+        "size": 1969
+      },
+      "tests/pytests/test_dft_benchmarks.py": {
+        "size": 20325
+      },
+      "tests/pytests/test_dft_blocking.py": {
+        "size": 5093
+      },
+      "tests/pytests/test_dftd3.py": {
+        "size": 8908
+      },
+      "tests/pytests/test_dipoles.py": {
+        "size": 3183
+      },
+      "tests/pytests/test_ecp.py": {
+        "size": 9033
+      },
+      "tests/pytests/test_elec_fields.py": {
+        "size": 2308
+      },
+      "tests/pytests/test_erisieve.py": {
+        "size": 17356
+      },
+      "tests/pytests/test_extern.py": {
+        "size": 15466
+      },
+      "tests/pytests/test_f12_ints.py": {
+        "size": 1397
+      },
+      "tests/pytests/test_fchk_writer.py": {
+        "size": 4577
+      },
+      "tests/pytests/test_fcidump_energy.py": {
+        "size": 1910
+      },
+      "tests/pytests/test_fisapt.py": {
+        "size": 30361
+      },
+      "tests/pytests/test_gauxc_writer.py": {
+        "size": 4039
+      },
+      "tests/pytests/test_gauxc_writer/gauxc_writer.py": {
+        "size": 8477
+      },
+      "tests/pytests/test_geometric.py": {
+        "size": 4932
+      },
+      "tests/pytests/test_gradients.py": {
+        "size": 3328
+      },
+      "tests/pytests/test_jkmemory.py": {
+        "size": 1513
+      },
+      "tests/pytests/test_large_atoms.py": {
+        "size": 3266
+      },
+      "tests/pytests/test_matrix.py": {
+        "size": 12664
+      },
+      "tests/pytests/test_mcmurchie_davidson.py": {
+        "size": 4488
+      },
+      "tests/pytests/test_mdi.py": {
+        "size": 4203
+      },
+      "tests/pytests/test_mints.py": {
+        "size": 4515
+      },
+      "tests/pytests/test_misc.py": {
+        "size": 6539
+      },
+      "tests/pytests/test_molden_writer.py": {
+        "size": 6227
+      },
+      "tests/pytests/test_mp2.py": {
+        "size": 4784
+      },
+      "tests/pytests/test_mp2d.py": {
+        "size": 6633
+      },
+      "tests/pytests/test_multipole_potential.py": {
+        "size": 2858
+      },
+      "tests/pytests/test_nbody.py": {
+        "size": 8876
+      },
+      "tests/pytests/test_nbody_multi_level_qcschema.py": {
+        "size": 3891
+      },
+      "tests/pytests/test_np_views.py": {
+        "size": 2544
+      },
+      "tests/pytests/test_openfermion.py": {
+        "size": 2535
+      },
+      "tests/pytests/test_option.py": {
+        "size": 488
+      },
+      "tests/pytests/test_optking.py": {
+        "size": 11320
+      },
+      "tests/pytests/test_orbitalspace.py": {
+        "size": 1531
+      },
+      "tests/pytests/test_potential_erf.py": {
+        "size": 1258
+      },
+      "tests/pytests/test_psi4.py": {
+        "size": 8138
+      },
+      "tests/pytests/test_psi4_qcschema.py": {
+        "size": 6748
+      },
+      "tests/pytests/test_pyside_cubegen.py": {
+        "size": 1185
+      },
+      "tests/pytests/test_qcel_molparse_to_string.py": {
+        "size": 8107
+      },
+      "tests/pytests/test_qcfractal.py": {
+        "size": 2524
+      },
+      "tests/pytests/test_qcng_dftd3_mp2d.py": {
+        "size": 19611
+      },
+      "tests/pytests/test_qcschema.py": {
+        "size": 8300
+      },
+      "tests/pytests/test_qcvars.py": {
+        "size": 8336
+      },
+      "tests/pytests/test_raises.py": {
+        "size": 1466
+      },
+      "tests/pytests/test_restart.py": {
+        "size": 1957
+      },
+      "tests/pytests/test_saptdft.py": {
+        "size": 3205
+      },
+      "tests/pytests/test_scf_options.py": {
+        "size": 4460
+      },
+      "tests/pytests/test_solvers.py": {
+        "size": 12699
+      },
+      "tests/pytests/test_standard_suite.py": {
+        "size": 524313
+      },
+      "tests/pytests/test_task_planner.py": {
+        "size": 16953
+      },
+      "tests/pytests/test_tdscf_excitations.py": {
+        "size": 14398
+      },
+      "tests/pytests/test_tdscf_products.py": {
+        "size": 24469
+      },
+      "tests/pytests/test_testing.py": {
+        "size": 11911
+      },
+      "tests/pytests/test_thc_eri.py": {
+        "size": 2866
+      },
+      "tests/pytests/test_triplet.py": {
+        "size": 2977
+      },
+      "tests/pytests/test_vector.py": {
+        "size": 5426
+      },
+      "tests/pytests/test_vibanalysis.py": {
+        "size": 70596
+      },
+      "tests/pytests/test_weird_basis.py": {
+        "size": 11669
+      },
+      "tests/pytests/test_wfn.py": {
+        "size": 671
+      },
+      "tests/pytests/test_zeta.py": {
+        "size": 12989
+      },
+      "tests/pytests/utils.py": {
+        "size": 3056
+      },
+      "tests/python/3-index-transforms/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/python/3-index-transforms/input.py": {
+        "size": 5094
+      },
+      "tests/python/3-index-transforms/test_input.py": {
+        "size": 112
+      },
+      "tests/python/CMakeLists.txt": {
+        "size": 291
+      },
+      "tests/python/cc-amps/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/python/cc-amps/input.py": {
+        "size": 4035
+      },
+      "tests/python/cc-amps/test_input.py": {
+        "size": 101
+      },
+      "tests/python/cc54/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/python/cc54/input.py": {
+        "size": 3400
+      },
+      "tests/python/cc54/test_input.py": {
+        "size": 98
+      },
+      "tests/python/curve/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/python/curve/input.py": {
+        "size": 710
+      },
+      "tests/python/curve/test_input.py": {
+        "size": 99
+      },
+      "tests/python/databases/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/python/databases/input.py": {
+        "size": 600
+      },
+      "tests/python/databases/test_input.py": {
+        "size": 108
+      },
+      "tests/python/energy/CMakeLists.txt": {
+        "size": 94
+      },
+      "tests/python/energy/input.py": {
+        "size": 466
+      },
+      "tests/python/energy/test_input.py": {
+        "size": 106
+      },
+      "tests/python/mints13/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/python/mints13/input.py": {
+        "size": 4179
+      },
+      "tests/python/mints14/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/python/mints14/input.py": {
+        "size": 13461
+      },
+      "tests/python/mints14/test_input.py": {
+        "size": 112
+      },
+      "tests/python/mints2/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/python/mints2/input.py": {
+        "size": 4325
+      },
+      "tests/python/mints2/test_input.py": {
+        "size": 105
+      },
+      "tests/python/mints9/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/python/mints9/input.py": {
+        "size": 9024
+      },
+      "tests/python/mints9/test_input.py": {
+        "size": 105
+      },
+      "tests/python/pubchem/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/python/pubchem/input.py": {
+        "size": 1449
+      },
+      "tests/python/pubchem/test_input.py": {
+        "size": 110
+      },
+      "tests/python/tddft/stab.py": {
+        "size": 1400
+      },
+      "tests/pywrap-alias/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/pywrap-alias/test_input.py": {
+        "size": 110
+      },
+      "tests/pywrap-align-chiral/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/pywrap-align-chiral/test_input.py": {
+        "size": 111
+      },
+      "tests/pywrap-align/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/pywrap-align/test_input.py": {
+        "size": 104
+      },
+      "tests/pywrap-all/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/pywrap-all/test_input.py": {
+        "size": 108
+      },
+      "tests/pywrap-basis/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/pywrap-basis/test_input.py": {
+        "size": 100
+      },
+      "tests/pywrap-bfs/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/pywrap-bfs/test_input.py": {
+        "size": 102
+      },
+      "tests/pywrap-cbs1/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/pywrap-cbs1/test_input.py": {
+        "size": 109
+      },
+      "tests/pywrap-checkrun-convcrit/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/pywrap-checkrun-convcrit/test_input.py": {
+        "size": 117
+      },
+      "tests/pywrap-checkrun-rhf/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/pywrap-checkrun-rhf/test_input.py": {
+        "size": 107
+      },
+      "tests/pywrap-checkrun-rohf/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/pywrap-checkrun-rohf/test_input.py": {
+        "size": 108
+      },
+      "tests/pywrap-checkrun-uhf/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/pywrap-checkrun-uhf/test_input.py": {
+        "size": 107
+      },
+      "tests/pywrap-db1/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/pywrap-db1/test_input.py": {
+        "size": 98
+      },
+      "tests/pywrap-db3/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/pywrap-db3/test_input.py": {
+        "size": 98
+      },
+      "tests/pywrap-molecule/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/pywrap-molecule/test_input.py": {
+        "size": 109
+      },
+      "tests/rasci-c2-active/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/rasci-c2-active/test_input.py": {
+        "size": 107
+      },
+      "tests/rasci-h2o/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/rasci-h2o/test_input.py": {
+        "size": 101
+      },
+      "tests/rasci-ne/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/rasci-ne/test_input.py": {
+        "size": 100
+      },
+      "tests/rasscf-sp/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/rasscf-sp/test_input.py": {
+        "size": 108
+      },
+      "tests/remp-energy1/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/remp-energy1/test_input.py": {
+        "size": 97
+      },
+      "tests/remp-energy2/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/remp-energy2/test_input.py": {
+        "size": 97
+      },
+      "tests/runtest.py": {
+        "size": 4033
+      },
+      "tests/sad-scf-type/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/sad-scf-type/test_input.py": {
+        "size": 103
+      },
+      "tests/sad1/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/sad1/test_input.py": {
+        "size": 96
+      },
+      "tests/sapt-compare/CMakeLists.txt": {
+        "size": 85
+      },
+      "tests/sapt-compare/test_input.py": {
+        "size": 109
+      },
+      "tests/sapt-dft-api/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/sapt-dft-api/test_input.py": {
+        "size": 98
+      },
+      "tests/sapt-dft-lrc/CMakeLists.txt": {
+        "size": 69
+      },
+      "tests/sapt-dft-lrc/test_input.py": {
+        "size": 98
+      },
+      "tests/sapt-dft1/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/sapt-dft1/test_input.py": {
+        "size": 101
+      },
+      "tests/sapt-dft2/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/sapt-dft2/test_input.py": {
+        "size": 100
+      },
+      "tests/sapt-ecp/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/sapt-ecp/test_input.py": {
+        "size": 116
+      },
+      "tests/sapt-exch-disp-inf/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/sapt-exch-disp-inf/test_input.py": {
+        "size": 104
+      },
+      "tests/sapt-exch-ind-inf/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/sapt-exch-ind-inf/test_input.py": {
+        "size": 103
+      },
+      "tests/sapt-exch-ind30-inf/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/sapt-exch-ind30-inf/test_input.py": {
+        "size": 105
+      },
+      "tests/sapt-sf1/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/sapt-sf1/test_input.py": {
+        "size": 100
+      },
+      "tests/sapt0-d/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/sapt0-d/test_input.py": {
+        "size": 127
+      },
+      "tests/sapt1/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/sapt1/test_input.py": {
+        "size": 108
+      },
+      "tests/sapt10/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/sapt10/test_input.py": {
+        "size": 97
+      },
+      "tests/sapt11/CMakeLists.txt": {
+        "size": 68
+      },
+      "tests/sapt11/test_input.py": {
+        "size": 97
+      },
+      "tests/sapt2/CMakeLists.txt": {
+        "size": 125
+      },
+      "tests/sapt2/test_input.py": {
+        "size": 101
+      },
+      "tests/sapt3/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/sapt3/test_input.py": {
+        "size": 96
+      },
+      "tests/sapt4/CMakeLists.txt": {
+        "size": 125
+      },
+      "tests/sapt4/test_input.py": {
+        "size": 101
+      },
+      "tests/sapt5/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/sapt5/test_input.py": {
+        "size": 96
+      },
+      "tests/sapt6/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/sapt6/test_input.py": {
+        "size": 96
+      },
+      "tests/sapt7/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/sapt7/test_input.py": {
+        "size": 96
+      },
+      "tests/sapt8/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/sapt8/test_input.py": {
+        "size": 102
+      },
+      "tests/sapt9/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/sapt9/test_input.py": {
+        "size": 96
+      },
+      "tests/scf-auto-cholesky/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/scf-auto-cholesky/test_input.py": {
+        "size": 102
+      },
+      "tests/scf-bz2/CMakeLists.txt": {
+        "size": 113
+      },
+      "tests/scf-bz2/test_input.py": {
+        "size": 92
+      },
+      "tests/scf-cholesky-basis/CMakeLists.txt": {
+        "size": 90
+      },
+      "tests/scf-cholesky-basis/test_input.py": {
+        "size": 114
+      },
+      "tests/scf-coverage/CMakeLists.txt": {
+        "size": 73
+      },
+      "tests/scf-coverage/test_input.py": {
+        "size": 102
+      },
+      "tests/scf-dipder/CMakeLists.txt": {
+        "size": 84
+      },
+      "tests/scf-dipder/test_input.py": {
+        "size": 108
+      },
+      "tests/scf-ecp/CMakeLists.txt": {
+        "size": 107
+      },
+      "tests/scf-ecp/test_input.py": {
+        "size": 131
+      },
+      "tests/scf-ecp2/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/scf-ecp2/test_input.py": {
+        "size": 125
+      },
+      "tests/scf-ecp3/CMakeLists.txt": {
+        "size": 91
+      },
+      "tests/scf-ecp3/test_input.py": {
+        "size": 125
+      },
+      "tests/scf-freq1/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/scf-freq1/test_input.py": {
+        "size": 106
+      },
+      "tests/scf-guess-read1/CMakeLists.txt": {
+        "size": 82
+      },
+      "tests/scf-guess-read1/test_input.py": {
+        "size": 106
+      },
+      "tests/scf-guess-read2/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/scf-guess-read2/test_input.py": {
+        "size": 100
+      },
+      "tests/scf-guess-read3/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/scf-guess-read3/test_input.py": {
+        "size": 105
+      },
+      "tests/scf-guess/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/scf-guess/test_input.py": {
+        "size": 105
+      },
+      "tests/scf-hess1/CMakeLists.txt": {
+        "size": 93
+      },
+      "tests/scf-hess1/test_input.py": {
+        "size": 117
+      },
+      "tests/scf-hess2/CMakeLists.txt": {
+        "size": 93
+      },
+      "tests/scf-hess2/test_input.py": {
+        "size": 355
+      },
+      "tests/scf-hess3/CMakeLists.txt": {
+        "size": 100
+      },
+      "tests/scf-hess3/test_input.py": {
+        "size": 124
+      },
+      "tests/scf-hess4/CMakeLists.txt": {
+        "size": 93
+      },
+      "tests/scf-hess4/test_input.py": {
+        "size": 117
+      },
+      "tests/scf-hess5/CMakeLists.txt": {
+        "size": 100
+      },
+      "tests/scf-hess5/test_input.py": {
+        "size": 124
+      },
+      "tests/scf-level-shift-cuhf/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/scf-level-shift-cuhf/test_input.py": {
+        "size": 111
+      },
+      "tests/scf-level-shift-rks/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/scf-level-shift-rks/test_input.py": {
+        "size": 110
+      },
+      "tests/scf-level-shift-rohf/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/scf-level-shift-rohf/test_input.py": {
+        "size": 111
+      },
+      "tests/scf-level-shift-uhf/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/scf-level-shift-uhf/test_input.py": {
+        "size": 110
+      },
+      "tests/scf-occ/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/scf-occ/test_input.py": {
+        "size": 103
+      },
+      "tests/scf-property/CMakeLists.txt": {
+        "size": 165
+      },
+      "tests/scf-property/test_input.py": {
+        "size": 153
+      },
+      "tests/scf-response1/CMakeLists.txt": {
+        "size": 96
+      },
+      "tests/scf-response1/test_input.py": {
+        "size": 120
+      },
+      "tests/scf-response2/CMakeLists.txt": {
+        "size": 96
+      },
+      "tests/scf-response2/test_input.py": {
+        "size": 120
+      },
+      "tests/scf-response3/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/scf-response3/test_input.py": {
+        "size": 119
+      },
+      "tests/scf-uhf-grad-nobeta/CMakeLists.txt": {
+        "size": 75
+      },
+      "tests/scf-uhf-grad-nobeta/test_input.py": {
+        "size": 104
+      },
+      "tests/scf-upcast-custom-basis/CMakeLists.txt": {
+        "size": 90
+      },
+      "tests/scf-upcast-custom-basis/test_input.py": {
+        "size": 114
+      },
+      "tests/scf1/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/scf1/test_input.py": {
+        "size": 100
+      },
+      "tests/scf2/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/scf2/test_input.py": {
+        "size": 95
+      },
+      "tests/scf3/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/scf3/test_input.py": {
+        "size": 100
+      },
+      "tests/scf4/CMakeLists.txt": {
+        "size": 60
+      },
+      "tests/scf4/test_input.py": {
+        "size": 89
+      },
+      "tests/scf5/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/scf5/test_input.py": {
+        "size": 95
+      },
+      "tests/scf6/CMakeLists.txt": {
+        "size": 67
+      },
+      "tests/scf6/test_input.py": {
+        "size": 96
+      },
+      "tests/scf7/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/scf7/test_input.py": {
+        "size": 101
+      },
+      "tests/simint/CMakeLists.txt": {
+        "size": 53
+      },
+      "tests/simint/mp2-module/CMakeLists.txt": {
+        "size": 89
+      },
+      "tests/simint/mp2-module/test_input.py": {
+        "size": 123
+      },
+      "tests/simint/scf5/CMakeLists.txt": {
+        "size": 102
+      },
+      "tests/simint/scf5/test_input.py": {
+        "size": 126
+      },
+      "tests/snsmp2/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/snsmp2/cc-cc/CMakeLists.txt": {
+        "size": 92
+      },
+      "tests/snsmp2/cc-cc/test_input.py": {
+        "size": 121
+      },
+      "tests/snsmp2/cf-o/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/snsmp2/cf-o/test_input.py": {
+        "size": 115
+      },
+      "tests/snsmp2/he-he/CMakeLists.txt": {
+        "size": 104
+      },
+      "tests/snsmp2/he-he/test_input.py": {
+        "size": 128
+      },
+      "tests/soscf-dft/CMakeLists.txt": {
+        "size": 81
+      },
+      "tests/soscf-dft/test_input.py": {
+        "size": 109
+      },
+      "tests/soscf-large/CMakeLists.txt": {
+        "size": 83
+      },
+      "tests/soscf-large/test_input.py": {
+        "size": 107
+      },
+      "tests/soscf-ref/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/soscf-ref/test_input.py": {
+        "size": 105
+      },
+      "tests/stability1/CMakeLists.txt": {
+        "size": 93
+      },
+      "tests/stability1/test_input.py": {
+        "size": 117
+      },
+      "tests/stability2/CMakeLists.txt": {
+        "size": 88
+      },
+      "tests/stability2/test_input.py": {
+        "size": 112
+      },
+      "tests/stability3/CMakeLists.txt": {
+        "size": 83
+      },
+      "tests/stability3/test_input.py": {
+        "size": 107
+      },
+      "tests/tdscf-1/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/tdscf-1/test_input.py": {
+        "size": 100
+      },
+      "tests/tdscf-2/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/tdscf-2/test_input.py": {
+        "size": 100
+      },
+      "tests/tdscf-3/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/tdscf-3/test_input.py": {
+        "size": 100
+      },
+      "tests/tdscf-4/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/tdscf-4/test_input.py": {
+        "size": 100
+      },
+      "tests/tdscf-5/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/tdscf-5/test_input.py": {
+        "size": 100
+      },
+      "tests/tdscf-6/CMakeLists.txt": {
+        "size": 76
+      },
+      "tests/tdscf-6/test_input.py": {
+        "size": 100
+      },
+      "tests/tdscf-7/CMakeLists.txt": {
+        "size": 65
+      },
+      "tests/tdscf-7/test_input.py": {
+        "size": 94
+      },
+      "tests/tester.py": {
+        "size": 5892
+      },
+      "tests/tu1-h2o-energy/CMakeLists.txt": {
+        "size": 97
+      },
+      "tests/tu1-h2o-energy/test_input.py": {
+        "size": 116
+      },
+      "tests/tu2-ch2-energy/CMakeLists.txt": {
+        "size": 86
+      },
+      "tests/tu2-ch2-energy/test_input.py": {
+        "size": 110
+      },
+      "tests/tu3-h2o-opt/CMakeLists.txt": {
+        "size": 87
+      },
+      "tests/tu3-h2o-opt/test_input.py": {
+        "size": 111
+      },
+      "tests/tu4-h2o-freq/CMakeLists.txt": {
+        "size": 96
+      },
+      "tests/tu4-h2o-freq/test_input.py": {
+        "size": 120
+      },
+      "tests/tu5-sapt/CMakeLists.txt": {
+        "size": 79
+      },
+      "tests/tu5-sapt/test_input.py": {
+        "size": 108
+      },
+      "tests/tu6-cp-ne2/CMakeLists.txt": {
+        "size": 77
+      },
+      "tests/tu6-cp-ne2/test_input.py": {
+        "size": 106
+      },
+      "tests/v2rdm_casscf/CMakeLists.txt": {
+        "size": 175
+      },
+      "tests/v2rdm_casscf/v2rdm1/CMakeLists.txt": {
+        "size": 90
+      },
+      "tests/v2rdm_casscf/v2rdm1/test_input.py": {
+        "size": 125
+      },
+      "tests/v2rdm_casscf/v2rdm2/CMakeLists.txt": {
+        "size": 90
+      },
+      "tests/v2rdm_casscf/v2rdm2/test_input.py": {
+        "size": 125
+      },
+      "tests/v2rdm_casscf/v2rdm3/CMakeLists.txt": {
+        "size": 112
+      },
+      "tests/v2rdm_casscf/v2rdm3/test_input.py": {
+        "size": 136
+      },
+      "tests/v2rdm_casscf/v2rdm4/CMakeLists.txt": {
+        "size": 95
+      },
+      "tests/v2rdm_casscf/v2rdm4/test_input.py": {
+        "size": 128
+      },
+      "tests/v2rdm_casscf/v2rdm5/CMakeLists.txt": {
+        "size": 98
+      },
+      "tests/v2rdm_casscf/v2rdm5/test_input.py": {
+        "size": 132
+      },
+      "tests/v2rdm_casscf/v2rdm6/CMakeLists.txt": {
+        "size": 94
+      },
+      "tests/v2rdm_casscf/v2rdm6/test_input.py": {
+        "size": 128
+      },
+      "tests/v2rdm_casscf/v2rdm7/CMakeLists.txt": {
+        "size": 94
+      },
+      "tests/v2rdm_casscf/v2rdm7/test_input.py": {
+        "size": 128
+      },
+      "tests/x2c-perturb-h/CMakeLists.txt": {
+        "size": 80
+      },
+      "tests/x2c-perturb-h/test_input.py": {
+        "size": 104
+      },
+      "tests/x2c1/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/x2c1/test_input.py": {
+        "size": 95
+      },
+      "tests/x2c2/CMakeLists.txt": {
+        "size": 78
+      },
+      "tests/x2c2/test_input.py": {
+        "size": 102
+      },
+      "tests/x2c3/CMakeLists.txt": {
+        "size": 71
+      },
+      "tests/x2c3/test_input.py": {
+        "size": 95
+      },
+      "tests/zaptn-nh2/CMakeLists.txt": {
+        "size": 74
+      },
+      "tests/zaptn-nh2/test_input.py": {
+        "size": 103
+      },
+      "tests/zora/CMakeLists.txt": {
+        "size": 72
+      },
+      "tests/zora/test_input.py": {
+        "size": 95
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "psi4",
+        "module": "psi4.__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level package initializer for Psi4. Acts as the primary import surface but likely depends on compiled native components."
+      },
+      {
+        "package": "psi4",
+        "module": "psi4.run_psi4",
+        "functions": [],
+        "classes": [],
+        "description": "Primary runtime/launcher module for executing Psi4 workflows from Python context."
+      },
+      {
+        "package": "psi4/driver",
+        "module": "psi4.driver.driver",
+        "functions": [],
+        "classes": [],
+        "description": "Central high-level driver logic for energy/gradient/property orchestration; large and core to computation flow."
+      },
+      {
+        "package": "psi4/driver",
+        "module": "psi4.driver.schema_wrapper",
+        "functions": [],
+        "classes": [],
+        "description": "Schema-oriented wrapper layer (QCSchema-style execution paths), suitable for structured programmatic invocation."
+      },
+      {
+        "package": "psi4/driver",
+        "module": "psi4.driver.task_planner",
+        "functions": [],
+        "classes": [],
+        "description": "Task planning/orchestration module; useful for building minimally intrusive higher-level automation."
+      },
+      {
+        "package": "psi4/driver",
+        "module": "psi4.driver.pluginutil",
+        "functions": [],
+        "classes": [],
+        "description": "Existing plugin utility support; best insertion point for MCP-aligned extension with minimal architectural disruption."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "psi4 (inferred)",
+        "module": "psi4.run_psi4",
+        "description": "Repository contains runtime entry module consistent with command-style execution, but explicit setuptools console_scripts were not provided in scanned metadata."
+      },
+      {
+        "name": "psi4-path-advisor.py",
+        "module": "conda/psi4-path-advisor.py",
+        "description": "Standalone utility script for environment/path guidance in conda setups."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "Python",
+        "CMake build chain",
+        "Compiled Psi4 core libraries/extensions"
+      ],
+      "optional": [
+        "External upstream/downstream scientific libraries under external/upstream and external/downstream",
+        "Conda-managed runtime extras",
+        "Documentation/test-only dependencies"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.42,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/psi4/psi4",
+    "repo_name": "psi4",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.42,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

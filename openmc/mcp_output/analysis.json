@@ -1,0 +1,2154 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/openmc-dev/openmc",
+    "summary": "Imported via zip fallback, file count: 658",
+    "file_tree": {
+      ".git_archival.txt": {
+        "size": 110
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 770
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 207
+      },
+      ".github/ISSUE_TEMPLATE/documentation.md": {
+        "size": 250
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 434
+      },
+      ".github/pull_request_template.md": {
+        "size": 1091
+      },
+      ".github/workflows/ci.yml": {
+        "size": 6634
+      },
+      ".github/workflows/dockerhub-publish-dagmc-libmesh.yml": {
+        "size": 884
+      },
+      ".github/workflows/dockerhub-publish-dagmc.yml": {
+        "size": 840
+      },
+      ".github/workflows/dockerhub-publish-dev.yml": {
+        "size": 838
+      },
+      ".github/workflows/dockerhub-publish-develop-dagmc-libmesh.yml": {
+        "size": 922
+      },
+      ".github/workflows/dockerhub-publish-develop-dagmc.yml": {
+        "size": 877
+      },
+      ".github/workflows/dockerhub-publish-develop-libmesh.yml": {
+        "size": 883
+      },
+      ".github/workflows/dockerhub-publish-libmesh.yml": {
+        "size": 846
+      },
+      ".github/workflows/dockerhub-publish-release-dagmc-libmesh.yml": {
+        "size": 1032
+      },
+      ".github/workflows/dockerhub-publish-release-dagmc.yml": {
+        "size": 988
+      },
+      ".github/workflows/dockerhub-publish-release-libmesh.yml": {
+        "size": 993
+      },
+      ".github/workflows/dockerhub-publish-release.yml": {
+        "size": 949
+      },
+      ".github/workflows/dockerhub-publish.yml": {
+        "size": 801
+      },
+      ".github/workflows/format-check.yml": {
+        "size": 811
+      },
+      ".readthedocs.yaml": {
+        "size": 271
+      },
+      "CMakeLists.txt": {
+        "size": 21634
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 3454
+      },
+      "CONTRIBUTING.md": {
+        "size": 1769
+      },
+      "README.md": {
+        "size": 3349
+      },
+      "docs/source/conf.py": {
+        "size": 7786
+      },
+      "examples/assembly/assembly.py": {
+        "size": 5003
+      },
+      "examples/custom_source/CMakeLists.txt": {
+        "size": 272
+      },
+      "examples/custom_source/README.md": {
+        "size": 995
+      },
+      "examples/custom_source/build_xml.py": {
+        "size": 1017
+      },
+      "examples/custom_source/show_flux.py": {
+        "size": 352
+      },
+      "examples/jezebel/jezebel.py": {
+        "size": 859
+      },
+      "examples/lattice/hexagonal/build_xml.py": {
+        "size": 5415
+      },
+      "examples/lattice/nested/build_xml.py": {
+        "size": 5557
+      },
+      "examples/lattice/simple/build_xml.py": {
+        "size": 5477
+      },
+      "examples/parameterized_custom_source/CMakeLists.txt": {
+        "size": 314
+      },
+      "examples/parameterized_custom_source/README.md": {
+        "size": 1209
+      },
+      "examples/parameterized_custom_source/build_xml.py": {
+        "size": 1080
+      },
+      "examples/parameterized_custom_source/show_flux.py": {
+        "size": 352
+      },
+      "examples/pincell/build_xml.py": {
+        "size": 3955
+      },
+      "examples/pincell/plot_spectrum.py": {
+        "size": 608
+      },
+      "examples/pincell_depletion/restart_depletion.py": {
+        "size": 3384
+      },
+      "examples/pincell_depletion/run_depletion.py": {
+        "size": 5112
+      },
+      "examples/pincell_multigroup/build_xml.py": {
+        "size": 6199
+      },
+      "examples/pincell_pulsed/run_pulse.py": {
+        "size": 3330
+      },
+      "examples/pincell_random_ray/build_xml.py": {
+        "size": 8646
+      },
+      "openmc/__init__.py": {
+        "size": 1262
+      },
+      "openmc/_xml.py": {
+        "size": 2725
+      },
+      "openmc/arithmetic.py": {
+        "size": 24455
+      },
+      "openmc/bounding_box.py": {
+        "size": 6187
+      },
+      "openmc/cell.py": {
+        "size": 28309
+      },
+      "openmc/checkvalue.py": {
+        "size": 12286
+      },
+      "openmc/cmfd.py": {
+        "size": 123226
+      },
+      "openmc/config.py": {
+        "size": 7564
+      },
+      "openmc/dagmc.py": {
+        "size": 22889
+      },
+      "openmc/data/__init__.py": {
+        "size": 924
+      },
+      "openmc/data/ace.py": {
+        "size": 19970
+      },
+      "openmc/data/angle_distribution.py": {
+        "size": 9906
+      },
+      "openmc/data/angle_energy.py": {
+        "size": 4615
+      },
+      "openmc/data/correlated.py": {
+        "size": 16795
+      },
+      "openmc/data/data.py": {
+        "size": 23386
+      },
+      "openmc/data/decay.py": {
+        "size": 23769
+      },
+      "openmc/data/effective_dose/__init__.py": {
+        "size": 0
+      },
+      "openmc/data/effective_dose/dose.py": {
+        "size": 4321
+      },
+      "openmc/data/effective_dose/icrp116/electrons.txt": {
+        "size": 2616
+      },
+      "openmc/data/effective_dose/icrp116/helium_ions.txt": {
+        "size": 1231
+      },
+      "openmc/data/effective_dose/icrp116/negative_muons.txt": {
+        "size": 2161
+      },
+      "openmc/data/effective_dose/icrp116/negative_pions.txt": {
+        "size": 2309
+      },
+      "openmc/data/effective_dose/icrp116/neutrons.txt": {
+        "size": 6211
+      },
+      "openmc/data/effective_dose/icrp116/photons.txt": {
+        "size": 5114
+      },
+      "openmc/data/effective_dose/icrp116/photons_kerma.txt": {
+        "size": 3229
+      },
+      "openmc/data/effective_dose/icrp116/positive_muons.txt": {
+        "size": 2159
+      },
+      "openmc/data/effective_dose/icrp116/positive_pions.txt": {
+        "size": 2318
+      },
+      "openmc/data/effective_dose/icrp116/positrons.txt": {
+        "size": 2597
+      },
+      "openmc/data/effective_dose/icrp116/protons.txt": {
+        "size": 3156
+      },
+      "openmc/data/effective_dose/icrp74/generate_photon_effective_dose.py": {
+        "size": 2786
+      },
+      "openmc/data/effective_dose/icrp74/neutrons.txt": {
+        "size": 3407
+      },
+      "openmc/data/effective_dose/icrp74/photons.txt": {
+        "size": 2159
+      },
+      "openmc/data/endf.py": {
+        "size": 16119
+      },
+      "openmc/data/energy_distribution.py": {
+        "size": 36954
+      },
+      "openmc/data/fission_energy.py": {
+        "size": 14885
+      },
+      "openmc/data/function.py": {
+        "size": 21767
+      },
+      "openmc/data/grid.py": {
+        "size": 3273
+      },
+      "openmc/data/half_life.json": {
+        "size": 73859
+      },
+      "openmc/data/kalbach_mann.py": {
+        "size": 23202
+      },
+      "openmc/data/laboratory.py": {
+        "size": 4400
+      },
+      "openmc/data/library.py": {
+        "size": 6172
+      },
+      "openmc/data/mass_1.mas20.txt": {
+        "size": 472648
+      },
+      "openmc/data/multipole.py": {
+        "size": 46360
+      },
+      "openmc/data/nbody.py": {
+        "size": 4735
+      },
+      "openmc/data/neutron.py": {
+        "size": 33382
+      },
+      "openmc/data/njoy.py": {
+        "size": 26932
+      },
+      "openmc/data/photon.py": {
+        "size": 45205
+      },
+      "openmc/data/product.py": {
+        "size": 5830
+      },
+      "openmc/data/reaction.py": {
+        "size": 44995
+      },
+      "openmc/data/resonance.py": {
+        "size": 38093
+      },
+      "openmc/data/resonance_covariance.py": {
+        "size": 26544
+      },
+      "openmc/data/thermal.py": {
+        "size": 43258
+      },
+      "openmc/data/thermal_angle_energy.py": {
+        "size": 8228
+      },
+      "openmc/data/uncorrelated.py": {
+        "size": 2612
+      },
+      "openmc/data/urr.py": {
+        "size": 7404
+      },
+      "openmc/deplete/__init__.py": {
+        "size": 475
+      },
+      "openmc/deplete/_matrix_funcs.py": {
+        "size": 3187
+      },
+      "openmc/deplete/abc.py": {
+        "size": 49095
+      },
+      "openmc/deplete/atom_number.py": {
+        "size": 7074
+      },
+      "openmc/deplete/chain.py": {
+        "size": 52258
+      },
+      "openmc/deplete/coupled_operator.py": {
+        "size": 21408
+      },
+      "openmc/deplete/cram.py": {
+        "size": 6753
+      },
+      "openmc/deplete/d1s.py": {
+        "size": 8899
+      },
+      "openmc/deplete/helpers.py": {
+        "size": 38229
+      },
+      "openmc/deplete/independent_operator.py": {
+        "size": 17674
+      },
+      "openmc/deplete/integrators.py": {
+        "size": 21603
+      },
+      "openmc/deplete/microxs.py": {
+        "size": 20279
+      },
+      "openmc/deplete/nuclide.py": {
+        "size": 23682
+      },
+      "openmc/deplete/openmc_operator.py": {
+        "size": 20336
+      },
+      "openmc/deplete/pool.py": {
+        "size": 8432
+      },
+      "openmc/deplete/r2s.py": {
+        "size": 30274
+      },
+      "openmc/deplete/reaction_rates.py": {
+        "size": 4870
+      },
+      "openmc/deplete/results.py": {
+        "size": 22145
+      },
+      "openmc/deplete/stepresult.py": {
+        "size": 20398
+      },
+      "openmc/deplete/transfer_rates.py": {
+        "size": 18953
+      },
+      "openmc/dummy_comm.py": {
+        "size": 599
+      },
+      "openmc/element.py": {
+        "size": 14410
+      },
+      "openmc/examples.py": {
+        "size": 44171
+      },
+      "openmc/exceptions.py": {
+        "size": 796
+      },
+      "openmc/executor.py": {
+        "size": 10225
+      },
+      "openmc/filter.py": {
+        "size": 84767
+      },
+      "openmc/filter_expansion.py": {
+        "size": 18232
+      },
+      "openmc/geometry.py": {
+        "size": 26340
+      },
+      "openmc/lattice.py": {
+        "size": 79449
+      },
+      "openmc/lib/__init__.py": {
+        "size": 1950
+      },
+      "openmc/lib/cell.py": {
+        "size": 12395
+      },
+      "openmc/lib/core.py": {
+        "size": 23016
+      },
+      "openmc/lib/dagmc.py": {
+        "size": 1202
+      },
+      "openmc/lib/error.py": {
+        "size": 1394
+      },
+      "openmc/lib/filter.py": {
+        "size": 24293
+      },
+      "openmc/lib/material.py": {
+        "size": 10399
+      },
+      "openmc/lib/math.py": {
+        "size": 1685
+      },
+      "openmc/lib/mesh.py": {
+        "size": 25801
+      },
+      "openmc/lib/nuclide.py": {
+        "size": 4009
+      },
+      "openmc/lib/plot.py": {
+        "size": 7339
+      },
+      "openmc/lib/settings.py": {
+        "size": 3854
+      },
+      "openmc/lib/tally.py": {
+        "size": 15670
+      },
+      "openmc/lib/weight_windows.py": {
+        "size": 14797
+      },
+      "openmc/macroscopic.py": {
+        "size": 477
+      },
+      "openmc/material.py": {
+        "size": 79799
+      },
+      "openmc/mesh.py": {
+        "size": 102818
+      },
+      "openmc/mgxs/__init__.py": {
+        "size": 85530
+      },
+      "openmc/mgxs/groups.py": {
+        "size": 9667
+      },
+      "openmc/mgxs/library.py": {
+        "size": 65787
+      },
+      "openmc/mgxs/mdgxs.py": {
+        "size": 122863
+      },
+      "openmc/mgxs/mgxs.py": {
+        "size": 265289
+      },
+      "openmc/mgxs_library.py": {
+        "size": 103582
+      },
+      "openmc/mixin.py": {
+        "size": 3348
+      },
+      "openmc/model/__init__.py": {
+        "size": 96
+      },
+      "openmc/model/funcs.py": {
+        "size": 10826
+      },
+      "openmc/model/model.py": {
+        "size": 100057
+      },
+      "openmc/model/surface_composite.py": {
+        "size": 77897
+      },
+      "openmc/model/triso.py": {
+        "size": 44518
+      },
+      "openmc/mpi.py": {
+        "size": 213
+      },
+      "openmc/nuclide.py": {
+        "size": 826
+      },
+      "openmc/openmoc_compatible.py": {
+        "size": 26108
+      },
+      "openmc/particle_restart.py": {
+        "size": 1796
+      },
+      "openmc/plots.py": {
+        "size": 67430
+      },
+      "openmc/plotter.py": {
+        "size": 41316
+      },
+      "openmc/polynomial.py": {
+        "size": 4722
+      },
+      "openmc/region.py": {
+        "size": 21418
+      },
+      "openmc/search.py": {
+        "size": 7184
+      },
+      "openmc/settings.py": {
+        "size": 110147
+      },
+      "openmc/source.py": {
+        "size": 46355
+      },
+      "openmc/statepoint.py": {
+        "size": 27765
+      },
+      "openmc/stats/__init__.py": {
+        "size": 78
+      },
+      "openmc/stats/multivariate.py": {
+        "size": 33386
+      },
+      "openmc/stats/univariate.py": {
+        "size": 44189
+      },
+      "openmc/summary.py": {
+        "size": 9122
+      },
+      "openmc/surface.py": {
+        "size": 97568
+      },
+      "openmc/tallies.py": {
+        "size": 151844
+      },
+      "openmc/tally_derivative.py": {
+        "size": 3845
+      },
+      "openmc/tracks.py": {
+        "size": 10108
+      },
+      "openmc/trigger.py": {
+        "size": 4479
+      },
+      "openmc/universe.py": {
+        "size": 15871
+      },
+      "openmc/utility_funcs.py": {
+        "size": 1935
+      },
+      "openmc/volume.py": {
+        "size": 13915
+      },
+      "openmc/waste.py": {
+        "size": 9691
+      },
+      "openmc/weight_windows.py": {
+        "size": 37798
+      },
+      "pyproject.toml": {
+        "size": 1870
+      },
+      "pytest.ini": {
+        "size": 110
+      },
+      "tests/__init__.py": {
+        "size": 611
+      },
+      "tests/conftest.py": {
+        "size": 1501
+      },
+      "tests/cpp_unit_tests/CMakeLists.txt": {
+        "size": 405
+      },
+      "tests/dummy_operator.py": {
+        "size": 6838
+      },
+      "tests/regression_tests/__init__.py": {
+        "size": 1775
+      },
+      "tests/regression_tests/adj_cell_rotation/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/adj_cell_rotation/test.py": {
+        "size": 1533
+      },
+      "tests/regression_tests/albedo_box/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/albedo_box/test.py": {
+        "size": 136
+      },
+      "tests/regression_tests/asymmetric_lattice/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/asymmetric_lattice/test.py": {
+        "size": 3606
+      },
+      "tests/regression_tests/cmfd_feed/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/cmfd_feed/test.py": {
+        "size": 6494
+      },
+      "tests/regression_tests/cmfd_feed_2g/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/cmfd_feed_2g/test.py": {
+        "size": 952
+      },
+      "tests/regression_tests/cmfd_feed_expanding_window/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/cmfd_feed_expanding_window/test.py": {
+        "size": 843
+      },
+      "tests/regression_tests/cmfd_feed_ng/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/cmfd_feed_ng/test.py": {
+        "size": 980
+      },
+      "tests/regression_tests/cmfd_feed_rectlin/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/cmfd_feed_rectlin/test.py": {
+        "size": 964
+      },
+      "tests/regression_tests/cmfd_feed_ref_d/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/cmfd_feed_ref_d/test.py": {
+        "size": 872
+      },
+      "tests/regression_tests/cmfd_feed_rolling_window/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/cmfd_feed_rolling_window/test.py": {
+        "size": 870
+      },
+      "tests/regression_tests/cmfd_nofeed/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/cmfd_nofeed/test.py": {
+        "size": 827
+      },
+      "tests/regression_tests/cmfd_restart/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/cmfd_restart/test.py": {
+        "size": 2461
+      },
+      "tests/regression_tests/collision_track/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/collision_track/test.py": {
+        "size": 8936
+      },
+      "tests/regression_tests/complex_cell/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/complex_cell/test.py": {
+        "size": 138
+      },
+      "tests/regression_tests/confidence_intervals/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/confidence_intervals/test.py": {
+        "size": 146
+      },
+      "tests/regression_tests/conftest.py": {
+        "size": 580
+      },
+      "tests/regression_tests/cpp_driver/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/cpp_driver/test.py": {
+        "size": 4500
+      },
+      "tests/regression_tests/create_fission_neutrons/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/create_fission_neutrons/test.py": {
+        "size": 2628
+      },
+      "tests/regression_tests/dagmc/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/dagmc/external/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/dagmc/external/test.py": {
+        "size": 4261
+      },
+      "tests/regression_tests/dagmc/legacy/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/dagmc/legacy/test.py": {
+        "size": 3103
+      },
+      "tests/regression_tests/dagmc/refl/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/dagmc/refl/test.py": {
+        "size": 1095
+      },
+      "tests/regression_tests/dagmc/universes/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/dagmc/universes/test.py": {
+        "size": 3592
+      },
+      "tests/regression_tests/dagmc/uwuw/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/dagmc/uwuw/test.py": {
+        "size": 1080
+      },
+      "tests/regression_tests/density/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/density/test.py": {
+        "size": 133
+      },
+      "tests/regression_tests/deplete_decay_only/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/deplete_decay_only/test.py": {
+        "size": 3533
+      },
+      "tests/regression_tests/deplete_no_transport/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/deplete_no_transport/test.py": {
+        "size": 6541
+      },
+      "tests/regression_tests/deplete_with_transfer_rates/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/deplete_with_transfer_rates/test.py": {
+        "size": 4358
+      },
+      "tests/regression_tests/deplete_with_transport/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/deplete_with_transport/example_geometry.py": {
+        "size": 12190
+      },
+      "tests/regression_tests/deplete_with_transport/test.py": {
+        "size": 6525
+      },
+      "tests/regression_tests/diff_tally/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/diff_tally/test.py": {
+        "size": 4124
+      },
+      "tests/regression_tests/distribmat/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/distribmat/test.py": {
+        "size": 3269
+      },
+      "tests/regression_tests/eigenvalue_genperbatch/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/eigenvalue_genperbatch/test.py": {
+        "size": 892
+      },
+      "tests/regression_tests/eigenvalue_no_inactive/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/eigenvalue_no_inactive/test.py": {
+        "size": 148
+      },
+      "tests/regression_tests/electron_heating/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/electron_heating/test.py": {
+        "size": 1114
+      },
+      "tests/regression_tests/energy_cutoff/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/energy_cutoff/test.py": {
+        "size": 2703
+      },
+      "tests/regression_tests/energy_grid/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/energy_grid/test.py": {
+        "size": 137
+      },
+      "tests/regression_tests/energy_laws/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/energy_laws/test.py": {
+        "size": 1383
+      },
+      "tests/regression_tests/enrichment/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/enrichment/test.py": {
+        "size": 1036
+      },
+      "tests/regression_tests/entropy/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/entropy/test.py": {
+        "size": 842
+      },
+      "tests/regression_tests/external_moab/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/external_moab/test.py": {
+        "size": 8944
+      },
+      "tests/regression_tests/filter_cellfrom/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/filter_cellfrom/test.py": {
+        "size": 10624
+      },
+      "tests/regression_tests/filter_cellinstance/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/filter_cellinstance/test.py": {
+        "size": 2945
+      },
+      "tests/regression_tests/filter_distribcell/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/filter_distribcell/test.py": {
+        "size": 2724
+      },
+      "tests/regression_tests/filter_energyfun/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/filter_energyfun/test.py": {
+        "size": 6082
+      },
+      "tests/regression_tests/filter_mesh/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/filter_mesh/test.py": {
+        "size": 3998
+      },
+      "tests/regression_tests/filter_meshborn/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/filter_meshborn/test.py": {
+        "size": 3187
+      },
+      "tests/regression_tests/filter_musurface/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/filter_musurface/test.py": {
+        "size": 1174
+      },
+      "tests/regression_tests/filter_translations/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/filter_translations/test.py": {
+        "size": 2670
+      },
+      "tests/regression_tests/fixed_source/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/fixed_source/test.py": {
+        "size": 1983
+      },
+      "tests/regression_tests/ifp/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/ifp/groupwise/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/ifp/groupwise/test.py": {
+        "size": 1173
+      },
+      "tests/regression_tests/ifp/total/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/ifp/total/test.py": {
+        "size": 1258
+      },
+      "tests/regression_tests/infinite_cell/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/infinite_cell/test.py": {
+        "size": 139
+      },
+      "tests/regression_tests/iso_in_lab/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/iso_in_lab/test.py": {
+        "size": 234
+      },
+      "tests/regression_tests/lattice/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/lattice/test.py": {
+        "size": 133
+      },
+      "tests/regression_tests/lattice_distribmat/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/lattice_distribmat/test.py": {
+        "size": 2698
+      },
+      "tests/regression_tests/lattice_distribrho/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/lattice_distribrho/test.py": {
+        "size": 1321
+      },
+      "tests/regression_tests/lattice_hex/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/lattice_hex/test.py": {
+        "size": 137
+      },
+      "tests/regression_tests/lattice_hex_coincident/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/lattice_hex_coincident/test.py": {
+        "size": 5443
+      },
+      "tests/regression_tests/lattice_hex_x/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/lattice_hex_x/test.py": {
+        "size": 7047
+      },
+      "tests/regression_tests/lattice_multiple/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/lattice_multiple/test.py": {
+        "size": 1626
+      },
+      "tests/regression_tests/lattice_rotated/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/lattice_rotated/test.py": {
+        "size": 3058
+      },
+      "tests/regression_tests/mg_basic/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mg_basic/test.py": {
+        "size": 3187
+      },
+      "tests/regression_tests/mg_basic_delayed/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mg_basic_delayed/test.py": {
+        "size": 4615
+      },
+      "tests/regression_tests/mg_convert/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mg_convert/test.py": {
+        "size": 7271
+      },
+      "tests/regression_tests/mg_legendre/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mg_legendre/test.py": {
+        "size": 1425
+      },
+      "tests/regression_tests/mg_max_order/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mg_max_order/test.py": {
+        "size": 1434
+      },
+      "tests/regression_tests/mg_survival_biasing/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mg_survival_biasing/test.py": {
+        "size": 1420
+      },
+      "tests/regression_tests/mg_tallies/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mg_tallies/test.py": {
+        "size": 4737
+      },
+      "tests/regression_tests/mg_temperature/__init__.py": {
+        "size": 1
+      },
+      "tests/regression_tests/mg_temperature/build_2g.py": {
+        "size": 13780
+      },
+      "tests/regression_tests/mg_temperature/test.py": {
+        "size": 2623
+      },
+      "tests/regression_tests/mg_temperature_multi/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mg_temperature_multi/test.py": {
+        "size": 7662
+      },
+      "tests/regression_tests/mgxs_library_ce_to_mg/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mgxs_library_ce_to_mg/test.py": {
+        "size": 2712
+      },
+      "tests/regression_tests/mgxs_library_ce_to_mg_nuclides/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mgxs_library_ce_to_mg_nuclides/test.py": {
+        "size": 2711
+      },
+      "tests/regression_tests/mgxs_library_condense/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mgxs_library_condense/test.py": {
+        "size": 2466
+      },
+      "tests/regression_tests/mgxs_library_correction/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mgxs_library_correction/test.py": {
+        "size": 2127
+      },
+      "tests/regression_tests/mgxs_library_distribcell/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mgxs_library_distribcell/test.py": {
+        "size": 2596
+      },
+      "tests/regression_tests/mgxs_library_hdf5/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mgxs_library_hdf5/test.py": {
+        "size": 3243
+      },
+      "tests/regression_tests/mgxs_library_histogram/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mgxs_library_histogram/test.py": {
+        "size": 2179
+      },
+      "tests/regression_tests/mgxs_library_mesh/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mgxs_library_mesh/test.py": {
+        "size": 2989
+      },
+      "tests/regression_tests/mgxs_library_no_nuclides/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mgxs_library_no_nuclides/test.py": {
+        "size": 2704
+      },
+      "tests/regression_tests/mgxs_library_nuclides/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mgxs_library_nuclides/test.py": {
+        "size": 2519
+      },
+      "tests/regression_tests/mgxs_library_specific_nuclides/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/mgxs_library_specific_nuclides/test.py": {
+        "size": 2572
+      },
+      "tests/regression_tests/microxs/test.py": {
+        "size": 2083
+      },
+      "tests/regression_tests/model_xml/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/model_xml/test.py": {
+        "size": 3365
+      },
+      "tests/regression_tests/multipole/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/multipole/test.py": {
+        "size": 2390
+      },
+      "tests/regression_tests/ncrystal/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/ncrystal/test.py": {
+        "size": 3407
+      },
+      "tests/regression_tests/output/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/output/test.py": {
+        "size": 787
+      },
+      "tests/regression_tests/particle_restart_eigval/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/particle_restart_eigval/test.py": {
+        "size": 179
+      },
+      "tests/regression_tests/particle_restart_fixed/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/particle_restart_fixed/test.py": {
+        "size": 179
+      },
+      "tests/regression_tests/periodic/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/periodic/test.py": {
+        "size": 1758
+      },
+      "tests/regression_tests/periodic_6fold/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/periodic_6fold/test.py": {
+        "size": 1765
+      },
+      "tests/regression_tests/periodic_hex/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/periodic_hex/test.py": {
+        "size": 676
+      },
+      "tests/regression_tests/photon_production/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/photon_production/test.py": {
+        "size": 2713
+      },
+      "tests/regression_tests/photon_production_fission/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/photon_production_fission/test.py": {
+        "size": 1666
+      },
+      "tests/regression_tests/photon_source/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/photon_source/test.py": {
+        "size": 1663
+      },
+      "tests/regression_tests/plot/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/plot/test.py": {
+        "size": 248
+      },
+      "tests/regression_tests/plot_overlaps/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/plot_overlaps/test.py": {
+        "size": 256
+      },
+      "tests/regression_tests/plot_projections/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/plot_projections/test.py": {
+        "size": 403
+      },
+      "tests/regression_tests/plot_voxel/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/plot_voxel/test.py": {
+        "size": 278
+      },
+      "tests/regression_tests/ptables_off/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/ptables_off/test.py": {
+        "size": 137
+      },
+      "tests/regression_tests/pulse_height/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/pulse_height/test.py": {
+        "size": 1499
+      },
+      "tests/regression_tests/quadric_surfaces/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/quadric_surfaces/test.py": {
+        "size": 141
+      },
+      "tests/regression_tests/random_ray_adjoint_fixed_source/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_adjoint_fixed_source/test.py": {
+        "size": 615
+      },
+      "tests/regression_tests/random_ray_adjoint_k_eff/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_adjoint_k_eff/test.py": {
+        "size": 485
+      },
+      "tests/regression_tests/random_ray_auto_convert/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_auto_convert/test.py": {
+        "size": 1650
+      },
+      "tests/regression_tests/random_ray_diagonal_stabilization/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_diagonal_stabilization/test.py": {
+        "size": 2017
+      },
+      "tests/regression_tests/random_ray_entropy/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_entropy/test.py": {
+        "size": 1077
+      },
+      "tests/regression_tests/random_ray_fixed_source_domain/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_fixed_source_domain/test.py": {
+        "size": 1840
+      },
+      "tests/regression_tests/random_ray_fixed_source_linear/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_fixed_source_linear/test.py": {
+        "size": 841
+      },
+      "tests/regression_tests/random_ray_fixed_source_mesh/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_fixed_source_mesh/test.py": {
+        "size": 1691
+      },
+      "tests/regression_tests/random_ray_fixed_source_normalization/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_fixed_source_normalization/test.py": {
+        "size": 772
+      },
+      "tests/regression_tests/random_ray_fixed_source_subcritical/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_fixed_source_subcritical/test.py": {
+        "size": 4812
+      },
+      "tests/regression_tests/random_ray_halton_samples/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_halton_samples/test.py": {
+        "size": 503
+      },
+      "tests/regression_tests/random_ray_k_eff/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_k_eff/test.py": {
+        "size": 437
+      },
+      "tests/regression_tests/random_ray_k_eff_mesh/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_k_eff_mesh/test.py": {
+        "size": 944
+      },
+      "tests/regression_tests/random_ray_linear/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_linear/test.py": {
+        "size": 789
+      },
+      "tests/regression_tests/random_ray_low_density/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_low_density/test.py": {
+        "size": 2016
+      },
+      "tests/regression_tests/random_ray_point_source_locator/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_point_source_locator/test.py": {
+        "size": 1286
+      },
+      "tests/regression_tests/random_ray_void/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_void/test.py": {
+        "size": 2579
+      },
+      "tests/regression_tests/random_ray_volume_estimator/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_volume_estimator/test.py": {
+        "size": 904
+      },
+      "tests/regression_tests/random_ray_volume_estimator_linear/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/random_ray_volume_estimator_linear/test.py": {
+        "size": 1044
+      },
+      "tests/regression_tests/reflective_plane/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/reflective_plane/test.py": {
+        "size": 142
+      },
+      "tests/regression_tests/resonance_scattering/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/resonance_scattering/test.py": {
+        "size": 1585
+      },
+      "tests/regression_tests/rotation/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/rotation/test.py": {
+        "size": 134
+      },
+      "tests/regression_tests/salphabeta/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/salphabeta/test.py": {
+        "size": 2045
+      },
+      "tests/regression_tests/score_current/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/score_current/test.py": {
+        "size": 1575
+      },
+      "tests/regression_tests/seed/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/seed/test.py": {
+        "size": 130
+      },
+      "tests/regression_tests/source/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/source/test.py": {
+        "size": 4443
+      },
+      "tests/regression_tests/source_dlopen/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/source_dlopen/test.py": {
+        "size": 2533
+      },
+      "tests/regression_tests/source_file/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/source_file/test.py": {
+        "size": 2869
+      },
+      "tests/regression_tests/source_mcpl_file/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/source_mcpl_file/test.py": {
+        "size": 3007
+      },
+      "tests/regression_tests/source_parameterized_dlopen/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/source_parameterized_dlopen/test.py": {
+        "size": 2522
+      },
+      "tests/regression_tests/sourcepoint_batch/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/sourcepoint_batch/test.py": {
+        "size": 929
+      },
+      "tests/regression_tests/sourcepoint_latest/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/sourcepoint_latest/test.py": {
+        "size": 526
+      },
+      "tests/regression_tests/sourcepoint_restart/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/sourcepoint_restart/test.py": {
+        "size": 145
+      },
+      "tests/regression_tests/statepoint_restart/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/statepoint_restart/test.py": {
+        "size": 3114
+      },
+      "tests/regression_tests/statepoint_sourcesep/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/statepoint_sourcesep/test.py": {
+        "size": 703
+      },
+      "tests/regression_tests/stride/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/stride/test.py": {
+        "size": 745
+      },
+      "tests/regression_tests/surface_source/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/surface_source/test.py": {
+        "size": 7133
+      },
+      "tests/regression_tests/surface_source_write/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/surface_source_write/_visualize.py": {
+        "size": 2098
+      },
+      "tests/regression_tests/surface_source_write/test.py": {
+        "size": 40146
+      },
+      "tests/regression_tests/surface_tally/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/surface_tally/test.py": {
+        "size": 7367
+      },
+      "tests/regression_tests/survival_biasing/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/survival_biasing/test.py": {
+        "size": 142
+      },
+      "tests/regression_tests/tallies/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/tallies/test.py": {
+        "size": 6830
+      },
+      "tests/regression_tests/tally_aggregation/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/tally_aggregation/test.py": {
+        "size": 3332
+      },
+      "tests/regression_tests/tally_arithmetic/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/tally_arithmetic/test.py": {
+        "size": 3339
+      },
+      "tests/regression_tests/tally_assumesep/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/tally_assumesep/test.py": {
+        "size": 141
+      },
+      "tests/regression_tests/tally_nuclides/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/tally_nuclides/test.py": {
+        "size": 140
+      },
+      "tests/regression_tests/tally_slice_merge/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/tally_slice_merge/test.py": {
+        "size": 6691
+      },
+      "tests/regression_tests/time_cutoff/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/time_cutoff/test.py": {
+        "size": 1160
+      },
+      "tests/regression_tests/torus/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/torus/large_major/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/torus/large_major/test.py": {
+        "size": 1281
+      },
+      "tests/regression_tests/torus/test.py": {
+        "size": 1169
+      },
+      "tests/regression_tests/trace/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/trace/test.py": {
+        "size": 131
+      },
+      "tests/regression_tests/track_output/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/track_output/test.py": {
+        "size": 1634
+      },
+      "tests/regression_tests/translation/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/translation/test.py": {
+        "size": 137
+      },
+      "tests/regression_tests/trigger_batch_interval/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/trigger_batch_interval/test.py": {
+        "size": 148
+      },
+      "tests/regression_tests/trigger_no_batch_interval/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/trigger_no_batch_interval/test.py": {
+        "size": 151
+      },
+      "tests/regression_tests/trigger_no_status/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/trigger_no_status/test.py": {
+        "size": 143
+      },
+      "tests/regression_tests/trigger_statepoint_restart/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/trigger_statepoint_restart/test.py": {
+        "size": 4714
+      },
+      "tests/regression_tests/trigger_tallies/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/trigger_tallies/test.py": {
+        "size": 141
+      },
+      "tests/regression_tests/triso/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/triso/test.py": {
+        "size": 3506
+      },
+      "tests/regression_tests/uniform_fs/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/uniform_fs/test.py": {
+        "size": 136
+      },
+      "tests/regression_tests/universe/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/universe/test.py": {
+        "size": 134
+      },
+      "tests/regression_tests/unstructured_mesh/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/unstructured_mesh/test.py": {
+        "size": 11715
+      },
+      "tests/regression_tests/void/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/void/test.py": {
+        "size": 1080
+      },
+      "tests/regression_tests/volume_calc/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/volume_calc/test.py": {
+        "size": 6642
+      },
+      "tests/regression_tests/weightwindows/__init__.py": {
+        "size": 1
+      },
+      "tests/regression_tests/weightwindows/generators/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/weightwindows/generators/test.py": {
+        "size": 1908
+      },
+      "tests/regression_tests/weightwindows/test.py": {
+        "size": 5779
+      },
+      "tests/regression_tests/weightwindows/ww_n.txt": {
+        "size": 10762
+      },
+      "tests/regression_tests/weightwindows/ww_n_cyl.txt": {
+        "size": 5141
+      },
+      "tests/regression_tests/weightwindows/ww_n_sph.txt": {
+        "size": 5186
+      },
+      "tests/regression_tests/weightwindows/ww_p.txt": {
+        "size": 10733
+      },
+      "tests/regression_tests/weightwindows_fw_cadis/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/weightwindows_fw_cadis/test.py": {
+        "size": 914
+      },
+      "tests/regression_tests/weightwindows_fw_cadis_mesh/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/weightwindows_fw_cadis_mesh/test.py": {
+        "size": 1496
+      },
+      "tests/regression_tests/white_plane/__init__.py": {
+        "size": 0
+      },
+      "tests/regression_tests/white_plane/test.py": {
+        "size": 137
+      },
+      "tests/test_matplotlib_import.py": {
+        "size": 160
+      },
+      "tests/testing_harness.py": {
+        "size": 22981
+      },
+      "tests/unit_tests/__init__.py": {
+        "size": 428
+      },
+      "tests/unit_tests/cell_instances/test_hex_multilattice.py": {
+        "size": 3519
+      },
+      "tests/unit_tests/cell_instances/test_rect_multilattice.py": {
+        "size": 2886
+      },
+      "tests/unit_tests/conftest.py": {
+        "size": 3689
+      },
+      "tests/unit_tests/dagmc/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/dagmc/test.py": {
+        "size": 2650
+      },
+      "tests/unit_tests/dagmc/test_bounds.py": {
+        "size": 3810
+      },
+      "tests/unit_tests/dagmc/test_h5m_subdir.py": {
+        "size": 1232
+      },
+      "tests/unit_tests/dagmc/test_lost_particles.py": {
+        "size": 2610
+      },
+      "tests/unit_tests/dagmc/test_model.py": {
+        "size": 9223
+      },
+      "tests/unit_tests/dagmc/test_plot.py": {
+        "size": 2658
+      },
+      "tests/unit_tests/mesh_to_vtk/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/mesh_to_vtk/test.py": {
+        "size": 3161
+      },
+      "tests/unit_tests/mesh_to_vtk/test_vtk_dims.py": {
+        "size": 10267
+      },
+      "tests/unit_tests/test_bounding_box.py": {
+        "size": 5805
+      },
+      "tests/unit_tests/test_cell.py": {
+        "size": 10889
+      },
+      "tests/unit_tests/test_collision_track.py": {
+        "size": 4321
+      },
+      "tests/unit_tests/test_complex_cell_bb.py": {
+        "size": 2981
+      },
+      "tests/unit_tests/test_config.py": {
+        "size": 3863
+      },
+      "tests/unit_tests/test_cylindrical_mesh.py": {
+        "size": 6218
+      },
+      "tests/unit_tests/test_d1s.py": {
+        "size": 5464
+      },
+      "tests/unit_tests/test_data_decay.py": {
+        "size": 5104
+      },
+      "tests/unit_tests/test_data_dose.py": {
+        "size": 2083
+      },
+      "tests/unit_tests/test_data_kalbach_mann.py": {
+        "size": 5327
+      },
+      "tests/unit_tests/test_data_misc.py": {
+        "size": 5343
+      },
+      "tests/unit_tests/test_data_multipole.py": {
+        "size": 2178
+      },
+      "tests/unit_tests/test_data_neutron.py": {
+        "size": 18248
+      },
+      "tests/unit_tests/test_data_photon.py": {
+        "size": 5108
+      },
+      "tests/unit_tests/test_data_thermal.py": {
+        "size": 14525
+      },
+      "tests/unit_tests/test_deplete_activation.py": {
+        "size": 6420
+      },
+      "tests/unit_tests/test_deplete_atom_number.py": {
+        "size": 4651
+      },
+      "tests/unit_tests/test_deplete_chain.py": {
+        "size": 20531
+      },
+      "tests/unit_tests/test_deplete_continue.py": {
+        "size": 4239
+      },
+      "tests/unit_tests/test_deplete_coupled_operator.py": {
+        "size": 3636
+      },
+      "tests/unit_tests/test_deplete_cram.py": {
+        "size": 795
+      },
+      "tests/unit_tests/test_deplete_decay.py": {
+        "size": 2834
+      },
+      "tests/unit_tests/test_deplete_external_source_rates.py": {
+        "size": 7006
+      },
+      "tests/unit_tests/test_deplete_fission_yields.py": {
+        "size": 11355
+      },
+      "tests/unit_tests/test_deplete_independent_operator.py": {
+        "size": 1784
+      },
+      "tests/unit_tests/test_deplete_integrator.py": {
+        "size": 8831
+      },
+      "tests/unit_tests/test_deplete_microxs.py": {
+        "size": 3983
+      },
+      "tests/unit_tests/test_deplete_nuclide.py": {
+        "size": 12307
+      },
+      "tests/unit_tests/test_deplete_operator.py": {
+        "size": 1754
+      },
+      "tests/unit_tests/test_deplete_reaction.py": {
+        "size": 2033
+      },
+      "tests/unit_tests/test_deplete_restart.py": {
+        "size": 2477
+      },
+      "tests/unit_tests/test_deplete_resultslist.py": {
+        "size": 7738
+      },
+      "tests/unit_tests/test_deplete_transfer_rates.py": {
+        "size": 10747
+      },
+      "tests/unit_tests/test_element.py": {
+        "size": 3143
+      },
+      "tests/unit_tests/test_element_wo.py": {
+        "size": 1405
+      },
+      "tests/unit_tests/test_endf.py": {
+        "size": 1354
+      },
+      "tests/unit_tests/test_energy_cutoff.py": {
+        "size": 2055
+      },
+      "tests/unit_tests/test_filter_mesh.py": {
+        "size": 8369
+      },
+      "tests/unit_tests/test_filter_meshborn.py": {
+        "size": 3580
+      },
+      "tests/unit_tests/test_filter_meshmaterial.py": {
+        "size": 2658
+      },
+      "tests/unit_tests/test_filter_musurface.py": {
+        "size": 1090
+      },
+      "tests/unit_tests/test_filter_weight.py": {
+        "size": 1347
+      },
+      "tests/unit_tests/test_filters.py": {
+        "size": 11096
+      },
+      "tests/unit_tests/test_geometry.py": {
+        "size": 13706
+      },
+      "tests/unit_tests/test_heating_by_nuclide.py": {
+        "size": 2105
+      },
+      "tests/unit_tests/test_ifp.py": {
+        "size": 3048
+      },
+      "tests/unit_tests/test_lattice.py": {
+        "size": 13419
+      },
+      "tests/unit_tests/test_lattice_discretization.py": {
+        "size": 3731
+      },
+      "tests/unit_tests/test_lib.py": {
+        "size": 33978
+      },
+      "tests/unit_tests/test_lost_particles.py": {
+        "size": 1628
+      },
+      "tests/unit_tests/test_material.py": {
+        "size": 27311
+      },
+      "tests/unit_tests/test_materials.py": {
+        "size": 3032
+      },
+      "tests/unit_tests/test_mcpl_stat_sum.py": {
+        "size": 2758
+      },
+      "tests/unit_tests/test_mesh.py": {
+        "size": 30972
+      },
+      "tests/unit_tests/test_mesh_from_domain.py": {
+        "size": 7113
+      },
+      "tests/unit_tests/test_mesh_from_lattice.py": {
+        "size": 3336
+      },
+      "tests/unit_tests/test_model.py": {
+        "size": 39855
+      },
+      "tests/unit_tests/test_model_triso.py": {
+        "size": 7635
+      },
+      "tests/unit_tests/test_no_reduce.py": {
+        "size": 1420
+      },
+      "tests/unit_tests/test_no_visible_boundary.py": {
+        "size": 1097
+      },
+      "tests/unit_tests/test_nuclide_heating.py": {
+        "size": 1253
+      },
+      "tests/unit_tests/test_pathlike_simple.py": {
+        "size": 1326
+      },
+      "tests/unit_tests/test_photon_heating.py": {
+        "size": 977
+      },
+      "tests/unit_tests/test_pin.py": {
+        "size": 3545
+      },
+      "tests/unit_tests/test_plots.py": {
+        "size": 9601
+      },
+      "tests/unit_tests/test_plotter.py": {
+        "size": 5392
+      },
+      "tests/unit_tests/test_polynomials.py": {
+        "size": 4006
+      },
+      "tests/unit_tests/test_r2s.py": {
+        "size": 5361
+      },
+      "tests/unit_tests/test_region.py": {
+        "size": 7054
+      },
+      "tests/unit_tests/test_settings.py": {
+        "size": 7840
+      },
+      "tests/unit_tests/test_source.py": {
+        "size": 11015
+      },
+      "tests/unit_tests/test_source_file.py": {
+        "size": 5062
+      },
+      "tests/unit_tests/test_source_mesh.py": {
+        "size": 16494
+      },
+      "tests/unit_tests/test_spherical_mesh.py": {
+        "size": 6383
+      },
+      "tests/unit_tests/test_statepoint.py": {
+        "size": 1852
+      },
+      "tests/unit_tests/test_statepoint_batches.py": {
+        "size": 799
+      },
+      "tests/unit_tests/test_stats.py": {
+        "size": 17491
+      },
+      "tests/unit_tests/test_summary.py": {
+        "size": 1552
+      },
+      "tests/unit_tests/test_surface.py": {
+        "size": 23271
+      },
+      "tests/unit_tests/test_surface_composite.py": {
+        "size": 22961
+      },
+      "tests/unit_tests/test_surface_source_write.py": {
+        "size": 10046
+      },
+      "tests/unit_tests/test_tallies.py": {
+        "size": 14790
+      },
+      "tests/unit_tests/test_tally_multiply_density.py": {
+        "size": 1862
+      },
+      "tests/unit_tests/test_temp_interp.py": {
+        "size": 10239
+      },
+      "tests/unit_tests/test_time_filter.py": {
+        "size": 6321
+      },
+      "tests/unit_tests/test_torus.py": {
+        "size": 1617
+      },
+      "tests/unit_tests/test_tracks.py": {
+        "size": 6856
+      },
+      "tests/unit_tests/test_transfer_volumes.py": {
+        "size": 1164
+      },
+      "tests/unit_tests/test_triggers.py": {
+        "size": 4699
+      },
+      "tests/unit_tests/test_uniform_source_sampling.py": {
+        "size": 2723
+      },
+      "tests/unit_tests/test_universe.py": {
+        "size": 6319
+      },
+      "tests/unit_tests/test_urr_capture.py": {
+        "size": 1271
+      },
+      "tests/unit_tests/test_volume.py": {
+        "size": 1508
+      },
+      "tests/unit_tests/test_waste_classification.py": {
+        "size": 3748
+      },
+      "tests/unit_tests/weightwindows/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/weightwindows/dagmc/__init__.py": {
+        "size": 0
+      },
+      "tests/unit_tests/weightwindows/dagmc/test.py": {
+        "size": 3056
+      },
+      "tests/unit_tests/weightwindows/test.py": {
+        "size": 12398
+      },
+      "tests/unit_tests/weightwindows/test_ww_gen.py": {
+        "size": 11475
+      },
+      "tests/unit_tests/weightwindows/test_ww_list.py": {
+        "size": 970
+      },
+      "tests/unit_tests/weightwindows/test_ww_mg.py": {
+        "size": 1807
+      },
+      "tests/unit_tests/weightwindows/test_wwinp_reader.py": {
+        "size": 4898
+      },
+      "tests/unit_tests/weightwindows/ww_mg.txt": {
+        "size": 675
+      },
+      "tests/unit_tests/weightwindows/ww_n.txt": {
+        "size": 45
+      },
+      "tests/unit_tests/weightwindows/ww_p.txt": {
+        "size": 45
+      },
+      "tools/ci/gha-install.py": {
+        "size": 2099
+      },
+      "tools/dev/generate_release_notes.py": {
+        "size": 543
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.openmc",
+      "source.openmc.data",
+      "source.openmc.deplete",
+      "source.openmc.lib",
+      "source.openmc.mgxs",
+      "source.openmc.model",
+      "source.openmc.stats",
+      "source.tests",
+      "source.tests.regression_tests",
+      "source.tests.unit_tests"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.openmc",
+        "module": "__init__",
+        "functions": [
+          "run",
+          "calculate_volumes",
+          "plot_geometry",
+          "search_for_keff"
+        ],
+        "classes": [
+          "Model",
+          "Geometry",
+          "Materials",
+          "Settings",
+          "Tallies",
+          "Plots",
+          "Cell",
+          "Universe",
+          "RectLattice",
+          "HexLattice",
+          "RegularMesh",
+          "CylindricalMesh",
+          "SphericalMesh",
+          "UnstructuredMesh",
+          "Material",
+          "Macroscopic",
+          "Tally",
+          "StatePoint",
+          "Summary"
+        ],
+        "description": "Top-level Python API surface aggregating modeling, execution, geometry/material/tally definitions, and results access."
+      },
+      {
+        "package": "source.openmc.model",
+        "module": "model",
+        "functions": [
+          "from_xml",
+          "export_to_xml",
+          "run",
+          "plot"
+        ],
+        "classes": [
+          "Model"
+        ],
+        "description": "High-level composition/driver object for OpenMC inputs and execution orchestration."
+      },
+      {
+        "package": "source.openmc",
+        "module": "executor",
+        "functions": [
+          "run",
+          "calculate_volumes",
+          "plot_geometry"
+        ],
+        "classes": [],
+        "description": "Execution wrappers for launching OpenMC workflows from Python with low coupling to internals."
+      },
+      {
+        "package": "source.openmc",
+        "module": "statepoint",
+        "functions": [],
+        "classes": [
+          "StatePoint"
+        ],
+        "description": "Post-processing interface for statepoint output data (k-effective, tallies, metadata)."
+      },
+      {
+        "package": "source.openmc.lib",
+        "module": "core",
+        "functions": [
+          "init",
+          "finalize",
+          "run",
+          "reset"
+        ],
+        "classes": [],
+        "description": "ctypes/C-API bridge for in-memory OpenMC engine control; powerful but tighter runtime constraints."
+      },
+      {
+        "package": "source.openmc.deplete",
+        "module": "coupled_operator",
+        "functions": [],
+        "classes": [
+          "CoupledOperator"
+        ],
+        "description": "Depletion coupling operator binding transport solves with nuclide depletion chains."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "openmc",
+        "module": "source.openmc.executor",
+        "description": "Primary executable invoked by Python wrappers; supports run, plot, and volume calculation modes."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.10",
+        "numpy",
+        "h5py",
+        "lxml",
+        "scipy",
+        "uncertainties"
+      ],
+      "optional": [
+        "matplotlib",
+        "pandas",
+        "networkx",
+        "vtk",
+        "mpi4py",
+        "DAGMC/MOAB-enabled OpenMC build",
+        "NCrystal-enabled OpenMC build"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/openmc-dev/openmc",
+    "repo_name": "openmc",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.86,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

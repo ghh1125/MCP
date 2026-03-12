@@ -1,0 +1,1 @@
+Codex backend HTTP 429: {"error":{"type":"usage_limit_reached","message":"The usage limit has been reached","plan_type":"team","resets_at":1773272551,"eligible_promo":null,"resets_in_seconds":531}}

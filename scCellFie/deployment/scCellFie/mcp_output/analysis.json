@@ -1,0 +1,1611 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/earmingol/scCellFie",
+    "summary": "Imported via zip fallback, file count: 113",
+    "file_tree": {
+      ".github/workflows/python-publish.yml": {
+        "size": 1084
+      },
+      ".github/workflows/tests.yml": {
+        "size": 787
+      },
+      "LICENSE.txt": {
+        "size": 1083
+      },
+      "docs/source/conf.py": {
+        "size": 3143
+      },
+      "docs/source/requirements.txt": {
+        "size": 83
+      },
+      "escher_maps/homo_sapiens/amino_acid_metabolism.json": {
+        "size": 524313
+      },
+      "escher_maps/homo_sapiens/carbohydrate_metabolism.json": {
+        "size": 228927
+      },
+      "escher_maps/homo_sapiens/energy_and_nucleotide_metabolism.json": {
+        "size": 377166
+      },
+      "escher_maps/homo_sapiens/glycan_metabolism.json": {
+        "size": 354884
+      },
+      "escher_maps/homo_sapiens/lipid_metabolism.json": {
+        "size": 524313
+      },
+      "escher_maps/homo_sapiens/vitamin_and_cofactor_metabolism.json": {
+        "size": 214662
+      },
+      "readthedocs.yaml": {
+        "size": 228
+      },
+      "requirements.txt": {
+        "size": 219
+      },
+      "sccellfie/__init__.py": {
+        "size": 584
+      },
+      "sccellfie/communication/__init__.py": {
+        "size": 137
+      },
+      "sccellfie/communication/colocalization_scoring.py": {
+        "size": 7229
+      },
+      "sccellfie/communication/tests/__init__.py": {
+        "size": 0
+      },
+      "sccellfie/communication/tests/test_colocalization_scoring.py": {
+        "size": 3623
+      },
+      "sccellfie/communication/tests/test_traditional_scoring.py": {
+        "size": 5379
+      },
+      "sccellfie/communication/traditional_scoring.py": {
+        "size": 4642
+      },
+      "sccellfie/datasets/__init__.py": {
+        "size": 101
+      },
+      "sccellfie/datasets/database.py": {
+        "size": 5317
+      },
+      "sccellfie/datasets/gene_info.py": {
+        "size": 1946
+      },
+      "sccellfie/datasets/tests/__init__.py": {
+        "size": 0
+      },
+      "sccellfie/datasets/tests/test_database.py": {
+        "size": 4375
+      },
+      "sccellfie/datasets/tests/test_gene_info.py": {
+        "size": 2140
+      },
+      "sccellfie/datasets/toy_inputs.py": {
+        "size": 6253
+      },
+      "sccellfie/expression/__init__.py": {
+        "size": 389
+      },
+      "sccellfie/expression/aggregation.py": {
+        "size": 7116
+      },
+      "sccellfie/expression/smoothing.py": {
+        "size": 7453
+      },
+      "sccellfie/expression/tests/__init__.py": {
+        "size": 0
+      },
+      "sccellfie/expression/tests/test_aggregation.py": {
+        "size": 10588
+      },
+      "sccellfie/expression/tests/test_smoothing.py": {
+        "size": 6668
+      },
+      "sccellfie/expression/tests/test_threshold.py": {
+        "size": 18720
+      },
+      "sccellfie/expression/thresholds.py": {
+        "size": 14149
+      },
+      "sccellfie/external/__init__.py": {
+        "size": 112
+      },
+      "sccellfie/external/tensor.py": {
+        "size": 10946
+      },
+      "sccellfie/external/tests/__init__.py": {
+        "size": 0
+      },
+      "sccellfie/external/tests/test_tensor.py": {
+        "size": 10426
+      },
+      "sccellfie/external/tests/test_tf_idf.py": {
+        "size": 10974
+      },
+      "sccellfie/external/tf_idf.py": {
+        "size": 10982
+      },
+      "sccellfie/gene_score.py": {
+        "size": 4218
+      },
+      "sccellfie/io/__init__.py": {
+        "size": 92
+      },
+      "sccellfie/io/load_data.py": {
+        "size": 4051
+      },
+      "sccellfie/io/save_data.py": {
+        "size": 4638
+      },
+      "sccellfie/io/tests/__init__.py": {
+        "size": 0
+      },
+      "sccellfie/io/tests/test_load_data.py": {
+        "size": 4443
+      },
+      "sccellfie/io/tests/test_save_data.py": {
+        "size": 7303
+      },
+      "sccellfie/metabolic_task.py": {
+        "size": 3016
+      },
+      "sccellfie/plotting/__init__.py": {
+        "size": 325
+      },
+      "sccellfie/plotting/communication.py": {
+        "size": 11848
+      },
+      "sccellfie/plotting/differential_results.py": {
+        "size": 20439
+      },
+      "sccellfie/plotting/distributions.py": {
+        "size": 3942
+      },
+      "sccellfie/plotting/plot_utils.py": {
+        "size": 956
+      },
+      "sccellfie/plotting/radial_plot.py": {
+        "size": 17568
+      },
+      "sccellfie/plotting/spatial.py": {
+        "size": 6364
+      },
+      "sccellfie/plotting/tests/__init__.py": {
+        "size": 0
+      },
+      "sccellfie/plotting/tests/test_communication.py": {
+        "size": 5746
+      },
+      "sccellfie/plotting/tests/test_differential_results.py": {
+        "size": 7944
+      },
+      "sccellfie/plotting/tests/test_distributions.py": {
+        "size": 2693
+      },
+      "sccellfie/plotting/tests/test_plot_utils.py": {
+        "size": 2175
+      },
+      "sccellfie/plotting/tests/test_radial_plot.py": {
+        "size": 30225
+      },
+      "sccellfie/plotting/tests/test_spatial.py": {
+        "size": 4249
+      },
+      "sccellfie/preprocessing/__init__.py": {
+        "size": 543
+      },
+      "sccellfie/preprocessing/adata_utils.py": {
+        "size": 18710
+      },
+      "sccellfie/preprocessing/database_manipulation.py": {
+        "size": 8664
+      },
+      "sccellfie/preprocessing/gpr_rules.py": {
+        "size": 2542
+      },
+      "sccellfie/preprocessing/matrix_utils.py": {
+        "size": 4555
+      },
+      "sccellfie/preprocessing/prepare_inputs.py": {
+        "size": 9194
+      },
+      "sccellfie/preprocessing/tests/__init__.py": {
+        "size": 0
+      },
+      "sccellfie/preprocessing/tests/test_adata_utils.py": {
+        "size": 23681
+      },
+      "sccellfie/preprocessing/tests/test_database_manipulation.py": {
+        "size": 7013
+      },
+      "sccellfie/preprocessing/tests/test_gpr_rules.py": {
+        "size": 4159
+      },
+      "sccellfie/preprocessing/tests/test_matrix_utils.py": {
+        "size": 6043
+      },
+      "sccellfie/preprocessing/tests/test_prepare_inputs.py": {
+        "size": 7912
+      },
+      "sccellfie/reaction_activity.py": {
+        "size": 6979
+      },
+      "sccellfie/reports/__init__.py": {
+        "size": 49
+      },
+      "sccellfie/reports/summary.py": {
+        "size": 20102
+      },
+      "sccellfie/reports/tests/__init__.py": {
+        "size": 0
+      },
+      "sccellfie/reports/tests/test_summary.py": {
+        "size": 19586
+      },
+      "sccellfie/sccellfie_pipeline.py": {
+        "size": 19030
+      },
+      "sccellfie/spatial/__init__.py": {
+        "size": 187
+      },
+      "sccellfie/spatial/assortativity.py": {
+        "size": 2822
+      },
+      "sccellfie/spatial/hotspots.py": {
+        "size": 5803
+      },
+      "sccellfie/spatial/knn_network.py": {
+        "size": 2523
+      },
+      "sccellfie/spatial/neighborhood.py": {
+        "size": 2441
+      },
+      "sccellfie/spatial/tests/__init__.py": {
+        "size": 0
+      },
+      "sccellfie/spatial/tests/test_assortativity.py": {
+        "size": 1879
+      },
+      "sccellfie/spatial/tests/test_hotspots.py": {
+        "size": 1397
+      },
+      "sccellfie/spatial/tests/test_knn_network.py": {
+        "size": 3203
+      },
+      "sccellfie/spatial/tests/test_neighborhood.py": {
+        "size": 2017
+      },
+      "sccellfie/stats/__init__.py": {
+        "size": 252
+      },
+      "sccellfie/stats/differential_analysis.py": {
+        "size": 14481
+      },
+      "sccellfie/stats/gam_analysis.py": {
+        "size": 15267
+      },
+      "sccellfie/stats/markers_from_task.py": {
+        "size": 5079
+      },
+      "sccellfie/stats/tests/__init__.py": {
+        "size": 0
+      },
+      "sccellfie/stats/tests/test_differential_analysis.py": {
+        "size": 11310
+      },
+      "sccellfie/stats/tests/test_gam_analysis.py": {
+        "size": 5184
+      },
+      "sccellfie/stats/tests/test_markers_from_task.py": {
+        "size": 5115
+      },
+      "sccellfie/tests/__init__.py": {
+        "size": 0
+      },
+      "sccellfie/tests/test_gene_score.py": {
+        "size": 3536
+      },
+      "sccellfie/tests/test_metabolic_task.py": {
+        "size": 3327
+      },
+      "sccellfie/tests/test_reaction_activity.py": {
+        "size": 4500
+      },
+      "sccellfie/tests/test_sccellfie_pipeline.py": {
+        "size": 5984
+      },
+      "setup.py": {
+        "size": 1133
+      },
+      "task_data/homo_sapiens/All_metabolic_genes.json": {
+        "size": 28510
+      },
+      "task_data/homo_sapiens/Human1_metabolic_genes.json": {
+        "size": 26759
+      },
+      "task_data/homo_sapiens/Recon_metabolic_genes.json": {
+        "size": 17131
+      },
+      "task_data/homo_sapiens/Rxn-Info-Recon2-2.json": {
+        "size": 133786
+      },
+      "task_data/mus_musculus/All_metabolic_genes.json": {
+        "size": 28193
+      },
+      "task_data/mus_musculus/Mouse1_metabolic_genes.json": {
+        "size": 26454
+      },
+      "task_data/mus_musculus/Rxn-Info-iMM1415.json": {
+        "size": 236125
+      },
+      "task_data/mus_musculus/iMM1415_metabolic_genes.json": {
+        "size": 14286
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.sccellfie",
+      "source.sccellfie.communication",
+      "source.sccellfie.datasets",
+      "source.sccellfie.expression",
+      "source.sccellfie.external",
+      "source.sccellfie.io",
+      "source.sccellfie.plotting",
+      "source.sccellfie.preprocessing",
+      "source.sccellfie.reports",
+      "source.sccellfie.spatial",
+      "source.sccellfie.stats",
+      "source.sccellfie.tests"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": true,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "sccellfie",
+        "module": "metabolic_task",
+        "functions": [
+          "compute_mt_score"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "compute_mt_score": [
+            "adata",
+            "task_by_rxn",
+            "verbose"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie",
+        "module": "reaction_activity",
+        "functions": [
+          "compute_reaction_activity"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "compute_reaction_activity": [
+            "adata",
+            "gpr_dict",
+            "use_specificity",
+            "layer",
+            "disable_pbar"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie",
+        "module": "gene_score",
+        "functions": [
+          "compute_gene_scores",
+          "compute_gpr_gene_score",
+          "gene_score"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "gene_score": [
+            "gene_expression",
+            "gene_threshold"
+          ],
+          "compute_gene_scores": [
+            "adata",
+            "thresholds",
+            "use_raw",
+            "layer"
+          ],
+          "compute_gpr_gene_score": [
+            "gpr",
+            "gene_scores"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie",
+        "module": "sccellfie_pipeline",
+        "functions": [
+          "compute_neighbors_pipeline",
+          "process_chunk",
+          "run_sccellfie_pipeline"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "run_sccellfie_pipeline": [
+            "adata",
+            "organism",
+            "sccellfie_data_folder",
+            "sccellfie_db",
+            "n_counts_col",
+            "process_by_group",
+            "groupby",
+            "neighbors_key",
+            "n_neighbors",
+            "batch_key",
+            "threshold_key",
+            "smooth_cells",
+            "alpha",
+            "chunk_size",
+            "disable_pbar",
+            "save_folder",
+            "save_filename",
+            "verbose"
+          ],
+          "process_chunk": [
+            "adata",
+            "sccellfie_db",
+            "n_counts_col",
+            "smooth_cells",
+            "alpha",
+            "chunk_size",
+            "threshold_key",
+            "disable_pbar",
+            "neighbors_key",
+            "n_neighbors",
+            "batch_key",
+            "ensembl_ids",
+            "organism",
+            "first_group",
+            "preprocessed_db",
+            "met_genes",
+            "verbose"
+          ],
+          "compute_neighbors_pipeline": [
+            "adata",
+            "batch_key",
+            "n_neighbors",
+            "verbose"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.datasets",
+        "module": "toy_inputs",
+        "functions": [
+          "add_toy_neighbors",
+          "create_controlled_adata",
+          "create_controlled_adata_with_spatial",
+          "create_controlled_gpr_dict",
+          "create_controlled_rxn_by_gene",
+          "create_controlled_task_by_gene",
+          "create_controlled_task_by_rxn",
+          "create_global_threshold",
+          "create_random_adata",
+          "create_random_adata_with_spatial"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "create_random_adata": [
+            "n_obs",
+            "n_vars",
+            "n_clusters",
+            "layers"
+          ],
+          "create_random_adata_with_spatial": [
+            "n_obs",
+            "n_vars",
+            "n_clusters",
+            "layers",
+            "spatial_key",
+            "n_cols"
+          ],
+          "create_controlled_adata": [],
+          "create_controlled_adata_with_spatial": [],
+          "add_toy_neighbors": [
+            "adata",
+            "n_neighbors"
+          ],
+          "create_controlled_gpr_dict": [],
+          "create_controlled_task_by_rxn": [],
+          "create_controlled_rxn_by_gene": [],
+          "create_controlled_task_by_gene": [],
+          "create_global_threshold": [
+            "threshold",
+            "n_vars"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.datasets",
+        "module": "database",
+        "functions": [
+          "load_sccellfie_database"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "load_sccellfie_database": [
+            "organism",
+            "task_folder",
+            "rxn_info_filename",
+            "task_info_filename",
+            "task_by_rxn_filename",
+            "task_by_gene_filename",
+            "rxn_by_gene_filename",
+            "thresholds_filename"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.datasets",
+        "module": "gene_info",
+        "functions": [
+          "retrieve_ensembl2symbol_data"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "retrieve_ensembl2symbol_data": [
+            "filename",
+            "organism"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.io",
+        "module": "save_data",
+        "functions": [
+          "save_adata",
+          "save_result_summary"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "save_adata": [
+            "adata",
+            "output_directory",
+            "filename",
+            "spatial_network_key",
+            "verbose"
+          ],
+          "save_result_summary": [
+            "results_dict",
+            "output_directory",
+            "prefix"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.io",
+        "module": "load_data",
+        "functions": [
+          "load_adata"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "load_adata": [
+            "folder",
+            "filename",
+            "reactions_filename",
+            "metabolic_tasks_filename",
+            "spatial_network_key",
+            "verbose"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.plotting",
+        "module": "spatial",
+        "functions": [
+          "plot_neighbor_distribution",
+          "plot_spatial"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "plot_spatial": [
+            "adata",
+            "keys",
+            "suptitle",
+            "suptitle_fontsize",
+            "title_fontsize",
+            "legend_fontsize",
+            "bkgd_label",
+            "wrapped_title_length",
+            "ncols",
+            "hspace",
+            "wspace",
+            "save",
+            "dpi",
+            "bbox_inches",
+            "tight_layout"
+          ],
+          "plot_neighbor_distribution": [
+            "results",
+            "figsize",
+            "save",
+            "dpi",
+            "bbox_inches",
+            "tight_layout"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.plotting",
+        "module": "distributions",
+        "functions": [
+          "create_multi_violin_plots"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "create_multi_violin_plots": [
+            "adata",
+            "features",
+            "groupby",
+            "n_cols",
+            "figsize",
+            "ylabel",
+            "title",
+            "fontsize",
+            "rotation",
+            "wrapped_title_length",
+            "save",
+            "dpi",
+            "tight_layout",
+            "w_pad",
+            "h_pad"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.plotting",
+        "module": "communication",
+        "functions": [
+          "draw_self_loop",
+          "normalize_vector",
+          "orthogonal_vector",
+          "plot_communication_network"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "normalize_vector": [
+            "vector",
+            "normalize_to"
+          ],
+          "orthogonal_vector": [
+            "point",
+            "width",
+            "normalize_to"
+          ],
+          "draw_self_loop": [
+            "point",
+            "ax",
+            "node_radius",
+            "padding",
+            "width",
+            "linewidth",
+            "color",
+            "alpha",
+            "mutation_scale"
+          ],
+          "plot_communication_network": [
+            "ccc_scores",
+            "sender_col",
+            "receiver_col",
+            "score_col",
+            "score_threshold",
+            "panel_size",
+            "network_layout",
+            "edge_color",
+            "edge_width",
+            "edge_arrow_size",
+            "edge_alpha",
+            "node_color",
+            "node_size",
+            "node_alpha",
+            "node_label_size",
+            "node_label_alpha",
+            "node_label_offset",
+            "title",
+            "title_fontsize",
+            "ax",
+            "save",
+            "dpi",
+            "tight_layout",
+            "bbox_inches"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.plotting",
+        "module": "differential_results",
+        "functions": [
+          "create_beeswarm_plot",
+          "create_comparative_violin",
+          "create_volcano_plot"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "create_volcano_plot": [
+            "de_results",
+            "effect_threshold",
+            "padj_threshold",
+            "cell_type",
+            "group1",
+            "group2",
+            "effect_col",
+            "effect_title",
+            "wrapped_title_length",
+            "save",
+            "dpi",
+            "tight_layout"
+          ],
+          "create_comparative_violin": [
+            "adata",
+            "significant_features",
+            "group1",
+            "group2",
+            "condition_key",
+            "celltype",
+            "cell_type_key",
+            "xlabel",
+            "ylabel",
+            "title",
+            "wrapped_title_length",
+            "figsize",
+            "fontsize",
+            "violin_cut",
+            "palette",
+            "lgd_bbox_to_anchor",
+            "lgd_loc",
+            "save",
+            "dpi",
+            "tight_layout"
+          ],
+          "create_beeswarm_plot": [
+            "df",
+            "x",
+            "y",
+            "cohen_threshold",
+            "pval_threshold",
+            "show_n_significant",
+            "logfc_threshold",
+            "title",
+            "title_fontsize",
+            "ticks_fontsize",
+            "labels_fontsize",
+            "condition1_color",
+            "condition2_color",
+            "ns_color",
+            "strip_size",
+            "strip_alpha",
+            "strip_jitter",
+            "lgd_fontsize",
+            "lgd_marker_size",
+            "lgd_frameon",
+            "lgd_loc",
+            "lgd_bbox_to_anchor",
+            "sort_lambda",
+            "figsize",
+            "save",
+            "dpi",
+            "tight_layout"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.plotting",
+        "module": "radial_plot",
+        "functions": [
+          "create_radial_plot"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "create_radial_plot": [
+            "metabolic_df",
+            "task_info_df",
+            "cell_type",
+            "tissue",
+            "task_col",
+            "category_col",
+            "value_col",
+            "tissue_col",
+            "cell_type_col",
+            "figsize",
+            "title",
+            "palette",
+            "title_fontsize",
+            "legend_fontsize",
+            "legend_loc",
+            "legend_bbox_to_anchor",
+            "alpha_fill",
+            "alpha_bg",
+            "ylim",
+            "sort_by_value",
+            "ax",
+            "show_legend",
+            "save",
+            "dpi",
+            "bbox_inches",
+            "tight_layout"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.preprocessing",
+        "module": "prepare_inputs",
+        "functions": [
+          "preprocess_inputs"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "preprocess_inputs": [
+            "adata",
+            "gpr_info",
+            "task_by_gene",
+            "rxn_by_gene",
+            "task_by_rxn",
+            "correction_organism",
+            "gene_fraction_threshold",
+            "reaction_fraction_threshold",
+            "verbose"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.preprocessing",
+        "module": "gpr_rules",
+        "functions": [
+          "clean_gene_names",
+          "convert_gpr_nomenclature",
+          "find_genes_gpr",
+          "replace_gene_ids_in_gpr"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "clean_gene_names": [
+            "gpr_rule"
+          ],
+          "find_genes_gpr": [
+            "gpr_rule"
+          ],
+          "replace_gene_ids_in_gpr": [
+            "gpr_rule",
+            "gene_id_mapping"
+          ],
+          "convert_gpr_nomenclature": [
+            "gpr_rules",
+            "id_mapping"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.preprocessing",
+        "module": "matrix_utils",
+        "functions": [
+          "compute_dataframes_correlation",
+          "get_matrix_gene_expression",
+          "min_max_normalization"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "min_max_normalization": [
+            "df",
+            "axis"
+          ],
+          "get_matrix_gene_expression": [
+            "matrix",
+            "var_names",
+            "gene",
+            "normalize"
+          ],
+          "compute_dataframes_correlation": [
+            "df1",
+            "df2",
+            "col_name",
+            "method"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.preprocessing",
+        "module": "database_manipulation",
+        "functions": [
+          "add_new_task",
+          "combine_and_sort_dataframes",
+          "get_element_associations",
+          "handle_duplicate_indexes"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_element_associations": [
+            "df",
+            "element",
+            "axis_element"
+          ],
+          "add_new_task": [
+            "task_by_rxn",
+            "task_by_gene",
+            "rxn_by_gene",
+            "task_info",
+            "rxn_info",
+            "task_name",
+            "task_system",
+            "task_subsystem",
+            "rxn_names",
+            "gpr_hgncs",
+            "gpr_symbols"
+          ],
+          "combine_and_sort_dataframes": [
+            "df1",
+            "df2",
+            "preference"
+          ],
+          "handle_duplicate_indexes": [
+            "df",
+            "value_column",
+            "operation"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.preprocessing",
+        "module": "adata_utils",
+        "functions": [
+          "get_adata_gene_expression",
+          "normalize_adata",
+          "stratified_subsample_adata",
+          "transfer_variables",
+          "transform_adata_gene_names"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_adata_gene_expression": [
+            "adata",
+            "gene",
+            "layer",
+            "use_raw"
+          ],
+          "stratified_subsample_adata": [
+            "adata",
+            "group_column",
+            "target_fraction",
+            "random_state"
+          ],
+          "normalize_adata": [
+            "adata",
+            "target_sum",
+            "n_counts_key",
+            "chunk_size",
+            "copy"
+          ],
+          "transform_adata_gene_names": [
+            "adata",
+            "filename",
+            "organism",
+            "copy",
+            "drop_unmapped"
+          ],
+          "transfer_variables": [
+            "adata_target",
+            "adata_source",
+            "var_names",
+            "source_obs_col",
+            "target_obs_col",
+            "keep_sparse"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.external",
+        "module": "tf_idf",
+        "functions": [
+          "filter_tfidf_markers",
+          "markers_to_dict",
+          "quick_markers"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "quick_markers": [
+            "adata",
+            "cluster_key",
+            "cell_groups",
+            "layer",
+            "n_markers",
+            "fdr",
+            "express_cut",
+            "r_output"
+          ],
+          "filter_tfidf_markers": [
+            "df",
+            "tf_col",
+            "idf_col",
+            "tfidf_threshold",
+            "tfidf_col",
+            "tf_ratio",
+            "second_best_tf_col",
+            "group_col",
+            "second_best_group_col"
+          ],
+          "markers_to_dict": [
+            "markers_df",
+            "n_markers",
+            "sort_by",
+            "cluster_col",
+            "gene_col",
+            "ascending"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.external",
+        "module": "tensor",
+        "functions": [
+          "sccellfie_to_tensor"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "sccellfie_to_tensor": [
+            "preprocessed_db",
+            "sample_key",
+            "celltype_key",
+            "score_type",
+            "min_cells_per_group",
+            "agg_func",
+            "layer",
+            "gene_symbols",
+            "top_percent",
+            "exclude_zeros",
+            "use_raw",
+            "threshold",
+            "order_labels",
+            "sort_elements",
+            "context_order",
+            "fill_value",
+            "verbose"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.communication",
+        "module": "colocalization_scoring",
+        "functions": [
+          "compute_local_colocalization_scores"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "compute_local_colocalization_scores": [
+            "adata",
+            "var1",
+            "var2",
+            "neighbors_radius",
+            "method",
+            "spatial_key",
+            "min_neighbors",
+            "threshold1",
+            "threshold2",
+            "score_key",
+            "inplace"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.communication",
+        "module": "traditional_scoring",
+        "functions": [
+          "compute_communication_scores"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "compute_communication_scores": [
+            "adata",
+            "groupby",
+            "var_pairs",
+            "communication_score",
+            "agg_func",
+            "layer",
+            "ligand_threshold",
+            "receptor_threshold"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.expression",
+        "module": "aggregation",
+        "functions": [
+          "agg_expression_cells",
+          "fraction_above_threshold",
+          "top_mean"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "agg_expression_cells": [
+            "adata",
+            "groupby",
+            "layer",
+            "gene_symbols",
+            "agg_func",
+            "top_percent",
+            "exclude_zeros",
+            "use_raw",
+            "threshold"
+          ],
+          "top_mean": [
+            "x",
+            "axis",
+            "percent"
+          ],
+          "fraction_above_threshold": [
+            "x",
+            "axis",
+            "threshold"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.expression",
+        "module": "thresholds",
+        "functions": [
+          "get_global_mean_threshold",
+          "get_global_percentile_threshold",
+          "get_global_trimean_threshold",
+          "get_local_mean_threshold",
+          "get_local_percentile_threshold",
+          "get_local_trimean_threshold",
+          "set_manual_threshold"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_local_percentile_threshold": [
+            "adata",
+            "percentile",
+            "lower_bound",
+            "upper_bound",
+            "exclude_zeros",
+            "use_raw"
+          ],
+          "get_global_percentile_threshold": [
+            "adata",
+            "percentile",
+            "lower_bound",
+            "upper_bound",
+            "exclude_zeros",
+            "use_raw"
+          ],
+          "get_local_mean_threshold": [
+            "adata",
+            "lower_bound",
+            "upper_bound",
+            "exclude_zeros",
+            "use_raw"
+          ],
+          "get_global_mean_threshold": [
+            "adata",
+            "lower_bound",
+            "upper_bound",
+            "exclude_zeros",
+            "use_raw"
+          ],
+          "get_local_trimean_threshold": [
+            "adata",
+            "lower_bound",
+            "upper_bound",
+            "exclude_zeros",
+            "use_raw"
+          ],
+          "get_global_trimean_threshold": [
+            "adata",
+            "lower_bound",
+            "upper_bound",
+            "exclude_zeros",
+            "use_raw"
+          ],
+          "set_manual_threshold": [
+            "adata",
+            "threshold"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.expression",
+        "module": "smoothing",
+        "functions": [
+          "get_smoothing_matrix",
+          "smooth_expression_knn"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_smoothing_matrix": [
+            "adata",
+            "mode",
+            "neighbors_key"
+          ],
+          "smooth_expression_knn": [
+            "adata",
+            "key_added",
+            "neighbors_key",
+            "mode",
+            "alpha",
+            "n_chunks",
+            "chunk_size",
+            "use_raw",
+            "disable_pbar"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.spatial",
+        "module": "knn_network",
+        "functions": [
+          "create_knn_network",
+          "find_spatial_neighbors"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "find_spatial_neighbors": [
+            "adata",
+            "n_neighbors",
+            "spatial_key"
+          ],
+          "create_knn_network": [
+            "adata",
+            "n_neighbors",
+            "spatial_key",
+            "added_key"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.spatial",
+        "module": "neighborhood",
+        "functions": [
+          "compute_neighbor_distribution"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "compute_neighbor_distribution": [
+            "adata",
+            "radius_range",
+            "n_points",
+            "spatial_key",
+            "quantiles"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.spatial",
+        "module": "hotspots",
+        "functions": [
+          "calculate_aggregate_metric",
+          "compute_hotspots",
+          "obtain_hotspots",
+          "summarize_hotspots"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "obtain_hotspots": [
+            "adata",
+            "spatial_key",
+            "use_raw"
+          ],
+          "calculate_aggregate_metric": [
+            "z_scores",
+            "z_threshold"
+          ],
+          "summarize_hotspots": [
+            "hotspots",
+            "z_threshold"
+          ],
+          "compute_hotspots": [
+            "adata",
+            "spatial_key",
+            "use_raw",
+            "z_threshold"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.spatial",
+        "module": "assortativity",
+        "functions": [
+          "compute_assortativity",
+          "compute_var_assortativity"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "compute_var_assortativity": [
+            "adata",
+            "var_name",
+            "spatial_network_key",
+            "use_raw"
+          ],
+          "compute_assortativity": [
+            "adata",
+            "spatial_network_key",
+            "use_raw"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.stats",
+        "module": "differential_analysis",
+        "functions": [
+          "cohens_d",
+          "pairwise_differential_analysis",
+          "scanpy_differential_analysis"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "cohens_d": [
+            "group1",
+            "group2"
+          ],
+          "scanpy_differential_analysis": [
+            "adata",
+            "cell_type",
+            "cell_type_key",
+            "condition_key",
+            "condition_pairs",
+            "var_names",
+            "alpha",
+            "min_cells",
+            "downsample",
+            "n_iterations",
+            "agg_method",
+            "random_state"
+          ],
+          "pairwise_differential_analysis": [
+            "adata",
+            "groupby",
+            "var_names",
+            "order",
+            "alternative",
+            "alpha"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.stats",
+        "module": "gam_analysis",
+        "functions": [
+          "analyze_gam_results",
+          "fit_gam_model",
+          "generate_pseudobulks"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "generate_pseudobulks": [
+            "adata",
+            "cell_type_key",
+            "n_pseudobulks",
+            "cells_per_bulk",
+            "layer",
+            "use_raw",
+            "genes",
+            "agg_func",
+            "continuous_key",
+            "random_seed"
+          ],
+          "fit_gam_model": [
+            "adata",
+            "cell_type_key",
+            "cell_type_order",
+            "continuous_key",
+            "genes",
+            "layer",
+            "use_raw",
+            "n_splines",
+            "spline_order",
+            "lam",
+            "normalize",
+            "use_pseudobulk",
+            "n_pseudobulks",
+            "cells_per_bulk",
+            "pseudobulk_agg"
+          ],
+          "analyze_gam_results": [
+            "gam_results",
+            "significance_threshold",
+            "fdr_level"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.stats",
+        "module": "markers_from_task",
+        "functions": [
+          "get_task_determinant_genes"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_task_determinant_genes": [
+            "adata",
+            "metabolic_task",
+            "task_by_rxn",
+            "groupby",
+            "group",
+            "min_activity"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sccellfie.reports",
+        "module": "summary",
+        "functions": [
+          "aggregate_metrics_dataframes",
+          "calculate_group_summary",
+          "create_cell_counts_df",
+          "generate_report_from_adata",
+          "generate_summary_by_group",
+          "melt_summary_data",
+          "summarize_feature_range",
+          "update_min_max_values"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "generate_report_from_adata": [
+            "adata",
+            "group_by",
+            "agg_func",
+            "layer",
+            "features",
+            "tissue_col",
+            "feature_name",
+            "min_cells",
+            "threshold",
+            "default_tissue_name"
+          ],
+          "generate_summary_by_group": [
+            "adata",
+            "data_matrix",
+            "feature_names",
+            "group_by",
+            "agg_func",
+            "tissue_column",
+            "min_cells",
+            "default_tissue_name",
+            "threshold"
+          ],
+          "calculate_group_summary": [
+            "df",
+            "col_name",
+            "agg_func",
+            "threshold"
+          ],
+          "update_min_max_values": [
+            "df",
+            "agg_values",
+            "features_seen",
+            "single_cell_min",
+            "single_cell_max",
+            "group_min",
+            "group_max"
+          ],
+          "summarize_feature_range": [
+            "features_seen",
+            "single_cell_min",
+            "single_cell_max",
+            "group_min",
+            "group_max"
+          ],
+          "aggregate_metrics_dataframes": [
+            "results"
+          ],
+          "create_cell_counts_df": [
+            "cell_counts"
+          ],
+          "melt_summary_data": [
+            "agg_values",
+            "variance",
+            "std",
+            "threshold_cells",
+            "nonzero_cells",
+            "cell_counts_df",
+            "feature_name",
+            "agg_func"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "pandas",
+        "scipy",
+        "anndata",
+        "scanpy",
+        "networkx",
+        "matplotlib",
+        "seaborn",
+        "statsmodels"
+      ],
+      "optional": [
+        "squidpy",
+        "scikit-learn",
+        "umap-learn",
+        "plotly"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.83,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/earmingol/scCellFie",
+    "repo_name": "scCellFie",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.83,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

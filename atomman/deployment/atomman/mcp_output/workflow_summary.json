@@ -1,0 +1,239 @@
+{
+  "repository": {
+    "name": "atomman",
+    "url": "https://github.com/usnistgov/atomman",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/atomman",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773255981.8723772,
+    "end_time": 1773256181.238359,
+    "duration": 199.36598300933838,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 13,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.atomman",
+        "source.atomman.cluster",
+        "source.atomman.core",
+        "source.atomman.defect",
+        "source.atomman.dump",
+        "source.atomman.lammps",
+        "source.atomman.library",
+        "source.atomman.load",
+        "source.atomman.mep",
+        "source.atomman.plot",
+        "source.atomman.region",
+        "source.atomman.thermo",
+        "source.atomman.tools"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.93,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/usnistgov/atomman",
+      "repo_name": "atomman",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/atomman/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "Add and run a full CI matrix (Python 3.8–3.12",
+    "Linux/macOS/Windows) with unit",
+    "lint",
+    "and packaging checks",
+    "Increase test coverage for under-tested large modules (defect",
+    "thermo",
+    "lammps",
+    "load/dump adapters) and add regression tests for critical workflows",
+    "Introduce optional-dependency test groups (ase/pymatgen/spglib/phonopy/freud/plotly) to validate graceful degradation when extras are missing",
+    "Unify packaging metadata by modernizing `pyproject.toml` (single source of truth) and minimizing duplicated config in `setup.py`/`requirements.txt`",
+    "Add static quality gates (ruff or flake8",
+    "black",
+    "isort",
+    "mypy/pyright for key modules) and enforce via pre-commit",
+    "Create API-contract tests for generated MCP endpoints to ensure parameter/return stability and parity with core Atomman functions",
+    "Add structured error handling and user-facing messages in MCP adapter/service layers for import/runtime failures (especially external LAMMPS executable issues)",
+    "Add benchmark suite (e.g.",
+    "pytest-benchmark) for hotspots like neighbor list generation",
+    "box/system transforms",
+    "and large defect builders",
+    "Refactor very large files incrementally (e.g.",
+    "`UhlenbeckFordModel.py`",
+    "`GammaSurface.py`",
+    "`System.py`) into smaller units to improve maintainability and testability",
+    "Standardize naming and deprecation strategy where duplicate/legacy utilities exist (e.g.",
+    "`duplicated_allclose` vs `duplicates_allclose`",
+    "`SurfaceEnergyEstimator` vs `surface_energy_estimate`)",
+    "Add type hints/docstring improvements for public APIs and auto-generate reference docs from source to reduce drift",
+    "Remove committed built documentation artifacts (`doc/html/_static` JS bundles) from source control and build docs in CI instead",
+    "Add security/dependency automation (Dependabot/Renovate + pip-audit/safety) and pin/test minimum/maximum compatible versions",
+    "Expand smoke/integration tests for `load`/`dump` round-trips across supported formats with tolerance-based structural equivalence checks",
+    "Document MCP plugin operations clearly (startup",
+    "endpoint examples",
+    "environment requirements",
+    "troubleshooting) and add a quick health-check script."
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy was feasible (import_feasibility 0.93), reducing integration friction for a Python library project.",
+      "Generated MCP service started healthy over stdio transport, indicating baseline runtime viability.",
+      "Repository has clear modular package structure (core/defect/load/dump/lammps/tools), enabling tool mapping.",
+      "No runtime pipeline errors/warnings were reported, and security scan reported zero known vulnerabilities in this run."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality signal inconsistency: original project tests are marked passed=false while coverage is reported as 100% with execution_time=0, indicating test instrumentation/reporting gap.",
+      "DeepWiki enrichment failed, reducing external contextual analysis depth.",
+      "Generated metadata appears incomplete/inconsistent (tool_endpoints=0 while service lists 23 endpoints; total_lines_of_code=0)."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repo imported via zip fallback (243 files). Fallback worked but may be slower/less reproducible than direct VCS clone.",
+      "analysis_time": "Completed with medium complexity findings and strong import feasibility; DeepWiki sub-step failed but did not block pipeline.",
+      "generation_time": "Generation completed and produced expected MCP scaffold files and endpoint surface; metadata counters suggest post-generation metrics collection issue.",
+      "test_time": "MCP plugin health test passed (healthy startup, stdio). Original project test status is unreliable due to contradictory metrics (passed=false, coverage=100%, time=0)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB). Add real memory instrumentation.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%). Add per-node CPU profiling.",
+      "disk_usage": "Low-to-moderate for generated artifacts (7 files). Source repo includes committed docs/static assets that increase checkout footprint."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 82,
+    "performance_score": 70,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 74
+  }
+}

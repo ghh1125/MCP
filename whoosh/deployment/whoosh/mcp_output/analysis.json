@@ -1,0 +1,712 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/mchaput/whoosh",
+    "summary": "Imported via zip fallback, file count: 167",
+    "file_tree": {
+      ".travis.yml": {
+        "size": 227
+      },
+      "LICENSE.txt": {
+        "size": 1482
+      },
+      "README.md": {
+        "size": 2422
+      },
+      "benchmark/dictionary.py": {
+        "size": 1258
+      },
+      "benchmark/enron.py": {
+        "size": 6452
+      },
+      "benchmark/marc21.py": {
+        "size": 9190
+      },
+      "benchmark/reuters.py": {
+        "size": 1211
+      },
+      "docs/source/conf.py": {
+        "size": 6396
+      },
+      "scripts/make_checkpoint.py": {
+        "size": 1832
+      },
+      "scripts/pylint.ini": {
+        "size": 8776
+      },
+      "scripts/read_checkpoint.py": {
+        "size": 1287
+      },
+      "setup.cfg": {
+        "size": 1123
+      },
+      "setup.py": {
+        "size": 1728
+      },
+      "src/whoosh/__init__.py": {
+        "size": 2059
+      },
+      "src/whoosh/analysis/__init__.py": {
+        "size": 3288
+      },
+      "src/whoosh/analysis/acore.py": {
+        "size": 5525
+      },
+      "src/whoosh/analysis/analyzers.py": {
+        "size": 11277
+      },
+      "src/whoosh/analysis/filters.py": {
+        "size": 16428
+      },
+      "src/whoosh/analysis/intraword.py": {
+        "size": 18991
+      },
+      "src/whoosh/analysis/morph.py": {
+        "size": 10125
+      },
+      "src/whoosh/analysis/ngrams.py": {
+        "size": 8788
+      },
+      "src/whoosh/analysis/tokenizers.py": {
+        "size": 12678
+      },
+      "src/whoosh/automata/__init__.py": {
+        "size": 0
+      },
+      "src/whoosh/automata/fsa.py": {
+        "size": 20430
+      },
+      "src/whoosh/automata/glob.py": {
+        "size": 3333
+      },
+      "src/whoosh/automata/lev.py": {
+        "size": 974
+      },
+      "src/whoosh/automata/nfa.py": {
+        "size": 10498
+      },
+      "src/whoosh/automata/reg.py": {
+        "size": 3974
+      },
+      "src/whoosh/classify.py": {
+        "size": 11916
+      },
+      "src/whoosh/codec/__init__.py": {
+        "size": 1649
+      },
+      "src/whoosh/codec/base.py": {
+        "size": 24192
+      },
+      "src/whoosh/codec/memory.py": {
+        "size": 11000
+      },
+      "src/whoosh/codec/plaintext.py": {
+        "size": 14256
+      },
+      "src/whoosh/codec/whoosh3.py": {
+        "size": 42743
+      },
+      "src/whoosh/collectors.py": {
+        "size": 42330
+      },
+      "src/whoosh/columns.py": {
+        "size": 47383
+      },
+      "src/whoosh/compat.py": {
+        "size": 5357
+      },
+      "src/whoosh/externalsort.py": {
+        "size": 7984
+      },
+      "src/whoosh/fields.py": {
+        "size": 56496
+      },
+      "src/whoosh/filedb/__init__.py": {
+        "size": 0
+      },
+      "src/whoosh/filedb/compound.py": {
+        "size": 11090
+      },
+      "src/whoosh/filedb/filestore.py": {
+        "size": 21584
+      },
+      "src/whoosh/filedb/filetables.py": {
+        "size": 25225
+      },
+      "src/whoosh/filedb/gae.py": {
+        "size": 4872
+      },
+      "src/whoosh/filedb/structfile.py": {
+        "size": 12453
+      },
+      "src/whoosh/formats.py": {
+        "size": 16706
+      },
+      "src/whoosh/highlight.py": {
+        "size": 38681
+      },
+      "src/whoosh/idsets.py": {
+        "size": 19109
+      },
+      "src/whoosh/index.py": {
+        "size": 24282
+      },
+      "src/whoosh/lang/__init__.py": {
+        "size": 4285
+      },
+      "src/whoosh/lang/dmetaphone.py": {
+        "size": 17520
+      },
+      "src/whoosh/lang/isri.py": {
+        "size": 16786
+      },
+      "src/whoosh/lang/lovins.py": {
+        "size": 12645
+      },
+      "src/whoosh/lang/morph_en.py": {
+        "size": 48468
+      },
+      "src/whoosh/lang/paicehusk.py": {
+        "size": 6788
+      },
+      "src/whoosh/lang/phonetic.py": {
+        "size": 3350
+      },
+      "src/whoosh/lang/porter.py": {
+        "size": 4231
+      },
+      "src/whoosh/lang/porter2.py": {
+        "size": 8314
+      },
+      "src/whoosh/lang/snowball/LICENSE.txt": {
+        "size": 574
+      },
+      "src/whoosh/lang/snowball/__init__.py": {
+        "size": 2622
+      },
+      "src/whoosh/lang/snowball/bases.py": {
+        "size": 4874
+      },
+      "src/whoosh/lang/snowball/danish.py": {
+        "size": 4112
+      },
+      "src/whoosh/lang/snowball/dutch.py": {
+        "size": 6194
+      },
+      "src/whoosh/lang/snowball/english.py": {
+        "size": 17347
+      },
+      "src/whoosh/lang/snowball/finnish.py": {
+        "size": 10074
+      },
+      "src/whoosh/lang/snowball/french.py": {
+        "size": 14461
+      },
+      "src/whoosh/lang/snowball/german.py": {
+        "size": 5347
+      },
+      "src/whoosh/lang/snowball/hungarian.py": {
+        "size": 11694
+      },
+      "src/whoosh/lang/snowball/italian.py": {
+        "size": 9125
+      },
+      "src/whoosh/lang/snowball/norwegian.py": {
+        "size": 2803
+      },
+      "src/whoosh/lang/snowball/portugese.py": {
+        "size": 8221
+      },
+      "src/whoosh/lang/snowball/romanian.py": {
+        "size": 11966
+      },
+      "src/whoosh/lang/snowball/russian.py": {
+        "size": 20904
+      },
+      "src/whoosh/lang/snowball/spanish.py": {
+        "size": 11013
+      },
+      "src/whoosh/lang/snowball/swedish.py": {
+        "size": 2760
+      },
+      "src/whoosh/lang/stopwords.py": {
+        "size": 15721
+      },
+      "src/whoosh/lang/wordnet.py": {
+        "size": 8672
+      },
+      "src/whoosh/legacy.py": {
+        "size": 3459
+      },
+      "src/whoosh/matching/__init__.py": {
+        "size": 1678
+      },
+      "src/whoosh/matching/binary.py": {
+        "size": 24449
+      },
+      "src/whoosh/matching/combo.py": {
+        "size": 9926
+      },
+      "src/whoosh/matching/mcore.py": {
+        "size": 18822
+      },
+      "src/whoosh/matching/wrappers.py": {
+        "size": 17477
+      },
+      "src/whoosh/multiproc.py": {
+        "size": 15128
+      },
+      "src/whoosh/qparser/__init__.py": {
+        "size": 1640
+      },
+      "src/whoosh/qparser/common.py": {
+        "size": 2408
+      },
+      "src/whoosh/qparser/dateparse.py": {
+        "size": 32771
+      },
+      "src/whoosh/qparser/default.py": {
+        "size": 17071
+      },
+      "src/whoosh/qparser/plugins.py": {
+        "size": 50402
+      },
+      "src/whoosh/qparser/syntax.py": {
+        "size": 18620
+      },
+      "src/whoosh/qparser/taggers.py": {
+        "size": 3624
+      },
+      "src/whoosh/query/__init__.py": {
+        "size": 1843
+      },
+      "src/whoosh/query/compound.py": {
+        "size": 22123
+      },
+      "src/whoosh/query/nested.py": {
+        "size": 15598
+      },
+      "src/whoosh/query/positional.py": {
+        "size": 9427
+      },
+      "src/whoosh/query/qcolumns.py": {
+        "size": 4197
+      },
+      "src/whoosh/query/qcore.py": {
+        "size": 23439
+      },
+      "src/whoosh/query/ranges.py": {
+        "size": 13420
+      },
+      "src/whoosh/query/spans.py": {
+        "size": 29069
+      },
+      "src/whoosh/query/terms.py": {
+        "size": 17880
+      },
+      "src/whoosh/query/wrappers.py": {
+        "size": 6740
+      },
+      "src/whoosh/reading.py": {
+        "size": 42427
+      },
+      "src/whoosh/scoring.py": {
+        "size": 20940
+      },
+      "src/whoosh/searching.py": {
+        "size": 64528
+      },
+      "src/whoosh/sorting.py": {
+        "size": 41941
+      },
+      "src/whoosh/spelling.py": {
+        "size": 12550
+      },
+      "src/whoosh/support/__init__.py": {
+        "size": 0
+      },
+      "src/whoosh/support/base85.py": {
+        "size": 2473
+      },
+      "src/whoosh/support/bench.py": {
+        "size": 21018
+      },
+      "src/whoosh/support/charset.py": {
+        "size": 79555
+      },
+      "src/whoosh/support/levenshtein.py": {
+        "size": 2385
+      },
+      "src/whoosh/support/relativedelta.py": {
+        "size": 17347
+      },
+      "src/whoosh/support/unicode.py": {
+        "size": 26604
+      },
+      "src/whoosh/system.py": {
+        "size": 2964
+      },
+      "src/whoosh/util/__init__.py": {
+        "size": 4411
+      },
+      "src/whoosh/util/cache.py": {
+        "size": 3874
+      },
+      "src/whoosh/util/filelock.py": {
+        "size": 5291
+      },
+      "src/whoosh/util/loading.py": {
+        "size": 3221
+      },
+      "src/whoosh/util/numeric.py": {
+        "size": 11285
+      },
+      "src/whoosh/util/numlists.py": {
+        "size": 10425
+      },
+      "src/whoosh/util/testing.py": {
+        "size": 4503
+      },
+      "src/whoosh/util/text.py": {
+        "size": 4372
+      },
+      "src/whoosh/util/times.py": {
+        "size": 16936
+      },
+      "src/whoosh/util/varints.py": {
+        "size": 3198
+      },
+      "src/whoosh/util/versions.py": {
+        "size": 5275
+      },
+      "src/whoosh/writing.py": {
+        "size": 46584
+      },
+      "stress/test_bigfacet.py": {
+        "size": 1306
+      },
+      "stress/test_bigindex.py": {
+        "size": 2236
+      },
+      "stress/test_bigsort.py": {
+        "size": 1556
+      },
+      "stress/test_bigtable.py": {
+        "size": 1024
+      },
+      "stress/test_hugeindex.py": {
+        "size": 1172
+      },
+      "stress/test_threading.py": {
+        "size": 1919
+      },
+      "stress/test_update.py": {
+        "size": 703
+      },
+      "tests/test_analysis.py": {
+        "size": 19093
+      },
+      "tests/test_automata.py": {
+        "size": 9660
+      },
+      "tests/test_bits.py": {
+        "size": 4379
+      },
+      "tests/test_classify.py": {
+        "size": 6928
+      },
+      "tests/test_codecs.py": {
+        "size": 19453
+      },
+      "tests/test_collector.py": {
+        "size": 8980
+      },
+      "tests/test_columns.py": {
+        "size": 10928
+      },
+      "tests/test_compound.py": {
+        "size": 1741
+      },
+      "tests/test_dateparse.py": {
+        "size": 16282
+      },
+      "tests/test_fields.py": {
+        "size": 20876
+      },
+      "tests/test_flexible.py": {
+        "size": 3671
+      },
+      "tests/test_highlighting.py": {
+        "size": 12647
+      },
+      "tests/test_indexing.py": {
+        "size": 26688
+      },
+      "tests/test_matching.py": {
+        "size": 17081
+      },
+      "tests/test_misc.py": {
+        "size": 4026
+      },
+      "tests/test_mpwriter.py": {
+        "size": 8467
+      },
+      "tests/test_nested.py": {
+        "size": 17227
+      },
+      "tests/test_parse_plugins.py": {
+        "size": 23464
+      },
+      "tests/test_parsing.py": {
+        "size": 34249
+      },
+      "tests/test_postings.py": {
+        "size": 4519
+      },
+      "tests/test_quality.py": {
+        "size": 5524
+      },
+      "tests/test_queries.py": {
+        "size": 21578
+      },
+      "tests/test_reading.py": {
+        "size": 16206
+      },
+      "tests/test_results.py": {
+        "size": 24078
+      },
+      "tests/test_searching.py": {
+        "size": 64863
+      },
+      "tests/test_sorting.py": {
+        "size": 38970
+      },
+      "tests/test_spans.py": {
+        "size": 12049
+      },
+      "tests/test_spelling.py": {
+        "size": 13120
+      },
+      "tests/test_stem.py": {
+        "size": 805
+      },
+      "tests/test_tables.py": {
+        "size": 6110
+      },
+      "tests/test_vectors.py": {
+        "size": 5051
+      },
+      "tests/test_weightings.py": {
+        "size": 2736
+      },
+      "tests/test_writing.py": {
+        "size": 17038
+      },
+      "tox.ini": {
+        "size": 128
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "src/whoosh/index.py",
+        "module": "whoosh.index",
+        "functions": [
+          "create_in",
+          "open_dir",
+          "exists_in",
+          "exists"
+        ],
+        "classes": [
+          "Index",
+          "FileIndex"
+        ],
+        "description": "Primary index lifecycle API (create/open/existence checks) used as the canonical entry point for storage-backed indexes."
+      },
+      {
+        "package": "src/whoosh/fields.py",
+        "module": "whoosh.fields",
+        "functions": [],
+        "classes": [
+          "Schema",
+          "TEXT",
+          "KEYWORD",
+          "ID",
+          "NUMERIC",
+          "DATETIME",
+          "BOOLEAN"
+        ],
+        "description": "Schema and field-type definitions for index structure, analyzers, storage behavior, and query-time semantics."
+      },
+      {
+        "package": "src/whoosh/writing.py",
+        "module": "whoosh.writing",
+        "functions": [],
+        "classes": [
+          "IndexWriter",
+          "AsyncWriter",
+          "BufferedWriter"
+        ],
+        "description": "Document ingestion/update/delete pipeline and commit behavior."
+      },
+      {
+        "package": "src/whoosh/searching.py",
+        "module": "whoosh.searching",
+        "functions": [],
+        "classes": [
+          "Searcher",
+          "Results",
+          "Hit"
+        ],
+        "description": "Query execution, ranking, paging, result objects, and high-level search orchestration."
+      },
+      {
+        "package": "src/whoosh/qparser/default.py",
+        "module": "whoosh.qparser.default",
+        "functions": [],
+        "classes": [
+          "QueryParser",
+          "MultifieldParser",
+          "SimpleParser"
+        ],
+        "description": "User query string parsing into Whoosh query objects."
+      },
+      {
+        "package": "src/whoosh/query/terms.py",
+        "module": "whoosh.query.terms",
+        "functions": [],
+        "classes": [
+          "Term",
+          "Prefix",
+          "Wildcard",
+          "FuzzyTerm",
+          "Phrase"
+        ],
+        "description": "Term-level query objects used directly or produced by parser plugins."
+      },
+      {
+        "package": "src/whoosh/scoring.py",
+        "module": "whoosh.scoring",
+        "functions": [],
+        "classes": [
+          "Weighting",
+          "BM25F",
+          "TF_IDF",
+          "Frequency"
+        ],
+        "description": "Ranking/weighting models used by Searcher for score computation."
+      },
+      {
+        "package": "src/whoosh/analysis/analyzers.py",
+        "module": "whoosh.analysis.analyzers",
+        "functions": [],
+        "classes": [
+          "Analyzer",
+          "StandardAnalyzer",
+          "KeywordAnalyzer",
+          "LanguageAnalyzer",
+          "NgramAnalyzer"
+        ],
+        "description": "Text analysis/tokenization chains for indexing and querying."
+      },
+      {
+        "package": "src/whoosh/highlight.py",
+        "module": "whoosh.highlight",
+        "functions": [
+          "highlight"
+        ],
+        "classes": [
+          "Highlighter",
+          "Formatter",
+          "Fragmenter"
+        ],
+        "description": "Snippet generation and matched-term highlighting."
+      },
+      {
+        "package": "src/whoosh/sorting.py",
+        "module": "whoosh.sorting",
+        "functions": [],
+        "classes": [
+          "FieldFacet",
+          "ScoreFacet",
+          "MultiFacet"
+        ],
+        "description": "Sorting and faceting primitives integrated with search results."
+      },
+      {
+        "package": "src/whoosh/spelling.py",
+        "module": "whoosh.spelling",
+        "functions": [],
+        "classes": [
+          "SpellChecker",
+          "ReaderCorrector"
+        ],
+        "description": "Spell correction/suggestion support based on indexed terms."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "make_checkpoint.py",
+        "module": "scripts/make_checkpoint.py",
+        "description": "Utility script for generating checkpoint artifacts (project maintenance/testing support)."
+      },
+      {
+        "name": "read_checkpoint.py",
+        "module": "scripts/read_checkpoint.py",
+        "description": "Utility script for reading/inspecting checkpoint artifacts."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "Python standard library"
+      ],
+      "optional": [
+        "none clearly required from scanned paths; optional runtime extras not evidenced by setup metadata in provided scan"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.94,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/mchaput/whoosh",
+    "repo_name": "whoosh",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.94,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

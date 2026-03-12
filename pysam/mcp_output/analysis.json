@@ -1,0 +1,349 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/pysam-developers/pysam",
+    "summary": "Imported via zip fallback, file count: 56",
+    "file_tree": {
+      "devtools/artifactname.py": {
+        "size": 530
+      },
+      "devtools/emulate-tools.py": {
+        "size": 1875
+      },
+      "devtools/environment-dev.yaml": {
+        "size": 96
+      },
+      "devtools/import.py": {
+        "size": 10381
+      },
+      "doc/conf.py": {
+        "size": 8453
+      },
+      "doc/requirements-rtd.txt": {
+        "size": 38
+      },
+      "linker_tests/link_pre_489/PysamTestModule_link_pre_489/__init__.py": {
+        "size": 84
+      },
+      "linker_tests/link_pre_489/cy_build.py": {
+        "size": 2638
+      },
+      "linker_tests/link_pre_489/setup.py": {
+        "size": 778
+      },
+      "linker_tests/link_pre_489/tests/test_module.py": {
+        "size": 356
+      },
+      "linker_tests/link_with_rpath/PysamTestModule_link_with_rpath/__init__.py": {
+        "size": 87
+      },
+      "linker_tests/link_with_rpath/setup.py": {
+        "size": 1014
+      },
+      "linker_tests/link_with_rpath/tests/test_module.py": {
+        "size": 359
+      },
+      "linker_tests/link_without_rpath/PysamTestModule_link_without_rpath/__init__.py": {
+        "size": 90
+      },
+      "linker_tests/link_without_rpath/setup.py": {
+        "size": 954
+      },
+      "linker_tests/link_without_rpath/tests/test_module.py": {
+        "size": 362
+      },
+      "pyproject.toml": {
+        "size": 1045
+      },
+      "pysam/Pileup.py": {
+        "size": 8955
+      },
+      "pysam/__init__.py": {
+        "size": 3431
+      },
+      "pysam/bcftools.py": {
+        "size": 1528
+      },
+      "pysam/include/__init__.py": {
+        "size": 0
+      },
+      "pysam/samtools.py": {
+        "size": 3268
+      },
+      "pysam/utils.py": {
+        "size": 3772
+      },
+      "pysam/version.py": {
+        "size": 143
+      },
+      "requirements-dev.txt": {
+        "size": 13
+      },
+      "setup.cfg": {
+        "size": 1602
+      },
+      "setup.py": {
+        "size": 27283
+      },
+      "tests/00README.txt": {
+        "size": 678
+      },
+      "tests/AlignedSegment_bench.py": {
+        "size": 677
+      },
+      "tests/AlignedSegment_test.py": {
+        "size": 66110
+      },
+      "tests/AlignmentFileFetchTestUtils.py": {
+        "size": 2955
+      },
+      "tests/AlignmentFileFetch_bench.py": {
+        "size": 3427
+      },
+      "tests/AlignmentFileHeader_test.py": {
+        "size": 12296
+      },
+      "tests/AlignmentFilePileup_bench.py": {
+        "size": 5819
+      },
+      "tests/AlignmentFilePileup_test.py": {
+        "size": 16016
+      },
+      "tests/AlignmentFile_bench.py": {
+        "size": 1921
+      },
+      "tests/AlignmentFile_test.py": {
+        "size": 88329
+      },
+      "tests/PileupTestUtils.py": {
+        "size": 5781
+      },
+      "tests/StreamFiledescriptors_test.py": {
+        "size": 2983
+      },
+      "tests/TestUtils.py": {
+        "size": 7967
+      },
+      "tests/VariantFileFetchTestUtils.py": {
+        "size": 1852
+      },
+      "tests/VariantFile_bench.py": {
+        "size": 1747
+      },
+      "tests/VariantFile_test.py": {
+        "size": 25613
+      },
+      "tests/VariantRecord_test.py": {
+        "size": 3792
+      },
+      "tests/compile_test.py": {
+        "size": 2230
+      },
+      "tests/faidx_bench.py": {
+        "size": 2084
+      },
+      "tests/faidx_test.py": {
+        "size": 14847
+      },
+      "tests/linking_test.py": {
+        "size": 2717
+      },
+      "tests/refactoring.txt": {
+        "size": 7635
+      },
+      "tests/samtools_test.py": {
+        "size": 14329
+      },
+      "tests/tabix_bench.py": {
+        "size": 5235
+      },
+      "tests/tabix_data/vcf/README.txt": {
+        "size": 338
+      },
+      "tests/tabix_test.py": {
+        "size": 40953
+      },
+      "tests/tabixproxies_test.py": {
+        "size": 13015
+      },
+      "tests/test_samtools_python.py": {
+        "size": 1946
+      },
+      "tests/typechecking_test.py": {
+        "size": 3662
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.pysam",
+      "source.pysam.include"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": true,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.pysam",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level API aggregator for pysam. Re-exports core HTS/BAM/VCF/tabix functionality from compiled extension modules and selected Python wrappers."
+      },
+      {
+        "package": "source.pysam",
+        "module": "Pileup",
+        "functions": [
+          "get_query_sequences",
+          "get_mapping_qualities",
+          "get_query_qualities",
+          "get_query_names",
+          "get_num_aligned",
+          "get_query_positions"
+        ],
+        "classes": [],
+        "description": "Python helper utilities for pileup column/read processing and extraction of derived pileup attributes."
+      },
+      {
+        "package": "source.pysam",
+        "module": "samtools",
+        "functions": [
+          "view",
+          "sort",
+          "index",
+          "flagstat",
+          "idxstats",
+          "faidx",
+          "mpileup",
+          "depth",
+          "merge",
+          "fixmate",
+          "markdup",
+          "calmd",
+          "reheader",
+          "stats",
+          "targetcut",
+          "phase",
+          "bedcov"
+        ],
+        "classes": [],
+        "description": "Dispatcher/wrapper module exposing samtools subcommands through Python-callable functions backed by pysam’s internal command bridge."
+      },
+      {
+        "package": "source.pysam",
+        "module": "bcftools",
+        "functions": [
+          "index",
+          "concat",
+          "merge",
+          "isec",
+          "stats",
+          "query",
+          "call",
+          "filter",
+          "norm",
+          "annotate",
+          "view",
+          "reheader",
+          "sort",
+          "consensus",
+          "plugin"
+        ],
+        "classes": [],
+        "description": "Dispatcher/wrapper module exposing bcftools-like operations as Python functions via internal bindings."
+      },
+      {
+        "package": "source.pysam",
+        "module": "utils",
+        "functions": [
+          "PysamDispatcher",
+          "get_verbosity",
+          "set_verbosity"
+        ],
+        "classes": [
+          "SamtoolsError"
+        ],
+        "description": "Shared utility layer for command dispatching, error translation, and runtime verbosity control used by wrapper modules."
+      },
+      {
+        "package": "source.pysam",
+        "module": "version",
+        "functions": [],
+        "classes": [],
+        "description": "Version metadata module."
+      },
+      {
+        "package": "source.pysam.include",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Namespace marker for bundled headers/includes; no runtime API surface."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "samtools-like subcommands (Python-dispatched)",
+        "module": "source.pysam.samtools",
+        "description": "No standalone CLI entry point defined in scanned Python package metadata; commands are exposed as Python-callable wrappers around samtools operations."
+      },
+      {
+        "name": "bcftools-like subcommands (Python-dispatched)",
+        "module": "source.pysam.bcftools",
+        "description": "No standalone CLI entry point defined in scanned Python package metadata; commands are exposed as Python-callable wrappers around bcftools operations."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.91
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.9",
+        "setuptools (build-time)",
+        "Cython (build-time for source builds)",
+        "htslib/samtools/bcftools components vendored/linked through pysam build",
+        "zlib/bz2/lzma/curl/system compression+IO libs as platform-linked transitive requirements"
+      ],
+      "optional": [
+        "pytest (test-time)",
+        "sphinx (docs-time)",
+        "numpy (not required for core import in scanned modules, may be used in some workflows)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/pysam-developers/pysam",
+    "repo_name": "pysam",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.72,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

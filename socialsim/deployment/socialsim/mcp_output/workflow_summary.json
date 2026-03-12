@@ -1,0 +1,214 @@
+{
+  "repository": {
+    "name": "socialsim",
+    "url": "https://github.com/pnnl/socialsim",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/socialsim",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773243383.885589,
+    "end_time": 1773243595.892297,
+    "duration": 212.0067081451416,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.35,
+      "intrusiveness_risk": "medium",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/pnnl/socialsim",
+      "repo_name": "socialsim",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/socialsim/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal automated test suite (smoke tests for `run_measurements_and_metrics.py`",
+    "unit tests for key metric functions",
+    "and regression fixtures for cascade reconstruction)",
+    "standardize packaging so modules are importable (`pyproject.toml`",
+    "valid package names instead of hyphenated dirs",
+    "explicit entry points)",
+    "consolidate and de-duplicate config files by introducing a shared base config + scenario overrides",
+    "create a single authoritative dependency spec (replace split conda/pip files with pinned optional extras and lockfile)",
+    "add CI (lint + tests + basic CLI run on sample data) to prevent drift",
+    "improve API hygiene by removing duplicate endpoint/function names in MCP export and enforcing naming conventions",
+    "add type hints and static checks (mypy/pyright) for core measurement/metric interfaces",
+    "strengthen input validation and error handling for data loaders and CLI arguments (schema checks",
+    "clearer exceptions)",
+    "separate legacy code (`github-measurements-old`) behind archival boundaries or deprecation notices to reduce maintenance risk",
+    "expand documentation with end-to-end quickstarts per platform (GitHub/Reddit/Twitter)",
+    "expected input/output schemas",
+    "and reproducible example commands",
+    "add benchmark and profiling scripts for heavy paths (cascade/network metrics) and cache intermediate artifacts",
+    "introduce structured logging and run metadata capture (config hash",
+    "git SHA",
+    "timing",
+    "dataset stats) for reproducibility",
+    "add golden-output tests for plotting/transformers to catch silent format changes",
+    "enforce code quality tooling (ruff/black/isort) and pre-commit hooks",
+    "define semantic versioning and changelog practices for stable downstream integration"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state with all planned nodes executed: download, analysis, env, generate, run, review, finalize.",
+      "Zip fallback import succeeded and processed repository contents (73 files), enabling downstream MCP generation despite metadata detection gaps.",
+      "MCP plugin generation completed with valid scaffold files and healthy stdio service startup.",
+      "Adapter mode 'import' worked sufficiently to expose a large tool surface from discovered modules/functions."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki enrichment failed (non-blocking), reducing semantic context quality for generation/review.",
+      "Repository/package detection reported zero packages and missing dependency manifests, indicating analysis pipeline blind spots rather than repository absence.",
+      "Generated metadata quality is inconsistent (e.g., total_files_processed=0, total_lines_of_code=0, tool_endpoints=0) despite successful file and endpoint output."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; likely moderate duration due to zip fallback retrieval. No per-node timing provided.",
+      "analysis_time": "Completed with partial fidelity; AST discovery worked, but structural/dependency detectors under-reported key artifacts.",
+      "generation_time": "Successful and efficient enough for end-to-end completion in ~212s; generated core MCP files and endpoint map.",
+      "test_time": "MCP health test passed; original project tests effectively not executed (empty suite/metadata), so validation depth is limited."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB). Likely acceptable for scaffold generation; cannot verify peak usage.",
+      "cpu_efficiency": "Unknown from telemetry (reported 0%). End-to-end runtime suggests normal CPU use but no actionable profiling data.",
+      "disk_usage": "Low-to-moderate; plugin artifacts were created, but size metrics reported as 0 indicate instrumentation gap."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 74,
+    "performance_score": 61,
+    "maintainability_score": 66,
+    "security_score": 85,
+    "scalability_score": 64
+  }
+}

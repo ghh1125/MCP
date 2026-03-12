@@ -1,0 +1,3094 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/sahahn/BPt",
+    "summary": "Imported via zip fallback, file count: 962",
+    "file_tree": {
+      ".github/workflows/code_cov.yml": {
+        "size": 804
+      },
+      ".github/workflows/docs.yml": {
+        "size": 1373
+      },
+      ".github/workflows/python-publish.yml": {
+        "size": 864
+      },
+      ".github/workflows/test_mac_versions.yml": {
+        "size": 890
+      },
+      ".github/workflows/test_ubuntu_versions.yml": {
+        "size": 815
+      },
+      ".github/workflows/test_windows_versions.yml": {
+        "size": 813
+      },
+      "BPt/__init__.py": {
+        "size": 1687
+      },
+      "BPt/dataset/__init__.py": {
+        "size": 0
+      },
+      "BPt/dataset/_data_files.py": {
+        "size": 14959
+      },
+      "BPt/dataset/_encoding.py": {
+        "size": 22892
+      },
+      "BPt/dataset/_filtering.py": {
+        "size": 23486
+      },
+      "BPt/dataset/_plotting.py": {
+        "size": 34563
+      },
+      "BPt/dataset/_subjects.py": {
+        "size": 8619
+      },
+      "BPt/dataset/_validation.py": {
+        "size": 21151
+      },
+      "BPt/dataset/data_file.py": {
+        "size": 3593
+      },
+      "BPt/dataset/dataset.py": {
+        "size": 69704
+      },
+      "BPt/dataset/fake_dataset.py": {
+        "size": 1082
+      },
+      "BPt/dataset/funcs.py": {
+        "size": 6029
+      },
+      "BPt/dataset/helpers.py": {
+        "size": 7750
+      },
+      "BPt/dataset/tests/__init__.py": {
+        "size": 0
+      },
+      "BPt/dataset/tests/datasets.py": {
+        "size": 3231
+      },
+      "BPt/dataset/tests/test_data_file.py": {
+        "size": 1766
+      },
+      "BPt/dataset/tests/test_data_files.py": {
+        "size": 6588
+      },
+      "BPt/dataset/tests/test_dataset.py": {
+        "size": 20585
+      },
+      "BPt/dataset/tests/test_encoding.py": {
+        "size": 10313
+      },
+      "BPt/dataset/tests/test_filtering.py": {
+        "size": 11898
+      },
+      "BPt/dataset/tests/test_funcs.py": {
+        "size": 6347
+      },
+      "BPt/dataset/tests/test_helpers.py": {
+        "size": 2439
+      },
+      "BPt/dataset/tests/test_plotting.py": {
+        "size": 3260
+      },
+      "BPt/dataset/tests/test_subjects.py": {
+        "size": 7607
+      },
+      "BPt/dataset/tests/test_validation.py": {
+        "size": 10911
+      },
+      "BPt/datasets/__init__.py": {
+        "size": 61
+      },
+      "BPt/datasets/from_sklearn.py": {
+        "size": 795
+      },
+      "BPt/datasets/tests/__init__.py": {
+        "size": 0
+      },
+      "BPt/datasets/tests/test_from_sklearn.py": {
+        "size": 241
+      },
+      "BPt/default/__init__.py": {
+        "size": 0
+      },
+      "BPt/default/helpers.py": {
+        "size": 6885
+      },
+      "BPt/default/options/__init__.py": {
+        "size": 226
+      },
+      "BPt/default/options/all_keys.py": {
+        "size": 844
+      },
+      "BPt/default/options/ensembles.py": {
+        "size": 2568
+      },
+      "BPt/default/options/feature_selectors.py": {
+        "size": 5104
+      },
+      "BPt/default/options/imputers.py": {
+        "size": 779
+      },
+      "BPt/default/options/loaders.py": {
+        "size": 893
+      },
+      "BPt/default/options/models.py": {
+        "size": 9032
+      },
+      "BPt/default/options/samplers.py": {
+        "size": 440
+      },
+      "BPt/default/options/scalers.py": {
+        "size": 2202
+      },
+      "BPt/default/options/scorers.py": {
+        "size": 5473
+      },
+      "BPt/default/options/transformers.py": {
+        "size": 1588
+      },
+      "BPt/default/params/Params.py": {
+        "size": 7377
+      },
+      "BPt/default/params/__init__.py": {
+        "size": 0
+      },
+      "BPt/default/params/default_params.py": {
+        "size": 969
+      },
+      "BPt/default/params/ensemble_params.py": {
+        "size": 101
+      },
+      "BPt/default/params/feat_selector_params.py": {
+        "size": 1647
+      },
+      "BPt/default/params/imputer_params.py": {
+        "size": 289
+      },
+      "BPt/default/params/model_params.py": {
+        "size": 11444
+      },
+      "BPt/default/params/scaler_params.py": {
+        "size": 814
+      },
+      "BPt/default/params/transformer_params.py": {
+        "size": 353
+      },
+      "BPt/default/pipelines.py": {
+        "size": 3377
+      },
+      "BPt/default/tests/__init__.py": {
+        "size": 0
+      },
+      "BPt/default/tests/test_Params.py": {
+        "size": 2772
+      },
+      "BPt/extensions/BPtLGBM.py": {
+        "size": 3326
+      },
+      "BPt/extensions/__init__.py": {
+        "size": 602
+      },
+      "BPt/extensions/feat_selectors.py": {
+        "size": 2007
+      },
+      "BPt/extensions/loaders.py": {
+        "size": 5087
+      },
+      "BPt/extensions/mv_transformer/__init__.py": {
+        "size": 61
+      },
+      "BPt/extensions/mv_transformer/constructor.py": {
+        "size": 582
+      },
+      "BPt/extensions/mv_transformer/input.py": {
+        "size": 440
+      },
+      "BPt/extensions/mv_transformer/mv_transformer_params.py": {
+        "size": 51
+      },
+      "BPt/extensions/mv_transformer/options.py": {
+        "size": 508
+      },
+      "BPt/extensions/mv_transformer/tests/__init__.py": {
+        "size": 0
+      },
+      "BPt/extensions/mv_transformer/tests/test_transformer_mv.py": {
+        "size": 6484
+      },
+      "BPt/extensions/mv_transformer/transformer.py": {
+        "size": 1762
+      },
+      "BPt/extensions/residualizer.py": {
+        "size": 8253
+      },
+      "BPt/extensions/samplers.py": {
+        "size": 7851
+      },
+      "BPt/extensions/scalers.py": {
+        "size": 1556
+      },
+      "BPt/extensions/tests/__init__.py": {
+        "size": 0
+      },
+      "BPt/extensions/tests/test_feat_selectors.py": {
+        "size": 319
+      },
+      "BPt/extensions/tests/test_lgbm.py": {
+        "size": 2485
+      },
+      "BPt/extensions/tests/test_loaders.py": {
+        "size": 795
+      },
+      "BPt/extensions/tests/test_residualizer.py": {
+        "size": 1518
+      },
+      "BPt/extensions/tests/test_samplers.py": {
+        "size": 2521
+      },
+      "BPt/main/CV.py": {
+        "size": 18465
+      },
+      "BPt/main/__init__.py": {
+        "size": 0
+      },
+      "BPt/main/compare.py": {
+        "size": 30081
+      },
+      "BPt/main/eval.py": {
+        "size": 77915
+      },
+      "BPt/main/funcs.py": {
+        "size": 38181
+      },
+      "BPt/main/helpers.py": {
+        "size": 438
+      },
+      "BPt/main/input.py": {
+        "size": 98088
+      },
+      "BPt/main/input_operations.py": {
+        "size": 11648
+      },
+      "BPt/main/plotting.py": {
+        "size": 17306
+      },
+      "BPt/main/stats_helpers.py": {
+        "size": 1579
+      },
+      "BPt/main/tests/__init__.py": {
+        "size": 0
+      },
+      "BPt/main/tests/test_back_projection.py": {
+        "size": 9733
+      },
+      "BPt/main/tests/test_compare.py": {
+        "size": 6529
+      },
+      "BPt/main/tests/test_eval.py": {
+        "size": 16622
+      },
+      "BPt/main/tests/test_evaluate.py": {
+        "size": 38916
+      },
+      "BPt/main/tests/test_funcs.py": {
+        "size": 22601
+      },
+      "BPt/main/tests/test_input.py": {
+        "size": 3094
+      },
+      "BPt/main/tests/test_input_operations.py": {
+        "size": 568
+      },
+      "BPt/main/tests/test_misc.py": {
+        "size": 1968
+      },
+      "BPt/p.py": {
+        "size": 184
+      },
+      "BPt/pipeline/BPtFeatureSelector.py": {
+        "size": 3955
+      },
+      "BPt/pipeline/BPtLoader.py": {
+        "size": 22503
+      },
+      "BPt/pipeline/BPtModel.py": {
+        "size": 3129
+      },
+      "BPt/pipeline/BPtPipeline.py": {
+        "size": 15135
+      },
+      "BPt/pipeline/BPtPipelineConstructor.py": {
+        "size": 5752
+      },
+      "BPt/pipeline/BPtSearchCV.py": {
+        "size": 22305
+      },
+      "BPt/pipeline/BPtTransformer.py": {
+        "size": 6166
+      },
+      "BPt/pipeline/ScopeObjs.py": {
+        "size": 11670
+      },
+      "BPt/pipeline/Selector.py": {
+        "size": 5033
+      },
+      "BPt/pipeline/__init__.py": {
+        "size": 0
+      },
+      "BPt/pipeline/base.py": {
+        "size": 4293
+      },
+      "BPt/pipeline/bpt_sampler.py": {
+        "size": 1457
+      },
+      "BPt/pipeline/constructors.py": {
+        "size": 34343
+      },
+      "BPt/pipeline/ensemble_wrappers.py": {
+        "size": 32175
+      },
+      "BPt/pipeline/helpers.py": {
+        "size": 11691
+      },
+      "BPt/pipeline/tests/__init__.py": {
+        "size": 0
+      },
+      "BPt/pipeline/tests/helpers.py": {
+        "size": 3248
+      },
+      "BPt/pipeline/tests/test_BPtFeatureSelector.py": {
+        "size": 1666
+      },
+      "BPt/pipeline/tests/test_BPtModel.py": {
+        "size": 600
+      },
+      "BPt/pipeline/tests/test_BPtPipeline.py": {
+        "size": 12646
+      },
+      "BPt/pipeline/tests/test_BPtSearchCV.py": {
+        "size": 2383
+      },
+      "BPt/pipeline/tests/test_BPtTransformer.py": {
+        "size": 2485
+      },
+      "BPt/pipeline/tests/test_Imputers.py": {
+        "size": 3042
+      },
+      "BPt/pipeline/tests/test_Loaders.py": {
+        "size": 11589
+      },
+      "BPt/pipeline/tests/test_ScopeObjs.py": {
+        "size": 5004
+      },
+      "BPt/pipeline/tests/test_base.py": {
+        "size": 2170
+      },
+      "BPt/pipeline/tests/test_constructors.py": {
+        "size": 8397
+      },
+      "BPt/pipeline/tests/test_ensemble_wrappers.py": {
+        "size": 2122
+      },
+      "BPt/pipeline/tests/test_helpers.py": {
+        "size": 2468
+      },
+      "BPt/shared_docs.py": {
+        "size": 1137
+      },
+      "BPt/tests/__init__.py": {
+        "size": 0
+      },
+      "BPt/tests/test_util.py": {
+        "size": 710
+      },
+      "BPt/util.py": {
+        "size": 5889
+      },
+      "CONTRIBUTING.md": {
+        "size": 401
+      },
+      "Examples/Full_Examples/README.md": {
+        "size": 3441
+      },
+      "Examples/README.md": {
+        "size": 261
+      },
+      "Examples/Short_Examples/README.md": {
+        "size": 647
+      },
+      "README.md": {
+        "size": 3329
+      },
+      "codecov.yml": {
+        "size": 1
+      },
+      "doc/make.py": {
+        "size": 11202
+      },
+      "doc/prep_docs_data.py": {
+        "size": 165
+      },
+      "doc/save_pipe_options.py": {
+        "size": 13297
+      },
+      "doc/source/conf.py": {
+        "size": 22537
+      },
+      "docs/_sources/change_log/index.rst.txt": {
+        "size": 445
+      },
+      "docs/_sources/change_log/v1.3.0.rst.txt": {
+        "size": 4984
+      },
+      "docs/_sources/change_log/v1.3.1.rst.txt": {
+        "size": 772
+      },
+      "docs/_sources/change_log/v1.3.3.rst.txt": {
+        "size": 453
+      },
+      "docs/_sources/change_log/v1.3.4.rst.txt": {
+        "size": 609
+      },
+      "docs/_sources/change_log/v1.3.5.rst.txt": {
+        "size": 1632
+      },
+      "docs/_sources/change_log/v1.3.6.rst.txt": {
+        "size": 468
+      },
+      "docs/_sources/change_log/v2.0.0.rst.txt": {
+        "size": 1656
+      },
+      "docs/_sources/change_log/v2.0.1.rst.txt": {
+        "size": 1442
+      },
+      "docs/_sources/change_log/v2.0.2.rst.txt": {
+        "size": 414
+      },
+      "docs/_sources/change_log/v2.0.3.rst.txt": {
+        "size": 858
+      },
+      "docs/_sources/change_log/v2.1.0.rst.txt": {
+        "size": 1245
+      },
+      "docs/_sources/change_log/v2.1.1.rst.txt": {
+        "size": 435
+      },
+      "docs/_sources/change_log/v2.1.2.rst.txt": {
+        "size": 108
+      },
+      "docs/_sources/change_log/v2.1.3.rst.txt": {
+        "size": 533
+      },
+      "docs/_sources/change_log/v2.1.4.rst.txt": {
+        "size": 1065
+      },
+      "docs/_sources/change_log/v2.1.5.rst.txt": {
+        "size": 335
+      },
+      "docs/_sources/change_log/v2.1.6.rst.txt": {
+        "size": 729
+      },
+      "docs/_sources/change_log/v2.2.0.rst.txt": {
+        "size": 1329
+      },
+      "docs/_sources/change_log/v2.2.1.rst.txt": {
+        "size": 178
+      },
+      "docs/_sources/change_log/v2.2.2.rst.txt": {
+        "size": 1310
+      },
+      "docs/_sources/change_log/v2.2.3.rst.txt": {
+        "size": 532
+      },
+      "docs/_sources/change_log/v2.2.4.rst.txt": {
+        "size": 361
+      },
+      "docs/_sources/change_log/v2.2.5.rst.txt": {
+        "size": 589
+      },
+      "docs/_sources/change_log/v2.3.0.rst.txt": {
+        "size": 1630
+      },
+      "docs/_sources/change_log/v2.3.1.rst.txt": {
+        "size": 552
+      },
+      "docs/_sources/change_log/v2.3.2.rst.txt": {
+        "size": 281
+      },
+      "docs/_sources/cite/index.rst.txt": {
+        "size": 1442
+      },
+      "docs/_sources/index.rst.txt": {
+        "size": 3529
+      },
+      "docs/_sources/installation/index.rst.txt": {
+        "size": 3863
+      },
+      "docs/_sources/options/default_pipelines.rst.txt": {
+        "size": 992
+      },
+      "docs/_sources/options/index.rst.txt": {
+        "size": 214
+      },
+      "docs/_sources/options/pipeline_options/ensembles.rst.txt": {
+        "size": 3211
+      },
+      "docs/_sources/options/pipeline_options/imputers.rst.txt": {
+        "size": 1257
+      },
+      "docs/_sources/options/pipeline_options/index.rst.txt": {
+        "size": 233
+      },
+      "docs/_sources/options/pipeline_options/loaders.rst.txt": {
+        "size": 830
+      },
+      "docs/_sources/options/pipeline_options/models.rst.txt": {
+        "size": 41221
+      },
+      "docs/_sources/options/pipeline_options/samplers.rst.txt": {
+        "size": 2979
+      },
+      "docs/_sources/options/pipeline_options/scalers.rst.txt": {
+        "size": 2974
+      },
+      "docs/_sources/options/pipeline_options/scorers.rst.txt": {
+        "size": 9184
+      },
+      "docs/_sources/options/pipeline_options/selectors.rst.txt": {
+        "size": 5752
+      },
+      "docs/_sources/options/pipeline_options/transformers.rst.txt": {
+        "size": 2801
+      },
+      "docs/_sources/options/search_type_options/alg_selection.rst.txt": {
+        "size": 1673
+      },
+      "docs/_sources/options/search_type_options/cma.rst.txt": {
+        "size": 1513
+      },
+      "docs/_sources/options/search_type_options/comp_maps.rst.txt": {
+        "size": 853
+      },
+      "docs/_sources/options/search_type_options/dif_evolution.rst.txt": {
+        "size": 2545
+      },
+      "docs/_sources/options/search_type_options/ev_strats.rst.txt": {
+        "size": 1701
+      },
+      "docs/_sources/options/search_type_options/index.rst.txt": {
+        "size": 545
+      },
+      "docs/_sources/options/search_type_options/misc.rst.txt": {
+        "size": 2439
+      },
+      "docs/_sources/options/search_type_options/one_plus_one.rst.txt": {
+        "size": 3226
+      },
+      "docs/_sources/options/search_type_options/one_shot.rst.txt": {
+        "size": 3859
+      },
+      "docs/_sources/options/search_type_options/random_search.rst.txt": {
+        "size": 932
+      },
+      "docs/_sources/reference/CV.rst.txt": {
+        "size": 145
+      },
+      "docs/_sources/reference/api/BPt.CV.copy.rst.txt": {
+        "size": 72
+      },
+      "docs/_sources/reference/api/BPt.CV.get_params.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.CV.rst.txt": {
+        "size": 304
+      },
+      "docs/_sources/reference/api/BPt.CV.set_params.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.CVStrategy.copy.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.CVStrategy.get_params.rst.txt": {
+        "size": 116
+      },
+      "docs/_sources/reference/api/BPt.CVStrategy.rst.txt": {
+        "size": 352
+      },
+      "docs/_sources/reference/api/BPt.CVStrategy.set_params.rst.txt": {
+        "size": 116
+      },
+      "docs/_sources/reference/api/BPt.Compare.rst.txt": {
+        "size": 265
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.clear.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.copy.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.fromkeys.rst.txt": {
+        "size": 111
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.get.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.items.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.keys.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.pairwise_bayesian.rst.txt": {
+        "size": 140
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.pairwise_t_stats.rst.txt": {
+        "size": 139
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.pop.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.popitem.rst.txt": {
+        "size": 108
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.rst.txt": {
+        "size": 644
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.setdefault.rst.txt": {
+        "size": 117
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.summary.rst.txt": {
+        "size": 108
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.update.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.CompareDict.values.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.CompareSubset.rst.txt": {
+        "size": 283
+      },
+      "docs/_sources/reference/api/BPt.Dataset.T.rst.txt": {
+        "size": 80
+      },
+      "docs/_sources/reference/api/BPt.Dataset.abs.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.add.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.add_data_files.rst.txt": {
+        "size": 121
+      },
+      "docs/_sources/reference/api/BPt.Dataset.add_prefix.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.add_scope.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.add_suffix.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.add_unique_overlap.rst.txt": {
+        "size": 133
+      },
+      "docs/_sources/reference/api/BPt.Dataset.agg.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.aggregate.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Dataset.align.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.all.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.any.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.append.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.apply.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.apply_exclusions.rst.txt": {
+        "size": 125
+      },
+      "docs/_sources/reference/api/BPt.Dataset.apply_inclusions.rst.txt": {
+        "size": 125
+      },
+      "docs/_sources/reference/api/BPt.Dataset.applymap.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.asfreq.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.asof.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.assign.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.astype.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.at.rst.txt": {
+        "size": 83
+      },
+      "docs/_sources/reference/api/BPt.Dataset.at_time.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.Dataset.attrs.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.Dataset.auto_detect_categorical.rst.txt": {
+        "size": 148
+      },
+      "docs/_sources/reference/api/BPt.Dataset.axes.rst.txt": {
+        "size": 89
+      },
+      "docs/_sources/reference/api/BPt.Dataset.backfill.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.between_time.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.Dataset.bfill.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.binarize.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.bool.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.boxplot.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.clip.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.columns.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.combine.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.combine_first.rst.txt": {
+        "size": 116
+      },
+      "docs/_sources/reference/api/BPt.Dataset.compare.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.consolidate_data_files.rst.txt": {
+        "size": 145
+      },
+      "docs/_sources/reference/api/BPt.Dataset.convert_dtypes.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.Dataset.copy.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.copy_as_non_input.rst.txt": {
+        "size": 132
+      },
+      "docs/_sources/reference/api/BPt.Dataset.corr.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.corrwith.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.count.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.cov.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.cummax.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.cummin.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.cumprod.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.cumsum.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.describe.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.diff.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.display_scopes.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.Dataset.div.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.divide.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.dot.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.drop.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.drop_cols.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.drop_cols_by_nan.rst.txt": {
+        "size": 129
+      },
+      "docs/_sources/reference/api/BPt.Dataset.drop_cols_by_unique_val.rst.txt": {
+        "size": 152
+      },
+      "docs/_sources/reference/api/BPt.Dataset.drop_duplicate_cols.rst.txt": {
+        "size": 136
+      },
+      "docs/_sources/reference/api/BPt.Dataset.drop_duplicates.rst.txt": {
+        "size": 122
+      },
+      "docs/_sources/reference/api/BPt.Dataset.drop_id_cols.rst.txt": {
+        "size": 115
+      },
+      "docs/_sources/reference/api/BPt.Dataset.drop_nan_subjects.rst.txt": {
+        "size": 130
+      },
+      "docs/_sources/reference/api/BPt.Dataset.drop_subjects_by_nan.rst.txt": {
+        "size": 141
+      },
+      "docs/_sources/reference/api/BPt.Dataset.droplevel.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Dataset.dropna.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.dtypes.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.Dataset.duplicated.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.Dataset.empty.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.Dataset.eq.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Dataset.equals.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.eval.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.ewm.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.expanding.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Dataset.explode.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.ffill.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.fillna.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.filter.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.filter_categorical_by_percent.rst.txt": {
+        "size": 168
+      },
+      "docs/_sources/reference/api/BPt.Dataset.filter_outliers_by_percent.rst.txt": {
+        "size": 159
+      },
+      "docs/_sources/reference/api/BPt.Dataset.filter_outliers_by_std.rst.txt": {
+        "size": 147
+      },
+      "docs/_sources/reference/api/BPt.Dataset.first.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.first_valid_index.rst.txt": {
+        "size": 130
+      },
+      "docs/_sources/reference/api/BPt.Dataset.flags.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.Dataset.floordiv.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.from_dict.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.from_records.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.Dataset.ge.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Dataset.get.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.get_Xy.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.Dataset.get_cols.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.Dataset.get_file_mapping.rst.txt": {
+        "size": 127
+      },
+      "docs/_sources/reference/api/BPt.Dataset.get_nan_subjects.rst.txt": {
+        "size": 127
+      },
+      "docs/_sources/reference/api/BPt.Dataset.get_non_nan_subjects.rst.txt": {
+        "size": 141
+      },
+      "docs/_sources/reference/api/BPt.Dataset.get_permuted_Xy.rst.txt": {
+        "size": 124
+      },
+      "docs/_sources/reference/api/BPt.Dataset.get_roles.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.get_scopes.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.get_subjects.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.Dataset.get_values.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.groupby.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.gt.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Dataset.head.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.hist.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.iat.rst.txt": {
+        "size": 86
+      },
+      "docs/_sources/reference/api/BPt.Dataset.idxmax.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.idxmin.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.iloc.rst.txt": {
+        "size": 89
+      },
+      "docs/_sources/reference/api/BPt.Dataset.index.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.infer_objects.rst.txt": {
+        "size": 116
+      },
+      "docs/_sources/reference/api/BPt.Dataset.info.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.insert.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.interpolate.rst.txt": {
+        "size": 108
+      },
+      "docs/_sources/reference/api/BPt.Dataset.isetitem.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.isin.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.isna.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.isnull.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.items.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.iteritems.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Dataset.iterrows.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.itertuples.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.Dataset.join.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.k_bin.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.Dataset.keys.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.kurt.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.kurtosis.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.last.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.last_valid_index.rst.txt": {
+        "size": 127
+      },
+      "docs/_sources/reference/api/BPt.Dataset.le.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Dataset.loc.rst.txt": {
+        "size": 86
+      },
+      "docs/_sources/reference/api/BPt.Dataset.lookup.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.lt.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Dataset.mad.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.mask.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.max.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.mean.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.median.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.melt.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.memory_usage.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.Dataset.merge.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.min.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.mod.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.mode.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.mul.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.multiply.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.nan_info.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.Dataset.nan_to_class.rst.txt": {
+        "size": 115
+      },
+      "docs/_sources/reference/api/BPt.Dataset.ndim.rst.txt": {
+        "size": 89
+      },
+      "docs/_sources/reference/api/BPt.Dataset.ne.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Dataset.nlargest.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.notna.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.notnull.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.nsmallest.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Dataset.nunique.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.ordinalize.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.Dataset.pad.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.pct_change.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.pipe.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.pivot.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.pivot_table.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.Dataset.plot.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.plot_bivar.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.plots.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.pop.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.pow.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.prod.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.product.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.quantile.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.query.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.radd.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rank.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rdiv.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.reindex.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.reindex_like.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.Dataset.remove_scope.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rename.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rename_axis.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.Dataset.reorder_levels.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.Dataset.replace.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.resample.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.reserved_roles.rst.txt": {
+        "size": 121
+      },
+      "docs/_sources/reference/api/BPt.Dataset.reservered_scopes.rst.txt": {
+        "size": 130
+      },
+      "docs/_sources/reference/api/BPt.Dataset.reset_index.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rfloordiv.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rmod.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rmul.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rolling.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.round.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rpow.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rst.txt": {
+        "size": 6584
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rsub.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.rtruediv.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.sample.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.save_test_split.rst.txt": {
+        "size": 124
+      },
+      "docs/_sources/reference/api/BPt.Dataset.save_train_split.rst.txt": {
+        "size": 127
+      },
+      "docs/_sources/reference/api/BPt.Dataset.select_dtypes.rst.txt": {
+        "size": 116
+      },
+      "docs/_sources/reference/api/BPt.Dataset.sem.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.set_axis.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.Dataset.set_flags.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.set_index.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.set_non_input.rst.txt": {
+        "size": 118
+      },
+      "docs/_sources/reference/api/BPt.Dataset.set_role.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.Dataset.set_roles.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.set_target.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.set_test_split.rst.txt": {
+        "size": 121
+      },
+      "docs/_sources/reference/api/BPt.Dataset.set_train_split.rst.txt": {
+        "size": 124
+      },
+      "docs/_sources/reference/api/BPt.Dataset.shape.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.Dataset.shift.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.size.rst.txt": {
+        "size": 89
+      },
+      "docs/_sources/reference/api/BPt.Dataset.skew.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.slice_shift.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.Dataset.sort_index.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.sort_values.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.Dataset.split_by.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.Dataset.squeeze.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.stack.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.std.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.style.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.Dataset.sub.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.subtract.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.sum.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.summary.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.swapaxes.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.swaplevel.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Dataset.tail.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.take.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Dataset.test_split.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_binary.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_clipboard.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_csv.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_data_file.rst.txt": {
+        "size": 115
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_dict.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_excel.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_feather.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_gbq.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_hdf.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_html.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_json.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_latex.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_markdown.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_numpy.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_orc.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_parquet.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_period.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_pickle.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_records.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_sql.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_stata.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_string.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_timestamp.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_xarray.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Dataset.to_xml.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.Dataset.train_split.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.Dataset.transform.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Dataset.transpose.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Dataset.truediv.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.truncate.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Dataset.tshift.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.tz_convert.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Dataset.tz_localize.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.Dataset.unstack.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Dataset.update.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Dataset.update_data_file_paths.rst.txt": {
+        "size": 147
+      },
+      "docs/_sources/reference/api/BPt.Dataset.value_counts.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.Dataset.values.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.Dataset.var.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Dataset.verbose.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.Dataset.where.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Dataset.xs.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.append.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.clear.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.copy.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.count.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.extend.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.index.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.insert.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.pop.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.remove.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.reverse.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.rst.txt": {
+        "size": 515
+      },
+      "docs/_sources/reference/api/BPt.Duplicate.sort.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Ensemble.build.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Ensemble.copy.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Ensemble.get_params.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.Ensemble.rst.txt": {
+        "size": 361
+      },
+      "docs/_sources/reference/api/BPt.Ensemble.set_params.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.all_train_subjects.rst.txt": {
+        "size": 147
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.all_val_subjects.rst.txt": {
+        "size": 141
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.coef_.rst.txt": {
+        "size": 106
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.compare.rst.txt": {
+        "size": 108
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.cv.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.estimator.rst.txt": {
+        "size": 116
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.estimators.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.feat_names.rst.txt": {
+        "size": 121
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.feature_importances_.rst.txt": {
+        "size": 153
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.fis_.rst.txt": {
+        "size": 103
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.get_X_transform_df.rst.txt": {
+        "size": 147
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.get_coefs.rst.txt": {
+        "size": 116
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.get_feature_importances.rst.txt": {
+        "size": 160
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.get_fis.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.get_inverse_fis.rst.txt": {
+        "size": 136
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.get_preds_dfs.rst.txt": {
+        "size": 130
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.mean_scores.rst.txt": {
+        "size": 124
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.mean_timing.rst.txt": {
+        "size": 124
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.n_folds.rst.txt": {
+        "size": 112
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.n_subjects.rst.txt": {
+        "size": 121
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.permutation_importance.rst.txt": {
+        "size": 155
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.preds.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.ps.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.rst.txt": {
+        "size": 1449
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.run_permutation_test.rst.txt": {
+        "size": 151
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.score.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.scores.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.std_scores.rst.txt": {
+        "size": 121
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.subset_by.rst.txt": {
+        "size": 116
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.timing.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.to_pickle.rst.txt": {
+        "size": 116
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.train_subjects.rst.txt": {
+        "size": 133
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.val_subjects.rst.txt": {
+        "size": 127
+      },
+      "docs/_sources/reference/api/BPt.EvalResults.weighted_mean_scores.rst.txt": {
+        "size": 153
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.all_train_subjects.rst.txt": {
+        "size": 165
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.all_val_subjects.rst.txt": {
+        "size": 159
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.coef_.rst.txt": {
+        "size": 124
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.compare.rst.txt": {
+        "size": 126
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.cv.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.estimator.rst.txt": {
+        "size": 134
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.estimators.rst.txt": {
+        "size": 137
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.feat_names.rst.txt": {
+        "size": 139
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.feature_importances_.rst.txt": {
+        "size": 171
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.fis_.rst.txt": {
+        "size": 121
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.get_X_transform_df.rst.txt": {
+        "size": 165
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.get_coefs.rst.txt": {
+        "size": 134
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.get_feature_importances.rst.txt": {
+        "size": 178
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.get_fis.rst.txt": {
+        "size": 128
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.get_inverse_fis.rst.txt": {
+        "size": 154
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.get_preds_dfs.rst.txt": {
+        "size": 148
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.mean_scores.rst.txt": {
+        "size": 142
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.mean_timing.rst.txt": {
+        "size": 142
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.n_folds.rst.txt": {
+        "size": 130
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.n_subjects.rst.txt": {
+        "size": 139
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.permutation_importance.rst.txt": {
+        "size": 173
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.preds.rst.txt": {
+        "size": 122
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.ps.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.rst.txt": {
+        "size": 1665
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.run_permutation_test.rst.txt": {
+        "size": 169
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.score.rst.txt": {
+        "size": 122
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.scores.rst.txt": {
+        "size": 125
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.std_scores.rst.txt": {
+        "size": 139
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.subset_by.rst.txt": {
+        "size": 134
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.timing.rst.txt": {
+        "size": 125
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.to_pickle.rst.txt": {
+        "size": 134
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.train_subjects.rst.txt": {
+        "size": 151
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.val_subjects.rst.txt": {
+        "size": 145
+      },
+      "docs/_sources/reference/api/BPt.EvalResultsSubset.weighted_mean_scores.rst.txt": {
+        "size": 171
+      },
+      "docs/_sources/reference/api/BPt.FeatSelector.build.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.FeatSelector.copy.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.FeatSelector.get_params.rst.txt": {
+        "size": 122
+      },
+      "docs/_sources/reference/api/BPt.FeatSelector.rst.txt": {
+        "size": 389
+      },
+      "docs/_sources/reference/api/BPt.FeatSelector.set_params.rst.txt": {
+        "size": 122
+      },
+      "docs/_sources/reference/api/BPt.Imputer.build.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Imputer.copy.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Imputer.get_params.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Imputer.rst.txt": {
+        "size": 354
+      },
+      "docs/_sources/reference/api/BPt.Imputer.set_params.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Intersection.append.rst.txt": {
+        "size": 108
+      },
+      "docs/_sources/reference/api/BPt.Intersection.clear.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.Intersection.copy.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Intersection.count.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.Intersection.extend.rst.txt": {
+        "size": 108
+      },
+      "docs/_sources/reference/api/BPt.Intersection.index.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.Intersection.insert.rst.txt": {
+        "size": 108
+      },
+      "docs/_sources/reference/api/BPt.Intersection.pop.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Intersection.remove.rst.txt": {
+        "size": 108
+      },
+      "docs/_sources/reference/api/BPt.Intersection.reverse.rst.txt": {
+        "size": 111
+      },
+      "docs/_sources/reference/api/BPt.Intersection.rst.txt": {
+        "size": 557
+      },
+      "docs/_sources/reference/api/BPt.Intersection.sort.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Loader.build.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Loader.copy.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Loader.get_params.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Loader.rst.txt": {
+        "size": 347
+      },
+      "docs/_sources/reference/api/BPt.Loader.set_params.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Model.build.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Model.copy.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Model.get_params.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.Model.rst.txt": {
+        "size": 340
+      },
+      "docs/_sources/reference/api/BPt.Model.set_params.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.ModelPipeline.build.rst.txt": {
+        "size": 108
+      },
+      "docs/_sources/reference/api/BPt.ModelPipeline.copy.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.ModelPipeline.fixed_piece_order.rst.txt": {
+        "size": 150
+      },
+      "docs/_sources/reference/api/BPt.ModelPipeline.get_params.rst.txt": {
+        "size": 125
+      },
+      "docs/_sources/reference/api/BPt.ModelPipeline.print_all.rst.txt": {
+        "size": 122
+      },
+      "docs/_sources/reference/api/BPt.ModelPipeline.rst.txt": {
+        "size": 644
+      },
+      "docs/_sources/reference/api/BPt.ModelPipeline.set_params.rst.txt": {
+        "size": 125
+      },
+      "docs/_sources/reference/api/BPt.Option.rst.txt": {
+        "size": 262
+      },
+      "docs/_sources/reference/api/BPt.ParamSearch.copy.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.ParamSearch.get_params.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.ParamSearch.rst.txt": {
+        "size": 358
+      },
+      "docs/_sources/reference/api/BPt.ParamSearch.set_params.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.Pipe.append.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Pipe.clear.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Pipe.copy.rst.txt": {
+        "size": 78
+      },
+      "docs/_sources/reference/api/BPt.Pipe.count.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Pipe.extend.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Pipe.index.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Pipe.insert.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Pipe.pop.rst.txt": {
+        "size": 75
+      },
+      "docs/_sources/reference/api/BPt.Pipe.remove.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Pipe.reverse.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Pipe.rst.txt": {
+        "size": 445
+      },
+      "docs/_sources/reference/api/BPt.Pipe.sort.rst.txt": {
+        "size": 78
+      },
+      "docs/_sources/reference/api/BPt.Pipeline.build.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Pipeline.copy.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Pipeline.get_params.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.Pipeline.rst.txt": {
+        "size": 361
+      },
+      "docs/_sources/reference/api/BPt.Pipeline.set_params.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.ProblemSpec.copy.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.ProblemSpec.get_params.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.ProblemSpec.print_all.rst.txt": {
+        "size": 116
+      },
+      "docs/_sources/reference/api/BPt.ProblemSpec.rst.txt": {
+        "size": 386
+      },
+      "docs/_sources/reference/api/BPt.ProblemSpec.set_params.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.Sampler.build.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Sampler.copy.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Sampler.get_params.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Sampler.rst.txt": {
+        "size": 354
+      },
+      "docs/_sources/reference/api/BPt.Sampler.set_params.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.Scaler.build.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Scaler.copy.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Scaler.get_params.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Scaler.rst.txt": {
+        "size": 347
+      },
+      "docs/_sources/reference/api/BPt.Scaler.set_params.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.Select.append.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Select.clear.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Select.copy.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Select.count.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Select.extend.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Select.index.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.Select.insert.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Select.pop.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.Select.remove.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.Select.reverse.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.Select.rst.txt": {
+        "size": 473
+      },
+      "docs/_sources/reference/api/BPt.Select.sort.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.Transformer.build.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.Transformer.copy.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.Transformer.get_params.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.Transformer.rst.txt": {
+        "size": 382
+      },
+      "docs/_sources/reference/api/BPt.Transformer.set_params.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.ValueSubset.rst.txt": {
+        "size": 277
+      },
+      "docs/_sources/reference/api/BPt.compare_dict_from_existing.rst.txt": {
+        "size": 137
+      },
+      "docs/_sources/reference/api/BPt.cross_val_score.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.cross_validate.rst.txt": {
+        "size": 97
+      },
+      "docs/_sources/reference/api/BPt.evaluate.rst.txt": {
+        "size": 77
+      },
+      "docs/_sources/reference/api/BPt.extensions.Identity.fit.rst.txt": {
+        "size": 120
+      },
+      "docs/_sources/reference/api/BPt.extensions.Identity.fit_transform.rst.txt": {
+        "size": 152
+      },
+      "docs/_sources/reference/api/BPt.extensions.Identity.get_params.rst.txt": {
+        "size": 143
+      },
+      "docs/_sources/reference/api/BPt.extensions.Identity.inverse_transform.rst.txt": {
+        "size": 164
+      },
+      "docs/_sources/reference/api/BPt.extensions.Identity.rst.txt": {
+        "size": 459
+      },
+      "docs/_sources/reference/api/BPt.extensions.Identity.set_params.rst.txt": {
+        "size": 143
+      },
+      "docs/_sources/reference/api/BPt.extensions.Identity.transform.rst.txt": {
+        "size": 138
+      },
+      "docs/_sources/reference/api/BPt.extensions.SingleConnectivityMeasure.fit.rst.txt": {
+        "size": 171
+      },
+      "docs/_sources/reference/api/BPt.extensions.SingleConnectivityMeasure.fit_transform.rst.txt": {
+        "size": 203
+      },
+      "docs/_sources/reference/api/BPt.extensions.SingleConnectivityMeasure.get_params.rst.txt": {
+        "size": 194
+      },
+      "docs/_sources/reference/api/BPt.extensions.SingleConnectivityMeasure.inverse_transform.rst.txt": {
+        "size": 215
+      },
+      "docs/_sources/reference/api/BPt.extensions.SingleConnectivityMeasure.rst.txt": {
+        "size": 612
+      },
+      "docs/_sources/reference/api/BPt.extensions.SingleConnectivityMeasure.set_params.rst.txt": {
+        "size": 194
+      },
+      "docs/_sources/reference/api/BPt.extensions.SingleConnectivityMeasure.transform.rst.txt": {
+        "size": 189
+      },
+      "docs/_sources/reference/api/BPt.extensions.ThresholdNetworkMeasures.rst.txt": {
+        "size": 349
+      },
+      "docs/_sources/reference/api/BPt.get_estimator.rst.txt": {
+        "size": 94
+      },
+      "docs/_sources/reference/api/BPt.p.Array.add_layer.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.p.Array.args.rst.txt": {
+        "size": 89
+      },
+      "docs/_sources/reference/api/BPt.p.Array.bounds.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.p.Array.copy.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.p.Array.descriptors.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.p.Array.dimension.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.p.Array.freeze.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.p.Array.generation.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.p.Array.get_standardized_data.rst.txt": {
+        "size": 142
+      },
+      "docs/_sources/reference/api/BPt.p.Array.get_value_hash.rst.txt": {
+        "size": 121
+      },
+      "docs/_sources/reference/api/BPt.p.Array.integer.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.p.Array.kwargs.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.p.Array.losses.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.p.Array.mutate.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.p.Array.name.rst.txt": {
+        "size": 89
+      },
+      "docs/_sources/reference/api/BPt.p.Array.random_state.rst.txt": {
+        "size": 115
+      },
+      "docs/_sources/reference/api/BPt.p.Array.recombine.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.p.Array.register_cheap_constraint.rst.txt": {
+        "size": 154
+      },
+      "docs/_sources/reference/api/BPt.p.Array.rst.txt": {
+        "size": 1146
+      },
+      "docs/_sources/reference/api/BPt.p.Array.sample.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.p.Array.satisfies_constraints.rst.txt": {
+        "size": 140
+      },
+      "docs/_sources/reference/api/BPt.p.Array.set_bounds.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.p.Array.set_integer_casting.rst.txt": {
+        "size": 136
+      },
+      "docs/_sources/reference/api/BPt.p.Array.set_mutation.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.p.Array.set_name.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.p.Array.set_recombination.rst.txt": {
+        "size": 128
+      },
+      "docs/_sources/reference/api/BPt.p.Array.set_standardized_data.rst.txt": {
+        "size": 142
+      },
+      "docs/_sources/reference/api/BPt.p.Array.sigma.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.p.Array.spawn_child.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.p.Array.to_grid.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.add_layer.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.args.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.choices.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.copy.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.descriptors.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.dimension.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.freeze.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.generation.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.get_standardized_data.rst.txt": {
+        "size": 145
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.get_value_hash.rst.txt": {
+        "size": 124
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.index.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.indices.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.kwargs.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.losses.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.mutate.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.name.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.random_state.rst.txt": {
+        "size": 118
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.recombine.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.register_cheap_constraint.rst.txt": {
+        "size": 157
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.rst.txt": {
+        "size": 1066
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.sample.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.satisfies_constraints.rst.txt": {
+        "size": 143
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.set_name.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.set_standardized_data.rst.txt": {
+        "size": 145
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.spawn_child.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.p.Choice.to_grid.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.add_layer.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.args.rst.txt": {
+        "size": 86
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.copy.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.descriptors.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.dimension.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.freeze.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.generation.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.get_standardized_data.rst.txt": {
+        "size": 139
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.get_value_hash.rst.txt": {
+        "size": 118
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.items.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.keys.rst.txt": {
+        "size": 84
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.kwargs.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.losses.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.mutate.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.name.rst.txt": {
+        "size": 86
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.random_state.rst.txt": {
+        "size": 112
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.recombine.rst.txt": {
+        "size": 99
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.register_cheap_constraint.rst.txt": {
+        "size": 151
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.rst.txt": {
+        "size": 1004
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.sample.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.satisfies_constraints.rst.txt": {
+        "size": 137
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.set_name.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.set_standardized_data.rst.txt": {
+        "size": 139
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.spawn_child.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.to_grid.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.p.Dict.values.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.add_layer.rst.txt": {
+        "size": 134
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.args.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.copy.rst.txt": {
+        "size": 117
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.descriptors.rst.txt": {
+        "size": 140
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.dimension.rst.txt": {
+        "size": 134
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.freeze.rst.txt": {
+        "size": 123
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.generation.rst.txt": {
+        "size": 137
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.get_standardized_data.rst.txt": {
+        "size": 172
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.get_value_hash.rst.txt": {
+        "size": 151
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.kwargs.rst.txt": {
+        "size": 125
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.losses.rst.txt": {
+        "size": 125
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.mutate.rst.txt": {
+        "size": 123
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.name.rst.txt": {
+        "size": 119
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.random_state.rst.txt": {
+        "size": 145
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.recombine.rst.txt": {
+        "size": 132
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.register_cheap_constraint.rst.txt": {
+        "size": 184
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.rst.txt": {
+        "size": 1239
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.sample.rst.txt": {
+        "size": 123
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.satisfies_constraints.rst.txt": {
+        "size": 170
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.set_name.rst.txt": {
+        "size": 131
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.set_standardized_data.rst.txt": {
+        "size": 172
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.spawn_child.rst.txt": {
+        "size": 140
+      },
+      "docs/_sources/reference/api/BPt.p.Instrumentation.to_grid.rst.txt": {
+        "size": 128
+      },
+      "docs/_sources/reference/api/BPt.p.Log.add_layer.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.p.Log.args.rst.txt": {
+        "size": 83
+      },
+      "docs/_sources/reference/api/BPt.p.Log.bounds.rst.txt": {
+        "size": 89
+      },
+      "docs/_sources/reference/api/BPt.p.Log.copy.rst.txt": {
+        "size": 81
+      },
+      "docs/_sources/reference/api/BPt.p.Log.descriptors.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.p.Log.dimension.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.p.Log.freeze.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.p.Log.generation.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.p.Log.get_standardized_data.rst.txt": {
+        "size": 136
+      },
+      "docs/_sources/reference/api/BPt.p.Log.get_value_hash.rst.txt": {
+        "size": 115
+      },
+      "docs/_sources/reference/api/BPt.p.Log.integer.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.p.Log.kwargs.rst.txt": {
+        "size": 89
+      },
+      "docs/_sources/reference/api/BPt.p.Log.losses.rst.txt": {
+        "size": 89
+      },
+      "docs/_sources/reference/api/BPt.p.Log.mutate.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.p.Log.name.rst.txt": {
+        "size": 83
+      },
+      "docs/_sources/reference/api/BPt.p.Log.random_state.rst.txt": {
+        "size": 109
+      },
+      "docs/_sources/reference/api/BPt.p.Log.recombine.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.p.Log.register_cheap_constraint.rst.txt": {
+        "size": 148
+      },
+      "docs/_sources/reference/api/BPt.p.Log.rst.txt": {
+        "size": 1080
+      },
+      "docs/_sources/reference/api/BPt.p.Log.sample.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.p.Log.satisfies_constraints.rst.txt": {
+        "size": 134
+      },
+      "docs/_sources/reference/api/BPt.p.Log.set_bounds.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.p.Log.set_integer_casting.rst.txt": {
+        "size": 130
+      },
+      "docs/_sources/reference/api/BPt.p.Log.set_mutation.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.p.Log.set_name.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.p.Log.set_recombination.rst.txt": {
+        "size": 122
+      },
+      "docs/_sources/reference/api/BPt.p.Log.set_standardized_data.rst.txt": {
+        "size": 136
+      },
+      "docs/_sources/reference/api/BPt.p.Log.sigma.rst.txt": {
+        "size": 86
+      },
+      "docs/_sources/reference/api/BPt.p.Log.spawn_child.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.p.Log.to_grid.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.add_layer.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.args.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.bounds.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.copy.rst.txt": {
+        "size": 90
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.descriptors.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.dimension.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.freeze.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.generation.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.get_standardized_data.rst.txt": {
+        "size": 145
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.get_value_hash.rst.txt": {
+        "size": 124
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.integer.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.kwargs.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.losses.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.mutate.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.name.rst.txt": {
+        "size": 92
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.random_state.rst.txt": {
+        "size": 118
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.recombine.rst.txt": {
+        "size": 105
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.register_cheap_constraint.rst.txt": {
+        "size": 157
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.rst.txt": {
+        "size": 1179
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.sample.rst.txt": {
+        "size": 96
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.satisfies_constraints.rst.txt": {
+        "size": 143
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.set_bounds.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.set_integer_casting.rst.txt": {
+        "size": 139
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.set_mutation.rst.txt": {
+        "size": 116
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.set_name.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.set_recombination.rst.txt": {
+        "size": 131
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.set_standardized_data.rst.txt": {
+        "size": 145
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.sigma.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.spawn_child.rst.txt": {
+        "size": 113
+      },
+      "docs/_sources/reference/api/BPt.p.Scalar.to_grid.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.add_layer.rst.txt": {
+        "size": 137
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.args.rst.txt": {
+        "size": 122
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.choices.rst.txt": {
+        "size": 131
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.copy.rst.txt": {
+        "size": 120
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.descriptors.rst.txt": {
+        "size": 143
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.dimension.rst.txt": {
+        "size": 137
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.freeze.rst.txt": {
+        "size": 126
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.generation.rst.txt": {
+        "size": 140
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.get_standardized_data.rst.txt": {
+        "size": 175
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.get_value_hash.rst.txt": {
+        "size": 154
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.index.rst.txt": {
+        "size": 125
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.indices.rst.txt": {
+        "size": 131
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.kwargs.rst.txt": {
+        "size": 128
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.losses.rst.txt": {
+        "size": 128
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.mutate.rst.txt": {
+        "size": 126
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.name.rst.txt": {
+        "size": 122
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.random_state.rst.txt": {
+        "size": 148
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.recombine.rst.txt": {
+        "size": 135
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.register_cheap_constraint.rst.txt": {
+        "size": 187
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.rst.txt": {
+        "size": 1391
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.sample.rst.txt": {
+        "size": 126
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.satisfies_constraints.rst.txt": {
+        "size": 173
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.set_name.rst.txt": {
+        "size": 134
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.set_standardized_data.rst.txt": {
+        "size": 175
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.spawn_child.rst.txt": {
+        "size": 143
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.to_grid.rst.txt": {
+        "size": 131
+      },
+      "docs/_sources/reference/api/BPt.p.TransitionChoice.transitions.rst.txt": {
+        "size": 143
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.add_layer.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.args.rst.txt": {
+        "size": 89
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.copy.rst.txt": {
+        "size": 87
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.descriptors.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.dimension.rst.txt": {
+        "size": 104
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.freeze.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.generation.rst.txt": {
+        "size": 107
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.get_standardized_data.rst.txt": {
+        "size": 142
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.get_value_hash.rst.txt": {
+        "size": 121
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.kwargs.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.losses.rst.txt": {
+        "size": 95
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.mutate.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.name.rst.txt": {
+        "size": 89
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.random_state.rst.txt": {
+        "size": 115
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.recombine.rst.txt": {
+        "size": 102
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.register_cheap_constraint.rst.txt": {
+        "size": 154
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.rst.txt": {
+        "size": 979
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.sample.rst.txt": {
+        "size": 93
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.satisfies_constraints.rst.txt": {
+        "size": 140
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.set_name.rst.txt": {
+        "size": 101
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.set_standardized_data.rst.txt": {
+        "size": 142
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.spawn_child.rst.txt": {
+        "size": 110
+      },
+      "docs/_sources/reference/api/BPt.p.Tuple.to_grid.rst.txt": {
+        "size": 98
+      },
+      "docs/_sources/reference/api/BPt.util.is_array_like.rst.txt": {
+        "size": 111
+      },
+      "docs/_sources/reference/api/BPt.util.save_docx_table.rst.txt": {
+        "size": 117
+      },
+      "docs/_sources/reference/compare.rst.txt": {
+        "size": 203
+      },
+      "docs/_sources/reference/dataset.rst.txt": {
+        "size": 1819
+      },
+      "docs/_sources/reference/dists.rst.txt": {
+        "size": 258
+      },
+      "docs/_sources/reference/evaluate.rst.txt": {
+        "size": 423
+      },
+      "docs/_sources/reference/extensions.rst.txt": {
+        "size": 233
+      },
+      "docs/_sources/reference/index.rst.txt": {
+        "size": 262
+      },
+      "docs/_sources/reference/input_operations.rst.txt": {
+        "size": 215
+      },
+      "docs/_sources/reference/pipeline.rst.txt": {
+        "size": 155
+      },
+      "docs/_sources/reference/pipeline_pieces.rst.txt": {
+        "size": 260
+      },
+      "docs/_sources/reference/problem_spec.rst.txt": {
+        "size": 158
+      },
+      "docs/_sources/reference/util.rst.txt": {
+        "size": 156
+      },
+      "docs/_sources/user_guide/background.rst.txt": {
+        "size": 1197
+      },
+      "docs/_sources/user_guide/bmi_full_example.ipynb.txt": {
+        "size": 198882
+      },
+      "docs/_sources/user_guide/data_files.rst.txt": {
+        "size": 750
+      },
+      "docs/_sources/user_guide/data_types.rst.txt": {
+        "size": 2692
+      },
+      "docs/_sources/user_guide/dep_full_example.ipynb.txt": {
+        "size": 286600
+      },
+      "docs/_sources/user_guide/extra_params.rst.txt": {
+        "size": 1209
+      },
+      "docs/_sources/user_guide/frame_question.rst.txt": {
+        "size": 959
+      },
+      "docs/_sources/user_guide/index.rst.txt": {
+        "size": 643
+      },
+      "docs/_sources/user_guide/load_timeseries_example.ipynb.txt": {
+        "size": 56340
+      },
+      "docs/_sources/user_guide/loading_data.rst.txt": {
+        "size": 4618
+      },
+      "docs/_sources/user_guide/ml_pipeline.rst.txt": {
+        "size": 2822
+      },
+      "docs/_sources/user_guide/params.rst.txt": {
+        "size": 3374
+      },
+      "docs/_sources/user_guide/pipeline_objects.rst.txt": {
+        "size": 2785
+      },
+      "docs/_sources/user_guide/results.rst.txt": {
+        "size": 3574
+      },
+      "docs/_sources/user_guide/role.rst.txt": {
+        "size": 2448
+      },
+      "docs/_sources/user_guide/saving_data.rst.txt": {
+        "size": 821
+      },
+      "docs/_sources/user_guide/scope.rst.txt": {
+        "size": 5652
+      },
+      "docs/_sources/user_guide/sex.ipynb.txt": {
+        "size": 135540
+      },
+      "docs/_sources/user_guide/ssrt.ipynb.txt": {
+        "size": 524300
+      },
+      "docs/_sources/user_guide/subjects.rst.txt": {
+        "size": 6504
+      },
+      "docs/_sources/user_guide/validation.rst.txt": {
+        "size": 6595
+      },
+      "docs/_sources/user_guide/waist_cm.ipynb.txt": {
+        "size": 168121
+      },
+      "docs/_sources/user_guide/why_bpt.rst.txt": {
+        "size": 2625
+      },
+      "docs/_static/doctools.js": {
+        "size": 9630
+      },
+      "docs/_static/documentation_options.js": {
+        "size": 352
+      },
+      "docs/_static/jquery-3.5.1.js": {
+        "size": 287630
+      },
+      "docs/_static/jquery.js": {
+        "size": 89476
+      },
+      "docs/_static/language_data.js": {
+        "size": 10854
+      },
+      "docs/_static/scripts/pydata-sphinx-theme.js": {
+        "size": 90362
+      },
+      "docs/_static/searchtools.js": {
+        "size": 16733
+      },
+      "docs/_static/underscore-1.13.1.js": {
+        "size": 68408
+      },
+      "docs/_static/underscore.js": {
+        "size": 19530
+      },
+      "docs/_static/vendor/fontawesome/6.1.2/LICENSE.txt": {
+        "size": 7423
+      },
+      "docs/reference/api/BPt-Dataset-boxplot-1.py": {
+        "size": 195
+      },
+      "docs/reference/api/BPt-Dataset-boxplot-2.py": {
+        "size": 208
+      },
+      "docs/reference/api/BPt-Dataset-boxplot-3.py": {
+        "size": 341
+      },
+      "docs/reference/api/BPt-Dataset-boxplot-4.py": {
+        "size": 90
+      },
+      "docs/reference/api/BPt-Dataset-boxplot-5.py": {
+        "size": 72
+      },
+      "docs/reference/api/BPt-Dataset-hist-1.py": {
+        "size": 182
+      },
+      "docs/reference/api/BPt-Dataset-k_bin-1.py": {
+        "size": 298
+      },
+      "docs/reference/api/BPt-Dataset-plot-1.py": {
+        "size": 93
+      },
+      "docs/reference/api/BPt-Dataset-plots-1.py": {
+        "size": 105
+      },
+      "docs/searchindex.js": {
+        "size": 386185
+      },
+      "setup.py": {
+        "size": 1595
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "BPt/__init__.py",
+        "module": "BPt",
+        "functions": [
+          "evaluate",
+          "cross_val_score",
+          "cross_validate",
+          "get_estimator",
+          "compare_dict_from_existing"
+        ],
+        "classes": [
+          "Dataset",
+          "CV",
+          "CVStrategy",
+          "Compare",
+          "CompareDict",
+          "CompareSubset",
+          "EvalResults",
+          "EvalResultsSubset",
+          "ModelPipeline",
+          "ProblemSpec",
+          "Pipeline",
+          "Model",
+          "Scaler",
+          "Transformer",
+          "FeatSelector",
+          "Loader",
+          "Imputer",
+          "Sampler",
+          "Ensemble",
+          "ParamSearch",
+          "Option",
+          "Select",
+          "Pipe",
+          "Duplicate",
+          "Intersection",
+          "ValueSubset"
+        ],
+        "description": "Primary public API aggregation point; best import surface for MCP tools."
+      },
+      {
+        "package": "BPt/main/eval.py",
+        "module": "BPt.main.eval",
+        "functions": [
+          "evaluate",
+          "cross_val_score",
+          "cross_validate"
+        ],
+        "classes": [
+          "EvalResults",
+          "EvalResultsSubset"
+        ],
+        "description": "Core model evaluation, CV scoring, and result container logic."
+      },
+      {
+        "package": "BPt/dataset/dataset.py",
+        "module": "BPt.dataset.dataset",
+        "functions": [
+          "from_dict",
+          "from_records"
+        ],
+        "classes": [
+          "Dataset"
+        ],
+        "description": "Central data abstraction wrapping tabular workflows plus BPt-specific role/scope handling."
+      },
+      {
+        "package": "BPt/main/input.py",
+        "module": "BPt.main.input",
+        "functions": [],
+        "classes": [
+          "ProblemSpec",
+          "ModelPipeline",
+          "Pipeline",
+          "Model",
+          "Scaler",
+          "Transformer",
+          "FeatSelector",
+          "Loader",
+          "Imputer",
+          "Sampler",
+          "Ensemble",
+          "ParamSearch",
+          "Option",
+          "Select",
+          "Pipe",
+          "Duplicate",
+          "Intersection",
+          "ValueSubset"
+        ],
+        "description": "Declarative pipeline/problem-spec object model used to configure end-to-end experiments."
+      },
+      {
+        "package": "BPt/pipeline/BPtPipeline.py",
+        "module": "BPt.pipeline.BPtPipeline",
+        "functions": [],
+        "classes": [
+          "BPtPipeline"
+        ],
+        "description": "Execution pipeline wrapper integrating transformers/loaders/models for training and prediction."
+      },
+      {
+        "package": "BPt/pipeline/BPtSearchCV.py",
+        "module": "BPt.pipeline.BPtSearchCV",
+        "functions": [],
+        "classes": [
+          "BPtSearchCV"
+        ],
+        "description": "Hyperparameter search/CV orchestration backend."
+      },
+      {
+        "package": "BPt/main/CV.py",
+        "module": "BPt.main.CV",
+        "functions": [],
+        "classes": [
+          "CV",
+          "CVStrategy"
+        ],
+        "description": "Cross-validation strategy and split configuration abstractions."
+      },
+      {
+        "package": "BPt/main/compare.py",
+        "module": "BPt.main.compare",
+        "functions": [
+          "compare_dict_from_existing"
+        ],
+        "classes": [
+          "Compare",
+          "CompareDict",
+          "CompareSubset"
+        ],
+        "description": "Experiment comparison and statistical summary utilities."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python",
+        "numpy",
+        "pandas",
+        "scikit-learn",
+        "scipy",
+        "joblib"
+      ],
+      "optional": [
+        "matplotlib",
+        "seaborn",
+        "lightgbm",
+        "nevergrad",
+        "nilearn",
+        "xgboost"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/sahahn/BPt",
+    "repo_name": "BPt",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

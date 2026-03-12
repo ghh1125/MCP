@@ -1,0 +1,663 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/facebook/prophet",
+    "summary": "Imported via zip fallback, file count: 66",
+    "file_tree": {
+      ".deepsource.toml": {
+        "size": 232
+      },
+      ".github/workflows/build-and-test.yml": {
+        "size": 3475
+      },
+      ".github/workflows/wheel.yml": {
+        "size": 3165
+      },
+      ".travis.yml": {
+        "size": 1120
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 241
+      },
+      "README.md": {
+        "size": 11658
+      },
+      "docker-compose.yml": {
+        "size": 156
+      },
+      "docs/CONTRIBUTING.md": {
+        "size": 5216
+      },
+      "docs/README.md": {
+        "size": 3635
+      },
+      "docs/_config.yml": {
+        "size": 3137
+      },
+      "docs/_data/authors.yml": {
+        "size": 97
+      },
+      "docs/_data/features.yml": {
+        "size": 1048
+      },
+      "docs/_data/nav.yml": {
+        "size": 127
+      },
+      "docs/_data/nav_docs.yml": {
+        "size": 502
+      },
+      "docs/_data/powered_by.yml": {
+        "size": 0
+      },
+      "docs/_data/powered_by_highlight.yml": {
+        "size": 0
+      },
+      "docs/_data/promo.yml": {
+        "size": 504
+      },
+      "docs/_docs/additional_topics.md": {
+        "size": 19136
+      },
+      "docs/_docs/contributing.md": {
+        "size": 11269
+      },
+      "docs/_docs/diagnostics.md": {
+        "size": 21664
+      },
+      "docs/_docs/handling_shocks.md": {
+        "size": 15613
+      },
+      "docs/_docs/holiday_effects.md": {
+        "size": 7178
+      },
+      "docs/_docs/installation.md": {
+        "size": 2208
+      },
+      "docs/_docs/multiplicative_seasonality.md": {
+        "size": 3234
+      },
+      "docs/_docs/non-daily_data.md": {
+        "size": 7395
+      },
+      "docs/_docs/outliers.md": {
+        "size": 3125
+      },
+      "docs/_docs/quick_start.md": {
+        "size": 10024
+      },
+      "docs/_docs/saturating_forecasts.md": {
+        "size": 3387
+      },
+      "docs/_docs/seasonality,_holiday_effects,_and_regressors.md": {
+        "size": 26222
+      },
+      "docs/_docs/trend_changepoints.md": {
+        "size": 5299
+      },
+      "docs/_docs/uncertainty_intervals.md": {
+        "size": 3491
+      },
+      "docs/index.md": {
+        "size": 1380
+      },
+      "python/README.md": {
+        "size": 2019
+      },
+      "python/prophet/__init__.py": {
+        "size": 417
+      },
+      "python/prophet/__version__.py": {
+        "size": 22
+      },
+      "python/prophet/diagnostics.py": {
+        "size": 26083
+      },
+      "python/prophet/forecaster.py": {
+        "size": 85139
+      },
+      "python/prophet/make_holidays.py": {
+        "size": 2178
+      },
+      "python/prophet/models.py": {
+        "size": 10459
+      },
+      "python/prophet/plot.py": {
+        "size": 39795
+      },
+      "python/prophet/serialize.py": {
+        "size": 7571
+      },
+      "python/prophet/tests/__init__.py": {
+        "size": 0
+      },
+      "python/prophet/tests/conftest.py": {
+        "size": 1874
+      },
+      "python/prophet/tests/serialized_model_v0.6.1.dev0.json": {
+        "size": 7084
+      },
+      "python/prophet/tests/serialized_model_v0.7.1.json": {
+        "size": 7511
+      },
+      "python/prophet/tests/serialized_model_v1.0.1.json": {
+        "size": 7507
+      },
+      "python/prophet/tests/test_diagnostics.py": {
+        "size": 16685
+      },
+      "python/prophet/tests/test_prophet.py": {
+        "size": 41392
+      },
+      "python/prophet/tests/test_serialize.py": {
+        "size": 5828
+      },
+      "python/prophet/tests/test_utilities.py": {
+        "size": 1036
+      },
+      "python/prophet/utilities.py": {
+        "size": 3814
+      },
+      "python/pyproject.toml": {
+        "size": 1471
+      },
+      "python/scripts/generate_holidays_file.py": {
+        "size": 2702
+      },
+      "python/setup.py": {
+        "size": 6654
+      },
+      "python_shim/README.md": {
+        "size": 394
+      },
+      "python_shim/fbprophet/__init__.py": {
+        "size": 428
+      },
+      "python_shim/fbprophet/diagnostics.py": {
+        "size": 211
+      },
+      "python_shim/fbprophet/forecaster.py": {
+        "size": 210
+      },
+      "python_shim/fbprophet/make_holidays.py": {
+        "size": 213
+      },
+      "python_shim/fbprophet/models.py": {
+        "size": 206
+      },
+      "python_shim/fbprophet/plot.py": {
+        "size": 204
+      },
+      "python_shim/fbprophet/serialize.py": {
+        "size": 209
+      },
+      "python_shim/fbprophet/tests/__init__.py": {
+        "size": 0
+      },
+      "python_shim/fbprophet/tests/test_package.py": {
+        "size": 854
+      },
+      "python_shim/requirements.txt": {
+        "size": 8
+      },
+      "python_shim/setup.py": {
+        "size": 1122
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.python.prophet",
+      "source.python_shim.fbprophet"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "python",
+        "module": "setup",
+        "functions": [
+          "build_cmdstan_model",
+          "build_models",
+          "get_backends_from_env",
+          "install_cmdstan_deps",
+          "maybe_install_cmdstan_toolchain",
+          "prune_cmdstan",
+          "repackage_cmdstan"
+        ],
+        "classes": [
+          "BDistWheelABINone",
+          "BuildExtCommand",
+          "BuildPyCommand",
+          "EditableWheel"
+        ],
+        "function_signatures": {
+          "prune_cmdstan": [
+            "cmdstan_dir"
+          ],
+          "repackage_cmdstan": [],
+          "maybe_install_cmdstan_toolchain": [],
+          "install_cmdstan_deps": [
+            "cmdstan_dir"
+          ],
+          "build_cmdstan_model": [
+            "target_dir"
+          ],
+          "get_backends_from_env": [],
+          "build_models": [
+            "target_dir"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "python.prophet",
+        "module": "serialize",
+        "functions": [
+          "model_from_dict",
+          "model_from_json",
+          "model_to_dict",
+          "model_to_json"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "model_to_dict": [
+            "model"
+          ],
+          "model_to_json": [
+            "model"
+          ],
+          "model_from_dict": [
+            "model_dict"
+          ],
+          "model_from_json": [
+            "model_json"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "python.prophet",
+        "module": "plot",
+        "functions": [
+          "add_changepoints_to_plot",
+          "get_forecast_component_plotly_props",
+          "get_seasonality_plotly_props",
+          "plot",
+          "plot_components",
+          "plot_components_plotly",
+          "plot_cross_validation_metric",
+          "plot_forecast_component",
+          "plot_forecast_component_plotly",
+          "plot_plotly",
+          "plot_seasonality",
+          "plot_seasonality_plotly",
+          "plot_weekly",
+          "plot_yearly",
+          "seasonality_plot_df",
+          "set_y_as_percent"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "plot": [
+            "m",
+            "fcst",
+            "ax",
+            "uncertainty",
+            "plot_cap",
+            "xlabel",
+            "ylabel",
+            "figsize",
+            "include_legend"
+          ],
+          "plot_components": [
+            "m",
+            "fcst",
+            "uncertainty",
+            "plot_cap",
+            "weekly_start",
+            "yearly_start",
+            "figsize"
+          ],
+          "plot_forecast_component": [
+            "m",
+            "fcst",
+            "name",
+            "ax",
+            "uncertainty",
+            "plot_cap",
+            "figsize"
+          ],
+          "seasonality_plot_df": [
+            "m",
+            "ds"
+          ],
+          "plot_weekly": [
+            "m",
+            "ax",
+            "uncertainty",
+            "weekly_start",
+            "figsize",
+            "name"
+          ],
+          "plot_yearly": [
+            "m",
+            "ax",
+            "uncertainty",
+            "yearly_start",
+            "figsize",
+            "name"
+          ],
+          "plot_seasonality": [
+            "m",
+            "name",
+            "ax",
+            "uncertainty",
+            "figsize"
+          ],
+          "set_y_as_percent": [
+            "ax"
+          ],
+          "add_changepoints_to_plot": [
+            "ax",
+            "m",
+            "fcst",
+            "threshold",
+            "cp_color",
+            "cp_linestyle",
+            "trend"
+          ],
+          "plot_cross_validation_metric": [
+            "df_cv",
+            "metric",
+            "rolling_window",
+            "ax",
+            "figsize",
+            "color",
+            "point_color"
+          ],
+          "plot_plotly": [
+            "m",
+            "fcst",
+            "uncertainty",
+            "plot_cap",
+            "trend",
+            "changepoints",
+            "changepoints_threshold",
+            "xlabel",
+            "ylabel",
+            "figsize"
+          ],
+          "plot_components_plotly": [
+            "m",
+            "fcst",
+            "uncertainty",
+            "plot_cap",
+            "figsize"
+          ],
+          "plot_forecast_component_plotly": [
+            "m",
+            "fcst",
+            "name",
+            "uncertainty",
+            "plot_cap",
+            "figsize"
+          ],
+          "plot_seasonality_plotly": [
+            "m",
+            "name",
+            "uncertainty",
+            "figsize"
+          ],
+          "get_forecast_component_plotly_props": [
+            "m",
+            "fcst",
+            "name",
+            "uncertainty",
+            "plot_cap"
+          ],
+          "get_seasonality_plotly_props": [
+            "m",
+            "name",
+            "uncertainty"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "python.prophet",
+        "module": "models",
+        "functions": [],
+        "classes": [
+          "CmdStanPyBackend",
+          "IStanBackend",
+          "ModelInputData",
+          "ModelParams",
+          "StanBackendEnum",
+          "TrendIndicator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "python.prophet",
+        "module": "diagnostics",
+        "functions": [
+          "coverage",
+          "cross_validation",
+          "generate_cutoffs",
+          "mae",
+          "mape",
+          "mdape",
+          "mse",
+          "performance_metrics",
+          "prophet_copy",
+          "register_performance_metric",
+          "rmse",
+          "rolling_mean_by_h",
+          "rolling_median_by_h",
+          "single_cutoff_forecast",
+          "smape"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "generate_cutoffs": [
+            "df",
+            "horizon",
+            "initial",
+            "period"
+          ],
+          "cross_validation": [
+            "model",
+            "horizon",
+            "period",
+            "initial",
+            "parallel",
+            "cutoffs",
+            "disable_tqdm",
+            "extra_output_columns"
+          ],
+          "single_cutoff_forecast": [
+            "df",
+            "model",
+            "cutoff",
+            "horizon",
+            "predict_columns"
+          ],
+          "prophet_copy": [
+            "m",
+            "cutoff"
+          ],
+          "register_performance_metric": [
+            "func"
+          ],
+          "performance_metrics": [
+            "df",
+            "metrics",
+            "rolling_window",
+            "monthly"
+          ],
+          "rolling_mean_by_h": [
+            "x",
+            "h",
+            "w",
+            "name"
+          ],
+          "rolling_median_by_h": [
+            "x",
+            "h",
+            "w",
+            "name"
+          ],
+          "mse": [
+            "df",
+            "w"
+          ],
+          "rmse": [
+            "df",
+            "w"
+          ],
+          "mae": [
+            "df",
+            "w"
+          ],
+          "mape": [
+            "df",
+            "w"
+          ],
+          "mdape": [
+            "df",
+            "w"
+          ],
+          "smape": [
+            "df",
+            "w"
+          ],
+          "coverage": [
+            "df",
+            "w"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "python.prophet",
+        "module": "forecaster",
+        "functions": [],
+        "classes": [
+          "Prophet"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "python.prophet",
+        "module": "utilities",
+        "functions": [
+          "regressor_coefficients",
+          "regressor_index",
+          "warm_start_params"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "regressor_index": [
+            "m",
+            "name"
+          ],
+          "regressor_coefficients": [
+            "m"
+          ],
+          "warm_start_params": [
+            "m"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "python.prophet",
+        "module": "make_holidays",
+        "functions": [
+          "get_country_holidays_class",
+          "get_holiday_names",
+          "make_holidays_df"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_country_holidays_class": [
+            "country"
+          ],
+          "get_holiday_names": [
+            "country"
+          ],
+          "make_holidays_df": [
+            "year_list",
+            "country",
+            "province",
+            "state"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "python.scripts",
+        "module": "generate_holidays_file",
+        "functions": [
+          "generate_holidays_df",
+          "utf8_to_ascii"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "utf8_to_ascii": [
+            "text"
+          ],
+          "generate_holidays_df": []
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [],
+      "optional": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.5,
+      "intrusiveness_risk": "low",
+      "complexity": "simple"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/facebook/prophet",
+    "repo_name": "prophet",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.5,
+    "intrusiveness_risk": "low",
+    "complexity": "simple"
+  }
+}

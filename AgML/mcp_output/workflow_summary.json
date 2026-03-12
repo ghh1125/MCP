@@ -1,0 +1,223 @@
+{
+  "repository": {
+    "name": "AgML",
+    "url": "https://github.com/Project-AgML/AgML",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/AgML",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773250545.101027,
+    "end_time": 1773250799.4024,
+    "duration": 254.30137395858765,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 9,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.agml",
+        "source.agml._internal",
+        "source.agml.backend",
+        "source.agml.data",
+        "source.agml.models",
+        "source.agml.synthetic",
+        "source.agml.utils",
+        "source.agml.viz",
+        "source.experiments.benchmarking"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": true,
+      "has_requirements_txt": true,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.88,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/Project-AgML/AgML",
+      "repo_name": "AgML",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/AgML/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "Define and publish a stable MCP tool contract (versioned names",
+    "input/output schemas) instead of exposing raw class/function names",
+    "deduplicate and normalize endpoint names (e.g.",
+    "remove case-variant duplicates like AgMLDataLoader/agmldataloader and DatasetMetadata/datasetmetadata)",
+    "restrict default MCP surface to low-side-effect Phase 1 tools (dataset listing/metadata/validation) and gate download/training/synthetic generation behind explicit opt-in flags",
+    "add structured error taxonomy with actionable messages for missing optional deps/network/filesystem/invalid dataset names",
+    "implement lazy imports and dependency probes for torch/tensorflow/ultralytics paths to reduce startup failures",
+    "add timeout/cancellation/retry controls for networked dataset operations with safe defaults",
+    "create contract tests for every MCP endpoint (schema validation",
+    "determinism",
+    "error cases) and run them in CI",
+    "expand CI matrix across Python versions and optional-dependency profiles (minimal/core/full) to catch import regressions",
+    "add smoke tests that boot the MCP server and call each registered endpoint at least once",
+    "improve docs by clearly separating stable user APIs from internal/experimental modules and documenting side effects per tool",
+    "introduce observability (structured logs",
+    "request IDs",
+    "per-tool latency/error metrics)",
+    "add a security layer for filesystem/network operations (allowlist paths",
+    "read-only default mode)",
+    "address documentation gaps by generating/filling zero-byte dataset markdown files automatically in docs pipeline",
+    "validate and pin dependency ranges consistently across pyproject/requirements/environment to avoid resolver drift",
+    "add lightweight caching for dataset metadata/public source queries to improve responsiveness",
+    "provide a first-class CLI wrapper (optional) only for stable operations to complement MCP without relying on maintenance scripts"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy matched repository characteristics (Python API-first project with no stable CLI), reducing intrusiveness risk.",
+      "Repository analysis quality was strong (230 files scanned, core modules identified, dependency and risk assessment produced).",
+      "Generated MCP service started healthy over stdio transport, indicating basic runtime viability.",
+      "Low assessed integration risk (import feasibility 0.88, intrusiveness low) supported successful generation."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure detected.",
+      "DeepWiki enrichment failed (non-blocking), reducing external context depth.",
+      "Original project test signal is unreliable (reported passed=false with empty details/test_files and 0s runtime), so baseline validation is incomplete.",
+      "Generated metadata appears inconsistent (tool_endpoints=0 while endpoint list exists; total_lines_of_code/generated_files_size=0), suggesting metrics collection gaps."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository imported via zip fallback. Exact per-node timing unavailable, but no download bottleneck observed.",
+      "analysis_time": "Completed successfully with broad structural and module-level discovery; moderate node workload expected due to 230-file scan.",
+      "generation_time": "Completed successfully and produced 7 MCP artifacts. Output is functionally present, though generation metrics reporting is incomplete.",
+      "test_time": "MCP plugin health check passed quickly (startup_time=0 reported). Original project tests were not meaningfully executed/recorded."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB). No evidence of memory pressure during execution.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%). Runtime duration (~254s) suggests moderate CPU/IO activity but not characterized.",
+      "disk_usage": "Low incremental footprint from generated plugin files; however generated size metrics are missing/zero and should be fixed."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 66,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

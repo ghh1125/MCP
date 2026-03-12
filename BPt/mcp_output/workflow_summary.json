@@ -1,0 +1,225 @@
+{
+  "repository": {
+    "name": "BPt",
+    "url": "https://github.com/sahahn/BPt",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/BPt",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773290825.017211,
+    "end_time": 1773291557.533101,
+    "duration": 732.5158910751343,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/sahahn/BPt",
+      "repo_name": "BPt",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/BPt/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/BPt/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Connection reset by peer\nerror: 8167 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/BPt/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Connection reset by peer\nerror: 8167 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
+  ],
+  "recommendations": [
+    "deduplicate MCP endpoints (the generated list repeats many tools) and enforce unique normalized names",
+    "add a minimal smoke-test suite for every exported MCP endpoint (import + basic call + schema validation)",
+    "fix packaging metadata detection by adding a modern `pyproject.toml` (and keep `setup.py` only if needed for legacy)",
+    "add `requirements.txt`/extras groups for optional deps (`lightgbm`",
+    "`xgboost`",
+    "`nilearn`",
+    "docs",
+    "dev) with pinned CI ranges",
+    "strengthen CI matrix to include Linux/macOS/Windows + multiple Python versions + optional-dependency jobs",
+    "enable and enforce code coverage thresholds in `codecov.yml` (current file appears effectively empty)",
+    "add lint/type gates (ruff + mypy/pyright) and pre-commit hooks",
+    "prioritize refactors for very large modules (`BPt/main/input.py`",
+    "`BPt/main/eval.py`",
+    "`BPt/dataset/dataset.py`) into smaller cohesive units",
+    "add regression tests around high-risk core abstractions (`Dataset`",
+    "`ProblemSpec`",
+    "`BPtPipeline`",
+    "`BPtSearchCV`) and serialization compatibility",
+    "improve error messages and input validation for public API/MCP adapters with consistent exception types",
+    "add structured logging and timing hooks for long-running evaluate/search workflows",
+    "document MCP usage with concrete end-to-end examples and endpoint-to-class/function mapping",
+    "add contract/versioning policy for MCP tool names and response schemas to prevent breaking clients",
+    "add benchmark tests for key paths (dataset transforms",
+    "CV",
+    "search) and track performance in CI",
+    "remove generated/static docs artifacts from source control where possible and rebuild in docs CI",
+    "add security/dependency scanning (Dependabot/Renovate + pip-audit) and pinned transitive constraints for reproducibility"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status 'success' and executed all planned nodes (download, analysis, env, generate, run, review, finalize)",
+      "Robust fallback behavior: when git clone failed, pipeline continued via zip fallback and still analyzed 962 files",
+      "Import-mode adapter strategy had high feasibility (0.9) and produced runnable MCP scaffold files",
+      "Generated MCP plugin passed service-level health checks (healthy, stdio startup successful)"
+    ],
+    "failure_reasons": [
+      "Primary repository acquisition failed due to network/RPC interruption during git clone (curl 56, early EOF, invalid index-pack)",
+      "Metadata/analysis inconsistencies (e.g., dependencies reported as absent despite setup.py existing) reduced analysis fidelity",
+      "Generated endpoint list contains duplicates, increasing risk of tool registration conflicts and ambiguous API surface",
+      "Execution telemetry is incomplete (0 for files processed, LOC, resource metrics), limiting confidence in performance conclusions"
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Download node encountered clone failure; recovery via zip fallback succeeded. Time likely elevated by retry/fallback path.",
+      "analysis_time": "Analysis completed on a large repo (962 files). Moderate-to-high processing load expected, especially with expansive docs tree.",
+      "generation_time": "Generation completed quickly enough within total 732.5s, but produced low-fidelity metrics (0 LOC/size) and duplicated endpoints.",
+      "test_time": "MCP plugin smoke status passed, but original project tests were effectively not executed meaningfully (passed=false with empty details, execution_time=0)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Undetermined due to missing telemetry; no memory pressure signals reported.",
+      "cpu_efficiency": "Undetermined due to missing telemetry; total runtime indicates moderate compute but no hotspot instrumentation.",
+      "disk_usage": "Likely significant due to large repository including generated/static docs artifacts; fallback import still handled volume successfully."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 61,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 74
+  }
+}

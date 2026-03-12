@@ -1,0 +1,298 @@
+{
+  "repository": {
+    "name": "astroquery",
+    "url": "https://github.com/astropy/astroquery",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/astroquery",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773266584.841225,
+    "end_time": 1773266831.783563,
+    "duration": 246.94233798980713,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 62,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.astroquery",
+        "source.astroquery.alfalfa",
+        "source.astroquery.alma",
+        "source.astroquery.astrometry_net",
+        "source.astroquery.atomic",
+        "source.astroquery.besancon",
+        "source.astroquery.cadc",
+        "source.astroquery.casda",
+        "source.astroquery.cds",
+        "source.astroquery.cosmosim",
+        "source.astroquery.dace",
+        "source.astroquery.esa",
+        "source.astroquery.esasky",
+        "source.astroquery.eso",
+        "source.astroquery.exoplanet_orbit_database",
+        "source.astroquery.fermi",
+        "source.astroquery.gaia",
+        "source.astroquery.gama",
+        "source.astroquery.gemini",
+        "source.astroquery.heasarc",
+        "source.astroquery.hips2fits",
+        "source.astroquery.hitran",
+        "source.astroquery.ibe",
+        "source.astroquery.image_cutouts",
+        "source.astroquery.imcce",
+        "source.astroquery.ipac",
+        "source.astroquery.irsa",
+        "source.astroquery.irsa_dust",
+        "source.astroquery.jplhorizons",
+        "source.astroquery.jplsbdb",
+        "source.astroquery.jplspec",
+        "source.astroquery.lamda",
+        "source.astroquery.linelists",
+        "source.astroquery.magpis",
+        "source.astroquery.mast",
+        "source.astroquery.mocserver",
+        "source.astroquery.mpc",
+        "source.astroquery.nasa_ads",
+        "source.astroquery.nasa_exoplanet_archive",
+        "source.astroquery.ned",
+        "source.astroquery.nist",
+        "source.astroquery.noirlab",
+        "source.astroquery.nvas",
+        "source.astroquery.oac",
+        "source.astroquery.ogle",
+        "source.astroquery.open_exoplanet_catalogue",
+        "source.astroquery.sdss",
+        "source.astroquery.simbad",
+        "source.astroquery.skyview",
+        "source.astroquery.solarsystem",
+        "source.astroquery.splatalogue",
+        "source.astroquery.svo_fps",
+        "source.astroquery.template_module",
+        "source.astroquery.tests",
+        "source.astroquery.ukidss",
+        "source.astroquery.utils",
+        "source.astroquery.vamdc",
+        "source.astroquery.vizier",
+        "source.astroquery.vo_conesearch",
+        "source.astroquery.vsa",
+        "source.astroquery.wfau",
+        "source.astroquery.xmatch"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/astropy/astroquery",
+      "repo_name": "astroquery",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/astroquery/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke test suite for each generated endpoint (`basequery`",
+    "`tapplus`",
+    "`simbadclass`",
+    "etc.) covering import",
+    "one mocked call",
+    "and JSON serialization",
+    "split tools into read-only vs auth-required groups and disable auth tools by default via config flags",
+    "enforce a unified adapter response schema (data/error/meta) with strict pydantic models and stable error codes mapped from astroquery exceptions",
+    "add centralized runtime guards (default timeout",
+    "max rows",
+    "max payload size",
+    "async poll cap",
+    "cancellation support) in `adapter.py`",
+    "implement deterministic Table/Object normalization utilities (Astropy Table",
+    "Quantity",
+    "Time",
+    "SkyCoord) with explicit precision and unit handling",
+    "add requests-level retry/backoff and rate-limit handling with per-provider overrides",
+    "introduce structured logging + tracing (request id",
+    "endpoint",
+    "duration",
+    "remote host",
+    "cache hit/miss) and optional OpenTelemetry hooks",
+    "create contract tests against pinned fixture responses for high-value tools (Simbad/Vizier/MAST/TAP/Gaia)",
+    "add online integration tests as optional CI jobs with secrets and strict budget/time guards",
+    "tighten dependency management by pinning compatible astroquery/astropy/pyvo ranges in `mcp_output/requirements.txt` and documenting tested version matrix",
+    "improve `README_MCP.md` with endpoint capability matrix",
+    "auth setup",
+    "failure modes",
+    "and production hardening checklist",
+    "add a small provider capability registry (supports_async",
+    "supports_login",
+    "default_row_limit",
+    "output_shape) to simplify routing and validation",
+    "expose fewer low-level endpoints initially (hide `BaseQuery` internals) and prioritize user-facing task tools to reduce misuse risk",
+    "add caching policy controls (TTL",
+    "cache namespace per endpoint",
+    "opt-out for non-deterministic queries) while reusing astroquery cache semantics",
+    "implement input validation and sanitization for ADQL/SQL-like parameters with allowlists and query-length limits",
+    "add packaging polish: console entry point in `pyproject.toml`",
+    "reproducible lock file",
+    "and Dockerfile for deployment",
+    "add CI quality gates for the plugin (ruff/black/mypy/pytest + coverage threshold) separate from upstream astroquery CI",
+    "include graceful degradation paths when optional deps are missing (e.g.",
+    "pandas/lxml) with actionable error messages",
+    "add a migration-safe adapter layer using composition only and explicit compatibility tests against multiple astroquery releases"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status `success` and executed all planned nodes: download, analysis, env, generate, run, review, finalize.",
+      "Import-based adapter strategy was appropriate for astroquery’s class-centric API surface and low intrusiveness risk.",
+      "Repository structure was successfully parsed at scale (586 files discovered; 62 processed in workflow path).",
+      "Generated MCP service started healthy over stdio, indicating runnable scaffolding and valid entrypoint wiring."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality signal gap: original project tests show `passed: false` with empty details and zero execution time, so upstream compatibility is unverified.",
+      "DeepWiki analysis failed, reducing external architectural/context enrichment.",
+      "Generation metrics show `total_lines_of_code: 0`, `generated_files_size: 0`, and `tool_endpoints: 0`, suggesting telemetry/reporting inconsistency or incomplete instrumentation."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository imported via zip fallback. No per-node timing provided, but no download instability reported.",
+      "analysis_time": "Completed successfully on a large multi-package codebase; analysis quality is high despite DeepWiki fallback.",
+      "generation_time": "Generation node succeeded and output files were created, but code-size/endpoint counters are inconsistent with listed endpoints.",
+      "test_time": "MCP plugin health test passed; however, upstream/original test execution appears skipped or not captured."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown from metrics (reported 0 MB). Current telemetry is insufficient for real efficiency conclusions.",
+      "cpu_efficiency": "Unknown from metrics (reported 0%). Instrumentation should be fixed before optimization decisions.",
+      "disk_usage": "Output footprint reported as 0 despite multiple created files; likely reporting defect rather than true zero usage."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 82,
+    "performance_score": 64,
+    "maintainability_score": 74,
+    "security_score": 85,
+    "scalability_score": 76
+  }
+}

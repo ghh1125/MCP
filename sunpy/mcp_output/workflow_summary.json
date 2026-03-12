@@ -1,0 +1,237 @@
+{
+  "repository": {
+    "name": "sunpy",
+    "url": "https://github.com/sunpy/sunpy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/sunpy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773267411.486086,
+    "end_time": 1773267629.4328032,
+    "duration": 217.94671726226807,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 17,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.benchmarks",
+        "source.sunpy",
+        "source.sunpy._dev",
+        "source.sunpy.coordinates",
+        "source.sunpy.data",
+        "source.sunpy.extern",
+        "source.sunpy.image",
+        "source.sunpy.io",
+        "source.sunpy.map",
+        "source.sunpy.net",
+        "source.sunpy.physics",
+        "source.sunpy.sun",
+        "source.sunpy.tests",
+        "source.sunpy.time",
+        "source.sunpy.timeseries",
+        "source.sunpy.util",
+        "source.sunpy.visualization"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/sunpy/sunpy",
+      "repo_name": "sunpy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/sunpy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke-test suite for MCP endpoints (server boot",
+    "endpoint discovery",
+    "one happy-path call per endpoint)",
+    "add contract tests with fixed fixtures for high-value tools (`parse_time`",
+    "`TimeRange`",
+    "`angular_radius`",
+    "`MapFactory`) to catch upstream API drift",
+    "introduce endpoint input/output schemas (Pydantic models) with stricter validation and clearer error messages",
+    "create a dependency-tiered CI matrix (core-only vs optional extras like `reproject/drms/zeep/asdf`) and mark endpoint availability accordingly",
+    "implement graceful degradation for missing optional dependencies with actionable install hints in responses",
+    "add timeout/retry/circuit-breaker guards around network-backed flows (notably `UnifiedDownloaderFactory`) to improve MCP reliability",
+    "provide async-safe wrappers or explicit sync execution boundaries for blocking SunPy calls to avoid event-loop stalls",
+    "add lightweight performance benchmarks for representative operations (time parsing",
+    "map creation",
+    "simple Fido query) and track regressions in CI",
+    "pin and periodically refresh MCP plugin requirements plus add compatibility tests against multiple SunPy/Astropy versions",
+    "expand `README_MCP.md` with concrete endpoint examples",
+    "dependency profiles",
+    "and troubleshooting for common import/runtime failures",
+    "add structured logging and request correlation IDs in `mcp_service.py` for observability and easier incident triage",
+    "add caching for deterministic expensive computations (ephemeris/time parsing hot paths) with bounded TTL/size",
+    "expose a health/readiness endpoint that verifies critical imports and optional capability flags",
+    "add security hardening (input size limits",
+    "safe path handling for file/map inputs",
+    "redaction of sensitive URLs/tokens in logs)",
+    "and document/automate release checks (lint",
+    "type-check",
+    "smoke tests",
+    "version bump) for the generated MCP plugin"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-mode adapter strategy was feasible (import_feasibility=0.9), enabling direct wrapping of SunPy core APIs.",
+      "Generated MCP service booted healthy over stdio and plugin-level tests passed.",
+      "Low intrusiveness risk and medium complexity profile allowed non-invasive service scaffolding.",
+      "Repository analysis successfully completed via zip fallback despite DeepWiki failure."
+    ],
+    "failure_reasons": [
+      "No hard execution failure detected.",
+      "DeepWiki analysis failed (non-blocking) and reduced depth of automated semantic enrichment.",
+      "Observability/metrics gaps (0 for memory/cpu/latency/throughput) prevent runtime efficiency validation.",
+      "Original project test result indicates passed=false with empty details; this is a validation coverage gap rather than a workflow crash."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Node completed successfully; exact per-node timing not provided. Repository ingestion worked via zip fallback for a large codebase (~582 files).",
+      "analysis_time": "Completed successfully with comprehensive package/dependency/risk mapping; medium complexity correctly identified.",
+      "generation_time": "Completed successfully; 7 MCP files generated with import adapter and 19 endpoint mappings identified in service info.",
+      "test_time": "MCP plugin health checks passed (healthy/stdin transport). Test depth appears minimal (startup and basic checks), with no granular endpoint contract/performance timings."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to missing telemetry (reported 0 MB). Instrument memory profiling in CI/runtime.",
+      "cpu_efficiency": "Unknown due to missing telemetry (reported 0%). Add CPU sampling for endpoint calls.",
+      "disk_usage": "Generated artifact footprint recorded as 0 (likely instrumentation/reporting defect). Actual disk use is non-zero given multiple generated files."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 61,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}

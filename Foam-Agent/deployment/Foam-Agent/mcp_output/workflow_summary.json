@@ -1,0 +1,223 @@
+{
+  "repository": {
+    "name": "Foam-Agent",
+    "url": "https://github.com/csml-rpi/Foam-Agent",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/Foam-Agent",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773250979.705156,
+    "end_time": 1773251162.81951,
+    "duration": 183.11435389518738,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 2,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.src.nodes",
+        "source.src.services"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": true,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.83,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/csml-rpi/Foam-Agent",
+      "repo_name": "Foam-Agent",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/Foam-Agent/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal CI pipeline (lint + unit tests + smoke test for `python src/main.py` and `python src/mcp/start_mcp.py`)",
+    "create a `requirements.txt` and/or `pyproject.toml` alongside `environment.yml` for easier installation",
+    "reduce `src/utils.py` (very large) by splitting into focused modules (`io_utils`",
+    "`foam_utils`",
+    "`rag_utils`",
+    "`parsing_utils`)",
+    "add typed docstrings and stricter type hints across service/node boundaries (especially `GraphState` and MCP request/response models)",
+    "introduce structured logging (JSON + run/case/job IDs) and consistent error taxonomy for local/HPC/visualization failures",
+    "add retry/backoff + timeout centralization for all subprocess/LLM calls",
+    "expand tests beyond lid-driven cavity to cover planner/router branches",
+    "mesh correction loops",
+    "and HPC script generation/status polling",
+    "add integration tests for generated MCP plugin endpoints and adapter import mode",
+    "pin and validate external tool prerequisites at startup (OpenFOAM",
+    "sbatch/squeue",
+    "ParaView/PyVista) with actionable diagnostics",
+    "add pre-commit hooks (ruff/black/isort/mypy) and enforce formatting/lint gates",
+    "de-duplicate repeated CLI helpers (`parse_args`",
+    "`run_command`) into a shared utility",
+    "harden file operations with path sanitization and safer temp-file handling",
+    "cache FAISS/RAG loads and add lazy initialization to reduce startup overhead",
+    "add deterministic fixtures/mocks for LLM-dependent paths to make tests stable",
+    "document end-to-end workflows (local run",
+    "HPC run",
+    "MCP usage) with troubleshooting matrices",
+    "version and validate data artifacts in `database/raw` and FAISS build scripts to ensure reproducibility",
+    "add basic observability metrics (step latency",
+    "token usage",
+    "failure rate) and persist run summaries for benchmarking",
+    "tighten MCP surface by exposing curated high-value endpoints instead of nearly every discovered symbol",
+    "add contract tests for Pydantic schemas to catch breaking API changes early"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow completed with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter mode was feasible (import_feasibility=0.83, low intrusiveness risk), enabling non-invasive MCP wrapping.",
+      "MCP plugin startup/health checks passed (service_health=healthy, transport=stdio).",
+      "Repository structure was analyzable via zip fallback despite DeepWiki failure."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki analysis failed, reducing external semantic enrichment.",
+      "Original project test status reported as failed/unknown despite 100% coverage metadata, indicating test signal inconsistency.",
+      "Generated artifact metrics are incomplete (LOC=0, size=0, tool_endpoints=0) and conflict with discovered endpoint list, suggesting instrumentation/reporting defects."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; exact per-node timing unavailable. Repository imported via zip fallback (51 files), which likely added moderate overhead but improved robustness.",
+      "analysis_time": "Completed successfully with broad AST extraction (many modules/functions/classes). Deep analysis quality good despite DeepWiki failure.",
+      "generation_time": "Generation succeeded (7 files produced), but metadata quality is weak (0 LOC/size/endpoints), limiting confidence in generation diagnostics.",
+      "test_time": "MCP plugin health test passed quickly; original project test result is inconclusive/inconsistent, so test-phase confidence is medium."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/likely acceptable; memory metrics were not captured (0 values indicate missing telemetry).",
+      "cpu_efficiency": "Unknown; CPU metrics not instrumented.",
+      "disk_usage": "Low absolute footprint for generated artifacts, but reported 0 size indicates measurement gap rather than true zero."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 71,
+    "security_score": 85,
+    "scalability_score": 69
+  }
+}

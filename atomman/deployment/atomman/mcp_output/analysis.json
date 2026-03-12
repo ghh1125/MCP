@@ -1,0 +1,964 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/usnistgov/atomman",
+    "summary": "Imported via zip fallback, file count: 243",
+    "file_tree": {
+      "LICENSE.TXT": {
+        "size": 2752
+      },
+      "atomman/__init__.py": {
+        "size": 1351
+      },
+      "atomman/cluster/BondAngleMap.py": {
+        "size": 30506
+      },
+      "atomman/cluster/__init__.py": {
+        "size": 66
+      },
+      "atomman/core/Atoms.py": {
+        "size": 21541
+      },
+      "atomman/core/Box.py": {
+        "size": 38743
+      },
+      "atomman/core/ElasticConstants.py": {
+        "size": 39453
+      },
+      "atomman/core/ElasticConstants2.py": {
+        "size": 41525
+      },
+      "atomman/core/NeighborList.py": {
+        "size": 9154
+      },
+      "atomman/core/System.py": {
+        "size": 47719
+      },
+      "atomman/core/__init__.py": {
+        "size": 485
+      },
+      "atomman/core/displacement.py": {
+        "size": 1602
+      },
+      "atomman/defect/Boundary.py": {
+        "size": 34846
+      },
+      "atomman/defect/DifferentialDisplacement.py": {
+        "size": 34861
+      },
+      "atomman/defect/Dislocation/__init__.py": {
+        "size": 22706
+      },
+      "atomman/defect/Dislocation/_dipole.py": {
+        "size": 12786
+      },
+      "atomman/defect/Dislocation/_monopole.py": {
+        "size": 13693
+      },
+      "atomman/defect/Dislocation/_periodicarray.py": {
+        "size": 19228
+      },
+      "atomman/defect/FreeSurface.py": {
+        "size": 27413
+      },
+      "atomman/defect/GRIP.py": {
+        "size": 25781
+      },
+      "atomman/defect/GammaSurface.py": {
+        "size": 54638
+      },
+      "atomman/defect/GrainBoundary.py": {
+        "size": 10235
+      },
+      "atomman/defect/InterstitialSite.py": {
+        "size": 5663
+      },
+      "atomman/defect/IsotropicVolterraDislocation.py": {
+        "size": 10971
+      },
+      "atomman/defect/SDVPN.py": {
+        "size": 48201
+      },
+      "atomman/defect/StackingFault.py": {
+        "size": 30033
+      },
+      "atomman/defect/Stroh.py": {
+        "size": 11732
+      },
+      "atomman/defect/SurfaceEnergyEstimator.py": {
+        "size": 7009
+      },
+      "atomman/defect/Surface_energy_formula.py": {
+        "size": 3087
+      },
+      "atomman/defect/TiltGrainBoundaryHelper.py": {
+        "size": 20221
+      },
+      "atomman/defect/VolterraDislocation.py": {
+        "size": 15075
+      },
+      "atomman/defect/__init__.py": {
+        "size": 2157
+      },
+      "atomman/defect/differential_displacement.py": {
+        "size": 14804
+      },
+      "atomman/defect/dislocation_array.py": {
+        "size": 9874
+      },
+      "atomman/defect/dislocation_dipole_displacement.py": {
+        "size": 5391
+      },
+      "atomman/defect/dislocation_system_basis.py": {
+        "size": 8440
+      },
+      "atomman/defect/dislocation_system_transform.py": {
+        "size": 3052
+      },
+      "atomman/defect/disregistry.py": {
+        "size": 4501
+      },
+      "atomman/defect/free_surface_basis.py": {
+        "size": 10698
+      },
+      "atomman/defect/generator_tools.py": {
+        "size": 6322
+      },
+      "atomman/defect/nye_tensor.py": {
+        "size": 6895
+      },
+      "atomman/defect/nye_tensor_p.py": {
+        "size": 1883
+      },
+      "atomman/defect/pn_arctan_disldensity.py": {
+        "size": 4344
+      },
+      "atomman/defect/pn_arctan_disregistry.py": {
+        "size": 4171
+      },
+      "atomman/defect/point.py": {
+        "size": 16357
+      },
+      "atomman/defect/solve_volterra_dislocation.py": {
+        "size": 4283
+      },
+      "atomman/defect/surface_energy_estimate.py": {
+        "size": 3087
+      },
+      "atomman/dump/__init__.py": {
+        "size": 1727
+      },
+      "atomman/dump/ase_Atoms/__init__.py": {
+        "size": 38
+      },
+      "atomman/dump/ase_Atoms/dump.py": {
+        "size": 1963
+      },
+      "atomman/dump/atom_data/__init__.py": {
+        "size": 138
+      },
+      "atomman/dump/atom_data/atoms_prop_info.py": {
+        "size": 14356
+      },
+      "atomman/dump/atom_data/dump.py": {
+        "size": 9032
+      },
+      "atomman/dump/atom_data/velocities_prop_info.py": {
+        "size": 3205
+      },
+      "atomman/dump/atom_dump/__init__.py": {
+        "size": 87
+      },
+      "atomman/dump/atom_dump/dump.py": {
+        "size": 10881
+      },
+      "atomman/dump/atom_dump/process_prop_info.py": {
+        "size": 9444
+      },
+      "atomman/dump/conventional_to_primitive/__init__.py": {
+        "size": 38
+      },
+      "atomman/dump/conventional_to_primitive/dump.py": {
+        "size": 12698
+      },
+      "atomman/dump/freud/__init__.py": {
+        "size": 22
+      },
+      "atomman/dump/freud/dump.py": {
+        "size": 1260
+      },
+      "atomman/dump/lammps_commands/__init__.py": {
+        "size": 22
+      },
+      "atomman/dump/lammps_commands/dump.py": {
+        "size": 7907
+      },
+      "atomman/dump/neb_replica/__init__.py": {
+        "size": 22
+      },
+      "atomman/dump/neb_replica/dump.py": {
+        "size": 2841
+      },
+      "atomman/dump/pdb/__init__.py": {
+        "size": 38
+      },
+      "atomman/dump/pdb/dump.py": {
+        "size": 2620
+      },
+      "atomman/dump/phonopy_Atoms/__init__.py": {
+        "size": 38
+      },
+      "atomman/dump/phonopy_Atoms/dump.py": {
+        "size": 2125
+      },
+      "atomman/dump/poscar/__init__.py": {
+        "size": 38
+      },
+      "atomman/dump/poscar/dump.py": {
+        "size": 3703
+      },
+      "atomman/dump/primitive_cell/__init__.py": {
+        "size": 22
+      },
+      "atomman/dump/primitive_cell/dump.py": {
+        "size": 1659
+      },
+      "atomman/dump/primitive_to_conventional/__init__.py": {
+        "size": 38
+      },
+      "atomman/dump/primitive_to_conventional/dump.py": {
+        "size": 2247
+      },
+      "atomman/dump/pymatgen_Structure/__init__.py": {
+        "size": 38
+      },
+      "atomman/dump/pymatgen_Structure/dump.py": {
+        "size": 1644
+      },
+      "atomman/dump/spglib_cell/__init__.py": {
+        "size": 38
+      },
+      "atomman/dump/spglib_cell/dump.py": {
+        "size": 656
+      },
+      "atomman/dump/standardize_cell/__init__.py": {
+        "size": 39
+      },
+      "atomman/dump/standardize_cell/dump.py": {
+        "size": 2772
+      },
+      "atomman/dump/system_model/__init__.py": {
+        "size": 38
+      },
+      "atomman/dump/system_model/dump.py": {
+        "size": 3743
+      },
+      "atomman/dump/table/__init__.py": {
+        "size": 87
+      },
+      "atomman/dump/table/dump.py": {
+        "size": 5842
+      },
+      "atomman/dump/table/process_prop_info.py": {
+        "size": 5221
+      },
+      "atomman/lammps/Log.py": {
+        "size": 13229
+      },
+      "atomman/lammps/NEBLog.py": {
+        "size": 6561
+      },
+      "atomman/lammps/Potential.py": {
+        "size": 3109
+      },
+      "atomman/lammps/__init__.py": {
+        "size": 838
+      },
+      "atomman/lammps/checkversion.py": {
+        "size": 1432
+      },
+      "atomman/lammps/normalize.py": {
+        "size": 2578
+      },
+      "atomman/lammps/run.py": {
+        "size": 5882
+      },
+      "atomman/lammps/seed.py": {
+        "size": 1171
+      },
+      "atomman/lammps/style.py": {
+        "size": 7053
+      },
+      "atomman/library/Database/__init__.py": {
+        "size": 2692
+      },
+      "atomman/library/Database/_crystal_prototype.py": {
+        "size": 17337
+      },
+      "atomman/library/Database/_reference_crystal.py": {
+        "size": 28410
+      },
+      "atomman/library/Database/_relaxed_crystal.py": {
+        "size": 20326
+      },
+      "atomman/library/__init__.py": {
+        "size": 276
+      },
+      "atomman/library/load_lammps_potential.py": {
+        "size": 6362
+      },
+      "atomman/library/record/CrystalPrototype.py": {
+        "size": 3073
+      },
+      "atomman/library/record/Dislocation.py": {
+        "size": 4207
+      },
+      "atomman/library/record/FreeSurface.py": {
+        "size": 2794
+      },
+      "atomman/library/record/GrainBoundary.py": {
+        "size": 3887
+      },
+      "atomman/library/record/PointDefect.py": {
+        "size": 4179
+      },
+      "atomman/library/record/ReferenceCrystal.py": {
+        "size": 4020
+      },
+      "atomman/library/record/RelaxedCrystal.py": {
+        "size": 6735
+      },
+      "atomman/library/record/StackingFault.py": {
+        "size": 3601
+      },
+      "atomman/library/record/__init__.py": {
+        "size": 769
+      },
+      "atomman/library/value/MillerValue.py": {
+        "size": 4962
+      },
+      "atomman/library/value/SystemModelValue.py": {
+        "size": 2325
+      },
+      "atomman/library/value/UnitVectorValue.py": {
+        "size": 5304
+      },
+      "atomman/library/value/VectorValue.py": {
+        "size": 4768
+      },
+      "atomman/library/value/__init__.py": {
+        "size": 301
+      },
+      "atomman/library/xsd/__init__.py": {
+        "size": 0
+      },
+      "atomman/library/xsl/__init__.py": {
+        "size": 0
+      },
+      "atomman/load/__init__.py": {
+        "size": 1823
+      },
+      "atomman/load/ase_Atoms/__init__.py": {
+        "size": 38
+      },
+      "atomman/load/ase_Atoms/load.py": {
+        "size": 1527
+      },
+      "atomman/load/atom_data/__init__.py": {
+        "size": 138
+      },
+      "atomman/load/atom_data/atoms_prop_info.py": {
+        "size": 14351
+      },
+      "atomman/load/atom_data/load.py": {
+        "size": 13573
+      },
+      "atomman/load/atom_data/velocities_prop_info.py": {
+        "size": 3200
+      },
+      "atomman/load/atom_dump/__init__.py": {
+        "size": 87
+      },
+      "atomman/load/atom_dump/load.py": {
+        "size": 10106
+      },
+      "atomman/load/atom_dump/process_prop_info.py": {
+        "size": 9377
+      },
+      "atomman/load/cif/__init__.py": {
+        "size": 38
+      },
+      "atomman/load/cif/load.py": {
+        "size": 1887
+      },
+      "atomman/load/crystal/__init__.py": {
+        "size": 22
+      },
+      "atomman/load/crystal/load.py": {
+        "size": 6261
+      },
+      "atomman/load/dft_reference/__init__.py": {
+        "size": 22
+      },
+      "atomman/load/dft_reference/load.py": {
+        "size": 2914
+      },
+      "atomman/load/phonopy_Atoms/__init__.py": {
+        "size": 38
+      },
+      "atomman/load/phonopy_Atoms/load.py": {
+        "size": 1641
+      },
+      "atomman/load/poscar/__init__.py": {
+        "size": 38
+      },
+      "atomman/load/poscar/load.py": {
+        "size": 3020
+      },
+      "atomman/load/prototype/__init__.py": {
+        "size": 22
+      },
+      "atomman/load/prototype/load.py": {
+        "size": 9535
+      },
+      "atomman/load/pymatgen_Structure/__init__.py": {
+        "size": 38
+      },
+      "atomman/load/pymatgen_Structure/load.py": {
+        "size": 1532
+      },
+      "atomman/load/spglib_cell/__init__.py": {
+        "size": 38
+      },
+      "atomman/load/spglib_cell/load.py": {
+        "size": 989
+      },
+      "atomman/load/system_model/__init__.py": {
+        "size": 38
+      },
+      "atomman/load/system_model/load.py": {
+        "size": 6126
+      },
+      "atomman/load/table/__init__.py": {
+        "size": 87
+      },
+      "atomman/load/table/load.py": {
+        "size": 5102
+      },
+      "atomman/load/table/process_prop_info.py": {
+        "size": 5390
+      },
+      "atomman/mep/BasePath.py": {
+        "size": 12325
+      },
+      "atomman/mep/ISMPath.py": {
+        "size": 10487
+      },
+      "atomman/mep/__init__.py": {
+        "size": 2103
+      },
+      "atomman/mep/gradient/__init__.py": {
+        "size": 100
+      },
+      "atomman/mep/gradient/central_difference.py": {
+        "size": 1653
+      },
+      "atomman/mep/integrator/__init__.py": {
+        "size": 110
+      },
+      "atomman/mep/integrator/euler.py": {
+        "size": 859
+      },
+      "atomman/mep/integrator/rungekutta.py": {
+        "size": 1095
+      },
+      "atomman/plot/__init__.py": {
+        "size": 385
+      },
+      "atomman/plot/get_prop_values.py": {
+        "size": 2651
+      },
+      "atomman/plot/interpolate_contour.py": {
+        "size": 15813
+      },
+      "atomman/plot/nglview.py": {
+        "size": 3624
+      },
+      "atomman/plot/nglview_classes.py": {
+        "size": 2526
+      },
+      "atomman/plot/plotly.py": {
+        "size": 4126
+      },
+      "atomman/plot/py3Dmol.py": {
+        "size": 4139
+      },
+      "atomman/plot/values_to_hexcolors.py": {
+        "size": 1928
+      },
+      "atomman/region/Cylinder.py": {
+        "size": 4072
+      },
+      "atomman/region/Plane.py": {
+        "size": 5378
+      },
+      "atomman/region/PlaneSet.py": {
+        "size": 2124
+      },
+      "atomman/region/Shape.py": {
+        "size": 1681
+      },
+      "atomman/region/Sphere.py": {
+        "size": 2216
+      },
+      "atomman/region/__init__.py": {
+        "size": 220
+      },
+      "atomman/thermo/EinsteinSolid.py": {
+        "size": 3655
+      },
+      "atomman/thermo/IdealGas.py": {
+        "size": 1998
+      },
+      "atomman/thermo/RDF.py": {
+        "size": 7969
+      },
+      "atomman/thermo/UhlenbeckFordModel.py": {
+        "size": 75553
+      },
+      "atomman/thermo/__init__.py": {
+        "size": 143
+      },
+      "atomman/tools/__init__.py": {
+        "size": 1072
+      },
+      "atomman/tools/approx_rational.py": {
+        "size": 1278
+      },
+      "atomman/tools/axes_check.py": {
+        "size": 1234
+      },
+      "atomman/tools/boolean.py": {
+        "size": 915
+      },
+      "atomman/tools/compositionstr.py": {
+        "size": 1035
+      },
+      "atomman/tools/crystalsystem.py": {
+        "size": 8935
+      },
+      "atomman/tools/duplicated_allclose.py": {
+        "size": 6754
+      },
+      "atomman/tools/duplicates_allclose.py": {
+        "size": 6072
+      },
+      "atomman/tools/filltemplate.py": {
+        "size": 2542
+      },
+      "atomman/tools/indexstr.py": {
+        "size": 1119
+      },
+      "atomman/tools/miller.py": {
+        "size": 22878
+      },
+      "atomman/tools/vect_angle.py": {
+        "size": 1672
+      },
+      "atomman/unitconvert.py": {
+        "size": 6010
+      },
+      "conda_environment_settings/atomman.environment.yml": {
+        "size": 178
+      },
+      "conda_environment_settings/atomman_3_10.environment.yml": {
+        "size": 153
+      },
+      "conda_environment_settings/atomman_3_8.environment.yml": {
+        "size": 151
+      },
+      "conda_environment_settings/atomman_3_9.environment.yml": {
+        "size": 151
+      },
+      "doc/copytutorial.py": {
+        "size": 1907
+      },
+      "doc/html/_static/_sphinx_javascript_frameworks_compat.js": {
+        "size": 4418
+      },
+      "doc/html/_static/doctools.js": {
+        "size": 4472
+      },
+      "doc/html/_static/documentation_options.js": {
+        "size": 330
+      },
+      "doc/html/_static/jquery-3.4.1.js": {
+        "size": 280364
+      },
+      "doc/html/_static/jquery-3.5.1.js": {
+        "size": 287630
+      },
+      "doc/html/_static/jquery-3.6.0.js": {
+        "size": 288580
+      },
+      "doc/html/_static/jquery.js": {
+        "size": 89501
+      },
+      "doc/html/_static/language_data.js": {
+        "size": 4758
+      },
+      "doc/html/_static/searchtools.js": {
+        "size": 18732
+      },
+      "doc/html/_static/sphinx_highlight.js": {
+        "size": 5123
+      },
+      "doc/html/_static/underscore-1.13.1.js": {
+        "size": 68408
+      },
+      "doc/html/_static/underscore-1.3.1.js": {
+        "size": 35168
+      },
+      "doc/html/_static/underscore.js": {
+        "size": 19530
+      },
+      "doc/html/searchindex.js": {
+        "size": 262132
+      },
+      "doc/source/conf.py": {
+        "size": 5930
+      },
+      "doc/tutorial/files/2008--Mendelev-M-I--Al--A1--Cu--fcc--111sf.json": {
+        "size": 135074
+      },
+      "doc/tutorial/files/potential_LAMMPS_examples/comb-demo--LAMMPS--v2.json": {
+        "size": 1259
+      },
+      "doc/tutorial/files/potential_LAMMPS_examples/coul_long-demo--LAMMPS--v1.json": {
+        "size": 732
+      },
+      "doc/tutorial/files/potential_LAMMPS_examples/eam-demo--LAMMPS--v2.json": {
+        "size": 1180
+      },
+      "doc/tutorial/files/potential_LAMMPS_examples/eam_alloy-demo--LAMMPS--v1.json": {
+        "size": 1021
+      },
+      "doc/tutorial/files/potential_LAMMPS_examples/hybrid-demo--LAMMPS--v3.json": {
+        "size": 2289
+      },
+      "doc/tutorial/files/potential_LAMMPS_examples/lj_cut-demo--LAMMPS--v1.json": {
+        "size": 1868
+      },
+      "doc/tutorial/files/potential_LAMMPS_examples/meam-demo--LAMMPS--v1.json": {
+        "size": 1065
+      },
+      "pyproject.toml": {
+        "size": 147
+      },
+      "requirements.txt": {
+        "size": 114
+      },
+      "setup.py": {
+        "size": 1903
+      },
+      "tests/core/test_Atoms.py": {
+        "size": 2449
+      },
+      "tests/core/test_Box.py": {
+        "size": 9217
+      },
+      "tests/core/test_ElasticConstants.py": {
+        "size": 1053
+      },
+      "tests/core/test_NeighborList_and_nlist.py": {
+        "size": 2315
+      },
+      "tests/core/test_System.py": {
+        "size": 133
+      },
+      "tests/core/test_displacement.py": {
+        "size": 707
+      },
+      "tests/core/test_dmag_and_dvect.py": {
+        "size": 1411
+      },
+      "tests/defect/test_free_surface.py": {
+        "size": 7584
+      },
+      "tests/dump_load/test_atom_data.py": {
+        "size": 4885
+      },
+      "tests/dump_load/test_primitive_conventional.py": {
+        "size": 3095
+      },
+      "tests/plot/test_interpolate.py": {
+        "size": 692
+      },
+      "tests/region/test_plane.py": {
+        "size": 957
+      },
+      "tests/test_dummy.py": {
+        "size": 41
+      },
+      "tests/test_root.py": {
+        "size": 350
+      },
+      "tests/test_unitconvert.py": {
+        "size": 1493
+      },
+      "tests/tools/test_atomic_info.py": {
+        "size": 720
+      },
+      "tests/tools/test_axes_check.py": {
+        "size": 1236
+      },
+      "tests/tools/test_crystalsystem.py": {
+        "size": 4175
+      },
+      "tests/tools/test_duplicates_allclose.py": {
+        "size": 8880
+      },
+      "tests/tools/test_filltemplate.py": {
+        "size": 611
+      },
+      "tests/tools/test_indexstr.py": {
+        "size": 617
+      },
+      "tests/tools/test_miller.py": {
+        "size": 8396
+      },
+      "tests/tools/test_uber_open_rmode.py": {
+        "size": 1124
+      },
+      "tests/tools/test_vect_angle.py": {
+        "size": 518
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.atomman",
+      "source.atomman.cluster",
+      "source.atomman.core",
+      "source.atomman.defect",
+      "source.atomman.dump",
+      "source.atomman.lammps",
+      "source.atomman.library",
+      "source.atomman.load",
+      "source.atomman.mep",
+      "source.atomman.plot",
+      "source.atomman.region",
+      "source.atomman.thermo",
+      "source.atomman.tools"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.atomman.core",
+        "module": "Atoms",
+        "functions": [],
+        "classes": [
+          "Atoms"
+        ],
+        "description": "Core atomic property container used by higher-level System operations."
+      },
+      {
+        "package": "source.atomman.core",
+        "module": "Box",
+        "functions": [],
+        "classes": [
+          "Box"
+        ],
+        "description": "Simulation cell / lattice geometry representation and transformations."
+      },
+      {
+        "package": "source.atomman.core",
+        "module": "System",
+        "functions": [],
+        "classes": [
+          "System"
+        ],
+        "description": "Top-level atomistic system object combining Atoms + Box + symbols/properties."
+      },
+      {
+        "package": "source.atomman.core",
+        "module": "ElasticConstants",
+        "functions": [],
+        "classes": [
+          "ElasticConstants"
+        ],
+        "description": "Elastic tensor handling and derived elastic-property utilities."
+      },
+      {
+        "package": "source.atomman.core",
+        "module": "NeighborList",
+        "functions": [],
+        "classes": [
+          "NeighborList"
+        ],
+        "description": "Neighbor list construction/management for local-structure analysis."
+      },
+      {
+        "package": "source.atomman.core",
+        "module": "displacement",
+        "functions": [
+          "displacement",
+          "dvect",
+          "dmag"
+        ],
+        "classes": [],
+        "description": "Displacement vector/magnitude helpers with periodic boundary handling."
+      },
+      {
+        "package": "source.atomman.load",
+        "module": "__init__",
+        "functions": [
+          "load"
+        ],
+        "classes": [],
+        "description": "Unified loader dispatch for many structure/data formats."
+      },
+      {
+        "package": "source.atomman.dump",
+        "module": "__init__",
+        "functions": [
+          "dump"
+        ],
+        "classes": [],
+        "description": "Unified dumper/export dispatch for many output formats."
+      },
+      {
+        "package": "source.atomman.defect",
+        "module": "FreeSurface",
+        "functions": [],
+        "classes": [
+          "FreeSurface"
+        ],
+        "description": "Free-surface construction and crystallographic setup utilities."
+      },
+      {
+        "package": "source.atomman.defect",
+        "module": "StackingFault",
+        "functions": [],
+        "classes": [
+          "StackingFault"
+        ],
+        "description": "Stacking-fault generation and analysis workflows."
+      },
+      {
+        "package": "source.atomman.defect",
+        "module": "GammaSurface",
+        "functions": [],
+        "classes": [
+          "GammaSurface"
+        ],
+        "description": "Gamma-surface computation helpers for defect energetics."
+      },
+      {
+        "package": "source.atomman.lammps",
+        "module": "run",
+        "functions": [
+          "run"
+        ],
+        "classes": [],
+        "description": "LAMMPS execution wrapper for scripted simulation calls."
+      },
+      {
+        "package": "source.atomman.lammps",
+        "module": "Log",
+        "functions": [],
+        "classes": [
+          "Log"
+        ],
+        "description": "LAMMPS log parsing and thermo extraction."
+      },
+      {
+        "package": "source.atomman.tools",
+        "module": "miller",
+        "functions": [
+          "plane3to4",
+          "plane4to3",
+          "vector3to4",
+          "vector4to3"
+        ],
+        "classes": [],
+        "description": "Miller/Miller-Bravais index conversion and crystallographic helpers."
+      },
+      {
+        "package": "source.atomman.unitconvert",
+        "module": "unitconvert",
+        "functions": [
+          "set_in_units",
+          "get_in_units",
+          "value_unit",
+          "parse"
+        ],
+        "classes": [],
+        "description": "Unit conversion wrapper utilities used throughout workflows."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.91
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "DataModelDict",
+        "numericalunits"
+      ],
+      "optional": [
+        "matplotlib",
+        "pandas",
+        "plotly",
+        "nglview",
+        "py3Dmol",
+        "ase",
+        "pymatgen",
+        "spglib",
+        "phonopy",
+        "freud",
+        "atomman.lammps runtime (external LAMMPS executable)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.93,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/usnistgov/atomman",
+    "repo_name": "atomman",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.93,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,105 @@
+ci:
+  autofix_prs: false
+
+exclude: ^(docs/logos|pymc/tests/data)/
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v5.0.0
+  hooks:
+    -   id: check-merge-conflict
+    -   id: check-toml
+    -   id: check-yaml
+    -   id: debug-statements
+    -   id: end-of-file-fixer
+    -   id: no-commit-to-branch
+    -   id: requirements-txt-fixer
+        exclude: ^requirements-dev\.txt$
+    -   id: trailing-whitespace
+- repo: https://github.com/pre-commit/pygrep-hooks
+  rev: v1.10.0
+  hooks:
+    - id: python-check-blanket-noqa
+    - id: python-check-blanket-type-ignore
+    - id: python-check-mock-methods
+    # - id: python-no-eval  # gets confused with all the `.eval()`
+    - id: python-no-log-warn
+    - id: python-use-type-annotations
+    - id: rst-backticks
+    - id: rst-directive-colons
+    - id: rst-inline-touching-normal
+    - id: text-unicode-replacement-char
+- repo: https://github.com/citation-file-format/cffconvert
+  rev: 054bda51dbe278b3e86f27c890e3f3ac877d616c
+  hooks:
+    - id: validate-cff
+- repo: https://github.com/sphinx-contrib/sphinx-lint
+  rev: v1.0.0
+  hooks:
+    - id: sphinx-lint
+      args: ["."]
+- repo: https://github.com/lucianopaz/head_of_apache
+  rev: "0.1.1"
+  hooks:
+    - id: head_of_apache
+      args:
+        - --author=The PyMC Developers
+        - --exclude=docs/
+        - --exclude=scripts/
+        - --exclude=binder/
+        - --exclude=versioneer.py
+        - --last-year-present
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.11.13
+  hooks:
+    - id: ruff-check
+      args: [--fix, --show-fixes]
+    - id: ruff-format
+- repo: local
+  hooks:
+    - id: check-no-tests-are-ignored
+      additional_dependencies: [pandas,pyyaml]
+      entry: python scripts/check_all_tests_are_covered.py
+      files: ^.github/workflows/tests.yml$
+      language: python
+      name: Check no tests are ignored
+      pass_filenames: false
+    - id: pip-from-conda
+      additional_dependencies: [pyyaml]
+      entry: python scripts/generate_pip_deps_from_conda.py
+      files: ^conda-envs/environment-dev.yml$
+      language: python
+      name: Generate pip dependency from conda
+    - id: no-internal-links
+      name: Check no links that should be cross-references are in the docs
+      description: >-
+        'A quick check for the links in the intersphinx '
+        'mapping inside `docs/source/`'
+        'See docs/source/conf.py for more information.'
+      files: ^docs/source/
+      # Files that should be ignored:
+      # - index.md
+      # - 404.md
+      # - contributing/release_checklist.md
+      # The other files are under development and should be
+      # removed from the list once they are revised.
+      exclude: >
+          (?x)(index.md|
+               404.md|
+               contributing/release_checklist.md|
+               contributing/versioning_schemes_explanation.md|
+               learn/examples.md)
+      entry: >
+          (?x)(arviz-devs.github.io/arviz|
+               python.arviz.org|
+               pytensor.readthedocs.io|
+               pymc-experimental.readthedocs.io|
+               docs.pymc.io|
+               www.pymc.io|
+               numpy.org/doc|
+               pymc-examples.readthedocs.io|
+               myst-parser.readthedocs.io|
+               myst-nb.readthedocs.io|
+               docs.python.org|
+               xarray.pydata.org)
+      language: pygrep
+      types_or: [markdown, rst, jupyter]

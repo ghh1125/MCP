@@ -1,0 +1,522 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/climlab/climlab",
+    "summary": "Imported via zip fallback, file count: 105",
+    "file_tree": {
+      ".github/dependabot.yml": {
+        "size": 246
+      },
+      ".github/workflows/build-and-test.yml": {
+        "size": 1550
+      },
+      ".readthedocs.yaml": {
+        "size": 289
+      },
+      "climlab/__init__.py": {
+        "size": 1221
+      },
+      "climlab/convection/__init__.py": {
+        "size": 431
+      },
+      "climlab/convection/akmaev_adjustment.py": {
+        "size": 4862
+      },
+      "climlab/convection/convadj.py": {
+        "size": 5340
+      },
+      "climlab/convection/emanuel_convection.py": {
+        "size": 12644
+      },
+      "climlab/convection/simplified_betts_miller.py": {
+        "size": 12323
+      },
+      "climlab/domain/__init__.py": {
+        "size": 392
+      },
+      "climlab/domain/axis.py": {
+        "size": 8609
+      },
+      "climlab/domain/domain.py": {
+        "size": 22417
+      },
+      "climlab/domain/field.py": {
+        "size": 10689
+      },
+      "climlab/domain/initial.py": {
+        "size": 6600
+      },
+      "climlab/domain/xarray.py": {
+        "size": 2832
+      },
+      "climlab/dynamics/__init__.py": {
+        "size": 1590
+      },
+      "climlab/dynamics/adv_diff_numerics.py": {
+        "size": 18872
+      },
+      "climlab/dynamics/advection_diffusion.py": {
+        "size": 12073
+      },
+      "climlab/dynamics/budyko_transport.py": {
+        "size": 2054
+      },
+      "climlab/dynamics/large_scale_condensation.py": {
+        "size": 5110
+      },
+      "climlab/dynamics/meridional_advection_diffusion.py": {
+        "size": 3450
+      },
+      "climlab/dynamics/meridional_heat_diffusion.py": {
+        "size": 4114
+      },
+      "climlab/dynamics/meridional_moist_diffusion.py": {
+        "size": 5666
+      },
+      "climlab/model/__init__.py": {
+        "size": 1004
+      },
+      "climlab/model/column.py": {
+        "size": 9138
+      },
+      "climlab/model/ebm.py": {
+        "size": 37295
+      },
+      "climlab/model/stommelbox.py": {
+        "size": 1118
+      },
+      "climlab/process/__init__.py": {
+        "size": 363
+      },
+      "climlab/process/diagnostic.py": {
+        "size": 540
+      },
+      "climlab/process/energy_budget.py": {
+        "size": 5927
+      },
+      "climlab/process/external_forcing.py": {
+        "size": 889
+      },
+      "climlab/process/implicit.py": {
+        "size": 2793
+      },
+      "climlab/process/limiter.py": {
+        "size": 3254
+      },
+      "climlab/process/process.py": {
+        "size": 33951
+      },
+      "climlab/process/time_dependent_process.py": {
+        "size": 21780
+      },
+      "climlab/radiation/__init__.py": {
+        "size": 666
+      },
+      "climlab/radiation/absorbed_shorwave.py": {
+        "size": 1295
+      },
+      "climlab/radiation/aplusbt.py": {
+        "size": 11540
+      },
+      "climlab/radiation/boltzmann.py": {
+        "size": 7340
+      },
+      "climlab/radiation/cam3.py": {
+        "size": 10363
+      },
+      "climlab/radiation/greygas.py": {
+        "size": 9480
+      },
+      "climlab/radiation/insolation.py": {
+        "size": 29439
+      },
+      "climlab/radiation/nband.py": {
+        "size": 14651
+      },
+      "climlab/radiation/radiation.py": {
+        "size": 13104
+      },
+      "climlab/radiation/rrtm/__init__.py": {
+        "size": 1623
+      },
+      "climlab/radiation/rrtm/rrtmg.py": {
+        "size": 14629
+      },
+      "climlab/radiation/rrtm/rrtmg_lw.py": {
+        "size": 9625
+      },
+      "climlab/radiation/rrtm/rrtmg_sw.py": {
+        "size": 14832
+      },
+      "climlab/radiation/rrtm/setup.py": {
+        "size": 321
+      },
+      "climlab/radiation/rrtm/utils.py": {
+        "size": 5072
+      },
+      "climlab/radiation/transmissivity.py": {
+        "size": 6237
+      },
+      "climlab/radiation/water_vapor.py": {
+        "size": 2414
+      },
+      "climlab/solar/__init__.py": {
+        "size": 162
+      },
+      "climlab/solar/insolation.py": {
+        "size": 25911
+      },
+      "climlab/solar/orbital/__init__.py": {
+        "size": 1499
+      },
+      "climlab/solar/orbital/long.py": {
+        "size": 2334
+      },
+      "climlab/solar/orbital/setup.py": {
+        "size": 373
+      },
+      "climlab/solar/orbital/table.py": {
+        "size": 1645
+      },
+      "climlab/solar/orbital_cycles.py": {
+        "size": 8415
+      },
+      "climlab/surface/__init__.py": {
+        "size": 479
+      },
+      "climlab/surface/albedo.py": {
+        "size": 14852
+      },
+      "climlab/surface/surface_radiation.py": {
+        "size": 1450
+      },
+      "climlab/surface/turbulent.py": {
+        "size": 9443
+      },
+      "climlab/tests/__init__.py": {
+        "size": 15
+      },
+      "climlab/tests/test_advdiff_solver.py": {
+        "size": 4292
+      },
+      "climlab/tests/test_bandrc.py": {
+        "size": 3520
+      },
+      "climlab/tests/test_cam3rad.py": {
+        "size": 2749
+      },
+      "climlab/tests/test_domain2D.py": {
+        "size": 4955
+      },
+      "climlab/tests/test_ebm.py": {
+        "size": 6444
+      },
+      "climlab/tests/test_emanuel_convection.py": {
+        "size": 6567
+      },
+      "climlab/tests/test_grey_radiation.py": {
+        "size": 4286
+      },
+      "climlab/tests/test_insolation.py": {
+        "size": 5359
+      },
+      "climlab/tests/test_moist_model.py": {
+        "size": 3223
+      },
+      "climlab/tests/test_rcm.py": {
+        "size": 4280
+      },
+      "climlab/tests/test_rrtm.py": {
+        "size": 13305
+      },
+      "climlab/tests/test_sbm_convection.py": {
+        "size": 3671
+      },
+      "climlab/tests/test_thermo.py": {
+        "size": 1127
+      },
+      "climlab/tests/xarray_test.py": {
+        "size": 399
+      },
+      "climlab/utils/__init__.py": {
+        "size": 611
+      },
+      "climlab/utils/attrdict/__init__.py": {
+        "size": 243
+      },
+      "climlab/utils/attrdict/default.py": {
+        "size": 3536
+      },
+      "climlab/utils/attrdict/dictionary.py": {
+        "size": 1454
+      },
+      "climlab/utils/attrdict/mapping.py": {
+        "size": 2460
+      },
+      "climlab/utils/attrdict/merge.py": {
+        "size": 1087
+      },
+      "climlab/utils/attrdict/mixins.py": {
+        "size": 6620
+      },
+      "climlab/utils/constants.py": {
+        "size": 3396
+      },
+      "climlab/utils/heat_capacity.py": {
+        "size": 4587
+      },
+      "climlab/utils/legendre.py": {
+        "size": 5501
+      },
+      "climlab/utils/thermo.py": {
+        "size": 7548
+      },
+      "climlab/utils/walk.py": {
+        "size": 3840
+      },
+      "docs/environment.yml": {
+        "size": 372
+      },
+      "docs/source/code_input_manual/constants.py": {
+        "size": 2554
+      },
+      "docs/source/code_input_manual/example_EBM_heat_transport.py": {
+        "size": 475
+      },
+      "docs/source/code_input_manual/example_EBM_heat_transport_convergence.py": {
+        "size": 465
+      },
+      "docs/source/code_input_manual/example_EBM_inferred_heat_transport.py": {
+        "size": 448
+      },
+      "docs/source/code_input_manual/example_EBM_seasonal.py": {
+        "size": 660
+      },
+      "docs/source/code_input_manual/example_budyko_transport.py": {
+        "size": 942
+      },
+      "docs/source/code_input_manual/example_diffusion.py": {
+        "size": 604
+      },
+      "docs/source/code_input_manual/example_meridional_diffusion.py": {
+        "size": 913
+      },
+      "docs/source/conf.py": {
+        "size": 12094
+      },
+      "docs/source/ext/automodsumm.py": {
+        "size": 23596
+      },
+      "environment.yml": {
+        "size": 264
+      },
+      "paper.md": {
+        "size": 3932
+      },
+      "pyproject.toml": {
+        "size": 337
+      },
+      "setup.py": {
+        "size": 1074
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "climlab/process/process.py",
+        "module": "climlab.process.process",
+        "functions": [],
+        "classes": [
+          "Process"
+        ],
+        "description": "Core process-tree abstraction for model components, state handling, diagnostics, and subprocess composition."
+      },
+      {
+        "package": "climlab/process/time_dependent_process.py",
+        "module": "climlab.process.time_dependent_process",
+        "functions": [],
+        "classes": [
+          "TimeDependentProcess"
+        ],
+        "description": "Time integration framework built on Process; central for stepping models forward and orchestrating tendencies."
+      },
+      {
+        "package": "climlab/model/ebm.py",
+        "module": "climlab.model.ebm",
+        "functions": [],
+        "classes": [
+          "EBM",
+          "EBM_seasonal",
+          "EBM_annual",
+          "EBM_fixediceline",
+          "EBM_water_vapor"
+        ],
+        "description": "Energy balance model family; high-value entry point for 1D climate simulations and sensitivity experiments."
+      },
+      {
+        "package": "climlab/model/column.py",
+        "module": "climlab.model.column",
+        "functions": [],
+        "classes": [
+          "GreyRadiationModel",
+          "RadiativeConvectiveModel",
+          "BandRCModel"
+        ],
+        "description": "Column model constructors combining radiation/convection processes for vertical climate experiments."
+      },
+      {
+        "package": "climlab/domain/field.py",
+        "module": "climlab.domain.field",
+        "functions": [
+          "to_latlon",
+          "global_mean"
+        ],
+        "classes": [
+          "Field"
+        ],
+        "description": "State-variable container and utilities for gridded climate fields."
+      },
+      {
+        "package": "climlab/domain/domain.py",
+        "module": "climlab.domain.domain",
+        "functions": [
+          "single_column",
+          "zonal_mean_surface",
+          "surface_2D"
+        ],
+        "classes": [
+          "_Domain",
+          "Atmosphere",
+          "Ocean",
+          "SlabOcean",
+          "BoxDomain"
+        ],
+        "description": "Spatial domain/grid definitions and helpers used throughout model/process initialization."
+      },
+      {
+        "package": "climlab/radiation/rrtm/rrtmg.py",
+        "module": "climlab.radiation.rrtm.rrtmg",
+        "functions": [],
+        "classes": [
+          "RRTMG"
+        ],
+        "description": "Combined longwave/shortwave RRTMG radiative transfer wrapper (compiled backend dependent)."
+      },
+      {
+        "package": "climlab/radiation/cam3.py",
+        "module": "climlab.radiation.cam3",
+        "functions": [],
+        "classes": [
+          "CAM3"
+        ],
+        "description": "CAM3 radiation parameterization wrapper."
+      },
+      {
+        "package": "climlab/radiation/greygas.py",
+        "module": "climlab.radiation.greygas",
+        "functions": [],
+        "classes": [
+          "GreyGas",
+          "GreyGasSW",
+          "GreyGasLW"
+        ],
+        "description": "Pure-Python grey-gas radiation components with fewer compiled dependencies."
+      },
+      {
+        "package": "climlab/radiation/insolation.py",
+        "module": "climlab.radiation.insolation",
+        "functions": [
+          "daily_insolation",
+          "instant_insolation",
+          "annual_mean_insolation",
+          "solar_longitude"
+        ],
+        "classes": [],
+        "description": "Orbital/insolation forcing utilities; useful as lightweight callable scientific tools."
+      },
+      {
+        "package": "climlab/solar/insolation.py",
+        "module": "climlab.solar.insolation",
+        "functions": [
+          "daily_insolation",
+          "instant_insolation",
+          "annual_mean_insolation",
+          "solar_longitude"
+        ],
+        "classes": [],
+        "description": "Solar insolation API mirror/implementation for orbital forcing calculations."
+      },
+      {
+        "package": "climlab/utils/thermo.py",
+        "module": "climlab.utils.thermo",
+        "functions": [
+          "clausius_clapeyron",
+          "qsat",
+          "vapor_pressure_from_specific_humidity",
+          "pseudoadiabat"
+        ],
+        "classes": [],
+        "description": "Thermodynamic helper functions frequently used independently from full model stacks."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy"
+      ],
+      "optional": [
+        "xarray",
+        "matplotlib",
+        "netCDF4",
+        "numba",
+        "pooch",
+        "climlab-rrtmg compiled extensions"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/climlab/climlab",
+    "repo_name": "climlab",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.86,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

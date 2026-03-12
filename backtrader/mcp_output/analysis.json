@@ -1,0 +1,1290 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/mementum/backtrader",
+    "summary": "Imported via zip fallback, file count: 367",
+    "file_tree": {
+      ".github/FUNDING.yml": {
+        "size": 720
+      },
+      ".travis.yml": {
+        "size": 368
+      },
+      "backtrader/__init__.py": {
+        "size": 2578
+      },
+      "backtrader/analyzer.py": {
+        "size": 14440
+      },
+      "backtrader/analyzers/__init__.py": {
+        "size": 1527
+      },
+      "backtrader/analyzers/annualreturn.py": {
+        "size": 2818
+      },
+      "backtrader/analyzers/calmar.py": {
+        "size": 3821
+      },
+      "backtrader/analyzers/drawdown.py": {
+        "size": 6513
+      },
+      "backtrader/analyzers/leverage.py": {
+        "size": 2397
+      },
+      "backtrader/analyzers/logreturnsrolling.py": {
+        "size": 5020
+      },
+      "backtrader/analyzers/periodstats.py": {
+        "size": 3555
+      },
+      "backtrader/analyzers/positions.py": {
+        "size": 2790
+      },
+      "backtrader/analyzers/pyfolio.py": {
+        "size": 5933
+      },
+      "backtrader/analyzers/returns.py": {
+        "size": 4698
+      },
+      "backtrader/analyzers/sharpe.py": {
+        "size": 7383
+      },
+      "backtrader/analyzers/sqn.py": {
+        "size": 2623
+      },
+      "backtrader/analyzers/timereturn.py": {
+        "size": 5210
+      },
+      "backtrader/analyzers/tradeanalyzer.py": {
+        "size": 7116
+      },
+      "backtrader/analyzers/transactions.py": {
+        "size": 3562
+      },
+      "backtrader/analyzers/vwr.py": {
+        "size": 5460
+      },
+      "backtrader/broker.py": {
+        "size": 5504
+      },
+      "backtrader/brokers/__init__.py": {
+        "size": 1548
+      },
+      "backtrader/brokers/bbroker.py": {
+        "size": 46016
+      },
+      "backtrader/brokers/ibbroker.py": {
+        "size": 21489
+      },
+      "backtrader/brokers/oandabroker.py": {
+        "size": 12811
+      },
+      "backtrader/brokers/vcbroker.py": {
+        "size": 15907
+      },
+      "backtrader/btrun/__init__.py": {
+        "size": 1044
+      },
+      "backtrader/btrun/btrun.py": {
+        "size": 25093
+      },
+      "backtrader/cerebro.py": {
+        "size": 63590
+      },
+      "backtrader/comminfo.py": {
+        "size": 11691
+      },
+      "backtrader/commissions/__init__.py": {
+        "size": 1796
+      },
+      "backtrader/dataseries.py": {
+        "size": 6498
+      },
+      "backtrader/errors.py": {
+        "size": 1890
+      },
+      "backtrader/feed.py": {
+        "size": 26027
+      },
+      "backtrader/feeds/__init__.py": {
+        "size": 1674
+      },
+      "backtrader/feeds/blaze.py": {
+        "size": 2877
+      },
+      "backtrader/feeds/btcsv.py": {
+        "size": 2266
+      },
+      "backtrader/feeds/chainer.py": {
+        "size": 3489
+      },
+      "backtrader/feeds/csvgeneric.py": {
+        "size": 5624
+      },
+      "backtrader/feeds/ibdata.py": {
+        "size": 27438
+      },
+      "backtrader/feeds/influxfeed.py": {
+        "size": 4060
+      },
+      "backtrader/feeds/mt4csv.py": {
+        "size": 1704
+      },
+      "backtrader/feeds/oanda.py": {
+        "size": 16545
+      },
+      "backtrader/feeds/pandafeed.py": {
+        "size": 8735
+      },
+      "backtrader/feeds/quandl.py": {
+        "size": 6851
+      },
+      "backtrader/feeds/rollover.py": {
+        "size": 6892
+      },
+      "backtrader/feeds/sierrachart.py": {
+        "size": 1420
+      },
+      "backtrader/feeds/vcdata.py": {
+        "size": 22443
+      },
+      "backtrader/feeds/vchart.py": {
+        "size": 4598
+      },
+      "backtrader/feeds/vchartcsv.py": {
+        "size": 2777
+      },
+      "backtrader/feeds/vchartfile.py": {
+        "size": 4662
+      },
+      "backtrader/feeds/yahoo.py": {
+        "size": 10867
+      },
+      "backtrader/fillers.py": {
+        "size": 3754
+      },
+      "backtrader/filters/__init__.py": {
+        "size": 1242
+      },
+      "backtrader/filters/bsplitter.py": {
+        "size": 3932
+      },
+      "backtrader/filters/calendardays.py": {
+        "size": 3933
+      },
+      "backtrader/filters/datafiller.py": {
+        "size": 6343
+      },
+      "backtrader/filters/datafilter.py": {
+        "size": 2743
+      },
+      "backtrader/filters/daysteps.py": {
+        "size": 3135
+      },
+      "backtrader/filters/heikinashi.py": {
+        "size": 1944
+      },
+      "backtrader/filters/renko.py": {
+        "size": 4627
+      },
+      "backtrader/filters/session.py": {
+        "size": 8533
+      },
+      "backtrader/flt.py": {
+        "size": 1512
+      },
+      "backtrader/functions.py": {
+        "size": 7219
+      },
+      "backtrader/indicator.py": {
+        "size": 5584
+      },
+      "backtrader/indicators/__init__.py": {
+        "size": 2548
+      },
+      "backtrader/indicators/accdecoscillator.py": {
+        "size": 2166
+      },
+      "backtrader/indicators/aroon.py": {
+        "size": 6378
+      },
+      "backtrader/indicators/atr.py": {
+        "size": 3661
+      },
+      "backtrader/indicators/awesomeoscillator.py": {
+        "size": 2173
+      },
+      "backtrader/indicators/basicops.py": {
+        "size": 13527
+      },
+      "backtrader/indicators/bollinger.py": {
+        "size": 2713
+      },
+      "backtrader/indicators/cci.py": {
+        "size": 2416
+      },
+      "backtrader/indicators/contrib/__init__.py": {
+        "size": 1158
+      },
+      "backtrader/indicators/contrib/vortex.py": {
+        "size": 1953
+      },
+      "backtrader/indicators/crossover.py": {
+        "size": 4245
+      },
+      "backtrader/indicators/dema.py": {
+        "size": 2843
+      },
+      "backtrader/indicators/deviation.py": {
+        "size": 3596
+      },
+      "backtrader/indicators/directionalmove.py": {
+        "size": 13343
+      },
+      "backtrader/indicators/dma.py": {
+        "size": 2873
+      },
+      "backtrader/indicators/dpo.py": {
+        "size": 2401
+      },
+      "backtrader/indicators/dv2.py": {
+        "size": 1781
+      },
+      "backtrader/indicators/ema.py": {
+        "size": 2025
+      },
+      "backtrader/indicators/envelope.py": {
+        "size": 3996
+      },
+      "backtrader/indicators/hadelta.py": {
+        "size": 2282
+      },
+      "backtrader/indicators/heikinashi.py": {
+        "size": 2419
+      },
+      "backtrader/indicators/hma.py": {
+        "size": 2579
+      },
+      "backtrader/indicators/hurst.py": {
+        "size": 3307
+      },
+      "backtrader/indicators/ichimoku.py": {
+        "size": 3138
+      },
+      "backtrader/indicators/kama.py": {
+        "size": 3378
+      },
+      "backtrader/indicators/kst.py": {
+        "size": 3008
+      },
+      "backtrader/indicators/lrsi.py": {
+        "size": 3556
+      },
+      "backtrader/indicators/mabase.py": {
+        "size": 2719
+      },
+      "backtrader/indicators/macd.py": {
+        "size": 2837
+      },
+      "backtrader/indicators/momentum.py": {
+        "size": 3525
+      },
+      "backtrader/indicators/ols.py": {
+        "size": 3987
+      },
+      "backtrader/indicators/oscillator.py": {
+        "size": 4050
+      },
+      "backtrader/indicators/percentchange.py": {
+        "size": 1605
+      },
+      "backtrader/indicators/percentrank.py": {
+        "size": 1410
+      },
+      "backtrader/indicators/pivotpoint.py": {
+        "size": 9353
+      },
+      "backtrader/indicators/prettygoodoscillator.py": {
+        "size": 2262
+      },
+      "backtrader/indicators/priceoscillator.py": {
+        "size": 3801
+      },
+      "backtrader/indicators/psar.py": {
+        "size": 5931
+      },
+      "backtrader/indicators/rmi.py": {
+        "size": 2474
+      },
+      "backtrader/indicators/rsi.py": {
+        "size": 6813
+      },
+      "backtrader/indicators/sma.py": {
+        "size": 1665
+      },
+      "backtrader/indicators/smma.py": {
+        "size": 2190
+      },
+      "backtrader/indicators/stochastic.py": {
+        "size": 4869
+      },
+      "backtrader/indicators/trix.py": {
+        "size": 2947
+      },
+      "backtrader/indicators/tsi.py": {
+        "size": 2660
+      },
+      "backtrader/indicators/ultimateoscillator.py": {
+        "size": 2913
+      },
+      "backtrader/indicators/vortex.py": {
+        "size": 1888
+      },
+      "backtrader/indicators/williams.py": {
+        "size": 3038
+      },
+      "backtrader/indicators/wma.py": {
+        "size": 2088
+      },
+      "backtrader/indicators/zlema.py": {
+        "size": 1880
+      },
+      "backtrader/indicators/zlind.py": {
+        "size": 3192
+      },
+      "backtrader/linebuffer.py": {
+        "size": 26583
+      },
+      "backtrader/lineiterator.py": {
+        "size": 15838
+      },
+      "backtrader/lineroot.py": {
+        "size": 10689
+      },
+      "backtrader/lineseries.py": {
+        "size": 22007
+      },
+      "backtrader/mathsupport.py": {
+        "size": 1923
+      },
+      "backtrader/metabase.py": {
+        "size": 11160
+      },
+      "backtrader/observer.py": {
+        "size": 2274
+      },
+      "backtrader/observers/__init__.py": {
+        "size": 1325
+      },
+      "backtrader/observers/benchmark.py": {
+        "size": 4314
+      },
+      "backtrader/observers/broker.py": {
+        "size": 3868
+      },
+      "backtrader/observers/buysell.py": {
+        "size": 3882
+      },
+      "backtrader/observers/drawdown.py": {
+        "size": 3643
+      },
+      "backtrader/observers/logreturns.py": {
+        "size": 3234
+      },
+      "backtrader/observers/timereturn.py": {
+        "size": 3088
+      },
+      "backtrader/observers/trades.py": {
+        "size": 4983
+      },
+      "backtrader/order.py": {
+        "size": 21937
+      },
+      "backtrader/plot/__init__.py": {
+        "size": 1494
+      },
+      "backtrader/plot/finance.py": {
+        "size": 19346
+      },
+      "backtrader/plot/formatters.py": {
+        "size": 4042
+      },
+      "backtrader/plot/locator.py": {
+        "size": 9435
+      },
+      "backtrader/plot/multicursor.py": {
+        "size": 12231
+      },
+      "backtrader/plot/plot.py": {
+        "size": 33959
+      },
+      "backtrader/plot/scheme.py": {
+        "size": 6433
+      },
+      "backtrader/plot/utils.py": {
+        "size": 2920
+      },
+      "backtrader/position.py": {
+        "size": 7445
+      },
+      "backtrader/resamplerfilter.py": {
+        "size": 26141
+      },
+      "backtrader/signal.py": {
+        "size": 1894
+      },
+      "backtrader/signals/__init__.py": {
+        "size": 1019
+      },
+      "backtrader/sizer.py": {
+        "size": 2977
+      },
+      "backtrader/sizers/__init__.py": {
+        "size": 1208
+      },
+      "backtrader/sizers/fixedsize.py": {
+        "size": 3486
+      },
+      "backtrader/sizers/percents_sizer.py": {
+        "size": 2482
+      },
+      "backtrader/store.py": {
+        "size": 3135
+      },
+      "backtrader/stores/__init__.py": {
+        "size": 1527
+      },
+      "backtrader/stores/ibstore.py": {
+        "size": 54280
+      },
+      "backtrader/stores/oandastore.py": {
+        "size": 22120
+      },
+      "backtrader/stores/vchartfile.py": {
+        "size": 2700
+      },
+      "backtrader/stores/vcstore.py": {
+        "size": 19039
+      },
+      "backtrader/strategies/__init__.py": {
+        "size": 1048
+      },
+      "backtrader/strategies/sma_crossover.py": {
+        "size": 2197
+      },
+      "backtrader/strategy.py": {
+        "size": 61718
+      },
+      "backtrader/studies/__init__.py": {
+        "size": 1053
+      },
+      "backtrader/studies/contrib/__init__.py": {
+        "size": 1159
+      },
+      "backtrader/studies/contrib/fractal.py": {
+        "size": 2608
+      },
+      "backtrader/talib.py": {
+        "size": 8950
+      },
+      "backtrader/timer.py": {
+        "size": 7585
+      },
+      "backtrader/trade.py": {
+        "size": 11662
+      },
+      "backtrader/tradingcal.py": {
+        "size": 9893
+      },
+      "backtrader/utils/__init__.py": {
+        "size": 1145
+      },
+      "backtrader/utils/autodict.py": {
+        "size": 3787
+      },
+      "backtrader/utils/date.py": {
+        "size": 1319
+      },
+      "backtrader/utils/dateintern.py": {
+        "size": 6972
+      },
+      "backtrader/utils/flushfile.py": {
+        "size": 1588
+      },
+      "backtrader/utils/ordereddefaultdict.py": {
+        "size": 2091
+      },
+      "backtrader/utils/py3.py": {
+        "size": 3409
+      },
+      "backtrader/version.py": {
+        "size": 1110
+      },
+      "backtrader/writer.py": {
+        "size": 7688
+      },
+      "changelog.txt": {
+        "size": 58797
+      },
+      "contrib/samples/pair-trading/pair-trading.py": {
+        "size": 9958
+      },
+      "contrib/utils/influxdb-import.py": {
+        "size": 4932
+      },
+      "contrib/utils/iqfeed-to-influxdb.py": {
+        "size": 8744
+      },
+      "datas/2005-2006-day-001.txt": {
+        "size": 24109
+      },
+      "datas/2006-01-02-volume-min-001.txt": {
+        "size": 524313
+      },
+      "datas/2006-day-001-optix.txt": {
+        "size": 15123
+      },
+      "datas/2006-day-001.txt": {
+        "size": 12030
+      },
+      "datas/2006-day-002.txt": {
+        "size": 6108
+      },
+      "datas/2006-min-005.txt": {
+        "size": 120002
+      },
+      "datas/2006-month-001.txt": {
+        "size": 609
+      },
+      "datas/2006-volume-day-001.txt": {
+        "size": 15130
+      },
+      "datas/2006-week-001.txt": {
+        "size": 2489
+      },
+      "datas/2006-week-002.txt": {
+        "size": 1267
+      },
+      "datas/nvda-1999-2014.txt": {
+        "size": 272573
+      },
+      "datas/nvda-2014.txt": {
+        "size": 17462
+      },
+      "datas/orcl-1995-2014.txt": {
+        "size": 345989
+      },
+      "datas/orcl-2003-2005.txt": {
+        "size": 52877
+      },
+      "datas/orcl-2014.txt": {
+        "size": 17638
+      },
+      "datas/yhoo-1996-2014.txt": {
+        "size": 324337
+      },
+      "datas/yhoo-1996-2015.txt": {
+        "size": 341934
+      },
+      "datas/yhoo-2003-2005.txt": {
+        "size": 52718
+      },
+      "datas/yhoo-2014.txt": {
+        "size": 17666
+      },
+      "samples/analyzer-annualreturn/analyzer-annualreturn.py": {
+        "size": 8161
+      },
+      "samples/bidask-to-ohlc/bidask-to-ohlc.py": {
+        "size": 2770
+      },
+      "samples/bracket/bracket.py": {
+        "size": 6700
+      },
+      "samples/btfd/btfd.py": {
+        "size": 8479
+      },
+      "samples/calendar-days/calendar-days.py": {
+        "size": 4333
+      },
+      "samples/calmar/calmar-test.py": {
+        "size": 3943
+      },
+      "samples/cheat-on-open/cheat-on-open.py": {
+        "size": 4916
+      },
+      "samples/commission-schemes/commission-schemes.py": {
+        "size": 6840
+      },
+      "samples/credit-interest/credit-interest.py": {
+        "size": 7135
+      },
+      "samples/data-bid-ask/bidask.py": {
+        "size": 3278
+      },
+      "samples/data-filler/data-filler.py": {
+        "size": 5355
+      },
+      "samples/data-filler/relativevolume.py": {
+        "size": 1809
+      },
+      "samples/data-multitimeframe/data-multitimeframe.py": {
+        "size": 8037
+      },
+      "samples/data-pandas/data-pandas-optix.py": {
+        "size": 3426
+      },
+      "samples/data-pandas/data-pandas.py": {
+        "size": 2725
+      },
+      "samples/data-replay/data-replay.py": {
+        "size": 3578
+      },
+      "samples/data-resample/data-resample.py": {
+        "size": 2957
+      },
+      "samples/daysteps/daysteps.py": {
+        "size": 3622
+      },
+      "samples/future-spot/future-spot.py": {
+        "size": 3222
+      },
+      "samples/gold-vs-sp500/gold-vs-sp500.py": {
+        "size": 5241
+      },
+      "samples/ib-cash-bid-ask/ib-cash-bid-ask.py": {
+        "size": 4167
+      },
+      "samples/ibtest/ibtest.py": {
+        "size": 21635
+      },
+      "samples/kselrsi/ksignal.py": {
+        "size": 4814
+      },
+      "samples/lineplotter/lineplotter.py": {
+        "size": 3622
+      },
+      "samples/lrsi/lrsi-test.py": {
+        "size": 3770
+      },
+      "samples/macd-settings/macd-settings.py": {
+        "size": 10577
+      },
+      "samples/memory-savings/memory-savings.py": {
+        "size": 5040
+      },
+      "samples/mixing-timeframes/mixing-timeframes.py": {
+        "size": 2972
+      },
+      "samples/multi-copy/multi-copy.py": {
+        "size": 8221
+      },
+      "samples/multi-example/mult-values.py": {
+        "size": 8129
+      },
+      "samples/multidata-strategy/multidata-strategy-unaligned.py": {
+        "size": 7405
+      },
+      "samples/multidata-strategy/multidata-strategy.py": {
+        "size": 7528
+      },
+      "samples/multitrades/mtradeobserver.py": {
+        "size": 1729
+      },
+      "samples/multitrades/multitrades.py": {
+        "size": 7450
+      },
+      "samples/oandatest/oandatest.py": {
+        "size": 18846
+      },
+      "samples/observer-benchmark/observer-benchmark.py": {
+        "size": 7280
+      },
+      "samples/observers/observers-default-drawdown.py": {
+        "size": 2810
+      },
+      "samples/observers/observers-default.py": {
+        "size": 1327
+      },
+      "samples/observers/observers-orderobserver.py": {
+        "size": 3892
+      },
+      "samples/observers/orderobserver.py": {
+        "size": 2008
+      },
+      "samples/oco/oco.py": {
+        "size": 6526
+      },
+      "samples/optimization/optimization.py": {
+        "size": 6071
+      },
+      "samples/order-close/close-daily.py": {
+        "size": 5993
+      },
+      "samples/order-close/close-minute.py": {
+        "size": 4837
+      },
+      "samples/order-execution/order-execution.py": {
+        "size": 9484
+      },
+      "samples/order-history/order-history.py": {
+        "size": 6279
+      },
+      "samples/order_target/order_target.py": {
+        "size": 6711
+      },
+      "samples/partial-plot/partial-plot.py": {
+        "size": 4082
+      },
+      "samples/pinkfish-challenge/pinkfish-challenge.py": {
+        "size": 12617
+      },
+      "samples/pivot-point/pivotpoint.py": {
+        "size": 2144
+      },
+      "samples/pivot-point/ppsample.py": {
+        "size": 2802
+      },
+      "samples/plot-same-axis/plot-same-axis.py": {
+        "size": 4996
+      },
+      "samples/psar/psar-intraday.py": {
+        "size": 4502
+      },
+      "samples/psar/psar.py": {
+        "size": 3837
+      },
+      "samples/pyfolio2/pyfoliotest.py": {
+        "size": 8471
+      },
+      "samples/pyfoliotest/pyfoliotest.py": {
+        "size": 6600
+      },
+      "samples/relative-volume/relative-volume.py": {
+        "size": 3992
+      },
+      "samples/relative-volume/relvolbybar.py": {
+        "size": 3680
+      },
+      "samples/renko/renko.py": {
+        "size": 4393
+      },
+      "samples/resample-tickdata/resample-tickdata.py": {
+        "size": 3758
+      },
+      "samples/rollover/rollover.py": {
+        "size": 5500
+      },
+      "samples/sharpe-timereturn/sharpe-timereturn.py": {
+        "size": 5691
+      },
+      "samples/signals-strategy/signals-strategy.py": {
+        "size": 5158
+      },
+      "samples/sigsmacross/sigsmacross.py": {
+        "size": 3835
+      },
+      "samples/sigsmacross/sigsmacross2.py": {
+        "size": 1489
+      },
+      "samples/sizertest/sizertest.py": {
+        "size": 4899
+      },
+      "samples/slippage/slippage.py": {
+        "size": 6278
+      },
+      "samples/sratio/sratio.py": {
+        "size": 2124
+      },
+      "samples/stop-trading/stop-loss-approaches.py": {
+        "size": 8127
+      },
+      "samples/stoptrail/trail.py": {
+        "size": 5435
+      },
+      "samples/strategy-selection/strategy-selection.py": {
+        "size": 3044
+      },
+      "samples/talib/tablibsartest.py": {
+        "size": 3497
+      },
+      "samples/talib/talibtest.py": {
+        "size": 7426
+      },
+      "samples/timers/scheduled-min.py": {
+        "size": 5800
+      },
+      "samples/timers/scheduled.py": {
+        "size": 5315
+      },
+      "samples/tradingcalendar/tcal-intra.py": {
+        "size": 5833
+      },
+      "samples/tradingcalendar/tcal.py": {
+        "size": 5818
+      },
+      "samples/vctest/vctest.py": {
+        "size": 15011
+      },
+      "samples/volumefilling/volumefilling.py": {
+        "size": 5839
+      },
+      "samples/vwr/vwr.py": {
+        "size": 5716
+      },
+      "samples/weekdays-filler/weekdaysaligner.py": {
+        "size": 4370
+      },
+      "samples/weekdays-filler/weekdaysfiller.py": {
+        "size": 2606
+      },
+      "samples/writer-test/writer-test.py": {
+        "size": 7177
+      },
+      "samples/yahoo-test/yahoo-test.py": {
+        "size": 3422
+      },
+      "setup.py": {
+        "size": 5322
+      },
+      "tests/test_analyzer-sqn.py": {
+        "size": 6423
+      },
+      "tests/test_analyzer-timereturn.py": {
+        "size": 6065
+      },
+      "tests/test_comminfo.py": {
+        "size": 2624
+      },
+      "tests/test_data_multiframe.py": {
+        "size": 1653
+      },
+      "tests/test_data_replay.py": {
+        "size": 1982
+      },
+      "tests/test_data_resample.py": {
+        "size": 1877
+      },
+      "tests/test_ind_accdecosc.py": {
+        "size": 1602
+      },
+      "tests/test_ind_aroonoscillator.py": {
+        "size": 1621
+      },
+      "tests/test_ind_aroonupdown.py": {
+        "size": 1660
+      },
+      "tests/test_ind_atr.py": {
+        "size": 1609
+      },
+      "tests/test_ind_awesomeoscillator.py": {
+        "size": 1570
+      },
+      "tests/test_ind_bbands.py": {
+        "size": 1720
+      },
+      "tests/test_ind_cci.py": {
+        "size": 1609
+      },
+      "tests/test_ind_dema.py": {
+        "size": 1615
+      },
+      "tests/test_ind_demaenvelope.py": {
+        "size": 1725
+      },
+      "tests/test_ind_demaosc.py": {
+        "size": 1609
+      },
+      "tests/test_ind_dm.py": {
+        "size": 1743
+      },
+      "tests/test_ind_dma.py": {
+        "size": 1615
+      },
+      "tests/test_ind_downmove.py": {
+        "size": 1615
+      },
+      "tests/test_ind_dpo.py": {
+        "size": 1609
+      },
+      "tests/test_ind_dv2.py": {
+        "size": 1610
+      },
+      "tests/test_ind_ema.py": {
+        "size": 1615
+      },
+      "tests/test_ind_emaenvelope.py": {
+        "size": 1725
+      },
+      "tests/test_ind_emaosc.py": {
+        "size": 1612
+      },
+      "tests/test_ind_envelope.py": {
+        "size": 1871
+      },
+      "tests/test_ind_heikinashi.py": {
+        "size": 1782
+      },
+      "tests/test_ind_highest.py": {
+        "size": 1685
+      },
+      "tests/test_ind_hma.py": {
+        "size": 1616
+      },
+      "tests/test_ind_ichimoku.py": {
+        "size": 1833
+      },
+      "tests/test_ind_kama.py": {
+        "size": 1616
+      },
+      "tests/test_ind_kamaenvelope.py": {
+        "size": 1725
+      },
+      "tests/test_ind_kamaosc.py": {
+        "size": 1612
+      },
+      "tests/test_ind_kst.py": {
+        "size": 1654
+      },
+      "tests/test_ind_lowest.py": {
+        "size": 1684
+      },
+      "tests/test_ind_lrsi.py": {
+        "size": 1606
+      },
+      "tests/test_ind_macdhisto.py": {
+        "size": 1701
+      },
+      "tests/test_ind_minperiod.py": {
+        "size": 1680
+      },
+      "tests/test_ind_momentum.py": {
+        "size": 1615
+      },
+      "tests/test_ind_momentumoscillator.py": {
+        "size": 1626
+      },
+      "tests/test_ind_oscillator.py": {
+        "size": 1764
+      },
+      "tests/test_ind_pctchange.py": {
+        "size": 1611
+      },
+      "tests/test_ind_pctrank.py": {
+        "size": 1614
+      },
+      "tests/test_ind_pgo.py": {
+        "size": 1606
+      },
+      "tests/test_ind_ppo.py": {
+        "size": 1690
+      },
+      "tests/test_ind_pposhort.py": {
+        "size": 1695
+      },
+      "tests/test_ind_priceosc.py": {
+        "size": 1613
+      },
+      "tests/test_ind_rmi.py": {
+        "size": 1571
+      },
+      "tests/test_ind_roc.py": {
+        "size": 1607
+      },
+      "tests/test_ind_rsi.py": {
+        "size": 1609
+      },
+      "tests/test_ind_rsi_safe.py": {
+        "size": 1614
+      },
+      "tests/test_ind_sma.py": {
+        "size": 1615
+      },
+      "tests/test_ind_smaenvelope.py": {
+        "size": 1725
+      },
+      "tests/test_ind_smaosc.py": {
+        "size": 1610
+      },
+      "tests/test_ind_smma.py": {
+        "size": 1616
+      },
+      "tests/test_ind_smmaenvelope.py": {
+        "size": 1726
+      },
+      "tests/test_ind_smmaosc.py": {
+        "size": 1613
+      },
+      "tests/test_ind_stochastic.py": {
+        "size": 1661
+      },
+      "tests/test_ind_stochasticfull.py": {
+        "size": 1710
+      },
+      "tests/test_ind_sumn.py": {
+        "size": 1685
+      },
+      "tests/test_ind_tema.py": {
+        "size": 1615
+      },
+      "tests/test_ind_temaenvelope.py": {
+        "size": 1725
+      },
+      "tests/test_ind_temaosc.py": {
+        "size": 1612
+      },
+      "tests/test_ind_trix.py": {
+        "size": 1606
+      },
+      "tests/test_ind_tsi.py": {
+        "size": 1608
+      },
+      "tests/test_ind_ultosc.py": {
+        "size": 1654
+      },
+      "tests/test_ind_upmove.py": {
+        "size": 1612
+      },
+      "tests/test_ind_vortex.py": {
+        "size": 1650
+      },
+      "tests/test_ind_williamsad.py": {
+        "size": 1616
+      },
+      "tests/test_ind_williamsr.py": {
+        "size": 1618
+      },
+      "tests/test_ind_wma.py": {
+        "size": 1615
+      },
+      "tests/test_ind_wmaenvelope.py": {
+        "size": 1725
+      },
+      "tests/test_ind_wmaosc.py": {
+        "size": 1612
+      },
+      "tests/test_ind_zlema.py": {
+        "size": 1616
+      },
+      "tests/test_ind_zlind.py": {
+        "size": 1627
+      },
+      "tests/test_metaclass.py": {
+        "size": 1618
+      },
+      "tests/test_order.py": {
+        "size": 3961
+      },
+      "tests/test_position.py": {
+        "size": 2813
+      },
+      "tests/test_strategy_optimized.py": {
+        "size": 5477
+      },
+      "tests/test_strategy_unoptimized.py": {
+        "size": 6659
+      },
+      "tests/test_study_fractal.py": {
+        "size": 1596
+      },
+      "tests/test_trade.py": {
+        "size": 3852
+      },
+      "tests/test_writer.py": {
+        "size": 2196
+      },
+      "tests/testcommon.py": {
+        "size": 7322
+      },
+      "tools/bt-run.py": {
+        "size": 1099
+      },
+      "tools/rewrite-data.py": {
+        "size": 5732
+      },
+      "tools/yahoodownload.py": {
+        "size": 7414
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "backtrader/cerebro.py",
+        "module": "cerebro",
+        "functions": [],
+        "classes": [
+          "Cerebro"
+        ],
+        "description": "Primary orchestration engine for backtests: strategy registration, data feeds, broker integration, analyzers/observers, run loop, and optimization."
+      },
+      {
+        "package": "backtrader/strategy.py",
+        "module": "strategy",
+        "functions": [],
+        "classes": [
+          "Strategy"
+        ],
+        "description": "Base strategy lifecycle and trading API surface (orders, notifications, next/prenext hooks), central extension point for users."
+      },
+      {
+        "package": "backtrader/feed.py",
+        "module": "feed",
+        "functions": [],
+        "classes": [
+          "AbstractDataBase",
+          "DataBase"
+        ],
+        "description": "Core market data abstractions and feed plumbing used by concrete feed adapters."
+      },
+      {
+        "package": "backtrader/broker.py",
+        "module": "broker",
+        "functions": [],
+        "classes": [
+          "BrokerBase"
+        ],
+        "description": "Broker abstraction for order execution, cash/value accounting, and commission/slippage handling."
+      },
+      {
+        "package": "backtrader/brokers/bbroker.py",
+        "module": "brokers.bbroker",
+        "functions": [],
+        "classes": [
+          "BackBroker"
+        ],
+        "description": "Default in-memory simulation broker implementation used in most backtests."
+      },
+      {
+        "package": "backtrader/order.py",
+        "module": "order",
+        "functions": [],
+        "classes": [
+          "Order",
+          "BuyOrder",
+          "SellOrder",
+          "OrderData",
+          "OrderExecutionBit"
+        ],
+        "description": "Order model hierarchy and execution state transitions."
+      },
+      {
+        "package": "backtrader/trade.py",
+        "module": "trade",
+        "functions": [],
+        "classes": [
+          "Trade"
+        ],
+        "description": "Trade-level aggregation, PnL tracking, and lifecycle accounting."
+      },
+      {
+        "package": "backtrader/analyzer.py",
+        "module": "analyzer",
+        "functions": [],
+        "classes": [
+          "Analyzer"
+        ],
+        "description": "Analyzer base class; foundation for performance metric modules in backtrader/analyzers."
+      },
+      {
+        "package": "backtrader/indicator.py",
+        "module": "indicator",
+        "functions": [],
+        "classes": [
+          "Indicator"
+        ],
+        "description": "Indicator base class used by all technical indicators under backtrader/indicators."
+      },
+      {
+        "package": "backtrader/btrun/btrun.py",
+        "module": "btrun.btrun",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [],
+        "description": "CLI runner utilities for loading strategy/data configuration and executing runs."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "btrun",
+        "module": "backtrader/btrun/btrun.py",
+        "description": "Main CLI entry for running strategies/backtests from command line arguments."
+      },
+      {
+        "name": "bt-run.py",
+        "module": "tools/bt-run.py",
+        "description": "Convenience wrapper script around backtrader run functionality."
+      },
+      {
+        "name": "yahoodownload.py",
+        "module": "tools/yahoodownload.py",
+        "description": "Utility script to download Yahoo historical market data."
+      },
+      {
+        "name": "rewrite-data.py",
+        "module": "tools/rewrite-data.py",
+        "description": "Utility script for data transformation/rewrite operations."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python (setuptools package via setup.py)"
+      ],
+      "optional": [
+        "matplotlib (plotting modules under backtrader/plot)",
+        "pandas (pandafeed and data integration)",
+        "numpy (commonly used by indicators/analytics paths)",
+        "TA-Lib (backtrader/talib.py integration)",
+        "ibpy / Interactive Brokers stack (ibstore/ibbroker/ibdata paths)",
+        "oandapy / Oanda stack (oandastore/oandabroker/oanda feed paths)",
+        "influxdb client stack (influx feed utilities)",
+        "pyfolio (analyzers/pyfolio.py and samples)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/mementum/backtrader",
+    "repo_name": "backtrader",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

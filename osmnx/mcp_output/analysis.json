@@ -1,0 +1,371 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/gboeing/osmnx",
+    "summary": "Imported via zip fallback, file count: 49",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug_report.yml": {
+        "size": 4139
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 28
+      },
+      ".github/ISSUE_TEMPLATE/feature_proposal.yml": {
+        "size": 2518
+      },
+      ".github/dependabot.yml": {
+        "size": 173
+      },
+      ".github/pull_request_template.md": {
+        "size": 946
+      },
+      ".github/workflows/build-publish-docker.yml": {
+        "size": 1519
+      },
+      ".github/workflows/build-publish-pypi.yml": {
+        "size": 1213
+      },
+      ".github/workflows/ci.yml": {
+        "size": 2027
+      },
+      ".github/workflows/test-docs-linkcheck.yml": {
+        "size": 1014
+      },
+      ".github/workflows/test-latest-deps.yml": {
+        "size": 1214
+      },
+      ".github/workflows/test-minimum-deps.yml": {
+        "size": 1319
+      },
+      ".pre-commit-config.yaml": {
+        "size": 1389
+      },
+      "CHANGELOG.md": {
+        "size": 31747
+      },
+      "CONTRIBUTING.md": {
+        "size": 3569
+      },
+      "LICENSE.txt": {
+        "size": 1109
+      },
+      "README.md": {
+        "size": 2558
+      },
+      "docs/.readthedocs.yaml": {
+        "size": 223
+      },
+      "docs/requirements-docs.txt": {
+        "size": 45
+      },
+      "docs/source/conf.py": {
+        "size": 1846
+      },
+      "osmnx/__init__.py": {
+        "size": 1189
+      },
+      "osmnx/_api_v1.py": {
+        "size": 2724
+      },
+      "osmnx/_errors.py": {
+        "size": 600
+      },
+      "osmnx/_http.py": {
+        "size": 11518
+      },
+      "osmnx/_nominatim.py": {
+        "size": 4900
+      },
+      "osmnx/_osm_xml.py": {
+        "size": 16252
+      },
+      "osmnx/_overpass.py": {
+        "size": 18059
+      },
+      "osmnx/_validate.py": {
+        "size": 13542
+      },
+      "osmnx/bearing.py": {
+        "size": 10769
+      },
+      "osmnx/convert.py": {
+        "size": 18500
+      },
+      "osmnx/distance.py": {
+        "size": 16700
+      },
+      "osmnx/elevation.py": {
+        "size": 11330
+      },
+      "osmnx/features.py": {
+        "size": 28647
+      },
+      "osmnx/geocoder.py": {
+        "size": 8631
+      },
+      "osmnx/graph.py": {
+        "size": 33070
+      },
+      "osmnx/io.py": {
+        "size": 15477
+      },
+      "osmnx/plot.py": {
+        "size": 33867
+      },
+      "osmnx/projection.py": {
+        "size": 6381
+      },
+      "osmnx/routing.py": {
+        "size": 21754
+      },
+      "osmnx/settings.py": {
+        "size": 8327
+      },
+      "osmnx/simplification.py": {
+        "size": 33518
+      },
+      "osmnx/stats.py": {
+        "size": 13492
+      },
+      "osmnx/truncate.py": {
+        "size": 6097
+      },
+      "osmnx/utils.py": {
+        "size": 6198
+      },
+      "osmnx/utils_geo.py": {
+        "size": 13934
+      },
+      "pyproject.toml": {
+        "size": 3461
+      },
+      "tests/.yamllint.yml": {
+        "size": 182
+      },
+      "tests/README.md": {
+        "size": 1703
+      },
+      "tests/test_osmnx.py": {
+        "size": 36044
+      },
+      "tests/verify_min_deps.py": {
+        "size": 1575
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.osmnx"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.osmnx",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level public API re-export surface for OSMnx modules; primary import anchor."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "graph",
+        "functions": [
+          "graph_from_place",
+          "graph_from_address",
+          "graph_from_point",
+          "graph_from_bbox",
+          "graph_from_polygon",
+          "graph_from_xml"
+        ],
+        "classes": [],
+        "description": "Core street-network acquisition/build module. Downloads/constructs NetworkX MultiDiGraph objects from OSM sources."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "features",
+        "functions": [
+          "features_from_place",
+          "features_from_address",
+          "features_from_point",
+          "features_from_bbox",
+          "features_from_polygon",
+          "features_from_xml"
+        ],
+        "classes": [],
+        "description": "Retrieves non-network geospatial features from OSM and returns GeoDataFrames."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "routing",
+        "functions": [
+          "shortest_path",
+          "k_shortest_paths",
+          "add_edge_speeds",
+          "add_edge_travel_times",
+          "route_to_gdf"
+        ],
+        "classes": [],
+        "description": "Routing and travel-time enrichment functions over OSMnx/NetworkX graphs."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "distance",
+        "functions": [
+          "nearest_nodes",
+          "nearest_edges",
+          "great_circle",
+          "euclidean"
+        ],
+        "classes": [],
+        "description": "Spatial distance utilities and nearest-neighbor queries on graph topology."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "geocoder",
+        "functions": [
+          "geocode",
+          "geocode_to_gdf"
+        ],
+        "classes": [],
+        "description": "Nominatim-backed geocoding utilities and conversion to geospatial tabular output."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "io",
+        "functions": [
+          "save_graphml",
+          "load_graphml",
+          "save_graph_geopackage",
+          "save_graph_xml"
+        ],
+        "classes": [],
+        "description": "Persistence I/O for graphs in GraphML, GeoPackage, and OSM XML related formats."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "plot",
+        "functions": [
+          "plot_graph",
+          "plot_graph_route",
+          "plot_graph_routes",
+          "plot_figure_ground",
+          "plot_footprints",
+          "plot_orientation"
+        ],
+        "classes": [],
+        "description": "Visualization helpers for graphs, routes, and orientation diagnostics."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "projection",
+        "functions": [
+          "project_graph",
+          "project_gdf",
+          "project_geometry"
+        ],
+        "classes": [],
+        "description": "CRS projection/transformation utilities."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "simplification",
+        "functions": [
+          "simplify_graph",
+          "consolidate_intersections"
+        ],
+        "classes": [],
+        "description": "Topology simplification and node consolidation for cleaned street-network analysis."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "stats",
+        "functions": [
+          "basic_stats"
+        ],
+        "classes": [],
+        "description": "Graph metric/statistics computation."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "convert",
+        "functions": [
+          "graph_to_gdfs",
+          "graph_from_gdfs",
+          "to_digraph",
+          "to_undirected"
+        ],
+        "classes": [],
+        "description": "Conversion between NetworkX graph objects and GeoPandas GeoDataFrames."
+      },
+      {
+        "package": "source.osmnx",
+        "module": "settings",
+        "functions": [],
+        "classes": [],
+        "description": "Global runtime configuration (HTTP, caching, logging, API endpoints, useful tags)."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.96
+    },
+    "dependencies": {
+      "required": [
+        "networkx",
+        "geopandas",
+        "shapely",
+        "pandas",
+        "numpy",
+        "requests",
+        "pyproj"
+      ],
+      "optional": [
+        "matplotlib",
+        "scipy",
+        "scikit-learn",
+        "rtree",
+        "rasterio",
+        "rio-vrt",
+        "xml libraries via stdlib stack"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.95,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/gboeing/osmnx",
+    "repo_name": "osmnx",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.95,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

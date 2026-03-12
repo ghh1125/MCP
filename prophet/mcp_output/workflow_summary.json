@@ -1,0 +1,213 @@
+{
+  "repository": {
+    "name": "prophet",
+    "url": "https://github.com/facebook/prophet",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/prophet",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "simple",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773278132.2152598,
+    "end_time": 1773278294.487766,
+    "duration": 162.27250623703003,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 2,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.python.prophet",
+        "source.python_shim.fbprophet"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.5,
+      "intrusiveness_risk": "low",
+      "complexity": "simple"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/facebook/prophet",
+      "repo_name": "prophet",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/prophet/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke-test suite for the generated MCP plugin (import",
+    "server startup",
+    "and 2–3 representative endpoint calls)",
+    "filter/whitelist exported endpoints to exclude internal build/packaging classes and potentially unsafe setup.py functions from MCP exposure",
+    "add strict input/output schemas (Pydantic models) for complex endpoints like cross_validation/plot/model serialization to reduce runtime errors",
+    "improve dependency detection in the generator (recognize python/pyproject.toml and python/setup.py in monorepo/subdir layouts)",
+    "pin and document runtime dependencies for reproducible MCP deployment (including cmdstan/cmdstanpy expectations)",
+    "add CI for mcp_output (lint + type-check + unit tests + startup test) on PRs",
+    "implement graceful error mapping in adapter.py (convert library exceptions to structured MCP errors with actionable messages)",
+    "add timeout/resource guards for long-running operations (Stan build",
+    "cross-validation",
+    "large plotting payloads)",
+    "create endpoint-level docs in README_MCP.md with examples and parameter caveats (especially plotting backends and holiday utilities)",
+    "separate heavy/optional features behind capability flags (plotly/matplotlib/cmdstan toolchain) so core MCP remains lightweight",
+    "add observability hooks (request logging",
+    "duration",
+    "failure rate per endpoint) for production troubleshooting",
+    "include compatibility tests across supported Prophet versions and serialized model versions to catch API/format drift",
+    "sanitize filesystem and subprocess interactions in build-related endpoints to reduce security risk",
+    "add caching for expensive repeated calls (holiday generation",
+    "model serialization artifacts) where safe",
+    "and add contract tests to verify endpoint names/signatures remain stable across regeneration cycles"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Repository ingestion succeeded via zip fallback and AST-based discovery identified core Prophet modules/functions.",
+      "MCP plugin generation produced a complete runnable artifact set (entrypoint, adapter, service, README, requirements).",
+      "Generated MCP service passed health/startup checks (healthy, stdio transport), indicating functional baseline operability."
+    ],
+    "failure_reasons": [
+      "No hard execution failure occurred.",
+      "Quality gaps reduced confidence: original project tests not executed/passed, DeepWiki analysis failed, and endpoint exposure appears over-broad (including setup/build internals and classes).",
+      "Dependency detection failed for subdirectory layout (python/pyproject.toml and python/setup.py were present but reported absent)."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository imported via zip fallback. Timing breakdown per node not provided, so only qualitative assessment is possible.",
+      "analysis_time": "Successful static analysis/AST scan of 66 files; detected key packages and callable surfaces, but metadata extraction for dependency manifests was inaccurate.",
+      "generation_time": "Generation succeeded and emitted required MCP files; however generated metrics (LOC/size/endpoints=0 in one section) are inconsistent with service endpoint list, indicating instrumentation/reporting drift.",
+      "test_time": "MCP plugin runtime health checks passed; original project test execution absent/effectively failed, leaving behavioral parity unverified."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to missing telemetry (reported 0 MB likely means not collected).",
+      "cpu_efficiency": "Unknown due to missing telemetry (reported 0% likely means not collected).",
+      "disk_usage": "Low-to-moderate; generated artifact footprint appears small, but exact size metrics are missing/inconsistent."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 74,
+    "performance_score": 60,
+    "maintainability_score": 68,
+    "security_score": 70,
+    "scalability_score": 63
+  }
+}

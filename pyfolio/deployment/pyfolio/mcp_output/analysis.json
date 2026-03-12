@@ -1,0 +1,1308 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/quantopian/pyfolio",
+    "summary": "Imported via zip fallback, file count: 35",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE.md": {
+        "size": 355
+      },
+      ".travis.yml": {
+        "size": 1335
+      },
+      "README.md": {
+        "size": 3296
+      },
+      "WHATSNEW.md": {
+        "size": 13819
+      },
+      "conda/meta.yaml": {
+        "size": 976
+      },
+      "docs/index.md": {
+        "size": 12
+      },
+      "docs/whatsnew.md": {
+        "size": 14
+      },
+      "mkdocs.yml": {
+        "size": 497
+      },
+      "pyfolio/__init__.py": {
+        "size": 481
+      },
+      "pyfolio/_seaborn.py": {
+        "size": 446
+      },
+      "pyfolio/_version.py": {
+        "size": 15800
+      },
+      "pyfolio/capacity.py": {
+        "size": 9616
+      },
+      "pyfolio/deprecate.py": {
+        "size": 1499
+      },
+      "pyfolio/interesting_periods.py": {
+        "size": 2904
+      },
+      "pyfolio/ipycompat.py": {
+        "size": 581
+      },
+      "pyfolio/perf_attrib.py": {
+        "size": 22416
+      },
+      "pyfolio/plotting.py": {
+        "size": 63276
+      },
+      "pyfolio/pos.py": {
+        "size": 7172
+      },
+      "pyfolio/round_trips.py": {
+        "size": 15178
+      },
+      "pyfolio/tears.py": {
+        "size": 47386
+      },
+      "pyfolio/tests/__init__.py": {
+        "size": 0
+      },
+      "pyfolio/tests/test_capacity.py": {
+        "size": 5477
+      },
+      "pyfolio/tests/test_nbs.py": {
+        "size": 666
+      },
+      "pyfolio/tests/test_perf_attrib.py": {
+        "size": 18611
+      },
+      "pyfolio/tests/test_pos.py": {
+        "size": 6850
+      },
+      "pyfolio/tests/test_round_trips.py": {
+        "size": 7911
+      },
+      "pyfolio/tests/test_tears.py": {
+        "size": 4911
+      },
+      "pyfolio/tests/test_timeseries.py": {
+        "size": 12272
+      },
+      "pyfolio/tests/test_txn.py": {
+        "size": 3215
+      },
+      "pyfolio/timeseries.py": {
+        "size": 37350
+      },
+      "pyfolio/txn.py": {
+        "size": 6457
+      },
+      "pyfolio/utils.py": {
+        "size": 16144
+      },
+      "setup.cfg": {
+        "size": 352
+      },
+      "setup.py": {
+        "size": 2636
+      },
+      "versioneer.py": {
+        "size": 62477
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.pyfolio",
+      "source.pyfolio.tests"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": true,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "versioneer",
+        "module": "versioneer",
+        "functions": [
+          "do_setup",
+          "do_vcs_install",
+          "get_cmdclass",
+          "get_config_from_root",
+          "get_root",
+          "get_version",
+          "get_versions",
+          "git_get_keywords",
+          "git_pieces_from_vcs",
+          "git_versions_from_keywords",
+          "plus_or_dot",
+          "register_vcs_handler",
+          "render",
+          "render_git_describe",
+          "render_git_describe_long",
+          "render_pep440",
+          "render_pep440_old",
+          "render_pep440_post",
+          "render_pep440_pre",
+          "run_command",
+          "scan_setup_py",
+          "versions_from_file",
+          "versions_from_parentdir",
+          "write_to_version_file"
+        ],
+        "classes": [
+          "NotThisMethod",
+          "VersioneerBadRootError",
+          "VersioneerConfig"
+        ],
+        "function_signatures": {
+          "get_root": [],
+          "get_config_from_root": [
+            "root"
+          ],
+          "register_vcs_handler": [
+            "vcs",
+            "method"
+          ],
+          "run_command": [
+            "commands",
+            "args",
+            "cwd",
+            "verbose",
+            "hide_stderr"
+          ],
+          "git_get_keywords": [
+            "versionfile_abs"
+          ],
+          "git_versions_from_keywords": [
+            "keywords",
+            "tag_prefix",
+            "verbose"
+          ],
+          "git_pieces_from_vcs": [
+            "tag_prefix",
+            "root",
+            "verbose",
+            "run_command"
+          ],
+          "do_vcs_install": [
+            "manifest_in",
+            "versionfile_source",
+            "ipy"
+          ],
+          "versions_from_parentdir": [
+            "parentdir_prefix",
+            "root",
+            "verbose"
+          ],
+          "versions_from_file": [
+            "filename"
+          ],
+          "write_to_version_file": [
+            "filename",
+            "versions"
+          ],
+          "plus_or_dot": [
+            "pieces"
+          ],
+          "render_pep440": [
+            "pieces"
+          ],
+          "render_pep440_pre": [
+            "pieces"
+          ],
+          "render_pep440_post": [
+            "pieces"
+          ],
+          "render_pep440_old": [
+            "pieces"
+          ],
+          "render_git_describe": [
+            "pieces"
+          ],
+          "render_git_describe_long": [
+            "pieces"
+          ],
+          "render": [
+            "pieces",
+            "style"
+          ],
+          "get_versions": [
+            "verbose"
+          ],
+          "get_version": [],
+          "get_cmdclass": [],
+          "do_setup": [],
+          "scan_setup_py": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pyfolio",
+        "module": "pos",
+        "functions": [
+          "extract_pos",
+          "get_long_short_pos",
+          "get_max_median_position_concentration",
+          "get_percent_alloc",
+          "get_sector_exposures",
+          "get_top_long_short_abs"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_percent_alloc": [
+            "values"
+          ],
+          "get_top_long_short_abs": [
+            "positions",
+            "top"
+          ],
+          "get_max_median_position_concentration": [
+            "positions"
+          ],
+          "extract_pos": [
+            "positions",
+            "cash"
+          ],
+          "get_sector_exposures": [
+            "positions",
+            "symbol_sector_map"
+          ],
+          "get_long_short_pos": [
+            "positions"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pyfolio",
+        "module": "deprecate",
+        "functions": [
+          "deprecated"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "deprecated": [
+            "msg",
+            "stacklevel"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pyfolio",
+        "module": "capacity",
+        "functions": [
+          "apply_slippage_penalty",
+          "daily_txns_with_bar_data",
+          "days_to_liquidate_positions",
+          "get_low_liquidity_transactions",
+          "get_max_days_to_liquidate_by_ticker"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "daily_txns_with_bar_data": [
+            "transactions",
+            "market_data"
+          ],
+          "days_to_liquidate_positions": [
+            "positions",
+            "market_data",
+            "max_bar_consumption",
+            "capital_base",
+            "mean_volume_window"
+          ],
+          "get_max_days_to_liquidate_by_ticker": [
+            "positions",
+            "market_data",
+            "max_bar_consumption",
+            "capital_base",
+            "mean_volume_window",
+            "last_n_days"
+          ],
+          "get_low_liquidity_transactions": [
+            "transactions",
+            "market_data",
+            "last_n_days"
+          ],
+          "apply_slippage_penalty": [
+            "returns",
+            "txn_daily",
+            "simulate_starting_capital",
+            "backtest_starting_capital",
+            "impact"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pyfolio",
+        "module": "perf_attrib",
+        "functions": [
+          "compute_exposures",
+          "create_perf_attrib_stats",
+          "perf_attrib",
+          "plot_alpha_returns",
+          "plot_factor_contribution_to_perf",
+          "plot_returns",
+          "plot_risk_exposures",
+          "show_perf_attrib_stats"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "perf_attrib": [
+            "returns",
+            "positions",
+            "factor_returns",
+            "factor_loadings",
+            "transactions",
+            "pos_in_dollars"
+          ],
+          "compute_exposures": [
+            "positions",
+            "factor_loadings",
+            "stack_positions",
+            "pos_in_dollars"
+          ],
+          "create_perf_attrib_stats": [
+            "perf_attrib",
+            "risk_exposures"
+          ],
+          "show_perf_attrib_stats": [
+            "returns",
+            "positions",
+            "factor_returns",
+            "factor_loadings",
+            "transactions",
+            "pos_in_dollars"
+          ],
+          "plot_returns": [
+            "perf_attrib_data",
+            "cost",
+            "ax"
+          ],
+          "plot_alpha_returns": [
+            "alpha_returns",
+            "ax"
+          ],
+          "plot_factor_contribution_to_perf": [
+            "perf_attrib_data",
+            "ax",
+            "title"
+          ],
+          "plot_risk_exposures": [
+            "exposures",
+            "ax",
+            "title"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pyfolio",
+        "module": "_version",
+        "functions": [
+          "get_config",
+          "get_keywords",
+          "get_versions",
+          "git_get_keywords",
+          "git_pieces_from_vcs",
+          "git_versions_from_keywords",
+          "plus_or_dot",
+          "register_vcs_handler",
+          "render",
+          "render_git_describe",
+          "render_git_describe_long",
+          "render_pep440",
+          "render_pep440_old",
+          "render_pep440_post",
+          "render_pep440_pre",
+          "run_command",
+          "versions_from_parentdir"
+        ],
+        "classes": [
+          "NotThisMethod",
+          "VersioneerConfig"
+        ],
+        "function_signatures": {
+          "get_keywords": [],
+          "get_config": [],
+          "register_vcs_handler": [
+            "vcs",
+            "method"
+          ],
+          "run_command": [
+            "commands",
+            "args",
+            "cwd",
+            "verbose",
+            "hide_stderr"
+          ],
+          "versions_from_parentdir": [
+            "parentdir_prefix",
+            "root",
+            "verbose"
+          ],
+          "git_get_keywords": [
+            "versionfile_abs"
+          ],
+          "git_versions_from_keywords": [
+            "keywords",
+            "tag_prefix",
+            "verbose"
+          ],
+          "git_pieces_from_vcs": [
+            "tag_prefix",
+            "root",
+            "verbose",
+            "run_command"
+          ],
+          "plus_or_dot": [
+            "pieces"
+          ],
+          "render_pep440": [
+            "pieces"
+          ],
+          "render_pep440_pre": [
+            "pieces"
+          ],
+          "render_pep440_post": [
+            "pieces"
+          ],
+          "render_pep440_old": [
+            "pieces"
+          ],
+          "render_git_describe": [
+            "pieces"
+          ],
+          "render_git_describe_long": [
+            "pieces"
+          ],
+          "render": [
+            "pieces",
+            "style"
+          ],
+          "get_versions": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pyfolio",
+        "module": "plotting",
+        "functions": [
+          "axes_style",
+          "customize",
+          "plot_annual_returns",
+          "plot_capacity_sweep",
+          "plot_cones",
+          "plot_daily_turnover_hist",
+          "plot_daily_volume",
+          "plot_drawdown_periods",
+          "plot_drawdown_underwater",
+          "plot_exposures",
+          "plot_gross_leverage",
+          "plot_holdings",
+          "plot_long_short_holdings",
+          "plot_max_median_position_concentration",
+          "plot_monthly_returns_dist",
+          "plot_monthly_returns_heatmap",
+          "plot_monthly_returns_timeseries",
+          "plot_perf_stats",
+          "plot_prob_profit_trade",
+          "plot_return_quantiles",
+          "plot_returns",
+          "plot_rolling_beta",
+          "plot_rolling_returns",
+          "plot_rolling_sharpe",
+          "plot_rolling_volatility",
+          "plot_round_trip_lifetimes",
+          "plot_sector_allocations",
+          "plot_slippage_sensitivity",
+          "plot_slippage_sweep",
+          "plot_turnover",
+          "plot_txn_time_hist",
+          "plotting_context",
+          "show_and_plot_top_positions",
+          "show_perf_stats",
+          "show_profit_attribution",
+          "show_worst_drawdown_periods"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "customize": [
+            "func"
+          ],
+          "plotting_context": [
+            "context",
+            "font_scale",
+            "rc"
+          ],
+          "axes_style": [
+            "style",
+            "rc"
+          ],
+          "plot_monthly_returns_heatmap": [
+            "returns",
+            "ax"
+          ],
+          "plot_annual_returns": [
+            "returns",
+            "ax"
+          ],
+          "plot_monthly_returns_dist": [
+            "returns",
+            "ax"
+          ],
+          "plot_holdings": [
+            "returns",
+            "positions",
+            "legend_loc",
+            "ax"
+          ],
+          "plot_long_short_holdings": [
+            "returns",
+            "positions",
+            "legend_loc",
+            "ax"
+          ],
+          "plot_drawdown_periods": [
+            "returns",
+            "top",
+            "ax"
+          ],
+          "plot_drawdown_underwater": [
+            "returns",
+            "ax"
+          ],
+          "plot_perf_stats": [
+            "returns",
+            "factor_returns",
+            "ax"
+          ],
+          "show_perf_stats": [
+            "returns",
+            "factor_returns",
+            "positions",
+            "transactions",
+            "turnover_denom",
+            "live_start_date",
+            "bootstrap",
+            "header_rows"
+          ],
+          "plot_returns": [
+            "returns",
+            "live_start_date",
+            "ax"
+          ],
+          "plot_rolling_returns": [
+            "returns",
+            "factor_returns",
+            "live_start_date",
+            "logy",
+            "cone_std",
+            "legend_loc",
+            "volatility_match",
+            "cone_function",
+            "ax"
+          ],
+          "plot_rolling_beta": [
+            "returns",
+            "factor_returns",
+            "legend_loc",
+            "ax"
+          ],
+          "plot_rolling_volatility": [
+            "returns",
+            "factor_returns",
+            "rolling_window",
+            "legend_loc",
+            "ax"
+          ],
+          "plot_rolling_sharpe": [
+            "returns",
+            "factor_returns",
+            "rolling_window",
+            "legend_loc",
+            "ax"
+          ],
+          "plot_gross_leverage": [
+            "returns",
+            "positions",
+            "ax"
+          ],
+          "plot_exposures": [
+            "returns",
+            "positions",
+            "ax"
+          ],
+          "show_and_plot_top_positions": [
+            "returns",
+            "positions_alloc",
+            "show_and_plot",
+            "hide_positions",
+            "legend_loc",
+            "ax"
+          ],
+          "plot_max_median_position_concentration": [
+            "positions",
+            "ax"
+          ],
+          "plot_sector_allocations": [
+            "returns",
+            "sector_alloc",
+            "ax"
+          ],
+          "plot_return_quantiles": [
+            "returns",
+            "live_start_date",
+            "ax"
+          ],
+          "plot_turnover": [
+            "returns",
+            "transactions",
+            "positions",
+            "turnover_denom",
+            "legend_loc",
+            "ax"
+          ],
+          "plot_slippage_sweep": [
+            "returns",
+            "positions",
+            "transactions",
+            "slippage_params",
+            "ax"
+          ],
+          "plot_slippage_sensitivity": [
+            "returns",
+            "positions",
+            "transactions",
+            "ax"
+          ],
+          "plot_capacity_sweep": [
+            "returns",
+            "transactions",
+            "market_data",
+            "bt_starting_capital",
+            "min_pv",
+            "max_pv",
+            "step_size",
+            "ax"
+          ],
+          "plot_daily_turnover_hist": [
+            "transactions",
+            "positions",
+            "turnover_denom",
+            "ax"
+          ],
+          "plot_daily_volume": [
+            "returns",
+            "transactions",
+            "ax"
+          ],
+          "plot_txn_time_hist": [
+            "transactions",
+            "bin_minutes",
+            "tz",
+            "ax"
+          ],
+          "show_worst_drawdown_periods": [
+            "returns",
+            "top"
+          ],
+          "plot_monthly_returns_timeseries": [
+            "returns",
+            "ax"
+          ],
+          "plot_round_trip_lifetimes": [
+            "round_trips",
+            "disp_amount",
+            "lsize",
+            "ax"
+          ],
+          "show_profit_attribution": [
+            "round_trips"
+          ],
+          "plot_prob_profit_trade": [
+            "round_trips",
+            "ax"
+          ],
+          "plot_cones": [
+            "name",
+            "bounds",
+            "oos_returns",
+            "num_samples",
+            "ax",
+            "cone_std",
+            "random_seed",
+            "num_strikes"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pyfolio",
+        "module": "tears",
+        "functions": [
+          "create_capacity_tear_sheet",
+          "create_full_tear_sheet",
+          "create_interesting_times_tear_sheet",
+          "create_perf_attrib_tear_sheet",
+          "create_position_tear_sheet",
+          "create_returns_tear_sheet",
+          "create_round_trip_tear_sheet",
+          "create_simple_tear_sheet",
+          "create_txn_tear_sheet",
+          "timer"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "timer": [
+            "msg_body",
+            "previous_time"
+          ],
+          "create_full_tear_sheet": [
+            "returns",
+            "positions",
+            "transactions",
+            "market_data",
+            "benchmark_rets",
+            "slippage",
+            "live_start_date",
+            "sector_mappings",
+            "round_trips",
+            "estimate_intraday",
+            "hide_positions",
+            "cone_std",
+            "bootstrap",
+            "unadjusted_returns",
+            "turnover_denom",
+            "set_context",
+            "factor_returns",
+            "factor_loadings",
+            "pos_in_dollars",
+            "header_rows",
+            "factor_partitions"
+          ],
+          "create_simple_tear_sheet": [
+            "returns",
+            "positions",
+            "transactions",
+            "benchmark_rets",
+            "slippage",
+            "estimate_intraday",
+            "live_start_date",
+            "turnover_denom",
+            "header_rows"
+          ],
+          "create_returns_tear_sheet": [
+            "returns",
+            "positions",
+            "transactions",
+            "live_start_date",
+            "cone_std",
+            "benchmark_rets",
+            "bootstrap",
+            "turnover_denom",
+            "header_rows",
+            "return_fig"
+          ],
+          "create_position_tear_sheet": [
+            "returns",
+            "positions",
+            "show_and_plot_top_pos",
+            "hide_positions",
+            "sector_mappings",
+            "transactions",
+            "estimate_intraday",
+            "return_fig"
+          ],
+          "create_txn_tear_sheet": [
+            "returns",
+            "positions",
+            "transactions",
+            "turnover_denom",
+            "unadjusted_returns",
+            "estimate_intraday",
+            "return_fig"
+          ],
+          "create_round_trip_tear_sheet": [
+            "returns",
+            "positions",
+            "transactions",
+            "sector_mappings",
+            "estimate_intraday",
+            "return_fig"
+          ],
+          "create_interesting_times_tear_sheet": [
+            "returns",
+            "benchmark_rets",
+            "periods",
+            "legend_loc",
+            "return_fig"
+          ],
+          "create_capacity_tear_sheet": [
+            "returns",
+            "positions",
+            "transactions",
+            "market_data",
+            "liquidation_daily_vol_limit",
+            "trade_daily_vol_limit",
+            "last_n_days",
+            "days_to_liquidate_limit",
+            "estimate_intraday",
+            "return_fig"
+          ],
+          "create_perf_attrib_tear_sheet": [
+            "returns",
+            "positions",
+            "factor_returns",
+            "factor_loadings",
+            "transactions",
+            "pos_in_dollars",
+            "factor_partitions",
+            "return_fig"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pyfolio",
+        "module": "utils",
+        "functions": [
+          "check_intraday",
+          "clip_returns_to_benchmark",
+          "configure_legend",
+          "detect_intraday",
+          "estimate_intraday",
+          "extract_rets_pos_txn_from_zipline",
+          "format_asset",
+          "get_symbol_rets",
+          "one_dec_places",
+          "percentage",
+          "print_table",
+          "register_return_func",
+          "sample_colormap",
+          "standardize_data",
+          "to_series",
+          "to_utc",
+          "two_dec_places",
+          "vectorize"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "one_dec_places": [
+            "x",
+            "pos"
+          ],
+          "two_dec_places": [
+            "x",
+            "pos"
+          ],
+          "percentage": [
+            "x",
+            "pos"
+          ],
+          "format_asset": [
+            "asset"
+          ],
+          "vectorize": [
+            "func"
+          ],
+          "extract_rets_pos_txn_from_zipline": [
+            "backtest"
+          ],
+          "print_table": [
+            "table",
+            "name",
+            "float_format",
+            "formatters",
+            "header_rows"
+          ],
+          "standardize_data": [
+            "x"
+          ],
+          "detect_intraday": [
+            "positions",
+            "transactions",
+            "threshold"
+          ],
+          "check_intraday": [
+            "estimate",
+            "returns",
+            "positions",
+            "transactions"
+          ],
+          "estimate_intraday": [
+            "returns",
+            "positions",
+            "transactions",
+            "EOD_hour"
+          ],
+          "clip_returns_to_benchmark": [
+            "rets",
+            "benchmark_rets"
+          ],
+          "to_utc": [
+            "df"
+          ],
+          "to_series": [
+            "df"
+          ],
+          "register_return_func": [
+            "func"
+          ],
+          "get_symbol_rets": [
+            "symbol",
+            "start",
+            "end"
+          ],
+          "configure_legend": [
+            "ax",
+            "autofmt_xdate",
+            "change_colors",
+            "rotation",
+            "ha"
+          ],
+          "sample_colormap": [
+            "cmap_name",
+            "n_samples"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pyfolio",
+        "module": "txn",
+        "functions": [
+          "adjust_returns_for_slippage",
+          "get_turnover",
+          "get_txn_vol",
+          "make_transaction_frame",
+          "map_transaction"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "map_transaction": [
+            "txn"
+          ],
+          "make_transaction_frame": [
+            "transactions"
+          ],
+          "get_txn_vol": [
+            "transactions"
+          ],
+          "adjust_returns_for_slippage": [
+            "returns",
+            "positions",
+            "transactions",
+            "slippage_bps"
+          ],
+          "get_turnover": [
+            "positions",
+            "transactions",
+            "denominator"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pyfolio",
+        "module": "round_trips",
+        "functions": [
+          "add_closing_transactions",
+          "agg_all_long_short",
+          "apply_sector_mappings_to_round_trips",
+          "extract_round_trips",
+          "gen_round_trip_stats",
+          "print_round_trip_stats"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "agg_all_long_short": [
+            "round_trips",
+            "col",
+            "stats_dict"
+          ],
+          "extract_round_trips": [
+            "transactions",
+            "portfolio_value"
+          ],
+          "add_closing_transactions": [
+            "positions",
+            "transactions"
+          ],
+          "apply_sector_mappings_to_round_trips": [
+            "round_trips",
+            "sector_mappings"
+          ],
+          "gen_round_trip_stats": [
+            "round_trips"
+          ],
+          "print_round_trip_stats": [
+            "round_trips",
+            "hide_pos"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pyfolio",
+        "module": "timeseries",
+        "functions": [
+          "aggregate_returns",
+          "alpha",
+          "alpha_beta",
+          "annual_return",
+          "annual_volatility",
+          "beta",
+          "calc_bootstrap",
+          "calc_distribution_stats",
+          "calmar_ratio",
+          "common_sense_ratio",
+          "cum_returns",
+          "downside_risk",
+          "extract_interesting_date_ranges",
+          "forecast_cone_bootstrap",
+          "gen_drawdown_table",
+          "get_max_drawdown",
+          "get_max_drawdown_underwater",
+          "get_top_drawdowns",
+          "gross_lev",
+          "max_drawdown",
+          "normalize",
+          "omega_ratio",
+          "perf_stats",
+          "perf_stats_bootstrap",
+          "rolling_beta",
+          "rolling_regression",
+          "rolling_sharpe",
+          "rolling_volatility",
+          "sharpe_ratio",
+          "simulate_paths",
+          "sortino_ratio",
+          "stability_of_timeseries",
+          "summarize_paths",
+          "tail_ratio",
+          "value_at_risk",
+          "var_cov_var_normal"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "var_cov_var_normal": [
+            "P",
+            "c",
+            "mu",
+            "sigma"
+          ],
+          "max_drawdown": [
+            "returns"
+          ],
+          "annual_return": [
+            "returns",
+            "period"
+          ],
+          "annual_volatility": [
+            "returns",
+            "period"
+          ],
+          "calmar_ratio": [
+            "returns",
+            "period"
+          ],
+          "omega_ratio": [
+            "returns",
+            "annual_return_threshhold"
+          ],
+          "sortino_ratio": [
+            "returns",
+            "required_return",
+            "period"
+          ],
+          "downside_risk": [
+            "returns",
+            "required_return",
+            "period"
+          ],
+          "sharpe_ratio": [
+            "returns",
+            "risk_free",
+            "period"
+          ],
+          "alpha_beta": [
+            "returns",
+            "factor_returns"
+          ],
+          "alpha": [
+            "returns",
+            "factor_returns"
+          ],
+          "beta": [
+            "returns",
+            "factor_returns"
+          ],
+          "stability_of_timeseries": [
+            "returns"
+          ],
+          "tail_ratio": [
+            "returns"
+          ],
+          "common_sense_ratio": [
+            "returns"
+          ],
+          "normalize": [
+            "returns",
+            "starting_value"
+          ],
+          "cum_returns": [
+            "returns",
+            "starting_value"
+          ],
+          "aggregate_returns": [
+            "returns",
+            "convert_to"
+          ],
+          "rolling_beta": [
+            "returns",
+            "factor_returns",
+            "rolling_window"
+          ],
+          "rolling_regression": [
+            "returns",
+            "factor_returns",
+            "rolling_window",
+            "nan_threshold"
+          ],
+          "gross_lev": [
+            "positions"
+          ],
+          "value_at_risk": [
+            "returns",
+            "period",
+            "sigma"
+          ],
+          "perf_stats": [
+            "returns",
+            "factor_returns",
+            "positions",
+            "transactions",
+            "turnover_denom"
+          ],
+          "perf_stats_bootstrap": [
+            "returns",
+            "factor_returns",
+            "return_stats"
+          ],
+          "calc_bootstrap": [
+            "func",
+            "returns"
+          ],
+          "calc_distribution_stats": [
+            "x"
+          ],
+          "get_max_drawdown_underwater": [
+            "underwater"
+          ],
+          "get_max_drawdown": [
+            "returns"
+          ],
+          "get_top_drawdowns": [
+            "returns",
+            "top"
+          ],
+          "gen_drawdown_table": [
+            "returns",
+            "top"
+          ],
+          "rolling_volatility": [
+            "returns",
+            "rolling_vol_window"
+          ],
+          "rolling_sharpe": [
+            "returns",
+            "rolling_sharpe_window"
+          ],
+          "simulate_paths": [
+            "is_returns",
+            "num_days",
+            "starting_value",
+            "num_samples",
+            "random_seed"
+          ],
+          "summarize_paths": [
+            "samples",
+            "cone_std",
+            "starting_value"
+          ],
+          "forecast_cone_bootstrap": [
+            "is_returns",
+            "num_days",
+            "cone_std",
+            "starting_value",
+            "num_samples",
+            "random_seed"
+          ],
+          "extract_interesting_date_ranges": [
+            "returns",
+            "periods"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "pandas",
+        "scipy",
+        "matplotlib",
+        "seaborn",
+        "empyrical"
+      ],
+      "optional": [
+        "IPython",
+        "notebook/jupyter stack",
+        "zipline (for specific extraction helpers)",
+        "scikit-learn (if transitively used by certain analytics paths)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.92,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/quantopian/pyfolio",
+    "repo_name": "pyfolio",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.92,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

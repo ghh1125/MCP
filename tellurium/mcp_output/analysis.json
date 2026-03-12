@@ -1,0 +1,831 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/sys-bio/tellurium",
+    "summary": "Imported via zip fallback, file count: 223",
+    "file_tree": {
+      ".readthedocs.yaml": {
+        "size": 348
+      },
+      ".travis.yml": {
+        "size": 275
+      },
+      "LICENSE.txt": {
+        "size": 11357
+      },
+      "NEWS.txt": {
+        "size": 88
+      },
+      "NOTICE.txt": {
+        "size": 7987
+      },
+      "README.md": {
+        "size": 13677
+      },
+      "VirtualEnv.md": {
+        "size": 531
+      },
+      "docs/README.md": {
+        "size": 4836
+      },
+      "docs/conf.py": {
+        "size": 10404
+      },
+      "docs/requirements.txt": {
+        "size": 22
+      },
+      "docs/sedml.md": {
+        "size": 727
+      },
+      "examples/__init__.py": {
+        "size": 0
+      },
+      "examples/notebooks-py/antimonyExample.py": {
+        "size": 1062
+      },
+      "examples/notebooks-py/combineExample.py": {
+        "size": 1161
+      },
+      "examples/notebooks-py/computeSteadyState.py": {
+        "size": 931
+      },
+      "examples/notebooks-py/introduction.py": {
+        "size": 1467
+      },
+      "examples/notebooks-py/model_consecutiveUniUniReactions.py": {
+        "size": 727
+      },
+      "examples/notebooks-py/model_feedback_oscillations.py": {
+        "size": 1018
+      },
+      "examples/notebooks-py/model_generatingDifferentWaveforms.py": {
+        "size": 1716
+      },
+      "examples/notebooks-py/model_modelFromBioModels.py": {
+        "size": 605
+      },
+      "examples/notebooks-py/model_nonUnitStoichiometries.py": {
+        "size": 568
+      },
+      "examples/notebooks-py/model_normalizedSpecies.py": {
+        "size": 2620
+      },
+      "examples/notebooks-py/parameter_scan.py": {
+        "size": 1384
+      },
+      "examples/notebooks-py/phrasedmlExample.py": {
+        "size": 13778
+      },
+      "examples/notebooks-py/plot2DParameterScan.py": {
+        "size": 682
+      },
+      "examples/notebooks-py/roadrunnerBasics.py": {
+        "size": 2351
+      },
+      "examples/notebooks-py/steadystate_scan.py": {
+        "size": 946
+      },
+      "examples/notebooks-py/tellurium_examples.py": {
+        "size": 10293
+      },
+      "examples/notebooks-py/tellurium_export.py": {
+        "size": 2884
+      },
+      "examples/notebooks-py/tellurium_interconversion.py": {
+        "size": 652
+      },
+      "examples/notebooks-py/tellurium_model_loading.py": {
+        "size": 1177
+      },
+      "examples/notebooks-py/tellurium_plotting.py": {
+        "size": 2848
+      },
+      "examples/notebooks-py/tellurium_reset.py": {
+        "size": 1041
+      },
+      "examples/notebooks-py/tellurium_stochastic.py": {
+        "size": 2082
+      },
+      "examples/notebooks-py/tellurium_test.py": {
+        "size": 789
+      },
+      "examples/notebooks-py/tellurium_utility.py": {
+        "size": 1385
+      },
+      "examples/notebooks-py/template.py": {
+        "size": 373
+      },
+      "examples/notebooks-py/tesedmlExample.py": {
+        "size": 2182
+      },
+      "examples/notebooks/README.md": {
+        "size": 673
+      },
+      "examples/tellurium-files/SBMLfromBioModelsDB.py": {
+        "size": 303
+      },
+      "examples/tellurium-files/__init__.py": {
+        "size": 0
+      },
+      "examples/tellurium-files/computeSteadyState.py": {
+        "size": 672
+      },
+      "examples/tellurium-files/consecutiveUniUniReactions.py": {
+        "size": 432
+      },
+      "examples/tellurium-files/events/events.py": {
+        "size": 1982
+      },
+      "examples/tellurium-files/export/latex_export.py": {
+        "size": 695
+      },
+      "examples/tellurium-files/exportToMatlab.py": {
+        "size": 767
+      },
+      "examples/tellurium-files/generatingDifferentWaveforms.py": {
+        "size": 1409
+      },
+      "examples/tellurium-files/linearChain.py": {
+        "size": 685
+      },
+      "examples/tellurium-files/nonUnitStoichiometries.py": {
+        "size": 286
+      },
+      "examples/tellurium-files/omex/CombineArchiveShowCase.py": {
+        "size": 740
+      },
+      "examples/tellurium-files/omex/README.md": {
+        "size": 217
+      },
+      "examples/tellurium-files/omex/__init__.py": {
+        "size": 0
+      },
+      "examples/tellurium-files/parameterscan/create_colormap.py": {
+        "size": 466
+      },
+      "examples/tellurium-files/parameterscan/parameter_scan.py": {
+        "size": 1273
+      },
+      "examples/tellurium-files/parameterscan/plot_array.py": {
+        "size": 431
+      },
+      "examples/tellurium-files/parameterscan/plot_multi_array.py": {
+        "size": 467
+      },
+      "examples/tellurium-files/parameterscan/steadystatescan.py": {
+        "size": 601
+      },
+      "examples/tellurium-files/parameterscanExample.py": {
+        "size": 546
+      },
+      "examples/tellurium-files/phrasedml/case_01.py": {
+        "size": 511
+      },
+      "examples/tellurium-files/phrasedml/case_02.py": {
+        "size": 834
+      },
+      "examples/tellurium-files/phrasedml/case_03.py": {
+        "size": 637
+      },
+      "examples/tellurium-files/phrasedml/case_04.py": {
+        "size": 651
+      },
+      "examples/tellurium-files/phrasedml/case_05.py": {
+        "size": 619
+      },
+      "examples/tellurium-files/phrasedml/case_06.py": {
+        "size": 808
+      },
+      "examples/tellurium-files/phrasedml/case_07.py": {
+        "size": 553
+      },
+      "examples/tellurium-files/phrasedml/case_08.py": {
+        "size": 789
+      },
+      "examples/tellurium-files/phrasedml/case_09.py": {
+        "size": 2334
+      },
+      "examples/tellurium-files/phrasedml/case_10.py": {
+        "size": 686
+      },
+      "examples/tellurium-files/phrasedml/case_11.py": {
+        "size": 743
+      },
+      "examples/tellurium-files/phrasedml/case_12.py": {
+        "size": 811
+      },
+      "examples/tellurium-files/phrasedml/lorenz.py": {
+        "size": 547
+      },
+      "examples/tellurium-files/phrasedml/oneStep.py": {
+        "size": 1195
+      },
+      "examples/tellurium-files/phrasedml/parameterScan1D.py": {
+        "size": 1103
+      },
+      "examples/tellurium-files/phrasedml/parameterScan2D.py": {
+        "size": 2377
+      },
+      "examples/tellurium-files/phrasedml/repeatedStochastic.py": {
+        "size": 2539
+      },
+      "examples/tellurium-files/phrasedml/repressilator.py": {
+        "size": 2744
+      },
+      "examples/tellurium-files/phrasedml/simpletimecourse.py": {
+        "size": 2273
+      },
+      "examples/tellurium-files/phrasedmlExample.py": {
+        "size": 426
+      },
+      "examples/tellurium-files/settingBoundarySpecies.py": {
+        "size": 528
+      },
+      "examples/tellurium-files/simpleUniUniReaction.py": {
+        "size": 459
+      },
+      "examples/tellurium-files/singleGeneExpressingProteinAndProteinDegradation.py": {
+        "size": 390
+      },
+      "installer/linux/README.md": {
+        "size": 326
+      },
+      "installer/windows/README.txt": {
+        "size": 2742
+      },
+      "installer/windows/settings3.3.6/pydistutils.cfg": {
+        "size": 9
+      },
+      "installer/windows/settings3.3.6/winpython.ini": {
+        "size": 204
+      },
+      "installer/windows/settings4.1.3/pydistutils.cfg": {
+        "size": 9
+      },
+      "installer/windows/settings4.1.3/winpython.ini": {
+        "size": 226
+      },
+      "installer/windows/settings6.0.4/winpython.ini": {
+        "size": 843
+      },
+      "meta.yaml": {
+        "size": 287
+      },
+      "requirements.txt": {
+        "size": 414
+      },
+      "scripts/download_count.py": {
+        "size": 2481
+      },
+      "setup.py": {
+        "size": 2488
+      },
+      "spyder_mod/Spyder 3.2.2/spyder/app/mainwindow.py": {
+        "size": 130401
+      },
+      "spyder_mod/Spyder 3.2.2/spyder/app/restart.py": {
+        "size": 10579
+      },
+      "spyder_mod/Spyder 3.2.2/spyder/config/main.py": {
+        "size": 29196
+      },
+      "spyder_mod/Spyder 3.2.2/spyder/plugins/editor.py": {
+        "size": 125051
+      },
+      "spyder_mod/Spyder 3.3.0/spyder/app/mainwindow.py": {
+        "size": 133994
+      },
+      "spyder_mod/Spyder 3.3.0/spyder/app/restart.py": {
+        "size": 10579
+      },
+      "spyder_mod/Spyder 3.3.0/spyder/config/main.py": {
+        "size": 29571
+      },
+      "spyder_mod/Spyder 3.3.0/spyder/plugins/editor.py": {
+        "size": 126035
+      },
+      "spyder_mod/Spyder 3.3.6/site-packages/spyder/app/mainwindow.py": {
+        "size": 138220
+      },
+      "spyder_mod/Spyder 3.3.6/site-packages/spyder/app/restart.py": {
+        "size": 10579
+      },
+      "spyder_mod/Spyder 3.3.6/site-packages/spyder/config/main.py": {
+        "size": 29956
+      },
+      "spyder_mod/Spyder 3.3.6/site-packages/spyder/plugins/editor.py": {
+        "size": 126071
+      },
+      "spyder_mod/Spyder 4.1.3/site-packages/spyder/app/mainwindow.py": {
+        "size": 154790
+      },
+      "spyder_mod/Spyder 4.1.3/site-packages/spyder/app/restart.py": {
+        "size": 10656
+      },
+      "spyder_mod/Spyder 4.1.3/site-packages/spyder/app/utils.py": {
+        "size": 6024
+      },
+      "spyder_mod/Spyder 4.1.3/site-packages/spyder/config/main.py": {
+        "size": 24647
+      },
+      "spyder_mod/Spyder 4.1.3/site-packages/spyder/plugins/editor/plugin.py": {
+        "size": 132176
+      },
+      "spyder_mod/Spyder 4.2.1/site-packages/spyder/app/mainwindow.py": {
+        "size": 148686
+      },
+      "spyder_mod/Spyder 4.2.1/site-packages/spyder/app/restart.py": {
+        "size": 10656
+      },
+      "spyder_mod/Spyder 4.2.1/site-packages/spyder/app/utils.py": {
+        "size": 6024
+      },
+      "spyder_mod/Spyder 4.2.1/site-packages/spyder/config/main.py": {
+        "size": 25453
+      },
+      "spyder_mod/Spyder 4.2.1/site-packages/spyder/plugins/editor/plugin.py": {
+        "size": 135000
+      },
+      "spyder_mod/Spyder 5.1.5/site-packages/spyder/app/mainwindow.py": {
+        "size": 79538
+      },
+      "spyder_mod/Spyder 5.1.5/site-packages/spyder/app/restart.py": {
+        "size": 10814
+      },
+      "spyder_mod/Spyder 5.1.5/site-packages/spyder/app/utils.py": {
+        "size": 10142
+      },
+      "spyder_mod/Spyder 5.1.5/site-packages/spyder/config/main.py": {
+        "size": 24693
+      },
+      "spyder_mod/Spyder 5.1.5/site-packages/spyder/plugins/editor/plugin.py": {
+        "size": 139933
+      },
+      "spyder_mod/Spyder 6.0.4/site-packages/spyder/app/mainwindow.py": {
+        "size": 56255
+      },
+      "spyder_mod/Spyder 6.0.4/site-packages/spyder/app/restart.py": {
+        "size": 10440
+      },
+      "spyder_mod/Spyder 6.0.4/site-packages/spyder/app/utils.py": {
+        "size": 13708
+      },
+      "spyder_mod/Spyder 6.0.4/site-packages/spyder/config/main.py": {
+        "size": 26242
+      },
+      "spyder_mod/Spyder 6.0.4/site-packages/spyder/plugins/editor/widgets/main_widget.py": {
+        "size": 135481
+      },
+      "tellurium/VERSION.txt": {
+        "size": 9
+      },
+      "tellurium/__init__.py": {
+        "size": 3586
+      },
+      "tellurium/analysis/__init__.py": {
+        "size": 0
+      },
+      "tellurium/analysis/annotations.py": {
+        "size": 5238
+      },
+      "tellurium/analysis/bifurcation.py": {
+        "size": 3746
+      },
+      "tellurium/analysis/parameterestimation.py": {
+        "size": 5685
+      },
+      "tellurium/analysis/parameterscan.py": {
+        "size": 29442
+      },
+      "tellurium/analysis/sensitivityanalysis.py": {
+        "size": 2230
+      },
+      "tellurium/analysis/simulator.py": {
+        "size": 581
+      },
+      "tellurium/analysis/stochasticmodel.py": {
+        "size": 2194
+      },
+      "tellurium/analysis/test.py": {
+        "size": 10
+      },
+      "tellurium/dev/__init__.py": {
+        "size": 0
+      },
+      "tellurium/dev/deprecated/README.md": {
+        "size": 190
+      },
+      "tellurium/dev/deprecated/__init__.py": {
+        "size": 0
+      },
+      "tellurium/dev/deprecated/tecombine.py": {
+        "size": 32154
+      },
+      "tellurium/dev/deprecated/tephrasedml.py": {
+        "size": 12907
+      },
+      "tellurium/dev/oven/README.md": {
+        "size": 149
+      },
+      "tellurium/dev/oven/__init__.py": {
+        "size": 0
+      },
+      "tellurium/dev/oven/libnuml_import.py": {
+        "size": 471
+      },
+      "tellurium/dev/oven/ndarray/__init__.py": {
+        "size": 0
+      },
+      "tellurium/dev/oven/ndarray/ndarray.py": {
+        "size": 426
+      },
+      "tellurium/notebooks/__init__.py": {
+        "size": 391
+      },
+      "tellurium/notebooks/notebooktools.py": {
+        "size": 3411
+      },
+      "tellurium/notebooks/ontologysearch.py": {
+        "size": 4057
+      },
+      "tellurium/notebooks/parameterslider.py": {
+        "size": 3848
+      },
+      "tellurium/notebooks/speciessearch.py": {
+        "size": 5021
+      },
+      "tellurium/plotting/__init__.py": {
+        "size": 230
+      },
+      "tellurium/plotting/api.py": {
+        "size": 3034
+      },
+      "tellurium/plotting/engine.py": {
+        "size": 16181
+      },
+      "tellurium/plotting/engine_mpl.py": {
+        "size": 7913
+      },
+      "tellurium/plotting/engine_null.py": {
+        "size": 1728
+      },
+      "tellurium/plotting/engine_plotly.py": {
+        "size": 8928
+      },
+      "tellurium/plotting/factory.py": {
+        "size": 1518
+      },
+      "tellurium/roadrunner/__init__.py": {
+        "size": 117
+      },
+      "tellurium/roadrunner/extended_roadrunner.py": {
+        "size": 16249
+      },
+      "tellurium/sedml/__init__.py": {
+        "size": 0
+      },
+      "tellurium/sedml/data.py": {
+        "size": 16552
+      },
+      "tellurium/sedml/mathml.py": {
+        "size": 4541
+      },
+      "tellurium/sedml/templates/__init__.py": {
+        "size": 0
+      },
+      "tellurium/sedml/tesedml.py": {
+        "size": 106648
+      },
+      "tellurium/sedml/utils.py": {
+        "size": 1062
+      },
+      "tellurium/sedml/xpath.py": {
+        "size": 1438
+      },
+      "tellurium/teconverters/__init__.py": {
+        "size": 357
+      },
+      "tellurium/teconverters/antimony_regex.py": {
+        "size": 930
+      },
+      "tellurium/teconverters/antimony_sbo.py": {
+        "size": 9710
+      },
+      "tellurium/teconverters/convert_antimony.py": {
+        "size": 4203
+      },
+      "tellurium/teconverters/convert_omex.py": {
+        "size": 17417
+      },
+      "tellurium/teconverters/convert_phrasedml.py": {
+        "size": 5083
+      },
+      "tellurium/teconverters/inline_omex.py": {
+        "size": 8942
+      },
+      "tellurium/teio/__init__.py": {
+        "size": 0
+      },
+      "tellurium/teio/latex.py": {
+        "size": 6821
+      },
+      "tellurium/tellurium.py": {
+        "size": 38037
+      },
+      "tellurium/temiriam.py": {
+        "size": 1144
+      },
+      "tellurium/testcases.py": {
+        "size": 21712
+      },
+      "tellurium/tests/README.md": {
+        "size": 1627
+      },
+      "tellurium/tests/__init__.py": {
+        "size": 0
+      },
+      "tellurium/tests/helpers.py": {
+        "size": 763
+      },
+      "tellurium/tests/sedml/__init__.py": {
+        "size": 0
+      },
+      "tellurium/tests/sedml/test_archive.py": {
+        "size": 1321
+      },
+      "tellurium/tests/sedml/test_data.py": {
+        "size": 8790
+      },
+      "tellurium/tests/sedml/test_kisao.py": {
+        "size": 29250
+      },
+      "tellurium/tests/sedml/test_omex.py": {
+        "size": 3969
+      },
+      "tellurium/tests/sedml/test_phrasedml.py": {
+        "size": 30691
+      },
+      "tellurium/tests/sedml/test_sedml.py": {
+        "size": 5320
+      },
+      "tellurium/tests/sedml/test_tesedml.py": {
+        "size": 1191
+      },
+      "tellurium/tests/test_API.py": {
+        "size": 3459
+      },
+      "tellurium/tests/test_analysis.py": {
+        "size": 1103
+      },
+      "tellurium/tests/test_examples.py": {
+        "size": 1928
+      },
+      "tellurium/tests/test_inline_omex.py": {
+        "size": 1107
+      },
+      "tellurium/tests/test_io.py": {
+        "size": 3250
+      },
+      "tellurium/tests/test_omex.py": {
+        "size": 3770
+      },
+      "tellurium/tests/test_plotting.py": {
+        "size": 1307
+      },
+      "tellurium/tests/test_runner.py": {
+        "size": 2120
+      },
+      "tellurium/tests/test_tellurium.py": {
+        "size": 16187
+      },
+      "tellurium/tests/test_temiriam.py": {
+        "size": 837
+      },
+      "tellurium/tests/testdata/__init__.py": {
+        "size": 538
+      },
+      "tellurium/tests/testdata/sedml/__init__.py": {
+        "size": 0
+      },
+      "tellurium/tests/testdata/sedml/data/__init__.py": {
+        "size": 0
+      },
+      "tellurium/tests/testdata/sedml/data/data_creator.py": {
+        "size": 138
+      },
+      "tellurium/tests/testdata/sedml/data/omex/zip_archives.py": {
+        "size": 1176
+      },
+      "tellurium/tests/testdata/sedml/omex/README.md": {
+        "size": 616
+      },
+      "tellurium/tests/testdata/sedml/omex/biomodels/README.md": {
+        "size": 652
+      },
+      "tellurium/tests/testdata/sedml/omex/biomodels/create_omex.py": {
+        "size": 3414
+      },
+      "tellurium/tests/testdata/sedml/omex/cellml/README.md": {
+        "size": 68
+      },
+      "tellurium/tests/testdata/sedml/omex/jws/README.md": {
+        "size": 83
+      },
+      "tellurium/tests/testdata/sedml/omex/jws/download_omex.py": {
+        "size": 2141
+      },
+      "tellurium/tests/testdata/sedml/omex/specification/README.md": {
+        "size": 70
+      },
+      "tellurium/tests/testdata/sedml/omex/tellurium/README.md": {
+        "size": 98
+      },
+      "tellurium/tests/testdata/sedml/sed-ml/__init__.py": {
+        "size": 0
+      },
+      "tellurium/tests/testdata/sedml/sed-ml/cellml/__init__.py": {
+        "size": 0
+      },
+      "tellurium/tests/testdata/utils/omex_from_zip/manifest.json": {
+        "size": 4032
+      },
+      "tellurium/utils/__init__.py": {
+        "size": 0
+      },
+      "tellurium/utils/matrix.py": {
+        "size": 3238
+      },
+      "tellurium/utils/misc.py": {
+        "size": 9731
+      },
+      "tellurium/utils/omex.py": {
+        "size": 11373
+      },
+      "tellurium/utils/uncertainty.py": {
+        "size": 19704
+      },
+      "tellurium/visualization/__init__.py": {
+        "size": 132
+      },
+      "tellurium/visualization/sbmldiagram.py": {
+        "size": 5397
+      },
+      "tox.ini": {
+        "size": 405
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "tellurium",
+        "module": "tellurium/tellurium.py",
+        "functions": [
+          "loada",
+          "loads",
+          "loadSBMLModel",
+          "saveToFile",
+          "readFromFile",
+          "runTool",
+          "getVersionInfo"
+        ],
+        "classes": [],
+        "description": "Primary high-level API surface for loading models, utility I/O helpers, tool invocation, and version/runtime helpers."
+      },
+      {
+        "package": "tellurium/roadrunner",
+        "module": "tellurium/roadrunner/extended_roadrunner.py",
+        "functions": [],
+        "classes": [
+          "ExtendedRoadRunner"
+        ],
+        "description": "Core simulation runtime wrapper extending roadrunner behavior; likely central for simulation, steady-state, and model execution workflows."
+      },
+      {
+        "package": "tellurium/sedml",
+        "module": "tellurium/sedml/tesedml.py",
+        "functions": [
+          "executeSEDML",
+          "executeCombineArchive"
+        ],
+        "classes": [],
+        "description": "SED-ML and COMBINE archive execution engine; key for reproducible simulation experiment workflows."
+      },
+      {
+        "package": "tellurium/teconverters",
+        "module": "tellurium/teconverters/convert_omex.py",
+        "functions": [
+          "inlineOmexToCombineArchive",
+          "combineArchiveToInlineOmex"
+        ],
+        "classes": [],
+        "description": "Conversion utilities between inline OMEX representations and COMBINE archives."
+      },
+      {
+        "package": "tellurium/teconverters",
+        "module": "tellurium/teconverters/convert_antimony.py",
+        "functions": [
+          "antimonyToSBML",
+          "sbmlToAntimony"
+        ],
+        "classes": [],
+        "description": "Model format interconversion between Antimony and SBML."
+      },
+      {
+        "package": "tellurium/plotting",
+        "module": "tellurium/plotting/api.py",
+        "functions": [
+          "plot",
+          "show",
+          "nextFigure"
+        ],
+        "classes": [],
+        "description": "Public plotting API abstraction over matplotlib/plotly/null backends."
+      },
+      {
+        "package": "tellurium/analysis",
+        "module": "tellurium/analysis/parameterscan.py",
+        "functions": [],
+        "classes": [
+          "ParameterScan",
+          "SteadyStateScan"
+        ],
+        "description": "Analysis utilities for parameter sweeps and steady-state scans."
+      },
+      {
+        "package": "tellurium/utils",
+        "module": "tellurium/utils/omex.py",
+        "functions": [
+          "extractCombineArchive",
+          "createCombineArchive"
+        ],
+        "classes": [],
+        "description": "Lower-level OMEX archive utility support for archive handling."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python",
+        "numpy",
+        "scipy",
+        "matplotlib",
+        "pandas",
+        "libroadrunner",
+        "antimony",
+        "phrasedml",
+        "python-libsbml"
+      ],
+      "optional": [
+        "plotly",
+        "ipywidgets",
+        "jupyter",
+        "tesbml",
+        "tesedml-related extras"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "medium",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/sys-bio/tellurium",
+    "repo_name": "tellurium",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.86,
+    "intrusiveness_risk": "medium",
+    "complexity": "medium"
+  }
+}

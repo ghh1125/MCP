@@ -1,0 +1,5117 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/sympy/sympy",
+    "summary": "Imported via zip fallback, file count: 1639",
+    "file_tree": {
+      ".ci/blacklisted.json": {
+        "size": 75
+      },
+      ".ci/durations.json": {
+        "size": 93930
+      },
+      ".ci/parse_durations_log.py": {
+        "size": 2132
+      },
+      ".circleci/config.yml": {
+        "size": 1142
+      },
+      ".devcontainer/devcontainer.json": {
+        "size": 300
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 2548
+      },
+      ".github/dependabot.yml": {
+        "size": 262
+      },
+      ".github/workflows/checkconflict.yml": {
+        "size": 626
+      },
+      ".github/workflows/docs-preview.yml": {
+        "size": 862
+      },
+      ".github/workflows/emscripten.yml": {
+        "size": 6694
+      },
+      ".github/workflows/nightly-wheels.yml": {
+        "size": 1375
+      },
+      ".github/workflows/release.yml": {
+        "size": 7130
+      },
+      ".github/workflows/runtests.yml": {
+        "size": 16155
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 3267
+      },
+      "CONTRIBUTING.md": {
+        "size": 634
+      },
+      "README.md": {
+        "size": 11255
+      },
+      "asv.conf.actions.json": {
+        "size": 3424
+      },
+      "bin/ask_update.py": {
+        "size": 4330
+      },
+      "bin/coverage_doctest.py": {
+        "size": 23278
+      },
+      "bin/coverage_report.py": {
+        "size": 3487
+      },
+      "bin/generate_module_list.py": {
+        "size": 1634
+      },
+      "bin/generate_test_list.py": {
+        "size": 1675
+      },
+      "bin/get_sympy.py": {
+        "size": 414
+      },
+      "bin/mailmap_check.py": {
+        "size": 10663
+      },
+      "bin/sympy_time.py": {
+        "size": 1291
+      },
+      "bin/sympy_time_cache.py": {
+        "size": 3191
+      },
+      "bin/test_executable.py": {
+        "size": 733
+      },
+      "bin/test_external_imports.py": {
+        "size": 2753
+      },
+      "bin/test_import.py": {
+        "size": 188
+      },
+      "bin/test_optional_dependencies.py": {
+        "size": 2965
+      },
+      "bin/test_py2_import.py": {
+        "size": 808
+      },
+      "bin/test_pytorch.py": {
+        "size": 912
+      },
+      "bin/test_setup.py": {
+        "size": 711
+      },
+      "bin/test_submodule_imports.py": {
+        "size": 2170
+      },
+      "bin/test_symengine.py": {
+        "size": 763
+      },
+      "bin/test_tensorflow.py": {
+        "size": 938
+      },
+      "codecov.yml": {
+        "size": 196
+      },
+      "conftest.py": {
+        "size": 2880
+      },
+      "doc/api/conf.py": {
+        "size": 4145
+      },
+      "doc/ext/convert-svg-to-pdf.py": {
+        "size": 3683
+      },
+      "doc/ext/docscrape.py": {
+        "size": 16761
+      },
+      "doc/ext/docscrape_sphinx.py": {
+        "size": 9548
+      },
+      "doc/ext/numpydoc.py": {
+        "size": 6259
+      },
+      "doc/generate_logos.py": {
+        "size": 10529
+      },
+      "doc/requirements.txt": {
+        "size": 336
+      },
+      "doc/src/_pygments/styles.py": {
+        "size": 3562
+      },
+      "doc/src/citing.md": {
+        "size": 2851
+      },
+      "doc/src/conf.py": {
+        "size": 22585
+      },
+      "doc/src/contributing/dependencies.md": {
+        "size": 19103
+      },
+      "doc/src/contributing/deprecations.md": {
+        "size": 23821
+      },
+      "doc/src/contributing/index.md": {
+        "size": 432
+      },
+      "doc/src/contributing/introduction-to-contributing.md": {
+        "size": 5354
+      },
+      "doc/src/contributing/new-contributors-guide/dev-setup.md": {
+        "size": 6947
+      },
+      "doc/src/contributing/new-contributors-guide/index.md": {
+        "size": 594
+      },
+      "doc/src/contributing/new-contributors-guide/workflow-process.md": {
+        "size": 28373
+      },
+      "doc/src/contributing/new-contributors-guide/writing-tests.md": {
+        "size": 46259
+      },
+      "doc/src/explanation/active-deprecations.md": {
+        "size": 65590
+      },
+      "doc/src/explanation/best-practices.md": {
+        "size": 50705
+      },
+      "doc/src/explanation/glossary.md": {
+        "size": 39049
+      },
+      "doc/src/guides/custom-functions.md": {
+        "size": 66959
+      },
+      "doc/src/guides/solving/find-roots-polynomial.md": {
+        "size": 21371
+      },
+      "doc/src/guides/solving/index.md": {
+        "size": 4301
+      },
+      "doc/src/guides/solving/reduce-inequalities-algebraically.md": {
+        "size": 8682
+      },
+      "doc/src/guides/solving/solve-de-laplace.md": {
+        "size": 7281
+      },
+      "doc/src/guides/solving/solve-diophantine-equation.md": {
+        "size": 10484
+      },
+      "doc/src/guides/solving/solve-equation-algebraically.md": {
+        "size": 11148
+      },
+      "doc/src/guides/solving/solve-matrix-equation.md": {
+        "size": 9903
+      },
+      "doc/src/guides/solving/solve-numerically.md": {
+        "size": 7217
+      },
+      "doc/src/guides/solving/solve-ode.md": {
+        "size": 18479
+      },
+      "doc/src/guides/solving/solve-system-of-equations-algebraically.md": {
+        "size": 6330
+      },
+      "doc/src/guides/solving/solving-guidance.md": {
+        "size": 10720
+      },
+      "doc/src/install.md": {
+        "size": 4230
+      },
+      "doc/src/logo/info.txt": {
+        "size": 311
+      },
+      "doc/src/tutorials/physics/control/generate_plots.py": {
+        "size": 1421
+      },
+      "isympy.py": {
+        "size": 11701
+      },
+      "pyproject.toml": {
+        "size": 4888
+      },
+      "release/README.md": {
+        "size": 6493
+      },
+      "release/authors.py": {
+        "size": 5833
+      },
+      "release/build_docs.py": {
+        "size": 1297
+      },
+      "release/compare_tar_against_git.py": {
+        "size": 7124
+      },
+      "release/github_release.py": {
+        "size": 17149
+      },
+      "release/helpers.py": {
+        "size": 234
+      },
+      "release/releasecheck.py": {
+        "size": 2057
+      },
+      "release/sha256.py": {
+        "size": 872
+      },
+      "release/update_docs.py": {
+        "size": 3752
+      },
+      "requirements-dev.txt": {
+        "size": 289
+      },
+      "setup.py": {
+        "size": 11641
+      },
+      "sympy/__init__.py": {
+        "size": 29494
+      },
+      "sympy/abc.py": {
+        "size": 3884
+      },
+      "sympy/algebras/__init__.py": {
+        "size": 97
+      },
+      "sympy/algebras/quaternion.py": {
+        "size": 50432
+      },
+      "sympy/algebras/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/algebras/tests/test_quaternion.py": {
+        "size": 17502
+      },
+      "sympy/assumptions/__init__.py": {
+        "size": 513
+      },
+      "sympy/assumptions/ask.py": {
+        "size": 18584
+      },
+      "sympy/assumptions/ask_generated.py": {
+        "size": 29748
+      },
+      "sympy/assumptions/assume.py": {
+        "size": 12339
+      },
+      "sympy/assumptions/cnf.py": {
+        "size": 12377
+      },
+      "sympy/assumptions/facts.py": {
+        "size": 8555
+      },
+      "sympy/assumptions/handlers/__init__.py": {
+        "size": 297
+      },
+      "sympy/assumptions/handlers/calculus.py": {
+        "size": 7836
+      },
+      "sympy/assumptions/handlers/common.py": {
+        "size": 3406
+      },
+      "sympy/assumptions/handlers/matrices.py": {
+        "size": 22356
+      },
+      "sympy/assumptions/handlers/ntheory.py": {
+        "size": 7695
+      },
+      "sympy/assumptions/handlers/order.py": {
+        "size": 12679
+      },
+      "sympy/assumptions/handlers/sets.py": {
+        "size": 26737
+      },
+      "sympy/assumptions/lra_satask.py": {
+        "size": 9598
+      },
+      "sympy/assumptions/predicates/__init__.py": {
+        "size": 110
+      },
+      "sympy/assumptions/predicates/calculus.py": {
+        "size": 2194
+      },
+      "sympy/assumptions/predicates/common.py": {
+        "size": 2591
+      },
+      "sympy/assumptions/predicates/matrices.py": {
+        "size": 12177
+      },
+      "sympy/assumptions/predicates/ntheory.py": {
+        "size": 2581
+      },
+      "sympy/assumptions/predicates/order.py": {
+        "size": 9546
+      },
+      "sympy/assumptions/predicates/sets.py": {
+        "size": 10125
+      },
+      "sympy/assumptions/refine.py": {
+        "size": 16965
+      },
+      "sympy/assumptions/relation/__init__.py": {
+        "size": 296
+      },
+      "sympy/assumptions/relation/binrel.py": {
+        "size": 6307
+      },
+      "sympy/assumptions/relation/equality.py": {
+        "size": 7183
+      },
+      "sympy/assumptions/satask.py": {
+        "size": 11780
+      },
+      "sympy/assumptions/sathandlers.py": {
+        "size": 9453
+      },
+      "sympy/assumptions/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/assumptions/tests/test_assumptions_2.py": {
+        "size": 1816
+      },
+      "sympy/assumptions/tests/test_context.py": {
+        "size": 1188
+      },
+      "sympy/assumptions/tests/test_matrices.py": {
+        "size": 12293
+      },
+      "sympy/assumptions/tests/test_query.py": {
+        "size": 106035
+      },
+      "sympy/assumptions/tests/test_refine.py": {
+        "size": 13508
+      },
+      "sympy/assumptions/tests/test_rel_queries.py": {
+        "size": 6712
+      },
+      "sympy/assumptions/tests/test_satask.py": {
+        "size": 15724
+      },
+      "sympy/assumptions/tests/test_sathandlers.py": {
+        "size": 1877
+      },
+      "sympy/assumptions/tests/test_wrapper.py": {
+        "size": 1194
+      },
+      "sympy/assumptions/wrapper.py": {
+        "size": 5469
+      },
+      "sympy/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "sympy/benchmarks/bench_discrete_log.py": {
+        "size": 2508
+      },
+      "sympy/benchmarks/bench_meijerint.py": {
+        "size": 11645
+      },
+      "sympy/benchmarks/bench_symbench.py": {
+        "size": 3032
+      },
+      "sympy/calculus/__init__.py": {
+        "size": 863
+      },
+      "sympy/calculus/accumulationbounds.py": {
+        "size": 28384
+      },
+      "sympy/calculus/euler.py": {
+        "size": 3471
+      },
+      "sympy/calculus/finite_diff.py": {
+        "size": 17088
+      },
+      "sympy/calculus/singularities.py": {
+        "size": 16065
+      },
+      "sympy/calculus/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/calculus/tests/test_accumulationbounds.py": {
+        "size": 11482
+      },
+      "sympy/calculus/tests/test_euler.py": {
+        "size": 2718
+      },
+      "sympy/calculus/tests/test_finite_diff.py": {
+        "size": 7705
+      },
+      "sympy/calculus/tests/test_singularities.py": {
+        "size": 6246
+      },
+      "sympy/calculus/tests/test_util.py": {
+        "size": 19208
+      },
+      "sympy/calculus/util.py": {
+        "size": 28915
+      },
+      "sympy/categories/__init__.py": {
+        "size": 1019
+      },
+      "sympy/categories/baseclasses.py": {
+        "size": 31395
+      },
+      "sympy/categories/diagram_drawing.py": {
+        "size": 95208
+      },
+      "sympy/categories/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/categories/tests/test_baseclasses.py": {
+        "size": 5802
+      },
+      "sympy/categories/tests/test_drawing.py": {
+        "size": 27883
+      },
+      "sympy/codegen/__init__.py": {
+        "size": 1009
+      },
+      "sympy/codegen/abstract_nodes.py": {
+        "size": 525
+      },
+      "sympy/codegen/algorithms.py": {
+        "size": 6418
+      },
+      "sympy/codegen/approximations.py": {
+        "size": 6483
+      },
+      "sympy/codegen/ast.py": {
+        "size": 57818
+      },
+      "sympy/codegen/cfunctions.py": {
+        "size": 12366
+      },
+      "sympy/codegen/cnodes.py": {
+        "size": 3444
+      },
+      "sympy/codegen/cutils.py": {
+        "size": 418
+      },
+      "sympy/codegen/cxxnodes.py": {
+        "size": 377
+      },
+      "sympy/codegen/fnodes.py": {
+        "size": 19830
+      },
+      "sympy/codegen/futils.py": {
+        "size": 1827
+      },
+      "sympy/codegen/matrix_nodes.py": {
+        "size": 2319
+      },
+      "sympy/codegen/numpy_nodes.py": {
+        "size": 4578
+      },
+      "sympy/codegen/pynodes.py": {
+        "size": 278
+      },
+      "sympy/codegen/pyutils.py": {
+        "size": 873
+      },
+      "sympy/codegen/rewriting.py": {
+        "size": 11620
+      },
+      "sympy/codegen/scipy_nodes.py": {
+        "size": 2543
+      },
+      "sympy/codegen/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/codegen/tests/test_abstract_nodes.py": {
+        "size": 486
+      },
+      "sympy/codegen/tests/test_algorithms.py": {
+        "size": 6954
+      },
+      "sympy/codegen/tests/test_applications.py": {
+        "size": 2312
+      },
+      "sympy/codegen/tests/test_approximations.py": {
+        "size": 2070
+      },
+      "sympy/codegen/tests/test_ast.py": {
+        "size": 21751
+      },
+      "sympy/codegen/tests/test_cfunctions.py": {
+        "size": 5154
+      },
+      "sympy/codegen/tests/test_cnodes.py": {
+        "size": 3074
+      },
+      "sympy/codegen/tests/test_cxxnodes.py": {
+        "size": 401
+      },
+      "sympy/codegen/tests/test_fnodes.py": {
+        "size": 7571
+      },
+      "sympy/codegen/tests/test_matrix_nodes.py": {
+        "size": 1931
+      },
+      "sympy/codegen/tests/test_numpy_nodes.py": {
+        "size": 2248
+      },
+      "sympy/codegen/tests/test_pynodes.py": {
+        "size": 467
+      },
+      "sympy/codegen/tests/test_pyutils.py": {
+        "size": 334
+      },
+      "sympy/codegen/tests/test_rewriting.py": {
+        "size": 15887
+      },
+      "sympy/codegen/tests/test_scipy_nodes.py": {
+        "size": 1530
+      },
+      "sympy/combinatorics/__init__.py": {
+        "size": 1535
+      },
+      "sympy/combinatorics/coset_table.py": {
+        "size": 43351
+      },
+      "sympy/combinatorics/fp_groups.py": {
+        "size": 47920
+      },
+      "sympy/combinatorics/free_groups.py": {
+        "size": 42903
+      },
+      "sympy/combinatorics/galois.py": {
+        "size": 17902
+      },
+      "sympy/combinatorics/generators.py": {
+        "size": 7514
+      },
+      "sympy/combinatorics/graycode.py": {
+        "size": 11498
+      },
+      "sympy/combinatorics/group_constructs.py": {
+        "size": 2056
+      },
+      "sympy/combinatorics/group_numbers.py": {
+        "size": 9198
+      },
+      "sympy/combinatorics/homomorphisms.py": {
+        "size": 26960
+      },
+      "sympy/combinatorics/named_groups.py": {
+        "size": 8644
+      },
+      "sympy/combinatorics/partitions.py": {
+        "size": 20857
+      },
+      "sympy/combinatorics/pc_groups.py": {
+        "size": 21411
+      },
+      "sympy/combinatorics/perm_groups.py": {
+        "size": 188361
+      },
+      "sympy/combinatorics/permutations.py": {
+        "size": 88314
+      },
+      "sympy/combinatorics/polyhedron.py": {
+        "size": 35963
+      },
+      "sympy/combinatorics/prufer.py": {
+        "size": 12096
+      },
+      "sympy/combinatorics/rewritingsystem.py": {
+        "size": 17130
+      },
+      "sympy/combinatorics/rewritingsystem_fsm.py": {
+        "size": 2468
+      },
+      "sympy/combinatorics/schur_number.py": {
+        "size": 4472
+      },
+      "sympy/combinatorics/subsets.py": {
+        "size": 16078
+      },
+      "sympy/combinatorics/tensor_can.py": {
+        "size": 40773
+      },
+      "sympy/combinatorics/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/combinatorics/tests/test_coset_table.py": {
+        "size": 28787
+      },
+      "sympy/combinatorics/tests/test_fp_groups.py": {
+        "size": 10827
+      },
+      "sympy/combinatorics/tests/test_free_groups.py": {
+        "size": 7719
+      },
+      "sympy/combinatorics/tests/test_galois.py": {
+        "size": 2798
+      },
+      "sympy/combinatorics/tests/test_generators.py": {
+        "size": 3602
+      },
+      "sympy/combinatorics/tests/test_graycode.py": {
+        "size": 2835
+      },
+      "sympy/combinatorics/tests/test_group_constructs.py": {
+        "size": 485
+      },
+      "sympy/combinatorics/tests/test_group_numbers.py": {
+        "size": 4184
+      },
+      "sympy/combinatorics/tests/test_homomorphisms.py": {
+        "size": 8021
+      },
+      "sympy/combinatorics/tests/test_named_groups.py": {
+        "size": 2156
+      },
+      "sympy/combinatorics/tests/test_partitions.py": {
+        "size": 4132
+      },
+      "sympy/combinatorics/tests/test_pc_groups.py": {
+        "size": 3420
+      },
+      "sympy/combinatorics/tests/test_perm_groups.py": {
+        "size": 42410
+      },
+      "sympy/combinatorics/tests/test_permutations.py": {
+        "size": 20713
+      },
+      "sympy/combinatorics/tests/test_polyhedron.py": {
+        "size": 4215
+      },
+      "sympy/combinatorics/tests/test_prufer.py": {
+        "size": 2684
+      },
+      "sympy/combinatorics/tests/test_rewriting.py": {
+        "size": 1822
+      },
+      "sympy/combinatorics/tests/test_schur_number.py": {
+        "size": 1762
+      },
+      "sympy/combinatorics/tests/test_subsets.py": {
+        "size": 2670
+      },
+      "sympy/combinatorics/tests/test_tensor_can.py": {
+        "size": 24711
+      },
+      "sympy/combinatorics/tests/test_testutil.py": {
+        "size": 1768
+      },
+      "sympy/combinatorics/tests/test_util.py": {
+        "size": 4534
+      },
+      "sympy/combinatorics/testutil.py": {
+        "size": 11177
+      },
+      "sympy/combinatorics/util.py": {
+        "size": 16331
+      },
+      "sympy/concrete/__init__.py": {
+        "size": 179
+      },
+      "sympy/concrete/delta.py": {
+        "size": 9905
+      },
+      "sympy/concrete/expr_with_intlimits.py": {
+        "size": 11387
+      },
+      "sympy/concrete/expr_with_limits.py": {
+        "size": 21869
+      },
+      "sympy/concrete/gosper.py": {
+        "size": 5534
+      },
+      "sympy/concrete/guess.py": {
+        "size": 18192
+      },
+      "sympy/concrete/products.py": {
+        "size": 18512
+      },
+      "sympy/concrete/summations.py": {
+        "size": 59074
+      },
+      "sympy/concrete/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/concrete/tests/test_delta.py": {
+        "size": 23904
+      },
+      "sympy/concrete/tests/test_gosper.py": {
+        "size": 8022
+      },
+      "sympy/concrete/tests/test_guess.py": {
+        "size": 3405
+      },
+      "sympy/concrete/tests/test_products.py": {
+        "size": 14556
+      },
+      "sympy/concrete/tests/test_sums_products.py": {
+        "size": 67708
+      },
+      "sympy/conftest.py": {
+        "size": 2810
+      },
+      "sympy/core/__init__.py": {
+        "size": 3222
+      },
+      "sympy/core/_print_helpers.py": {
+        "size": 2423
+      },
+      "sympy/core/add.py": {
+        "size": 43211
+      },
+      "sympy/core/alphabets.py": {
+        "size": 301
+      },
+      "sympy/core/assumptions.py": {
+        "size": 24137
+      },
+      "sympy/core/assumptions_generated.py": {
+        "size": 40657
+      },
+      "sympy/core/backend.py": {
+        "size": 5308
+      },
+      "sympy/core/basic.py": {
+        "size": 76909
+      },
+      "sympy/core/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "sympy/core/benchmarks/bench_arit.py": {
+        "size": 412
+      },
+      "sympy/core/benchmarks/bench_assumptions.py": {
+        "size": 177
+      },
+      "sympy/core/benchmarks/bench_basic.py": {
+        "size": 210
+      },
+      "sympy/core/benchmarks/bench_expand.py": {
+        "size": 427
+      },
+      "sympy/core/benchmarks/bench_numbers.py": {
+        "size": 1135
+      },
+      "sympy/core/benchmarks/bench_sympify.py": {
+        "size": 138
+      },
+      "sympy/core/cache.py": {
+        "size": 6207
+      },
+      "sympy/core/compatibility.py": {
+        "size": 1180
+      },
+      "sympy/core/containers.py": {
+        "size": 11383
+      },
+      "sympy/core/core.py": {
+        "size": 547
+      },
+      "sympy/core/coreerrors.py": {
+        "size": 677
+      },
+      "sympy/core/decorators.py": {
+        "size": 8746
+      },
+      "sympy/core/evalf.py": {
+        "size": 62303
+      },
+      "sympy/core/expr.py": {
+        "size": 144683
+      },
+      "sympy/core/exprtools.py": {
+        "size": 51352
+      },
+      "sympy/core/facts.py": {
+        "size": 19581
+      },
+      "sympy/core/function.py": {
+        "size": 117584
+      },
+      "sympy/core/intfunc.py": {
+        "size": 14254
+      },
+      "sympy/core/kind.py": {
+        "size": 11575
+      },
+      "sympy/core/logic.py": {
+        "size": 10473
+      },
+      "sympy/core/mod.py": {
+        "size": 8401
+      },
+      "sympy/core/mul.py": {
+        "size": 79476
+      },
+      "sympy/core/multidimensional.py": {
+        "size": 4268
+      },
+      "sympy/core/numbers.py": {
+        "size": 137862
+      },
+      "sympy/core/operations.py": {
+        "size": 26087
+      },
+      "sympy/core/parameters.py": {
+        "size": 3889
+      },
+      "sympy/core/power.py": {
+        "size": 73242
+      },
+      "sympy/core/random.py": {
+        "size": 6768
+      },
+      "sympy/core/relational.py": {
+        "size": 52704
+      },
+      "sympy/core/rules.py": {
+        "size": 1531
+      },
+      "sympy/core/singleton.py": {
+        "size": 8582
+      },
+      "sympy/core/sorting.py": {
+        "size": 10862
+      },
+      "sympy/core/symbol.py": {
+        "size": 30994
+      },
+      "sympy/core/sympify.py": {
+        "size": 20576
+      },
+      "sympy/core/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/core/tests/test_args.py": {
+        "size": 185891
+      },
+      "sympy/core/tests/test_arit.py": {
+        "size": 79634
+      },
+      "sympy/core/tests/test_assumptions.py": {
+        "size": 41562
+      },
+      "sympy/core/tests/test_basic.py": {
+        "size": 10265
+      },
+      "sympy/core/tests/test_cache.py": {
+        "size": 2036
+      },
+      "sympy/core/tests/test_compatibility.py": {
+        "size": 275
+      },
+      "sympy/core/tests/test_complex.py": {
+        "size": 21941
+      },
+      "sympy/core/tests/test_constructor_postprocessor.py": {
+        "size": 2476
+      },
+      "sympy/core/tests/test_containers.py": {
+        "size": 7467
+      },
+      "sympy/core/tests/test_count_ops.py": {
+        "size": 5700
+      },
+      "sympy/core/tests/test_diff.py": {
+        "size": 5456
+      },
+      "sympy/core/tests/test_equal.py": {
+        "size": 1713
+      },
+      "sympy/core/tests/test_eval.py": {
+        "size": 2401
+      },
+      "sympy/core/tests/test_evalf.py": {
+        "size": 29030
+      },
+      "sympy/core/tests/test_expand.py": {
+        "size": 13921
+      },
+      "sympy/core/tests/test_expr.py": {
+        "size": 80071
+      },
+      "sympy/core/tests/test_exprtools.py": {
+        "size": 19056
+      },
+      "sympy/core/tests/test_facts.py": {
+        "size": 11614
+      },
+      "sympy/core/tests/test_function.py": {
+        "size": 52073
+      },
+      "sympy/core/tests/test_kind.py": {
+        "size": 2083
+      },
+      "sympy/core/tests/test_logic.py": {
+        "size": 5236
+      },
+      "sympy/core/tests/test_match.py": {
+        "size": 22749
+      },
+      "sympy/core/tests/test_multidimensional.py": {
+        "size": 883
+      },
+      "sympy/core/tests/test_noncommutative.py": {
+        "size": 4197
+      },
+      "sympy/core/tests/test_numbers.py": {
+        "size": 78118
+      },
+      "sympy/core/tests/test_operations.py": {
+        "size": 2894
+      },
+      "sympy/core/tests/test_parameters.py": {
+        "size": 3595
+      },
+      "sympy/core/tests/test_power.py": {
+        "size": 25100
+      },
+      "sympy/core/tests/test_priority.py": {
+        "size": 3287
+      },
+      "sympy/core/tests/test_random.py": {
+        "size": 1268
+      },
+      "sympy/core/tests/test_relational.py": {
+        "size": 43560
+      },
+      "sympy/core/tests/test_rules.py": {
+        "size": 384
+      },
+      "sympy/core/tests/test_singleton.py": {
+        "size": 3071
+      },
+      "sympy/core/tests/test_sorting.py": {
+        "size": 937
+      },
+      "sympy/core/tests/test_subs.py": {
+        "size": 30141
+      },
+      "sympy/core/tests/test_symbol.py": {
+        "size": 13078
+      },
+      "sympy/core/tests/test_sympify.py": {
+        "size": 28202
+      },
+      "sympy/core/tests/test_traversal.py": {
+        "size": 4346
+      },
+      "sympy/core/tests/test_truediv.py": {
+        "size": 889
+      },
+      "sympy/core/tests/test_var.py": {
+        "size": 1629
+      },
+      "sympy/core/trace.py": {
+        "size": 383
+      },
+      "sympy/core/traversal.py": {
+        "size": 8860
+      },
+      "sympy/crypto/__init__.py": {
+        "size": 2193
+      },
+      "sympy/crypto/crypto.py": {
+        "size": 89962
+      },
+      "sympy/crypto/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/crypto/tests/test_crypto.py": {
+        "size": 19793
+      },
+      "sympy/diffgeom/__init__.py": {
+        "size": 1026
+      },
+      "sympy/diffgeom/diffgeom.py": {
+        "size": 72274
+      },
+      "sympy/diffgeom/rn.py": {
+        "size": 6299
+      },
+      "sympy/diffgeom/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/diffgeom/tests/test_class_structure.py": {
+        "size": 1083
+      },
+      "sympy/diffgeom/tests/test_diffgeom.py": {
+        "size": 14180
+      },
+      "sympy/diffgeom/tests/test_function_diffgeom_book.py": {
+        "size": 5289
+      },
+      "sympy/diffgeom/tests/test_hyperbolic_space.py": {
+        "size": 2633
+      },
+      "sympy/discrete/__init__.py": {
+        "size": 807
+      },
+      "sympy/discrete/convolutions.py": {
+        "size": 18376
+      },
+      "sympy/discrete/recurrences.py": {
+        "size": 5159
+      },
+      "sympy/discrete/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/discrete/tests/test_convolutions.py": {
+        "size": 17891
+      },
+      "sympy/discrete/tests/test_recurrences.py": {
+        "size": 3054
+      },
+      "sympy/discrete/tests/test_transforms.py": {
+        "size": 5581
+      },
+      "sympy/discrete/transforms.py": {
+        "size": 11716
+      },
+      "sympy/external/__init__.py": {
+        "size": 613
+      },
+      "sympy/external/gmpy.py": {
+        "size": 33351
+      },
+      "sympy/external/importtools.py": {
+        "size": 7706
+      },
+      "sympy/external/mpmath.py": {
+        "size": 6182
+      },
+      "sympy/external/ntheory.py": {
+        "size": 16757
+      },
+      "sympy/external/pythonmpq.py": {
+        "size": 11235
+      },
+      "sympy/external/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/external/tests/test_autowrap.py": {
+        "size": 9794
+      },
+      "sympy/external/tests/test_codegen.py": {
+        "size": 12633
+      },
+      "sympy/external/tests/test_gmpy.py": {
+        "size": 432
+      },
+      "sympy/external/tests/test_importtools.py": {
+        "size": 1429
+      },
+      "sympy/external/tests/test_ntheory.py": {
+        "size": 8916
+      },
+      "sympy/external/tests/test_numpy.py": {
+        "size": 10322
+      },
+      "sympy/external/tests/test_pythonmpq.py": {
+        "size": 5813
+      },
+      "sympy/external/tests/test_scipy.py": {
+        "size": 1207
+      },
+      "sympy/functions/__init__.py": {
+        "size": 5600
+      },
+      "sympy/functions/combinatorial/__init__.py": {
+        "size": 53
+      },
+      "sympy/functions/combinatorial/factorials.py": {
+        "size": 39064
+      },
+      "sympy/functions/combinatorial/numbers.py": {
+        "size": 101626
+      },
+      "sympy/functions/combinatorial/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/functions/combinatorial/tests/test_comb_factorials.py": {
+        "size": 26352
+      },
+      "sympy/functions/combinatorial/tests/test_comb_numbers.py": {
+        "size": 47700
+      },
+      "sympy/functions/elementary/__init__.py": {
+        "size": 50
+      },
+      "sympy/functions/elementary/_trigonometric_special.py": {
+        "size": 7309
+      },
+      "sympy/functions/elementary/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "sympy/functions/elementary/benchmarks/bench_exp.py": {
+        "size": 220
+      },
+      "sympy/functions/elementary/complexes.py": {
+        "size": 45953
+      },
+      "sympy/functions/elementary/exponential.py": {
+        "size": 42638
+      },
+      "sympy/functions/elementary/hyperbolic.py": {
+        "size": 71014
+      },
+      "sympy/functions/elementary/integers.py": {
+        "size": 22316
+      },
+      "sympy/functions/elementary/miscellaneous.py": {
+        "size": 27979
+      },
+      "sympy/functions/elementary/piecewise.py": {
+        "size": 58496
+      },
+      "sympy/functions/elementary/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/functions/elementary/tests/test_complexes.py": {
+        "size": 33931
+      },
+      "sympy/functions/elementary/tests/test_exponential.py": {
+        "size": 29768
+      },
+      "sympy/functions/elementary/tests/test_hyperbolic.py": {
+        "size": 56995
+      },
+      "sympy/functions/elementary/tests/test_integers.py": {
+        "size": 23301
+      },
+      "sympy/functions/elementary/tests/test_interface.py": {
+        "size": 2548
+      },
+      "sympy/functions/elementary/tests/test_miscellaneous.py": {
+        "size": 17183
+      },
+      "sympy/functions/elementary/tests/test_piecewise.py": {
+        "size": 62911
+      },
+      "sympy/functions/elementary/tests/test_trigonometric.py": {
+        "size": 90358
+      },
+      "sympy/functions/elementary/trigonometric.py": {
+        "size": 122180
+      },
+      "sympy/functions/special/__init__.py": {
+        "size": 59
+      },
+      "sympy/functions/special/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "sympy/functions/special/benchmarks/bench_special.py": {
+        "size": 199
+      },
+      "sympy/functions/special/bessel.py": {
+        "size": 68687
+      },
+      "sympy/functions/special/beta_functions.py": {
+        "size": 13242
+      },
+      "sympy/functions/special/bsplines.py": {
+        "size": 10095
+      },
+      "sympy/functions/special/delta_functions.py": {
+        "size": 19922
+      },
+      "sympy/functions/special/elliptic_integrals.py": {
+        "size": 14956
+      },
+      "sympy/functions/special/error_functions.py": {
+        "size": 79685
+      },
+      "sympy/functions/special/gamma_functions.py": {
+        "size": 43133
+      },
+      "sympy/functions/special/hyper.py": {
+        "size": 38922
+      },
+      "sympy/functions/special/mathieu_functions.py": {
+        "size": 6655
+      },
+      "sympy/functions/special/polynomials.py": {
+        "size": 46788
+      },
+      "sympy/functions/special/singularity_functions.py": {
+        "size": 8381
+      },
+      "sympy/functions/special/spherical_harmonics.py": {
+        "size": 11250
+      },
+      "sympy/functions/special/tensor_functions.py": {
+        "size": 12338
+      },
+      "sympy/functions/special/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/functions/special/tests/test_bessel.py": {
+        "size": 37408
+      },
+      "sympy/functions/special/tests/test_beta_functions.py": {
+        "size": 3821
+      },
+      "sympy/functions/special/tests/test_bsplines.py": {
+        "size": 7180
+      },
+      "sympy/functions/special/tests/test_delta_functions.py": {
+        "size": 7173
+      },
+      "sympy/functions/special/tests/test_elliptic_integrals.py": {
+        "size": 7026
+      },
+      "sympy/functions/special/tests/test_error_functions.py": {
+        "size": 33698
+      },
+      "sympy/functions/special/tests/test_gamma_functions.py": {
+        "size": 29943
+      },
+      "sympy/functions/special/tests/test_hyper.py": {
+        "size": 16729
+      },
+      "sympy/functions/special/tests/test_mathieu.py": {
+        "size": 1317
+      },
+      "sympy/functions/special/tests/test_singularity_functions.py": {
+        "size": 6284
+      },
+      "sympy/functions/special/tests/test_spec_polynomials.py": {
+        "size": 19539
+      },
+      "sympy/functions/special/tests/test_spherical_harmonics.py": {
+        "size": 3885
+      },
+      "sympy/functions/special/tests/test_tensor_functions.py": {
+        "size": 5581
+      },
+      "sympy/functions/special/tests/test_zeta_functions.py": {
+        "size": 10509
+      },
+      "sympy/functions/special/zeta_functions.py": {
+        "size": 24070
+      },
+      "sympy/galgebra.py": {
+        "size": 158
+      },
+      "sympy/geometry/__init__.py": {
+        "size": 1275
+      },
+      "sympy/geometry/curve.py": {
+        "size": 10206
+      },
+      "sympy/geometry/ellipse.py": {
+        "size": 50438
+      },
+      "sympy/geometry/entity.py": {
+        "size": 20006
+      },
+      "sympy/geometry/exceptions.py": {
+        "size": 166
+      },
+      "sympy/geometry/line.py": {
+        "size": 80428
+      },
+      "sympy/geometry/parabola.py": {
+        "size": 10751
+      },
+      "sympy/geometry/plane.py": {
+        "size": 27004
+      },
+      "sympy/geometry/point.py": {
+        "size": 36698
+      },
+      "sympy/geometry/polygon.py": {
+        "size": 82561
+      },
+      "sympy/geometry/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/geometry/tests/test_curve.py": {
+        "size": 4514
+      },
+      "sympy/geometry/tests/test_ellipse.py": {
+        "size": 26474
+      },
+      "sympy/geometry/tests/test_entity.py": {
+        "size": 4351
+      },
+      "sympy/geometry/tests/test_geometrysets.py": {
+        "size": 1946
+      },
+      "sympy/geometry/tests/test_line.py": {
+        "size": 38692
+      },
+      "sympy/geometry/tests/test_parabola.py": {
+        "size": 6185
+      },
+      "sympy/geometry/tests/test_plane.py": {
+        "size": 12933
+      },
+      "sympy/geometry/tests/test_point.py": {
+        "size": 16446
+      },
+      "sympy/geometry/tests/test_polygon.py": {
+        "size": 28062
+      },
+      "sympy/geometry/tests/test_util.py": {
+        "size": 7145
+      },
+      "sympy/geometry/util.py": {
+        "size": 20745
+      },
+      "sympy/holonomic/__init__.py": {
+        "size": 819
+      },
+      "sympy/holonomic/holonomic.py": {
+        "size": 91796
+      },
+      "sympy/holonomic/holonomicerrors.py": {
+        "size": 1228
+      },
+      "sympy/holonomic/numerical.py": {
+        "size": 2674
+      },
+      "sympy/holonomic/recurrence.py": {
+        "size": 10379
+      },
+      "sympy/holonomic/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/holonomic/tests/test_holonomic.py": {
+        "size": 35368
+      },
+      "sympy/holonomic/tests/test_recurrence.py": {
+        "size": 1377
+      },
+      "sympy/integrals/__init__.py": {
+        "size": 2005
+      },
+      "sympy/integrals/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "sympy/integrals/benchmarks/bench_integrate.py": {
+        "size": 431
+      },
+      "sympy/integrals/benchmarks/bench_trigintegrate.py": {
+        "size": 340
+      },
+      "sympy/integrals/deltafunctions.py": {
+        "size": 7470
+      },
+      "sympy/integrals/heurisch.py": {
+        "size": 26706
+      },
+      "sympy/integrals/integrals.py": {
+        "size": 65079
+      },
+      "sympy/integrals/intpoly.py": {
+        "size": 43272
+      },
+      "sympy/integrals/laplace.py": {
+        "size": 87426
+      },
+      "sympy/integrals/manualintegrate.py": {
+        "size": 93451
+      },
+      "sympy/integrals/meijerint.py": {
+        "size": 80831
+      },
+      "sympy/integrals/meijerint_doc.py": {
+        "size": 1246
+      },
+      "sympy/integrals/prde.py": {
+        "size": 52907
+      },
+      "sympy/integrals/quadrature.py": {
+        "size": 17099
+      },
+      "sympy/integrals/rationaltools.py": {
+        "size": 10892
+      },
+      "sympy/integrals/rde.py": {
+        "size": 27428
+      },
+      "sympy/integrals/risch.py": {
+        "size": 67556
+      },
+      "sympy/integrals/singularityfunctions.py": {
+        "size": 2270
+      },
+      "sympy/integrals/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/integrals/tests/test_deltafunctions.py": {
+        "size": 3744
+      },
+      "sympy/integrals/tests/test_failing_integrals.py": {
+        "size": 7268
+      },
+      "sympy/integrals/tests/test_heurisch.py": {
+        "size": 14334
+      },
+      "sympy/integrals/tests/test_integrals.py": {
+        "size": 82808
+      },
+      "sympy/integrals/tests/test_intpoly.py": {
+        "size": 37480
+      },
+      "sympy/integrals/tests/test_laplace.py": {
+        "size": 39496
+      },
+      "sympy/integrals/tests/test_lineintegrals.py": {
+        "size": 485
+      },
+      "sympy/integrals/tests/test_manual.py": {
+        "size": 41551
+      },
+      "sympy/integrals/tests/test_meijerint.py": {
+        "size": 32629
+      },
+      "sympy/integrals/tests/test_prde.py": {
+        "size": 16709
+      },
+      "sympy/integrals/tests/test_quadrature.py": {
+        "size": 19954
+      },
+      "sympy/integrals/tests/test_rationaltools.py": {
+        "size": 6633
+      },
+      "sympy/integrals/tests/test_rde.py": {
+        "size": 10951
+      },
+      "sympy/integrals/tests/test_risch.py": {
+        "size": 39500
+      },
+      "sympy/integrals/tests/test_singularityfunctions.py": {
+        "size": 1301
+      },
+      "sympy/integrals/tests/test_transforms.py": {
+        "size": 27201
+      },
+      "sympy/integrals/tests/test_trigonometry.py": {
+        "size": 3904
+      },
+      "sympy/integrals/transforms.py": {
+        "size": 51785
+      },
+      "sympy/integrals/trigonometry.py": {
+        "size": 11118
+      },
+      "sympy/interactive/__init__.py": {
+        "size": 286
+      },
+      "sympy/interactive/printing.py": {
+        "size": 21593
+      },
+      "sympy/interactive/session.py": {
+        "size": 17723
+      },
+      "sympy/interactive/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/interactive/tests/test_interactive.py": {
+        "size": 520
+      },
+      "sympy/interactive/tests/test_ipython.py": {
+        "size": 11832
+      },
+      "sympy/interactive/traversal.py": {
+        "size": 3224
+      },
+      "sympy/liealgebras/__init__.py": {
+        "size": 114
+      },
+      "sympy/liealgebras/cartan_matrix.py": {
+        "size": 559
+      },
+      "sympy/liealgebras/cartan_type.py": {
+        "size": 1825
+      },
+      "sympy/liealgebras/dynkin_diagram.py": {
+        "size": 570
+      },
+      "sympy/liealgebras/root_system.py": {
+        "size": 6708
+      },
+      "sympy/liealgebras/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/liealgebras/tests/test_cartan_matrix.py": {
+        "size": 338
+      },
+      "sympy/liealgebras/tests/test_cartan_type.py": {
+        "size": 374
+      },
+      "sympy/liealgebras/tests/test_dynkin_diagram.py": {
+        "size": 295
+      },
+      "sympy/liealgebras/tests/test_root_system.py": {
+        "size": 962
+      },
+      "sympy/liealgebras/tests/test_type_A.py": {
+        "size": 692
+      },
+      "sympy/liealgebras/tests/test_type_B.py": {
+        "size": 677
+      },
+      "sympy/liealgebras/tests/test_type_C.py": {
+        "size": 962
+      },
+      "sympy/liealgebras/tests/test_type_D.py": {
+        "size": 799
+      },
+      "sympy/liealgebras/tests/test_type_E.py": {
+        "size": 1022
+      },
+      "sympy/liealgebras/tests/test_type_F.py": {
+        "size": 1413
+      },
+      "sympy/liealgebras/tests/test_type_G.py": {
+        "size": 579
+      },
+      "sympy/liealgebras/tests/test_weyl_group.py": {
+        "size": 1536
+      },
+      "sympy/liealgebras/type_a.py": {
+        "size": 4329
+      },
+      "sympy/liealgebras/type_b.py": {
+        "size": 4582
+      },
+      "sympy/liealgebras/type_c.py": {
+        "size": 4461
+      },
+      "sympy/liealgebras/type_d.py": {
+        "size": 4716
+      },
+      "sympy/liealgebras/type_e.py": {
+        "size": 8315
+      },
+      "sympy/liealgebras/type_f.py": {
+        "size": 4458
+      },
+      "sympy/liealgebras/type_g.py": {
+        "size": 2996
+      },
+      "sympy/liealgebras/weyl_group.py": {
+        "size": 14574
+      },
+      "sympy/logic/__init__.py": {
+        "size": 491
+      },
+      "sympy/logic/algorithms/__init__.py": {
+        "size": 0
+      },
+      "sympy/logic/algorithms/dpll.py": {
+        "size": 9223
+      },
+      "sympy/logic/algorithms/dpll2.py": {
+        "size": 21532
+      },
+      "sympy/logic/algorithms/lra_theory.py": {
+        "size": 31806
+      },
+      "sympy/logic/algorithms/minisat22_wrapper.py": {
+        "size": 1352
+      },
+      "sympy/logic/algorithms/pycosat_wrapper.py": {
+        "size": 1242
+      },
+      "sympy/logic/algorithms/z3_wrapper.py": {
+        "size": 4873
+      },
+      "sympy/logic/boolalg.py": {
+        "size": 116841
+      },
+      "sympy/logic/inference.py": {
+        "size": 8988
+      },
+      "sympy/logic/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/logic/tests/test_boolalg.py": {
+        "size": 52366
+      },
+      "sympy/logic/tests/test_dimacs.py": {
+        "size": 3921
+      },
+      "sympy/logic/tests/test_inference.py": {
+        "size": 16977
+      },
+      "sympy/logic/tests/test_lra_theory.py": {
+        "size": 17541
+      },
+      "sympy/logic/utilities/__init__.py": {
+        "size": 90
+      },
+      "sympy/logic/utilities/dimacs.py": {
+        "size": 1706
+      },
+      "sympy/matrices/__init__.py": {
+        "size": 2669
+      },
+      "sympy/matrices/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "sympy/matrices/benchmarks/bench_matrix.py": {
+        "size": 341
+      },
+      "sympy/matrices/common.py": {
+        "size": 95395
+      },
+      "sympy/matrices/decompositions.py": {
+        "size": 48742
+      },
+      "sympy/matrices/dense.py": {
+        "size": 30815
+      },
+      "sympy/matrices/determinant.py": {
+        "size": 35505
+      },
+      "sympy/matrices/eigen.py": {
+        "size": 49002
+      },
+      "sympy/matrices/exceptions.py": {
+        "size": 538
+      },
+      "sympy/matrices/expressions/__init__.py": {
+        "size": 1757
+      },
+      "sympy/matrices/expressions/_shape.py": {
+        "size": 3123
+      },
+      "sympy/matrices/expressions/adjoint.py": {
+        "size": 1550
+      },
+      "sympy/matrices/expressions/applyfunc.py": {
+        "size": 6786
+      },
+      "sympy/matrices/expressions/blockmatrix.py": {
+        "size": 31955
+      },
+      "sympy/matrices/expressions/companion.py": {
+        "size": 1740
+      },
+      "sympy/matrices/expressions/determinant.py": {
+        "size": 3461
+      },
+      "sympy/matrices/expressions/diagonal.py": {
+        "size": 6363
+      },
+      "sympy/matrices/expressions/dotproduct.py": {
+        "size": 1946
+      },
+      "sympy/matrices/expressions/factorizations.py": {
+        "size": 1491
+      },
+      "sympy/matrices/expressions/fourier.py": {
+        "size": 2129
+      },
+      "sympy/matrices/expressions/funcmatrix.py": {
+        "size": 3555
+      },
+      "sympy/matrices/expressions/hadamard.py": {
+        "size": 13955
+      },
+      "sympy/matrices/expressions/inverse.py": {
+        "size": 2998
+      },
+      "sympy/matrices/expressions/kronecker.py": {
+        "size": 13439
+      },
+      "sympy/matrices/expressions/matadd.py": {
+        "size": 4963
+      },
+      "sympy/matrices/expressions/matexpr.py": {
+        "size": 27951
+      },
+      "sympy/matrices/expressions/matmul.py": {
+        "size": 15544
+      },
+      "sympy/matrices/expressions/matpow.py": {
+        "size": 5628
+      },
+      "sympy/matrices/expressions/permutation.py": {
+        "size": 8085
+      },
+      "sympy/matrices/expressions/sets.py": {
+        "size": 2068
+      },
+      "sympy/matrices/expressions/slice.py": {
+        "size": 3390
+      },
+      "sympy/matrices/expressions/special.py": {
+        "size": 10372
+      },
+      "sympy/matrices/expressions/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/matrices/expressions/tests/test_adjoint.py": {
+        "size": 1100
+      },
+      "sympy/matrices/expressions/tests/test_applyfunc.py": {
+        "size": 3557
+      },
+      "sympy/matrices/expressions/tests/test_blockmatrix.py": {
+        "size": 16655
+      },
+      "sympy/matrices/expressions/tests/test_companion.py": {
+        "size": 1692
+      },
+      "sympy/matrices/expressions/tests/test_derivatives.py": {
+        "size": 23370
+      },
+      "sympy/matrices/expressions/tests/test_determinant.py": {
+        "size": 2102
+      },
+      "sympy/matrices/expressions/tests/test_diagonal.py": {
+        "size": 4551
+      },
+      "sympy/matrices/expressions/tests/test_dotproduct.py": {
+        "size": 1206
+      },
+      "sympy/matrices/expressions/tests/test_factorizations.py": {
+        "size": 821
+      },
+      "sympy/matrices/expressions/tests/test_fourier.py": {
+        "size": 1673
+      },
+      "sympy/matrices/expressions/tests/test_funcmatrix.py": {
+        "size": 2265
+      },
+      "sympy/matrices/expressions/tests/test_hadamard.py": {
+        "size": 4649
+      },
+      "sympy/matrices/expressions/tests/test_indexing.py": {
+        "size": 12073
+      },
+      "sympy/matrices/expressions/tests/test_inverse.py": {
+        "size": 2355
+      },
+      "sympy/matrices/expressions/tests/test_kronecker.py": {
+        "size": 5401
+      },
+      "sympy/matrices/expressions/tests/test_matadd.py": {
+        "size": 1901
+      },
+      "sympy/matrices/expressions/tests/test_matexpr.py": {
+        "size": 18476
+      },
+      "sympy/matrices/expressions/tests/test_matmul.py": {
+        "size": 6222
+      },
+      "sympy/matrices/expressions/tests/test_matpow.py": {
+        "size": 7343
+      },
+      "sympy/matrices/expressions/tests/test_permutation.py": {
+        "size": 5642
+      },
+      "sympy/matrices/expressions/tests/test_sets.py": {
+        "size": 1443
+      },
+      "sympy/matrices/expressions/tests/test_slice.py": {
+        "size": 2062
+      },
+      "sympy/matrices/expressions/tests/test_special.py": {
+        "size": 7097
+      },
+      "sympy/matrices/expressions/tests/test_trace.py": {
+        "size": 3418
+      },
+      "sympy/matrices/expressions/tests/test_transpose.py": {
+        "size": 2022
+      },
+      "sympy/matrices/expressions/trace.py": {
+        "size": 5402
+      },
+      "sympy/matrices/expressions/transpose.py": {
+        "size": 2680
+      },
+      "sympy/matrices/graph.py": {
+        "size": 9595
+      },
+      "sympy/matrices/immutable.py": {
+        "size": 5622
+      },
+      "sympy/matrices/inverse.py": {
+        "size": 13595
+      },
+      "sympy/matrices/kind.py": {
+        "size": 2878
+      },
+      "sympy/matrices/matrices.py": {
+        "size": 23571
+      },
+      "sympy/matrices/matrixbase.py": {
+        "size": 182376
+      },
+      "sympy/matrices/normalforms.py": {
+        "size": 4671
+      },
+      "sympy/matrices/reductions.py": {
+        "size": 14793
+      },
+      "sympy/matrices/repmatrix.py": {
+        "size": 33049
+      },
+      "sympy/matrices/solvers.py": {
+        "size": 26030
+      },
+      "sympy/matrices/sparse.py": {
+        "size": 14785
+      },
+      "sympy/matrices/sparsetools.py": {
+        "size": 9338
+      },
+      "sympy/matrices/subspaces.py": {
+        "size": 3999
+      },
+      "sympy/matrices/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/matrices/tests/test_commonmatrix.py": {
+        "size": 40806
+      },
+      "sympy/matrices/tests/test_decompositions.py": {
+        "size": 14854
+      },
+      "sympy/matrices/tests/test_determinant.py": {
+        "size": 9748
+      },
+      "sympy/matrices/tests/test_domains.py": {
+        "size": 3311
+      },
+      "sympy/matrices/tests/test_eigen.py": {
+        "size": 25840
+      },
+      "sympy/matrices/tests/test_graph.py": {
+        "size": 3248
+      },
+      "sympy/matrices/tests/test_immutable.py": {
+        "size": 4651
+      },
+      "sympy/matrices/tests/test_interactions.py": {
+        "size": 2105
+      },
+      "sympy/matrices/tests/test_matrices.py": {
+        "size": 162646
+      },
+      "sympy/matrices/tests/test_matrixbase.py": {
+        "size": 168981
+      },
+      "sympy/matrices/tests/test_normalforms.py": {
+        "size": 3765
+      },
+      "sympy/matrices/tests/test_reductions.py": {
+        "size": 14525
+      },
+      "sympy/matrices/tests/test_repmatrix.py": {
+        "size": 2119
+      },
+      "sympy/matrices/tests/test_solvers.py": {
+        "size": 22346
+      },
+      "sympy/matrices/tests/test_sparse.py": {
+        "size": 23316
+      },
+      "sympy/matrices/tests/test_sparsetools.py": {
+        "size": 4912
+      },
+      "sympy/matrices/tests/test_subspaces.py": {
+        "size": 3500
+      },
+      "sympy/matrices/utilities.py": {
+        "size": 2537
+      },
+      "sympy/multipledispatch/__init__.py": {
+        "size": 294
+      },
+      "sympy/multipledispatch/conflict.py": {
+        "size": 2152
+      },
+      "sympy/multipledispatch/core.py": {
+        "size": 2261
+      },
+      "sympy/multipledispatch/dispatcher.py": {
+        "size": 12226
+      },
+      "sympy/multipledispatch/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/multipledispatch/tests/test_conflict.py": {
+        "size": 1821
+      },
+      "sympy/multipledispatch/tests/test_core.py": {
+        "size": 4048
+      },
+      "sympy/multipledispatch/tests/test_dispatcher.py": {
+        "size": 6263
+      },
+      "sympy/multipledispatch/utils.py": {
+        "size": 3132
+      },
+      "sympy/ntheory/__init__.py": {
+        "size": 2845
+      },
+      "sympy/ntheory/bbp_pi.py": {
+        "size": 6093
+      },
+      "sympy/ntheory/continued_fraction.py": {
+        "size": 10704
+      },
+      "sympy/ntheory/digits.py": {
+        "size": 4065
+      },
+      "sympy/ntheory/ecm.py": {
+        "size": 11828
+      },
+      "sympy/ntheory/egyptian_fraction.py": {
+        "size": 7244
+      },
+      "sympy/ntheory/elliptic_curve.py": {
+        "size": 11658
+      },
+      "sympy/ntheory/factor_.py": {
+        "size": 85176
+      },
+      "sympy/ntheory/generate.py": {
+        "size": 35222
+      },
+      "sympy/ntheory/modular.py": {
+        "size": 8509
+      },
+      "sympy/ntheory/multinomial.py": {
+        "size": 5406
+      },
+      "sympy/ntheory/partitions_.py": {
+        "size": 9027
+      },
+      "sympy/ntheory/primetest.py": {
+        "size": 26010
+      },
+      "sympy/ntheory/qs.py": {
+        "size": 15080
+      },
+      "sympy/ntheory/residue_ntheory.py": {
+        "size": 55726
+      },
+      "sympy/ntheory/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/ntheory/tests/test_bbp_pi.py": {
+        "size": 9521
+      },
+      "sympy/ntheory/tests/test_continued_fraction.py": {
+        "size": 3618
+      },
+      "sympy/ntheory/tests/test_digits.py": {
+        "size": 2003
+      },
+      "sympy/ntheory/tests/test_ecm.py": {
+        "size": 2325
+      },
+      "sympy/ntheory/tests/test_egyptian_fraction.py": {
+        "size": 2413
+      },
+      "sympy/ntheory/tests/test_elliptic_curve.py": {
+        "size": 850
+      },
+      "sympy/ntheory/tests/test_factor_.py": {
+        "size": 26656
+      },
+      "sympy/ntheory/tests/test_generate.py": {
+        "size": 9903
+      },
+      "sympy/ntheory/tests/test_hypothesis.py": {
+        "size": 763
+      },
+      "sympy/ntheory/tests/test_modular.py": {
+        "size": 1460
+      },
+      "sympy/ntheory/tests/test_multinomial.py": {
+        "size": 2379
+      },
+      "sympy/ntheory/tests/test_partitions.py": {
+        "size": 1123
+      },
+      "sympy/ntheory/tests/test_primetest.py": {
+        "size": 9530
+      },
+      "sympy/ntheory/tests/test_qs.py": {
+        "size": 3965
+      },
+      "sympy/ntheory/tests/test_residue.py": {
+        "size": 16844
+      },
+      "sympy/parsing/__init__.py": {
+        "size": 160
+      },
+      "sympy/parsing/ast_parser.py": {
+        "size": 2769
+      },
+      "sympy/parsing/autolev/__init__.py": {
+        "size": 3646
+      },
+      "sympy/parsing/autolev/_antlr/__init__.py": {
+        "size": 203
+      },
+      "sympy/parsing/autolev/_antlr/autolevlexer.py": {
+        "size": 13609
+      },
+      "sympy/parsing/autolev/_antlr/autolevlistener.py": {
+        "size": 12821
+      },
+      "sympy/parsing/autolev/_antlr/autolevparser.py": {
+        "size": 106291
+      },
+      "sympy/parsing/autolev/_build_autolev_antlr.py": {
+        "size": 2613
+      },
+      "sympy/parsing/autolev/_listener_autolev_antlr.py": {
+        "size": 104760
+      },
+      "sympy/parsing/autolev/_parse_autolev_antlr.py": {
+        "size": 1746
+      },
+      "sympy/parsing/autolev/test-examples/README.txt": {
+        "size": 528
+      },
+      "sympy/parsing/autolev/test-examples/pydy-example-repo/chaos_pendulum.py": {
+        "size": 2274
+      },
+      "sympy/parsing/autolev/test-examples/pydy-example-repo/double_pendulum.py": {
+        "size": 1583
+      },
+      "sympy/parsing/autolev/test-examples/pydy-example-repo/mass_spring_damper.py": {
+        "size": 1366
+      },
+      "sympy/parsing/autolev/test-examples/pydy-example-repo/non_min_pendulum.py": {
+        "size": 1503
+      },
+      "sympy/parsing/autolev/test-examples/ruletest1.py": {
+        "size": 555
+      },
+      "sympy/parsing/autolev/test-examples/ruletest10.py": {
+        "size": 2726
+      },
+      "sympy/parsing/autolev/test-examples/ruletest11.py": {
+        "size": 475
+      },
+      "sympy/parsing/autolev/test-examples/ruletest12.py": {
+        "size": 472
+      },
+      "sympy/parsing/autolev/test-examples/ruletest2.py": {
+        "size": 820
+      },
+      "sympy/parsing/autolev/test-examples/ruletest3.py": {
+        "size": 1574
+      },
+      "sympy/parsing/autolev/test-examples/ruletest4.py": {
+        "size": 682
+      },
+      "sympy/parsing/autolev/test-examples/ruletest5.py": {
+        "size": 1991
+      },
+      "sympy/parsing/autolev/test-examples/ruletest6.py": {
+        "size": 1473
+      },
+      "sympy/parsing/autolev/test-examples/ruletest7.py": {
+        "size": 1696
+      },
+      "sympy/parsing/autolev/test-examples/ruletest8.py": {
+        "size": 2690
+      },
+      "sympy/parsing/autolev/test-examples/ruletest9.py": {
+        "size": 1965
+      },
+      "sympy/parsing/c/__init__.py": {
+        "size": 65
+      },
+      "sympy/parsing/c/c_parser.py": {
+        "size": 38149
+      },
+      "sympy/parsing/fortran/__init__.py": {
+        "size": 73
+      },
+      "sympy/parsing/fortran/fortran_parser.py": {
+        "size": 11518
+      },
+      "sympy/parsing/latex/LICENSE.txt": {
+        "size": 1075
+      },
+      "sympy/parsing/latex/__init__.py": {
+        "size": 9546
+      },
+      "sympy/parsing/latex/_antlr/__init__.py": {
+        "size": 384
+      },
+      "sympy/parsing/latex/_antlr/latexlexer.py": {
+        "size": 30502
+      },
+      "sympy/parsing/latex/_antlr/latexparser.py": {
+        "size": 123655
+      },
+      "sympy/parsing/latex/_build_latex_antlr.py": {
+        "size": 2800
+      },
+      "sympy/parsing/latex/_parse_latex_antlr.py": {
+        "size": 20712
+      },
+      "sympy/parsing/latex/errors.py": {
+        "size": 80
+      },
+      "sympy/parsing/latex/lark/__init__.py": {
+        "size": 120
+      },
+      "sympy/parsing/latex/lark/latex_parser.py": {
+        "size": 4465
+      },
+      "sympy/parsing/latex/lark/transformer.py": {
+        "size": 25963
+      },
+      "sympy/parsing/mathematica.py": {
+        "size": 44146
+      },
+      "sympy/parsing/mathematica_named_characters.py": {
+        "size": 27219
+      },
+      "sympy/parsing/maxima.py": {
+        "size": 1870
+      },
+      "sympy/parsing/sym_expr.py": {
+        "size": 8930
+      },
+      "sympy/parsing/sympy_parser.py": {
+        "size": 46902
+      },
+      "sympy/parsing/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/parsing/tests/test_ast_parser.py": {
+        "size": 838
+      },
+      "sympy/parsing/tests/test_autolev.py": {
+        "size": 6701
+      },
+      "sympy/parsing/tests/test_c_parser.py": {
+        "size": 155389
+      },
+      "sympy/parsing/tests/test_custom_latex.py": {
+        "size": 2095
+      },
+      "sympy/parsing/tests/test_fortran_parser.py": {
+        "size": 11863
+      },
+      "sympy/parsing/tests/test_implicit_multiplication_application.py": {
+        "size": 7424
+      },
+      "sympy/parsing/tests/test_latex.py": {
+        "size": 12143
+      },
+      "sympy/parsing/tests/test_latex_deps.py": {
+        "size": 461
+      },
+      "sympy/parsing/tests/test_latex_lark.py": {
+        "size": 38655
+      },
+      "sympy/parsing/tests/test_mathematica.py": {
+        "size": 17416
+      },
+      "sympy/parsing/tests/test_maxima.py": {
+        "size": 2022
+      },
+      "sympy/parsing/tests/test_sym_expr.py": {
+        "size": 5703
+      },
+      "sympy/parsing/tests/test_sympy_parser.py": {
+        "size": 14744
+      },
+      "sympy/physics/__init__.py": {
+        "size": 255
+      },
+      "sympy/physics/biomechanics/__init__.py": {
+        "size": 1555
+      },
+      "sympy/physics/biomechanics/_mixin.py": {
+        "size": 1526
+      },
+      "sympy/physics/biomechanics/activation.py": {
+        "size": 25557
+      },
+      "sympy/physics/biomechanics/curve.py": {
+        "size": 63189
+      },
+      "sympy/physics/biomechanics/musculotendon.py": {
+        "size": 58324
+      },
+      "sympy/physics/biomechanics/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/physics/biomechanics/tests/test_activation.py": {
+        "size": 13430
+      },
+      "sympy/physics/biomechanics/tests/test_curve.py": {
+        "size": 75835
+      },
+      "sympy/physics/biomechanics/tests/test_mixin.py": {
+        "size": 1357
+      },
+      "sympy/physics/biomechanics/tests/test_musculotendon.py": {
+        "size": 32941
+      },
+      "sympy/physics/continuum_mechanics/__init__.py": {
+        "size": 226
+      },
+      "sympy/physics/continuum_mechanics/arch.py": {
+        "size": 39278
+      },
+      "sympy/physics/continuum_mechanics/beam.py": {
+        "size": 165511
+      },
+      "sympy/physics/continuum_mechanics/cable.py": {
+        "size": 31456
+      },
+      "sympy/physics/continuum_mechanics/column.py": {
+        "size": 27138
+      },
+      "sympy/physics/continuum_mechanics/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/physics/continuum_mechanics/tests/test_arch.py": {
+        "size": 2606
+      },
+      "sympy/physics/continuum_mechanics/tests/test_beam.py": {
+        "size": 51291
+      },
+      "sympy/physics/continuum_mechanics/tests/test_cable.py": {
+        "size": 3867
+      },
+      "sympy/physics/continuum_mechanics/tests/test_column.py": {
+        "size": 15076
+      },
+      "sympy/physics/continuum_mechanics/tests/test_truss.py": {
+        "size": 3304
+      },
+      "sympy/physics/continuum_mechanics/truss.py": {
+        "size": 45001
+      },
+      "sympy/physics/control/__init__.py": {
+        "size": 1646
+      },
+      "sympy/physics/control/control_plots.py": {
+        "size": 37550
+      },
+      "sympy/physics/control/lti.py": {
+        "size": 236815
+      },
+      "sympy/physics/control/routh_table.py": {
+        "size": 9810
+      },
+      "sympy/physics/control/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/physics/control/tests/test_control_plots.py": {
+        "size": 16934
+      },
+      "sympy/physics/control/tests/test_lti.py": {
+        "size": 225381
+      },
+      "sympy/physics/control/tests/test_routh_table.py": {
+        "size": 1570
+      },
+      "sympy/physics/hep/__init__.py": {
+        "size": 0
+      },
+      "sympy/physics/hep/gamma_matrices.py": {
+        "size": 24288
+      },
+      "sympy/physics/hep/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/physics/hep/tests/test_gamma_matrices.py": {
+        "size": 14757
+      },
+      "sympy/physics/hydrogen.py": {
+        "size": 11577
+      },
+      "sympy/physics/matrices.py": {
+        "size": 3871
+      },
+      "sympy/physics/mechanics/__init__.py": {
+        "size": 2939
+      },
+      "sympy/physics/mechanics/actuator.py": {
+        "size": 43668
+      },
+      "sympy/physics/mechanics/body.py": {
+        "size": 24652
+      },
+      "sympy/physics/mechanics/body_base.py": {
+        "size": 2526
+      },
+      "sympy/physics/mechanics/functions.py": {
+        "size": 25225
+      },
+      "sympy/physics/mechanics/inertia.py": {
+        "size": 6208
+      },
+      "sympy/physics/mechanics/joint.py": {
+        "size": 84653
+      },
+      "sympy/physics/mechanics/jointsmethod.py": {
+        "size": 10450
+      },
+      "sympy/physics/mechanics/kane.py": {
+        "size": 37153
+      },
+      "sympy/physics/mechanics/lagrange.py": {
+        "size": 20237
+      },
+      "sympy/physics/mechanics/linearize.py": {
+        "size": 17277
+      },
+      "sympy/physics/mechanics/loads.py": {
+        "size": 5441
+      },
+      "sympy/physics/mechanics/method.py": {
+        "size": 695
+      },
+      "sympy/physics/mechanics/models.py": {
+        "size": 6498
+      },
+      "sympy/physics/mechanics/particle.py": {
+        "size": 6020
+      },
+      "sympy/physics/mechanics/pathway.py": {
+        "size": 26590
+      },
+      "sympy/physics/mechanics/rigidbody.py": {
+        "size": 10322
+      },
+      "sympy/physics/mechanics/system.py": {
+        "size": 59492
+      },
+      "sympy/physics/mechanics/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/physics/mechanics/tests/test_actuator.py": {
+        "size": 41116
+      },
+      "sympy/physics/mechanics/tests/test_body.py": {
+        "size": 12102
+      },
+      "sympy/physics/mechanics/tests/test_functions.py": {
+        "size": 10482
+      },
+      "sympy/physics/mechanics/tests/test_inertia.py": {
+        "size": 2761
+      },
+      "sympy/physics/mechanics/tests/test_joint.py": {
+        "size": 57957
+      },
+      "sympy/physics/mechanics/tests/test_jointsmethod.py": {
+        "size": 10261
+      },
+      "sympy/physics/mechanics/tests/test_kane.py": {
+        "size": 21580
+      },
+      "sympy/physics/mechanics/tests/test_kane2.py": {
+        "size": 19291
+      },
+      "sympy/physics/mechanics/tests/test_kane3.py": {
+        "size": 14994
+      },
+      "sympy/physics/mechanics/tests/test_kane4.py": {
+        "size": 4744
+      },
+      "sympy/physics/mechanics/tests/test_kane5.py": {
+        "size": 5728
+      },
+      "sympy/physics/mechanics/tests/test_lagrange.py": {
+        "size": 10154
+      },
+      "sympy/physics/mechanics/tests/test_lagrange2.py": {
+        "size": 1437
+      },
+      "sympy/physics/mechanics/tests/test_linearity_of_velocity_constraints.py": {
+        "size": 1376
+      },
+      "sympy/physics/mechanics/tests/test_linearize.py": {
+        "size": 13308
+      },
+      "sympy/physics/mechanics/tests/test_loads.py": {
+        "size": 2733
+      },
+      "sympy/physics/mechanics/tests/test_method.py": {
+        "size": 189
+      },
+      "sympy/physics/mechanics/tests/test_models.py": {
+        "size": 5113
+      },
+      "sympy/physics/mechanics/tests/test_particle.py": {
+        "size": 2717
+      },
+      "sympy/physics/mechanics/tests/test_pathway.py": {
+        "size": 24979
+      },
+      "sympy/physics/mechanics/tests/test_rigidbody.py": {
+        "size": 6223
+      },
+      "sympy/physics/mechanics/tests/test_system.py": {
+        "size": 8735
+      },
+      "sympy/physics/mechanics/tests/test_system_class.py": {
+        "size": 38254
+      },
+      "sympy/physics/mechanics/tests/test_wrapping_geometry.py": {
+        "size": 19320
+      },
+      "sympy/physics/mechanics/wrapping_geometry.py": {
+        "size": 30090
+      },
+      "sympy/physics/optics/__init__.py": {
+        "size": 1682
+      },
+      "sympy/physics/optics/gaussopt.py": {
+        "size": 20933
+      },
+      "sympy/physics/optics/medium.py": {
+        "size": 7159
+      },
+      "sympy/physics/optics/polarization.py": {
+        "size": 19792
+      },
+      "sympy/physics/optics/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/physics/optics/tests/test_gaussopt.py": {
+        "size": 4257
+      },
+      "sympy/physics/optics/tests/test_medium.py": {
+        "size": 2229
+      },
+      "sympy/physics/optics/tests/test_polarization.py": {
+        "size": 2640
+      },
+      "sympy/physics/optics/tests/test_utils.py": {
+        "size": 8588
+      },
+      "sympy/physics/optics/tests/test_waves.py": {
+        "size": 3432
+      },
+      "sympy/physics/optics/utils.py": {
+        "size": 22207
+      },
+      "sympy/physics/optics/waves.py": {
+        "size": 10077
+      },
+      "sympy/physics/paulialgebra.py": {
+        "size": 6037
+      },
+      "sympy/physics/pring.py": {
+        "size": 2275
+      },
+      "sympy/physics/qho_1d.py": {
+        "size": 2040
+      },
+      "sympy/physics/quantum/__init__.py": {
+        "size": 1987
+      },
+      "sympy/physics/quantum/anticommutator.py": {
+        "size": 5116
+      },
+      "sympy/physics/quantum/boson.py": {
+        "size": 5869
+      },
+      "sympy/physics/quantum/cartesian.py": {
+        "size": 9127
+      },
+      "sympy/physics/quantum/cg.py": {
+        "size": 23354
+      },
+      "sympy/physics/quantum/circuitplot.py": {
+        "size": 11799
+      },
+      "sympy/physics/quantum/circuitutils.py": {
+        "size": 13917
+      },
+      "sympy/physics/quantum/commutator.py": {
+        "size": 8183
+      },
+      "sympy/physics/quantum/constants.py": {
+        "size": 1467
+      },
+      "sympy/physics/quantum/dagger.py": {
+        "size": 2519
+      },
+      "sympy/physics/quantum/density.py": {
+        "size": 9581
+      },
+      "sympy/physics/quantum/fermion.py": {
+        "size": 5018
+      },
+      "sympy/physics/quantum/gate.py": {
+        "size": 42623
+      },
+      "sympy/physics/quantum/grover.py": {
+        "size": 10487
+      },
+      "sympy/physics/quantum/hilbert.py": {
+        "size": 19667
+      },
+      "sympy/physics/quantum/identitysearch.py": {
+        "size": 27642
+      },
+      "sympy/physics/quantum/innerproduct.py": {
+        "size": 4338
+      },
+      "sympy/physics/quantum/kind.py": {
+        "size": 2866
+      },
+      "sympy/physics/quantum/matrixcache.py": {
+        "size": 3622
+      },
+      "sympy/physics/quantum/matrixutils.py": {
+        "size": 8249
+      },
+      "sympy/physics/quantum/operator.py": {
+        "size": 19658
+      },
+      "sympy/physics/quantum/operatorordering.py": {
+        "size": 10331
+      },
+      "sympy/physics/quantum/operatorset.py": {
+        "size": 9598
+      },
+      "sympy/physics/quantum/pauli.py": {
+        "size": 17342
+      },
+      "sympy/physics/quantum/piab.py": {
+        "size": 1947
+      },
+      "sympy/physics/quantum/qapply.py": {
+        "size": 9529
+      },
+      "sympy/physics/quantum/qasm.py": {
+        "size": 6323
+      },
+      "sympy/physics/quantum/qexpr.py": {
+        "size": 13975
+      },
+      "sympy/physics/quantum/qft.py": {
+        "size": 6460
+      },
+      "sympy/physics/quantum/qubit.py": {
+        "size": 25993
+      },
+      "sympy/physics/quantum/represent.py": {
+        "size": 18725
+      },
+      "sympy/physics/quantum/sho1d.py": {
+        "size": 20902
+      },
+      "sympy/physics/quantum/shor.py": {
+        "size": 5539
+      },
+      "sympy/physics/quantum/spin.py": {
+        "size": 72992
+      },
+      "sympy/physics/quantum/state.py": {
+        "size": 29986
+      },
+      "sympy/physics/quantum/tensorproduct.py": {
+        "size": 13191
+      },
+      "sympy/physics/quantum/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/physics/quantum/tests/test_anticommutator.py": {
+        "size": 1339
+      },
+      "sympy/physics/quantum/tests/test_boson.py": {
+        "size": 1711
+      },
+      "sympy/physics/quantum/tests/test_cartesian.py": {
+        "size": 4452
+      },
+      "sympy/physics/quantum/tests/test_cg.py": {
+        "size": 9194
+      },
+      "sympy/physics/quantum/tests/test_circuitplot.py": {
+        "size": 2131
+      },
+      "sympy/physics/quantum/tests/test_circuitutils.py": {
+        "size": 13222
+      },
+      "sympy/physics/quantum/tests/test_commutator.py": {
+        "size": 2762
+      },
+      "sympy/physics/quantum/tests/test_constants.py": {
+        "size": 373
+      },
+      "sympy/physics/quantum/tests/test_dagger.py": {
+        "size": 2667
+      },
+      "sympy/physics/quantum/tests/test_density.py": {
+        "size": 10993
+      },
+      "sympy/physics/quantum/tests/test_fermion.py": {
+        "size": 1671
+      },
+      "sympy/physics/quantum/tests/test_gate.py": {
+        "size": 12531
+      },
+      "sympy/physics/quantum/tests/test_grover.py": {
+        "size": 3675
+      },
+      "sympy/physics/quantum/tests/test_hilbert.py": {
+        "size": 2678
+      },
+      "sympy/physics/quantum/tests/test_identitysearch.py": {
+        "size": 17780
+      },
+      "sympy/physics/quantum/tests/test_innerproduct.py": {
+        "size": 1518
+      },
+      "sympy/physics/quantum/tests/test_kind.py": {
+        "size": 2696
+      },
+      "sympy/physics/quantum/tests/test_matrixutils.py": {
+        "size": 4150
+      },
+      "sympy/physics/quantum/tests/test_operator.py": {
+        "size": 8452
+      },
+      "sympy/physics/quantum/tests/test_operatorordering.py": {
+        "size": 2038
+      },
+      "sympy/physics/quantum/tests/test_operatorset.py": {
+        "size": 2663
+      },
+      "sympy/physics/quantum/tests/test_pauli.py": {
+        "size": 5082
+      },
+      "sympy/physics/quantum/tests/test_piab.py": {
+        "size": 1121
+      },
+      "sympy/physics/quantum/tests/test_printing.py": {
+        "size": 29873
+      },
+      "sympy/physics/quantum/tests/test_qapply.py": {
+        "size": 6121
+      },
+      "sympy/physics/quantum/tests/test_qasm.py": {
+        "size": 3011
+      },
+      "sympy/physics/quantum/tests/test_qexpr.py": {
+        "size": 1865
+      },
+      "sympy/physics/quantum/tests/test_qft.py": {
+        "size": 1966
+      },
+      "sympy/physics/quantum/tests/test_qubit.py": {
+        "size": 9306
+      },
+      "sympy/physics/quantum/tests/test_represent.py": {
+        "size": 5212
+      },
+      "sympy/physics/quantum/tests/test_sho1d.py": {
+        "size": 6928
+      },
+      "sympy/physics/quantum/tests/test_shor.py": {
+        "size": 701
+      },
+      "sympy/physics/quantum/tests/test_spin.py": {
+        "size": 345733
+      },
+      "sympy/physics/quantum/tests/test_state.py": {
+        "size": 6783
+      },
+      "sympy/physics/quantum/tests/test_tensorproduct.py": {
+        "size": 5926
+      },
+      "sympy/physics/quantum/tests/test_trace.py": {
+        "size": 3092
+      },
+      "sympy/physics/quantum/tests/test_transforms.py": {
+        "size": 2380
+      },
+      "sympy/physics/quantum/trace.py": {
+        "size": 6432
+      },
+      "sympy/physics/quantum/transforms.py": {
+        "size": 10964
+      },
+      "sympy/physics/secondquant.py": {
+        "size": 91013
+      },
+      "sympy/physics/sho.py": {
+        "size": 2515
+      },
+      "sympy/physics/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/physics/tests/test_clebsch_gordan.py": {
+        "size": 11055
+      },
+      "sympy/physics/tests/test_hydrogen.py": {
+        "size": 6038
+      },
+      "sympy/physics/tests/test_paulialgebra.py": {
+        "size": 1512
+      },
+      "sympy/physics/tests/test_physics_matrices.py": {
+        "size": 2983
+      },
+      "sympy/physics/tests/test_pring.py": {
+        "size": 1296
+      },
+      "sympy/physics/tests/test_qho_1d.py": {
+        "size": 1810
+      },
+      "sympy/physics/tests/test_secondquant.py": {
+        "size": 49436
+      },
+      "sympy/physics/tests/test_sho.py": {
+        "size": 728
+      },
+      "sympy/physics/units/__init__.py": {
+        "size": 12386
+      },
+      "sympy/physics/units/definitions/__init__.py": {
+        "size": 7505
+      },
+      "sympy/physics/units/definitions/dimension_definitions.py": {
+        "size": 1668
+      },
+      "sympy/physics/units/definitions/unit_definitions.py": {
+        "size": 14715
+      },
+      "sympy/physics/units/dimensions.py": {
+        "size": 21151
+      },
+      "sympy/physics/units/prefixes.py": {
+        "size": 6295
+      },
+      "sympy/physics/units/quantities.py": {
+        "size": 4706
+      },
+      "sympy/physics/units/systems/__init__.py": {
+        "size": 279
+      },
+      "sympy/physics/units/systems/cgs.py": {
+        "size": 3737
+      },
+      "sympy/physics/units/systems/length_weight_time.py": {
+        "size": 7039
+      },
+      "sympy/physics/units/systems/mks.py": {
+        "size": 1581
+      },
+      "sympy/physics/units/systems/mksa.py": {
+        "size": 2058
+      },
+      "sympy/physics/units/systems/natural.py": {
+        "size": 944
+      },
+      "sympy/physics/units/systems/si.py": {
+        "size": 14534
+      },
+      "sympy/physics/units/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/physics/units/tests/test_dimensions.py": {
+        "size": 6157
+      },
+      "sympy/physics/units/tests/test_dimensionsystem.py": {
+        "size": 2752
+      },
+      "sympy/physics/units/tests/test_prefixes.py": {
+        "size": 2273
+      },
+      "sympy/physics/units/tests/test_quantities.py": {
+        "size": 19793
+      },
+      "sympy/physics/units/tests/test_unit_system_cgs_gauss.py": {
+        "size": 3208
+      },
+      "sympy/physics/units/tests/test_unitsystem.py": {
+        "size": 3284
+      },
+      "sympy/physics/units/tests/test_util.py": {
+        "size": 10336
+      },
+      "sympy/physics/units/unitsystem.py": {
+        "size": 7649
+      },
+      "sympy/physics/units/util.py": {
+        "size": 9980
+      },
+      "sympy/physics/vector/__init__.py": {
+        "size": 1020
+      },
+      "sympy/physics/vector/dyadic.py": {
+        "size": 17543
+      },
+      "sympy/physics/vector/fieldfunctions.py": {
+        "size": 8645
+      },
+      "sympy/physics/vector/frame.py": {
+        "size": 57295
+      },
+      "sympy/physics/vector/functions.py": {
+        "size": 24845
+      },
+      "sympy/physics/vector/point.py": {
+        "size": 20604
+      },
+      "sympy/physics/vector/printing.py": {
+        "size": 11825
+      },
+      "sympy/physics/vector/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/physics/vector/tests/test_dyadic.py": {
+        "size": 4300
+      },
+      "sympy/physics/vector/tests/test_fieldfunctions.py": {
+        "size": 5860
+      },
+      "sympy/physics/vector/tests/test_frame.py": {
+        "size": 29718
+      },
+      "sympy/physics/vector/tests/test_functions.py": {
+        "size": 21162
+      },
+      "sympy/physics/vector/tests/test_output.py": {
+        "size": 2647
+      },
+      "sympy/physics/vector/tests/test_point.py": {
+        "size": 12408
+      },
+      "sympy/physics/vector/tests/test_printing.py": {
+        "size": 12748
+      },
+      "sympy/physics/vector/tests/test_vector.py": {
+        "size": 10294
+      },
+      "sympy/physics/vector/vector.py": {
+        "size": 24910
+      },
+      "sympy/physics/wigner.py": {
+        "size": 37935
+      },
+      "sympy/plotting/__init__.py": {
+        "size": 561
+      },
+      "sympy/plotting/backends/__init__.py": {
+        "size": 0
+      },
+      "sympy/plotting/backends/base_backend.py": {
+        "size": 14946
+      },
+      "sympy/plotting/backends/matplotlibbackend/__init__.py": {
+        "size": 197
+      },
+      "sympy/plotting/backends/matplotlibbackend/matplotlib.py": {
+        "size": 12583
+      },
+      "sympy/plotting/backends/textbackend/__init__.py": {
+        "size": 127
+      },
+      "sympy/plotting/backends/textbackend/text.py": {
+        "size": 838
+      },
+      "sympy/plotting/experimental_lambdify.py": {
+        "size": 22863
+      },
+      "sympy/plotting/intervalmath/__init__.py": {
+        "size": 514
+      },
+      "sympy/plotting/intervalmath/interval_arithmetic.py": {
+        "size": 15605
+      },
+      "sympy/plotting/intervalmath/interval_membership.py": {
+        "size": 2420
+      },
+      "sympy/plotting/intervalmath/lib_interval.py": {
+        "size": 14844
+      },
+      "sympy/plotting/intervalmath/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/plotting/intervalmath/tests/test_interval_functions.py": {
+        "size": 9897
+      },
+      "sympy/plotting/intervalmath/tests/test_interval_membership.py": {
+        "size": 4251
+      },
+      "sympy/plotting/intervalmath/tests/test_intervalmath.py": {
+        "size": 9069
+      },
+      "sympy/plotting/plot.py": {
+        "size": 40965
+      },
+      "sympy/plotting/plot_implicit.py": {
+        "size": 7365
+      },
+      "sympy/plotting/plotgrid.py": {
+        "size": 6150
+      },
+      "sympy/plotting/pygletplot/__init__.py": {
+        "size": 3732
+      },
+      "sympy/plotting/pygletplot/color_scheme.py": {
+        "size": 12522
+      },
+      "sympy/plotting/pygletplot/managed_window.py": {
+        "size": 3072
+      },
+      "sympy/plotting/pygletplot/plot.py": {
+        "size": 13352
+      },
+      "sympy/plotting/pygletplot/plot_axes.py": {
+        "size": 8655
+      },
+      "sympy/plotting/pygletplot/plot_camera.py": {
+        "size": 3928
+      },
+      "sympy/plotting/pygletplot/plot_controller.py": {
+        "size": 6941
+      },
+      "sympy/plotting/pygletplot/plot_curve.py": {
+        "size": 2838
+      },
+      "sympy/plotting/pygletplot/plot_interval.py": {
+        "size": 5431
+      },
+      "sympy/plotting/pygletplot/plot_mode.py": {
+        "size": 14156
+      },
+      "sympy/plotting/pygletplot/plot_mode_base.py": {
+        "size": 11502
+      },
+      "sympy/plotting/pygletplot/plot_modes.py": {
+        "size": 5352
+      },
+      "sympy/plotting/pygletplot/plot_object.py": {
+        "size": 330
+      },
+      "sympy/plotting/pygletplot/plot_rotation.py": {
+        "size": 1445
+      },
+      "sympy/plotting/pygletplot/plot_surface.py": {
+        "size": 3803
+      },
+      "sympy/plotting/pygletplot/plot_window.py": {
+        "size": 4643
+      },
+      "sympy/plotting/pygletplot/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/plotting/pygletplot/tests/test_plotting.py": {
+        "size": 2720
+      },
+      "sympy/plotting/pygletplot/util.py": {
+        "size": 4621
+      },
+      "sympy/plotting/series.py": {
+        "size": 96223
+      },
+      "sympy/plotting/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/plotting/tests/test_experimental_lambdify.py": {
+        "size": 3162
+      },
+      "sympy/plotting/tests/test_plot.py": {
+        "size": 48500
+      },
+      "sympy/plotting/tests/test_plot_implicit.py": {
+        "size": 5834
+      },
+      "sympy/plotting/tests/test_series.py": {
+        "size": 65673
+      },
+      "sympy/plotting/tests/test_textplot.py": {
+        "size": 12796
+      },
+      "sympy/plotting/tests/test_utils.py": {
+        "size": 3637
+      },
+      "sympy/plotting/textplot.py": {
+        "size": 5110
+      },
+      "sympy/plotting/utils.py": {
+        "size": 12294
+      },
+      "sympy/polys/__init__.py": {
+        "size": 5696
+      },
+      "sympy/polys/agca/__init__.py": {
+        "size": 165
+      },
+      "sympy/polys/agca/extensions.py": {
+        "size": 9668
+      },
+      "sympy/polys/agca/homomorphisms.py": {
+        "size": 21972
+      },
+      "sympy/polys/agca/ideals.py": {
+        "size": 11108
+      },
+      "sympy/polys/agca/modules.py": {
+        "size": 47275
+      },
+      "sympy/polys/agca/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/polys/agca/tests/test_extensions.py": {
+        "size": 7206
+      },
+      "sympy/polys/agca/tests/test_homomorphisms.py": {
+        "size": 4259
+      },
+      "sympy/polys/agca/tests/test_ideals.py": {
+        "size": 3823
+      },
+      "sympy/polys/agca/tests/test_modules.py": {
+        "size": 13587
+      },
+      "sympy/polys/appellseqs.py": {
+        "size": 8344
+      },
+      "sympy/polys/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "sympy/polys/benchmarks/bench_galoispolys.py": {
+        "size": 1537
+      },
+      "sympy/polys/benchmarks/bench_groebnertools.py": {
+        "size": 838
+      },
+      "sympy/polys/benchmarks/bench_solvers.py": {
+        "size": 446813
+      },
+      "sympy/polys/compatibility.py": {
+        "size": 71717
+      },
+      "sympy/polys/constructor.py": {
+        "size": 11408
+      },
+      "sympy/polys/densearith.py": {
+        "size": 42045
+      },
+      "sympy/polys/densebasic.py": {
+        "size": 47327
+      },
+      "sympy/polys/densetools.py": {
+        "size": 36299
+      },
+      "sympy/polys/dispersion.py": {
+        "size": 5775
+      },
+      "sympy/polys/distributedmodules.py": {
+        "size": 21862
+      },
+      "sympy/polys/domainmatrix.py": {
+        "size": 345
+      },
+      "sympy/polys/domains/__init__.py": {
+        "size": 1907
+      },
+      "sympy/polys/domains/algebraicfield.py": {
+        "size": 23578
+      },
+      "sympy/polys/domains/characteristiczero.py": {
+        "size": 417
+      },
+      "sympy/polys/domains/complexfield.py": {
+        "size": 6208
+      },
+      "sympy/polys/domains/compositedomain.py": {
+        "size": 1817
+      },
+      "sympy/polys/domains/domain.py": {
+        "size": 49454
+      },
+      "sympy/polys/domains/domainelement.py": {
+        "size": 895
+      },
+      "sympy/polys/domains/expressiondomain.py": {
+        "size": 7674
+      },
+      "sympy/polys/domains/expressionrawdomain.py": {
+        "size": 1483
+      },
+      "sympy/polys/domains/field.py": {
+        "size": 3172
+      },
+      "sympy/polys/domains/finitefield.py": {
+        "size": 10747
+      },
+      "sympy/polys/domains/fractionfield.py": {
+        "size": 6334
+      },
+      "sympy/polys/domains/gaussiandomains.py": {
+        "size": 22389
+      },
+      "sympy/polys/domains/gmpyfinitefield.py": {
+        "size": 472
+      },
+      "sympy/polys/domains/gmpyintegerring.py": {
+        "size": 3072
+      },
+      "sympy/polys/domains/gmpyrationalfield.py": {
+        "size": 3213
+      },
+      "sympy/polys/domains/groundtypes.py": {
+        "size": 2137
+      },
+      "sympy/polys/domains/integerring.py": {
+        "size": 7515
+      },
+      "sympy/polys/domains/modularinteger.py": {
+        "size": 6042
+      },
+      "sympy/polys/domains/mpelements.py": {
+        "size": 5086
+      },
+      "sympy/polys/domains/old_fractionfield.py": {
+        "size": 6261
+      },
+      "sympy/polys/domains/old_polynomialring.py": {
+        "size": 16023
+      },
+      "sympy/polys/domains/polynomialring.py": {
+        "size": 7195
+      },
+      "sympy/polys/domains/powerseriesring.py": {
+        "size": 6528
+      },
+      "sympy/polys/domains/pythonfinitefield.py": {
+        "size": 488
+      },
+      "sympy/polys/domains/pythonintegerring.py": {
+        "size": 3042
+      },
+      "sympy/polys/domains/pythonrational.py": {
+        "size": 583
+      },
+      "sympy/polys/domains/pythonrationalfield.py": {
+        "size": 2375
+      },
+      "sympy/polys/domains/quotientring.py": {
+        "size": 5946
+      },
+      "sympy/polys/domains/rationalfield.py": {
+        "size": 6022
+      },
+      "sympy/polys/domains/realfield.py": {
+        "size": 6481
+      },
+      "sympy/polys/domains/ring.py": {
+        "size": 3280
+      },
+      "sympy/polys/domains/ringextension.py": {
+        "size": 1457
+      },
+      "sympy/polys/domains/simpledomain.py": {
+        "size": 412
+      },
+      "sympy/polys/domains/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/polys/domains/tests/test_domains.py": {
+        "size": 51055
+      },
+      "sympy/polys/domains/tests/test_polynomialring.py": {
+        "size": 2930
+      },
+      "sympy/polys/domains/tests/test_quotientring.py": {
+        "size": 1494
+      },
+      "sympy/polys/euclidtools.py": {
+        "size": 44010
+      },
+      "sympy/polys/factortools.py": {
+        "size": 43357
+      },
+      "sympy/polys/fglmtools.py": {
+        "size": 4333
+      },
+      "sympy/polys/fields.py": {
+        "size": 22413
+      },
+      "sympy/polys/galoistools.py": {
+        "size": 61572
+      },
+      "sympy/polys/groebnertools.py": {
+        "size": 23159
+      },
+      "sympy/polys/heuristicgcd.py": {
+        "size": 3767
+      },
+      "sympy/polys/matrices/__init__.py": {
+        "size": 432
+      },
+      "sympy/polys/matrices/_dfm.py": {
+        "size": 33006
+      },
+      "sympy/polys/matrices/_typing.py": {
+        "size": 442
+      },
+      "sympy/polys/matrices/ddm.py": {
+        "size": 32397
+      },
+      "sympy/polys/matrices/dense.py": {
+        "size": 23265
+      },
+      "sympy/polys/matrices/dfm.py": {
+        "size": 1276
+      },
+      "sympy/polys/matrices/domainmatrix.py": {
+        "size": 116439
+      },
+      "sympy/polys/matrices/domainscalar.py": {
+        "size": 3813
+      },
+      "sympy/polys/matrices/eigen.py": {
+        "size": 2970
+      },
+      "sympy/polys/matrices/exceptions.py": {
+        "size": 1386
+      },
+      "sympy/polys/matrices/linsolve.py": {
+        "size": 7569
+      },
+      "sympy/polys/matrices/lll.py": {
+        "size": 3550
+      },
+      "sympy/polys/matrices/normalforms.py": {
+        "size": 17157
+      },
+      "sympy/polys/matrices/rref.py": {
+        "size": 15567
+      },
+      "sympy/polys/matrices/sdm.py": {
+        "size": 65374
+      },
+      "sympy/polys/matrices/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/polys/matrices/tests/test_ddm.py": {
+        "size": 16734
+      },
+      "sympy/polys/matrices/tests/test_dense.py": {
+        "size": 9551
+      },
+      "sympy/polys/matrices/tests/test_domainmatrix.py": {
+        "size": 50984
+      },
+      "sympy/polys/matrices/tests/test_domainscalar.py": {
+        "size": 3775
+      },
+      "sympy/polys/matrices/tests/test_eigen.py": {
+        "size": 3235
+      },
+      "sympy/polys/matrices/tests/test_fflu.py": {
+        "size": 8577
+      },
+      "sympy/polys/matrices/tests/test_inverse.py": {
+        "size": 5282
+      },
+      "sympy/polys/matrices/tests/test_linsolve.py": {
+        "size": 3408
+      },
+      "sympy/polys/matrices/tests/test_lll.py": {
+        "size": 6659
+      },
+      "sympy/polys/matrices/tests/test_normalforms.py": {
+        "size": 5141
+      },
+      "sympy/polys/matrices/tests/test_nullspace.py": {
+        "size": 5453
+      },
+      "sympy/polys/matrices/tests/test_rref.py": {
+        "size": 26017
+      },
+      "sympy/polys/matrices/tests/test_sdm.py": {
+        "size": 14337
+      },
+      "sympy/polys/matrices/tests/test_xxm.py": {
+        "size": 29813
+      },
+      "sympy/polys/modulargcd.py": {
+        "size": 58779
+      },
+      "sympy/polys/monomials.py": {
+        "size": 18590
+      },
+      "sympy/polys/multivariate_resultants.py": {
+        "size": 15283
+      },
+      "sympy/polys/numberfields/__init__.py": {
+        "size": 573
+      },
+      "sympy/polys/numberfields/basis.py": {
+        "size": 8296
+      },
+      "sympy/polys/numberfields/exceptions.py": {
+        "size": 1629
+      },
+      "sympy/polys/numberfields/galois_resolvents.py": {
+        "size": 25163
+      },
+      "sympy/polys/numberfields/galoisgroups.py": {
+        "size": 20706
+      },
+      "sympy/polys/numberfields/minpoly.py": {
+        "size": 27826
+      },
+      "sympy/polys/numberfields/modules.py": {
+        "size": 69278
+      },
+      "sympy/polys/numberfields/primes.py": {
+        "size": 24019
+      },
+      "sympy/polys/numberfields/resolvent_lookup.py": {
+        "size": 40446
+      },
+      "sympy/polys/numberfields/subfield.py": {
+        "size": 16873
+      },
+      "sympy/polys/numberfields/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/polys/numberfields/tests/test_basis.py": {
+        "size": 4615
+      },
+      "sympy/polys/numberfields/tests/test_galoisgroups.py": {
+        "size": 5071
+      },
+      "sympy/polys/numberfields/tests/test_minpoly.py": {
+        "size": 23150
+      },
+      "sympy/polys/numberfields/tests/test_modules.py": {
+        "size": 22961
+      },
+      "sympy/polys/numberfields/tests/test_numbers.py": {
+        "size": 6023
+      },
+      "sympy/polys/numberfields/tests/test_primes.py": {
+        "size": 9814
+      },
+      "sympy/polys/numberfields/tests/test_subfield.py": {
+        "size": 12811
+      },
+      "sympy/polys/numberfields/tests/test_utilities.py": {
+        "size": 3696
+      },
+      "sympy/polys/numberfields/utilities.py": {
+        "size": 13139
+      },
+      "sympy/polys/orderings.py": {
+        "size": 9401
+      },
+      "sympy/polys/orthopolys.py": {
+        "size": 10216
+      },
+      "sympy/polys/partfrac.py": {
+        "size": 14716
+      },
+      "sympy/polys/polyclasses.py": {
+        "size": 113313
+      },
+      "sympy/polys/polyconfig.py": {
+        "size": 2603
+      },
+      "sympy/polys/polyerrors.py": {
+        "size": 4779
+      },
+      "sympy/polys/polyfuncs.py": {
+        "size": 8582
+      },
+      "sympy/polys/polymatrix.py": {
+        "size": 9806
+      },
+      "sympy/polys/polyoptions.py": {
+        "size": 21892
+      },
+      "sympy/polys/polyquinticconst.py": {
+        "size": 96070
+      },
+      "sympy/polys/polyroots.py": {
+        "size": 38845
+      },
+      "sympy/polys/polytools.py": {
+        "size": 225109
+      },
+      "sympy/polys/polyutils.py": {
+        "size": 17961
+      },
+      "sympy/polys/puiseux.py": {
+        "size": 27647
+      },
+      "sympy/polys/rationaltools.py": {
+        "size": 2992
+      },
+      "sympy/polys/ring_series.py": {
+        "size": 60368
+      },
+      "sympy/polys/rings.py": {
+        "size": 109455
+      },
+      "sympy/polys/rootconditions.py": {
+        "size": 8932
+      },
+      "sympy/polys/rootisolation.py": {
+        "size": 64410
+      },
+      "sympy/polys/rootoftools.py": {
+        "size": 44528
+      },
+      "sympy/polys/series/__init__.py": {
+        "size": 389
+      },
+      "sympy/polys/series/base.py": {
+        "size": 8081
+      },
+      "sympy/polys/series/ring.py": {
+        "size": 33832
+      },
+      "sympy/polys/series/ringflint.py": {
+        "size": 38998
+      },
+      "sympy/polys/series/ringpython.py": {
+        "size": 52096
+      },
+      "sympy/polys/series/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/polys/series/tests/test_hypothesis.py": {
+        "size": 4014
+      },
+      "sympy/polys/series/tests/test_ring.py": {
+        "size": 46437
+      },
+      "sympy/polys/series/tring.py": {
+        "size": 3046
+      },
+      "sympy/polys/solvers.py": {
+        "size": 13570
+      },
+      "sympy/polys/specialpolys.py": {
+        "size": 11091
+      },
+      "sympy/polys/sqfreetools.py": {
+        "size": 20475
+      },
+      "sympy/polys/subresultants_qq_zz.py": {
+        "size": 87811
+      },
+      "sympy/polys/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/polys/tests/test_appellseqs.py": {
+        "size": 3855
+      },
+      "sympy/polys/tests/test_constructor.py": {
+        "size": 7255
+      },
+      "sympy/polys/tests/test_densearith.py": {
+        "size": 44274
+      },
+      "sympy/polys/tests/test_densebasic.py": {
+        "size": 21506
+      },
+      "sympy/polys/tests/test_densetools.py": {
+        "size": 28718
+      },
+      "sympy/polys/tests/test_dispersion.py": {
+        "size": 3217
+      },
+      "sympy/polys/tests/test_distributedmodules.py": {
+        "size": 7674
+      },
+      "sympy/polys/tests/test_euclidtools.py": {
+        "size": 19517
+      },
+      "sympy/polys/tests/test_factortools.py": {
+        "size": 24938
+      },
+      "sympy/polys/tests/test_fields.py": {
+        "size": 9904
+      },
+      "sympy/polys/tests/test_galoistools.py": {
+        "size": 28567
+      },
+      "sympy/polys/tests/test_groebnertools.py": {
+        "size": 18619
+      },
+      "sympy/polys/tests/test_heuristicgcd.py": {
+        "size": 4332
+      },
+      "sympy/polys/tests/test_hypothesis.py": {
+        "size": 5323
+      },
+      "sympy/polys/tests/test_injections.py": {
+        "size": 1321
+      },
+      "sympy/polys/tests/test_modulargcd.py": {
+        "size": 9078
+      },
+      "sympy/polys/tests/test_monomials.py": {
+        "size": 11118
+      },
+      "sympy/polys/tests/test_multivariate_resultants.py": {
+        "size": 9536
+      },
+      "sympy/polys/tests/test_orderings.py": {
+        "size": 4289
+      },
+      "sympy/polys/tests/test_orthopolys.py": {
+        "size": 6595
+      },
+      "sympy/polys/tests/test_partfrac.py": {
+        "size": 7873
+      },
+      "sympy/polys/tests/test_polyclasses.py": {
+        "size": 14929
+      },
+      "sympy/polys/tests/test_polyfuncs.py": {
+        "size": 4555
+      },
+      "sympy/polys/tests/test_polymatrix.py": {
+        "size": 7388
+      },
+      "sympy/polys/tests/test_polyoptions.py": {
+        "size": 12451
+      },
+      "sympy/polys/tests/test_polyroots.py": {
+        "size": 27156
+      },
+      "sympy/polys/tests/test_polytools.py": {
+        "size": 152105
+      },
+      "sympy/polys/tests/test_polyutils.py": {
+        "size": 11582
+      },
+      "sympy/polys/tests/test_puiseux.py": {
+        "size": 7643
+      },
+      "sympy/polys/tests/test_pythonrational.py": {
+        "size": 4178
+      },
+      "sympy/polys/tests/test_rationaltools.py": {
+        "size": 2432
+      },
+      "sympy/polys/tests/test_ring_series.py": {
+        "size": 31768
+      },
+      "sympy/polys/tests/test_rings.py": {
+        "size": 65017
+      },
+      "sympy/polys/tests/test_rootisolation.py": {
+        "size": 32759
+      },
+      "sympy/polys/tests/test_rootoftools.py": {
+        "size": 23644
+      },
+      "sympy/polys/tests/test_solvers.py": {
+        "size": 13679
+      },
+      "sympy/polys/tests/test_specialpolys.py": {
+        "size": 5066
+      },
+      "sympy/polys/tests/test_sqfreetools.py": {
+        "size": 4921
+      },
+      "sympy/polys/tests/test_subresultants_qq_zz.py": {
+        "size": 13254
+      },
+      "sympy/printing/__init__.py": {
+        "size": 2250
+      },
+      "sympy/printing/aesaracode.py": {
+        "size": 18921
+      },
+      "sympy/printing/c.py": {
+        "size": 27107
+      },
+      "sympy/printing/codeprinter.py": {
+        "size": 42386
+      },
+      "sympy/printing/conventions.py": {
+        "size": 2621
+      },
+      "sympy/printing/cxx.py": {
+        "size": 6158
+      },
+      "sympy/printing/defaults.py": {
+        "size": 170
+      },
+      "sympy/printing/dot.py": {
+        "size": 8354
+      },
+      "sympy/printing/fortran.py": {
+        "size": 29097
+      },
+      "sympy/printing/glsl.py": {
+        "size": 20310
+      },
+      "sympy/printing/gtk.py": {
+        "size": 501
+      },
+      "sympy/printing/jscode.py": {
+        "size": 11981
+      },
+      "sympy/printing/julia.py": {
+        "size": 23541
+      },
+      "sympy/printing/lambdarepr.py": {
+        "size": 8342
+      },
+      "sympy/printing/latex.py": {
+        "size": 126273
+      },
+      "sympy/printing/llvmjitcode.py": {
+        "size": 18036
+      },
+      "sympy/printing/maple.py": {
+        "size": 10606
+      },
+      "sympy/printing/mathematica.py": {
+        "size": 12758
+      },
+      "sympy/printing/mathml.py": {
+        "size": 76642
+      },
+      "sympy/printing/numpy.py": {
+        "size": 21339
+      },
+      "sympy/printing/octave.py": {
+        "size": 25469
+      },
+      "sympy/printing/precedence.py": {
+        "size": 5557
+      },
+      "sympy/printing/pretty/__init__.py": {
+        "size": 379
+      },
+      "sympy/printing/pretty/pretty.py": {
+        "size": 106544
+      },
+      "sympy/printing/pretty/pretty_symbology.py": {
+        "size": 24221
+      },
+      "sympy/printing/pretty/stringpict.py": {
+        "size": 19173
+      },
+      "sympy/printing/pretty/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/printing/pretty/tests/test_pretty.py": {
+        "size": 177734
+      },
+      "sympy/printing/preview.py": {
+        "size": 14124
+      },
+      "sympy/printing/printer.py": {
+        "size": 15869
+      },
+      "sympy/printing/pycode.py": {
+        "size": 27871
+      },
+      "sympy/printing/python.py": {
+        "size": 3382
+      },
+      "sympy/printing/pytorch.py": {
+        "size": 10663
+      },
+      "sympy/printing/rcode.py": {
+        "size": 14101
+      },
+      "sympy/printing/repr.py": {
+        "size": 11385
+      },
+      "sympy/printing/rust.py": {
+        "size": 20919
+      },
+      "sympy/printing/smtlib.py": {
+        "size": 21768
+      },
+      "sympy/printing/str.py": {
+        "size": 33446
+      },
+      "sympy/printing/tableform.py": {
+        "size": 11832
+      },
+      "sympy/printing/tensorflow.py": {
+        "size": 8196
+      },
+      "sympy/printing/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/printing/tests/test_aesaracode.py": {
+        "size": 21375
+      },
+      "sympy/printing/tests/test_c.py": {
+        "size": 31262
+      },
+      "sympy/printing/tests/test_codeprinter.py": {
+        "size": 2177
+      },
+      "sympy/printing/tests/test_conventions.py": {
+        "size": 5236
+      },
+      "sympy/printing/tests/test_cupy.py": {
+        "size": 1917
+      },
+      "sympy/printing/tests/test_cxx.py": {
+        "size": 3218
+      },
+      "sympy/printing/tests/test_dot.py": {
+        "size": 4683
+      },
+      "sympy/printing/tests/test_fortran.py": {
+        "size": 35491
+      },
+      "sympy/printing/tests/test_glsl.py": {
+        "size": 28456
+      },
+      "sympy/printing/tests/test_gtk.py": {
+        "size": 535
+      },
+      "sympy/printing/tests/test_jax.py": {
+        "size": 11097
+      },
+      "sympy/printing/tests/test_jscode.py": {
+        "size": 11404
+      },
+      "sympy/printing/tests/test_julia.py": {
+        "size": 14049
+      },
+      "sympy/printing/tests/test_lambdarepr.py": {
+        "size": 6982
+      },
+      "sympy/printing/tests/test_latex.py": {
+        "size": 140867
+      },
+      "sympy/printing/tests/test_llvmjit.py": {
+        "size": 5379
+      },
+      "sympy/printing/tests/test_maple.py": {
+        "size": 13113
+      },
+      "sympy/printing/tests/test_mathematica.py": {
+        "size": 10989
+      },
+      "sympy/printing/tests/test_mathml.py": {
+        "size": 99469
+      },
+      "sympy/printing/tests/test_numpy.py": {
+        "size": 12080
+      },
+      "sympy/printing/tests/test_octave.py": {
+        "size": 18580
+      },
+      "sympy/printing/tests/test_precedence.py": {
+        "size": 4102
+      },
+      "sympy/printing/tests/test_preview.py": {
+        "size": 1022
+      },
+      "sympy/printing/tests/test_pycode.py": {
+        "size": 19560
+      },
+      "sympy/printing/tests/test_python.py": {
+        "size": 8163
+      },
+      "sympy/printing/tests/test_rcode.py": {
+        "size": 13816
+      },
+      "sympy/printing/tests/test_repr.py": {
+        "size": 13299
+      },
+      "sympy/printing/tests/test_rust.py": {
+        "size": 12315
+      },
+      "sympy/printing/tests/test_smtlib.py": {
+        "size": 22581
+      },
+      "sympy/printing/tests/test_str.py": {
+        "size": 43558
+      },
+      "sympy/printing/tests/test_tableform.py": {
+        "size": 5727
+      },
+      "sympy/printing/tests/test_tensorflow.py": {
+        "size": 17135
+      },
+      "sympy/printing/tests/test_theanocode.py": {
+        "size": 21429
+      },
+      "sympy/printing/tests/test_torch.py": {
+        "size": 17307
+      },
+      "sympy/printing/tests/test_tree.py": {
+        "size": 6115
+      },
+      "sympy/printing/theanocode.py": {
+        "size": 19094
+      },
+      "sympy/printing/tree.py": {
+        "size": 3859
+      },
+      "sympy/release.py": {
+        "size": 62
+      },
+      "sympy/sandbox/__init__.py": {
+        "size": 189
+      },
+      "sympy/sandbox/indexed_integrals.py": {
+        "size": 2176
+      },
+      "sympy/sandbox/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/sandbox/tests/test_indexed_integrals.py": {
+        "size": 1214
+      },
+      "sympy/series/__init__.py": {
+        "size": 839
+      },
+      "sympy/series/acceleration.py": {
+        "size": 3400
+      },
+      "sympy/series/approximants.py": {
+        "size": 12809
+      },
+      "sympy/series/aseries.py": {
+        "size": 290
+      },
+      "sympy/series/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "sympy/series/benchmarks/bench_limit.py": {
+        "size": 208
+      },
+      "sympy/series/benchmarks/bench_order.py": {
+        "size": 242
+      },
+      "sympy/series/formal.py": {
+        "size": 51703
+      },
+      "sympy/series/fourier.py": {
+        "size": 22976
+      },
+      "sympy/series/gruntz.py": {
+        "size": 23540
+      },
+      "sympy/series/kauers.py": {
+        "size": 1755
+      },
+      "sympy/series/limits.py": {
+        "size": 13308
+      },
+      "sympy/series/limitseq.py": {
+        "size": 7787
+      },
+      "sympy/series/order.py": {
+        "size": 19593
+      },
+      "sympy/series/residues.py": {
+        "size": 2248
+      },
+      "sympy/series/sequences.py": {
+        "size": 36597
+      },
+      "sympy/series/series.py": {
+        "size": 1898
+      },
+      "sympy/series/series_class.py": {
+        "size": 2708
+      },
+      "sympy/series/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/series/tests/test_approximants.py": {
+        "size": 4592
+      },
+      "sympy/series/tests/test_aseries.py": {
+        "size": 2412
+      },
+      "sympy/series/tests/test_demidovich.py": {
+        "size": 4982
+      },
+      "sympy/series/tests/test_formal.py": {
+        "size": 22531
+      },
+      "sympy/series/tests/test_fourier.py": {
+        "size": 5943
+      },
+      "sympy/series/tests/test_gruntz.py": {
+        "size": 16480
+      },
+      "sympy/series/tests/test_kauers.py": {
+        "size": 1137
+      },
+      "sympy/series/tests/test_limits.py": {
+        "size": 50306
+      },
+      "sympy/series/tests/test_limitseq.py": {
+        "size": 5726
+      },
+      "sympy/series/tests/test_lseries.py": {
+        "size": 1910
+      },
+      "sympy/series/tests/test_nseries.py": {
+        "size": 18319
+      },
+      "sympy/series/tests/test_order.py": {
+        "size": 17936
+      },
+      "sympy/series/tests/test_residues.py": {
+        "size": 3213
+      },
+      "sympy/series/tests/test_sequences.py": {
+        "size": 11420
+      },
+      "sympy/series/tests/test_series.py": {
+        "size": 17031
+      },
+      "sympy/sets/__init__.py": {
+        "size": 1061
+      },
+      "sympy/sets/conditionset.py": {
+        "size": 7827
+      },
+      "sympy/sets/contains.py": {
+        "size": 2083
+      },
+      "sympy/sets/fancysets.py": {
+        "size": 48222
+      },
+      "sympy/sets/handlers/__init__.py": {
+        "size": 0
+      },
+      "sympy/sets/handlers/add.py": {
+        "size": 1898
+      },
+      "sympy/sets/handlers/comparison.py": {
+        "size": 1636
+      },
+      "sympy/sets/handlers/functions.py": {
+        "size": 8416
+      },
+      "sympy/sets/handlers/intersection.py": {
+        "size": 16694
+      },
+      "sympy/sets/handlers/issubset.py": {
+        "size": 5925
+      },
+      "sympy/sets/handlers/mul.py": {
+        "size": 1877
+      },
+      "sympy/sets/handlers/power.py": {
+        "size": 3116
+      },
+      "sympy/sets/handlers/union.py": {
+        "size": 4260
+      },
+      "sympy/sets/ordinals.py": {
+        "size": 7647
+      },
+      "sympy/sets/powerset.py": {
+        "size": 3131
+      },
+      "sympy/sets/setexpr.py": {
+        "size": 3054
+      },
+      "sympy/sets/sets.py": {
+        "size": 81857
+      },
+      "sympy/sets/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/sets/tests/test_conditionset.py": {
+        "size": 11405
+      },
+      "sympy/sets/tests/test_contains.py": {
+        "size": 1596
+      },
+      "sympy/sets/tests/test_fancysets.py": {
+        "size": 51983
+      },
+      "sympy/sets/tests/test_ordinals.py": {
+        "size": 2672
+      },
+      "sympy/sets/tests/test_powerset.py": {
+        "size": 4687
+      },
+      "sympy/sets/tests/test_setexpr.py": {
+        "size": 14832
+      },
+      "sympy/sets/tests/test_sets.py": {
+        "size": 70408
+      },
+      "sympy/simplify/__init__.py": {
+        "size": 1309
+      },
+      "sympy/simplify/_cse_diff.py": {
+        "size": 10514
+      },
+      "sympy/simplify/combsimp.py": {
+        "size": 3639
+      },
+      "sympy/simplify/cse_main.py": {
+        "size": 31345
+      },
+      "sympy/simplify/cse_opts.py": {
+        "size": 1653
+      },
+      "sympy/simplify/epathtools.py": {
+        "size": 10157
+      },
+      "sympy/simplify/fu.py": {
+        "size": 62386
+      },
+      "sympy/simplify/gammasimp.py": {
+        "size": 18520
+      },
+      "sympy/simplify/hyperexpand.py": {
+        "size": 84455
+      },
+      "sympy/simplify/hyperexpand_doc.py": {
+        "size": 4385
+      },
+      "sympy/simplify/powsimp.py": {
+        "size": 26789
+      },
+      "sympy/simplify/radsimp.py": {
+        "size": 41684
+      },
+      "sympy/simplify/ratsimp.py": {
+        "size": 7672
+      },
+      "sympy/simplify/simplify.py": {
+        "size": 74054
+      },
+      "sympy/simplify/sqrtdenest.py": {
+        "size": 21635
+      },
+      "sympy/simplify/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/simplify/tests/test_combsimp.py": {
+        "size": 2993
+      },
+      "sympy/simplify/tests/test_cse.py": {
+        "size": 25551
+      },
+      "sympy/simplify/tests/test_cse_diff.py": {
+        "size": 7310
+      },
+      "sympy/simplify/tests/test_epathtools.py": {
+        "size": 3560
+      },
+      "sympy/simplify/tests/test_fu.py": {
+        "size": 19445
+      },
+      "sympy/simplify/tests/test_function.py": {
+        "size": 2234
+      },
+      "sympy/simplify/tests/test_gammasimp.py": {
+        "size": 5355
+      },
+      "sympy/simplify/tests/test_hyperexpand.py": {
+        "size": 41078
+      },
+      "sympy/simplify/tests/test_powsimp.py": {
+        "size": 14410
+      },
+      "sympy/simplify/tests/test_radsimp.py": {
+        "size": 19163
+      },
+      "sympy/simplify/tests/test_ratsimp.py": {
+        "size": 2233
+      },
+      "sympy/simplify/tests/test_rewrite.py": {
+        "size": 1162
+      },
+      "sympy/simplify/tests/test_simplify.py": {
+        "size": 43026
+      },
+      "sympy/simplify/tests/test_sqrtdenest.py": {
+        "size": 7505
+      },
+      "sympy/simplify/tests/test_trigsimp.py": {
+        "size": 20527
+      },
+      "sympy/simplify/traversaltools.py": {
+        "size": 444
+      },
+      "sympy/simplify/trigsimp.py": {
+        "size": 47133
+      },
+      "sympy/solvers/__init__.py": {
+        "size": 2368
+      },
+      "sympy/solvers/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "sympy/solvers/benchmarks/bench_solvers.py": {
+        "size": 323
+      },
+      "sympy/solvers/bivariate.py": {
+        "size": 17905
+      },
+      "sympy/solvers/decompogen.py": {
+        "size": 3792
+      },
+      "sympy/solvers/deutils.py": {
+        "size": 10350
+      },
+      "sympy/solvers/diophantine/__init__.py": {
+        "size": 163
+      },
+      "sympy/solvers/diophantine/diophantine.py": {
+        "size": 122444
+      },
+      "sympy/solvers/diophantine/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/solvers/diophantine/tests/test_diophantine.py": {
+        "size": 43370
+      },
+      "sympy/solvers/inequalities.py": {
+        "size": 33045
+      },
+      "sympy/solvers/ode/__init__.py": {
+        "size": 503
+      },
+      "sympy/solvers/ode/hypergeometric.py": {
+        "size": 10083
+      },
+      "sympy/solvers/ode/lie_group.py": {
+        "size": 39210
+      },
+      "sympy/solvers/ode/nonhomogeneous.py": {
+        "size": 17910
+      },
+      "sympy/solvers/ode/ode.py": {
+        "size": 145358
+      },
+      "sympy/solvers/ode/riccati.py": {
+        "size": 30771
+      },
+      "sympy/solvers/ode/single.py": {
+        "size": 112308
+      },
+      "sympy/solvers/ode/subscheck.py": {
+        "size": 16165
+      },
+      "sympy/solvers/ode/systems.py": {
+        "size": 71502
+      },
+      "sympy/solvers/ode/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/solvers/ode/tests/test_lie_group.py": {
+        "size": 5354
+      },
+      "sympy/solvers/ode/tests/test_ode.py": {
+        "size": 50165
+      },
+      "sympy/solvers/ode/tests/test_riccati.py": {
+        "size": 29383
+      },
+      "sympy/solvers/ode/tests/test_single.py": {
+        "size": 102635
+      },
+      "sympy/solvers/ode/tests/test_subscheck.py": {
+        "size": 12503
+      },
+      "sympy/solvers/ode/tests/test_systems.py": {
+        "size": 129766
+      },
+      "sympy/solvers/pde.py": {
+        "size": 34948
+      },
+      "sympy/solvers/polysys.py": {
+        "size": 27210
+      },
+      "sympy/solvers/recurr.py": {
+        "size": 25478
+      },
+      "sympy/solvers/simplex.py": {
+        "size": 33857
+      },
+      "sympy/solvers/solvers.py": {
+        "size": 138733
+      },
+      "sympy/solvers/solveset.py": {
+        "size": 152327
+      },
+      "sympy/solvers/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/solvers/tests/test_constantsimp.py": {
+        "size": 8742
+      },
+      "sympy/solvers/tests/test_decompogen.py": {
+        "size": 2978
+      },
+      "sympy/solvers/tests/test_inequalities.py": {
+        "size": 21060
+      },
+      "sympy/solvers/tests/test_numeric.py": {
+        "size": 4765
+      },
+      "sympy/solvers/tests/test_pde.py": {
+        "size": 9299
+      },
+      "sympy/solvers/tests/test_polysys.py": {
+        "size": 15301
+      },
+      "sympy/solvers/tests/test_recurr.py": {
+        "size": 12425
+      },
+      "sympy/solvers/tests/test_simplex.py": {
+        "size": 9236
+      },
+      "sympy/solvers/tests/test_solvers.py": {
+        "size": 108317
+      },
+      "sympy/solvers/tests/test_solveset.py": {
+        "size": 150679
+      },
+      "sympy/stats/__init__.py": {
+        "size": 8522
+      },
+      "sympy/stats/compound_rv.py": {
+        "size": 8000
+      },
+      "sympy/stats/crv.py": {
+        "size": 21063
+      },
+      "sympy/stats/crv_types.py": {
+        "size": 122406
+      },
+      "sympy/stats/drv.py": {
+        "size": 12029
+      },
+      "sympy/stats/drv_types.py": {
+        "size": 19900
+      },
+      "sympy/stats/error_prop.py": {
+        "size": 3350
+      },
+      "sympy/stats/frv.py": {
+        "size": 16909
+      },
+      "sympy/stats/frv_types.py": {
+        "size": 23383
+      },
+      "sympy/stats/joint_rv.py": {
+        "size": 15997
+      },
+      "sympy/stats/joint_rv_types.py": {
+        "size": 30610
+      },
+      "sympy/stats/matrix_distributions.py": {
+        "size": 21988
+      },
+      "sympy/stats/random_matrix.py": {
+        "size": 1063
+      },
+      "sympy/stats/random_matrix_models.py": {
+        "size": 15363
+      },
+      "sympy/stats/rv.py": {
+        "size": 54579
+      },
+      "sympy/stats/rv_interface.py": {
+        "size": 13970
+      },
+      "sympy/stats/sampling/__init__.py": {
+        "size": 0
+      },
+      "sympy/stats/sampling/sample_numpy.py": {
+        "size": 4264
+      },
+      "sympy/stats/sampling/sample_pymc.py": {
+        "size": 3030
+      },
+      "sympy/stats/sampling/sample_scipy.py": {
+        "size": 6364
+      },
+      "sympy/stats/sampling/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/stats/sampling/tests/test_sample_continuous_rv.py": {
+        "size": 5743
+      },
+      "sympy/stats/sampling/tests/test_sample_discrete_rv.py": {
+        "size": 3395
+      },
+      "sympy/stats/sampling/tests/test_sample_finite_rv.py": {
+        "size": 3096
+      },
+      "sympy/stats/stochastic_process.py": {
+        "size": 2347
+      },
+      "sympy/stats/stochastic_process_types.py": {
+        "size": 88570
+      },
+      "sympy/stats/symbolic_multivariate_probability.py": {
+        "size": 10485
+      },
+      "sympy/stats/symbolic_probability.py": {
+        "size": 23301
+      },
+      "sympy/stats/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/stats/tests/test_compound_rv.py": {
+        "size": 6298
+      },
+      "sympy/stats/tests/test_continuous_rv.py": {
+        "size": 56175
+      },
+      "sympy/stats/tests/test_discrete_rv.py": {
+        "size": 11265
+      },
+      "sympy/stats/tests/test_error_prop.py": {
+        "size": 1968
+      },
+      "sympy/stats/tests/test_finite_rv.py": {
+        "size": 20448
+      },
+      "sympy/stats/tests/test_joint_rv.py": {
+        "size": 18688
+      },
+      "sympy/stats/tests/test_matrix_distributions.py": {
+        "size": 8892
+      },
+      "sympy/stats/tests/test_mix.py": {
+        "size": 4026
+      },
+      "sympy/stats/tests/test_random_matrix.py": {
+        "size": 5877
+      },
+      "sympy/stats/tests/test_rv.py": {
+        "size": 12980
+      },
+      "sympy/stats/tests/test_stochastic_process.py": {
+        "size": 39358
+      },
+      "sympy/stats/tests/test_symbolic_multivariate.py": {
+        "size": 5615
+      },
+      "sympy/stats/tests/test_symbolic_probability.py": {
+        "size": 9433
+      },
+      "sympy/strategies/__init__.py": {
+        "size": 1437
+      },
+      "sympy/strategies/branch/__init__.py": {
+        "size": 391
+      },
+      "sympy/strategies/branch/core.py": {
+        "size": 2794
+      },
+      "sympy/strategies/branch/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/strategies/branch/tests/test_core.py": {
+        "size": 2281
+      },
+      "sympy/strategies/branch/tests/test_tools.py": {
+        "size": 977
+      },
+      "sympy/strategies/branch/tests/test_traverse.py": {
+        "size": 1357
+      },
+      "sympy/strategies/branch/tools.py": {
+        "size": 392
+      },
+      "sympy/strategies/branch/traverse.py": {
+        "size": 834
+      },
+      "sympy/strategies/core.py": {
+        "size": 3994
+      },
+      "sympy/strategies/rl.py": {
+        "size": 4439
+      },
+      "sympy/strategies/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/strategies/tests/test_core.py": {
+        "size": 2208
+      },
+      "sympy/strategies/tests/test_rl.py": {
+        "size": 1984
+      },
+      "sympy/strategies/tests/test_tools.py": {
+        "size": 910
+      },
+      "sympy/strategies/tests/test_traverse.py": {
+        "size": 2117
+      },
+      "sympy/strategies/tests/test_tree.py": {
+        "size": 2435
+      },
+      "sympy/strategies/tools.py": {
+        "size": 1403
+      },
+      "sympy/strategies/traverse.py": {
+        "size": 1218
+      },
+      "sympy/strategies/tree.py": {
+        "size": 3805
+      },
+      "sympy/strategies/util.py": {
+        "size": 396
+      },
+      "sympy/tensor/__init__.py": {
+        "size": 905
+      },
+      "sympy/tensor/array/__init__.py": {
+        "size": 8279
+      },
+      "sympy/tensor/array/array_comprehension.py": {
+        "size": 12545
+      },
+      "sympy/tensor/array/array_derivatives.py": {
+        "size": 5132
+      },
+      "sympy/tensor/array/arrayop.py": {
+        "size": 18428
+      },
+      "sympy/tensor/array/dense_ndim_array.py": {
+        "size": 6412
+      },
+      "sympy/tensor/array/expressions/__init__.py": {
+        "size": 7080
+      },
+      "sympy/tensor/array/expressions/array_expressions.py": {
+        "size": 80601
+      },
+      "sympy/tensor/array/expressions/arrayexpr_derivatives.py": {
+        "size": 8771
+      },
+      "sympy/tensor/array/expressions/conv_array_to_indexed.py": {
+        "size": 480
+      },
+      "sympy/tensor/array/expressions/conv_array_to_matrix.py": {
+        "size": 451
+      },
+      "sympy/tensor/array/expressions/conv_indexed_to_array.py": {
+        "size": 289
+      },
+      "sympy/tensor/array/expressions/conv_matrix_to_array.py": {
+        "size": 285
+      },
+      "sympy/tensor/array/expressions/from_array_to_indexed.py": {
+        "size": 3971
+      },
+      "sympy/tensor/array/expressions/from_array_to_matrix.py": {
+        "size": 43110
+      },
+      "sympy/tensor/array/expressions/from_indexed_to_array.py": {
+        "size": 11220
+      },
+      "sympy/tensor/array/expressions/from_matrix_to_array.py": {
+        "size": 4741
+      },
+      "sympy/tensor/array/expressions/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/tensor/array/expressions/tests/test_array_expressions.py": {
+        "size": 33228
+      },
+      "sympy/tensor/array/expressions/tests/test_arrayexpr_derivatives.py": {
+        "size": 2875
+      },
+      "sympy/tensor/array/expressions/tests/test_as_explicit.py": {
+        "size": 2603
+      },
+      "sympy/tensor/array/expressions/tests/test_convert_array_to_indexed.py": {
+        "size": 2535
+      },
+      "sympy/tensor/array/expressions/tests/test_convert_array_to_matrix.py": {
+        "size": 31872
+      },
+      "sympy/tensor/array/expressions/tests/test_convert_indexed_to_array.py": {
+        "size": 8650
+      },
+      "sympy/tensor/array/expressions/tests/test_convert_matrix_to_array.py": {
+        "size": 5565
+      },
+      "sympy/tensor/array/expressions/tests/test_deprecated_conv_modules.py": {
+        "size": 1251
+      },
+      "sympy/tensor/array/expressions/utils.py": {
+        "size": 4054
+      },
+      "sympy/tensor/array/mutable_ndim_array.py": {
+        "size": 312
+      },
+      "sympy/tensor/array/ndim_array.py": {
+        "size": 19401
+      },
+      "sympy/tensor/array/sparse_ndim_array.py": {
+        "size": 6420
+      },
+      "sympy/tensor/array/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/tensor/array/tests/test_array_comprehension.py": {
+        "size": 4562
+      },
+      "sympy/tensor/array/tests/test_array_derivatives.py": {
+        "size": 1636
+      },
+      "sympy/tensor/array/tests/test_arrayop.py": {
+        "size": 25877
+      },
+      "sympy/tensor/array/tests/test_immutable_ndim_array.py": {
+        "size": 15945
+      },
+      "sympy/tensor/array/tests/test_mutable_ndim_array.py": {
+        "size": 13198
+      },
+      "sympy/tensor/array/tests/test_ndim_array.py": {
+        "size": 2267
+      },
+      "sympy/tensor/array/tests/test_ndim_array_conversions.py": {
+        "size": 683
+      },
+      "sympy/tensor/functions.py": {
+        "size": 4201
+      },
+      "sympy/tensor/index_methods.py": {
+        "size": 15463
+      },
+      "sympy/tensor/indexed.py": {
+        "size": 24538
+      },
+      "sympy/tensor/tensor.py": {
+        "size": 181298
+      },
+      "sympy/tensor/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/tensor/tests/test_functions.py": {
+        "size": 1587
+      },
+      "sympy/tensor/tests/test_index_methods.py": {
+        "size": 7147
+      },
+      "sympy/tensor/tests/test_indexed.py": {
+        "size": 16411
+      },
+      "sympy/tensor/tests/test_printing.py": {
+        "size": 459
+      },
+      "sympy/tensor/tests/test_tensor.py": {
+        "size": 83489
+      },
+      "sympy/tensor/tests/test_tensor_element.py": {
+        "size": 943
+      },
+      "sympy/tensor/tests/test_tensor_operators.py": {
+        "size": 18001
+      },
+      "sympy/tensor/toperators.py": {
+        "size": 8875
+      },
+      "sympy/testing/__init__.py": {
+        "size": 204
+      },
+      "sympy/testing/matrices.py": {
+        "size": 251
+      },
+      "sympy/testing/pytest.py": {
+        "size": 14268
+      },
+      "sympy/testing/quality_unicode.py": {
+        "size": 3534
+      },
+      "sympy/testing/randtest.py": {
+        "size": 597
+      },
+      "sympy/testing/runtests.py": {
+        "size": 89465
+      },
+      "sympy/testing/runtests_pytest.py": {
+        "size": 18094
+      },
+      "sympy/testing/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/testing/tests/diagnose_imports.py": {
+        "size": 9520
+      },
+      "sympy/testing/tests/test_code_quality.py": {
+        "size": 19248
+      },
+      "sympy/testing/tests/test_deprecated.py": {
+        "size": 218
+      },
+      "sympy/testing/tests/test_module_imports.py": {
+        "size": 1494
+      },
+      "sympy/testing/tests/test_pytest.py": {
+        "size": 6813
+      },
+      "sympy/testing/tests/test_runtests_pytest.py": {
+        "size": 7288
+      },
+      "sympy/testing/tmpfiles.py": {
+        "size": 1077
+      },
+      "sympy/this.py": {
+        "size": 585
+      },
+      "sympy/unify/__init__.py": {
+        "size": 328
+      },
+      "sympy/unify/core.py": {
+        "size": 7072
+      },
+      "sympy/unify/rewrite.py": {
+        "size": 1833
+      },
+      "sympy/unify/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/unify/tests/test_rewrite.py": {
+        "size": 2037
+      },
+      "sympy/unify/tests/test_sympy.py": {
+        "size": 5957
+      },
+      "sympy/unify/tests/test_unify.py": {
+        "size": 3064
+      },
+      "sympy/unify/usympy.py": {
+        "size": 3999
+      },
+      "sympy/utilities/__init__.py": {
+        "size": 875
+      },
+      "sympy/utilities/_compilation/__init__.py": {
+        "size": 786
+      },
+      "sympy/utilities/_compilation/availability.py": {
+        "size": 2919
+      },
+      "sympy/utilities/_compilation/compilation.py": {
+        "size": 22191
+      },
+      "sympy/utilities/_compilation/runners.py": {
+        "size": 10224
+      },
+      "sympy/utilities/_compilation/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/utilities/_compilation/tests/test_compilation.py": {
+        "size": 3224
+      },
+      "sympy/utilities/_compilation/util.py": {
+        "size": 8646
+      },
+      "sympy/utilities/autowrap.py": {
+        "size": 42596
+      },
+      "sympy/utilities/codegen.py": {
+        "size": 81705
+      },
+      "sympy/utilities/decorator.py": {
+        "size": 10888
+      },
+      "sympy/utilities/enumerative.py": {
+        "size": 43620
+      },
+      "sympy/utilities/exceptions.py": {
+        "size": 11052
+      },
+      "sympy/utilities/iterables.py": {
+        "size": 93225
+      },
+      "sympy/utilities/lambdify.py": {
+        "size": 59740
+      },
+      "sympy/utilities/magic.py": {
+        "size": 691
+      },
+      "sympy/utilities/matchpy_connector.py": {
+        "size": 12010
+      },
+      "sympy/utilities/mathml/__init__.py": {
+        "size": 3423
+      },
+      "sympy/utilities/mathml/data/__init__.py": {
+        "size": 0
+      },
+      "sympy/utilities/memoization.py": {
+        "size": 1873
+      },
+      "sympy/utilities/misc.py": {
+        "size": 16471
+      },
+      "sympy/utilities/pkgdata.py": {
+        "size": 970
+      },
+      "sympy/utilities/pytest.py": {
+        "size": 475
+      },
+      "sympy/utilities/randtest.py": {
+        "size": 470
+      },
+      "sympy/utilities/runtests.py": {
+        "size": 486
+      },
+      "sympy/utilities/source.py": {
+        "size": 1162
+      },
+      "sympy/utilities/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/utilities/tests/test_autowrap.py": {
+        "size": 14900
+      },
+      "sympy/utilities/tests/test_codegen.py": {
+        "size": 56165
+      },
+      "sympy/utilities/tests/test_codegen_julia.py": {
+        "size": 18575
+      },
+      "sympy/utilities/tests/test_codegen_octave.py": {
+        "size": 17865
+      },
+      "sympy/utilities/tests/test_codegen_rust.py": {
+        "size": 12361
+      },
+      "sympy/utilities/tests/test_decorator.py": {
+        "size": 3740
+      },
+      "sympy/utilities/tests/test_deprecated.py": {
+        "size": 524
+      },
+      "sympy/utilities/tests/test_enumerative.py": {
+        "size": 6132
+      },
+      "sympy/utilities/tests/test_exceptions.py": {
+        "size": 751
+      },
+      "sympy/utilities/tests/test_iterables.py": {
+        "size": 35323
+      },
+      "sympy/utilities/tests/test_lambdify.py": {
+        "size": 75953
+      },
+      "sympy/utilities/tests/test_matchpy_connector.py": {
+        "size": 4885
+      },
+      "sympy/utilities/tests/test_mathml.py": {
+        "size": 871
+      },
+      "sympy/utilities/tests/test_misc.py": {
+        "size": 4678
+      },
+      "sympy/utilities/tests/test_pickling.py": {
+        "size": 23628
+      },
+      "sympy/utilities/tests/test_source.py": {
+        "size": 324
+      },
+      "sympy/utilities/tests/test_timeutils.py": {
+        "size": 372
+      },
+      "sympy/utilities/tests/test_wester.py": {
+        "size": 94915
+      },
+      "sympy/utilities/tests/test_xxe.py": {
+        "size": 66
+      },
+      "sympy/utilities/timeutils.py": {
+        "size": 2183
+      },
+      "sympy/utilities/tmpfiles.py": {
+        "size": 485
+      },
+      "sympy/vector/__init__.py": {
+        "size": 2082
+      },
+      "sympy/vector/basisdependent.py": {
+        "size": 11871
+      },
+      "sympy/vector/coordsysrect.py": {
+        "size": 45371
+      },
+      "sympy/vector/deloperator.py": {
+        "size": 3226
+      },
+      "sympy/vector/dyadic.py": {
+        "size": 8569
+      },
+      "sympy/vector/functions.py": {
+        "size": 18413
+      },
+      "sympy/vector/implicitregion.py": {
+        "size": 16193
+      },
+      "sympy/vector/integrals.py": {
+        "size": 6872
+      },
+      "sympy/vector/kind.py": {
+        "size": 1847
+      },
+      "sympy/vector/operators.py": {
+        "size": 12469
+      },
+      "sympy/vector/orienters.py": {
+        "size": 11833
+      },
+      "sympy/vector/parametricregion.py": {
+        "size": 5967
+      },
+      "sympy/vector/point.py": {
+        "size": 4523
+      },
+      "sympy/vector/scalar.py": {
+        "size": 1851
+      },
+      "sympy/vector/tests/__init__.py": {
+        "size": 0
+      },
+      "sympy/vector/tests/test_coordsysrect.py": {
+        "size": 30209
+      },
+      "sympy/vector/tests/test_dyadic.py": {
+        "size": 4984
+      },
+      "sympy/vector/tests/test_field_functions.py": {
+        "size": 23130
+      },
+      "sympy/vector/tests/test_functions.py": {
+        "size": 23101
+      },
+      "sympy/vector/tests/test_implicitregion.py": {
+        "size": 4063
+      },
+      "sympy/vector/tests/test_integrals.py": {
+        "size": 5122
+      },
+      "sympy/vector/tests/test_operators.py": {
+        "size": 3308
+      },
+      "sympy/vector/tests/test_parametricregion.py": {
+        "size": 4044
+      },
+      "sympy/vector/tests/test_printing.py": {
+        "size": 9152
+      },
+      "sympy/vector/tests/test_vector.py": {
+        "size": 12828
+      },
+      "sympy/vector/vector.py": {
+        "size": 20367
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "sympy/core",
+        "module": "sympy/core/sympify.py",
+        "functions": [
+          "sympify"
+        ],
+        "classes": [],
+        "description": "String/object to SymPy expression conversion; safest canonical entry for user input."
+      },
+      {
+        "package": "sympy/simplify",
+        "module": "sympy/simplify/simplify.py",
+        "functions": [
+          "simplify"
+        ],
+        "classes": [],
+        "description": "General symbolic simplification orchestrator across many algebraic transforms."
+      },
+      {
+        "package": "sympy/integrals",
+        "module": "sympy/integrals/integrals.py",
+        "functions": [
+          "integrate"
+        ],
+        "classes": [
+          "Integral"
+        ],
+        "description": "Symbolic integration API and unevaluated integral representation."
+      },
+      {
+        "package": "sympy/series",
+        "module": "sympy/series/limits.py",
+        "functions": [
+          "limit"
+        ],
+        "classes": [],
+        "description": "Limit computation for symbolic expressions."
+      },
+      {
+        "package": "sympy/series",
+        "module": "sympy/series/series.py",
+        "functions": [
+          "series"
+        ],
+        "classes": [],
+        "description": "Series expansion interface."
+      },
+      {
+        "package": "sympy/solvers",
+        "module": "sympy/solvers/solvers.py",
+        "functions": [
+          "solve"
+        ],
+        "classes": [],
+        "description": "General algebraic equation solving interface."
+      },
+      {
+        "package": "sympy/solvers",
+        "module": "sympy/solvers/solveset.py",
+        "functions": [
+          "solveset",
+          "linsolve",
+          "nonlinsolve"
+        ],
+        "classes": [],
+        "description": "Set-oriented solving APIs for robust symbolic solution handling."
+      },
+      {
+        "package": "sympy/matrices",
+        "module": "sympy/matrices/matrices.py",
+        "functions": [
+          "zeros",
+          "ones",
+          "eye"
+        ],
+        "classes": [
+          "Matrix"
+        ],
+        "description": "Core dense matrix construction and linear algebra operations."
+      },
+      {
+        "package": "sympy/parsing",
+        "module": "sympy/parsing/sympy_parser.py",
+        "functions": [
+          "parse_expr"
+        ],
+        "classes": [],
+        "description": "Configurable parser for mathematical strings into SymPy expressions."
+      },
+      {
+        "package": "sympy/printing",
+        "module": "sympy/printing/latex.py",
+        "functions": [
+          "latex"
+        ],
+        "classes": [],
+        "description": "LaTeX conversion for symbolic expressions."
+      },
+      {
+        "package": "sympy/printing",
+        "module": "sympy/printing/str.py",
+        "functions": [
+          "sstr"
+        ],
+        "classes": [],
+        "description": "Readable string formatting for expressions."
+      },
+      {
+        "package": "sympy/utilities",
+        "module": "sympy/utilities/lambdify.py",
+        "functions": [
+          "lambdify"
+        ],
+        "classes": [],
+        "description": "Compile symbolic expressions into numeric Python-callable functions."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "isympy",
+        "module": "isympy.py",
+        "description": "Interactive SymPy shell entry script."
+      },
+      {
+        "name": "sympy.test runner (module invocation)",
+        "module": "sympy/testing/runtests.py",
+        "description": "Internal test runner used by project tooling; not ideal as MCP primary interface."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python",
+        "mpmath"
+      ],
+      "optional": [
+        "numpy",
+        "scipy",
+        "matplotlib",
+        "gmpy2",
+        "antlr4-python3-runtime",
+        "lark",
+        "pycosat",
+        "z3-solver"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.97,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/sympy/sympy",
+    "repo_name": "sympy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.97,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

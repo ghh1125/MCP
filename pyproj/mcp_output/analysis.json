@@ -1,0 +1,406 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/pyproj4/pyproj",
+    "summary": "Imported via zip fallback, file count: 73",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 1706
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 375
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 200
+      },
+      ".github/ISSUE_TEMPLATE/installation_issues.md": {
+        "size": 762
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 210
+      },
+      ".github/dependabot.yml": {
+        "size": 218
+      },
+      ".github/workflows/build_docs.yaml": {
+        "size": 1487
+      },
+      ".github/workflows/release.yaml": {
+        "size": 8203
+      },
+      ".github/workflows/test_proj_latest.yaml": {
+        "size": 1771
+      },
+      ".github/workflows/tests.yaml": {
+        "size": 5988
+      },
+      ".pre-commit-config.yaml": {
+        "size": 1071
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 3328
+      },
+      "CONTRIBUTING.md": {
+        "size": 14038
+      },
+      "HOW_TO_RELEASE.md": {
+        "size": 7557
+      },
+      "README.md": {
+        "size": 34586
+      },
+      "ci/vcpkg.json": {
+        "size": 227
+      },
+      "codecov.yml": {
+        "size": 163
+      },
+      "docs/conf.py": {
+        "size": 2031
+      },
+      "flake8/cython.cfg": {
+        "size": 228
+      },
+      "pyproj/__init__.py": {
+        "size": 3121
+      },
+      "pyproj/__main__.py": {
+        "size": 6351
+      },
+      "pyproj/_show_versions.py": {
+        "size": 3029
+      },
+      "pyproj/aoi.py": {
+        "size": 3424
+      },
+      "pyproj/crs/__init__.py": {
+        "size": 847
+      },
+      "pyproj/crs/_cf1x8.py": {
+        "size": 27465
+      },
+      "pyproj/crs/coordinate_operation.py": {
+        "size": 60186
+      },
+      "pyproj/crs/coordinate_system.py": {
+        "size": 10021
+      },
+      "pyproj/crs/crs.py": {
+        "size": 64472
+      },
+      "pyproj/crs/datum.py": {
+        "size": 3682
+      },
+      "pyproj/crs/enums.py": {
+        "size": 3675
+      },
+      "pyproj/datadir.py": {
+        "size": 3878
+      },
+      "pyproj/enums.py": {
+        "size": 6512
+      },
+      "pyproj/exceptions.py": {
+        "size": 694
+      },
+      "pyproj/geod.py": {
+        "size": 43866
+      },
+      "pyproj/network.py": {
+        "size": 1922
+      },
+      "pyproj/proj.py": {
+        "size": 11239
+      },
+      "pyproj/sync.py": {
+        "size": 8694
+      },
+      "pyproj/transformer.py": {
+        "size": 50644
+      },
+      "pyproj/utils.py": {
+        "size": 4474
+      },
+      "pyproject.toml": {
+        "size": 3625
+      },
+      "pytest.ini": {
+        "size": 337
+      },
+      "requirements-dev.txt": {
+        "size": 50
+      },
+      "requirements-docs.txt": {
+        "size": 36
+      },
+      "requirements-test.txt": {
+        "size": 129
+      },
+      "setup.py": {
+        "size": 8760
+      },
+      "test/__init__.py": {
+        "size": 0
+      },
+      "test/conftest.py": {
+        "size": 2953
+      },
+      "test/crs/test_crs.py": {
+        "size": 57183
+      },
+      "test/crs/test_crs_cf.py": {
+        "size": 68984
+      },
+      "test/crs/test_crs_coordinate_operation.py": {
+        "size": 26561
+      },
+      "test/crs/test_crs_coordinate_system.py": {
+        "size": 7656
+      },
+      "test/crs/test_crs_datum.py": {
+        "size": 2120
+      },
+      "test/crs/test_crs_json.py": {
+        "size": 4438
+      },
+      "test/crs/test_crs_maker.py": {
+        "size": 12120
+      },
+      "test/test_aoi.py": {
+        "size": 1154
+      },
+      "test/test_awips221.py": {
+        "size": 3946
+      },
+      "test/test_cli.py": {
+        "size": 10651
+      },
+      "test/test_database.py": {
+        "size": 10382
+      },
+      "test/test_datadir.py": {
+        "size": 8739
+      },
+      "test/test_datum.py": {
+        "size": 855
+      },
+      "test/test_datum_shift.py": {
+        "size": 2260
+      },
+      "test/test_doctest_wrapper.py": {
+        "size": 1606
+      },
+      "test/test_exception_logging.py": {
+        "size": 339
+      },
+      "test/test_geod.py": {
+        "size": 27348
+      },
+      "test/test_list.py": {
+        "size": 905
+      },
+      "test/test_network.py": {
+        "size": 1866
+      },
+      "test/test_pickle.py": {
+        "size": 2261
+      },
+      "test/test_proj.py": {
+        "size": 21292
+      },
+      "test/test_show_versions.py": {
+        "size": 1249
+      },
+      "test/test_sync.py": {
+        "size": 6390
+      },
+      "test/test_transform.py": {
+        "size": 5456
+      },
+      "test/test_transformer.py": {
+        "size": 74845
+      },
+      "test/test_utils.py": {
+        "size": 2021
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.pyproj",
+      "source.pyproj.crs",
+      "source.test"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.pyproj",
+        "module": "__init__",
+        "functions": [
+          "show_versions"
+        ],
+        "classes": [
+          "CRS",
+          "Geod",
+          "Proj",
+          "Transformer",
+          "TransformerGroup",
+          "AreaOfInterest"
+        ],
+        "description": "Primary public API export surface for coordinate reference systems, projections, geodesic calculations, and transformations."
+      },
+      {
+        "package": "source.pyproj",
+        "module": "transformer",
+        "functions": [
+          "itransform"
+        ],
+        "classes": [
+          "Transformer",
+          "TransformerGroup",
+          "TransformDirection",
+          "AreaOfInterest"
+        ],
+        "description": "High-value transformation engine: EPSG/CRS-to-CRS transforms, operation selection, and iterative coordinate transformation."
+      },
+      {
+        "package": "source.pyproj",
+        "module": "crs.crs",
+        "functions": [
+          "is_proj",
+          "is_wkt",
+          "is_epsg_code"
+        ],
+        "classes": [
+          "CRS"
+        ],
+        "description": "CRS parsing/normalization and format conversion (EPSG, WKT, PROJJSON, authority handling)."
+      },
+      {
+        "package": "source.pyproj",
+        "module": "proj",
+        "functions": [],
+        "classes": [
+          "Proj"
+        ],
+        "description": "Projection interface for forward/inverse coordinate conversion compatible with legacy and direct projection workflows."
+      },
+      {
+        "package": "source.pyproj",
+        "module": "geod",
+        "functions": [],
+        "classes": [
+          "Geod"
+        ],
+        "description": "Geodesic computations (distance, azimuth, forward/inverse geodetic operations) on ellipsoids."
+      },
+      {
+        "package": "source.pyproj",
+        "module": "database",
+        "functions": [
+          "get_authorities",
+          "get_codes",
+          "query_utm_crs_info"
+        ],
+        "classes": [],
+        "description": "CRS and authority database lookup utilities backed by PROJ database."
+      },
+      {
+        "package": "source.pyproj",
+        "module": "datadir",
+        "functions": [
+          "get_data_dir",
+          "set_data_dir",
+          "append_data_dir"
+        ],
+        "classes": [],
+        "description": "Runtime management of PROJ data directory and search path configuration."
+      },
+      {
+        "package": "source.pyproj",
+        "module": "network",
+        "functions": [
+          "is_network_enabled",
+          "set_network_enabled"
+        ],
+        "classes": [],
+        "description": "Control of PROJ network access for remote grid/resource retrieval."
+      },
+      {
+        "package": "source.pyproj",
+        "module": "sync",
+        "functions": [
+          "get_transform_grid_list",
+          "get_data_dir",
+          "sync_transform_grids"
+        ],
+        "classes": [],
+        "description": "Grid sync utilities for downloading/managing transformation resources."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "pyproj",
+        "module": "source.pyproj.__main__",
+        "description": "Module-driven CLI entry (`python -m pyproj`) for inspecting pyproj/PROJ environment and related utility operations."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.94
+    },
+    "dependencies": {
+      "required": [
+        "Python >= 3.10",
+        "Cython",
+        "setuptools",
+        "certifi",
+        "PROJ (native library/runtime, bundled or system-provided)",
+        "sqlite3 (via Python stdlib/PROJ DB access)"
+      ],
+      "optional": [
+        "pytest (testing)",
+        "coverage/codecov tooling (CI)",
+        "Sphinx/doc build dependencies",
+        "network access for remote grid downloads (when enabled)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.93,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/pyproj4/pyproj",
+    "repo_name": "pyproj",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.93,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

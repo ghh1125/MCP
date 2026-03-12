@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to atomman: Box class &#8212; atomman 1.4.11 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=eeb27264" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=651a37ba"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to atomman: Atoms class" href="1.2._Atoms_class.html" />
+    <link rel="prev" title="Introduction to atomman: Defining atomic systems" href="1._Defining_atomic_systems.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="1.2._Atoms_class.html" title="Introduction to atomman: Atoms class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="1._Defining_atomic_systems.html" title="Introduction to atomman: Defining atomic systems"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">atomman 1.4.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction to atomman: Box class</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="Introduction-to-atomman:-Box-class">
+<h1>Introduction to atomman: Box class<a class="headerlink" href="#Introduction-to-atomman:-Box-class" title="Link to this heading">¶</a></h1>
+<p><strong>Lucas M. Hale</strong>, <a class="reference external" href="mailto:lucas&#46;hale&#37;&#52;&#48;nist&#46;gov?Subject=ipr-demo">lucas<span>&#46;</span>hale<span>&#64;</span>nist<span>&#46;</span>gov</a>, <em>Materials Science and Engineering Division, NIST</em>.</p>
+<p><a class="reference external" href="http://www.nist.gov/public_affairs/disclaimer.cfm">Disclaimers</a></p>
+<section id="1.-Introduction">
+<h2>1. Introduction<a class="headerlink" href="#1.-Introduction" title="Link to this heading">¶</a></h2>
+<p>The atomman.Box class represents a generic parallelepiped that can be used as a simulation box/cell allowing for translational symmetry in all three dimensions. The underlying data structure consists of three 3D vectors:</p>
+<ul class="simple">
+<li><p><strong>avect</strong> is the Cartesian vector associated with the Box’s a lattice vector.</p></li>
+<li><p><strong>bvect</strong> is the Cartesian vector associated with the Box’s b lattice vector.</p></li>
+<li><p><strong>cvect</strong> is the Cartesian vector associated with the Box’s c lattice vector.</p></li>
+<li><p><strong>origin</strong> is the Cartesian position vector for the Box’s origin. The positions of the Box’s eight corners are given by adding combinations of avect, bvect and cvect to the origin.</p></li>
+</ul>
+<p><strong>Library Imports</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard Python libraries</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># http://www.numpy.org/</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># https://github.com/usnistgov/atomman</span>
+<span class="kn">import</span> <span class="nn">atomman</span> <span class="k">as</span> <span class="nn">am</span>
+<span class="kn">import</span> <span class="nn">atomman.unitconvert</span> <span class="k">as</span> <span class="nn">uc</span>
+
+<span class="c1"># Show atomman version</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;atomman version =&#39;</span><span class="p">,</span> <span class="n">am</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="c1"># Show date of Notebook execution</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Notebook executed on&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+atomman version = 1.4.11
+Notebook executed on 2024-04-29
+</pre></div></div>
+</div>
+<p>Create a default box with vects that are normal unit vectors.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">Box</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 1.000,  0.000,  0.000]
+bvect =  [ 0.000,  1.000,  0.000]
+cvect =  [ 0.000,  0.000,  1.000]
+origin = [ 0.000,  0.000,  0.000]
+</pre></div></div>
+</div>
+</section>
+<section id="2.-Box-parameters">
+<h2>2. Box parameters<a class="headerlink" href="#2.-Box-parameters" title="Link to this heading">¶</a></h2>
+<p>The Box class supports a number of different parameters to represent the underlying box. All of these parameters can be fetched as class attributes.</p>
+<ul class="simple">
+<li><p><strong>avect, bvect, cvect</strong> are the Cartesian vectors associated with the Box’s lattice vectors.</p></li>
+<li><p><strong>origin</strong> is the Cartesian position vector for the Box’s origin.</p></li>
+<li><p><strong>vects</strong> is a 3x3 array containing [avect, bvect, cvect].</p></li>
+<li><p><strong>a, b, c</strong> are the Box’s lattice parameters (magnitudes of avect, bvect, cvect, respectively).</p></li>
+<li><p><strong>alpha, beta, gamma</strong> are the Box’s lattice angles in degrees.</p></li>
+<li><p><strong>xlo, xhi, ylo, yhi, zlo, zhi</strong> are the LAMMPS hi/lo box dimensions.</p></li>
+<li><p><strong>lx, ly, lz</strong> are the LAMMPS box dimensions (lx = xhi - xlo, etc.)</p></li>
+<li><p><strong>xy, xz, yz</strong> are the LAMMPS box tilt factors.</p></li>
+<li><p><strong>volume</strong> is the box’s volume (added version 1.2.5).</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Individual box vectors</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.avect -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">avect</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.bvect -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">bvect</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.cvect -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">cvect</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Box origin position</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.origin -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">origin</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Array of box vectors</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.vects -&gt;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">vects</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Crystal lattice parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.a -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.b -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.c -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.alpha -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.beta  -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.gamma -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># LAMMPS parameters</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.xlo -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">xlo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.xhi -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">xhi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.ylo -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">ylo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.yhi -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">yhi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.zlo -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">zlo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.zhi -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">zhi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.lx -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">lx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.ly -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">ly</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.lz -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">lz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.xy -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">xy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.xz -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">xz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.yz -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">yz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Box volume</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.volume -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">volume</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+box.avect -&gt; [1. 0. 0.]
+box.bvect -&gt; [0. 1. 0.]
+box.cvect -&gt; [0. 0. 1.]
+
+box.origin -&gt; [0. 0. 0.]
+
+box.vects -&gt;
+[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+
+box.a -&gt; 1.0
+box.b -&gt; 1.0
+box.c -&gt; 1.0
+box.alpha -&gt; 90.0
+box.beta  -&gt; 90.0
+box.gamma -&gt; 90.0
+
+box.xlo -&gt; 0.0
+box.xhi -&gt; 1.0
+box.ylo -&gt; 0.0
+box.yhi -&gt; 1.0
+box.zlo -&gt; 0.0
+box.zhi -&gt; 1.0
+box.lx -&gt; 1.0
+box.ly -&gt; 1.0
+box.lz -&gt; 1.0
+box.xy -&gt; 0.0
+box.xz -&gt; 0.0
+box.yz -&gt; 0.0
+
+box.volume -&gt; 1.0
+</pre></div></div>
+</div>
+</section>
+<section id="3.-Initializing-and-setting-Box-parameters">
+<h2>3. Initializing and setting Box parameters<a class="headerlink" href="#3.-Initializing-and-setting-Box-parameters" title="Link to this heading">¶</a></h2>
+<p>Only a few of the parameters listed in Section #2 can be directly set. This is done as setting some of the parameters independent of others can lead to ambiguous answers. For better control, set() functions are defined that allow for the setting of complete parameter sets for defining the box.</p>
+<section id="3.1.-Direct-setting-box-vects-and-origin">
+<h3>3.1. Direct setting box vects and origin<a class="headerlink" href="#3.1.-Direct-setting-box-vects-and-origin" title="Link to this heading">¶</a></h3>
+<p>Only vects and origin can be directly set.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set avect, bvect, cvect and origin with random vectors</span>
+<span class="n">box</span><span class="o">.</span><span class="n">vects</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">box</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 0.493,  3.072,  2.180]
+bvect =  [ 3.052,  2.434,  1.904]
+cvect =  [ 1.149,  2.004,  1.151]
+origin = [ 0.614,  0.488,  0.655]
+</pre></div></div>
+</div>
+</section>
+<section id="3.2.-Box-initializing-and-Box.set()-method">
+<h3>3.2. Box initializing and Box.set() method<a class="headerlink" href="#3.2.-Box-initializing-and-Box.set()-method" title="Link to this heading">¶</a></h3>
+<p>A new Box can be initialized or an existing Box can be changed using the Box.set() method by using one of the following sets of parameters (optional terms in parenthesis):</p>
+<ul class="simple">
+<li><p>vects (and origin)</p></li>
+<li><p>avect, bvect, cvect (and origin)</p></li>
+<li><p>a, b, c, (alpha, beta, gamma and origin)</p></li>
+<li><p>xlo, xhi, ylo, yhi, zlo, zhi, (xy, xz and yz)</p></li>
+<li><p>lx, ly, lz, (xy, xz, yz, and origin)</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use set with vects (default origin is [0,0,0])</span>
+<span class="n">box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">vects</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 1.000,  2.000,  3.000]
+bvect =  [ 2.000,  3.000,  1.000]
+cvect =  [ 3.000,  1.000,  2.000]
+origin = [ 0.000,  0.000,  0.000]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use set with avect, bvect, cvect (default origin is [0,0,0])</span>
+<span class="n">box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">avect</span><span class="o">=</span><span class="p">[</span><span class="mf">3.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">bvect</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">cvect</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 3.200,  0.000,  0.000]
+bvect =  [ 0.000,  3.200,  0.000]
+cvect =  [ 0.000,  0.000,  3.200]
+origin = [ 0.000,  0.000,  0.000]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use set with a, b, c and alpha (default angles are 90, origin is [0,0,0])</span>
+<span class="n">box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mf">4.3</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">3.2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">8.1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Show that box definition coincides with parameters set</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.a -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.b -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.c -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.alpha -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.beta  -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.gamma -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 4.300,  0.000,  0.000]
+bvect =  [ 0.000,  3.200,  0.000]
+cvect =  [ 0.000, -2.770,  7.612]
+origin = [ 0.000,  0.000,  0.000]
+
+box.a -&gt; 4.3
+box.b -&gt; 3.2
+box.c -&gt; 8.1
+box.alpha -&gt; 110.0
+box.beta  -&gt; 90.0
+box.gamma -&gt; 90.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use set with xlo, xhi, ylo, yhi, zlo, zhi and xy (default tilts are 0)</span>
+<span class="n">box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlo</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">xhi</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ylo</span><span class="o">=-</span><span class="mf">2.1</span><span class="p">,</span> <span class="n">yhi</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">zlo</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">zhi</span><span class="o">=</span><span class="mf">3.1</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Show that box definition coincides with parameters set</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.xlo -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">xlo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.xhi -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">xhi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.ylo -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">ylo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.yhi -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">yhi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.zlo -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">zlo</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.zhi -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">zhi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.xy -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">xy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.xz -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">xz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.yz -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">yz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 6.000,  0.000,  0.000]
+bvect =  [ 0.500,  7.100,  0.000]
+cvect =  [ 0.000,  0.000,  3.000]
+origin = [-1.000, -2.100,  0.100]
+
+box.xlo -&gt; -1.0
+box.xhi -&gt; 5.0
+box.ylo -&gt; -2.1
+box.yhi -&gt; 5.0
+box.zlo -&gt; 0.1
+box.zhi -&gt; 3.1
+box.xy -&gt; 0.5
+box.xz -&gt; 0.0
+box.yz -&gt; 0.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use set with lx, ly, lz and xz (default tilts are 0, origin is [0,0,0])</span>
+<span class="n">box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">lx</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">ly</span><span class="o">=</span><span class="mi">57</span><span class="p">,</span> <span class="n">lz</span><span class="o">=</span><span class="mi">112</span><span class="p">,</span> <span class="n">xz</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Show that box definition coincides with parameters set</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.lx -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">lx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.ly -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">ly</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.lz -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">lz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.xy -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">xy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.xz -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">xz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.yz -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">yz</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [42.000,  0.000,  0.000]
+bvect =  [ 0.000, 57.000,  0.000]
+cvect =  [15.000,  0.000, 112.000]
+origin = [ 1.000,  2.000,  3.000]
+
+box.lx -&gt; 42.0
+box.ly -&gt; 57.0
+box.lz -&gt; 112.0
+box.xy -&gt; 0.0
+box.xz -&gt; 15.0
+box.yz -&gt; 0.0
+</pre></div></div>
+</div>
+</section>
+<section id="3.3.-Crystal-family-static-methods">
+<h3>3.3. Crystal family static methods<a class="headerlink" href="#3.3.-Crystal-family-static-methods" title="Link to this heading">¶</a></h3>
+<p><em>Added version 1.2.5</em></p>
+<p>There are also methods for each of the seven crystal families that are convenient for the construction of unit cell systems in standard representations:</p>
+<ul class="simple">
+<li><p><strong>cubic(a)</strong>: <span class="math notranslate nohighlight">\(a = b = c; \alpha = \beta = \gamma = 90^\circ\)</span></p></li>
+<li><p><strong>hexagonal(a, c)</strong>: <span class="math notranslate nohighlight">\(a = b \ne c; \alpha = \beta = 90^\circ; \gamma = 120^\circ\)</span></p></li>
+<li><p><strong>tetragonal(a, c)</strong>: <span class="math notranslate nohighlight">\(a = b \ne c; \alpha = \beta = \gamma = 90^\circ\)</span></p></li>
+<li><p><strong>trigonal(a, alpha)</strong>: <span class="math notranslate nohighlight">\(a = b = c; \alpha = \beta = \gamma &lt; 120^\circ\)</span></p></li>
+<li><p><strong>orthorhombic(a, b, c)</strong>: <span class="math notranslate nohighlight">\(a \ne b \ne c; \alpha = \beta = \gamma = 90^\circ\)</span></p></li>
+<li><p><strong>monoclinic(a, b, c, beta)</strong>: <span class="math notranslate nohighlight">\(a \ne b \ne c; \alpha = \gamma = 90^\circ; \beta &gt; 90^\circ\)</span></p></li>
+<li><p><strong>triclinic(a, b, c, alpha, beta, gamma)</strong>: <span class="math notranslate nohighlight">\(a \ne b \ne c; \alpha \ne \beta \ne \gamma\)</span></p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;am.Box.cubic(4.25) -&gt;&#39;</span><span class="p">)</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">Box</span><span class="o">.</span><span class="n">cubic</span><span class="p">(</span><span class="mf">4.25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.a -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.b -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.c -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.alpha -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.beta  -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.gamma -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+am.Box.cubic(4.25) -&gt;
+box.a -&gt; 4.25
+box.b -&gt; 4.25
+box.c -&gt; 4.25
+box.alpha -&gt; 90.0
+box.beta  -&gt; 90.0
+box.gamma -&gt; 90.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;am.Box.hexagonal(3.12, 5.14) -&gt;&#39;</span><span class="p">)</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">Box</span><span class="o">.</span><span class="n">hexagonal</span><span class="p">(</span><span class="mf">3.12</span><span class="p">,</span> <span class="mf">5.14</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.a -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.b -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.c -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.alpha -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.beta  -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.gamma -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+am.Box.hexagonal(3.12, 5.14) -&gt;
+box.a -&gt; 3.12
+box.b -&gt; 3.12
+box.c -&gt; 5.14
+box.alpha -&gt; 90.0
+box.beta  -&gt; 90.0
+box.gamma -&gt; 119.99999999999999
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="4.-Box-model">
+<h2>4. Box model<a class="headerlink" href="#4.-Box-model" title="Link to this heading">¶</a></h2>
+<p><em>Added version 1.2.7</em></p>
+<p>A JSON/XML equivalent data model representation of the Box object can be generated using the model() method.</p>
+<p>The units of length used in the model can be set using the ‘length_unit’ parameter.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="n">model</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">xml</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#34;box&#34;: {&#34;avect&#34;: {&#34;value&#34;: [3.12, 0.0, 0.0], &#34;unit&#34;: &#34;angstrom&#34;}, &#34;bvect&#34;: {&#34;value&#34;: [-1.5599999999999994, 2.701999259807449, 0.0], &#34;unit&#34;: &#34;angstrom&#34;}, &#34;cvect&#34;: {&#34;value&#34;: [0.0, 0.0, 5.14], &#34;unit&#34;: &#34;angstrom&#34;}, &#34;origin&#34;: {&#34;value&#34;: [0.0, 0.0, 0.0], &#34;unit&#34;: &#34;angstrom&#34;}}}
+
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;
+&lt;box&gt;&lt;avect&gt;&lt;value&gt;3.12&lt;/value&gt;&lt;value&gt;0.0&lt;/value&gt;&lt;value&gt;0.0&lt;/value&gt;&lt;unit&gt;angstrom&lt;/unit&gt;&lt;/avect&gt;&lt;bvect&gt;&lt;value&gt;-1.5599999999999994&lt;/value&gt;&lt;value&gt;2.701999259807449&lt;/value&gt;&lt;value&gt;0.0&lt;/value&gt;&lt;unit&gt;angstrom&lt;/unit&gt;&lt;/bvect&gt;&lt;cvect&gt;&lt;value&gt;0.0&lt;/value&gt;&lt;value&gt;0.0&lt;/value&gt;&lt;value&gt;5.14&lt;/value&gt;&lt;unit&gt;angstrom&lt;/unit&gt;&lt;/cvect&gt;&lt;origin&gt;&lt;value&gt;0.0&lt;/value&gt;&lt;value&gt;0.0&lt;/value&gt;&lt;value&gt;0.0&lt;/value&gt;&lt;unit&gt;angstrom&lt;/unit&gt;&lt;/origin&gt;&lt;/box&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">length_unit</span><span class="o">=</span><span class="s1">&#39;nm&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#34;box&#34;: {&#34;avect&#34;: {&#34;value&#34;: [0.312, 0.0, 0.0], &#34;unit&#34;: &#34;nm&#34;}, &#34;bvect&#34;: {&#34;value&#34;: [-0.15599999999999994, 0.27019992598074494, 0.0], &#34;unit&#34;: &#34;nm&#34;}, &#34;cvect&#34;: {&#34;value&#34;: [0.0, 0.0, 0.514], &#34;unit&#34;: &#34;nm&#34;}, &#34;origin&#34;: {&#34;value&#34;: [0.0, 0.0, 0.0], &#34;unit&#34;: &#34;nm&#34;}}}
+</pre></div></div>
+</div>
+<p>Any stored model information can then be reloaded in as a Box object by passing the ‘model’ parameter to either the class initializer or the model() method.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">am</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 3.120,  0.000,  0.000]
+bvect =  [-1.560,  2.702,  0.000]
+cvect =  [ 0.000,  0.000,  5.140]
+origin = [ 0.000,  0.000,  0.000]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 3.120,  0.000,  0.000]
+bvect =  [-1.560,  2.702,  0.000]
+cvect =  [ 0.000,  0.000,  5.140]
+origin = [ 0.000,  0.000,  0.000]
+</pre></div></div>
+</div>
+</section>
+<section id="5.-Characterization-and-utility-methods">
+<h2>5. Characterization and utility methods<a class="headerlink" href="#5.-Characterization-and-utility-methods" title="Link to this heading">¶</a></h2>
+<p>This section describes some additional useful methods built into the Box class.</p>
+<section id="5.1.-LAMMPS-compatible-Boxes">
+<h3>5.1. LAMMPS-compatible Boxes<a class="headerlink" href="#5.1.-LAMMPS-compatible-Boxes" title="Link to this heading">¶</a></h3>
+<p>For boxes to be compatible with LAMMPS, they have to adhere to the following conditions:</p>
+<ul>
+<li><p>avect, bvect, cvect are right-handed.</p></li>
+<li><p>Only certain components of the lattice vectors are allowed to be non-zero:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>avect = [lx, 0.0, 0.0]
+bvect = [xy,  ly, 0.0]
+cvect = [xz,  yz,  lz]
+</pre></div>
+</div>
+</li>
+<li><p>The tilt factors are limited to being between -1/2 and 1/2 the corresponding length terms.</p></li>
+</ul>
+<p>The first two conditions are automatically adhered to if the box is set with LAMMPS terms or crystal lattice parameters, but may not be true if the box was set using the crystal vectors. The third condition is not checked by atomman. Large tilt factors are allowed by LAMMPS if the “box tilt large” command is used.</p>
+</section>
+<section id="5.1.1.-Box.is_lammps_norm()">
+<h3>5.1.1. Box.is_lammps_norm()<a class="headerlink" href="#5.1.1.-Box.is_lammps_norm()" title="Link to this heading">¶</a></h3>
+<p>This function returns True if the Box is compatible with the first two LAMMPS condtions and False otherwise.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The current box was defined with LAMMPS parameters, therefore is compatible</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.is_lammps_norm() -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">is_lammps_norm</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+box.is_lammps_norm() -&gt; True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a non-lammps compatible box using set(avect, bvect, cvect)</span>
+<span class="n">box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">avect</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">bvect</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">cvect</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">14</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;box.is_lammps_norm() -&gt;&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">is_lammps_norm</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+box.is_lammps_norm() -&gt; False
+</pre></div></div>
+</div>
+<p>Trying to access LAMMPS box parameters for incompatible boxes will issue an error.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">box</span><span class="o">.</span><span class="n">lx</span>
+<span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;AssertionError:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+AssertionError: Box is not normalized for LAMMPS style parameters
+</pre></div></div>
+</div>
+</section>
+<section id="5.2.-Inside/outside">
+<h3>5.2. Inside/outside<a class="headerlink" href="#5.2.-Inside/outside" title="Link to this heading">¶</a></h3>
+<p><em>Added version 1.3.0</em></p>
+<p>The Box is treated as a regional shape object (see <a class="reference external" href="3.3._Region_selectors.html">3.3._Region_selectors.html</a>) and has methods inside() and outside() that indicate whether any 3D coordinate(s) are located inside or outside the shape.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build random list of points</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[[8.81160358 2.71676184 0.7609669 ]
+ [8.6408608  8.6335422  6.02160501]
+ [3.54481945 4.94851122 6.298283  ]
+ [6.11139741 5.39773988 1.71761718]
+ [6.79366189 9.12403451 7.12534089]
+ [5.67935699 3.23007552 6.85816846]
+ [3.49818923 4.17660433 7.88890672]
+ [4.19945368 3.97830942 5.78892956]
+ [8.77414931 3.52906642 3.64925096]
+ [6.10294056 1.37401047 4.95237431]
+ [8.70654588 0.744317   1.00229273]
+ [9.03563524 4.50157033 2.72091936]
+ [2.37109145 2.79009903 6.90235942]
+ [6.89840668 8.30112834 6.43754968]
+ [7.04394381 8.29712298 6.61960962]
+ [5.53806036 7.02869808 1.7991656 ]
+ [6.5269522  5.45457678 3.54307   ]
+ [0.37042938 5.08119027 9.03772685]
+ [8.57988186 4.99288325 9.47766059]
+ [8.22989533 8.63759985 3.35406841]]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Points inside:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">inside</span><span class="p">(</span><span class="n">points</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Points outside:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">outside</span><span class="p">(</span><span class="n">points</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Points inside:
+[ True  True  True  True  True  True  True  True  True  True  True  True
+  True  True  True  True  True  True  True  True]
+Points outside:
+[False False False False False False False False False False False False
+ False False False False False False False False]
+</pre></div></div>
+</div>
+</section>
+<section id="5.3.-Vector/plane-conversions">
+<h3>5.3. Vector/plane conversions<a class="headerlink" href="#5.3.-Vector/plane-conversions" title="Link to this heading">¶</a></h3>
+<p><em>Added version 1.4.4:</em></p>
+<p>It is often convenient to define positions, vectors and planes relative to a Box. These methods perform the appropriate conversions.</p>
+<ul class="simple">
+<li><p><strong>vector_crystal_to_cartesian(indices)</strong> Converts crystal indices to Cartesian vectors relative to the box’s lattice vectors.</p></li>
+<li><p><strong>plane_crystal_to_cartesian(indices)</strong> Converts crystal planar indices to Cartesian plane normal vectors based on the box’s lattice vectors. Note: the algorithm used requires that the planar indices be integers.</p></li>
+<li><p><strong>position_relative_to_cartesian(relpos)</strong> Converts position vectors from relative box coordinates to absolute Cartesian coordinates based on the box’s vects and origin.</p></li>
+<li><p><strong>position_cartesian_to_relative(cartpos)</strong> Converts position vectors from absolute Cartesian coordinates to relative box coordinates based on the box’s vects and origin.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define an orthogonal box</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">set_in_units</span><span class="p">(</span><span class="mf">2.51</span><span class="p">,</span> <span class="s1">&#39;angstrom&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">set_in_units</span><span class="p">(</span><span class="mf">3.13</span><span class="p">,</span> <span class="s1">&#39;angstrom&#39;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">set_in_units</span><span class="p">(</span><span class="mf">4.07</span><span class="p">,</span> <span class="s1">&#39;angstrom&#39;</span><span class="p">)</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box</span><span class="o">.</span><span class="n">vector_crystal_to_cartesian</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([2.51, 3.13, 4.07])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">box</span><span class="o">.</span><span class="n">plane_crystal_to_cartesian</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([0.70300632, 0.56375267, 0.43354935])
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">relpos</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+<span class="n">cartpos</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="n">position_relative_to_cartesian</span><span class="p">(</span><span class="n">relpos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cartpos</span><span class="p">)</span>
+
+<span class="n">relpos2</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="n">position_cartesian_to_relative</span><span class="p">(</span><span class="n">cartpos</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">relpos2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1.255 1.565 2.035]
+[0.5 0.5 0.5]
+</pre></div></div>
+</div>
+</section>
+<section id="5.4.-Crystal-lattice-identification">
+<h3>5.4. Crystal lattice identification<a class="headerlink" href="#5.4.-Crystal-lattice-identification" title="Link to this heading">¶</a></h3>
+<p><em>Added version 1.4.4</em></p>
+<p>There are also a few tests for identifying if the box is consistent with a standard representation of a crystal family unit cell.</p>
+<ul class="simple">
+<li><p><strong>identifyfamily()</strong> returns str crystal family if box corresponds to a standard crystal representation. Otherwise, returns None.</p></li>
+<li><p><strong>iscubic()</strong> returns bool indicating if box is a standard cubic box.</p></li>
+<li><p><strong>ishexagonal()</strong> returns bool indicating if box is a standard hexagonal box.</p></li>
+<li><p><strong>istetragonal()</strong> returns bool indicating if box is a standard tetragonal box.</p></li>
+<li><p><strong>isrhombohedral()</strong> returns bool indicating if box is a standard rhombohedral box.</p></li>
+<li><p><strong>isorthorhombic()</strong> returns bool indicating if box is a standard orthorhombic box.</p></li>
+<li><p><strong>ismonoclinic()</strong> returns bool indicating if box is a standard monoclinic box.</p></li>
+<li><p><strong>istriclinic()</strong> returns bool indicating if box is a standard triclinic box.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;identifyfamily =&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">identifyfamily</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;iscubic =       &#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">iscubic</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ishexagonal =   &#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">ishexagonal</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;istetragonal =  &#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">istetragonal</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;isrhombohedral =&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">isrhombohedral</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;isorthorhombic =&#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">isorthorhombic</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ismonoclinic =  &#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">ismonoclinic</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;istriclinic =   &#39;</span><span class="p">,</span> <span class="n">box</span><span class="o">.</span><span class="n">istriclinic</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+identifyfamily = orthorhombic
+iscubic =        False
+ishexagonal =    False
+istetragonal =   False
+isrhombohedral = False
+isorthorhombic = True
+ismonoclinic =   False
+istriclinic =    False
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Introduction to atomman: Box class</a><ul>
+<li><a class="reference internal" href="#1.-Introduction">1. Introduction</a></li>
+<li><a class="reference internal" href="#2.-Box-parameters">2. Box parameters</a></li>
+<li><a class="reference internal" href="#3.-Initializing-and-setting-Box-parameters">3. Initializing and setting Box parameters</a><ul>
+<li><a class="reference internal" href="#3.1.-Direct-setting-box-vects-and-origin">3.1. Direct setting box vects and origin</a></li>
+<li><a class="reference internal" href="#3.2.-Box-initializing-and-Box.set()-method">3.2. Box initializing and Box.set() method</a></li>
+<li><a class="reference internal" href="#3.3.-Crystal-family-static-methods">3.3. Crystal family static methods</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#4.-Box-model">4. Box model</a></li>
+<li><a class="reference internal" href="#5.-Characterization-and-utility-methods">5. Characterization and utility methods</a><ul>
+<li><a class="reference internal" href="#5.1.-LAMMPS-compatible-Boxes">5.1. LAMMPS-compatible Boxes</a></li>
+<li><a class="reference internal" href="#5.1.1.-Box.is_lammps_norm()">5.1.1. Box.is_lammps_norm()</a></li>
+<li><a class="reference internal" href="#5.2.-Inside/outside">5.2. Inside/outside</a></li>
+<li><a class="reference internal" href="#5.3.-Vector/plane-conversions">5.3. Vector/plane conversions</a></li>
+<li><a class="reference internal" href="#5.4.-Crystal-lattice-identification">5.4. Crystal lattice identification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="1._Defining_atomic_systems.html"
+                          title="previous chapter">Introduction to atomman: Defining atomic systems</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="1.2._Atoms_class.html"
+                          title="next chapter">Introduction to atomman: Atoms class</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="1.2._Atoms_class.html" title="Introduction to atomman: Atoms class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="1._Defining_atomic_systems.html" title="Introduction to atomman: Defining atomic systems"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">atomman 1.4.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction to atomman: Box class</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
+    </div>
+  </body>
+</html>

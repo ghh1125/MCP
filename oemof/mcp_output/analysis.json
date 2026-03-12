@@ -1,0 +1,183 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/oemof/oemof",
+    "summary": "Imported via zip fallback, file count: 26",
+    "file_tree": {
+      ".bumpversion.cfg": {
+        "size": 508
+      },
+      ".readthedocs.yml": {
+        "size": 231
+      },
+      "ci/bootstrap.py": {
+        "size": 2949
+      },
+      "ci/requirements.txt": {
+        "size": 62
+      },
+      "ci/templates/.appveyor.yml": {
+        "size": 1789
+      },
+      "ci/templates/.travis.yml": {
+        "size": 1063
+      },
+      "ci/templates/tox.ini": {
+        "size": 1990
+      },
+      "docs/conf.py": {
+        "size": 1369
+      },
+      "docs/requirements.txt": {
+        "size": 36
+      },
+      "docs/spelling_wordlist.txt": {
+        "size": 109
+      },
+      "legal/EN_beitragsordnung.md": {
+        "size": 794
+      },
+      "legal/EN_geschaeftsordnung.md": {
+        "size": 531
+      },
+      "legal/EN_satzung.md": {
+        "size": 8806
+      },
+      "legal/beitragsordnung.md": {
+        "size": 831
+      },
+      "legal/geschaeftsordnung.md": {
+        "size": 2134
+      },
+      "legal/satzung.md": {
+        "size": 8844
+      },
+      "logo/README.md": {
+        "size": 152
+      },
+      "oemof_timeline/oemof_releases.py": {
+        "size": 1932
+      },
+      "oemof_timeline/oemof_timeline.py": {
+        "size": 1930
+      },
+      "pyproject.toml": {
+        "size": 322
+      },
+      "setup.cfg": {
+        "size": 2833
+      },
+      "setup.py": {
+        "size": 2682
+      },
+      "src/oemof/__init__.py": {
+        "size": 22
+      },
+      "src/oemof/__main__.py": {
+        "size": 388
+      },
+      "src/oemof/cli.py": {
+        "size": 804
+      },
+      "tox.ini": {
+        "size": 1236
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.src.oemof"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": true,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.src.oemof",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Package marker only; no functional API surface identified in this module."
+      },
+      {
+        "package": "source.src.oemof",
+        "module": "__main__",
+        "functions": [
+          "main"
+        ],
+        "classes": [],
+        "description": "Python module entry point; delegates execution to CLI logic."
+      },
+      {
+        "package": "source.src.oemof",
+        "module": "cli",
+        "functions": [
+          "main"
+        ],
+        "classes": [],
+        "description": "Primary command-line interface module; most suitable integration surface for MCP as a thin wrapper around existing command dispatch."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "oemof (package entrypoint via python -m oemof)",
+        "module": "source.src.oemof.__main__",
+        "description": "Invokes CLI main entrypoint."
+      },
+      {
+        "name": "oemof-cli-main",
+        "module": "source.src.oemof.cli",
+        "description": "Main CLI handler function (no additional subcommands discoverable from provided scan metadata)."
+      }
+    ],
+    "import_strategy": {
+      "primary": "cli",
+      "fallback": "import",
+      "confidence": 0.58
+    },
+    "dependencies": {
+      "required": [
+        "setuptools"
+      ],
+      "optional": [
+        "tox",
+        "Sphinx",
+        "pytest (likely via setup/test config, not confirmed as runtime)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.61,
+      "intrusiveness_risk": "low",
+      "complexity": "simple"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/oemof/oemof",
+    "repo_name": "oemof",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.61,
+    "intrusiveness_risk": "low",
+    "complexity": "simple"
+  }
+}

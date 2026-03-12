@@ -1,0 +1,251 @@
+{
+  "repository": {
+    "name": "nltk",
+    "url": "https://github.com/nltk/nltk",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/nltk",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773284262.499275,
+    "end_time": 1773284438.554773,
+    "duration": 176.05549812316895,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 24,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.nltk",
+        "source.nltk.app",
+        "source.nltk.ccg",
+        "source.nltk.chat",
+        "source.nltk.chunk",
+        "source.nltk.classify",
+        "source.nltk.cluster",
+        "source.nltk.corpus",
+        "source.nltk.draw",
+        "source.nltk.inference",
+        "source.nltk.lm",
+        "source.nltk.metrics",
+        "source.nltk.misc",
+        "source.nltk.parse",
+        "source.nltk.sem",
+        "source.nltk.sentiment",
+        "source.nltk.stem",
+        "source.nltk.tag",
+        "source.nltk.tbl",
+        "source.nltk.test",
+        "source.nltk.tokenize",
+        "source.nltk.translate",
+        "source.nltk.tree",
+        "source.nltk.twitter"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/nltk/nltk",
+      "repo_name": "nltk",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/nltk/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "Adopt a modern `pyproject.toml` build configuration (PEP 517/621) while keeping `setup.py` compatibility during transition",
+    "Add a minimal smoke-test CI matrix for supported Python versions and key optional dependency sets (e.g.",
+    "bare",
+    "scientific",
+    "full) since test status is currently empty",
+    "Reduce MCP plugin surface area by exposing only curated high-value/stable endpoints instead of thousands of auto-exported symbols",
+    "Add endpoint namespacing and deduplication in MCP generation (many collisions like `demo`",
+    "`update`",
+    "class/function name overlaps)",
+    "Introduce API stability tiers (public/experimental/internal) and generate MCP tools only from public tier",
+    "Add contract tests for MCP endpoints (signature validation",
+    "importability",
+    "deterministic output",
+    "error schema)",
+    "Implement timeout/guardrails for heavy NLP operations in MCP service to prevent long-running calls from blocking workers",
+    "Add structured logging and tracing in `mcp_service.py` with per-endpoint latency/error metrics",
+    "Add type hints and run `mypy` (or pyright) incrementally on core modules plus MCP adapter layer",
+    "Strengthen security posture for exposed file/network-sensitive utilities (path allowlists",
+    "SSRF-safe URL handling",
+    "subprocess restrictions)",
+    "Create a “recommended install profiles” doc (`minimal`",
+    "`ml`",
+    "`viz`",
+    "`twitter`) aligned to optional deps",
+    "Add repository-level architectural docs mapping major NLTK subsystems to maintainability owners",
+    "Prioritize refactors for very large legacy modules (e.g.",
+    "downloader/data/grammar/featstruct) by extracting cohesive helper submodules",
+    "Enforce consistent lint/format rules in CI (ruff/black/isort) and fail fast on style regressions",
+    "Add performance benchmarks for tokenizer/tagger/downloader hot paths and track regressions in CI",
+    "Improve test data management by marking large/slow/integration tests explicitly and splitting quick unit tests from resource-dependent tests",
+    "Add CLI integration tests for `python -m nltk` and `python -m nltk.downloader` with mocked network/data dirs",
+    "Publish a machine-readable deprecation registry and validate it with `tools/find_deprecated.py` in CI",
+    "Add release automation checks for changelog completeness",
+    "API diff summary",
+    "and wheel/sdist verification",
+    "Improve `README` with clearer quickstart for modern usage plus explicit corpus download/security notes",
+    "Add failure-tolerant DeepWiki/analysis fallback reporting so meta-analysis failures are visible but non-blocking with actionable diagnostics"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state across all nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter mode had high feasibility (0.9) for NLTK’s Python package structure.",
+      "Low intrusiveness risk and medium complexity profile supported automated generation without blocking errors.",
+      "MCP plugin runtime validation passed with healthy service status over stdio transport."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki analysis failed (non-blocking) and reduced external contextual enrichment.",
+      "Original project test result metadata is inconsistent/empty despite large test surface, limiting confidence in compatibility validation.",
+      "Generated artifact metrics (LOC/size/tool_endpoints reported as 0) conflict with actual large endpoint list, indicating observability/reporting defects."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; likely fast-to-moderate. Exact node timing not provided.",
+      "analysis_time": "Most expensive phase likely due to large AST scan (~399 files) and endpoint discovery; exact timing unavailable.",
+      "generation_time": "Completed successfully and produced required MCP scaffold files; timing not isolated.",
+      "test_time": "MCP service health check passed quickly; original-project test execution effectively not performed/recorded."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB), but likely acceptable for static analysis + codegen workload.",
+      "cpu_efficiency": "Unknown from telemetry (reported 0%); analysis stage likely CPU-dominant due to large symbol extraction.",
+      "disk_usage": "Low-to-moderate additional footprint (generated MCP files only), though reported size=0 indicates metrics collection issue."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 72,
+    "performance_score": 58,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 55
+  }
+}

@@ -1,0 +1,943 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/Project-AgML/AgML",
+    "summary": "Imported via zip fallback, file count: 230",
+    "file_tree": {
+      ".github/release-drafter.yml": {
+        "size": 1220
+      },
+      ".github/workflows/ci.yml": {
+        "size": 964
+      },
+      ".github/workflows/docs.yml": {
+        "size": 1636
+      },
+      ".github/workflows/release_draft.yml": {
+        "size": 1364
+      },
+      ".github/workflows/update-datasets.yml": {
+        "size": 1219
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 3210
+      },
+      "CONTRIBUTING.md": {
+        "size": 11129
+      },
+      "README.md": {
+        "size": 18519
+      },
+      "agml/__init__.py": {
+        "size": 1431
+      },
+      "agml/_assets/detector_benchmarks.json": {
+        "size": 42306
+      },
+      "agml/_assets/iNatAg-mini_public_datasources.json": {
+        "size": 524312
+      },
+      "agml/_assets/iNatAg-mini_source_citations.json": {
+        "size": 393701
+      },
+      "agml/_assets/iNatAg_public_datasources.json": {
+        "size": 524312
+      },
+      "agml/_assets/iNatAg_source_citations.json": {
+        "size": 378911
+      },
+      "agml/_assets/model_benchmarks.json": {
+        "size": 6398
+      },
+      "agml/_assets/public_datasources.json": {
+        "size": 76806
+      },
+      "agml/_assets/source_citations.json": {
+        "size": 38634
+      },
+      "agml/_assets/viz_colormaps.json": {
+        "size": 318
+      },
+      "agml/_internal/__init__.py": {
+        "size": 0
+      },
+      "agml/_internal/preprocess.py": {
+        "size": 71541
+      },
+      "agml/_internal/process_utils.py": {
+        "size": 20183
+      },
+      "agml/_internal/s3internal.py": {
+        "size": 6379
+      },
+      "agml/_internal/syntheticdata.py": {
+        "size": 34219
+      },
+      "agml/_internal/utils.py": {
+        "size": 1171
+      },
+      "agml/backend/__init__.py": {
+        "size": 1372
+      },
+      "agml/backend/config.py": {
+        "size": 7944
+      },
+      "agml/backend/experimental.py": {
+        "size": 2251
+      },
+      "agml/backend/random.py": {
+        "size": 982
+      },
+      "agml/backend/tftorch.py": {
+        "size": 11136
+      },
+      "agml/data/__init__.py": {
+        "size": 888
+      },
+      "agml/data/builder.py": {
+        "size": 15053
+      },
+      "agml/data/experimental.py": {
+        "size": 3730
+      },
+      "agml/data/exporters/__init__.py": {
+        "size": 30
+      },
+      "agml/data/exporters/tensorflow.py": {
+        "size": 9776
+      },
+      "agml/data/exporters/yolo.py": {
+        "size": 7351
+      },
+      "agml/data/extensions/__init__.py": {
+        "size": 648
+      },
+      "agml/data/extensions/cvat.py": {
+        "size": 3360
+      },
+      "agml/data/image_loader.py": {
+        "size": 6345
+      },
+      "agml/data/loader.py": {
+        "size": 86964
+      },
+      "agml/data/manager.py": {
+        "size": 16449
+      },
+      "agml/data/managers/__init__.py": {
+        "size": 600
+      },
+      "agml/data/managers/resize.py": {
+        "size": 14668
+      },
+      "agml/data/managers/training.py": {
+        "size": 15665
+      },
+      "agml/data/managers/transform_helpers.py": {
+        "size": 6006
+      },
+      "agml/data/managers/transforms.py": {
+        "size": 26945
+      },
+      "agml/data/metadata.py": {
+        "size": 13311
+      },
+      "agml/data/multi_loader.py": {
+        "size": 76853
+      },
+      "agml/data/object.py": {
+        "size": 9161
+      },
+      "agml/data/point_cloud.py": {
+        "size": 8636
+      },
+      "agml/data/public.py": {
+        "size": 9716
+      },
+      "agml/data/tools.py": {
+        "size": 7601
+      },
+      "agml/framework.py": {
+        "size": 3153
+      },
+      "agml/io.py": {
+        "size": 3855
+      },
+      "agml/models/__init__.py": {
+        "size": 1712
+      },
+      "agml/models/base.py": {
+        "size": 7513
+      },
+      "agml/models/benchmarks.py": {
+        "size": 3007
+      },
+      "agml/models/classification.py": {
+        "size": 20669
+      },
+      "agml/models/detection.py": {
+        "size": 34983
+      },
+      "agml/models/detector.py": {
+        "size": 16186
+      },
+      "agml/models/extensions/__init__.py": {
+        "size": 0
+      },
+      "agml/models/extensions/ultralytics.py": {
+        "size": 2193
+      },
+      "agml/models/legacy/__init__.py": {
+        "size": 765
+      },
+      "agml/models/legacy/classification_efficientnet.py": {
+        "size": 20669
+      },
+      "agml/models/legacy/detection_efficientdet.py": {
+        "size": 34983
+      },
+      "agml/models/legacy/segmentation_deeplab.py": {
+        "size": 26344
+      },
+      "agml/models/losses.py": {
+        "size": 2089
+      },
+      "agml/models/metrics/__init__.py": {
+        "size": 704
+      },
+      "agml/models/metrics/accuracy.py": {
+        "size": 2889
+      },
+      "agml/models/metrics/map.py": {
+        "size": 9870
+      },
+      "agml/models/preprocessing.py": {
+        "size": 8585
+      },
+      "agml/models/segmentation.py": {
+        "size": 26344
+      },
+      "agml/models/system_utils.py": {
+        "size": 880
+      },
+      "agml/models/tools.py": {
+        "size": 4420
+      },
+      "agml/models/training/__init__.py": {
+        "size": 0
+      },
+      "agml/models/training/basic_trainers.py": {
+        "size": 29305
+      },
+      "agml/synthetic/__init__.py": {
+        "size": 992
+      },
+      "agml/synthetic/compilation.py": {
+        "size": 12584
+      },
+      "agml/synthetic/config.py": {
+        "size": 13078
+      },
+      "agml/synthetic/converter.py": {
+        "size": 16490
+      },
+      "agml/synthetic/generator.py": {
+        "size": 20816
+      },
+      "agml/synthetic/lidar_loader.py": {
+        "size": 3511
+      },
+      "agml/synthetic/manual.py": {
+        "size": 13866
+      },
+      "agml/synthetic/options.py": {
+        "size": 15084
+      },
+      "agml/synthetic/synthetic_data_generation/CMakeLists.txt": {
+        "size": 1757
+      },
+      "agml/synthetic/synthetic_data_generation/SyntheticRadiation/CMakeLists.txt": {
+        "size": 1923
+      },
+      "agml/synthetic/tools.py": {
+        "size": 8578
+      },
+      "agml/utils/__init__.py": {
+        "size": 600
+      },
+      "agml/utils/data.py": {
+        "size": 7887
+      },
+      "agml/utils/downloads.py": {
+        "size": 9513
+      },
+      "agml/utils/general.py": {
+        "size": 5201
+      },
+      "agml/utils/image.py": {
+        "size": 3592
+      },
+      "agml/utils/io.py": {
+        "size": 3896
+      },
+      "agml/utils/logging.py": {
+        "size": 2684
+      },
+      "agml/utils/random.py": {
+        "size": 2380
+      },
+      "agml/viz/__init__.py": {
+        "size": 1281
+      },
+      "agml/viz/boxes.py": {
+        "size": 13488
+      },
+      "agml/viz/display.py": {
+        "size": 3785
+      },
+      "agml/viz/general.py": {
+        "size": 4932
+      },
+      "agml/viz/inspection.py": {
+        "size": 5340
+      },
+      "agml/viz/labels.py": {
+        "size": 5039
+      },
+      "agml/viz/masks.py": {
+        "size": 9330
+      },
+      "agml/viz/point_clouds.py": {
+        "size": 2411
+      },
+      "agml/viz/tools.py": {
+        "size": 6822
+      },
+      "config/coverage.ini": {
+        "size": 832
+      },
+      "config/interrogate.toml": {
+        "size": 596
+      },
+      "config/mkdocs.yml": {
+        "size": 4574
+      },
+      "config/mypy.ini": {
+        "size": 175
+      },
+      "config/pytest.ini": {
+        "size": 309
+      },
+      "config/ruff.toml": {
+        "size": 2056
+      },
+      "docs/code_of_conduct.md": {
+        "size": 73
+      },
+      "docs/credits.md": {
+        "size": 126
+      },
+      "docs/dataset_listing.md": {
+        "size": 131
+      },
+      "docs/datasets/almond_bloom_2023.md": {
+        "size": 731
+      },
+      "docs/datasets/almond_harvest_2021.md": {
+        "size": 838
+      },
+      "docs/datasets/apple_detection_drone_brazil.md": {
+        "size": 703
+      },
+      "docs/datasets/apple_detection_spain.md": {
+        "size": 691
+      },
+      "docs/datasets/apple_detection_usa.md": {
+        "size": 751
+      },
+      "docs/datasets/apple_flower_segmentation.md": {
+        "size": 860
+      },
+      "docs/datasets/apple_segmentation_minnesota.md": {
+        "size": 807
+      },
+      "docs/datasets/arabica_coffee_leaf_disease_classification.md": {
+        "size": 940
+      },
+      "docs/datasets/autonomous_greenhouse_regression.md": {
+        "size": 0
+      },
+      "docs/datasets/banana_leaf_disease_classification.md": {
+        "size": 928
+      },
+      "docs/datasets/bean_disease_uganda.md": {
+        "size": 796
+      },
+      "docs/datasets/bean_synthetic_earlygrowth_aerial.md": {
+        "size": 766
+      },
+      "docs/datasets/betel_leaf_disease_classification.md": {
+        "size": 1001
+      },
+      "docs/datasets/blackgram_plant_leaf_disease_classification.md": {
+        "size": 837
+      },
+      "docs/datasets/carrot_weeds_germany.md": {
+        "size": 755
+      },
+      "docs/datasets/chilli_leaf_classification.md": {
+        "size": 928
+      },
+      "docs/datasets/coconut_tree_disease_classification.md": {
+        "size": 913
+      },
+      "docs/datasets/corn_maize_leaf_disease.md": {
+        "size": 871
+      },
+      "docs/datasets/crop_weeds_greece.md": {
+        "size": 763
+      },
+      "docs/datasets/cucumber_disease_classification.md": {
+        "size": 946
+      },
+      "docs/datasets/embrapa_wgisd_grape_detection.md": {
+        "size": 813
+      },
+      "docs/datasets/fruit_detection_worldwide.md": {
+        "size": 845
+      },
+      "docs/datasets/gemini_flower_detection_2022.md": {
+        "size": 780
+      },
+      "docs/datasets/gemini_leaf_detection_2022.md": {
+        "size": 771
+      },
+      "docs/datasets/gemini_plant_detection_2022.md": {
+        "size": 779
+      },
+      "docs/datasets/gemini_pod_detection_2022.md": {
+        "size": 767
+      },
+      "docs/datasets/ghai_broccoli_detection.md": {
+        "size": 715
+      },
+      "docs/datasets/ghai_green_cabbage_detection.md": {
+        "size": 0
+      },
+      "docs/datasets/ghai_iceberg_lettuce_detection.md": {
+        "size": 0
+      },
+      "docs/datasets/ghai_romaine_detection.md": {
+        "size": 0
+      },
+      "docs/datasets/ghai_strawberry_fruit_detection.md": {
+        "size": 826
+      },
+      "docs/datasets/grape_detection_californiaday.md": {
+        "size": 748
+      },
+      "docs/datasets/grape_detection_californianight.md": {
+        "size": 754
+      },
+      "docs/datasets/grape_detection_syntheticday.md": {
+        "size": 752
+      },
+      "docs/datasets/growliflower_cauliflower_segmentation.md": {
+        "size": 814
+      },
+      "docs/datasets/guava_disease_pakistan.md": {
+        "size": 770
+      },
+      "docs/datasets/iNatAg-mini.md": {
+        "size": 989
+      },
+      "docs/datasets/iNatAg.md": {
+        "size": 956
+      },
+      "docs/datasets/java_plum_leaf_disease_classification.md": {
+        "size": 929
+      },
+      "docs/datasets/leaf_counting_denmark.md": {
+        "size": 724
+      },
+      "docs/datasets/mango_detection_australia.md": {
+        "size": 777
+      },
+      "docs/datasets/onion_leaf_classification.md": {
+        "size": 915
+      },
+      "docs/datasets/orange_leaf_disease_classification.md": {
+        "size": 1011
+      },
+      "docs/datasets/paddy_disease_classification.md": {
+        "size": 950
+      },
+      "docs/datasets/papaya_leaf_disease_classification.md": {
+        "size": 791
+      },
+      "docs/datasets/peachpear_flower_segmentation.md": {
+        "size": 698
+      },
+      "docs/datasets/plant_doc_classification.md": {
+        "size": 1341
+      },
+      "docs/datasets/plant_doc_detection.md": {
+        "size": 1348
+      },
+      "docs/datasets/plant_seedlings_aarhus.md": {
+        "size": 948
+      },
+      "docs/datasets/plant_village_classification.md": {
+        "size": 1787
+      },
+      "docs/datasets/rangeland_weeds_australia.md": {
+        "size": 880
+      },
+      "docs/datasets/red_grapes_and_leaves_segmentation.md": {
+        "size": 839
+      },
+      "docs/datasets/rice_leaf_disease_classification.md": {
+        "size": 916
+      },
+      "docs/datasets/rice_seedling_segmentation.md": {
+        "size": 860
+      },
+      "docs/datasets/riseholme_strawberry_classification_2021.md": {
+        "size": 819
+      },
+      "docs/datasets/soybean_insect_classification.md": {
+        "size": 892
+      },
+      "docs/datasets/soybean_weed_uav_brazil.md": {
+        "size": 808
+      },
+      "docs/datasets/strawberry_detection_2022.md": {
+        "size": 791
+      },
+      "docs/datasets/strawberry_detection_2023.md": {
+        "size": 790
+      },
+      "docs/datasets/sugarbeet_weed_segmentation.md": {
+        "size": 778
+      },
+      "docs/datasets/sugarcane_damage_usa.md": {
+        "size": 822
+      },
+      "docs/datasets/sunflower_disease_classification.md": {
+        "size": 878
+      },
+      "docs/datasets/tea_leaf_disease_classification.md": {
+        "size": 887
+      },
+      "docs/datasets/tomato_leaf_disease.md": {
+        "size": 973
+      },
+      "docs/datasets/tomato_ripeness_detection.md": {
+        "size": 856
+      },
+      "docs/datasets/vegann_multicrop_presence_segmentation.md": {
+        "size": 801
+      },
+      "docs/datasets/vine_virus_photo_dataset.md": {
+        "size": 790
+      },
+      "docs/datasets/wheat_head_counting.md": {
+        "size": 741
+      },
+      "docs/datasets/white_grapes_and_leaves_segmentation.md": {
+        "size": 845
+      },
+      "docs/development.md": {
+        "size": 27
+      },
+      "docs/index.md": {
+        "size": 45
+      },
+      "docs/js/feedback.js": {
+        "size": 509
+      },
+      "docs/license.md": {
+        "size": 54
+      },
+      "environment.yml": {
+        "size": 850
+      },
+      "experiments/README.md": {
+        "size": 448
+      },
+      "experiments/benchmarking/README.md": {
+        "size": 801
+      },
+      "experiments/benchmarking/__init__.py": {
+        "size": 0
+      },
+      "experiments/benchmarking/accuracy_evaluation.py": {
+        "size": 3990
+      },
+      "experiments/benchmarking/classification.py": {
+        "size": 8498
+      },
+      "experiments/benchmarking/classification_distributed.py": {
+        "size": 6537
+      },
+      "experiments/benchmarking/classification_lightning.py": {
+        "size": 9129
+      },
+      "experiments/benchmarking/classification_lightning_resnet50.py": {
+        "size": 9003
+      },
+      "experiments/benchmarking/detection_data.py": {
+        "size": 11019
+      },
+      "experiments/benchmarking/detection_experiment.py": {
+        "size": 1755
+      },
+      "experiments/benchmarking/detection_learning.py": {
+        "size": 22649
+      },
+      "experiments/benchmarking/detection_lightning.py": {
+        "size": 8459
+      },
+      "experiments/benchmarking/detection_lightning_local.py": {
+        "size": 27565
+      },
+      "experiments/benchmarking/detection_lightning_multiple.py": {
+        "size": 23195
+      },
+      "experiments/benchmarking/detection_lightning_ssd.py": {
+        "size": 6497
+      },
+      "experiments/benchmarking/detection_modeling.py": {
+        "size": 9770
+      },
+      "experiments/benchmarking/experiment.py": {
+        "size": 5401
+      },
+      "experiments/benchmarking/finetune_evaluation.py": {
+        "size": 6786
+      },
+      "experiments/benchmarking/map_evaluation.py": {
+        "size": 11137
+      },
+      "experiments/benchmarking/map_evaluation_multiple.py": {
+        "size": 6931
+      },
+      "experiments/benchmarking/mean_average_precision.py": {
+        "size": 9624
+      },
+      "experiments/benchmarking/mean_average_precision_torch.py": {
+        "size": 11137
+      },
+      "experiments/benchmarking/miou_evaluation.py": {
+        "size": 4026
+      },
+      "experiments/benchmarking/segmentation_lightning.py": {
+        "size": 11501
+      },
+      "experiments/benchmarking/segmentation_lightning_pretrained.py": {
+        "size": 10294
+      },
+      "experiments/benchmarking/tools.py": {
+        "size": 4738
+      },
+      "pyproject.toml": {
+        "size": 1899
+      },
+      "requirements.txt": {
+        "size": 176
+      },
+      "scripts/convert_lightning_pytorch_ckpt.py": {
+        "size": 3152
+      },
+      "scripts/create_world_map.py": {
+        "size": 6886
+      },
+      "scripts/docs/gen_credits.py": {
+        "size": 6532
+      },
+      "scripts/docs/gen_dataset_list.py": {
+        "size": 1515
+      },
+      "scripts/docs/gen_ref_nav.py": {
+        "size": 1197
+      },
+      "scripts/format_json_source.py": {
+        "size": 1286
+      },
+      "scripts/generate_dataset_markdown.py": {
+        "size": 10654
+      },
+      "scripts/generate_normalization_info.py": {
+        "size": 3029
+      },
+      "scripts/generate_shape_info.py": {
+        "size": 2566
+      },
+      "scripts/run_full_dataset_update.py": {
+        "size": 1113
+      },
+      "tests/config/test_config.py": {
+        "size": 811
+      },
+      "tests/conftest.py": {
+        "size": 430
+      },
+      "tests/data/test_dataloader_general.py": {
+        "size": 2572
+      },
+      "tests/data/test_format_tools.py": {
+        "size": 2646
+      },
+      "tests/data/test_public_sources.py": {
+        "size": 2148
+      },
+      "tests/test_import.py": {
+        "size": 123
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.agml",
+      "source.agml._internal",
+      "source.agml.backend",
+      "source.agml.data",
+      "source.agml.models",
+      "source.agml.synthetic",
+      "source.agml.utils",
+      "source.agml.viz",
+      "source.experiments.benchmarking"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": true,
+    "has_requirements_txt": true,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.agml.data",
+        "module": "loader",
+        "functions": [
+          "AgMLDataLoader",
+          "load_public_sources",
+          "public_data_sources"
+        ],
+        "classes": [
+          "AgMLDataLoader"
+        ],
+        "description": "Primary dataset loading/manipulation interface; central entry for classification/detection/segmentation data workflows."
+      },
+      {
+        "package": "source.agml.data",
+        "module": "multi_loader",
+        "functions": [
+          "AgMLMultiDatasetLoader"
+        ],
+        "classes": [
+          "AgMLMultiDatasetLoader"
+        ],
+        "description": "Multi-dataset composition and unified iteration/training access across datasets."
+      },
+      {
+        "package": "source.agml.data",
+        "module": "public",
+        "functions": [
+          "public_data_sources",
+          "source",
+          "download_public_dataset"
+        ],
+        "classes": [],
+        "description": "Public dataset registry/query/download surface backed by JSON metadata assets."
+      },
+      {
+        "package": "source.agml.data",
+        "module": "metadata",
+        "functions": [
+          "DatasetMetadata"
+        ],
+        "classes": [
+          "DatasetMetadata"
+        ],
+        "description": "Dataset metadata retrieval and schema normalization; useful for MCP discovery/introspection tools."
+      },
+      {
+        "package": "source.agml.models",
+        "module": "detection",
+        "functions": [
+          "DetectionModel"
+        ],
+        "classes": [
+          "DetectionModel"
+        ],
+        "description": "Object detection model wrappers and training/inference utilities."
+      },
+      {
+        "package": "source.agml.models",
+        "module": "classification",
+        "functions": [
+          "ClassificationModel"
+        ],
+        "classes": [
+          "ClassificationModel"
+        ],
+        "description": "Classification model wrappers and task-specific preprocessing/training flow."
+      },
+      {
+        "package": "source.agml.models",
+        "module": "segmentation",
+        "functions": [
+          "SegmentationModel"
+        ],
+        "classes": [
+          "SegmentationModel"
+        ],
+        "description": "Segmentation model wrappers for semantic mask tasks."
+      },
+      {
+        "package": "source.agml.viz",
+        "module": "general",
+        "functions": [
+          "show_sample",
+          "plot_image_and_annotation"
+        ],
+        "classes": [],
+        "description": "Visualization helpers for quick dataset/model output inspection."
+      },
+      {
+        "package": "source.agml.synthetic",
+        "module": "generator",
+        "functions": [
+          "generate",
+          "build_synthetic_dataset"
+        ],
+        "classes": [],
+        "description": "Synthetic data generation pipeline hooks (higher environment complexity than core data modules)."
+      },
+      {
+        "package": "source.experiments.benchmarking",
+        "module": "experiment",
+        "functions": [
+          "run",
+          "evaluate"
+        ],
+        "classes": [
+          "Experiment"
+        ],
+        "description": "Benchmark orchestration scripts; useful as reference but less suitable as stable MCP API surface."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "No first-class packaged CLI entry points detected",
+        "module": "N/A",
+        "description": "Repository primarily exposes Python API modules and standalone scripts under scripts/ and experiments/, but no console_scripts-style stable CLI interface was identified from provided scan."
+      },
+      {
+        "name": "run_full_dataset_update.py (script)",
+        "module": "scripts.run_full_dataset_update",
+        "description": "Operational maintenance script for dataset metadata/assets updates; not a stable user-facing CLI contract."
+      },
+      {
+        "name": "generate_dataset_markdown.py (script)",
+        "module": "scripts.generate_dataset_markdown",
+        "description": "Documentation-generation utility; useful internally, low value as MCP tool."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "Pillow",
+        "requests",
+        "tqdm",
+        "PyYAML"
+      ],
+      "optional": [
+        "torch",
+        "torchvision",
+        "tensorflow",
+        "opencv-python",
+        "matplotlib",
+        "albumentations",
+        "ultralytics",
+        "pytorch-lightning"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.88,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "minimal_intrusion_strategy_suggestions": {
+      "recommended_mcp_plugin_pattern": "Thin adapter over importable API (no repo modification), focused on metadata/data-loader/model-discovery tools first.",
+      "tooling_phases": [
+        {
+          "phase": 1,
+          "scope": [
+            "list_public_datasets",
+            "get_dataset_metadata",
+            "validate_dataset_name",
+            "show_dataset_splits"
+          ],
+          "reason": "Low side effects, no heavy training deps required, immediately useful in MCP context."
+        },
+        {
+          "phase": 2,
+          "scope": [
+            "instantiate_loader",
+            "sample_batch_summary",
+            "export_dataset_format (YOLO/TF where available)"
+          ],
+          "reason": "Moderate complexity; controlled filesystem/network effects."
+        },
+        {
+          "phase": 3,
+          "scope": [
+            "model_catalog_discovery",
+            "lightweight_inference wrappers"
+          ],
+          "reason": "Introduces optional heavy deps and device/runtime variance."
+        }
+      ],
+      "guardrails": [
+        "Lazy-import torch/tensorflow paths.",
+        "Timeout + cancellation on download/generation operations.",
+        "Read-only default mode for metadata tools.",
+        "Explicit opt-in flags for network and filesystem writes.",
+        "Return structured errors for missing optional dependencies."
+      ],
+      "why_not_cli_first": "No stable packaged CLI contract detected; script entrypoints are maintenance-oriented and more brittle than direct Python imports."
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/Project-AgML/AgML",
+    "repo_name": "AgML",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.88,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

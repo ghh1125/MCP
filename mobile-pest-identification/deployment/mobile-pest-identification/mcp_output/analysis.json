@@ -1,0 +1,120 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/wikilimo/mobile-pest-identification",
+    "summary": "Imported via zip fallback, file count: 9",
+    "file_tree": {
+      "README.md": {
+        "size": 1011
+      },
+      "ip102_v1.1/test.txt": {
+        "size": 293931
+      },
+      "ip102_v1.1/train.txt": {
+        "size": 524313
+      },
+      "ip102_v1.1/val.txt": {
+        "size": 97565
+      },
+      "requirements.txt": {
+        "size": 140
+      },
+      "src/IP102_classes.txt": {
+        "size": 2816
+      },
+      "src/model/pest/mobile.yaml": {
+        "size": 352
+      },
+      "src/pest.py": {
+        "size": 893
+      },
+      "src/utils.py": {
+        "size": 14317
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "src/pest.py",
+        "module": "pest",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level script-like module for pest identification workflow; likely orchestrates model loading/inference/training entry behavior rather than exposing a formal package API."
+      },
+      {
+        "package": "src/utils.py",
+        "module": "utils",
+        "functions": [],
+        "classes": [],
+        "description": "Primary utility module and most likely location of reusable logic (data parsing, preprocessing, helper routines) used by src/pest.py and model configuration."
+      },
+      {
+        "package": "src/model/pest/mobile.yaml",
+        "module": "mobile_yaml_config",
+        "functions": [],
+        "classes": [],
+        "description": "Model configuration artifact (non-Python) for mobile-oriented pest model; should be treated as data/config input rather than importable code."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python src/pest.py",
+        "module": "src/pest.py",
+        "description": "Inferred direct script execution entry point; no explicit console_scripts or argparse-click CLI metadata detected from scanned structure."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "import",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python",
+        "requirements.txt dependencies (not fully expanded from provided scan)"
+      ],
+      "optional": [
+        "Deep learning runtime dependencies implied by model workflow (likely torch/vision stack, subject to requirements.txt confirmation)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.42,
+      "intrusiveness_risk": "medium",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/wikilimo/mobile-pest-identification",
+    "repo_name": "mobile-pest-identification",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.42,
+    "intrusiveness_risk": "medium",
+    "complexity": "medium"
+  }
+}

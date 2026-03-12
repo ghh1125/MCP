@@ -1,0 +1,212 @@
+{
+  "repository": {
+    "name": "pysam",
+    "url": "https://github.com/pysam-developers/pysam",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pysam",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773295745.656375,
+    "end_time": 1773295943.406214,
+    "duration": 197.7498390674591,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 2,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.pysam",
+        "source.pysam.include"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/pysam-developers/pysam",
+      "repo_name": "pysam",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pysam/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "deduplicate conflicting endpoint names across samtools/bcftools wrappers (e.g.",
+    "index/view/sort/stats/merge/reheader) by namespacing them to avoid MCP routing collisions",
+    "add strict argument schemas and validation (Pydantic models) for each exposed command to prevent unsafe/invalid passthrough invocation",
+    "implement structured error normalization mapping SamtoolsError and subprocess/linker failures to stable MCP error codes/messages",
+    "add smoke tests that import pysam and call every generated endpoint in adapter_mode=import across supported Python versions",
+    "add integration tests for representative BAM/VCF/tabix fixtures covering both success and expected-failure paths",
+    "introduce platform/linking CI matrix (Linux/macOS",
+    "different compiler/libc combinations) because linker_tests indicate rpath sensitivity",
+    "add preflight runtime checks for htslib/samtools/bcftools availability and version compatibility with actionable diagnostics",
+    "pin and document build/test/doc dependencies (requirements-dev/docs) and align pyproject/setup.cfg/setup.py metadata to reduce environment drift",
+    "generate and publish endpoint-level docs (inputs/outputs/examples/side effects) in README_MCP with explicit command parity/limitations vs native CLIs",
+    "add timeout/resource guardrails for long-running commands (depth/mpileup/merge) plus configurable cancellation in MCP service",
+    "improve observability with per-endpoint logging",
+    "execution timing",
+    "and optional debug verbosity passthrough tied to get_verbosity/set_verbosity",
+    "harden file/path handling by validating existence/permissions and restricting dangerous path patterns for server deployments",
+    "add backward-compatible API stability policy and semantic versioning for the plugin to manage changes in exposed endpoint signatures",
+    "expand benchmark coverage to measure wrapper overhead vs direct pysam calls and track regressions in CI",
+    "add contract tests for duplicate symbol names and case normalization (e.g.",
+    "samtoolserror vs SamtoolsError) to keep generated API consistent",
+    "implement graceful degradation/fallback messaging when DeepWiki or optional analysis components fail so generation reports remain actionable"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-mode adapter strategy was feasible for pysam (import feasibility 0.72; strategy confidence 0.91), avoiding higher-risk blackbox wrapping.",
+      "MCP plugin started healthy over stdio and passed plugin-level validation, indicating baseline service operability.",
+      "Core pysam wrapper surfaces (samtools/bcftools/pileup/utils) were discovered and exposed as endpoints."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki analysis failed (non-blocking), reducing external contextual enrichment.",
+      "Original project test suite was not executed/passing in this run (passed=false with empty details), limiting confidence in semantic parity."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; exact node timing unavailable, but overall runtime indicates download was not the dominant cost.",
+      "analysis_time": "Completed with structural/dependency/risk outputs; included LLM-direct analysis fallback after DeepWiki failure.",
+      "generation_time": "Successful generation of 7 MCP artifacts; endpoint set created, though metadata (LOC/file size/tool_endpoints) appears unpopulated.",
+      "test_time": "Plugin health checks passed quickly (startup_time=0 reported), but comprehensive functional/integration tests were effectively absent."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Not measurable from run data (reported 0 MB); instrumentation appears missing rather than true zero usage.",
+      "cpu_efficiency": "Not measurable from run data (reported 0%); profiling/telemetry not captured.",
+      "disk_usage": "Low incremental footprint (7 generated files), but generated size reported as 0 suggests metric collection gap."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}

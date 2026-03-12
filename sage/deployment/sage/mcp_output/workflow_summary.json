@@ -1,0 +1,227 @@
+{
+  "repository": {
+    "name": "sage",
+    "url": "https://github.com/sagemath/sage",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/sage",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "high"
+  },
+  "execution": {
+    "start_time": 1773258368.9353442,
+    "end_time": 1773258655.134785,
+    "duration": 286.19944071769714,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.28,
+      "intrusiveness_risk": "high",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/sagemath/sage",
+      "repo_name": "sage",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/sage/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/sage/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75002 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/sage/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75002 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n"
+  ],
+  "recommendations": [
+    "establish a minimal smoke-test suite for the generated MCP plugin (startup",
+    "health check",
+    "one command path) and run it in CI",
+    "switch plugin adapter mode from import to a safer subprocess/blackbox mode by default with explicit opt-in for import mode",
+    "add strict timeouts/circuit breakers around Sage imports and heavy command execution to prevent hangs",
+    "define and enforce resource limits (memory/CPU/concurrency) for MCP endpoints to protect host stability",
+    "create a curated “safe command surface” for MCP instead of exposing broad Sage runtime behavior",
+    "add structured error mapping (user-safe message + internal trace id) so failures are diagnosable without leaking internals",
+    "pin and lock MCP plugin dependencies (including fastmcp/pydantic) and add automated vulnerability checks",
+    "add contract tests for MCP request/response schemas and backward compatibility",
+    "introduce observability (structured logs",
+    "latency/error metrics",
+    "per-endpoint usage) and include a troubleshooting dashboard/runbook",
+    "improve startup performance with lazy loading and warm-cache strategy for frequently used Sage modules",
+    "document environment prerequisites clearly in README_MCP.md (system deps",
+    "optional features",
+    "known limitations) plus copy-paste setup scripts",
+    "add reproducible dev environments for the plugin (devcontainer/tox profile dedicated to mcp_output)",
+    "add graceful degradation for missing optional Sage backends using the existing feature-detection subsystem",
+    "integrate static checks for plugin code (ruff/pyright/mypy where feasible) into existing lint workflows",
+    "create a versioned release process for the plugin artifacts separate from core Sage releases",
+    "add security hardening for any future network-exposed MCP deployment (authn/authz",
+    "allowlist",
+    "rate limiting",
+    "audit logs)",
+    "define ownership and CODEOWNERS entries for mcp_output to ensure review coverage",
+    "add golden-file integration tests for key mathematical query paths to catch regressions in output formatting and semantics",
+    "provide a small benchmark suite tracking startup time and p95 command latency across representative workloads",
+    "add user-facing examples and “known good” prompts/workflows to reduce onboarding friction and support issues"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow resilience: clone failure was handled via zip fallback, allowing downstream nodes to continue.",
+      "Pipeline orchestration completed all planned nodes (download, analysis, env, generate, run, review, finalize) with workflow_status=success.",
+      "Generated MCP scaffold started successfully and passed plugin health checks (stdio transport, healthy service).",
+      "Repository-level static/structural analysis captured a large codebase footprint (~6313 files), supporting risk-aware recommendations."
+    ],
+    "failure_reasons": [
+      "Primary source acquisition failed in DownloadNode due to network/connectivity timeout to github.com:443 (curl 28).",
+      "Telemetry/analysis inconsistencies (e.g., total_files_processed=0, llm_calls=0, empty packages/dependencies in one section) indicate partial observability and metadata drift.",
+      "DeepWiki analysis failed, reducing confidence in semantic architecture extraction.",
+      "Original project tests did not execute successfully (passed=false) and provided no actionable detail."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Download encountered hard failure on git clone after ~75s timeout; fallback import succeeded. This was the dominant disruption.",
+      "analysis_time": "Analysis completed with broad file inventory and risk profile, but with contradictory metadata; effective but reliability is moderate.",
+      "generation_time": "Generation completed quickly enough within total 286.2s, created expected scaffold files, but produced zero tool endpoints and zero LOC metrics (instrumentation gap).",
+      "test_time": "Plugin smoke health passed, but original-project validation absent; test signal is weak for production confidence."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown from metrics (reported 0 MB likely missing instrumentation). Cannot validate memory behavior under Sage import load.",
+      "cpu_efficiency": "Unknown from metrics (reported 0%). Real CPU impact likely significant for heavy Sage initialization.",
+      "disk_usage": "Likely substantial due to large repository footprint, but generated artifact size reported as 0 suggests collection gap."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 68,
+    "architecture_score": 72,
+    "performance_score": 48,
+    "maintainability_score": 64,
+    "security_score": 85,
+    "scalability_score": 52
+  }
+}

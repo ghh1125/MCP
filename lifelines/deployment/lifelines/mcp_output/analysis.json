@@ -1,0 +1,1585 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/CamDavidsonPilon/lifelines",
+    "summary": "Imported via zip fallback, file count: 86",
+    "file_tree": {
+      ".github/CODE_OF_CONDUCT.md": {
+        "size": 2977
+      },
+      ".github/CONTRIBUTING.md": {
+        "size": 2744
+      },
+      ".github/FUNDING.yml": {
+        "size": 25
+      },
+      ".github/workflows/ci.yaml": {
+        "size": 838
+      },
+      ".github/workflows/pythonpublish.yml": {
+        "size": 862
+      },
+      ".pre-commit-config.yaml": {
+        "size": 412
+      },
+      ".prospector.yaml": {
+        "size": 719
+      },
+      ".readthedocs.yaml": {
+        "size": 1035
+      },
+      "CHANGELOG.md": {
+        "size": 69853
+      },
+      "README.md": {
+        "size": 2257
+      },
+      "conftest.py": {
+        "size": 536
+      },
+      "docs/conf.py": {
+        "size": 9430
+      },
+      "docs/conftest.py": {
+        "size": 749
+      },
+      "docs/docs_requirements.txt": {
+        "size": 32
+      },
+      "docs/images/dist_script.py": {
+        "size": 753
+      },
+      "examples/README.md": {
+        "size": 2547
+      },
+      "examples/aalen_and_cook_simulation.py": {
+        "size": 762
+      },
+      "examples/copula_frailty_weibull_model.py": {
+        "size": 1705
+      },
+      "examples/cox_spline_custom_knots.py": {
+        "size": 406
+      },
+      "examples/crowther_royston_clements_splines.py": {
+        "size": 3662
+      },
+      "examples/cure_model.py": {
+        "size": 1126
+      },
+      "examples/haft_model.py": {
+        "size": 1970
+      },
+      "examples/left_censoring_experiments.py": {
+        "size": 1409
+      },
+      "examples/mixture_cure_model.py": {
+        "size": 1580
+      },
+      "examples/royston_parmar_splines.py": {
+        "size": 4818
+      },
+      "lifelines/__init__.py": {
+        "size": 2241
+      },
+      "lifelines/calibration.py": {
+        "size": 4107
+      },
+      "lifelines/datasets/__init__.py": {
+        "size": 19962
+      },
+      "lifelines/datasets/dfcv_dataset.py": {
+        "size": 2700
+      },
+      "lifelines/exceptions.py": {
+        "size": 577
+      },
+      "lifelines/fitters/__init__.py": {
+        "size": 151829
+      },
+      "lifelines/fitters/aalen_additive_fitter.py": {
+        "size": 21527
+      },
+      "lifelines/fitters/aalen_johansen_fitter.py": {
+        "size": 14424
+      },
+      "lifelines/fitters/breslow_fleming_harrington_fitter.py": {
+        "size": 4293
+      },
+      "lifelines/fitters/cox_time_varying_fitter.py": {
+        "size": 34690
+      },
+      "lifelines/fitters/coxph_fitter.py": {
+        "size": 137349
+      },
+      "lifelines/fitters/crc_spline_fitter.py": {
+        "size": 3126
+      },
+      "lifelines/fitters/exponential_fitter.py": {
+        "size": 2857
+      },
+      "lifelines/fitters/generalized_gamma_fitter.py": {
+        "size": 6482
+      },
+      "lifelines/fitters/generalized_gamma_regression_fitter.py": {
+        "size": 7955
+      },
+      "lifelines/fitters/kaplan_meier_fitter.py": {
+        "size": 24209
+      },
+      "lifelines/fitters/log_logistic_aft_fitter.py": {
+        "size": 7074
+      },
+      "lifelines/fitters/log_logistic_fitter.py": {
+        "size": 4004
+      },
+      "lifelines/fitters/log_normal_aft_fitter.py": {
+        "size": 7890
+      },
+      "lifelines/fitters/log_normal_fitter.py": {
+        "size": 3557
+      },
+      "lifelines/fitters/mixins.py": {
+        "size": 12827
+      },
+      "lifelines/fitters/mixture_cure_fitter.py": {
+        "size": 5416
+      },
+      "lifelines/fitters/nelson_aalen_fitter.py": {
+        "size": 10687
+      },
+      "lifelines/fitters/npmle.py": {
+        "size": 10157
+      },
+      "lifelines/fitters/piecewise_exponential_fitter.py": {
+        "size": 3357
+      },
+      "lifelines/fitters/piecewise_exponential_regression_fitter.py": {
+        "size": 4983
+      },
+      "lifelines/fitters/spline_fitter.py": {
+        "size": 4212
+      },
+      "lifelines/fitters/weibull_aft_fitter.py": {
+        "size": 7772
+      },
+      "lifelines/fitters/weibull_fitter.py": {
+        "size": 3771
+      },
+      "lifelines/generate_datasets.py": {
+        "size": 10188
+      },
+      "lifelines/plotting.py": {
+        "size": 35395
+      },
+      "lifelines/statistics.py": {
+        "size": 35225
+      },
+      "lifelines/tests/__init__.py": {
+        "size": 0
+      },
+      "lifelines/tests/test_estimation.py": {
+        "size": 240527
+      },
+      "lifelines/tests/test_generate_datasets.py": {
+        "size": 1033
+      },
+      "lifelines/tests/test_npmle.py": {
+        "size": 3913
+      },
+      "lifelines/tests/test_plotting.py": {
+        "size": 39463
+      },
+      "lifelines/tests/test_statistics.py": {
+        "size": 20418
+      },
+      "lifelines/tests/utils/test_btree.py": {
+        "size": 880
+      },
+      "lifelines/tests/utils/test_concordance.py": {
+        "size": 2666
+      },
+      "lifelines/tests/utils/test_utils.py": {
+        "size": 40823
+      },
+      "lifelines/utils/__init__.py": {
+        "size": 72185
+      },
+      "lifelines/utils/btree.py": {
+        "size": 4369
+      },
+      "lifelines/utils/concordance.py": {
+        "size": 12245
+      },
+      "lifelines/utils/lowess.py": {
+        "size": 2541
+      },
+      "lifelines/utils/printer.py": {
+        "size": 5861
+      },
+      "lifelines/utils/safe_exp.py": {
+        "size": 4350
+      },
+      "lifelines/version.py": {
+        "size": 88
+      },
+      "mypy.ini": {
+        "size": 567
+      },
+      "paper/paper.md": {
+        "size": 7288
+      },
+      "perf_tests/aaf_perf_test.py": {
+        "size": 571
+      },
+      "perf_tests/batch_vs_single.py": {
+        "size": 2716
+      },
+      "perf_tests/cp_perf_test.py": {
+        "size": 674
+      },
+      "perf_tests/ctv_perf_test.py": {
+        "size": 618
+      },
+      "perf_tests/lognormal_perf_test.py": {
+        "size": 572
+      },
+      "perf_tests/weibull_aft_perf.py": {
+        "size": 720
+      },
+      "perf_tests/weibull_perf_test.py": {
+        "size": 769
+      },
+      "reqs/base-requirements.txt": {
+        "size": 111
+      },
+      "reqs/dev-requirements.txt": {
+        "size": 479
+      },
+      "reqs/docs-requirements.txt": {
+        "size": 135
+      },
+      "setup.py": {
+        "size": 1593
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.lifelines",
+      "source.lifelines.datasets",
+      "source.lifelines.fitters",
+      "source.lifelines.tests",
+      "source.lifelines.utils"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "conftest",
+        "module": "conftest",
+        "functions": [
+          "block",
+          "pytest_addoption",
+          "pytest_runtest_setup"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "pytest_runtest_setup": [
+            "item"
+          ],
+          "pytest_addoption": [
+            "parser"
+          ],
+          "block": [
+            "request"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "docs",
+        "module": "conftest",
+        "functions": [
+          "tempdir"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "tempdir": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "docs",
+        "module": "conf",
+        "functions": [
+          "setup"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "setup": [
+            "app"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples",
+        "module": "crowther_royston_clements_splines",
+        "functions": [
+          "generate_data"
+        ],
+        "classes": [
+          "CRCSplineFitter"
+        ],
+        "function_signatures": {
+          "generate_data": [
+            "n"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples",
+        "module": "royston_parmar_splines",
+        "functions": [],
+        "classes": [
+          "PHSplineFitter",
+          "POSplineFitter",
+          "SplineFitter",
+          "WeibullFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples",
+        "module": "cure_model",
+        "functions": [],
+        "classes": [
+          "CureModel"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples",
+        "module": "haft_model",
+        "functions": [],
+        "classes": [
+          "HAFT"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples",
+        "module": "copula_frailty_weibull_model",
+        "functions": [],
+        "classes": [
+          "CopulaFrailtyWeilbullModel"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples",
+        "module": "mixture_cure_model",
+        "functions": [],
+        "classes": [
+          "MixtureCureModel"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines",
+        "module": "generate_datasets",
+        "functions": [
+          "constant_",
+          "constant_coefficients",
+          "construct_survival_curves",
+          "cumulative_integral",
+          "exp_comp_",
+          "exponential_survival_data",
+          "generate_covariates",
+          "generate_hazard_rates",
+          "generate_observational_matrix",
+          "generate_random_lifetimes",
+          "inverseSq_",
+          "log_",
+          "periodic_",
+          "piecewise_exponential_survival_data",
+          "right_censor_lifetimes",
+          "time_varying_coefficients"
+        ],
+        "classes": [
+          "coeff_func"
+        ],
+        "function_signatures": {
+          "piecewise_exponential_survival_data": [
+            "n",
+            "breakpoints",
+            "lambdas"
+          ],
+          "exponential_survival_data": [
+            "n",
+            "cr",
+            "scale"
+          ],
+          "exp_comp_": [
+            "t",
+            "alpha",
+            "beta"
+          ],
+          "log_": [
+            "t",
+            "alpha",
+            "beta"
+          ],
+          "inverseSq_": [
+            "t",
+            "alpha",
+            "beta"
+          ],
+          "periodic_": [
+            "t",
+            "alpha",
+            "beta"
+          ],
+          "constant_": [
+            "t",
+            "alpha",
+            "beta"
+          ],
+          "right_censor_lifetimes": [
+            "lifetimes",
+            "max_",
+            "min_"
+          ],
+          "generate_covariates": [
+            "n",
+            "d",
+            "n_binary",
+            "p"
+          ],
+          "constant_coefficients": [
+            "d",
+            "timelines",
+            "constant",
+            "independent"
+          ],
+          "time_varying_coefficients": [
+            "d",
+            "timelines",
+            "constant",
+            "independent",
+            "randgen"
+          ],
+          "generate_hazard_rates": [
+            "n",
+            "d",
+            "timelines",
+            "constant",
+            "independent",
+            "n_binary",
+            "model"
+          ],
+          "generate_random_lifetimes": [
+            "hazard_rates",
+            "timelines",
+            "size",
+            "censor"
+          ],
+          "generate_observational_matrix": [
+            "n",
+            "d",
+            "timelines",
+            "constant",
+            "independent",
+            "n_binary",
+            "model"
+          ],
+          "cumulative_integral": [
+            "fx",
+            "x"
+          ],
+          "construct_survival_curves": [
+            "hazard_rates",
+            "timelines"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines",
+        "module": "plotting",
+        "functions": [
+          "add_at_risk_counts",
+          "cdf_plot",
+          "create_dataframe_slicer",
+          "create_scipy_stats_model_from_lifelines_model",
+          "get_distribution_name_of_lifelines_model",
+          "is_latex_enabled",
+          "loglogs_plot",
+          "move_spines",
+          "plot_interval_censored_lifetimes",
+          "plot_lifetimes",
+          "qq_plot",
+          "remove_spines",
+          "remove_ticks",
+          "rmst_plot",
+          "set_kwargs_color",
+          "set_kwargs_drawstyle",
+          "set_kwargs_label"
+        ],
+        "classes": [
+          "PlotEstimateConfig"
+        ],
+        "function_signatures": {
+          "get_distribution_name_of_lifelines_model": [
+            "model"
+          ],
+          "create_scipy_stats_model_from_lifelines_model": [
+            "model"
+          ],
+          "cdf_plot": [
+            "model",
+            "timeline",
+            "ax"
+          ],
+          "rmst_plot": [
+            "model",
+            "model2",
+            "t",
+            "ax",
+            "text_position"
+          ],
+          "qq_plot": [
+            "model",
+            "ax",
+            "scatter_color"
+          ],
+          "is_latex_enabled": [],
+          "remove_spines": [
+            "ax",
+            "sides"
+          ],
+          "move_spines": [
+            "ax",
+            "sides",
+            "dists"
+          ],
+          "remove_ticks": [
+            "ax",
+            "x",
+            "y"
+          ],
+          "add_at_risk_counts": [],
+          "plot_interval_censored_lifetimes": [
+            "lower_bound",
+            "upper_bound",
+            "entry",
+            "left_truncated",
+            "sort_by_lower_bound",
+            "event_observed_color",
+            "event_right_censored_color",
+            "ax"
+          ],
+          "plot_lifetimes": [
+            "durations",
+            "event_observed",
+            "entry",
+            "left_truncated",
+            "sort_by_duration",
+            "event_observed_color",
+            "event_censored_color",
+            "ax"
+          ],
+          "set_kwargs_color": [
+            "kwargs"
+          ],
+          "set_kwargs_drawstyle": [
+            "kwargs",
+            "default"
+          ],
+          "set_kwargs_label": [
+            "kwargs",
+            "cls"
+          ],
+          "create_dataframe_slicer": [
+            "iloc",
+            "loc",
+            "timeline"
+          ],
+          "loglogs_plot": [
+            "cls",
+            "loc",
+            "iloc",
+            "show_censors",
+            "censor_styles",
+            "ax"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines",
+        "module": "exceptions",
+        "functions": [],
+        "classes": [
+          "ApproximationWarning",
+          "ConvergenceError",
+          "ConvergenceWarning",
+          "ProportionalHazardAssumptionError",
+          "StatError",
+          "StatisticalWarning"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines",
+        "module": "statistics",
+        "functions": [
+          "difference_of_restricted_mean_survival_time_test",
+          "logrank_test",
+          "multivariate_logrank_test",
+          "pairwise_logrank_test",
+          "power_under_cph",
+          "proportional_hazard_test",
+          "sample_size_necessary_under_cph",
+          "survival_difference_at_fixed_point_in_time_test"
+        ],
+        "classes": [
+          "StatisticalResult",
+          "TimeTransformers"
+        ],
+        "function_signatures": {
+          "sample_size_necessary_under_cph": [
+            "power",
+            "ratio_of_participants",
+            "p_exp",
+            "p_con",
+            "postulated_hazard_ratio",
+            "alpha"
+          ],
+          "power_under_cph": [
+            "n_exp",
+            "n_con",
+            "p_exp",
+            "p_con",
+            "postulated_hazard_ratio",
+            "alpha"
+          ],
+          "survival_difference_at_fixed_point_in_time_test": [
+            "point_in_time",
+            "fitterA",
+            "fitterB"
+          ],
+          "logrank_test": [
+            "durations_A",
+            "durations_B",
+            "event_observed_A",
+            "event_observed_B",
+            "t_0",
+            "weights_A",
+            "weights_B",
+            "weightings"
+          ],
+          "pairwise_logrank_test": [
+            "event_durations",
+            "groups",
+            "event_observed",
+            "t_0",
+            "weightings"
+          ],
+          "difference_of_restricted_mean_survival_time_test": [
+            "model1",
+            "model2",
+            "t"
+          ],
+          "multivariate_logrank_test": [
+            "event_durations",
+            "groups",
+            "event_observed",
+            "weights",
+            "t_0",
+            "weightings"
+          ],
+          "proportional_hazard_test": [
+            "fitted_cox_model",
+            "training_df",
+            "time_transform",
+            "precomputed_residuals"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines",
+        "module": "calibration",
+        "functions": [
+          "survival_probability_calibration"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "survival_probability_calibration": [
+            "model",
+            "df",
+            "t0",
+            "ax"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines",
+        "module": "datasets",
+        "functions": [
+          "load_c_botulinum_lag_phase",
+          "load_canadian_senators",
+          "load_dd",
+          "load_dfcv",
+          "load_diabetes",
+          "load_g3",
+          "load_gbsg2",
+          "load_holly_molly_polly",
+          "load_kidney_transplant",
+          "load_larynx",
+          "load_lcd",
+          "load_leukemia",
+          "load_lung",
+          "load_lupus",
+          "load_lymph_node",
+          "load_lymphoma",
+          "load_mice",
+          "load_multicenter_aids_cohort_study",
+          "load_nh4",
+          "load_panel_test",
+          "load_psychiatric_patients",
+          "load_recur",
+          "load_regression_dataset",
+          "load_rossi",
+          "load_stanford_heart_transplants",
+          "load_static_test",
+          "load_waltons"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "load_recur": [],
+          "load_multicenter_aids_cohort_study": [],
+          "load_holly_molly_polly": [],
+          "load_leukemia": [],
+          "load_canadian_senators": [],
+          "load_dd": [],
+          "load_kidney_transplant": [],
+          "load_larynx": [],
+          "load_lung": [],
+          "load_panel_test": [],
+          "load_psychiatric_patients": [],
+          "load_static_test": [],
+          "load_lcd": [],
+          "load_nh4": [],
+          "load_waltons": [],
+          "load_rossi": [],
+          "load_regression_dataset": [],
+          "load_g3": [],
+          "load_stanford_heart_transplants": [],
+          "load_gbsg2": [],
+          "load_dfcv": [],
+          "load_lymphoma": [],
+          "load_diabetes": [],
+          "load_lupus": [],
+          "load_lymph_node": [],
+          "load_c_botulinum_lag_phase": [],
+          "load_mice": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.utils",
+        "module": "lowess",
+        "functions": [
+          "lowess"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "lowess": [
+            "x",
+            "y",
+            "f",
+            "iterations"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines",
+        "module": "utils",
+        "functions": [
+          "add_covariate_to_timeline",
+          "check_complete_separation",
+          "check_complete_separation_close_to_perfect_correlation",
+          "check_complete_separation_low_variance",
+          "check_dimensions",
+          "check_entry_times",
+          "check_for_immediate_deaths",
+          "check_for_instantaneous_events_at_death_time",
+          "check_for_instantaneous_events_at_time_zero",
+          "check_for_nonnegative_intervals",
+          "check_for_numeric_dtypes_or_raise",
+          "check_for_overlapping_intervals",
+          "check_low_var",
+          "check_nans_or_infs",
+          "check_positivity",
+          "check_scaling",
+          "coalesce",
+          "covariates_from_event_matrix",
+          "datetimes_to_durations",
+          "epanechnikov_kernel",
+          "find_best_parametric_model",
+          "format_exp_floats",
+          "format_floats",
+          "format_p_value",
+          "group_survival_table_from_events",
+          "interpolate_at_times",
+          "interpolate_at_times_and_return_pandas",
+          "inv_normal_cdf",
+          "k_fold_cross_validation",
+          "leading_space",
+          "make_simpliest_hashable",
+          "map_leading_space",
+          "median_survival_times",
+          "normalize",
+          "pass_for_numeric_dtypes_or_raise_array",
+          "pearson_correlation",
+          "qth_survival_time",
+          "qth_survival_times",
+          "quiet_log2",
+          "restricted_mean_survival_time",
+          "ridge_regression",
+          "safe_zip",
+          "survival_events_from_table",
+          "survival_table_from_events",
+          "to_episodic_format",
+          "to_long_format",
+          "unnormalize"
+        ],
+        "classes": [
+          "CensoringType",
+          "CovariateParameterMappings",
+          "DataframeSlicer",
+          "LinearAccumulator",
+          "QuadraticAccumulator",
+          "StepSizer"
+        ],
+        "function_signatures": {
+          "qth_survival_times": [
+            "q",
+            "survival_functions"
+          ],
+          "qth_survival_time": [
+            "q",
+            "model_or_survival_function"
+          ],
+          "median_survival_times": [
+            "model_or_survival_function"
+          ],
+          "restricted_mean_survival_time": [
+            "model_or_survival_function",
+            "t",
+            "return_variance"
+          ],
+          "group_survival_table_from_events": [
+            "groups",
+            "durations",
+            "event_observed",
+            "birth_times",
+            "weights",
+            "limit"
+          ],
+          "survival_table_from_events": [
+            "death_times",
+            "event_observed",
+            "birth_times",
+            "columns",
+            "weights",
+            "collapse",
+            "intervals"
+          ],
+          "survival_events_from_table": [
+            "survival_table",
+            "observed_deaths_col",
+            "censored_col"
+          ],
+          "datetimes_to_durations": [
+            "start_times",
+            "end_times",
+            "fill_date",
+            "freq",
+            "dayfirst",
+            "na_values",
+            "format"
+          ],
+          "coalesce": [],
+          "inv_normal_cdf": [
+            "p"
+          ],
+          "k_fold_cross_validation": [
+            "fitters",
+            "df",
+            "duration_col",
+            "event_col",
+            "k",
+            "scoring_method",
+            "fitter_kwargs",
+            "seed"
+          ],
+          "normalize": [
+            "X",
+            "mean",
+            "std"
+          ],
+          "unnormalize": [
+            "X",
+            "mean",
+            "std"
+          ],
+          "epanechnikov_kernel": [
+            "t",
+            "T",
+            "bandwidth"
+          ],
+          "ridge_regression": [
+            "X",
+            "Y",
+            "c1",
+            "c2",
+            "offset",
+            "ix"
+          ],
+          "pass_for_numeric_dtypes_or_raise_array": [
+            "x"
+          ],
+          "check_scaling": [
+            "df"
+          ],
+          "check_dimensions": [
+            "df"
+          ],
+          "check_for_numeric_dtypes_or_raise": [
+            "df"
+          ],
+          "check_for_nonnegative_intervals": [
+            "start",
+            "stop"
+          ],
+          "check_for_immediate_deaths": [
+            "events",
+            "start",
+            "stop"
+          ],
+          "check_for_instantaneous_events_at_time_zero": [
+            "start",
+            "stop"
+          ],
+          "check_for_instantaneous_events_at_death_time": [
+            "events",
+            "start",
+            "stop"
+          ],
+          "check_for_overlapping_intervals": [
+            "df"
+          ],
+          "check_positivity": [
+            "array"
+          ],
+          "check_low_var": [
+            "df",
+            "prescript",
+            "postscript"
+          ],
+          "check_complete_separation_low_variance": [
+            "df",
+            "events",
+            "event_col"
+          ],
+          "pearson_correlation": [
+            "x",
+            "y"
+          ],
+          "check_entry_times": [
+            "T",
+            "entries"
+          ],
+          "check_complete_separation_close_to_perfect_correlation": [
+            "df",
+            "durations"
+          ],
+          "check_complete_separation": [
+            "df",
+            "events",
+            "durations",
+            "event_col"
+          ],
+          "check_nans_or_infs": [
+            "df_or_array"
+          ],
+          "to_episodic_format": [
+            "df",
+            "duration_col",
+            "event_col",
+            "id_col",
+            "time_gaps"
+          ],
+          "to_long_format": [
+            "df",
+            "duration_col"
+          ],
+          "add_covariate_to_timeline": [
+            "long_form_df",
+            "cv",
+            "id_col",
+            "duration_col",
+            "event_col",
+            "start_col",
+            "stop_col",
+            "add_enum",
+            "overwrite",
+            "cumulative_sum",
+            "cumulative_sum_prefix",
+            "delay"
+          ],
+          "covariates_from_event_matrix": [
+            "df",
+            "id_col"
+          ],
+          "format_p_value": [
+            "decimals"
+          ],
+          "format_exp_floats": [
+            "decimals"
+          ],
+          "format_floats": [
+            "decimals"
+          ],
+          "leading_space": [
+            "s"
+          ],
+          "map_leading_space": [
+            "list"
+          ],
+          "interpolate_at_times": [
+            "df_or_series",
+            "new_times"
+          ],
+          "interpolate_at_times_and_return_pandas": [
+            "df_or_series",
+            "new_times"
+          ],
+          "safe_zip": [
+            "first",
+            "second"
+          ],
+          "make_simpliest_hashable": [
+            "ele"
+          ],
+          "find_best_parametric_model": [
+            "event_times",
+            "event_observed",
+            "scoring_method",
+            "additional_models",
+            "censoring_type",
+            "timeline",
+            "alpha",
+            "ci_labels",
+            "entry",
+            "weights",
+            "show_progress"
+          ],
+          "quiet_log2": [
+            "p"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.utils",
+        "module": "concordance",
+        "functions": [
+          "concordance_index",
+          "naive_concordance_index",
+          "somers_d"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "somers_d": [
+            "event_times",
+            "x",
+            "event_observed"
+          ],
+          "concordance_index": [
+            "event_times",
+            "predicted_scores",
+            "event_observed"
+          ],
+          "naive_concordance_index": [
+            "event_times",
+            "predicted_event_times",
+            "event_observed"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.utils",
+        "module": "printer",
+        "functions": [],
+        "classes": [
+          "Printer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.utils",
+        "module": "safe_exp",
+        "functions": [
+          "safe_exp",
+          "safe_exp_vjp"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "safe_exp_vjp": [
+            "ans",
+            "x"
+          ],
+          "safe_exp": [
+            "x"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "mixture_cure_fitter",
+        "functions": [],
+        "classes": [
+          "MixtureCureFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "exponential_fitter",
+        "functions": [],
+        "classes": [
+          "ExponentialFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "aalen_johansen_fitter",
+        "functions": [],
+        "classes": [
+          "AalenJohansenFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "breslow_fleming_harrington_fitter",
+        "functions": [],
+        "classes": [
+          "BreslowFlemingHarringtonFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "mixins",
+        "functions": [],
+        "classes": [
+          "ProportionalHazardMixin",
+          "SplineFitterMixin"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "nelson_aalen_fitter",
+        "functions": [],
+        "classes": [
+          "NelsonAalenFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "log_normal_aft_fitter",
+        "functions": [],
+        "classes": [
+          "LogNormalAFTFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "piecewise_exponential_regression_fitter",
+        "functions": [],
+        "classes": [
+          "PiecewiseExponentialRegressionFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines",
+        "module": "fitters",
+        "functions": [],
+        "classes": [
+          "BaseFitter",
+          "KnownModelParametricUnivariateFitter",
+          "NonParametricUnivariateFitter",
+          "ParametericAFTRegressionFitter",
+          "ParametricRegressionFitter",
+          "ParametricUnivariateFitter",
+          "RegressionFitter",
+          "SemiParametricRegressionFitter",
+          "UnivariateFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "log_logistic_fitter",
+        "functions": [],
+        "classes": [
+          "LogLogisticFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "weibull_fitter",
+        "functions": [],
+        "classes": [
+          "WeibullFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "piecewise_exponential_fitter",
+        "functions": [],
+        "classes": [
+          "PiecewiseExponentialFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "coxph_fitter",
+        "functions": [],
+        "classes": [
+          "CoxPHFitter",
+          "ParametricCoxModelFitter",
+          "ParametricPiecewiseBaselinePHFitter",
+          "ParametricSplinePHFitter",
+          "SemiParametricPHFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "generalized_gamma_fitter",
+        "functions": [],
+        "classes": [
+          "GeneralizedGammaFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "aalen_additive_fitter",
+        "functions": [],
+        "classes": [
+          "AalenAdditiveFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "log_logistic_aft_fitter",
+        "functions": [],
+        "classes": [
+          "LogLogisticAFTFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "crc_spline_fitter",
+        "functions": [],
+        "classes": [
+          "CRCSplineFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "cox_time_varying_fitter",
+        "functions": [],
+        "classes": [
+          "CoxTimeVaryingFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "npmle",
+        "functions": [
+          "E_step_M_step",
+          "check_convergence",
+          "create_observation_intervals",
+          "create_turnbull_intervals",
+          "create_turnbull_lookup",
+          "cumulative_sum",
+          "expectation_maximization_fit",
+          "is_subset",
+          "log_likelihood",
+          "log_odds",
+          "npmle",
+          "npmle_compute_confidence_intervals",
+          "probs",
+          "reconstruct_survival_function",
+          "scipy_minimize_fit",
+          "temper"
+        ],
+        "classes": [
+          "min_max"
+        ],
+        "function_signatures": {
+          "temper": [
+            "i",
+            "optimize"
+          ],
+          "E_step_M_step": [
+            "observation_intervals",
+            "p_old",
+            "turnbull_interval_lookup",
+            "weights",
+            "i",
+            "optimize"
+          ],
+          "cumulative_sum": [
+            "p"
+          ],
+          "create_turnbull_intervals": [
+            "left",
+            "right"
+          ],
+          "is_subset": [
+            "query_interval",
+            "super_interval"
+          ],
+          "create_turnbull_lookup": [
+            "turnbull_intervals",
+            "observation_intervals"
+          ],
+          "check_convergence": [
+            "p_new",
+            "p_old",
+            "turnbull_lookup",
+            "weights",
+            "tol",
+            "i",
+            "verbose"
+          ],
+          "create_observation_intervals": [
+            "obs"
+          ],
+          "log_odds": [
+            "p"
+          ],
+          "probs": [
+            "log_odds"
+          ],
+          "npmle": [
+            "left",
+            "right",
+            "tol",
+            "weights",
+            "verbose",
+            "max_iter",
+            "optimize",
+            "fit_method"
+          ],
+          "scipy_minimize_fit": [
+            "turnbull_interval_lookup",
+            "turnbull_intervals",
+            "weights",
+            "tol",
+            "verbose"
+          ],
+          "expectation_maximization_fit": [
+            "observation_intervals",
+            "turnbull_intervals",
+            "turnbull_lookup",
+            "weights",
+            "tol",
+            "max_iter",
+            "optimize",
+            "verbose"
+          ],
+          "log_likelihood": [
+            "p",
+            "turnbull_interval_lookup",
+            "weights"
+          ],
+          "reconstruct_survival_function": [
+            "probabilities",
+            "turnbull_intervals",
+            "timeline",
+            "label"
+          ],
+          "npmle_compute_confidence_intervals": [
+            "left",
+            "right",
+            "mle_",
+            "alpha",
+            "samples"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "spline_fitter",
+        "functions": [],
+        "classes": [
+          "SplineFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "weibull_aft_fitter",
+        "functions": [],
+        "classes": [
+          "WeibullAFTFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "generalized_gamma_regression_fitter",
+        "functions": [],
+        "classes": [
+          "GeneralizedGammaRegressionFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "kaplan_meier_fitter",
+        "functions": [],
+        "classes": [
+          "KaplanMeierFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "lifelines.fitters",
+        "module": "log_normal_fitter",
+        "functions": [],
+        "classes": [
+          "LogNormalFitter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "pandas",
+        "matplotlib",
+        "autograd",
+        "autograd-gamma",
+        "formulaic"
+      ],
+      "optional": [
+        "pytest",
+        "sphinx",
+        "jupyter",
+        "nbconvert"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.94,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/CamDavidsonPilon/lifelines",
+    "repo_name": "lifelines",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.94,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

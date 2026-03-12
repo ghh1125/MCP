@@ -1,0 +1,3202 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/deepchem/deepchem",
+    "summary": "Imported via zip fallback, file count: 997",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 686
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 577
+      },
+      ".github/ISSUE_TEMPLATE/installation.md": {
+        "size": 754
+      },
+      ".github/ISSUE_TEMPLATE/question_help.md": {
+        "size": 170
+      },
+      ".github/MOLNET_PR_TEMPLATE.md": {
+        "size": 886
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 1466
+      },
+      ".github/workflows/build.yml": {
+        "size": 4134
+      },
+      ".github/workflows/docs.yml": {
+        "size": 1912
+      },
+      ".github/workflows/dqc_install.yml": {
+        "size": 2198
+      },
+      ".github/workflows/formatting.yml": {
+        "size": 3224
+      },
+      ".github/workflows/hf_setup.yml": {
+        "size": 6721
+      },
+      ".github/workflows/jax_setup.yml": {
+        "size": 4468
+      },
+      ".github/workflows/mini_build.yml": {
+        "size": 9972
+      },
+      ".github/workflows/release.yml": {
+        "size": 2524
+      },
+      ".github/workflows/tensorflow_setup.yml": {
+        "size": 5615
+      },
+      ".github/workflows/test.yml": {
+        "size": 9279
+      },
+      ".github/workflows/torch_setup.yml": {
+        "size": 5791
+      },
+      ".github/workflows/website_build_dispatch.yml": {
+        "size": 459
+      },
+      ".pre-commit-config.yaml": {
+        "size": 559
+      },
+      ".readthedocs.yml": {
+        "size": 542
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 3218
+      },
+      "CONTRIBUTING.md": {
+        "size": 9297
+      },
+      "README.md": {
+        "size": 7336
+      },
+      "contrib/DeepMHC/bd13_datasets.py": {
+        "size": 5208
+      },
+      "contrib/DeepMHC/deepmhc.py": {
+        "size": 3829
+      },
+      "contrib/DeepMHC/run_deepmhc.py": {
+        "size": 1077
+      },
+      "contrib/DiabeticRetinopathy/data.py": {
+        "size": 3607
+      },
+      "contrib/DiabeticRetinopathy/model.py": {
+        "size": 8069
+      },
+      "contrib/DiabeticRetinopathy/run.py": {
+        "size": 1147
+      },
+      "contrib/atomicconv/acnn/core/opt_random.py": {
+        "size": 3457
+      },
+      "contrib/atomicconv/acnn/core/opt_random_tensorgraph.py": {
+        "size": 2143
+      },
+      "contrib/atomicconv/acnn/core/opt_scaffold.py": {
+        "size": 3472
+      },
+      "contrib/atomicconv/acnn/core/opt_stratified.py": {
+        "size": 3486
+      },
+      "contrib/atomicconv/acnn/core/opt_temporal.py": {
+        "size": 3472
+      },
+      "contrib/atomicconv/acnn/core/tensor_graph_hyper_param_eval.py": {
+        "size": 3011
+      },
+      "contrib/atomicconv/acnn/core/tensor_graph_hyper_param_search.py": {
+        "size": 2920
+      },
+      "contrib/atomicconv/acnn/refined/opt_random.py": {
+        "size": 3394
+      },
+      "contrib/atomicconv/acnn/refined/opt_scaffold.py": {
+        "size": 3400
+      },
+      "contrib/atomicconv/acnn/refined/opt_stratified.py": {
+        "size": 3406
+      },
+      "contrib/atomicconv/acnn/refined/opt_temporal.py": {
+        "size": 3400
+      },
+      "contrib/atomicconv/acnn/refined/tensor_graph_hyper_param_eval.py": {
+        "size": 3829
+      },
+      "contrib/atomicconv/feat/atomicnet_coordinates.py": {
+        "size": 13579
+      },
+      "contrib/atomicconv/feat/atomicnet_pdbbind_datasets.py": {
+        "size": 4738
+      },
+      "contrib/atomicconv/feat/featurize.py": {
+        "size": 1015
+      },
+      "contrib/atomicconv/models/atomicnet.py": {
+        "size": 16512
+      },
+      "contrib/atomicconv/models/atomicnet_ops.py": {
+        "size": 8790
+      },
+      "contrib/atomicconv/models/legacy.py": {
+        "size": 32492
+      },
+      "contrib/atomicconv/splits/pdbbind_random_split.py": {
+        "size": 398
+      },
+      "contrib/atomicconv/splits/pdbbind_scaffold_split.py": {
+        "size": 2309
+      },
+      "contrib/atomicconv/splits/pdbbind_stratified_split.py": {
+        "size": 412
+      },
+      "contrib/atomicconv/splits/pdbbind_temporal_split.py": {
+        "size": 2090
+      },
+      "contrib/atomicconv/splits/splitters.py": {
+        "size": 26497
+      },
+      "contrib/autoencoder_models/__init__.py": {
+        "size": 0
+      },
+      "contrib/autoencoder_models/autoencoder.py": {
+        "size": 4693
+      },
+      "contrib/autoencoder_models/model.py": {
+        "size": 3619
+      },
+      "contrib/autoencoder_models/test_tensorflowEncoders.py": {
+        "size": 1443
+      },
+      "contrib/dragonn/models.py": {
+        "size": 16267
+      },
+      "contrib/dragonn/simulations.py": {
+        "size": 13615
+      },
+      "contrib/dragonn/tutorial_utils.py": {
+        "size": 10169
+      },
+      "contrib/dragonn/utils.py": {
+        "size": 5203
+      },
+      "contrib/hagcn/hagcn_layers.py": {
+        "size": 5094
+      },
+      "contrib/hagcn/hagcn_model.py": {
+        "size": 6837
+      },
+      "contrib/hagcn/run_model.py": {
+        "size": 1261
+      },
+      "contrib/laplacian/petroskisuch.py": {
+        "size": 6398
+      },
+      "contrib/mol2vec/README.md": {
+        "size": 1160
+      },
+      "contrib/mol2vec/eval_mol2vec_results.py": {
+        "size": 763
+      },
+      "contrib/mol2vec/mol2vec.py": {
+        "size": 1164
+      },
+      "contrib/mpnn/README.md": {
+        "size": 2013
+      },
+      "contrib/mpnn/donkey.py": {
+        "size": 3029
+      },
+      "contrib/mpnn/mpnn.py": {
+        "size": 5567
+      },
+      "contrib/nn/__init__.py": {
+        "size": 526
+      },
+      "contrib/nn/constraints.py": {
+        "size": 2584
+      },
+      "contrib/nn/copy.py": {
+        "size": 307
+      },
+      "contrib/nn/layers.py": {
+        "size": 787
+      },
+      "contrib/nn/objectives.py": {
+        "size": 2326
+      },
+      "contrib/nn/tests/test_layers.py": {
+        "size": 660
+      },
+      "contrib/nn/weave_layers.py": {
+        "size": 5696
+      },
+      "contrib/one_shot_models/examples/muv_attn_one_fold.py": {
+        "size": 2521
+      },
+      "contrib/one_shot_models/examples/muv_res_one_fold.py": {
+        "size": 2515
+      },
+      "contrib/one_shot_models/examples/muv_siamese_one_fold.py": {
+        "size": 2296
+      },
+      "contrib/one_shot_models/examples/sider_alternate_weave.py": {
+        "size": 1946
+      },
+      "contrib/one_shot_models/examples/sider_attn_one_fold.py": {
+        "size": 2529
+      },
+      "contrib/one_shot_models/examples/sider_from_tox21_attn_one_fold.py": {
+        "size": 2502
+      },
+      "contrib/one_shot_models/examples/sider_from_tox21_res_one_fold.py": {
+        "size": 2496
+      },
+      "contrib/one_shot_models/examples/sider_from_tox21_siamese_one_fold.py": {
+        "size": 2319
+      },
+      "contrib/one_shot_models/examples/sider_res_one_fold.py": {
+        "size": 2523
+      },
+      "contrib/one_shot_models/examples/sider_siamese_one_fold.py": {
+        "size": 2304
+      },
+      "contrib/one_shot_models/examples/tox21_alternate_weave.py": {
+        "size": 1967
+      },
+      "contrib/one_shot_models/examples/tox_attn_one_fold.py": {
+        "size": 2529
+      },
+      "contrib/one_shot_models/examples/tox_res_one_fold.py": {
+        "size": 2523
+      },
+      "contrib/one_shot_models/examples/tox_siamese_one_fold.py": {
+        "size": 2303
+      },
+      "contrib/one_shot_models/graph_models.py": {
+        "size": 11824
+      },
+      "contrib/one_shot_models/graph_topology.py": {
+        "size": 20135
+      },
+      "contrib/one_shot_models/multitask_classifier.py": {
+        "size": 10016
+      },
+      "contrib/one_shot_models/multitask_regressor.py": {
+        "size": 8197
+      },
+      "contrib/one_shot_models/support_classifier.py": {
+        "size": 14629
+      },
+      "contrib/one_shot_models/tests/__init__.py": {
+        "size": 0
+      },
+      "contrib/one_shot_models/tests/test_graph_models.py": {
+        "size": 3806
+      },
+      "contrib/one_shot_models/tests/test_graph_topology.py": {
+        "size": 1547
+      },
+      "contrib/pubchem_dataset/README.md": {
+        "size": 1962
+      },
+      "contrib/pubchem_dataset/create_assay_overview.py": {
+        "size": 39119
+      },
+      "contrib/pubchem_dataset/create_smiles_mapping.py": {
+        "size": 2008
+      },
+      "contrib/pubchem_dataset/download_pubchem_ftp.py": {
+        "size": 1644
+      },
+      "contrib/rl/mcts.py": {
+        "size": 16383
+      },
+      "contrib/rl/test_mcts.py": {
+        "size": 2863
+      },
+      "contrib/rl/tictactoe.py": {
+        "size": 2508
+      },
+      "contrib/tensorflow_models/__init__.py": {
+        "size": 30342
+      },
+      "contrib/tensorflow_models/deepchem_multitask_classifer_distributed_training_example.py": {
+        "size": 2947
+      },
+      "contrib/tensorflow_models/progressive_joint.py": {
+        "size": 17098
+      },
+      "contrib/tensorflow_models/progressive_multitask.py": {
+        "size": 23501
+      },
+      "contrib/tensorflow_models/robust_multitask.py": {
+        "size": 15385
+      },
+      "contrib/tensorflow_models/test_progressive.py": {
+        "size": 4932
+      },
+      "contrib/tensorflow_models/test_utils.py": {
+        "size": 6594
+      },
+      "contrib/tensorflow_models/utils.py": {
+        "size": 7164
+      },
+      "contrib/torch/adjacency_fingerprint.py": {
+        "size": 4627
+      },
+      "contrib/torch/pytorch_graphconv.py": {
+        "size": 17841
+      },
+      "contrib/torch/torch_model.py": {
+        "size": 8255
+      },
+      "contrib/torch/torch_multitask_classification.py": {
+        "size": 4402
+      },
+      "contrib/torch/torch_multitask_regression.py": {
+        "size": 3927
+      },
+      "contrib/vina_model/test_vina_model.py": {
+        "size": 6773
+      },
+      "contrib/vina_model/vina_model.py": {
+        "size": 18998
+      },
+      "contrib/visualization/utils.py": {
+        "size": 2568
+      },
+      "datasets/construct_pdbbind_df.py": {
+        "size": 3406
+      },
+      "deepchem/__init__.py": {
+        "size": 373
+      },
+      "deepchem/data/__init__.py": {
+        "size": 1529
+      },
+      "deepchem/data/data_loader.py": {
+        "size": 86188
+      },
+      "deepchem/data/datasets.py": {
+        "size": 118030
+      },
+      "deepchem/data/pytorch_datasets.py": {
+        "size": 13700
+      },
+      "deepchem/data/supports.py": {
+        "size": 12606
+      },
+      "deepchem/data/tests/__init__.py": {
+        "size": 0
+      },
+      "deepchem/data/tests/dftdata.yaml": {
+        "size": 548
+      },
+      "deepchem/data/tests/inorganic_crystal_sample_data.json": {
+        "size": 5010
+      },
+      "deepchem/data/tests/legacy_dataset/tasks.json": {
+        "size": 30
+      },
+      "deepchem/data/tests/legacy_dataset_reshard/tasks.json": {
+        "size": 30
+      },
+      "deepchem/data/tests/test_bam_loader.py": {
+        "size": 2076
+      },
+      "deepchem/data/tests/test_copy_and_move.py": {
+        "size": 2036
+      },
+      "deepchem/data/tests/test_cram_loader.py": {
+        "size": 1676
+      },
+      "deepchem/data/tests/test_csv_loader.py": {
+        "size": 526
+      },
+      "deepchem/data/tests/test_data_loader.py": {
+        "size": 5489
+      },
+      "deepchem/data/tests/test_datasets.py": {
+        "size": 33808
+      },
+      "deepchem/data/tests/test_deepvariant_featurizer.py": {
+        "size": 1079
+      },
+      "deepchem/data/tests/test_deepvariant_pileup_featurizer.py": {
+        "size": 1134
+      },
+      "deepchem/data/tests/test_dftyaml.py": {
+        "size": 453
+      },
+      "deepchem/data/tests/test_drop.py": {
+        "size": 1100
+      },
+      "deepchem/data/tests/test_fasta_loader.py": {
+        "size": 2107
+      },
+      "deepchem/data/tests/test_fastq_loader.py": {
+        "size": 760
+      },
+      "deepchem/data/tests/test_image_dataset.py": {
+        "size": 3384
+      },
+      "deepchem/data/tests/test_image_loader.py": {
+        "size": 6316
+      },
+      "deepchem/data/tests/test_inmemory.py": {
+        "size": 2297
+      },
+      "deepchem/data/tests/test_json_loader.py": {
+        "size": 1052
+      },
+      "deepchem/data/tests/test_legacy.py": {
+        "size": 2020
+      },
+      "deepchem/data/tests/test_load.py": {
+        "size": 6056
+      },
+      "deepchem/data/tests/test_merge.py": {
+        "size": 2256
+      },
+      "deepchem/data/tests/test_non_classification_regression_datasets.py": {
+        "size": 598
+      },
+      "deepchem/data/tests/test_property.py": {
+        "size": 953
+      },
+      "deepchem/data/tests/test_reload.py": {
+        "size": 4405
+      },
+      "deepchem/data/tests/test_reshard.py": {
+        "size": 3406
+      },
+      "deepchem/data/tests/test_sam_loader.py": {
+        "size": 1647
+      },
+      "deepchem/data/tests/test_sdf_loader.py": {
+        "size": 3598
+      },
+      "deepchem/data/tests/test_select.py": {
+        "size": 5461
+      },
+      "deepchem/data/tests/test_setshard.py": {
+        "size": 618
+      },
+      "deepchem/data/tests/test_shape.py": {
+        "size": 4692
+      },
+      "deepchem/data/tests/test_shuffle.py": {
+        "size": 8130
+      },
+      "deepchem/data/tests/test_support_generator.py": {
+        "size": 14841
+      },
+      "deepchem/dock/__init__.py": {
+        "size": 297
+      },
+      "deepchem/dock/binding_pocket.py": {
+        "size": 4910
+      },
+      "deepchem/dock/docking.py": {
+        "size": 6105
+      },
+      "deepchem/dock/pose_generation.py": {
+        "size": 20317
+      },
+      "deepchem/dock/pose_scoring.py": {
+        "size": 6917
+      },
+      "deepchem/dock/tests/__init__.py": {
+        "size": 0
+      },
+      "deepchem/dock/tests/test_binding_pocket.py": {
+        "size": 2243
+      },
+      "deepchem/dock/tests/test_docking.py": {
+        "size": 4843
+      },
+      "deepchem/dock/tests/test_pose_generation.py": {
+        "size": 9158
+      },
+      "deepchem/dock/tests/test_pose_scoring.py": {
+        "size": 2858
+      },
+      "deepchem/feat/__init__.py": {
+        "size": 5343
+      },
+      "deepchem/feat/atomic_conformation.py": {
+        "size": 7335
+      },
+      "deepchem/feat/base_classes.py": {
+        "size": 22614
+      },
+      "deepchem/feat/bert_tokenizer.py": {
+        "size": 1961
+      },
+      "deepchem/feat/binding_pocket_features.py": {
+        "size": 4368
+      },
+      "deepchem/feat/bio_seq_featurizer.py": {
+        "size": 12289
+      },
+      "deepchem/feat/complex_featurizers/__init__.py": {
+        "size": 1400
+      },
+      "deepchem/feat/complex_featurizers/complex_atomic_coordinates.py": {
+        "size": 12898
+      },
+      "deepchem/feat/complex_featurizers/contact_fingerprints.py": {
+        "size": 10769
+      },
+      "deepchem/feat/complex_featurizers/grid_featurizers.py": {
+        "size": 27676
+      },
+      "deepchem/feat/complex_featurizers/rdkit_grid_featurizer.py": {
+        "size": 20248
+      },
+      "deepchem/feat/complex_featurizers/splif_fingerprints.py": {
+        "size": 11461
+      },
+      "deepchem/feat/deepvariant_featurizer.py": {
+        "size": 29243
+      },
+      "deepchem/feat/deepvariant_pileup_featurizer.py": {
+        "size": 11472
+      },
+      "deepchem/feat/dft_data.py": {
+        "size": 11811
+      },
+      "deepchem/feat/graph_data.py": {
+        "size": 33563
+      },
+      "deepchem/feat/graph_features.py": {
+        "size": 38890
+      },
+      "deepchem/feat/huggingface_featurizer.py": {
+        "size": 1396
+      },
+      "deepchem/feat/material_featurizers/__init__.py": {
+        "size": 489
+      },
+      "deepchem/feat/material_featurizers/cgcnn_featurizer.py": {
+        "size": 7539
+      },
+      "deepchem/feat/material_featurizers/element_property_fingerprint.py": {
+        "size": 3508
+      },
+      "deepchem/feat/material_featurizers/elemnet_featurizer.py": {
+        "size": 3232
+      },
+      "deepchem/feat/material_featurizers/lcnn_featurizer.py": {
+        "size": 28056
+      },
+      "deepchem/feat/material_featurizers/sine_coulomb_matrix.py": {
+        "size": 3823
+      },
+      "deepchem/feat/mol_graphs.py": {
+        "size": 14808
+      },
+      "deepchem/feat/molecule_featurizers/__init__.py": {
+        "size": 2259
+      },
+      "deepchem/feat/molecule_featurizers/atomic_coordinates.py": {
+        "size": 2884
+      },
+      "deepchem/feat/molecule_featurizers/bp_symmetry_function_input.py": {
+        "size": 2375
+      },
+      "deepchem/feat/molecule_featurizers/circular_fingerprint.py": {
+        "size": 6488
+      },
+      "deepchem/feat/molecule_featurizers/conformer_featurizer.py": {
+        "size": 9848
+      },
+      "deepchem/feat/molecule_featurizers/coulomb_matrices.py": {
+        "size": 10923
+      },
+      "deepchem/feat/molecule_featurizers/dmpnn_featurizer.py": {
+        "size": 19123
+      },
+      "deepchem/feat/molecule_featurizers/equivariant_graph_featurizer.py": {
+        "size": 9635
+      },
+      "deepchem/feat/molecule_featurizers/grover_featurizer.py": {
+        "size": 8813
+      },
+      "deepchem/feat/molecule_featurizers/maccs_keys_fingerprint.py": {
+        "size": 2046
+      },
+      "deepchem/feat/molecule_featurizers/mat_featurizer.py": {
+        "size": 8401
+      },
+      "deepchem/feat/molecule_featurizers/mol2vec_fingerprint.py": {
+        "size": 7587
+      },
+      "deepchem/feat/molecule_featurizers/mol_graph_conv_featurizer.py": {
+        "size": 20381
+      },
+      "deepchem/feat/molecule_featurizers/molgan_featurizer.py": {
+        "size": 9346
+      },
+      "deepchem/feat/molecule_featurizers/mordred_descriptors.py": {
+        "size": 2835
+      },
+      "deepchem/feat/molecule_featurizers/mxmnet_featurizer.py": {
+        "size": 5130
+      },
+      "deepchem/feat/molecule_featurizers/one_hot_featurizer.py": {
+        "size": 6358
+      },
+      "deepchem/feat/molecule_featurizers/pubchem_fingerprint.py": {
+        "size": 2258
+      },
+      "deepchem/feat/molecule_featurizers/raw_featurizer.py": {
+        "size": 1687
+      },
+      "deepchem/feat/molecule_featurizers/rdkit_descriptors.py": {
+        "size": 9919
+      },
+      "deepchem/feat/molecule_featurizers/smiles_to_image.py": {
+        "size": 7280
+      },
+      "deepchem/feat/molecule_featurizers/smiles_to_seq.py": {
+        "size": 5433
+      },
+      "deepchem/feat/molecule_featurizers/snap_featurizer.py": {
+        "size": 4313
+      },
+      "deepchem/feat/molecule_featurizers/sparse_matrix_one_hot_featurizer.py": {
+        "size": 3443
+      },
+      "deepchem/feat/reaction_featurizer.py": {
+        "size": 4594
+      },
+      "deepchem/feat/roberta_tokenizer.py": {
+        "size": 2316
+      },
+      "deepchem/feat/sequence_featurizers/__init__.py": {
+        "size": 112
+      },
+      "deepchem/feat/sequence_featurizers/position_frequency_matrix_featurizer.py": {
+        "size": 3383
+      },
+      "deepchem/feat/smiles_tokenizer.py": {
+        "size": 11422
+      },
+      "deepchem/feat/tests/__init__.py": {
+        "size": 0
+      },
+      "deepchem/feat/tests/data/vocab.txt": {
+        "size": 3524
+      },
+      "deepchem/feat/tests/test_FASTAFeaturizer.py": {
+        "size": 846
+      },
+      "deepchem/feat/tests/test_atom_feature_generator_dmpnn.py": {
+        "size": 4149
+      },
+      "deepchem/feat/tests/test_atomic_conformation.py": {
+        "size": 1962
+      },
+      "deepchem/feat/tests/test_atomic_conv_feat.py": {
+        "size": 2306
+      },
+      "deepchem/feat/tests/test_atomic_coordinates.py": {
+        "size": 6108
+      },
+      "deepchem/feat/tests/test_baseclass_molecular_featurizer.py": {
+        "size": 4830
+      },
+      "deepchem/feat/tests/test_baseclass_polymer_featurizer.py": {
+        "size": 2394
+      },
+      "deepchem/feat/tests/test_bert_tokenizer.py": {
+        "size": 1732
+      },
+      "deepchem/feat/tests/test_binding_pocket_features.py": {
+        "size": 899
+      },
+      "deepchem/feat/tests/test_circular_fingerprints.py": {
+        "size": 2320
+      },
+      "deepchem/feat/tests/test_conformer_featurizer.py": {
+        "size": 1060
+      },
+      "deepchem/feat/tests/test_contact_fingerprints.py": {
+        "size": 1935
+      },
+      "deepchem/feat/tests/test_convmol.py": {
+        "size": 1359
+      },
+      "deepchem/feat/tests/test_coulomb_matrices.py": {
+        "size": 6414
+      },
+      "deepchem/feat/tests/test_dftdata.py": {
+        "size": 2093
+      },
+      "deepchem/feat/tests/test_dftdata2.py": {
+        "size": 1029
+      },
+      "deepchem/feat/tests/test_dmpnn_featurizer.py": {
+        "size": 8221
+      },
+      "deepchem/feat/tests/test_dummy_featurizer.py": {
+        "size": 774
+      },
+      "deepchem/feat/tests/test_equivariant_graph_featurizer.py": {
+        "size": 3227
+      },
+      "deepchem/feat/tests/test_features_generator_dmpnn.py": {
+        "size": 2750
+      },
+      "deepchem/feat/tests/test_global_feature_generator_dmpnn.py": {
+        "size": 4738
+      },
+      "deepchem/feat/tests/test_graph_data.py": {
+        "size": 17105
+      },
+      "deepchem/feat/tests/test_graph_features.py": {
+        "size": 5407
+      },
+      "deepchem/feat/tests/test_graph_matrix.py": {
+        "size": 878
+      },
+      "deepchem/feat/tests/test_grid_featurizers.py": {
+        "size": 3871
+      },
+      "deepchem/feat/tests/test_grover_featurizer.py": {
+        "size": 1397
+      },
+      "deepchem/feat/tests/test_huggingface_featurizer.py": {
+        "size": 857
+      },
+      "deepchem/feat/tests/test_maccs_keys_finerprint.py": {
+        "size": 586
+      },
+      "deepchem/feat/tests/test_mat_featurizer.py": {
+        "size": 1982
+      },
+      "deepchem/feat/tests/test_materials_featurizers.py": {
+        "size": 2921
+      },
+      "deepchem/feat/tests/test_mol2vec_fingerprint.py": {
+        "size": 569
+      },
+      "deepchem/feat/tests/test_mol_graph_conv_featurizer.py": {
+        "size": 5230
+      },
+      "deepchem/feat/tests/test_mol_graphs.py": {
+        "size": 6145
+      },
+      "deepchem/feat/tests/test_molgan_featurizer.py": {
+        "size": 3872
+      },
+      "deepchem/feat/tests/test_mordred_descriptors.py": {
+        "size": 1523
+      },
+      "deepchem/feat/tests/test_mxmnet_featurizer.py": {
+        "size": 4672
+      },
+      "deepchem/feat/tests/test_one_hot_featurizer.py": {
+        "size": 4325
+      },
+      "deepchem/feat/tests/test_position_frequency_matrix_featurizer.py": {
+        "size": 963
+      },
+      "deepchem/feat/tests/test_pubchem_fingerprint.py": {
+        "size": 577
+      },
+      "deepchem/feat/tests/test_rdkit_descriptors.py": {
+        "size": 5131
+      },
+      "deepchem/feat/tests/test_rdkit_grid_features.py": {
+        "size": 9328
+      },
+      "deepchem/feat/tests/test_reaction_featurizer.py": {
+        "size": 1854
+      },
+      "deepchem/feat/tests/test_roberta_tokenizer.py": {
+        "size": 2253
+      },
+      "deepchem/feat/tests/test_smiles_featurizers.py": {
+        "size": 3827
+      },
+      "deepchem/feat/tests/test_smiles_tokenizer.py": {
+        "size": 1562
+      },
+      "deepchem/feat/tests/test_snap_featurizer.py": {
+        "size": 417
+      },
+      "deepchem/feat/tests/test_sparse_matrix_one_hot_featurizer.py": {
+        "size": 1852
+      },
+      "deepchem/feat/tests/test_splif_fingerprints.py": {
+        "size": 1312
+      },
+      "deepchem/feat/tests/test_weave.py": {
+        "size": 4269
+      },
+      "deepchem/feat/vocabulary_builders/__init__.py": {
+        "size": 278
+      },
+      "deepchem/feat/vocabulary_builders/grover_vocab.py": {
+        "size": 22429
+      },
+      "deepchem/feat/vocabulary_builders/hf_vocab.py": {
+        "size": 2331
+      },
+      "deepchem/feat/vocabulary_builders/tests/test_grover_vocab.py": {
+        "size": 5723
+      },
+      "deepchem/feat/vocabulary_builders/tests/test_hf_vocab.py": {
+        "size": 1513
+      },
+      "deepchem/feat/vocabulary_builders/vocabulary_builder.py": {
+        "size": 1116
+      },
+      "deepchem/hyper/__init__.py": {
+        "size": 260
+      },
+      "deepchem/hyper/base_classes.py": {
+        "size": 5702
+      },
+      "deepchem/hyper/gaussian_process.py": {
+        "size": 17151
+      },
+      "deepchem/hyper/grid_search.py": {
+        "size": 10224
+      },
+      "deepchem/hyper/random_search.py": {
+        "size": 12427
+      },
+      "deepchem/hyper/tests/__init__.py": {
+        "size": 0
+      },
+      "deepchem/hyper/tests/test_gaussian_hyperparam_opt.py": {
+        "size": 9755
+      },
+      "deepchem/hyper/tests/test_grid_hyperparam_opt.py": {
+        "size": 8854
+      },
+      "deepchem/hyper/tests/test_hyperparam_opt.py": {
+        "size": 705
+      },
+      "deepchem/hyper/tests/test_random_hyperparam_opt.py": {
+        "size": 9694
+      },
+      "deepchem/metalearning/__init__.py": {
+        "size": 2609
+      },
+      "deepchem/metalearning/maml.py": {
+        "size": 8373
+      },
+      "deepchem/metalearning/tests/__init__.py": {
+        "size": 0
+      },
+      "deepchem/metalearning/tests/test_maml.py": {
+        "size": 3578
+      },
+      "deepchem/metalearning/tests/test_maml_pytorch.py": {
+        "size": 4397
+      },
+      "deepchem/metalearning/tests/test_maml_reload.py": {
+        "size": 2318
+      },
+      "deepchem/metalearning/tests/test_maml_reload_torch.py": {
+        "size": 3307
+      },
+      "deepchem/metalearning/torch_maml.py": {
+        "size": 16233
+      },
+      "deepchem/metrics/__init__.py": {
+        "size": 2015
+      },
+      "deepchem/metrics/genomic_metrics.py": {
+        "size": 7715
+      },
+      "deepchem/metrics/metric.py": {
+        "size": 31620
+      },
+      "deepchem/metrics/score_function.py": {
+        "size": 6529
+      },
+      "deepchem/metrics/tests/__init__.py": {
+        "size": 0
+      },
+      "deepchem/metrics/tests/test_genomics.py": {
+        "size": 4086
+      },
+      "deepchem/metrics/tests/test_metrics.py": {
+        "size": 3656
+      },
+      "deepchem/metrics/tests/test_normalize.py": {
+        "size": 7529
+      },
+      "deepchem/models/IRV.py": {
+        "size": 4780
+      },
+      "deepchem/models/__init__.py": {
+        "size": 4659
+      },
+      "deepchem/models/atomic_conv.py": {
+        "size": 13833
+      },
+      "deepchem/models/callbacks.py": {
+        "size": 4414
+      },
+      "deepchem/models/chemnet_layers.py": {
+        "size": 17354
+      },
+      "deepchem/models/chemnet_models.py": {
+        "size": 15507
+      },
+      "deepchem/models/dft/__init__.py": {
+        "size": 449
+      },
+      "deepchem/models/dft/dftxc.py": {
+        "size": 10735
+      },
+      "deepchem/models/dft/hamilton/__init__.py": {
+        "size": 0
+      },
+      "deepchem/models/dft/hamilton/orbparams.py": {
+        "size": 9099
+      },
+      "deepchem/models/dft/nnxc.py": {
+        "size": 14428
+      },
+      "deepchem/models/dft/scf.py": {
+        "size": 4939
+      },
+      "deepchem/models/dft/tests/test_hamilton.py": {
+        "size": 1405
+      },
+      "deepchem/models/fcnet.py": {
+        "size": 23457
+      },
+      "deepchem/models/gan.py": {
+        "size": 24548
+      },
+      "deepchem/models/gbdt_models/__init__.py": {
+        "size": 75
+      },
+      "deepchem/models/gbdt_models/gbdt_model.py": {
+        "size": 7728
+      },
+      "deepchem/models/graph_models.py": {
+        "size": 57407
+      },
+      "deepchem/models/jax_models/__init__.py": {
+        "size": 133
+      },
+      "deepchem/models/jax_models/jax_model.py": {
+        "size": 28179
+      },
+      "deepchem/models/jax_models/layers.py": {
+        "size": 3408
+      },
+      "deepchem/models/jax_models/pinns_model.py": {
+        "size": 17070
+      },
+      "deepchem/models/jax_models/tests/test_jax_import.py": {
+        "size": 760
+      },
+      "deepchem/models/jax_models/tests/test_jax_model.py": {
+        "size": 12212
+      },
+      "deepchem/models/jax_models/tests/test_layers.py": {
+        "size": 577
+      },
+      "deepchem/models/jax_models/tests/test_pinn.py": {
+        "size": 3923
+      },
+      "deepchem/models/keras_model.py": {
+        "size": 57000
+      },
+      "deepchem/models/layers.py": {
+        "size": 144747
+      },
+      "deepchem/models/lightning/__init__.py": {
+        "size": 247
+      },
+      "deepchem/models/lightning/dc_lightning_dataset_module.py": {
+        "size": 6967
+      },
+      "deepchem/models/lightning/dc_lightning_module.py": {
+        "size": 13589
+      },
+      "deepchem/models/lightning/tests/test_dc_lightning_module.py": {
+        "size": 2814
+      },
+      "deepchem/models/lightning/tests/test_dc_lightning_modules.py": {
+        "size": 7257
+      },
+      "deepchem/models/lightning/tests/test_lightning_trainer.py": {
+        "size": 14408
+      },
+      "deepchem/models/lightning/trainer.py": {
+        "size": 17142
+      },
+      "deepchem/models/losses.py": {
+        "size": 62316
+      },
+      "deepchem/models/models.py": {
+        "size": 8256
+      },
+      "deepchem/models/molgan.py": {
+        "size": 14135
+      },
+      "deepchem/models/multitask.py": {
+        "size": 5437
+      },
+      "deepchem/models/normalizing_flows.py": {
+        "size": 10975
+      },
+      "deepchem/models/optimizers.py": {
+        "size": 33422
+      },
+      "deepchem/models/progressive_multitask.py": {
+        "size": 13095
+      },
+      "deepchem/models/robust_multitask.py": {
+        "size": 17830
+      },
+      "deepchem/models/scscore.py": {
+        "size": 5220
+      },
+      "deepchem/models/seqtoseq.py": {
+        "size": 25969
+      },
+      "deepchem/models/sklearn_models/__init__.py": {
+        "size": 87
+      },
+      "deepchem/models/sklearn_models/sklearn_model.py": {
+        "size": 5679
+      },
+      "deepchem/models/tests/__init__.py": {
+        "size": 0
+      },
+      "deepchem/models/tests/assets/test_HFdp.yaml": {
+        "size": 183
+      },
+      "deepchem/models/tests/assets/test_beh2.yaml": {
+        "size": 328
+      },
+      "deepchem/models/tests/assets/test_dftxcdata.yaml": {
+        "size": 587
+      },
+      "deepchem/models/tests/assets/test_dm.yaml": {
+        "size": 184
+      },
+      "deepchem/models/tests/assets/test_ieLi.yaml": {
+        "size": 197
+      },
+      "deepchem/models/tests/test_api.py": {
+        "size": 5935
+      },
+      "deepchem/models/tests/test_atomic_conv.py": {
+        "size": 6350
+      },
+      "deepchem/models/tests/test_attention.py": {
+        "size": 993
+      },
+      "deepchem/models/tests/test_attentivefp.py": {
+        "size": 4000
+      },
+      "deepchem/models/tests/test_callbacks.py": {
+        "size": 3518
+      },
+      "deepchem/models/tests/test_cgcnn.py": {
+        "size": 4873
+      },
+      "deepchem/models/tests/test_chemnet_models.py": {
+        "size": 5890
+      },
+      "deepchem/models/tests/test_cnn.py": {
+        "size": 4673
+      },
+      "deepchem/models/tests/test_dens.py": {
+        "size": 1331
+      },
+      "deepchem/models/tests/test_dftxc.py": {
+        "size": 1914
+      },
+      "deepchem/models/tests/test_dmpnn.py": {
+        "size": 11812
+      },
+      "deepchem/models/tests/test_dtnn.py": {
+        "size": 3522
+      },
+      "deepchem/models/tests/test_ferminet.py": {
+        "size": 3747
+      },
+      "deepchem/models/tests/test_gan.py": {
+        "size": 9693
+      },
+      "deepchem/models/tests/test_gat.py": {
+        "size": 4277
+      },
+      "deepchem/models/tests/test_gbdt_model.py": {
+        "size": 12463
+      },
+      "deepchem/models/tests/test_gcn.py": {
+        "size": 4121
+      },
+      "deepchem/models/tests/test_gnn.py": {
+        "size": 6614
+      },
+      "deepchem/models/tests/test_gnn3d.py": {
+        "size": 8418
+      },
+      "deepchem/models/tests/test_graph_conv.py": {
+        "size": 7968
+      },
+      "deepchem/models/tests/test_graph_models.py": {
+        "size": 11769
+      },
+      "deepchem/models/tests/test_graphconv_torchmodel.py": {
+        "size": 3641
+      },
+      "deepchem/models/tests/test_infograph.py": {
+        "size": 12550
+      },
+      "deepchem/models/tests/test_kerasmodel.py": {
+        "size": 16057
+      },
+      "deepchem/models/tests/test_layer_graphnet.py": {
+        "size": 3827
+      },
+      "deepchem/models/tests/test_layers.py": {
+        "size": 61071
+      },
+      "deepchem/models/tests/test_layers_from_config.py": {
+        "size": 18397
+      },
+      "deepchem/models/tests/test_lcnn.py": {
+        "size": 2716
+      },
+      "deepchem/models/tests/test_losses.py": {
+        "size": 23742
+      },
+      "deepchem/models/tests/test_mapper_dmpnn.py": {
+        "size": 4300
+      },
+      "deepchem/models/tests/test_mat.py": {
+        "size": 2184
+      },
+      "deepchem/models/tests/test_megnet.py": {
+        "size": 4249
+      },
+      "deepchem/models/tests/test_modular.py": {
+        "size": 7265
+      },
+      "deepchem/models/tests/test_molgan_layers.py": {
+        "size": 3879
+      },
+      "deepchem/models/tests/test_molgan_model.py": {
+        "size": 5539
+      },
+      "deepchem/models/tests/test_mpnn.py": {
+        "size": 4041
+      },
+      "deepchem/models/tests/test_multitask.py": {
+        "size": 2133
+      },
+      "deepchem/models/tests/test_mxmnet.py": {
+        "size": 2137
+      },
+      "deepchem/models/tests/test_nnxc.py": {
+        "size": 1618
+      },
+      "deepchem/models/tests/test_normalizing_flow_pytorch.py": {
+        "size": 4112
+      },
+      "deepchem/models/tests/test_normalizing_flows.py": {
+        "size": 1518
+      },
+      "deepchem/models/tests/test_optimizers.py": {
+        "size": 13263
+      },
+      "deepchem/models/tests/test_overfit.py": {
+        "size": 37279
+      },
+      "deepchem/models/tests/test_pagtn.py": {
+        "size": 3381
+      },
+      "deepchem/models/tests/test_pbe.py": {
+        "size": 1362
+      },
+      "deepchem/models/tests/test_pna.py": {
+        "size": 3886
+      },
+      "deepchem/models/tests/test_predict.py": {
+        "size": 1977
+      },
+      "deepchem/models/tests/test_pretrained_keras.py": {
+        "size": 6840
+      },
+      "deepchem/models/tests/test_pretrained_torch.py": {
+        "size": 3477
+      },
+      "deepchem/models/tests/test_pyscf.py": {
+        "size": 252
+      },
+      "deepchem/models/tests/test_reload.py": {
+        "size": 44746
+      },
+      "deepchem/models/tests/test_robust.py": {
+        "size": 2501
+      },
+      "deepchem/models/tests/test_scf.py": {
+        "size": 1297
+      },
+      "deepchem/models/tests/test_scscore.py": {
+        "size": 1812
+      },
+      "deepchem/models/tests/test_seqtoseq.py": {
+        "size": 5129
+      },
+      "deepchem/models/tests/test_seqtoseq_model.py": {
+        "size": 6320
+      },
+      "deepchem/models/tests/test_singletask_to_multitask.py": {
+        "size": 3522
+      },
+      "deepchem/models/tests/test_sklearn_model.py": {
+        "size": 6074
+      },
+      "deepchem/models/tests/test_textcnnmodel.py": {
+        "size": 604
+      },
+      "deepchem/models/tests/test_torch_model.py": {
+        "size": 19704
+      },
+      "deepchem/models/tests/test_trainer.py": {
+        "size": 867
+      },
+      "deepchem/models/tests/test_weave_gather.py": {
+        "size": 3044
+      },
+      "deepchem/models/tests/test_weave_gather_guassian_histogram.py": {
+        "size": 1358
+      },
+      "deepchem/models/tests/test_weave_models.py": {
+        "size": 8047
+      },
+      "deepchem/models/tests/test_weavelayer_pytorch.py": {
+        "size": 2682
+      },
+      "deepchem/models/tests/test_weavemodel_pytorch.py": {
+        "size": 14990
+      },
+      "deepchem/models/text_cnn.py": {
+        "size": 10552
+      },
+      "deepchem/models/torch_models/IRV.py": {
+        "size": 11180
+      },
+      "deepchem/models/torch_models/__init__.py": {
+        "size": 5519
+      },
+      "deepchem/models/torch_models/acnn.py": {
+        "size": 13616
+      },
+      "deepchem/models/torch_models/antibody_modeling.py": {
+        "size": 14965
+      },
+      "deepchem/models/torch_models/attention.py": {
+        "size": 3633
+      },
+      "deepchem/models/torch_models/attentivefp.py": {
+        "size": 12222
+      },
+      "deepchem/models/torch_models/cgcnn.py": {
+        "size": 14443
+      },
+      "deepchem/models/torch_models/chemberta.py": {
+        "size": 7930
+      },
+      "deepchem/models/torch_models/chemception.py": {
+        "size": 23775
+      },
+      "deepchem/models/torch_models/chemnet_layers.py": {
+        "size": 18856
+      },
+      "deepchem/models/torch_models/cnn.py": {
+        "size": 9573
+      },
+      "deepchem/models/torch_models/dmpnn.py": {
+        "size": 31166
+      },
+      "deepchem/models/torch_models/dtnn.py": {
+        "size": 11633
+      },
+      "deepchem/models/torch_models/ferminet.py": {
+        "size": 29642
+      },
+      "deepchem/models/torch_models/flows.py": {
+        "size": 32041
+      },
+      "deepchem/models/torch_models/fno.py": {
+        "size": 12893
+      },
+      "deepchem/models/torch_models/gan.py": {
+        "size": 58173
+      },
+      "deepchem/models/torch_models/gat.py": {
+        "size": 15839
+      },
+      "deepchem/models/torch_models/gcn.py": {
+        "size": 14944
+      },
+      "deepchem/models/torch_models/gnn.py": {
+        "size": 51159
+      },
+      "deepchem/models/torch_models/gnn3d.py": {
+        "size": 28995
+      },
+      "deepchem/models/torch_models/graphconvmodel.py": {
+        "size": 18649
+      },
+      "deepchem/models/torch_models/grover.py": {
+        "size": 39504
+      },
+      "deepchem/models/torch_models/grover_layers.py": {
+        "size": 38435
+      },
+      "deepchem/models/torch_models/hf_models.py": {
+        "size": 30543
+      },
+      "deepchem/models/torch_models/hnn.py": {
+        "size": 9456
+      },
+      "deepchem/models/torch_models/inceptionv3.py": {
+        "size": 32955
+      },
+      "deepchem/models/torch_models/infograph.py": {
+        "size": 35947
+      },
+      "deepchem/models/torch_models/kfac_optimizer.py": {
+        "size": 19466
+      },
+      "deepchem/models/torch_models/layers.py": {
+        "size": 372381
+      },
+      "deepchem/models/torch_models/lcnn.py": {
+        "size": 18571
+      },
+      "deepchem/models/torch_models/lnn.py": {
+        "size": 11425
+      },
+      "deepchem/models/torch_models/lstm_generator_models.py": {
+        "size": 18056
+      },
+      "deepchem/models/torch_models/mat.py": {
+        "size": 17126
+      },
+      "deepchem/models/torch_models/megnet.py": {
+        "size": 11170
+      },
+      "deepchem/models/torch_models/mobilenetv2.py": {
+        "size": 11775
+      },
+      "deepchem/models/torch_models/modular.py": {
+        "size": 18692
+      },
+      "deepchem/models/torch_models/molformer.py": {
+        "size": 7301
+      },
+      "deepchem/models/torch_models/molgan.py": {
+        "size": 17860
+      },
+      "deepchem/models/torch_models/mpnn.py": {
+        "size": 12074
+      },
+      "deepchem/models/torch_models/mxmnet.py": {
+        "size": 12988
+      },
+      "deepchem/models/torch_models/normalizing_flows_pytorch.py": {
+        "size": 264
+      },
+      "deepchem/models/torch_models/oneformer.py": {
+        "size": 20773
+      },
+      "deepchem/models/torch_models/pagtn.py": {
+        "size": 12297
+      },
+      "deepchem/models/torch_models/pinns_model.py": {
+        "size": 14950
+      },
+      "deepchem/models/torch_models/pna_gnn.py": {
+        "size": 24046
+      },
+      "deepchem/models/torch_models/progressive_multitask.py": {
+        "size": 29791
+      },
+      "deepchem/models/torch_models/prot_bert.py": {
+        "size": 7472
+      },
+      "deepchem/models/torch_models/readout.py": {
+        "size": 3528
+      },
+      "deepchem/models/torch_models/robust_multitask.py": {
+        "size": 20342
+      },
+      "deepchem/models/torch_models/scscore.py": {
+        "size": 8898
+      },
+      "deepchem/models/torch_models/se3_transformer.py": {
+        "size": 12797
+      },
+      "deepchem/models/torch_models/seqtoseq.py": {
+        "size": 27274
+      },
+      "deepchem/models/torch_models/smiles2vec.py": {
+        "size": 13445
+      },
+      "deepchem/models/torch_models/tests/conftest.py": {
+        "size": 2107
+      },
+      "deepchem/models/torch_models/tests/test_IRV.py": {
+        "size": 5434
+      },
+      "deepchem/models/torch_models/tests/test_acnn.py": {
+        "size": 5565
+      },
+      "deepchem/models/torch_models/tests/test_antibody_modeling.py": {
+        "size": 7491
+      },
+      "deepchem/models/torch_models/tests/test_chemberta.py": {
+        "size": 7008
+      },
+      "deepchem/models/torch_models/tests/test_chemception.py": {
+        "size": 13197
+      },
+      "deepchem/models/torch_models/tests/test_chemception_layers.py": {
+        "size": 13465
+      },
+      "deepchem/models/torch_models/tests/test_dag_layers.py": {
+        "size": 6568
+      },
+      "deepchem/models/torch_models/tests/test_flows.py": {
+        "size": 8443
+      },
+      "deepchem/models/torch_models/tests/test_fno.py": {
+        "size": 8612
+      },
+      "deepchem/models/torch_models/tests/test_gan.py": {
+        "size": 17554
+      },
+      "deepchem/models/torch_models/tests/test_grover.py": {
+        "size": 14054
+      },
+      "deepchem/models/torch_models/tests/test_grover_layers.py": {
+        "size": 8956
+      },
+      "deepchem/models/torch_models/tests/test_hf_models.py": {
+        "size": 14891
+      },
+      "deepchem/models/torch_models/tests/test_hnn.py": {
+        "size": 5189
+      },
+      "deepchem/models/torch_models/tests/test_inceptionv3.py": {
+        "size": 9076
+      },
+      "deepchem/models/torch_models/tests/test_lnn.py": {
+        "size": 4495
+      },
+      "deepchem/models/torch_models/tests/test_lstm_generator_models.py": {
+        "size": 2050
+      },
+      "deepchem/models/torch_models/tests/test_mobilenetv2.py": {
+        "size": 9183
+      },
+      "deepchem/models/torch_models/tests/test_molformer.py": {
+        "size": 8567
+      },
+      "deepchem/models/torch_models/tests/test_molgan_layers.py": {
+        "size": 14529
+      },
+      "deepchem/models/torch_models/tests/test_molgan_model.py": {
+        "size": 4517
+      },
+      "deepchem/models/torch_models/tests/test_oneformer.py": {
+        "size": 4558
+      },
+      "deepchem/models/torch_models/tests/test_pinns.py": {
+        "size": 6093
+      },
+      "deepchem/models/torch_models/tests/test_progressive_multitask.py": {
+        "size": 9460
+      },
+      "deepchem/models/torch_models/tests/test_prot_bert.py": {
+        "size": 7282
+      },
+      "deepchem/models/torch_models/tests/test_readout.py": {
+        "size": 1446
+      },
+      "deepchem/models/torch_models/tests/test_robust_multitask.py": {
+        "size": 11432
+      },
+      "deepchem/models/torch_models/tests/test_scscore.py": {
+        "size": 2745
+      },
+      "deepchem/models/torch_models/tests/test_se3_transformer.py": {
+        "size": 35159
+      },
+      "deepchem/models/torch_models/tests/test_smiles2vec.py": {
+        "size": 14396
+      },
+      "deepchem/models/torch_models/tests/test_spectral_conv.py": {
+        "size": 2196
+      },
+      "deepchem/models/torch_models/tests/test_textcnn_model.py": {
+        "size": 9557
+      },
+      "deepchem/models/torch_models/tests/test_tfn.py": {
+        "size": 5676
+      },
+      "deepchem/models/torch_models/tests/test_unet.py": {
+        "size": 2744
+      },
+      "deepchem/models/torch_models/text_cnn.py": {
+        "size": 16382
+      },
+      "deepchem/models/torch_models/tfn.py": {
+        "size": 11695
+      },
+      "deepchem/models/torch_models/torch_model.py": {
+        "size": 56369
+      },
+      "deepchem/models/torch_models/unet.py": {
+        "size": 7828
+      },
+      "deepchem/models/torch_models/weavemodel_pytorch.py": {
+        "size": 28501
+      },
+      "deepchem/models/trainer.py": {
+        "size": 4424
+      },
+      "deepchem/models/wandblogger.py": {
+        "size": 5249
+      },
+      "deepchem/molnet/__init__.py": {
+        "size": 3381
+      },
+      "deepchem/molnet/check_availability.py": {
+        "size": 11668
+      },
+      "deepchem/molnet/defaults.py": {
+        "size": 1845
+      },
+      "deepchem/molnet/dnasim.py": {
+        "size": 14702
+      },
+      "deepchem/molnet/load_function/__init__.py": {
+        "size": 0
+      },
+      "deepchem/molnet/load_function/bace_datasets.py": {
+        "size": 5545
+      },
+      "deepchem/molnet/load_function/bace_features.py": {
+        "size": 14202
+      },
+      "deepchem/molnet/load_function/bbbc_datasets.py": {
+        "size": 25014
+      },
+      "deepchem/molnet/load_function/bbbp_datasets.py": {
+        "size": 3604
+      },
+      "deepchem/molnet/load_function/cell_counting_datasets.py": {
+        "size": 2623
+      },
+      "deepchem/molnet/load_function/chembl25_datasets.py": {
+        "size": 4188
+      },
+      "deepchem/molnet/load_function/chembl_datasets.py": {
+        "size": 3706
+      },
+      "deepchem/molnet/load_function/chembl_tasks.py": {
+        "size": 10252
+      },
+      "deepchem/molnet/load_function/clearance_datasets.py": {
+        "size": 2625
+      },
+      "deepchem/molnet/load_function/clintox_datasets.py": {
+        "size": 4245
+      },
+      "deepchem/molnet/load_function/delaney_datasets.py": {
+        "size": 3507
+      },
+      "deepchem/molnet/load_function/factors_datasets.py": {
+        "size": 6957
+      },
+      "deepchem/molnet/load_function/freesolv_dataset.py": {
+        "size": 3522
+      },
+      "deepchem/molnet/load_function/hiv_datasets.py": {
+        "size": 3496
+      },
+      "deepchem/molnet/load_function/hopv_datasets.py": {
+        "size": 3437
+      },
+      "deepchem/molnet/load_function/hppb_datasets.py": {
+        "size": 2734
+      },
+      "deepchem/molnet/load_function/kaggle_datasets.py": {
+        "size": 6377
+      },
+      "deepchem/molnet/load_function/kaggle_features.py": {
+        "size": 165414
+      },
+      "deepchem/molnet/load_function/kinase_datasets.py": {
+        "size": 8104
+      },
+      "deepchem/molnet/load_function/lipo_datasets.py": {
+        "size": 3318
+      },
+      "deepchem/molnet/load_function/load_dataset_template.py": {
+        "size": 9165
+      },
+      "deepchem/molnet/load_function/material_datasets/__init__.py": {
+        "size": 0
+      },
+      "deepchem/molnet/load_function/material_datasets/load_Pt_NO_surface_adsorbate_energy.py": {
+        "size": 4703
+      },
+      "deepchem/molnet/load_function/material_datasets/load_bandgap.py": {
+        "size": 4474
+      },
+      "deepchem/molnet/load_function/material_datasets/load_mp_formation_energy.py": {
+        "size": 4646
+      },
+      "deepchem/molnet/load_function/material_datasets/load_mp_metallicity.py": {
+        "size": 4589
+      },
+      "deepchem/molnet/load_function/material_datasets/load_perovskite.py": {
+        "size": 4515
+      },
+      "deepchem/molnet/load_function/molnet_loader.py": {
+        "size": 8680
+      },
+      "deepchem/molnet/load_function/muv_datasets.py": {
+        "size": 3631
+      },
+      "deepchem/molnet/load_function/nci_datasets.py": {
+        "size": 3290
+      },
+      "deepchem/molnet/load_function/pcba_datasets.py": {
+        "size": 6927
+      },
+      "deepchem/molnet/load_function/pdbbind_datasets.py": {
+        "size": 8586
+      },
+      "deepchem/molnet/load_function/ppb_datasets.py": {
+        "size": 2549
+      },
+      "deepchem/molnet/load_function/qm7_datasets.py": {
+        "size": 5178
+      },
+      "deepchem/molnet/load_function/qm8_datasets.py": {
+        "size": 5045
+      },
+      "deepchem/molnet/load_function/qm9_datasets.py": {
+        "size": 5774
+      },
+      "deepchem/molnet/load_function/sampl_datasets.py": {
+        "size": 3567
+      },
+      "deepchem/molnet/load_function/sider_datasets.py": {
+        "size": 4640
+      },
+      "deepchem/molnet/load_function/sweetlead_datasets.py": {
+        "size": 3140
+      },
+      "deepchem/molnet/load_function/tests/__init__.py": {
+        "size": 0
+      },
+      "deepchem/molnet/load_function/tests/tests_bbbc.py": {
+        "size": 2985
+      },
+      "deepchem/molnet/load_function/thermosol_datasets.py": {
+        "size": 2687
+      },
+      "deepchem/molnet/load_function/tox21_datasets.py": {
+        "size": 3832
+      },
+      "deepchem/molnet/load_function/toxcast_datasets.py": {
+        "size": 18900
+      },
+      "deepchem/molnet/load_function/uspto_datasets.py": {
+        "size": 7662
+      },
+      "deepchem/molnet/load_function/uv_datasets.py": {
+        "size": 6623
+      },
+      "deepchem/molnet/load_function/uv_tasks.py": {
+        "size": 2036
+      },
+      "deepchem/molnet/load_function/zinc15_datasets.py": {
+        "size": 6895
+      },
+      "deepchem/molnet/preset_hyper_parameters.py": {
+        "size": 5319
+      },
+      "deepchem/molnet/run_benchmark.py": {
+        "size": 13549
+      },
+      "deepchem/molnet/run_benchmark_low_data.py": {
+        "size": 4874
+      },
+      "deepchem/molnet/run_benchmark_models.py": {
+        "size": 36564
+      },
+      "deepchem/molnet/tests/__init__.py": {
+        "size": 0
+      },
+      "deepchem/molnet/tests/test_defaults.py": {
+        "size": 972
+      },
+      "deepchem/molnet/tests/test_dnasim.py": {
+        "size": 2311
+      },
+      "deepchem/molnet/tests/test_molnet.py": {
+        "size": 3234
+      },
+      "deepchem/rl/__init__.py": {
+        "size": 9359
+      },
+      "deepchem/rl/a2c.py": {
+        "size": 23214
+      },
+      "deepchem/rl/envs/__init__.py": {
+        "size": 0
+      },
+      "deepchem/rl/envs/test_tictactoe.py": {
+        "size": 1773
+      },
+      "deepchem/rl/envs/tictactoe.py": {
+        "size": 3632
+      },
+      "deepchem/rl/ppo.py": {
+        "size": 25374
+      },
+      "deepchem/rl/tests/test_a2c.py": {
+        "size": 13188
+      },
+      "deepchem/rl/tests/test_a2c_torch.py": {
+        "size": 13966
+      },
+      "deepchem/rl/tests/test_ppo.py": {
+        "size": 10516
+      },
+      "deepchem/rl/tests/test_ppo_torch.py": {
+        "size": 11270
+      },
+      "deepchem/rl/tests/test_rl_reload.py": {
+        "size": 2910
+      },
+      "deepchem/rl/tests/test_rl_reload_torch.py": {
+        "size": 2934
+      },
+      "deepchem/rl/torch_rl/__init__.py": {
+        "size": 276
+      },
+      "deepchem/rl/torch_rl/torch_a2c.py": {
+        "size": 34135
+      },
+      "deepchem/rl/torch_rl/torch_ppo.py": {
+        "size": 32978
+      },
+      "deepchem/splits/__init__.py": {
+        "size": 1384
+      },
+      "deepchem/splits/splitters.py": {
+        "size": 64330
+      },
+      "deepchem/splits/task_splitter.py": {
+        "size": 4017
+      },
+      "deepchem/splits/tests/__init__.py": {
+        "size": 0
+      },
+      "deepchem/splits/tests/test_scaffold_splitter.py": {
+        "size": 1452
+      },
+      "deepchem/splits/tests/test_splitter.py": {
+        "size": 23626
+      },
+      "deepchem/splits/tests/test_task_splitter.py": {
+        "size": 4749
+      },
+      "deepchem/trans/__init__.py": {
+        "size": 1255
+      },
+      "deepchem/trans/duplicate.py": {
+        "size": 6571
+      },
+      "deepchem/trans/tests/__init__.py": {
+        "size": 0
+      },
+      "deepchem/trans/tests/test_DAG.py": {
+        "size": 945
+      },
+      "deepchem/trans/tests/test_IRV.py": {
+        "size": 1173
+      },
+      "deepchem/trans/tests/test_balancing.py": {
+        "size": 7746
+      },
+      "deepchem/trans/tests/test_cdf_transform.py": {
+        "size": 3876
+      },
+      "deepchem/trans/tests/test_clipping.py": {
+        "size": 2149
+      },
+      "deepchem/trans/tests/test_coulomb.py": {
+        "size": 553
+      },
+      "deepchem/trans/tests/test_data_transforms.py": {
+        "size": 5337
+      },
+      "deepchem/trans/tests/test_duplicate_balancing.py": {
+        "size": 5893
+      },
+      "deepchem/trans/tests/test_featurization.py": {
+        "size": 530
+      },
+      "deepchem/trans/tests/test_flattening.py": {
+        "size": 2773
+      },
+      "deepchem/trans/tests/test_image_transform.py": {
+        "size": 3582
+      },
+      "deepchem/trans/tests/test_log_transform.py": {
+        "size": 7286
+      },
+      "deepchem/trans/tests/test_minmax.py": {
+        "size": 4326
+      },
+      "deepchem/trans/tests/test_normalization.py": {
+        "size": 4341
+      },
+      "deepchem/trans/tests/test_power.py": {
+        "size": 3601
+      },
+      "deepchem/trans/tests/test_rxn_transform.py": {
+        "size": 2150
+      },
+      "deepchem/trans/transformers.py": {
+        "size": 93717
+      },
+      "deepchem/utils/__init__.py": {
+        "size": 8787
+      },
+      "deepchem/utils/attribute_utils.py": {
+        "size": 6226
+      },
+      "deepchem/utils/batch_utils.py": {
+        "size": 13105
+      },
+      "deepchem/utils/cache_utils.py": {
+        "size": 29413
+      },
+      "deepchem/utils/conformers.py": {
+        "size": 10069
+      },
+      "deepchem/utils/coordinate_box_utils.py": {
+        "size": 13294
+      },
+      "deepchem/utils/data_utils.py": {
+        "size": 23055
+      },
+      "deepchem/utils/debug_utils.py": {
+        "size": 1840
+      },
+      "deepchem/utils/dft_utils/__init__.py": {
+        "size": 6531
+      },
+      "deepchem/utils/dft_utils/api/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/dft_utils/api/getxc.py": {
+        "size": 2560
+      },
+      "deepchem/utils/dft_utils/api/loadbasis.py": {
+        "size": 6787
+      },
+      "deepchem/utils/dft_utils/api/parser.py": {
+        "size": 3503
+      },
+      "deepchem/utils/dft_utils/config.py": {
+        "size": 1093
+      },
+      "deepchem/utils/dft_utils/data/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/dft_utils/data/datastruct.py": {
+        "size": 11604
+      },
+      "deepchem/utils/dft_utils/df/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/dft_utils/df/base_df.py": {
+        "size": 3558
+      },
+      "deepchem/utils/dft_utils/df/dfmol.py": {
+        "size": 7683
+      },
+      "deepchem/utils/dft_utils/grid/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/dft_utils/grid/base_grid.py": {
+        "size": 3398
+      },
+      "deepchem/utils/dft_utils/grid/factory.py": {
+        "size": 14777
+      },
+      "deepchem/utils/dft_utils/grid/lebedev_grid.py": {
+        "size": 7506
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_003.txt": {
+        "size": 390
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_005.txt": {
+        "size": 910
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_007.txt": {
+        "size": 1690
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_009.txt": {
+        "size": 2470
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_011.txt": {
+        "size": 3250
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_013.txt": {
+        "size": 4810
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_015.txt": {
+        "size": 5590
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_017.txt": {
+        "size": 7150
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_019.txt": {
+        "size": 9490
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_021.txt": {
+        "size": 11050
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_023.txt": {
+        "size": 12610
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_025.txt": {
+        "size": 14950
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_027.txt": {
+        "size": 17290
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_029.txt": {
+        "size": 19630
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_031.txt": {
+        "size": 22750
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_035.txt": {
+        "size": 28210
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_041.txt": {
+        "size": 38350
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_047.txt": {
+        "size": 50050
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_053.txt": {
+        "size": 63310
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_059.txt": {
+        "size": 78130
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_065.txt": {
+        "size": 94510
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_071.txt": {
+        "size": 112450
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_077.txt": {
+        "size": 131950
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_083.txt": {
+        "size": 153010
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_089.txt": {
+        "size": 175630
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_095.txt": {
+        "size": 199810
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_101.txt": {
+        "size": 225550
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_107.txt": {
+        "size": 252850
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_113.txt": {
+        "size": 281710
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_119.txt": {
+        "size": 312130
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_125.txt": {
+        "size": 344110
+      },
+      "deepchem/utils/dft_utils/grid/lebedevquad/lebedev_131.txt": {
+        "size": 377650
+      },
+      "deepchem/utils/dft_utils/grid/multiatoms_grid.py": {
+        "size": 17821
+      },
+      "deepchem/utils/dft_utils/grid/radial_grid.py": {
+        "size": 14735
+      },
+      "deepchem/utils/dft_utils/grid/truncation_rules.py": {
+        "size": 14508
+      },
+      "deepchem/utils/dft_utils/hamilton/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/dft_utils/hamilton/base_hamilton.py": {
+        "size": 15850
+      },
+      "deepchem/utils/dft_utils/hamilton/hcgto.py": {
+        "size": 37169
+      },
+      "deepchem/utils/dft_utils/hamilton/intor/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/dft_utils/hamilton/intor/gtoeval.py": {
+        "size": 28402
+      },
+      "deepchem/utils/dft_utils/hamilton/intor/gtoft.py": {
+        "size": 11131
+      },
+      "deepchem/utils/dft_utils/hamilton/intor/lattice.py": {
+        "size": 7909
+      },
+      "deepchem/utils/dft_utils/hamilton/intor/lcintwrap.py": {
+        "size": 25237
+      },
+      "deepchem/utils/dft_utils/hamilton/intor/molintor.py": {
+        "size": 67982
+      },
+      "deepchem/utils/dft_utils/hamilton/intor/namemgr.py": {
+        "size": 14293
+      },
+      "deepchem/utils/dft_utils/hamilton/intor/pbcintor.py": {
+        "size": 3285
+      },
+      "deepchem/utils/dft_utils/hamilton/intor/symmetry.py": {
+        "size": 6051
+      },
+      "deepchem/utils/dft_utils/hamilton/intor/utils.py": {
+        "size": 994
+      },
+      "deepchem/utils/dft_utils/hamilton/orbconverter.py": {
+        "size": 3728
+      },
+      "deepchem/utils/dft_utils/hamilton/orbparams.py": {
+        "size": 9177
+      },
+      "deepchem/utils/dft_utils/qccalc/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/dft_utils/qccalc/base_qccalc.py": {
+        "size": 3639
+      },
+      "deepchem/utils/dft_utils/qccalc/hf.py": {
+        "size": 21170
+      },
+      "deepchem/utils/dft_utils/qccalc/ks.py": {
+        "size": 14713
+      },
+      "deepchem/utils/dft_utils/qccalc/scf_qccalc.py": {
+        "size": 20677
+      },
+      "deepchem/utils/dft_utils/system/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/dft_utils/system/base_system.py": {
+        "size": 6970
+      },
+      "deepchem/utils/dft_utils/system/mol.py": {
+        "size": 23945
+      },
+      "deepchem/utils/dft_utils/test/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/dft_utils/test/test_config.py": {
+        "size": 252
+      },
+      "deepchem/utils/dft_utils/xc/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/dft_utils/xc/base_xc.py": {
+        "size": 35724
+      },
+      "deepchem/utils/dft_utils/xc/libxc.py": {
+        "size": 17647
+      },
+      "deepchem/utils/dft_utils/xc/libxc_wrapper.py": {
+        "size": 40484
+      },
+      "deepchem/utils/dftutils.py": {
+        "size": 5364
+      },
+      "deepchem/utils/differentiation_utils/__init__.py": {
+        "size": 4060
+      },
+      "deepchem/utils/differentiation_utils/bcast.py": {
+        "size": 1777
+      },
+      "deepchem/utils/differentiation_utils/editable_module.py": {
+        "size": 23731
+      },
+      "deepchem/utils/differentiation_utils/grad.py": {
+        "size": 11183
+      },
+      "deepchem/utils/differentiation_utils/integrate/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/differentiation_utils/integrate/explicit_rk.py": {
+        "size": 13982
+      },
+      "deepchem/utils/differentiation_utils/linop.py": {
+        "size": 50928
+      },
+      "deepchem/utils/differentiation_utils/misc.py": {
+        "size": 2847
+      },
+      "deepchem/utils/differentiation_utils/optimize/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/differentiation_utils/optimize/equilibrium.py": {
+        "size": 5535
+      },
+      "deepchem/utils/differentiation_utils/optimize/jacobian.py": {
+        "size": 16460
+      },
+      "deepchem/utils/differentiation_utils/optimize/minimizer.py": {
+        "size": 9768
+      },
+      "deepchem/utils/differentiation_utils/optimize/rootfinder.py": {
+        "size": 15229
+      },
+      "deepchem/utils/differentiation_utils/optimize/rootsolver.py": {
+        "size": 17157
+      },
+      "deepchem/utils/differentiation_utils/pure_function.py": {
+        "size": 15475
+      },
+      "deepchem/utils/differentiation_utils/solve.py": {
+        "size": 45298
+      },
+      "deepchem/utils/differentiation_utils/symeig.py": {
+        "size": 37426
+      },
+      "deepchem/utils/docking_utils.py": {
+        "size": 10470
+      },
+      "deepchem/utils/electron_sampler.py": {
+        "size": 14881
+      },
+      "deepchem/utils/equivariance_utils.py": {
+        "size": 89231
+      },
+      "deepchem/utils/evaluate.py": {
+        "size": 19454
+      },
+      "deepchem/utils/fake_data_generator.py": {
+        "size": 6134
+      },
+      "deepchem/utils/fragment_utils.py": {
+        "size": 13312
+      },
+      "deepchem/utils/genomics_utils.py": {
+        "size": 3903
+      },
+      "deepchem/utils/geometry_utils.py": {
+        "size": 8260
+      },
+      "deepchem/utils/graph_utils.py": {
+        "size": 6033
+      },
+      "deepchem/utils/grover.py": {
+        "size": 12494
+      },
+      "deepchem/utils/hash_utils.py": {
+        "size": 3644
+      },
+      "deepchem/utils/lightning_utils.py": {
+        "size": 2748
+      },
+      "deepchem/utils/misc_utils.py": {
+        "size": 5807
+      },
+      "deepchem/utils/molecule_feature_utils.py": {
+        "size": 19262
+      },
+      "deepchem/utils/noncovalent_utils.py": {
+        "size": 17713
+      },
+      "deepchem/utils/optimizer_utils.py": {
+        "size": 5867
+      },
+      "deepchem/utils/pdbqt_utils.py": {
+        "size": 11826
+      },
+      "deepchem/utils/periodic_table_utils.py": {
+        "size": 7170
+      },
+      "deepchem/utils/poly_converters.py": {
+        "size": 18094
+      },
+      "deepchem/utils/poly_wd_graph_utils.py": {
+        "size": 18745
+      },
+      "deepchem/utils/pytorch_utils.py": {
+        "size": 19070
+      },
+      "deepchem/utils/rdkit_utils.py": {
+        "size": 65661
+      },
+      "deepchem/utils/safeops_utils.py": {
+        "size": 9785
+      },
+      "deepchem/utils/save.py": {
+        "size": 552
+      },
+      "deepchem/utils/sequence_utils.py": {
+        "size": 6815
+      },
+      "deepchem/utils/test/__init__.py": {
+        "size": 0
+      },
+      "deepchem/utils/test/assets/gnina_log.txt": {
+        "size": 855
+      },
+      "deepchem/utils/test/test_attribute_utils.py": {
+        "size": 907
+      },
+      "deepchem/utils/test/test_batch_utils.py": {
+        "size": 2811
+      },
+      "deepchem/utils/test/test_cache_utils.py": {
+        "size": 5522
+      },
+      "deepchem/utils/test/test_coordinate_box_utils.py": {
+        "size": 6598
+      },
+      "deepchem/utils/test/test_data_utils.py": {
+        "size": 6049
+      },
+      "deepchem/utils/test/test_dft_utils.py": {
+        "size": 68255
+      },
+      "deepchem/utils/test/test_dftutils.py": {
+        "size": 1550
+      },
+      "deepchem/utils/test/test_differentiation_utils.py": {
+        "size": 38914
+      },
+      "deepchem/utils/test/test_docking_utils.py": {
+        "size": 2258
+      },
+      "deepchem/utils/test/test_electron_sampler.py": {
+        "size": 3522
+      },
+      "deepchem/utils/test/test_equivariance_utils.py": {
+        "size": 42588
+      },
+      "deepchem/utils/test/test_evaluate.py": {
+        "size": 12977
+      },
+      "deepchem/utils/test/test_fake_data_generator.py": {
+        "size": 2481
+      },
+      "deepchem/utils/test/test_fragment_utils.py": {
+        "size": 2610
+      },
+      "deepchem/utils/test/test_generator_evaluator.py": {
+        "size": 4684
+      },
+      "deepchem/utils/test/test_genomics_utils.py": {
+        "size": 1956
+      },
+      "deepchem/utils/test/test_geometry_utils.py": {
+        "size": 3296
+      },
+      "deepchem/utils/test/test_graph_utils.py": {
+        "size": 866
+      },
+      "deepchem/utils/test/test_grover.py": {
+        "size": 1421
+      },
+      "deepchem/utils/test/test_hash_utils.py": {
+        "size": 1476
+      },
+      "deepchem/utils/test/test_lightning_utils.py": {
+        "size": 5876
+      },
+      "deepchem/utils/test/test_misc_utils.py": {
+        "size": 332
+      },
+      "deepchem/utils/test/test_molecule_feature_utils.py": {
+        "size": 9115
+      },
+      "deepchem/utils/test/test_noncovalent_utils.py": {
+        "size": 6251
+      },
+      "deepchem/utils/test/test_pdbqt_utils.py": {
+        "size": 3966
+      },
+      "deepchem/utils/test/test_periodic_table_utils.py": {
+        "size": 700
+      },
+      "deepchem/utils/test/test_poly_converters.py": {
+        "size": 2945
+      },
+      "deepchem/utils/test/test_poly_wd_graph_utils.py": {
+        "size": 6484
+      },
+      "deepchem/utils/test/test_pytorch_utils.py": {
+        "size": 5267
+      },
+      "deepchem/utils/test/test_rdkit_utils.py": {
+        "size": 9005
+      },
+      "deepchem/utils/test/test_safe_ops_utils.py": {
+        "size": 1991
+      },
+      "deepchem/utils/test/test_sequence_utils.py": {
+        "size": 2388
+      },
+      "deepchem/utils/test/test_updated_scipy.py": {
+        "size": 386
+      },
+      "deepchem/utils/test/test_voxel_utils.py": {
+        "size": 2859
+      },
+      "deepchem/utils/typing.py": {
+        "size": 1095
+      },
+      "deepchem/utils/vina_utils.py": {
+        "size": 1113
+      },
+      "deepchem/utils/voxel_utils.py": {
+        "size": 7797
+      },
+      "docs/README.md": {
+        "size": 620
+      },
+      "docs/requirements.txt": {
+        "size": 471
+      },
+      "docs/source/conf.py": {
+        "size": 4210
+      },
+      "examples/README.md": {
+        "size": 496
+      },
+      "examples/adme/README.md": {
+        "size": 1008
+      },
+      "examples/adme/__init__.py": {
+        "size": 0
+      },
+      "examples/adme/run_benchmarks.py": {
+        "size": 4236
+      },
+      "examples/bace/README.md": {
+        "size": 583
+      },
+      "examples/bace/bace_datasets.py": {
+        "size": 2638
+      },
+      "examples/bace/bace_rf.py": {
+        "size": 4200
+      },
+      "examples/benchmark.py": {
+        "size": 3531
+      },
+      "examples/benchmark/gcnmodel_benchmark.py": {
+        "size": 1423
+      },
+      "examples/benchmark_curve.py": {
+        "size": 5869
+      },
+      "examples/benchmark_low_data.py": {
+        "size": 1499
+      },
+      "examples/binding_pockets/README.md": {
+        "size": 322
+      },
+      "examples/binding_pockets/binding_pocket_datasets.py": {
+        "size": 6311
+      },
+      "examples/binding_pockets/binding_pocket_rf.py": {
+        "size": 1357
+      },
+      "examples/chembl/__init__.py": {
+        "size": 0
+      },
+      "examples/chembl/chembl_graph_conv.py": {
+        "size": 1294
+      },
+      "examples/chembl/chembl_tasks.py": {
+        "size": 12003
+      },
+      "examples/chembl/chembl_tf_models.py": {
+        "size": 1777
+      },
+      "examples/clintox/README.md": {
+        "size": 504
+      },
+      "examples/clintox/__init__.py": {
+        "size": 0
+      },
+      "examples/clintox/clintox_fcnet.py": {
+        "size": 935
+      },
+      "examples/clintox/clintox_graph_conv.py": {
+        "size": 1226
+      },
+      "examples/clintox/datasets/aacttox/aacttox.py": {
+        "size": 0
+      },
+      "examples/clintox/datasets/aacttox_sweetfda_join.py": {
+        "size": 4151
+      },
+      "examples/data_loading/README.md": {
+        "size": 323
+      },
+      "examples/data_loading/pandas_csv.py": {
+        "size": 821
+      },
+      "examples/data_loading/sdf_load.py": {
+        "size": 337
+      },
+      "examples/datasets/README.md": {
+        "size": 92
+      },
+      "examples/datasets/pretty_print.py": {
+        "size": 112
+      },
+      "examples/datasets/scaffold_split_print.py": {
+        "size": 744
+      },
+      "examples/delaney/README.md": {
+        "size": 1068
+      },
+      "examples/delaney/delaney_DAG.py": {
+        "size": 1673
+      },
+      "examples/delaney/delaney_MPNN.py": {
+        "size": 1243
+      },
+      "examples/delaney/delaney_chemception.py": {
+        "size": 916
+      },
+      "examples/delaney/delaney_graph_conv.py": {
+        "size": 1172
+      },
+      "examples/delaney/delaney_graphconv_error_bars.py": {
+        "size": 2055
+      },
+      "examples/delaney/delaney_krr.py": {
+        "size": 1169
+      },
+      "examples/delaney/delaney_textcnn.py": {
+        "size": 1177
+      },
+      "examples/delaney/delaney_tf_models.py": {
+        "size": 1057
+      },
+      "examples/delaney/delaney_tf_progressive.py": {
+        "size": 1228
+      },
+      "examples/delaney/delaney_torch.py": {
+        "size": 1132
+      },
+      "examples/delaney/delaney_weave.py": {
+        "size": 1132
+      },
+      "examples/encoders/__init__.py": {
+        "size": 0
+      },
+      "examples/encoders/encoder_example.py": {
+        "size": 742
+      },
+      "examples/factors/FACTORS_correlations.py": {
+        "size": 1407
+      },
+      "examples/factors/FACTORS_datasets.py": {
+        "size": 4118
+      },
+      "examples/factors/FACTORS_rf_model.py": {
+        "size": 3181
+      },
+      "examples/factors/FACTORS_tf_model.py": {
+        "size": 3070
+      },
+      "examples/factors/FACTORS_tf_progressive.py": {
+        "size": 3021
+      },
+      "examples/factors/FACTORS_tf_robust.py": {
+        "size": 3242
+      },
+      "examples/factors/FACTORS_tf_singletask.py": {
+        "size": 3341
+      },
+      "examples/factors/README.md": {
+        "size": 972
+      },
+      "examples/factors/factors_features.py": {
+        "size": 157246
+      },
+      "examples/hiv/README.md": {
+        "size": 905
+      },
+      "examples/hiv/hiv_irv.py": {
+        "size": 1107
+      },
+      "examples/hiv/hiv_tf_models.py": {
+        "size": 977
+      },
+      "examples/hopv/README.md": {
+        "size": 709
+      },
+      "examples/hopv/hopv_graph_conv.py": {
+        "size": 1203
+      },
+      "examples/hopv/hopv_robustMT_models.py": {
+        "size": 1567
+      },
+      "examples/hopv/hopv_sklearn_models.py": {
+        "size": 1236
+      },
+      "examples/hopv/hopv_tf_models.py": {
+        "size": 1115
+      },
+      "examples/hopv/hopv_tf_progressive.py": {
+        "size": 1162
+      },
+      "examples/hydra_examples/configs/zinc15.yaml": {
+        "size": 173
+      },
+      "examples/hydra_examples/train_gcn.py": {
+        "size": 1307
+      },
+      "examples/hyperparam_opt/README.md": {
+        "size": 123
+      },
+      "examples/hyperparam_opt/gaussian_hyperparam_opt.py": {
+        "size": 725
+      },
+      "examples/hyperparam_opt/gaussian_hyperparam_opt_with_logdir.py": {
+        "size": 725
+      },
+      "examples/hyperparam_opt/grid_hyperparam_opt.py": {
+        "size": 763
+      },
+      "examples/kaggle/KAGGLE_rf_model.py": {
+        "size": 3245
+      },
+      "examples/kaggle/KAGGLE_tf_model.py": {
+        "size": 3017
+      },
+      "examples/kaggle/KAGGLE_tf_progressive.py": {
+        "size": 3014
+      },
+      "examples/kaggle/KAGGLE_tf_robust.py": {
+        "size": 3237
+      },
+      "examples/kaggle/KAGGLE_tf_singletask.py": {
+        "size": 3177
+      },
+      "examples/kaggle/README.md": {
+        "size": 1011
+      },
+      "examples/kaggle/kaggle_features.py": {
+        "size": 157244
+      },
+      "examples/kinase/KINASE_correlations.py": {
+        "size": 1399
+      },
+      "examples/kinase/KINASE_datasets.py": {
+        "size": 4101
+      },
+      "examples/kinase/KINASE_rf_model.py": {
+        "size": 3210
+      },
+      "examples/kinase/KINASE_tf_model.py": {
+        "size": 3118
+      },
+      "examples/kinase/KINASE_tf_progressive.py": {
+        "size": 3029
+      },
+      "examples/kinase/KINASE_tf_robust.py": {
+        "size": 3270
+      },
+      "examples/kinase/KINASE_tf_singletask.py": {
+        "size": 3401
+      },
+      "examples/kinase/README.md": {
+        "size": 1055
+      },
+      "examples/kinase/kinase_features.py": {
+        "size": 157245
+      },
+      "examples/low_data/__init__.py": {
+        "size": 0
+      },
+      "examples/low_data/datasets.py": {
+        "size": 6400
+      },
+      "examples/low_data/muv_graph_conv_one_fold.py": {
+        "size": 2833
+      },
+      "examples/low_data/muv_rf_one_fold.py": {
+        "size": 2031
+      },
+      "examples/low_data/sider_graph_conv_one_fold.py": {
+        "size": 2518
+      },
+      "examples/low_data/sider_rf_one_fold.py": {
+        "size": 2013
+      },
+      "examples/low_data/tox_graph_conv_one_fold.py": {
+        "size": 2845
+      },
+      "examples/low_data/tox_rf_K_fold.py": {
+        "size": 2813
+      },
+      "examples/low_data/tox_rf_one_fold.py": {
+        "size": 2037
+      },
+      "examples/low_data/toxcast_maml.py": {
+        "size": 3781
+      },
+      "examples/membrane_permeability/__init__.py": {
+        "size": 0
+      },
+      "examples/membrane_permeability/membrane_permeability_datasets.py": {
+        "size": 1339
+      },
+      "examples/membrane_permeability/membrane_permeability_graph_conv.py": {
+        "size": 1699
+      },
+      "examples/model_restore/README.md": {
+        "size": 701
+      },
+      "examples/model_restore/chemception_model.py": {
+        "size": 920
+      },
+      "examples/model_restore/chemception_restore.py": {
+        "size": 455
+      },
+      "examples/multiclass/README.md": {
+        "size": 117
+      },
+      "examples/multiclass/multiclass_sklearn.py": {
+        "size": 633
+      },
+      "examples/muv/README.md": {
+        "size": 267
+      },
+      "examples/muv/muv_sklearn.py": {
+        "size": 1156
+      },
+      "examples/muv/muv_tf.py": {
+        "size": 1113
+      },
+      "examples/nci/nci_datasets.py": {
+        "size": 2425
+      },
+      "examples/nci/nci_rf.py": {
+        "size": 1591
+      },
+      "examples/notebooks/README.md": {
+        "size": 427
+      },
+      "examples/notebooks/tests.py": {
+        "size": 2024
+      },
+      "examples/pcba/README.md": {
+        "size": 222
+      },
+      "examples/pcba/pcba_datasets.py": {
+        "size": 3352
+      },
+      "examples/pcba/pcba_sklearn.py": {
+        "size": 1756
+      },
+      "examples/pcba/pcba_tf.py": {
+        "size": 1459
+      },
+      "examples/pdbbind/pdbbind_atomic_conv.py": {
+        "size": 1692
+      },
+      "examples/pdbbind/pdbbind_rf.py": {
+        "size": 1147
+      },
+      "examples/pdbbind/pdbbind_tf.py": {
+        "size": 1401
+      },
+      "examples/pretraining/README.md": {
+        "size": 358
+      },
+      "examples/pretraining/fcnet_pretraining.py": {
+        "size": 1593
+      },
+      "examples/qm7/README.md": {
+        "size": 2845
+      },
+      "examples/qm7/qm7_sklearn.py": {
+        "size": 1271
+      },
+      "examples/qm7/qm7_tensorgraph_DTNN.py": {
+        "size": 1468
+      },
+      "examples/qm7/qm7_tensorgraph_GraphConv.py": {
+        "size": 1139
+      },
+      "examples/qm7/qm7_tf_model.py": {
+        "size": 1259
+      },
+      "examples/qm7/qm7b_DTNN.py": {
+        "size": 1246
+      },
+      "examples/qm7/qm7b_tf_model.py": {
+        "size": 1515
+      },
+      "examples/qm8/qm8_DTNN.py": {
+        "size": 1188
+      },
+      "examples/qm8/qm8_MPNN.py": {
+        "size": 1113
+      },
+      "examples/qm8/qm8_tf_model.py": {
+        "size": 1476
+      },
+      "examples/qm9/qm9_DTNN.py": {
+        "size": 1188
+      },
+      "examples/qm9/qm9_data_preprocessing.py": {
+        "size": 957
+      },
+      "examples/qm9/qm9_tf_model.py": {
+        "size": 1476
+      },
+      "examples/roitberg/app.py": {
+        "size": 1366
+      },
+      "examples/roitberg/pyanitools.py": {
+        "size": 4201
+      },
+      "examples/roitberg/roitberg.py": {
+        "size": 7414
+      },
+      "examples/sider/sider_datasets.py": {
+        "size": 1732
+      },
+      "examples/sider/sider_rf.py": {
+        "size": 1121
+      },
+      "examples/splitters/README.md": {
+        "size": 1264
+      },
+      "examples/splitters/random_split.py": {
+        "size": 721
+      },
+      "examples/splitters/scaffold_split.py": {
+        "size": 717
+      },
+      "examples/sweetlead/README.md": {
+        "size": 512
+      },
+      "examples/sweetlead/sweet.py": {
+        "size": 2154
+      },
+      "examples/sweetlead/sweetlead_datasets.py": {
+        "size": 0
+      },
+      "examples/tox21/README.md": {
+        "size": 310
+      },
+      "examples/tox21/tox21_IRV.py": {
+        "size": 1286
+      },
+      "examples/tox21/tox21_KernelSVM.py": {
+        "size": 1174
+      },
+      "examples/tox21/tox21_fcnet.py": {
+        "size": 997
+      },
+      "examples/tox21/tox21_graphcnn.py": {
+        "size": 1192
+      },
+      "examples/tox21/tox21_logreg.py": {
+        "size": 1222
+      },
+      "examples/tox21/tox21_robustMT_models.py": {
+        "size": 1486
+      },
+      "examples/tox21/tox21_sklearn_models.py": {
+        "size": 1160
+      },
+      "examples/tox21/tox21_tensorgraph_DAG.py": {
+        "size": 1635
+      },
+      "examples/tox21/tox21_tensorgraph_graph_conv.py": {
+        "size": 1164
+      },
+      "examples/tox21/tox21_tensorgraph_graphconv_sluice.py": {
+        "size": 5738
+      },
+      "examples/tox21/tox21_tensorgraph_weave.py": {
+        "size": 1094
+      },
+      "examples/tox21/tox21_tf_progressive.py": {
+        "size": 1053
+      },
+      "examples/tox21/tox21_torch.py": {
+        "size": 1092
+      },
+      "examples/toxcast/README.md": {
+        "size": 912
+      },
+      "examples/toxcast/processing/tox.py": {
+        "size": 1668
+      },
+      "examples/toxcast/toxcast_datasets.py": {
+        "size": 1620
+      },
+      "examples/toxcast/toxcast_rf.py": {
+        "size": 1089
+      },
+      "examples/transformers/README.md": {
+        "size": 424
+      },
+      "examples/tutorials/README.md": {
+        "size": 8598
+      },
+      "examples/tutorials/assets/dft_tutorial.yaml": {
+        "size": 587
+      },
+      "examples/tutorials/assets/h2.yaml": {
+        "size": 5043
+      },
+      "examples/tutorials/assets/scRNAseq/test_label_sample.txt": {
+        "size": 26363
+      },
+      "examples/tutorials/assets/scRNAseq/train_label_sample.txt": {
+        "size": 105448
+      },
+      "examples/uv/README.md": {
+        "size": 894
+      },
+      "examples/uv/UV_correlations.py": {
+        "size": 1362
+      },
+      "examples/uv/UV_datasets.py": {
+        "size": 4703
+      },
+      "examples/uv/UV_rf_model.py": {
+        "size": 3394
+      },
+      "examples/uv/UV_tf_model.py": {
+        "size": 2973
+      },
+      "examples/uv/UV_tf_progressive.py": {
+        "size": 1675
+      },
+      "examples/uv/UV_tf_robust.py": {
+        "size": 3179
+      },
+      "examples/uv/UV_tf_singletask.py": {
+        "size": 3282
+      },
+      "examples/uv/uv_features.py": {
+        "size": 157241
+      },
+      "notes/release.md": {
+        "size": 3064
+      },
+      "requirements/env_common.yml": {
+        "size": 481
+      },
+      "requirements/env_common_3_8.yml": {
+        "size": 470
+      },
+      "requirements/env_dqc.yml": {
+        "size": 349
+      },
+      "requirements/env_mac.yml": {
+        "size": 121
+      },
+      "requirements/env_mac_3_11.yml": {
+        "size": 98
+      },
+      "requirements/env_mac_arm64.yml": {
+        "size": 158
+      },
+      "requirements/env_test.yml": {
+        "size": 164
+      },
+      "requirements/env_ubuntu.yml": {
+        "size": 110
+      },
+      "requirements/env_ubuntu_3_11.yml": {
+        "size": 98
+      },
+      "requirements/jax/env_jax.cpu.yml": {
+        "size": 168
+      },
+      "requirements/jax/env_jax.gpu.yml": {
+        "size": 133
+      },
+      "requirements/tensorflow/env_tensorflow.cpu.yml": {
+        "size": 103
+      },
+      "requirements/torch/env_torch.cpu.yml": {
+        "size": 467
+      },
+      "requirements/torch/env_torch.gpu.yml": {
+        "size": 424
+      },
+      "requirements/torch/env_torch.mac.cpu.yml": {
+        "size": 310
+      },
+      "requirements/torch/env_torch.win.cpu.yml": {
+        "size": 379
+      },
+      "scripts/colab_install.py": {
+        "size": 3457
+      },
+      "setup.cfg": {
+        "size": 1429
+      },
+      "setup.py": {
+        "size": 2859
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "deepchem",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level package initializer; primary import root for DeepChem."
+      },
+      {
+        "package": "deepchem/data",
+        "module": "datasets",
+        "functions": [],
+        "classes": [
+          "Dataset",
+          "NumpyDataset",
+          "DiskDataset",
+          "ImageDataset",
+          "Databag"
+        ],
+        "description": "Core dataset abstractions and storage backends used across featurization, modeling, splitting, and transforms."
+      },
+      {
+        "package": "deepchem/data",
+        "module": "data_loader",
+        "functions": [],
+        "classes": [
+          "DataLoader",
+          "CSVLoader",
+          "JsonLoader",
+          "SDFLoader",
+          "FASTALoader",
+          "ImageLoader"
+        ],
+        "description": "Primary ingestion pipeline from raw files to DeepChem Dataset objects."
+      },
+      {
+        "package": "deepchem/feat",
+        "module": "base_classes",
+        "functions": [],
+        "classes": [
+          "Featurizer",
+          "MolecularFeaturizer",
+          "ComplexFeaturizer",
+          "MaterialStructureFeaturizer"
+        ],
+        "description": "Featurizer base interfaces and extension points."
+      },
+      {
+        "package": "deepchem/models",
+        "module": "models",
+        "functions": [],
+        "classes": [
+          "Model"
+        ],
+        "description": "Base model interface used by framework-specific model wrappers."
+      },
+      {
+        "package": "deepchem/models",
+        "module": "torch_models/torch_model",
+        "functions": [],
+        "classes": [
+          "TorchModel"
+        ],
+        "description": "Primary PyTorch training/inference wrapper; high-value MCP integration point."
+      },
+      {
+        "package": "deepchem/models",
+        "module": "keras_model",
+        "functions": [],
+        "classes": [
+          "KerasModel"
+        ],
+        "description": "TensorFlow/Keras training/inference wrapper for legacy and current workflows."
+      },
+      {
+        "package": "deepchem/molnet",
+        "module": "__init__",
+        "functions": [
+          "load_* dataset helpers (via molnet exports)"
+        ],
+        "classes": [],
+        "description": "Task-oriented benchmark dataset loaders and standardized split/transform setup."
+      },
+      {
+        "package": "deepchem/splits",
+        "module": "splitters",
+        "functions": [],
+        "classes": [
+          "Splitter",
+          "RandomSplitter",
+          "ScaffoldSplitter",
+          "StratifiedSplitter",
+          "IndexSplitter"
+        ],
+        "description": "Data splitting logic used in benchmark and production workflows."
+      },
+      {
+        "package": "deepchem/trans",
+        "module": "transformers",
+        "functions": [],
+        "classes": [
+          "Transformer",
+          "NormalizationTransformer",
+          "BalancingTransformer",
+          "ClippingTransformer",
+          "LogTransformer"
+        ],
+        "description": "Pre/post-processing transforms for labels/features/weights."
+      },
+      {
+        "package": "deepchem/metrics",
+        "module": "metric",
+        "functions": [],
+        "classes": [
+          "Metric"
+        ],
+        "description": "Evaluation metric orchestration and scoring wrappers."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python -m deepchem.molnet.run_benchmark",
+        "module": "deepchem/molnet/run_benchmark.py",
+        "description": "Run MolNet benchmark pipelines across datasets/models/splits."
+      },
+      {
+        "name": "python -m deepchem.molnet.run_benchmark_low_data",
+        "module": "deepchem/molnet/run_benchmark_low_data.py",
+        "description": "Run low-data benchmark workflows."
+      },
+      {
+        "name": "python -m deepchem.molnet.run_benchmark_models",
+        "module": "deepchem/molnet/run_benchmark_models.py",
+        "description": "Benchmark model configurations for MolNet tasks."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python",
+        "numpy",
+        "scipy",
+        "pandas",
+        "scikit-learn"
+      ],
+      "optional": [
+        "rdkit",
+        "torch",
+        "tensorflow",
+        "jax",
+        "pytorch-lightning",
+        "transformers",
+        "dgl",
+        "xgboost",
+        "lightgbm",
+        "pyscf"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/deepchem/deepchem",
+    "repo_name": "deepchem",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.86,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

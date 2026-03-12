@@ -1,0 +1,188 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/santoshlite/EigenLedger",
+    "summary": "Imported via zip fallback, file count: 17",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 665
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 605
+      },
+      ".github/workflows/python-publish.yml": {
+        "size": 431
+      },
+      "EigenLedger/__init__.py": {
+        "size": 52
+      },
+      "EigenLedger/main.py": {
+        "size": 38369
+      },
+      "EigenLedger/modules/empyrical/.travis.yml": {
+        "size": 1679
+      },
+      "EigenLedger/modules/empyrical/__init__.py": {
+        "size": 1878
+      },
+      "EigenLedger/modules/empyrical/_version.py": {
+        "size": 16749
+      },
+      "EigenLedger/modules/empyrical/deprecate.py": {
+        "size": 1499
+      },
+      "EigenLedger/modules/empyrical/perf_attrib.py": {
+        "size": 5834
+      },
+      "EigenLedger/modules/empyrical/periods.py": {
+        "size": 378
+      },
+      "EigenLedger/modules/empyrical/stats.py": {
+        "size": 66882
+      },
+      "EigenLedger/modules/empyrical/utils.py": {
+        "size": 16676
+      },
+      "EigenLedger/run.py": {
+        "size": 737
+      },
+      "README.md": {
+        "size": 10028
+      },
+      "README_CN.md": {
+        "size": 8275
+      },
+      "pyproject.toml": {
+        "size": 616
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "EigenLedger/main.py",
+        "module": "main",
+        "functions": [],
+        "classes": [],
+        "description": "Primary application logic appears concentrated in a single large module (likely Streamlit-style app orchestration and portfolio analytics workflow), but callable symbols cannot be reliably enumerated from provided scan metadata alone."
+      },
+      {
+        "package": "EigenLedger/modules/empyrical/stats.py",
+        "module": "stats",
+        "functions": [],
+        "classes": [],
+        "description": "Performance/quant analytics core (returns, drawdown, risk-adjusted metrics, tail risk, rolling statistics) adapted from empyrical-style APIs."
+      },
+      {
+        "package": "EigenLedger/modules/empyrical/perf_attrib.py",
+        "module": "perf_attrib",
+        "functions": [],
+        "classes": [],
+        "description": "Performance attribution utilities (factor/asset contribution decomposition)."
+      },
+      {
+        "package": "EigenLedger/modules/empyrical/utils.py",
+        "module": "utils",
+        "functions": [],
+        "classes": [],
+        "description": "Shared utility helpers used by analytics modules (input normalization, data handling, validation wrappers)."
+      },
+      {
+        "package": "EigenLedger/modules/empyrical/periods.py",
+        "module": "periods",
+        "functions": [],
+        "classes": [],
+        "description": "Time-period constants and annualization helpers for metric computations."
+      },
+      {
+        "package": "EigenLedger/run.py",
+        "module": "run",
+        "functions": [],
+        "classes": [],
+        "description": "Lightweight execution wrapper/entry launcher for the project runtime."
+      },
+      {
+        "package": "EigenLedger/__init__.py",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Package marker; likely minimal exports."
+      },
+      {
+        "package": "EigenLedger/modules/empyrical/__init__.py",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Namespace export surface for vendored empyrical module set."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python -m EigenLedger.run",
+        "module": "EigenLedger/run.py",
+        "description": "Most probable module-level execution path based on dedicated runner file."
+      },
+      {
+        "name": "python EigenLedger/run.py",
+        "module": "EigenLedger/run.py",
+        "description": "Direct script execution fallback if no console_scripts entry point is configured."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "pandas",
+        "scipy"
+      ],
+      "optional": [
+        "streamlit",
+        "matplotlib",
+        "plotly",
+        "yfinance"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.58,
+      "intrusiveness_risk": "medium",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/santoshlite/EigenLedger",
+    "repo_name": "EigenLedger",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.58,
+    "intrusiveness_risk": "medium",
+    "complexity": "medium"
+  }
+}

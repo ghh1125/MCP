@@ -1,0 +1,2981 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/yt-project/yt",
+    "summary": "Imported via zip fallback, file count: 926",
+    "file_tree": {
+      ".codecov.yml": {
+        "size": 192
+      },
+      ".github/ISSUE_TEMPLATE.md": {
+        "size": 1591
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 1320
+      },
+      ".github/config.yml": {
+        "size": 1126
+      },
+      ".github/dependabot.yml": {
+        "size": 524
+      },
+      ".github/mergeable.yml": {
+        "size": 501
+      },
+      ".github/workflows/bleeding-edge.yaml": {
+        "size": 3100
+      },
+      ".github/workflows/build-test.yaml": {
+        "size": 6974
+      },
+      ".github/workflows/type-checking.yaml": {
+        "size": 1105
+      },
+      ".github/workflows/wheels.yaml": {
+        "size": 5163
+      },
+      ".pre-commit-config.yaml": {
+        "size": 1420
+      },
+      "COPYING.txt": {
+        "size": 3496
+      },
+      "README.md": {
+        "size": 7339
+      },
+      "conftest.py": {
+        "size": 17032
+      },
+      "doc/docstring_idioms.txt": {
+        "size": 1687
+      },
+      "doc/extensions/config_help.py": {
+        "size": 1045
+      },
+      "doc/extensions/pythonscript_sphinxext.py": {
+        "size": 2769
+      },
+      "doc/extensions/yt_colormaps.py": {
+        "size": 2045
+      },
+      "doc/extensions/yt_cookbook.py": {
+        "size": 2879
+      },
+      "doc/extensions/yt_showfields.py": {
+        "size": 825
+      },
+      "doc/helper_scripts/code_support.py": {
+        "size": 2610
+      },
+      "doc/helper_scripts/parse_cb_list.py": {
+        "size": 1381
+      },
+      "doc/helper_scripts/parse_dq_list.py": {
+        "size": 1043
+      },
+      "doc/helper_scripts/parse_object_list.py": {
+        "size": 1062
+      },
+      "doc/helper_scripts/run_recipes.py": {
+        "size": 2481
+      },
+      "doc/helper_scripts/show_fields.py": {
+        "size": 10132
+      },
+      "doc/helper_scripts/split_auto.py": {
+        "size": 1784
+      },
+      "doc/helper_scripts/table.py": {
+        "size": 3280
+      },
+      "doc/source/analyzing/_static/axes_calculator_setup.txt": {
+        "size": 599
+      },
+      "doc/source/analyzing/ionization_cube.py": {
+        "size": 1461
+      },
+      "doc/source/conf.py": {
+        "size": 8780
+      },
+      "doc/source/cookbook/amrkdtree_downsampling.py": {
+        "size": 2614
+      },
+      "doc/source/cookbook/annotate_timestamp_and_scale.py": {
+        "size": 268
+      },
+      "doc/source/cookbook/annotations.py": {
+        "size": 705
+      },
+      "doc/source/cookbook/average_value.py": {
+        "size": 554
+      },
+      "doc/source/cookbook/camera_movement.py": {
+        "size": 704
+      },
+      "doc/source/cookbook/changing_label_formats.py": {
+        "size": 342
+      },
+      "doc/source/cookbook/colormaps.py": {
+        "size": 616
+      },
+      "doc/source/cookbook/contours_on_slice.py": {
+        "size": 440
+      },
+      "doc/source/cookbook/custom_camera_volume_rendering.py": {
+        "size": 654
+      },
+      "doc/source/cookbook/custom_transfer_function_volume_rendering.py": {
+        "size": 670
+      },
+      "doc/source/cookbook/customized_phase_plot.py": {
+        "size": 732
+      },
+      "doc/source/cookbook/customized_profile_plot.py": {
+        "size": 723
+      },
+      "doc/source/cookbook/derived_field.py": {
+        "size": 928
+      },
+      "doc/source/cookbook/downsampling_amr.py": {
+        "size": 821
+      },
+      "doc/source/cookbook/extract_fixed_resolution_data.py": {
+        "size": 1068
+      },
+      "doc/source/cookbook/find_clumps.py": {
+        "size": 2478
+      },
+      "doc/source/cookbook/global_phase_plots.py": {
+        "size": 402
+      },
+      "doc/source/cookbook/hse_field.py": {
+        "size": 1541
+      },
+      "doc/source/cookbook/image_background_colors.py": {
+        "size": 1227
+      },
+      "doc/source/cookbook/image_resolution.py": {
+        "size": 2641
+      },
+      "doc/source/cookbook/matplotlib-animation.py": {
+        "size": 697
+      },
+      "doc/source/cookbook/multi_plot_3x2_FRB.py": {
+        "size": 2559
+      },
+      "doc/source/cookbook/multi_plot_slice_and_proj.py": {
+        "size": 2965
+      },
+      "doc/source/cookbook/multi_width_image.py": {
+        "size": 918
+      },
+      "doc/source/cookbook/multiplot_2x2.py": {
+        "size": 1521
+      },
+      "doc/source/cookbook/multiplot_2x2_coordaxes_slice.py": {
+        "size": 1796
+      },
+      "doc/source/cookbook/multiplot_2x2_time_series.py": {
+        "size": 1395
+      },
+      "doc/source/cookbook/multiplot_export_to_mpl.py": {
+        "size": 509
+      },
+      "doc/source/cookbook/multiplot_phaseplot.py": {
+        "size": 1450
+      },
+      "doc/source/cookbook/offaxis_projection.py": {
+        "size": 1293
+      },
+      "doc/source/cookbook/offaxis_projection_colorbar.py": {
+        "size": 1696
+      },
+      "doc/source/cookbook/opaque_rendering.py": {
+        "size": 2076
+      },
+      "doc/source/cookbook/overplot_grids.py": {
+        "size": 455
+      },
+      "doc/source/cookbook/overplot_particles.py": {
+        "size": 643
+      },
+      "doc/source/cookbook/particle_filter.py": {
+        "size": 2366
+      },
+      "doc/source/cookbook/particle_filter_sfr.py": {
+        "size": 1071
+      },
+      "doc/source/cookbook/particle_one_color_plot.py": {
+        "size": 279
+      },
+      "doc/source/cookbook/particle_xvz_plot.py": {
+        "size": 438
+      },
+      "doc/source/cookbook/particle_xy_plot.py": {
+        "size": 380
+      },
+      "doc/source/cookbook/power_spectrum_example.py": {
+        "size": 3012
+      },
+      "doc/source/cookbook/profile_with_standard_deviation.py": {
+        "size": 1098
+      },
+      "doc/source/cookbook/rad_velocity.py": {
+        "size": 1292
+      },
+      "doc/source/cookbook/radial_profile_styles.py": {
+        "size": 1270
+      },
+      "doc/source/cookbook/render_two_fields.py": {
+        "size": 715
+      },
+      "doc/source/cookbook/render_two_fields_tf.py": {
+        "size": 1077
+      },
+      "doc/source/cookbook/rendering_with_box_and_grids.py": {
+        "size": 584
+      },
+      "doc/source/cookbook/show_hide_axes_colorbar.py": {
+        "size": 319
+      },
+      "doc/source/cookbook/sigma_clip.py": {
+        "size": 617
+      },
+      "doc/source/cookbook/simple_1d_line_plot.py": {
+        "size": 436
+      },
+      "doc/source/cookbook/simple_contour_in_slice.py": {
+        "size": 937
+      },
+      "doc/source/cookbook/simple_off_axis_projection.py": {
+        "size": 579
+      },
+      "doc/source/cookbook/simple_off_axis_slice.py": {
+        "size": 548
+      },
+      "doc/source/cookbook/simple_pdf.py": {
+        "size": 568
+      },
+      "doc/source/cookbook/simple_phase.py": {
+        "size": 701
+      },
+      "doc/source/cookbook/simple_profile.py": {
+        "size": 563
+      },
+      "doc/source/cookbook/simple_projection.py": {
+        "size": 342
+      },
+      "doc/source/cookbook/simple_projection_methods.py": {
+        "size": 340
+      },
+      "doc/source/cookbook/simple_projection_stddev.py": {
+        "size": 396
+      },
+      "doc/source/cookbook/simple_projection_weighted.py": {
+        "size": 321
+      },
+      "doc/source/cookbook/simple_radial_profile.py": {
+        "size": 588
+      },
+      "doc/source/cookbook/simple_slice.py": {
+        "size": 354
+      },
+      "doc/source/cookbook/simple_slice_matplotlib_example.py": {
+        "size": 1059
+      },
+      "doc/source/cookbook/simple_slice_with_multiple_fields.py": {
+        "size": 308
+      },
+      "doc/source/cookbook/simple_volume_rendering.py": {
+        "size": 353
+      },
+      "doc/source/cookbook/simulation_analysis.py": {
+        "size": 1284
+      },
+      "doc/source/cookbook/streamlines.py": {
+        "size": 1250
+      },
+      "doc/source/cookbook/streamlines_isocontour.py": {
+        "size": 2490
+      },
+      "doc/source/cookbook/sum_mass_in_sphere.py": {
+        "size": 644
+      },
+      "doc/source/cookbook/surface_plot.py": {
+        "size": 1506
+      },
+      "doc/source/cookbook/tests/test_cookbook.py": {
+        "size": 1204
+      },
+      "doc/source/cookbook/thin_slice_projection.py": {
+        "size": 1131
+      },
+      "doc/source/cookbook/time_series.py": {
+        "size": 1700
+      },
+      "doc/source/cookbook/time_series_profiles.py": {
+        "size": 876
+      },
+      "doc/source/cookbook/various_lens.py": {
+        "size": 4682
+      },
+      "doc/source/cookbook/velocity_vectors_on_slice.py": {
+        "size": 223
+      },
+      "doc/source/cookbook/vol-annotated.py": {
+        "size": 954
+      },
+      "doc/source/cookbook/vol-lines.py": {
+        "size": 469
+      },
+      "doc/source/cookbook/vol-points.py": {
+        "size": 608
+      },
+      "doc/source/cookbook/zoomin_frames.py": {
+        "size": 1245
+      },
+      "doc/source/visualizing/colormaps/cmap_images.py": {
+        "size": 441
+      },
+      "nose_answer.cfg": {
+        "size": 250
+      },
+      "nose_unit.cfg": {
+        "size": 166
+      },
+      "pyproject.toml": {
+        "size": 18308
+      },
+      "setup.py": {
+        "size": 3913
+      },
+      "setupext.py": {
+        "size": 15644
+      },
+      "tests/nose_runner.py": {
+        "size": 4071
+      },
+      "tests/pytest_runner.py": {
+        "size": 1072
+      },
+      "tests/report_failed_answers.py": {
+        "size": 14343
+      },
+      "tests/tests.yaml": {
+        "size": 11009
+      },
+      "tests/unpin_requirements.py": {
+        "size": 916
+      },
+      "yt/__init__.py": {
+        "size": 3724
+      },
+      "yt/_maintenance/__init__.py": {
+        "size": 0
+      },
+      "yt/_maintenance/backports.py": {
+        "size": 2320
+      },
+      "yt/_maintenance/deprecation.py": {
+        "size": 2285
+      },
+      "yt/_maintenance/ipython_compat.py": {
+        "size": 643
+      },
+      "yt/_maintenance/numpy2_compat.py": {
+        "size": 253
+      },
+      "yt/_typing.py": {
+        "size": 1079
+      },
+      "yt/_version.py": {
+        "size": 1749
+      },
+      "yt/analysis_modules/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/absorption_spectrum/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/absorption_spectrum/api.py": {
+        "size": 193
+      },
+      "yt/analysis_modules/cosmological_observation/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/cosmological_observation/api.py": {
+        "size": 219
+      },
+      "yt/analysis_modules/halo_analysis/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/halo_analysis/api.py": {
+        "size": 203
+      },
+      "yt/analysis_modules/halo_finding/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/halo_finding/api.py": {
+        "size": 202
+      },
+      "yt/analysis_modules/halo_mass_function/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/halo_mass_function/api.py": {
+        "size": 190
+      },
+      "yt/analysis_modules/level_sets/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/level_sets/api.py": {
+        "size": 240
+      },
+      "yt/analysis_modules/particle_trajectories/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/particle_trajectories/api.py": {
+        "size": 197
+      },
+      "yt/analysis_modules/photon_simulator/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/photon_simulator/api.py": {
+        "size": 161
+      },
+      "yt/analysis_modules/ppv_cube/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/ppv_cube/api.py": {
+        "size": 197
+      },
+      "yt/analysis_modules/radmc3d_export/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/radmc3d_export/api.py": {
+        "size": 204
+      },
+      "yt/analysis_modules/spectral_integrator/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/spectral_integrator/api.py": {
+        "size": 169
+      },
+      "yt/analysis_modules/star_analysis/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/star_analysis/api.py": {
+        "size": 185
+      },
+      "yt/analysis_modules/sunrise_export/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/sunrise_export/api.py": {
+        "size": 186
+      },
+      "yt/analysis_modules/sunyaev_zeldovich/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/sunyaev_zeldovich/api.py": {
+        "size": 207
+      },
+      "yt/analysis_modules/two_point_functions/__init__.py": {
+        "size": 0
+      },
+      "yt/analysis_modules/two_point_functions/api.py": {
+        "size": 191
+      },
+      "yt/api.py": {
+        "size": 22
+      },
+      "yt/arraytypes.py": {
+        "size": 414
+      },
+      "yt/config.py": {
+        "size": 2548
+      },
+      "yt/data_objects/__init__.py": {
+        "size": 0
+      },
+      "yt/data_objects/analyzer_objects.py": {
+        "size": 2996
+      },
+      "yt/data_objects/api.py": {
+        "size": 480
+      },
+      "yt/data_objects/construction_data_containers.py": {
+        "size": 114222
+      },
+      "yt/data_objects/data_containers.py": {
+        "size": 60609
+      },
+      "yt/data_objects/derived_quantities.py": {
+        "size": 28060
+      },
+      "yt/data_objects/field_data.py": {
+        "size": 127
+      },
+      "yt/data_objects/image_array.py": {
+        "size": 13692
+      },
+      "yt/data_objects/index_subobjects/__init__.py": {
+        "size": 77
+      },
+      "yt/data_objects/index_subobjects/grid_patch.py": {
+        "size": 15915
+      },
+      "yt/data_objects/index_subobjects/octree_subset.py": {
+        "size": 25382
+      },
+      "yt/data_objects/index_subobjects/particle_container.py": {
+        "size": 3533
+      },
+      "yt/data_objects/index_subobjects/stretched_grid.py": {
+        "size": 2183
+      },
+      "yt/data_objects/index_subobjects/unstructured_mesh.py": {
+        "size": 6996
+      },
+      "yt/data_objects/level_sets/__init__.py": {
+        "size": 0
+      },
+      "yt/data_objects/level_sets/api.py": {
+        "size": 336
+      },
+      "yt/data_objects/level_sets/clump_handling.py": {
+        "size": 16412
+      },
+      "yt/data_objects/level_sets/clump_info_items.py": {
+        "size": 3284
+      },
+      "yt/data_objects/level_sets/clump_tools.py": {
+        "size": 2269
+      },
+      "yt/data_objects/level_sets/clump_validators.py": {
+        "size": 3413
+      },
+      "yt/data_objects/level_sets/contour_finder.py": {
+        "size": 2697
+      },
+      "yt/data_objects/level_sets/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/data_objects/level_sets/tests/test_clump_finding.py": {
+        "size": 6059
+      },
+      "yt/data_objects/particle_filters.py": {
+        "size": 6509
+      },
+      "yt/data_objects/particle_trajectories.py": {
+        "size": 14876
+      },
+      "yt/data_objects/particle_unions.py": {
+        "size": 331
+      },
+      "yt/data_objects/profiles.py": {
+        "size": 56624
+      },
+      "yt/data_objects/region_expression.py": {
+        "size": 8987
+      },
+      "yt/data_objects/selection_objects/__init__.py": {
+        "size": 420
+      },
+      "yt/data_objects/selection_objects/boolean_operations.py": {
+        "size": 5284
+      },
+      "yt/data_objects/selection_objects/cut_region.py": {
+        "size": 9525
+      },
+      "yt/data_objects/selection_objects/data_selection_objects.py": {
+        "size": 55070
+      },
+      "yt/data_objects/selection_objects/disk.py": {
+        "size": 3136
+      },
+      "yt/data_objects/selection_objects/object_collection.py": {
+        "size": 1080
+      },
+      "yt/data_objects/selection_objects/point.py": {
+        "size": 1724
+      },
+      "yt/data_objects/selection_objects/ray.py": {
+        "size": 8897
+      },
+      "yt/data_objects/selection_objects/region.py": {
+        "size": 2387
+      },
+      "yt/data_objects/selection_objects/slices.py": {
+        "size": 14247
+      },
+      "yt/data_objects/selection_objects/spheroids.py": {
+        "size": 7415
+      },
+      "yt/data_objects/static_output.py": {
+        "size": 80035
+      },
+      "yt/data_objects/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/data_objects/tests/test_add_field.py": {
+        "size": 3631
+      },
+      "yt/data_objects/tests/test_bbox.py": {
+        "size": 4144
+      },
+      "yt/data_objects/tests/test_boolean_regions.py": {
+        "size": 25244
+      },
+      "yt/data_objects/tests/test_center_squeeze.py": {
+        "size": 925
+      },
+      "yt/data_objects/tests/test_chunking.py": {
+        "size": 2236
+      },
+      "yt/data_objects/tests/test_clone.py": {
+        "size": 1137
+      },
+      "yt/data_objects/tests/test_compose.py": {
+        "size": 5920
+      },
+      "yt/data_objects/tests/test_connected_sets.py": {
+        "size": 595
+      },
+      "yt/data_objects/tests/test_covering_grid.py": {
+        "size": 14455
+      },
+      "yt/data_objects/tests/test_cut_region_chaining.py": {
+        "size": 944
+      },
+      "yt/data_objects/tests/test_cutting_plane.py": {
+        "size": 1934
+      },
+      "yt/data_objects/tests/test_data_collection.py": {
+        "size": 1259
+      },
+      "yt/data_objects/tests/test_data_containers.py": {
+        "size": 5931
+      },
+      "yt/data_objects/tests/test_dataset_access.py": {
+        "size": 7353
+      },
+      "yt/data_objects/tests/test_derived_quantities.py": {
+        "size": 10082
+      },
+      "yt/data_objects/tests/test_disks.py": {
+        "size": 1854
+      },
+      "yt/data_objects/tests/test_ellipsoid.py": {
+        "size": 2144
+      },
+      "yt/data_objects/tests/test_exclude_functions.py": {
+        "size": 3750
+      },
+      "yt/data_objects/tests/test_extract_regions.py": {
+        "size": 3837
+      },
+      "yt/data_objects/tests/test_firefly.py": {
+        "size": 8690
+      },
+      "yt/data_objects/tests/test_fluxes.py": {
+        "size": 5236
+      },
+      "yt/data_objects/tests/test_glue.py": {
+        "size": 544
+      },
+      "yt/data_objects/tests/test_image_array.py": {
+        "size": 4689
+      },
+      "yt/data_objects/tests/test_io_geometry.py": {
+        "size": 1420
+      },
+      "yt/data_objects/tests/test_numpy_ops.py": {
+        "size": 6821
+      },
+      "yt/data_objects/tests/test_octree.py": {
+        "size": 2931
+      },
+      "yt/data_objects/tests/test_ortho_rays.py": {
+        "size": 931
+      },
+      "yt/data_objects/tests/test_particle_filter.py": {
+        "size": 7125
+      },
+      "yt/data_objects/tests/test_particle_trajectories.py": {
+        "size": 1921
+      },
+      "yt/data_objects/tests/test_particle_trajectories_pytest.py": {
+        "size": 4672
+      },
+      "yt/data_objects/tests/test_pickling.py": {
+        "size": 963
+      },
+      "yt/data_objects/tests/test_points.py": {
+        "size": 2629
+      },
+      "yt/data_objects/tests/test_print_stats.py": {
+        "size": 278
+      },
+      "yt/data_objects/tests/test_profiles.py": {
+        "size": 24225
+      },
+      "yt/data_objects/tests/test_projection.py": {
+        "size": 7306
+      },
+      "yt/data_objects/tests/test_rays.py": {
+        "size": 6235
+      },
+      "yt/data_objects/tests/test_refinement.py": {
+        "size": 1646
+      },
+      "yt/data_objects/tests/test_regions.py": {
+        "size": 2112
+      },
+      "yt/data_objects/tests/test_registration.py": {
+        "size": 745
+      },
+      "yt/data_objects/tests/test_slice.py": {
+        "size": 3620
+      },
+      "yt/data_objects/tests/test_sph_data_objects.py": {
+        "size": 11242
+      },
+      "yt/data_objects/tests/test_spheres.py": {
+        "size": 4000
+      },
+      "yt/data_objects/tests/test_time_series.py": {
+        "size": 4826
+      },
+      "yt/data_objects/tests/test_units_override.py": {
+        "size": 2313
+      },
+      "yt/data_objects/time_series.py": {
+        "size": 27596
+      },
+      "yt/data_objects/unions.py": {
+        "size": 592
+      },
+      "yt/extensions/__init__.py": {
+        "size": 897
+      },
+      "yt/exthook.py": {
+        "size": 5108
+      },
+      "yt/fields/__init__.py": {
+        "size": 0
+      },
+      "yt/fields/angular_momentum.py": {
+        "size": 3820
+      },
+      "yt/fields/api.py": {
+        "size": 718
+      },
+      "yt/fields/astro_fields.py": {
+        "size": 5016
+      },
+      "yt/fields/astro_simulations.py": {
+        "size": 1649
+      },
+      "yt/fields/cosmology_fields.py": {
+        "size": 5616
+      },
+      "yt/fields/derived_field.py": {
+        "size": 21814
+      },
+      "yt/fields/domain_context.py": {
+        "size": 413
+      },
+      "yt/fields/field_aliases.py": {
+        "size": 7125
+      },
+      "yt/fields/field_detector.py": {
+        "size": 10897
+      },
+      "yt/fields/field_exceptions.py": {
+        "size": 1359
+      },
+      "yt/fields/field_functions.py": {
+        "size": 4511
+      },
+      "yt/fields/field_info_container.py": {
+        "size": 26766
+      },
+      "yt/fields/field_plugin_registry.py": {
+        "size": 439
+      },
+      "yt/fields/field_type_container.py": {
+        "size": 5543
+      },
+      "yt/fields/fluid_fields.py": {
+        "size": 9221
+      },
+      "yt/fields/fluid_vector_fields.py": {
+        "size": 20620
+      },
+      "yt/fields/geometric_fields.py": {
+        "size": 8350
+      },
+      "yt/fields/interpolated_fields.py": {
+        "size": 1357
+      },
+      "yt/fields/local_fields.py": {
+        "size": 2658
+      },
+      "yt/fields/magnetic_field.py": {
+        "size": 12572
+      },
+      "yt/fields/my_plugin_fields.py": {
+        "size": 474
+      },
+      "yt/fields/particle_fields.py": {
+        "size": 28207
+      },
+      "yt/fields/species_fields.py": {
+        "size": 11712
+      },
+      "yt/fields/tensor_fields.py": {
+        "size": 1091
+      },
+      "yt/fields/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/fields/tests/test_ambiguous_fields.py": {
+        "size": 1303
+      },
+      "yt/fields/tests/test_angular_momentum.py": {
+        "size": 762
+      },
+      "yt/fields/tests/test_field_access.py": {
+        "size": 1423
+      },
+      "yt/fields/tests/test_field_access_pytest.py": {
+        "size": 1310
+      },
+      "yt/fields/tests/test_field_name_container.py": {
+        "size": 1719
+      },
+      "yt/fields/tests/test_fields.py": {
+        "size": 17514
+      },
+      "yt/fields/tests/test_fields_plugins.py": {
+        "size": 2043
+      },
+      "yt/fields/tests/test_fields_pytest.py": {
+        "size": 2277
+      },
+      "yt/fields/tests/test_magnetic_fields.py": {
+        "size": 4366
+      },
+      "yt/fields/tests/test_particle_fields.py": {
+        "size": 1651
+      },
+      "yt/fields/tests/test_species_fields.py": {
+        "size": 3345
+      },
+      "yt/fields/tests/test_sph_fields.py": {
+        "size": 2094
+      },
+      "yt/fields/tests/test_vector_fields.py": {
+        "size": 5152
+      },
+      "yt/fields/tests/test_xray_fields.py": {
+        "size": 2194
+      },
+      "yt/fields/vector_operations.py": {
+        "size": 24921
+      },
+      "yt/fields/xray_emission_fields.py": {
+        "size": 13983
+      },
+      "yt/frontends/__init__.py": {
+        "size": 1255
+      },
+      "yt/frontends/_skeleton/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/_skeleton/api.py": {
+        "size": 150
+      },
+      "yt/frontends/_skeleton/data_structures.py": {
+        "size": 6905
+      },
+      "yt/frontends/_skeleton/definitions.py": {
+        "size": 76
+      },
+      "yt/frontends/_skeleton/fields.py": {
+        "size": 1162
+      },
+      "yt/frontends/_skeleton/io.py": {
+        "size": 2348
+      },
+      "yt/frontends/_skeleton/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/adaptahop/__init__.py": {
+        "size": 40
+      },
+      "yt/frontends/adaptahop/api.py": {
+        "size": 186
+      },
+      "yt/frontends/adaptahop/data_structures.py": {
+        "size": 12218
+      },
+      "yt/frontends/adaptahop/definitions.py": {
+        "size": 5351
+      },
+      "yt/frontends/adaptahop/fields.py": {
+        "size": 3003
+      },
+      "yt/frontends/adaptahop/io.py": {
+        "size": 8857
+      },
+      "yt/frontends/adaptahop/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/adaptahop/tests/test_outputs.py": {
+        "size": 2129
+      },
+      "yt/frontends/ahf/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/ahf/api.py": {
+        "size": 117
+      },
+      "yt/frontends/ahf/data_structures.py": {
+        "size": 5187
+      },
+      "yt/frontends/ahf/fields.py": {
+        "size": 2154
+      },
+      "yt/frontends/ahf/io.py": {
+        "size": 3185
+      },
+      "yt/frontends/ahf/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/ahf/tests/test_outputs.py": {
+        "size": 1041
+      },
+      "yt/frontends/amrex/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/amrex/api.py": {
+        "size": 454
+      },
+      "yt/frontends/amrex/data_structures.py": {
+        "size": 63050
+      },
+      "yt/frontends/amrex/definitions.py": {
+        "size": 0
+      },
+      "yt/frontends/amrex/fields.py": {
+        "size": 21607
+      },
+      "yt/frontends/amrex/io.py": {
+        "size": 10522
+      },
+      "yt/frontends/amrex/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/amrex/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/amrex/tests/test_field_parsing.py": {
+        "size": 1880
+      },
+      "yt/frontends/amrex/tests/test_outputs.py": {
+        "size": 14206
+      },
+      "yt/frontends/amrvac/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/amrvac/api.py": {
+        "size": 239
+      },
+      "yt/frontends/amrvac/data_structures.py": {
+        "size": 19264
+      },
+      "yt/frontends/amrvac/datfile_utils.py": {
+        "size": 5294
+      },
+      "yt/frontends/amrvac/definitions.py": {
+        "size": 76
+      },
+      "yt/frontends/amrvac/fields.py": {
+        "size": 10963
+      },
+      "yt/frontends/amrvac/io.py": {
+        "size": 6714
+      },
+      "yt/frontends/amrvac/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/amrvac/tests/test_outputs.py": {
+        "size": 4507
+      },
+      "yt/frontends/amrvac/tests/test_read_amrvac_namelist.py": {
+        "size": 1764
+      },
+      "yt/frontends/amrvac/tests/test_units_override.py": {
+        "size": 5011
+      },
+      "yt/frontends/api.py": {
+        "size": 55
+      },
+      "yt/frontends/arepo/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/arepo/api.py": {
+        "size": 117
+      },
+      "yt/frontends/arepo/data_structures.py": {
+        "size": 4792
+      },
+      "yt/frontends/arepo/fields.py": {
+        "size": 8680
+      },
+      "yt/frontends/arepo/io.py": {
+        "size": 1400
+      },
+      "yt/frontends/arepo/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/arepo/tests/test_outputs.py": {
+        "size": 3257
+      },
+      "yt/frontends/art/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/art/api.py": {
+        "size": 211
+      },
+      "yt/frontends/art/data_structures.py": {
+        "size": 38234
+      },
+      "yt/frontends/art/definitions.py": {
+        "size": 3528
+      },
+      "yt/frontends/art/fields.py": {
+        "size": 7723
+      },
+      "yt/frontends/art/io.py": {
+        "size": 22643
+      },
+      "yt/frontends/art/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/art/tests/test_outputs.py": {
+        "size": 4107
+      },
+      "yt/frontends/artio/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/artio/api.py": {
+        "size": 128
+      },
+      "yt/frontends/artio/data_structures.py": {
+        "size": 20842
+      },
+      "yt/frontends/artio/definitions.py": {
+        "size": 2009
+      },
+      "yt/frontends/artio/fields.py": {
+        "size": 6669
+      },
+      "yt/frontends/artio/io.py": {
+        "size": 2391
+      },
+      "yt/frontends/artio/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/artio/tests/test_outputs.py": {
+        "size": 2198
+      },
+      "yt/frontends/athena/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/athena/api.py": {
+        "size": 160
+      },
+      "yt/frontends/athena/data_structures.py": {
+        "size": 26375
+      },
+      "yt/frontends/athena/definitions.py": {
+        "size": 70
+      },
+      "yt/frontends/athena/fields.py": {
+        "size": 5964
+      },
+      "yt/frontends/athena/io.py": {
+        "size": 4467
+      },
+      "yt/frontends/athena/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/athena/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/athena/tests/test_outputs.py": {
+        "size": 5036
+      },
+      "yt/frontends/athena_pp/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/athena_pp/api.py": {
+        "size": 170
+      },
+      "yt/frontends/athena_pp/data_structures.py": {
+        "size": 10054
+      },
+      "yt/frontends/athena_pp/definitions.py": {
+        "size": 70
+      },
+      "yt/frontends/athena_pp/fields.py": {
+        "size": 4141
+      },
+      "yt/frontends/athena_pp/io.py": {
+        "size": 2713
+      },
+      "yt/frontends/athena_pp/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/athena_pp/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/athena_pp/tests/test_outputs.py": {
+        "size": 3851
+      },
+      "yt/frontends/boxlib/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/boxlib/_deprecation.py": {
+        "size": 474
+      },
+      "yt/frontends/boxlib/api.py": {
+        "size": 517
+      },
+      "yt/frontends/boxlib/data_structures/__init__.py": {
+        "size": 352
+      },
+      "yt/frontends/boxlib/fields/__init__.py": {
+        "size": 202
+      },
+      "yt/frontends/boxlib/io/__init__.py": {
+        "size": 108
+      },
+      "yt/frontends/boxlib/tests/__init__.py": {
+        "size": 27
+      },
+      "yt/frontends/boxlib/tests/test_boxlib_deprecation.py": {
+        "size": 686
+      },
+      "yt/frontends/boxlib/tests/test_outputs.py": {
+        "size": 13553
+      },
+      "yt/frontends/cf_radial/__init__.py": {
+        "size": 42
+      },
+      "yt/frontends/cf_radial/api.py": {
+        "size": 193
+      },
+      "yt/frontends/cf_radial/data_structures.py": {
+        "size": 13531
+      },
+      "yt/frontends/cf_radial/fields.py": {
+        "size": 1165
+      },
+      "yt/frontends/cf_radial/io.py": {
+        "size": 1097
+      },
+      "yt/frontends/cf_radial/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/cf_radial/tests/test_cf_radial_pytest.py": {
+        "size": 1687
+      },
+      "yt/frontends/cf_radial/tests/test_outputs.py": {
+        "size": 5667
+      },
+      "yt/frontends/chimera/__init__.py": {
+        "size": 40
+      },
+      "yt/frontends/chimera/api.py": {
+        "size": 155
+      },
+      "yt/frontends/chimera/data_structures.py": {
+        "size": 11278
+      },
+      "yt/frontends/chimera/definitions.py": {
+        "size": 76
+      },
+      "yt/frontends/chimera/fields.py": {
+        "size": 2384
+      },
+      "yt/frontends/chimera/io.py": {
+        "size": 9868
+      },
+      "yt/frontends/chimera/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/chimera/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/chimera/tests/test_outputs.py": {
+        "size": 6240
+      },
+      "yt/frontends/cholla/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/cholla/api.py": {
+        "size": 140
+      },
+      "yt/frontends/cholla/data_structures.py": {
+        "size": 7047
+      },
+      "yt/frontends/cholla/definitions.py": {
+        "size": 76
+      },
+      "yt/frontends/cholla/fields.py": {
+        "size": 4832
+      },
+      "yt/frontends/cholla/io.py": {
+        "size": 1119
+      },
+      "yt/frontends/cholla/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/cholla/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/cholla/tests/test_outputs.py": {
+        "size": 2074
+      },
+      "yt/frontends/chombo/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/chombo/api.py": {
+        "size": 433
+      },
+      "yt/frontends/chombo/data_structures.py": {
+        "size": 30506
+      },
+      "yt/frontends/chombo/definitions.py": {
+        "size": 0
+      },
+      "yt/frontends/chombo/fields.py": {
+        "size": 15376
+      },
+      "yt/frontends/chombo/io.py": {
+        "size": 10344
+      },
+      "yt/frontends/chombo/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/chombo/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/chombo/tests/test_outputs.py": {
+        "size": 2601
+      },
+      "yt/frontends/eagle/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/eagle/api.py": {
+        "size": 163
+      },
+      "yt/frontends/eagle/data_structures.py": {
+        "size": 3074
+      },
+      "yt/frontends/eagle/definitions.py": {
+        "size": 1476
+      },
+      "yt/frontends/eagle/fields.py": {
+        "size": 2997
+      },
+      "yt/frontends/eagle/io.py": {
+        "size": 129
+      },
+      "yt/frontends/eagle/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/eagle/tests/test_outputs.py": {
+        "size": 717
+      },
+      "yt/frontends/enzo/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/enzo/answer_testing_support.py": {
+        "size": 3754
+      },
+      "yt/frontends/enzo/api.py": {
+        "size": 457
+      },
+      "yt/frontends/enzo/data_structures.py": {
+        "size": 45483
+      },
+      "yt/frontends/enzo/definitions.py": {
+        "size": 0
+      },
+      "yt/frontends/enzo/fields.py": {
+        "size": 13056
+      },
+      "yt/frontends/enzo/io.py": {
+        "size": 14486
+      },
+      "yt/frontends/enzo/misc.py": {
+        "size": 1200
+      },
+      "yt/frontends/enzo/simulation_handling.py": {
+        "size": 28959
+      },
+      "yt/frontends/enzo/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/enzo/tests/test_outputs.py": {
+        "size": 9022
+      },
+      "yt/frontends/enzo_e/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/enzo_e/api.py": {
+        "size": 199
+      },
+      "yt/frontends/enzo_e/data_structures.py": {
+        "size": 19481
+      },
+      "yt/frontends/enzo_e/definitions.py": {
+        "size": 0
+      },
+      "yt/frontends/enzo_e/fields.py": {
+        "size": 6108
+      },
+      "yt/frontends/enzo_e/io.py": {
+        "size": 8758
+      },
+      "yt/frontends/enzo_e/misc.py": {
+        "size": 4281
+      },
+      "yt/frontends/enzo_e/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/enzo_e/tests/test_misc.py": {
+        "size": 4989
+      },
+      "yt/frontends/enzo_e/tests/test_outputs.py": {
+        "size": 4598
+      },
+      "yt/frontends/exodus_ii/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/exodus_ii/api.py": {
+        "size": 259
+      },
+      "yt/frontends/exodus_ii/data_structures.py": {
+        "size": 14942
+      },
+      "yt/frontends/exodus_ii/definitions.py": {
+        "size": 76
+      },
+      "yt/frontends/exodus_ii/fields.py": {
+        "size": 1145
+      },
+      "yt/frontends/exodus_ii/io.py": {
+        "size": 3628
+      },
+      "yt/frontends/exodus_ii/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/exodus_ii/simulation_handling.py": {
+        "size": 3363
+      },
+      "yt/frontends/exodus_ii/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/exodus_ii/tests/test_outputs.py": {
+        "size": 2540
+      },
+      "yt/frontends/exodus_ii/util.py": {
+        "size": 1869
+      },
+      "yt/frontends/fits/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/fits/api.py": {
+        "size": 312
+      },
+      "yt/frontends/fits/data_structures.py": {
+        "size": 35681
+      },
+      "yt/frontends/fits/definitions.py": {
+        "size": 0
+      },
+      "yt/frontends/fits/fields.py": {
+        "size": 4264
+      },
+      "yt/frontends/fits/io.py": {
+        "size": 3795
+      },
+      "yt/frontends/fits/misc.py": {
+        "size": 10261
+      },
+      "yt/frontends/fits/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/fits/tests/test_outputs.py": {
+        "size": 2790
+      },
+      "yt/frontends/flash/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/flash/api.py": {
+        "size": 222
+      },
+      "yt/frontends/flash/data_structures.py": {
+        "size": 21953
+      },
+      "yt/frontends/flash/definitions.py": {
+        "size": 0
+      },
+      "yt/frontends/flash/fields.py": {
+        "size": 8726
+      },
+      "yt/frontends/flash/io.py": {
+        "size": 11878
+      },
+      "yt/frontends/flash/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/flash/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/flash/tests/test_outputs.py": {
+        "size": 4342
+      },
+      "yt/frontends/gadget/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/gadget/api.py": {
+        "size": 208
+      },
+      "yt/frontends/gadget/data_structures.py": {
+        "size": 27228
+      },
+      "yt/frontends/gadget/definitions.py": {
+        "size": 3327
+      },
+      "yt/frontends/gadget/fields.py": {
+        "size": 10175
+      },
+      "yt/frontends/gadget/io.py": {
+        "size": 23273
+      },
+      "yt/frontends/gadget/simulation_handling.py": {
+        "size": 21590
+      },
+      "yt/frontends/gadget/testing.py": {
+        "size": 3642
+      },
+      "yt/frontends/gadget/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/gadget/tests/test_gadget_pytest.py": {
+        "size": 1275
+      },
+      "yt/frontends/gadget/tests/test_outputs.py": {
+        "size": 5769
+      },
+      "yt/frontends/gadget_fof/__init__.py": {
+        "size": 42
+      },
+      "yt/frontends/gadget_fof/api.py": {
+        "size": 342
+      },
+      "yt/frontends/gadget_fof/data_structures.py": {
+        "size": 24528
+      },
+      "yt/frontends/gadget_fof/fields.py": {
+        "size": 3968
+      },
+      "yt/frontends/gadget_fof/io.py": {
+        "size": 14487
+      },
+      "yt/frontends/gadget_fof/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/gadget_fof/tests/test_outputs.py": {
+        "size": 3797
+      },
+      "yt/frontends/gamer/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/gamer/api.py": {
+        "size": 180
+      },
+      "yt/frontends/gamer/data_structures.py": {
+        "size": 14592
+      },
+      "yt/frontends/gamer/definitions.py": {
+        "size": 136
+      },
+      "yt/frontends/gamer/fields.py": {
+        "size": 16354
+      },
+      "yt/frontends/gamer/io.py": {
+        "size": 7631
+      },
+      "yt/frontends/gamer/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/gamer/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/gamer/tests/test_outputs.py": {
+        "size": 3962
+      },
+      "yt/frontends/gdf/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/gdf/api.py": {
+        "size": 189
+      },
+      "yt/frontends/gdf/data_structures.py": {
+        "size": 12029
+      },
+      "yt/frontends/gdf/definitions.py": {
+        "size": 70
+      },
+      "yt/frontends/gdf/fields.py": {
+        "size": 1111
+      },
+      "yt/frontends/gdf/io.py": {
+        "size": 3143
+      },
+      "yt/frontends/gdf/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/gdf/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/gdf/tests/conftest.py": {
+        "size": 914
+      },
+      "yt/frontends/gdf/tests/test_outputs.py": {
+        "size": 870
+      },
+      "yt/frontends/gdf/tests/test_outputs_nose.py": {
+        "size": 837
+      },
+      "yt/frontends/gizmo/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/gizmo/api.py": {
+        "size": 77
+      },
+      "yt/frontends/gizmo/data_structures.py": {
+        "size": 6295
+      },
+      "yt/frontends/gizmo/fields.py": {
+        "size": 7323
+      },
+      "yt/frontends/gizmo/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/gizmo/tests/test_outputs.py": {
+        "size": 4433
+      },
+      "yt/frontends/halo_catalog/__init__.py": {
+        "size": 42
+      },
+      "yt/frontends/halo_catalog/api.py": {
+        "size": 132
+      },
+      "yt/frontends/halo_catalog/data_structures.py": {
+        "size": 16649
+      },
+      "yt/frontends/halo_catalog/fields.py": {
+        "size": 950
+      },
+      "yt/frontends/halo_catalog/io.py": {
+        "size": 6742
+      },
+      "yt/frontends/halo_catalog/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/halo_catalog/tests/test_outputs.py": {
+        "size": 3715
+      },
+      "yt/frontends/http_stream/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/http_stream/api.py": {
+        "size": 83
+      },
+      "yt/frontends/http_stream/data_structures.py": {
+        "size": 3490
+      },
+      "yt/frontends/http_stream/io.py": {
+        "size": 2529
+      },
+      "yt/frontends/moab/__init__.py": {
+        "size": 35
+      },
+      "yt/frontends/moab/api.py": {
+        "size": 226
+      },
+      "yt/frontends/moab/data_structures.py": {
+        "size": 7140
+      },
+      "yt/frontends/moab/definitions.py": {
+        "size": 0
+      },
+      "yt/frontends/moab/fields.py": {
+        "size": 166
+      },
+      "yt/frontends/moab/io.py": {
+        "size": 2464
+      },
+      "yt/frontends/moab/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/moab/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/moab/tests/test_c5.py": {
+        "size": 1758
+      },
+      "yt/frontends/nc4_cm1/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/nc4_cm1/api.py": {
+        "size": 166
+      },
+      "yt/frontends/nc4_cm1/data_structures.py": {
+        "size": 9290
+      },
+      "yt/frontends/nc4_cm1/fields.py": {
+        "size": 3266
+      },
+      "yt/frontends/nc4_cm1/io.py": {
+        "size": 2924
+      },
+      "yt/frontends/nc4_cm1/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/nc4_cm1/tests/test_outputs.py": {
+        "size": 2107
+      },
+      "yt/frontends/open_pmd/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/open_pmd/api.py": {
+        "size": 169
+      },
+      "yt/frontends/open_pmd/data_structures.py": {
+        "size": 27628
+      },
+      "yt/frontends/open_pmd/definitions.py": {
+        "size": 0
+      },
+      "yt/frontends/open_pmd/fields.py": {
+        "size": 10120
+      },
+      "yt/frontends/open_pmd/io.py": {
+        "size": 7851
+      },
+      "yt/frontends/open_pmd/misc.py": {
+        "size": 3171
+      },
+      "yt/frontends/open_pmd/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/open_pmd/tests/test_outputs.py": {
+        "size": 6180
+      },
+      "yt/frontends/owls/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/owls/api.py": {
+        "size": 173
+      },
+      "yt/frontends/owls/data_structures.py": {
+        "size": 2441
+      },
+      "yt/frontends/owls/fields.py": {
+        "size": 12424
+      },
+      "yt/frontends/owls/io.py": {
+        "size": 126
+      },
+      "yt/frontends/owls/owls_ion_tables.py": {
+        "size": 5944
+      },
+      "yt/frontends/owls/simulation_handling.py": {
+        "size": 2142
+      },
+      "yt/frontends/owls/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/owls/tests/test_outputs.py": {
+        "size": 1798
+      },
+      "yt/frontends/owls_subfind/__init__.py": {
+        "size": 42
+      },
+      "yt/frontends/owls_subfind/api.py": {
+        "size": 150
+      },
+      "yt/frontends/owls_subfind/data_structures.py": {
+        "size": 8616
+      },
+      "yt/frontends/owls_subfind/fields.py": {
+        "size": 2120
+      },
+      "yt/frontends/owls_subfind/io.py": {
+        "size": 8913
+      },
+      "yt/frontends/owls_subfind/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/owls_subfind/tests/test_outputs.py": {
+        "size": 1009
+      },
+      "yt/frontends/parthenon/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/parthenon/api.py": {
+        "size": 175
+      },
+      "yt/frontends/parthenon/data_structures.py": {
+        "size": 11728
+      },
+      "yt/frontends/parthenon/definitions.py": {
+        "size": 70
+      },
+      "yt/frontends/parthenon/fields.py": {
+        "size": 7237
+      },
+      "yt/frontends/parthenon/io.py": {
+        "size": 2843
+      },
+      "yt/frontends/parthenon/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/parthenon/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/parthenon/tests/test_outputs.py": {
+        "size": 6780
+      },
+      "yt/frontends/ramses/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/ramses/api.py": {
+        "size": 170
+      },
+      "yt/frontends/ramses/data_structures.py": {
+        "size": 41201
+      },
+      "yt/frontends/ramses/definitions.py": {
+        "size": 2273
+      },
+      "yt/frontends/ramses/field_handlers.py": {
+        "size": 23980
+      },
+      "yt/frontends/ramses/fields.py": {
+        "size": 21340
+      },
+      "yt/frontends/ramses/hilbert.py": {
+        "size": 6148
+      },
+      "yt/frontends/ramses/io.py": {
+        "size": 16546
+      },
+      "yt/frontends/ramses/particle_handlers.py": {
+        "size": 16643
+      },
+      "yt/frontends/ramses/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/ramses/tests/test_file_sanitizer.py": {
+        "size": 3536
+      },
+      "yt/frontends/ramses/tests/test_hilbert.py": {
+        "size": 1783
+      },
+      "yt/frontends/ramses/tests/test_outputs.py": {
+        "size": 25436
+      },
+      "yt/frontends/ramses/tests/test_outputs_pytest.py": {
+        "size": 2098
+      },
+      "yt/frontends/rockstar/__init__.py": {
+        "size": 39
+      },
+      "yt/frontends/rockstar/api.py": {
+        "size": 143
+      },
+      "yt/frontends/rockstar/data_structures.py": {
+        "size": 7672
+      },
+      "yt/frontends/rockstar/definitions.py": {
+        "size": 4020
+      },
+      "yt/frontends/rockstar/fields.py": {
+        "size": 2927
+      },
+      "yt/frontends/rockstar/io.py": {
+        "size": 4490
+      },
+      "yt/frontends/rockstar/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/rockstar/tests/test_outputs.py": {
+        "size": 1420
+      },
+      "yt/frontends/sdf/__init__.py": {
+        "size": 42
+      },
+      "yt/frontends/sdf/api.py": {
+        "size": 102
+      },
+      "yt/frontends/sdf/data_structures.py": {
+        "size": 6959
+      },
+      "yt/frontends/sdf/definitions.py": {
+        "size": 0
+      },
+      "yt/frontends/sdf/fields.py": {
+        "size": 1644
+      },
+      "yt/frontends/sdf/io.py": {
+        "size": 7223
+      },
+      "yt/frontends/sdf/misc.py": {
+        "size": 0
+      },
+      "yt/frontends/sph/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/sph/api.py": {
+        "size": 51
+      },
+      "yt/frontends/sph/data_structures.py": {
+        "size": 4523
+      },
+      "yt/frontends/sph/fields.py": {
+        "size": 2130
+      },
+      "yt/frontends/sph/io.py": {
+        "size": 462
+      },
+      "yt/frontends/stream/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/stream/api.py": {
+        "size": 238
+      },
+      "yt/frontends/stream/data_structures.py": {
+        "size": 35465
+      },
+      "yt/frontends/stream/definitions.py": {
+        "size": 10547
+      },
+      "yt/frontends/stream/fields.py": {
+        "size": 6868
+      },
+      "yt/frontends/stream/io.py": {
+        "size": 11314
+      },
+      "yt/frontends/stream/misc.py": {
+        "size": 664
+      },
+      "yt/frontends/stream/sample_data/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/stream/sample_data/hexahedral_mesh.py": {
+        "size": 373302
+      },
+      "yt/frontends/stream/sample_data/tetrahedral_mesh.py": {
+        "size": 105320
+      },
+      "yt/frontends/stream/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/stream/tests/test_callable_grids.py": {
+        "size": 4448
+      },
+      "yt/frontends/stream/tests/test_outputs.py": {
+        "size": 2473
+      },
+      "yt/frontends/stream/tests/test_stream_amrgrids.py": {
+        "size": 2086
+      },
+      "yt/frontends/stream/tests/test_stream_hexahedral.py": {
+        "size": 2201
+      },
+      "yt/frontends/stream/tests/test_stream_octree.py": {
+        "size": 936
+      },
+      "yt/frontends/stream/tests/test_stream_particles.py": {
+        "size": 14954
+      },
+      "yt/frontends/stream/tests/test_stream_species.py": {
+        "size": 1134
+      },
+      "yt/frontends/stream/tests/test_stream_stretched.py": {
+        "size": 4327
+      },
+      "yt/frontends/stream/tests/test_stream_unstructured.py": {
+        "size": 2503
+      },
+      "yt/frontends/stream/tests/test_update_data.py": {
+        "size": 878
+      },
+      "yt/frontends/swift/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/swift/api.py": {
+        "size": 143
+      },
+      "yt/frontends/swift/data_structures.py": {
+        "size": 7724
+      },
+      "yt/frontends/swift/fields.py": {
+        "size": 1056
+      },
+      "yt/frontends/swift/io.py": {
+        "size": 6256
+      },
+      "yt/frontends/swift/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/swift/tests/test_outputs.py": {
+        "size": 3821
+      },
+      "yt/frontends/tipsy/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/tipsy/api.py": {
+        "size": 134
+      },
+      "yt/frontends/tipsy/data_structures.py": {
+        "size": 13352
+      },
+      "yt/frontends/tipsy/definitions.py": {
+        "size": 73
+      },
+      "yt/frontends/tipsy/fields.py": {
+        "size": 2012
+      },
+      "yt/frontends/tipsy/io.py": {
+        "size": 20015
+      },
+      "yt/frontends/tipsy/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/tipsy/tests/test_outputs.py": {
+        "size": 3545
+      },
+      "yt/frontends/ytdata/__init__.py": {
+        "size": 37
+      },
+      "yt/frontends/ytdata/api.py": {
+        "size": 544
+      },
+      "yt/frontends/ytdata/data_structures.py": {
+        "size": 36545
+      },
+      "yt/frontends/ytdata/fields.py": {
+        "size": 1221
+      },
+      "yt/frontends/ytdata/io.py": {
+        "size": 12431
+      },
+      "yt/frontends/ytdata/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/frontends/ytdata/tests/test_data_reload.py": {
+        "size": 1010
+      },
+      "yt/frontends/ytdata/tests/test_old_outputs.py": {
+        "size": 7133
+      },
+      "yt/frontends/ytdata/tests/test_outputs.py": {
+        "size": 9041
+      },
+      "yt/frontends/ytdata/tests/test_unit.py": {
+        "size": 3905
+      },
+      "yt/frontends/ytdata/utilities.py": {
+        "size": 7593
+      },
+      "yt/funcs.py": {
+        "size": 43716
+      },
+      "yt/geometry/__init__.py": {
+        "size": 0
+      },
+      "yt/geometry/api.py": {
+        "size": 117
+      },
+      "yt/geometry/coordinates/__init__.py": {
+        "size": 0
+      },
+      "yt/geometry/coordinates/api.py": {
+        "size": 473
+      },
+      "yt/geometry/coordinates/cartesian_coordinates.py": {
+        "size": 34621
+      },
+      "yt/geometry/coordinates/coordinate_handler.py": {
+        "size": 11290
+      },
+      "yt/geometry/coordinates/cylindrical_coordinates.py": {
+        "size": 8491
+      },
+      "yt/geometry/coordinates/geographic_coordinates.py": {
+        "size": 20526
+      },
+      "yt/geometry/coordinates/polar_coordinates.py": {
+        "size": 193
+      },
+      "yt/geometry/coordinates/spec_cube_coordinates.py": {
+        "size": 3113
+      },
+      "yt/geometry/coordinates/spherical_coordinates.py": {
+        "size": 13913
+      },
+      "yt/geometry/coordinates/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/geometry/coordinates/tests/test_axial_pixelization.py": {
+        "size": 492
+      },
+      "yt/geometry/coordinates/tests/test_cartesian_coordinates.py": {
+        "size": 1160
+      },
+      "yt/geometry/coordinates/tests/test_cylindrical_coordinates.py": {
+        "size": 1327
+      },
+      "yt/geometry/coordinates/tests/test_geographic_coordinates.py": {
+        "size": 5731
+      },
+      "yt/geometry/coordinates/tests/test_polar_coordinates.py": {
+        "size": 1373
+      },
+      "yt/geometry/coordinates/tests/test_sanitize_center.py": {
+        "size": 3984
+      },
+      "yt/geometry/coordinates/tests/test_sph_pixelization.py": {
+        "size": 6393
+      },
+      "yt/geometry/coordinates/tests/test_sph_pixelization_pytestonly.py": {
+        "size": 17492
+      },
+      "yt/geometry/coordinates/tests/test_spherical_coordinates.py": {
+        "size": 1695
+      },
+      "yt/geometry/geometry_enum.py": {
+        "size": 586
+      },
+      "yt/geometry/geometry_handler.py": {
+        "size": 16927
+      },
+      "yt/geometry/grid_geometry_handler.py": {
+        "size": 18576
+      },
+      "yt/geometry/oct_geometry_handler.py": {
+        "size": 4667
+      },
+      "yt/geometry/particle_geometry_handler.py": {
+        "size": 18531
+      },
+      "yt/geometry/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/geometry/tests/fake_octree.py": {
+        "size": 1493
+      },
+      "yt/geometry/tests/test_ewah_write_load.py": {
+        "size": 1096
+      },
+      "yt/geometry/tests/test_geometries.py": {
+        "size": 968
+      },
+      "yt/geometry/tests/test_grid_container.py": {
+        "size": 4509
+      },
+      "yt/geometry/tests/test_grid_index.py": {
+        "size": 846
+      },
+      "yt/geometry/tests/test_particle_deposit.py": {
+        "size": 3648
+      },
+      "yt/geometry/tests/test_particle_octree.py": {
+        "size": 26803
+      },
+      "yt/geometry/tests/test_pickleable_selections.py": {
+        "size": 1159
+      },
+      "yt/geometry/unstructured_mesh_handler.py": {
+        "size": 2988
+      },
+      "yt/loaders.py": {
+        "size": 72437
+      },
+      "yt/sample_data/__init__.py": {
+        "size": 0
+      },
+      "yt/sample_data/api.py": {
+        "size": 6185
+      },
+      "yt/sample_data_registry.json": {
+        "size": 37846
+      },
+      "yt/startup_tasks.py": {
+        "size": 5433
+      },
+      "yt/test_fake_amr_ds_particle_positions_within_domain.py": {
+        "size": 319
+      },
+      "yt/testing.py": {
+        "size": 64855
+      },
+      "yt/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/tests/test_external_frontends.py": {
+        "size": 1621
+      },
+      "yt/tests/test_funcs.py": {
+        "size": 4311
+      },
+      "yt/tests/test_load_archive.py": {
+        "size": 3821
+      },
+      "yt/tests/test_load_errors.py": {
+        "size": 9240
+      },
+      "yt/tests/test_load_sample.py": {
+        "size": 6249
+      },
+      "yt/tests/test_testing.py": {
+        "size": 784
+      },
+      "yt/tests/test_version.py": {
+        "size": 1133
+      },
+      "yt/units/__init__.py": {
+        "size": 3404
+      },
+      "yt/units/_numpy_wrapper_functions.py": {
+        "size": 5659
+      },
+      "yt/units/dimensions.py": {
+        "size": 115
+      },
+      "yt/units/equivalencies.py": {
+        "size": 33
+      },
+      "yt/units/physical_constants.py": {
+        "size": 1500
+      },
+      "yt/units/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/units/tests/test_magnetic_code_units.py": {
+        "size": 2257
+      },
+      "yt/units/unit_lookup_table.py": {
+        "size": 38
+      },
+      "yt/units/unit_object.py": {
+        "size": 31
+      },
+      "yt/units/unit_registry.py": {
+        "size": 214
+      },
+      "yt/units/unit_symbols.py": {
+        "size": 1471
+      },
+      "yt/units/unit_systems.py": {
+        "size": 697
+      },
+      "yt/units/yt_array.py": {
+        "size": 153
+      },
+      "yt/utilities/__init__.py": {
+        "size": 0
+      },
+      "yt/utilities/amr_kdtree/__init__.py": {
+        "size": 31
+      },
+      "yt/utilities/amr_kdtree/amr_kdtools.py": {
+        "size": 1399
+      },
+      "yt/utilities/amr_kdtree/amr_kdtree.py": {
+        "size": 21677
+      },
+      "yt/utilities/amr_kdtree/api.py": {
+        "size": 34
+      },
+      "yt/utilities/answer_testing/__init__.py": {
+        "size": 56
+      },
+      "yt/utilities/answer_testing/answer_tests.py": {
+        "size": 10507
+      },
+      "yt/utilities/answer_testing/api.py": {
+        "size": 64
+      },
+      "yt/utilities/answer_testing/framework.py": {
+        "size": 40091
+      },
+      "yt/utilities/answer_testing/level_sets_tests.py": {
+        "size": 1265
+      },
+      "yt/utilities/answer_testing/testing_utilities.py": {
+        "size": 15023
+      },
+      "yt/utilities/api.py": {
+        "size": 32
+      },
+      "yt/utilities/chemical_formulas.py": {
+        "size": 1754
+      },
+      "yt/utilities/command_line.py": {
+        "size": 45207
+      },
+      "yt/utilities/configuration_tree.py": {
+        "size": 6267
+      },
+      "yt/utilities/configure.py": {
+        "size": 6053
+      },
+      "yt/utilities/cosmology.py": {
+        "size": 21345
+      },
+      "yt/utilities/decompose.py": {
+        "size": 5043
+      },
+      "yt/utilities/definitions.py": {
+        "size": 897
+      },
+      "yt/utilities/exceptions.py": {
+        "size": 27301
+      },
+      "yt/utilities/file_handler.py": {
+        "size": 3992
+      },
+      "yt/utilities/flagging_methods.py": {
+        "size": 6004
+      },
+      "yt/utilities/fortran_utils.py": {
+        "size": 9897
+      },
+      "yt/utilities/grid_data_format/__init__.py": {
+        "size": 26
+      },
+      "yt/utilities/grid_data_format/conversion/__init__.py": {
+        "size": 113
+      },
+      "yt/utilities/grid_data_format/conversion/conversion_abc.py": {
+        "size": 166
+      },
+      "yt/utilities/grid_data_format/conversion/conversion_athena.py": {
+        "size": 19676
+      },
+      "yt/utilities/grid_data_format/docs/IRATE_notes.txt": {
+        "size": 1861
+      },
+      "yt/utilities/grid_data_format/docs/gdf_specification.txt": {
+        "size": 11094
+      },
+      "yt/utilities/grid_data_format/scripts/convert_distributed_athena.py": {
+        "size": 772
+      },
+      "yt/utilities/grid_data_format/scripts/convert_single_athena.py": {
+        "size": 750
+      },
+      "yt/utilities/grid_data_format/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/utilities/grid_data_format/tests/test_writer.py": {
+        "size": 1218
+      },
+      "yt/utilities/grid_data_format/writer.py": {
+        "size": 11819
+      },
+      "yt/utilities/hierarchy_inspection.py": {
+        "size": 1452
+      },
+      "yt/utilities/initial_conditions.py": {
+        "size": 3522
+      },
+      "yt/utilities/io_handler.py": {
+        "size": 10022
+      },
+      "yt/utilities/lib/__init__.py": {
+        "size": 21
+      },
+      "yt/utilities/lib/api.py": {
+        "size": 427
+      },
+      "yt/utilities/lib/cykdtree/__init__.py": {
+        "size": 692
+      },
+      "yt/utilities/lib/cykdtree/plot.py": {
+        "size": 5327
+      },
+      "yt/utilities/lib/cykdtree/tests/__init__.py": {
+        "size": 7609
+      },
+      "yt/utilities/lib/cykdtree/tests/scaling.py": {
+        "size": 7792
+      },
+      "yt/utilities/lib/cykdtree/tests/test_kdtree.py": {
+        "size": 4136
+      },
+      "yt/utilities/lib/cykdtree/tests/test_plot.py": {
+        "size": 523
+      },
+      "yt/utilities/lib/cykdtree/tests/test_utils.py": {
+        "size": 6184
+      },
+      "yt/utilities/lib/embree_mesh/__init__.py": {
+        "size": 0
+      },
+      "yt/utilities/lib/octree_raytracing.py": {
+        "size": 3952
+      },
+      "yt/utilities/lib/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/utilities/lib/tests/test_allocation_container.py": {
+        "size": 648
+      },
+      "yt/utilities/lib/tests/test_alt_ray_tracers.py": {
+        "size": 3442
+      },
+      "yt/utilities/lib/tests/test_bitarray.py": {
+        "size": 5751
+      },
+      "yt/utilities/lib/tests/test_bounding_volume_hierarchy.py": {
+        "size": 1432
+      },
+      "yt/utilities/lib/tests/test_element_mappings.py": {
+        "size": 5909
+      },
+      "yt/utilities/lib/tests/test_fill_region.py": {
+        "size": 1376
+      },
+      "yt/utilities/lib/tests/test_geometry_utils.py": {
+        "size": 29389
+      },
+      "yt/utilities/lib/tests/test_nn.py": {
+        "size": 979
+      },
+      "yt/utilities/lib/tests/test_ragged_arrays.py": {
+        "size": 1710
+      },
+      "yt/utilities/lib/tests/test_sample.py": {
+        "size": 1043
+      },
+      "yt/utilities/linear_interpolators.py": {
+        "size": 15198
+      },
+      "yt/utilities/lodgeit.py": {
+        "size": 10402
+      },
+      "yt/utilities/logger.py": {
+        "size": 4508
+      },
+      "yt/utilities/math_utils.py": {
+        "size": 48881
+      },
+      "yt/utilities/mesh_code_generation.py": {
+        "size": 5839
+      },
+      "yt/utilities/mesh_types.yaml": {
+        "size": 2451
+      },
+      "yt/utilities/metadata.py": {
+        "size": 893
+      },
+      "yt/utilities/minimal_representation.py": {
+        "size": 9306
+      },
+      "yt/utilities/nodal_data_utils.py": {
+        "size": 1427
+      },
+      "yt/utilities/object_registries.py": {
+        "size": 973
+      },
+      "yt/utilities/on_demand_imports.py": {
+        "size": 10856
+      },
+      "yt/utilities/operator_registry.py": {
+        "size": 328
+      },
+      "yt/utilities/orientation.py": {
+        "size": 3612
+      },
+      "yt/utilities/parallel_tools/__init__.py": {
+        "size": 34
+      },
+      "yt/utilities/parallel_tools/controller_system.py": {
+        "size": 1035
+      },
+      "yt/utilities/parallel_tools/io_runner.py": {
+        "size": 6122
+      },
+      "yt/utilities/parallel_tools/parallel_analysis_interface.py": {
+        "size": 49644
+      },
+      "yt/utilities/parallel_tools/task_queue.py": {
+        "size": 5789
+      },
+      "yt/utilities/parameter_file_storage.py": {
+        "size": 6300
+      },
+      "yt/utilities/particle_generator.py": {
+        "size": 17043
+      },
+      "yt/utilities/performance_counters.py": {
+        "size": 3714
+      },
+      "yt/utilities/periodic_table.py": {
+        "size": 6411
+      },
+      "yt/utilities/physical_constants.py": {
+        "size": 4188
+      },
+      "yt/utilities/physical_ratios.py": {
+        "size": 4683
+      },
+      "yt/utilities/png_writer.py": {
+        "size": 719
+      },
+      "yt/utilities/rpdb.py": {
+        "size": 3325
+      },
+      "yt/utilities/sdf.py": {
+        "size": 46836
+      },
+      "yt/utilities/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/utilities/tests/cosmology_answers.yml": {
+        "size": 3119
+      },
+      "yt/utilities/tests/test_amr_kdtree.py": {
+        "size": 910
+      },
+      "yt/utilities/tests/test_chemical_formulas.py": {
+        "size": 1061
+      },
+      "yt/utilities/tests/test_config.py": {
+        "size": 5372
+      },
+      "yt/utilities/tests/test_coordinate_conversions.py": {
+        "size": 6009
+      },
+      "yt/utilities/tests/test_cosmology.py": {
+        "size": 8620
+      },
+      "yt/utilities/tests/test_cython_fortran_utils.py": {
+        "size": 839
+      },
+      "yt/utilities/tests/test_decompose.py": {
+        "size": 3799
+      },
+      "yt/utilities/tests/test_flagging_methods.py": {
+        "size": 371
+      },
+      "yt/utilities/tests/test_hierarchy_inspection.py": {
+        "size": 1409
+      },
+      "yt/utilities/tests/test_interpolators.py": {
+        "size": 5128
+      },
+      "yt/utilities/tests/test_minimal_representation.py": {
+        "size": 1563
+      },
+      "yt/utilities/tests/test_on_demand_imports.py": {
+        "size": 1722
+      },
+      "yt/utilities/tests/test_particle_generator.py": {
+        "size": 5411
+      },
+      "yt/utilities/tests/test_periodic_table.py": {
+        "size": 660
+      },
+      "yt/utilities/tests/test_periodicity.py": {
+        "size": 2724
+      },
+      "yt/utilities/tests/test_selectors.py": {
+        "size": 6046
+      },
+      "yt/utilities/tests/test_set_log_level.py": {
+        "size": 858
+      },
+      "yt/utilities/tree_container.py": {
+        "size": 426
+      },
+      "yt/visualization/__init__.py": {
+        "size": 154
+      },
+      "yt/visualization/_colormap_data.py": {
+        "size": 466225
+      },
+      "yt/visualization/_commons.py": {
+        "size": 7553
+      },
+      "yt/visualization/_handlers.py": {
+        "size": 16651
+      },
+      "yt/visualization/api.py": {
+        "size": 1031
+      },
+      "yt/visualization/base_plot_types.py": {
+        "size": 23481
+      },
+      "yt/visualization/color_maps.py": {
+        "size": 13114
+      },
+      "yt/visualization/eps_writer.py": {
+        "size": 56884
+      },
+      "yt/visualization/fits_image.py": {
+        "size": 67515
+      },
+      "yt/visualization/fixed_resolution.py": {
+        "size": 30695
+      },
+      "yt/visualization/fixed_resolution_filters.py": {
+        "size": 3681
+      },
+      "yt/visualization/geo_plot_utils.py": {
+        "size": 3619
+      },
+      "yt/visualization/image_writer.py": {
+        "size": 15777
+      },
+      "yt/visualization/line_plot.py": {
+        "size": 15091
+      },
+      "yt/visualization/mapserver/__init__.py": {
+        "size": 0
+      },
+      "yt/visualization/mapserver/html/Leaflet.Coordinates-0.1.5.src.js": {
+        "size": 9251
+      },
+      "yt/visualization/mapserver/html/__init__.py": {
+        "size": 0
+      },
+      "yt/visualization/mapserver/html/map.js": {
+        "size": 3338
+      },
+      "yt/visualization/mapserver/pannable_map.py": {
+        "size": 5196
+      },
+      "yt/visualization/particle_plots.py": {
+        "size": 34825
+      },
+      "yt/visualization/plot_container.py": {
+        "size": 38480
+      },
+      "yt/visualization/plot_modifications.py": {
+        "size": 126728
+      },
+      "yt/visualization/plot_window.py": {
+        "size": 112577
+      },
+      "yt/visualization/profile_plotter.py": {
+        "size": 51528
+      },
+      "yt/visualization/streamlines.py": {
+        "size": 8809
+      },
+      "yt/visualization/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/visualization/tests/test_base_plot_types.py": {
+        "size": 659
+      },
+      "yt/visualization/tests/test_callbacks.py": {
+        "size": 41994
+      },
+      "yt/visualization/tests/test_callbacks_geographic.py": {
+        "size": 2104
+      },
+      "yt/visualization/tests/test_color_maps.py": {
+        "size": 2265
+      },
+      "yt/visualization/tests/test_commons.py": {
+        "size": 2060
+      },
+      "yt/visualization/tests/test_eps_writer.py": {
+        "size": 715
+      },
+      "yt/visualization/tests/test_export_frb.py": {
+        "size": 968
+      },
+      "yt/visualization/tests/test_filters.py": {
+        "size": 1518
+      },
+      "yt/visualization/tests/test_fits_image.py": {
+        "size": 10618
+      },
+      "yt/visualization/tests/test_geo_projections.py": {
+        "size": 5615
+      },
+      "yt/visualization/tests/test_image_comp_2D_plots.py": {
+        "size": 16404
+      },
+      "yt/visualization/tests/test_image_comp_geo.py": {
+        "size": 1738
+      },
+      "yt/visualization/tests/test_image_writer.py": {
+        "size": 2511
+      },
+      "yt/visualization/tests/test_invalid_origin.py": {
+        "size": 5014
+      },
+      "yt/visualization/tests/test_line_annotation_unit.py": {
+        "size": 987
+      },
+      "yt/visualization/tests/test_line_plots.py": {
+        "size": 3437
+      },
+      "yt/visualization/tests/test_mesh_slices.py": {
+        "size": 4565
+      },
+      "yt/visualization/tests/test_normal_plot_api.py": {
+        "size": 1792
+      },
+      "yt/visualization/tests/test_offaxisprojection.py": {
+        "size": 11679
+      },
+      "yt/visualization/tests/test_offaxisprojection_pytestonly.py": {
+        "size": 8122
+      },
+      "yt/visualization/tests/test_particle_plot.py": {
+        "size": 15048
+      },
+      "yt/visualization/tests/test_plot_modifications.py": {
+        "size": 517
+      },
+      "yt/visualization/tests/test_plotwindow.py": {
+        "size": 28164
+      },
+      "yt/visualization/tests/test_profile_plots.py": {
+        "size": 8330
+      },
+      "yt/visualization/tests/test_raw_field_slices.py": {
+        "size": 908
+      },
+      "yt/visualization/tests/test_save.py": {
+        "size": 3521
+      },
+      "yt/visualization/tests/test_set_zlim.py": {
+        "size": 3692
+      },
+      "yt/visualization/tests/test_splat.py": {
+        "size": 1048
+      },
+      "yt/visualization/volume_rendering/UBVRI.py": {
+        "size": 14831
+      },
+      "yt/visualization/volume_rendering/__init__.py": {
+        "size": 53
+      },
+      "yt/visualization/volume_rendering/api.py": {
+        "size": 725
+      },
+      "yt/visualization/volume_rendering/blenders.py": {
+        "size": 747
+      },
+      "yt/visualization/volume_rendering/camera.py": {
+        "size": 26235
+      },
+      "yt/visualization/volume_rendering/camera_path.py": {
+        "size": 12330
+      },
+      "yt/visualization/volume_rendering/create_spline.py": {
+        "size": 1866
+      },
+      "yt/visualization/volume_rendering/image_handling.py": {
+        "size": 4139
+      },
+      "yt/visualization/volume_rendering/lens.py": {
+        "size": 30624
+      },
+      "yt/visualization/volume_rendering/off_axis_projection.py": {
+        "size": 21121
+      },
+      "yt/visualization/volume_rendering/old_camera.py": {
+        "size": 88950
+      },
+      "yt/visualization/volume_rendering/render_source.py": {
+        "size": 51849
+      },
+      "yt/visualization/volume_rendering/scene.py": {
+        "size": 34735
+      },
+      "yt/visualization/volume_rendering/tests/__init__.py": {
+        "size": 0
+      },
+      "yt/visualization/volume_rendering/tests/test_camera_attributes.py": {
+        "size": 4247
+      },
+      "yt/visualization/volume_rendering/tests/test_composite.py": {
+        "size": 2520
+      },
+      "yt/visualization/volume_rendering/tests/test_lenses.py": {
+        "size": 4081
+      },
+      "yt/visualization/volume_rendering/tests/test_mesh_render.py": {
+        "size": 13257
+      },
+      "yt/visualization/volume_rendering/tests/test_off_axis_SPH.py": {
+        "size": 10691
+      },
+      "yt/visualization/volume_rendering/tests/test_points.py": {
+        "size": 1969
+      },
+      "yt/visualization/volume_rendering/tests/test_save_render.py": {
+        "size": 1417
+      },
+      "yt/visualization/volume_rendering/tests/test_scene.py": {
+        "size": 3234
+      },
+      "yt/visualization/volume_rendering/tests/test_sigma_clip.py": {
+        "size": 951
+      },
+      "yt/visualization/volume_rendering/tests/test_simple_vr.py": {
+        "size": 946
+      },
+      "yt/visualization/volume_rendering/tests/test_varia.py": {
+        "size": 3808
+      },
+      "yt/visualization/volume_rendering/tests/test_vr_cameras.py": {
+        "size": 5800
+      },
+      "yt/visualization/volume_rendering/tests/test_vr_orientation.py": {
+        "size": 3465
+      },
+      "yt/visualization/volume_rendering/tests/test_zbuff.py": {
+        "size": 3906
+      },
+      "yt/visualization/volume_rendering/transfer_function_helper.py": {
+        "size": 6857
+      },
+      "yt/visualization/volume_rendering/transfer_functions.py": {
+        "size": 38263
+      },
+      "yt/visualization/volume_rendering/utils.py": {
+        "size": 5612
+      },
+      "yt/visualization/volume_rendering/volume_rendering.py": {
+        "size": 4865
+      },
+      "yt/visualization/volume_rendering/zbuffer_array.py": {
+        "size": 2544
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.yt",
+      "source.yt._maintenance",
+      "source.yt.analysis_modules",
+      "source.yt.data_objects",
+      "source.yt.extensions",
+      "source.yt.fields",
+      "source.yt.frontends",
+      "source.yt.geometry",
+      "source.yt.sample_data",
+      "source.yt.tests",
+      "source.yt.units",
+      "source.yt.utilities",
+      "source.yt.visualization"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.yt",
+        "module": "source.yt.loaders",
+        "functions": [
+          "load",
+          "load_amr_grids",
+          "load_uniform_grid",
+          "load_particles",
+          "load_octree",
+          "load_unstructured_mesh",
+          "load_hexahedral_mesh",
+          "load_simulation"
+        ],
+        "classes": [],
+        "description": "Primary dataset ingestion entrypoints; best import-level integration surface for MCP tools that need to open user data and dispatch to frontend-specific handlers."
+      },
+      {
+        "package": "source.yt",
+        "module": "source.yt.data_objects.static_output",
+        "functions": [],
+        "classes": [
+          "Dataset"
+        ],
+        "description": "Core dataset abstraction shared across frontends; central object for metadata access, indexing, fields, and data container generation."
+      },
+      {
+        "package": "source.yt.data_objects",
+        "module": "source.yt.data_objects.data_containers",
+        "functions": [],
+        "classes": [
+          "YTDataContainer"
+        ],
+        "description": "Base data container APIs used by regions/spheres/rays and field extraction workflows."
+      },
+      {
+        "package": "source.yt.data_objects",
+        "module": "source.yt.data_objects.selection_objects.data_selection_objects",
+        "functions": [],
+        "classes": [
+          "YTSelectionContainer"
+        ],
+        "description": "Selection-object base layer for geometric querying and field sampling; useful for MCP operations over selected subregions."
+      },
+      {
+        "package": "source.yt.fields",
+        "module": "source.yt.fields.derived_field",
+        "functions": [],
+        "classes": [
+          "DerivedField"
+        ],
+        "description": "Derived-field definition and execution model; key extension point for custom scientific diagnostics."
+      },
+      {
+        "package": "source.yt.fields",
+        "module": "source.yt.fields.field_info_container",
+        "functions": [],
+        "classes": [
+          "FieldInfoContainer"
+        ],
+        "description": "Field registration/discovery container; can power MCP field introspection endpoints."
+      },
+      {
+        "package": "source.yt.visualization",
+        "module": "source.yt.visualization.plot_window",
+        "functions": [],
+        "classes": [
+          "SlicePlot",
+          "ProjectionPlot",
+          "OffAxisSlicePlot"
+        ],
+        "description": "2D plotting surface for common analysis outputs; suitable for MCP render/export tool calls."
+      },
+      {
+        "package": "source.yt.visualization",
+        "module": "source.yt.visualization.profile_plotter",
+        "functions": [],
+        "classes": [
+          "ProfilePlot",
+          "PhasePlot"
+        ],
+        "description": "Profile/phase plotting classes for quick diagnostic plotting endpoints."
+      },
+      {
+        "package": "source.yt.visualization.volume_rendering",
+        "module": "source.yt.visualization.volume_rendering.scene",
+        "functions": [],
+        "classes": [
+          "Scene"
+        ],
+        "description": "Volume rendering scene graph abstraction; optional advanced visualization integration point."
+      },
+      {
+        "package": "source.yt.utilities",
+        "module": "source.yt.utilities.command_line",
+        "functions": [],
+        "classes": [],
+        "description": "Internal command-line implementation module (subcommands for yt CLI tooling), useful as CLI fallback but less stable than direct imports."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "yt",
+        "module": "source.yt.utilities.command_line",
+        "description": "Primary CLI entrypoint family for dataset inspection and utility workflows; command names are implemented in this module."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.89
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "packaging",
+        "more-itertools",
+        "tomli; python_version < '3.11'",
+        "typing-extensions; python_version < '3.11'"
+      ],
+      "optional": [
+        "matplotlib",
+        "scipy",
+        "h5py",
+        "unyt",
+        "sympy",
+        "pandas",
+        "astropy",
+        "cmyt",
+        "pooch",
+        "netCDF4",
+        "imageio",
+        "ipywidgets",
+        "trio",
+        "f90nml",
+        "libconf",
+        "cartopy",
+        "shapely"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/yt-project/yt",
+    "repo_name": "yt",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.86,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

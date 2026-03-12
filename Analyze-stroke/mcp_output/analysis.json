@@ -1,0 +1,251 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/ghh1125/Analyze-stroke",
+    "summary": "Imported via zip fallback, file count: 11",
+    "file_tree": {
+      "causal_module.py": {
+        "size": 3829
+      },
+      "data_loader.py": {
+        "size": 1789
+      },
+      "dim_reduction.py": {
+        "size": 5137
+      },
+      "environment.yml": {
+        "size": 7791
+      },
+      "feature_selection.py": {
+        "size": 5748
+      },
+      "main.py": {
+        "size": 5655
+      },
+      "models.py": {
+        "size": 7035
+      },
+      "plot_utils.py": {
+        "size": 7901
+      },
+      "run_all_causal.py": {
+        "size": 3386
+      },
+      "run_all_causal_wo_draw.py": {
+        "size": 901
+      },
+      "test_env.py": {
+        "size": 987
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": true,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "dim_reduction",
+        "module": "dim_reduction",
+        "functions": [],
+        "classes": [
+          "DimensionAnalyzer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "feature_selection",
+        "module": "feature_selection",
+        "functions": [],
+        "classes": [
+          "FeatureSelectionAnalyzer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "models",
+        "module": "models",
+        "functions": [],
+        "classes": [
+          "ModelManager"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "data_loader",
+        "module": "data_loader",
+        "functions": [],
+        "classes": [
+          "DataLoader"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "test_env",
+        "module": "test_env",
+        "functions": [
+          "check_environment"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "check_environment": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "causal_module",
+        "module": "causal_module",
+        "functions": [],
+        "classes": [
+          "CausalAnalyzer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "plot_utils",
+        "module": "plot_utils",
+        "functions": [
+          "add_offset_labels",
+          "draw_effect_chart",
+          "draw_pvalue_chart",
+          "plot_from_excel"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "add_offset_labels": [
+            "ax",
+            "angles",
+            "radii",
+            "labels",
+            "color",
+            "position"
+          ],
+          "draw_effect_chart": [
+            "df",
+            "save_path"
+          ],
+          "draw_pvalue_chart": [
+            "df",
+            "save_path"
+          ],
+          "plot_from_excel": [
+            "excel_path",
+            "output_dir"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "main",
+        "module": "main",
+        "functions": [
+          "main"
+        ],
+        "classes": [
+          "DualLogger"
+        ],
+        "function_signatures": {
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "run_all_causal",
+        "module": "run_all_causal",
+        "functions": [
+          "parse_log_output",
+          "run_batch_analysis"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "parse_log_output": [
+            "output_text"
+          ],
+          "run_batch_analysis": []
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python main.py",
+        "module": "./main.py",
+        "description": "Run the primary end-to-end analysis pipeline."
+      },
+      {
+        "name": "python run_all_causal.py",
+        "module": "./run_all_causal.py",
+        "description": "Execute full causal analysis workflow (with visual outputs)."
+      },
+      {
+        "name": "python run_all_causal_wo_draw.py",
+        "module": "./run_all_causal_wo_draw.py",
+        "description": "Execute causal analysis in non-plot mode for automation/headless environments."
+      },
+      {
+        "name": "python test_env.py",
+        "module": "./test_env.py",
+        "description": "Validate local environment and dependencies."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python",
+        "numpy",
+        "pandas",
+        "scikit-learn",
+        "matplotlib",
+        "seaborn"
+      ],
+      "optional": [
+        "causal-analysis-specific libraries (as referenced by causal_module.py and environment.yml)",
+        "notebook/visualization extras"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.42,
+      "intrusiveness_risk": "medium",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/ghh1125/Analyze-stroke",
+    "repo_name": "Analyze-stroke",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.42,
+    "intrusiveness_risk": "medium",
+    "complexity": "medium"
+  }
+}

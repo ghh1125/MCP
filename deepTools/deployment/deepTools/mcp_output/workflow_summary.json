@@ -1,0 +1,225 @@
+{
+  "repository": {
+    "name": "deepTools",
+    "url": "https://github.com/deeptools/deepTools",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/deepTools",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773293411.921283,
+    "end_time": 1773293761.3998961,
+    "duration": 349.47861313819885,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 2,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.deeptools",
+        "source.deeptools.test"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.88,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/deeptools/deepTools",
+      "repo_name": "deepTools",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/deepTools/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add and run a focused MCP smoke test suite (import each exposed endpoint and call with minimal valid args) in CI",
+    "deduplicate endpoint names in the plugin manifest (multiple `parse_arguments/main` collisions) by namespacing with module prefixes",
+    "expose higher-level task-oriented MCP tools (e.g.",
+    "`run_bamCoverage`",
+    "`run_computeMatrix`) instead of raw internal helpers to reduce misuse risk",
+    "add strict input/output schemas with pydantic models per tool (file existence",
+    "extension",
+    "numeric bounds",
+    "enum validation)",
+    "improve error mapping in `adapter.py` to return actionable user-safe messages (dependency missing",
+    "bad BAM index",
+    "invalid chromosome names)",
+    "pin and verify runtime dependencies in `mcp_output/requirements.txt` against `pyproject.toml` (numpy/scipy/matplotlib/pysam/pyBigWig compatibility matrix)",
+    "add a reproducible test-data mini bundle for MCP tests (tiny BAM/BW + expected outputs) and run on Linux/macOS",
+    "introduce contract tests comparing MCP-executed outputs vs native CLI outputs for key commands (bamCoverage/computeMatrix/plotHeatmap)",
+    "add timeout and resource guards for heavy commands (max threads",
+    "temp dir quotas",
+    "graceful cancellation)",
+    "implement structured logging and per-request tracing IDs in `mcp_service.py` for debuggability",
+    "cache argparse/parser construction for repeated calls to reduce overhead",
+    "document endpoint stability levels and deprecation policy in `README_MCP.md`",
+    "add security hardening for file path inputs (normalize/resolve",
+    "block path traversal",
+    "optional allowlisted workspace root)",
+    "include a preflight dependency check endpoint (`health/deps`) to surface missing binary/library issues early",
+    "add golden-path examples in README for common workflows (BAM→bigWig",
+    "matrix→heatmap)",
+    "expand CI matrix to multiple Python versions supported by deepTools and include optional dependency-on/off modes",
+    "create fallback execution mode for commands that are safer via subprocess CLI when import-side effects are detected",
+    "add version handshake endpoint reporting deepTools + plugin versions for compatibility checks",
+    "and add regression tests for known edge cases (empty chromosomes",
+    "zero-coverage bins",
+    "malformed BED/GTF)"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Low intrusiveness risk and high import feasibility (0.88) made import-mode adapter generation viable.",
+      "Repository has clear command-module structure (multiple CLI-oriented modules with parse/main patterns), which is suitable for MCP wrapping.",
+      "Generated MCP service started healthy over stdio, indicating baseline operational viability."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality gap: original project tests did not pass in this run context (passed=false), reducing confidence in behavioral parity.",
+      "DeepWiki analysis failed, so enrichment/context from that subsystem was unavailable.",
+      "Endpoint design issues (name collisions such as repeated parse_arguments/main) create functional ambiguity and downstream integration risk."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository imported via zip fallback (81 files detected). Timing per node not separately reported.",
+      "analysis_time": "Completed successfully with structural, dependency, complexity, and risk outputs. DeepWiki sub-analysis failed but did not block.",
+      "generation_time": "Completed successfully; 7 MCP output files generated, import-mode adapter selected.",
+      "test_time": "MCP plugin health check passed; original project test stage did not pass in this execution context. Total workflow duration ~349.48s."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB likely indicates missing instrumentation).",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0% likely indicates missing instrumentation).",
+      "disk_usage": "Low for generated artifacts (few files), but reported generated size=0 suggests metrics collection issue."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 74,
+    "performance_score": 60,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 66
+  }
+}

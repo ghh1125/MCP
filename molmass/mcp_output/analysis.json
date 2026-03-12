@@ -1,0 +1,207 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/cgohlke/molmass",
+    "summary": "Imported via zip fallback, file count: 11",
+    "file_tree": {
+      "molmass/__init__.py": {
+        "size": 790
+      },
+      "molmass/__main__.py": {
+        "size": 123
+      },
+      "molmass/elements.py": {
+        "size": 79797
+      },
+      "molmass/elements_descriptions.py": {
+        "size": 44077
+      },
+      "molmass/elements_gui.py": {
+        "size": 38187
+      },
+      "molmass/molmass.py": {
+        "size": 69584
+      },
+      "molmass/web.py": {
+        "size": 19904
+      },
+      "pyproject.toml": {
+        "size": 280
+      },
+      "setup.py": {
+        "size": 3731
+      },
+      "tests/conftest.py": {
+        "size": 663
+      },
+      "tests/test_molmass.py": {
+        "size": 30189
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "molmass/__init__.py",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Package initializer that re-exports core API symbols and version metadata from molmass/molmass.py for convenient top-level imports."
+      },
+      {
+        "package": "molmass/molmass.py",
+        "module": "molmass",
+        "functions": [
+          "analyze",
+          "from_fractions",
+          "from_elements",
+          "from_oligo",
+          "from_peptide",
+          "from_sequence",
+          "hill_sorted",
+          "join_charge",
+          "main",
+          "split_charge",
+          "test"
+        ],
+        "classes": [
+          "Composition",
+          "CompositionItem",
+          "Formula",
+          "FormulaError",
+          "Spectrum",
+          "SpectrumEntry"
+        ],
+        "description": "Primary computational engine for molecular mass/formula parsing, isotopic composition, spectrum generation, and sequence/oligo helpers. This is the best MCP integration target."
+      },
+      {
+        "package": "molmass/elements.py",
+        "module": "elements",
+        "functions": [],
+        "classes": [
+          "Element",
+          "Elements",
+          "Group",
+          "Isotope",
+          "Particle",
+          "Period",
+          "Series"
+        ],
+        "description": "Chemical element/isotope data model and periodic table dataset used by molmass/molmass.py."
+      },
+      {
+        "package": "molmass/elements_descriptions.py",
+        "module": "elements_descriptions",
+        "functions": [],
+        "classes": [],
+        "description": "Static textual descriptions for elements; data-only support module."
+      },
+      {
+        "package": "molmass/web.py",
+        "module": "web",
+        "functions": [
+          "response",
+          "main"
+        ],
+        "classes": [],
+        "description": "Web/CGI-style interface wrapper around core molmass analysis logic."
+      },
+      {
+        "package": "molmass/elements_gui.py",
+        "module": "elements_gui",
+        "functions": [
+          "main"
+        ],
+        "classes": [
+          "ElementDialog",
+          "ElementsApp",
+          "PeriodicTable",
+          "SeriesDialog"
+        ],
+        "description": "Tkinter GUI for browsing element data; not ideal for MCP server use."
+      },
+      {
+        "package": "molmass/__main__.py",
+        "module": "__main__",
+        "functions": [],
+        "classes": [],
+        "description": "Python module execution entry point (python -m molmass), delegates to CLI main logic."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python -m molmass",
+        "module": "molmass/__main__.py",
+        "description": "Module-based CLI entry that invokes the package command-line behavior."
+      },
+      {
+        "name": "molmass (console script, from setup metadata)",
+        "module": "molmass/molmass.py::main",
+        "description": "Primary command-line interface for formula/mass analysis."
+      },
+      {
+        "name": "molmass-web (if exposed by packaging metadata)",
+        "module": "molmass/web.py::main",
+        "description": "Web/CGI runner for browser-accessible analysis."
+      },
+      {
+        "name": "elements-gui (if exposed by packaging metadata)",
+        "module": "molmass/elements_gui.py::main",
+        "description": "Desktop GUI launcher for periodic table exploration."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.x (per pyproject/setup constraints)",
+        "standard library (dataclasses/typing/re/math/etc. as used internally)"
+      ],
+      "optional": [
+        "tkinter (for molmass/elements_gui.py only)",
+        "web/CGI runtime context (for molmass/web.py deployment)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.96,
+      "intrusiveness_risk": "low",
+      "complexity": "simple"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/cgohlke/molmass",
+    "repo_name": "molmass",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.96,
+    "intrusiveness_risk": "low",
+    "complexity": "simple"
+  }
+}

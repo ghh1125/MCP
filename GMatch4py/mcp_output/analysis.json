@@ -1,0 +1,125 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/Jacobe2169/GMatch4py",
+    "summary": "Imported via zip fallback, file count: 11",
+    "file_tree": {
+      ".travis.yml": {
+        "size": 223
+      },
+      "README.md": {
+        "size": 6332
+      },
+      "gmatch4py/__init__.py": {
+        "size": 726
+      },
+      "gmatch4py/embedding/__init__.py": {
+        "size": 0
+      },
+      "gmatch4py/ged/__init__.py": {
+        "size": 18
+      },
+      "gmatch4py/helpers/__init__.py": {
+        "size": 16
+      },
+      "gmatch4py/kernels/__init__.py": {
+        "size": 16
+      },
+      "requirements.txt": {
+        "size": 44
+      },
+      "setup.py": {
+        "size": 2812
+      },
+      "test/gmatch4py_performance_test.py": {
+        "size": 1230
+      },
+      "test/test.py": {
+        "size": 6131
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.gmatch4py",
+      "source.gmatch4py.embedding",
+      "source.gmatch4py.ged",
+      "source.gmatch4py.helpers",
+      "source.gmatch4py.kernels"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": true,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "setup",
+        "module": "setup",
+        "functions": [
+          "makeExtension",
+          "scandir"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "scandir": [
+            "dir",
+            "files"
+          ],
+          "makeExtension": [
+            "extName"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "networkx",
+        "scipy"
+      ],
+      "optional": [
+        "matplotlib"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/Jacobe2169/GMatch4py",
+    "repo_name": "GMatch4py",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.86,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

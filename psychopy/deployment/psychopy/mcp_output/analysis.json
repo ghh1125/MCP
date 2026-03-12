@@ -1,0 +1,2974 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/psychopy/psychopy",
+    "summary": "Imported via zip fallback, file count: 931",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug_report.yml": {
+        "size": 1806
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.yml": {
+        "size": 1757
+      },
+      ".github/release.yaml": {
+        "size": 495
+      },
+      ".github/workflows/CodeQL.yaml": {
+        "size": 2326
+      },
+      ".github/workflows/checksum.py": {
+        "size": 1269
+      },
+      ".github/workflows/pypi.yaml": {
+        "size": 982
+      },
+      ".github/workflows/pytests.yaml": {
+        "size": 6983
+      },
+      "AUTHORS.md": {
+        "size": 2389
+      },
+      "CONTRIBUTING.md": {
+        "size": 2826
+      },
+      "README.md": {
+        "size": 2486
+      },
+      "building/__init__.py": {
+        "size": 0
+      },
+      "building/apple_sign.py": {
+        "size": 21064
+      },
+      "building/buildRelease.py": {
+        "size": 3751
+      },
+      "building/buildWinFileManifest.py": {
+        "size": 2044
+      },
+      "building/buildingOnAMac.txt": {
+        "size": 1010
+      },
+      "building/compile_po.py": {
+        "size": 1080
+      },
+      "building/construct.yaml": {
+        "size": 1742
+      },
+      "building/plat_custom_installs.py": {
+        "size": 183
+      },
+      "building/searchCopyrightYear.py": {
+        "size": 4974
+      },
+      "building/semanticVersion.py": {
+        "size": 8571
+      },
+      "building/updateBuilderDemos.py": {
+        "size": 813
+      },
+      "code-of-conduct.md": {
+        "size": 5455
+      },
+      "codecov.yml": {
+        "size": 1371
+      },
+      "conda/psychopy-env.yml": {
+        "size": 237
+      },
+      "docs/readme.md": {
+        "size": 123
+      },
+      "installPsychoPy.py": {
+        "size": 5195
+      },
+      "pdm_build.py": {
+        "size": 1052
+      },
+      "psychopy/CHANGELOG.txt": {
+        "size": 229861
+      },
+      "psychopy/LICENSE.txt": {
+        "size": 746
+      },
+      "psychopy/LICENSES.txt": {
+        "size": 3145
+      },
+      "psychopy/__init__.py": {
+        "size": 6374
+      },
+      "psychopy/alerts/__init__.py": {
+        "size": 2231
+      },
+      "psychopy/alerts/_alerts.py": {
+        "size": 6815
+      },
+      "psychopy/alerts/_errorHandler.py": {
+        "size": 1468
+      },
+      "psychopy/alerts/alertsCatalogue/1000.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/1100.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/1500.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/2000.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/2100.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/2110.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/2115.yaml": {
+        "size": 1065
+      },
+      "psychopy/alerts/alertsCatalogue/2120.yaml": {
+        "size": 1010
+      },
+      "psychopy/alerts/alertsCatalogue/2150.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/2155.yaml": {
+        "size": 1126
+      },
+      "psychopy/alerts/alertsCatalogue/2300.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/2500.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/3000.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/3100.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/3110.yaml": {
+        "size": 1846
+      },
+      "psychopy/alerts/alertsCatalogue/3115.yaml": {
+        "size": 1659
+      },
+      "psychopy/alerts/alertsCatalogue/3200.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/3210.yaml": {
+        "size": 1482
+      },
+      "psychopy/alerts/alertsCatalogue/3400.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/3600.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/3610.yaml": {
+        "size": 1177
+      },
+      "psychopy/alerts/alertsCatalogue/4000.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/4051.yaml": {
+        "size": 1551
+      },
+      "psychopy/alerts/alertsCatalogue/4052.yaml": {
+        "size": 1634
+      },
+      "psychopy/alerts/alertsCatalogue/4100.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/4105.yaml": {
+        "size": 739
+      },
+      "psychopy/alerts/alertsCatalogue/4115.yaml": {
+        "size": 715
+      },
+      "psychopy/alerts/alertsCatalogue/4120.yaml": {
+        "size": 658
+      },
+      "psychopy/alerts/alertsCatalogue/4125.yaml": {
+        "size": 889
+      },
+      "psychopy/alerts/alertsCatalogue/4130.yaml": {
+        "size": 1196
+      },
+      "psychopy/alerts/alertsCatalogue/4160.yaml": {
+        "size": 1234
+      },
+      "psychopy/alerts/alertsCatalogue/4200.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/4205.yaml": {
+        "size": 790
+      },
+      "psychopy/alerts/alertsCatalogue/4210.yaml": {
+        "size": 790
+      },
+      "psychopy/alerts/alertsCatalogue/4305.yaml": {
+        "size": 955
+      },
+      "psychopy/alerts/alertsCatalogue/4310.yaml": {
+        "size": 667
+      },
+      "psychopy/alerts/alertsCatalogue/4315.yaml": {
+        "size": 1256
+      },
+      "psychopy/alerts/alertsCatalogue/4320.yaml": {
+        "size": 1520
+      },
+      "psychopy/alerts/alertsCatalogue/4325.yaml": {
+        "size": 1991
+      },
+      "psychopy/alerts/alertsCatalogue/4330.yaml": {
+        "size": 1104
+      },
+      "psychopy/alerts/alertsCatalogue/4335.yaml": {
+        "size": 624
+      },
+      "psychopy/alerts/alertsCatalogue/4340.yaml": {
+        "size": 629
+      },
+      "psychopy/alerts/alertsCatalogue/4405.yaml": {
+        "size": 1064
+      },
+      "psychopy/alerts/alertsCatalogue/4505.yaml": {
+        "size": 891
+      },
+      "psychopy/alerts/alertsCatalogue/4510.yaml": {
+        "size": 1231
+      },
+      "psychopy/alerts/alertsCatalogue/4520.yaml": {
+        "size": 984
+      },
+      "psychopy/alerts/alertsCatalogue/4530.yaml": {
+        "size": 786
+      },
+      "psychopy/alerts/alertsCatalogue/4540.yaml": {
+        "size": 589
+      },
+      "psychopy/alerts/alertsCatalogue/4545.yaml": {
+        "size": 784
+      },
+      "psychopy/alerts/alertsCatalogue/4550.yaml": {
+        "size": 654
+      },
+      "psychopy/alerts/alertsCatalogue/4605.yaml": {
+        "size": 761
+      },
+      "psychopy/alerts/alertsCatalogue/4610.yaml": {
+        "size": 765
+      },
+      "psychopy/alerts/alertsCatalogue/4615.yaml": {
+        "size": 1422
+      },
+      "psychopy/alerts/alertsCatalogue/4705.yaml": {
+        "size": 716
+      },
+      "psychopy/alerts/alertsCatalogue/4710.yaml": {
+        "size": 692
+      },
+      "psychopy/alerts/alertsCatalogue/4810.yaml": {
+        "size": 899
+      },
+      "psychopy/alerts/alertsCatalogue/5000.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/5055.yaml": {
+        "size": 1109
+      },
+      "psychopy/alerts/alertsCatalogue/6000.yaml": {
+        "size": 0
+      },
+      "psychopy/alerts/alertsCatalogue/6105.yaml": {
+        "size": 1343
+      },
+      "psychopy/alerts/alertsCatalogue/7105.yaml": {
+        "size": 527
+      },
+      "psychopy/alerts/alertsCatalogue/8105.yaml": {
+        "size": 1821
+      },
+      "psychopy/alerts/alertsCatalogue/8110.yaml": {
+        "size": 1682
+      },
+      "psychopy/alerts/alertsCatalogue/9998.yaml": {
+        "size": 419
+      },
+      "psychopy/alerts/alertsCatalogue/9999.yaml": {
+        "size": 410
+      },
+      "psychopy/alerts/alertsCatalogue/alertCategories.yaml": {
+        "size": 3059
+      },
+      "psychopy/alerts/alertsCatalogue/alertTemplate.yaml": {
+        "size": 552
+      },
+      "psychopy/alerts/alertsCatalogue/alertmsg.py": {
+        "size": 5797
+      },
+      "psychopy/alerts/alertsCatalogue/generateAlertmsg.py": {
+        "size": 1149
+      },
+      "psychopy/alerts/alerttools.py": {
+        "size": 11001
+      },
+      "psychopy/alerts/liaison.py": {
+        "size": 331
+      },
+      "psychopy/alerts/stdout.py": {
+        "size": 196
+      },
+      "psychopy/app/Resources/README.md": {
+        "size": 800
+      },
+      "psychopy/app/Resources/__init__.py": {
+        "size": 0
+      },
+      "psychopy/app/Resources/classic/README.txt": {
+        "size": 395
+      },
+      "psychopy/app/Resources/classic/__init__.py": {
+        "size": 0
+      },
+      "psychopy/app/Resources/dark/README.txt": {
+        "size": 104
+      },
+      "psychopy/app/Resources/dark/__init__.py": {
+        "size": 0
+      },
+      "psychopy/app/Resources/light/README.txt": {
+        "size": 104
+      },
+      "psychopy/app/Resources/light/__init__.py": {
+        "size": 0
+      },
+      "psychopy/app/Resources/moveComponentIcons.py": {
+        "size": 1493
+      },
+      "psychopy/app/Resources/routine_templates/readme.md": {
+        "size": 573
+      },
+      "psychopy/app/Resources/tips.txt": {
+        "size": 5947
+      },
+      "psychopy/app/Resources/tips_ar_001.txt": {
+        "size": 5949
+      },
+      "psychopy/app/Resources/tips_fr_FR.txt": {
+        "size": 5947
+      },
+      "psychopy/app/Resources/tips_ja_JP.txt": {
+        "size": 3219
+      },
+      "psychopy/app/Resources/tips_zh_CN.txt": {
+        "size": 5947
+      },
+      "psychopy/app/__init__.py": {
+        "size": 11085
+      },
+      "psychopy/app/__main__.py": {
+        "size": 49
+      },
+      "psychopy/app/_psychopyApp.py": {
+        "size": 50406
+      },
+      "psychopy/app/builder/__init__.py": {
+        "size": 119
+      },
+      "psychopy/app/builder/builder.py": {
+        "size": 192016
+      },
+      "psychopy/app/builder/dialogs/__init__.py": {
+        "size": 82414
+      },
+      "psychopy/app/builder/dialogs/dlgsCode.py": {
+        "size": 25254
+      },
+      "psychopy/app/builder/dialogs/dlgsConditions.py": {
+        "size": 29134
+      },
+      "psychopy/app/builder/dialogs/findDlg.py": {
+        "size": 10933
+      },
+      "psychopy/app/builder/dialogs/paramCtrls.py": {
+        "size": 63550
+      },
+      "psychopy/app/builder/validators.py": {
+        "size": 21631
+      },
+      "psychopy/app/coder/__init__.py": {
+        "size": 164
+      },
+      "psychopy/app/coder/codeEditorBase.py": {
+        "size": 18086
+      },
+      "psychopy/app/coder/coder.py": {
+        "size": 126197
+      },
+      "psychopy/app/coder/fileBrowser.py": {
+        "size": 26955
+      },
+      "psychopy/app/coder/folding.py": {
+        "size": 4643
+      },
+      "psychopy/app/coder/psychoParser.py": {
+        "size": 4940
+      },
+      "psychopy/app/coder/repl.py": {
+        "size": 16633
+      },
+      "psychopy/app/coder/sourceTree.py": {
+        "size": 12414
+      },
+      "psychopy/app/colorpicker/__init__.py": {
+        "size": 20434
+      },
+      "psychopy/app/colorpicker/ui.py": {
+        "size": 14238
+      },
+      "psychopy/app/connections/__init__.py": {
+        "size": 357
+      },
+      "psychopy/app/connections/news.py": {
+        "size": 2909
+      },
+      "psychopy/app/connections/sendusage.py": {
+        "size": 1995
+      },
+      "psychopy/app/connections/updates.py": {
+        "size": 27751
+      },
+      "psychopy/app/console.py": {
+        "size": 4684
+      },
+      "psychopy/app/deviceManager/__init__.py": {
+        "size": 50
+      },
+      "psychopy/app/deviceManager/addDialog.py": {
+        "size": 7773
+      },
+      "psychopy/app/deviceManager/dialog.py": {
+        "size": 6480
+      },
+      "psychopy/app/deviceManager/panel.py": {
+        "size": 7038
+      },
+      "psychopy/app/deviceManager/utils.py": {
+        "size": 1642
+      },
+      "psychopy/app/dialogs.py": {
+        "size": 24378
+      },
+      "psychopy/app/errorDlg.py": {
+        "size": 9376
+      },
+      "psychopy/app/frametracker.py": {
+        "size": 246
+      },
+      "psychopy/app/idle.py": {
+        "size": 4948
+      },
+      "psychopy/app/jobs.py": {
+        "size": 21514
+      },
+      "psychopy/app/linuxconfig/__init__.py": {
+        "size": 4494
+      },
+      "psychopy/app/linuxconfig/ui.py": {
+        "size": 3061
+      },
+      "psychopy/app/localizedStrings.py": {
+        "size": 15771
+      },
+      "psychopy/app/pavlovia_ui/__init__.py": {
+        "size": 896
+      },
+      "psychopy/app/pavlovia_ui/_base.py": {
+        "size": 9979
+      },
+      "psychopy/app/pavlovia_ui/functions.py": {
+        "size": 5919
+      },
+      "psychopy/app/pavlovia_ui/menu.py": {
+        "size": 5264
+      },
+      "psychopy/app/pavlovia_ui/project.py": {
+        "size": 40863
+      },
+      "psychopy/app/pavlovia_ui/search.py": {
+        "size": 17177
+      },
+      "psychopy/app/pavlovia_ui/sync.py": {
+        "size": 5290
+      },
+      "psychopy/app/pavlovia_ui/user.py": {
+        "size": 10269
+      },
+      "psychopy/app/plugin_manager/__init__.py": {
+        "size": 186
+      },
+      "psychopy/app/plugin_manager/dialog.py": {
+        "size": 14067
+      },
+      "psychopy/app/plugin_manager/output.py": {
+        "size": 4045
+      },
+      "psychopy/app/plugin_manager/packages.py": {
+        "size": 26019
+      },
+      "psychopy/app/plugin_manager/plugins.py": {
+        "size": 53294
+      },
+      "psychopy/app/plugin_manager/utils.py": {
+        "size": 4248
+      },
+      "psychopy/app/preferencesDlg.py": {
+        "size": 30902
+      },
+      "psychopy/app/psychopyApp.py": {
+        "size": 7758
+      },
+      "psychopy/app/ribbon.py": {
+        "size": 35613
+      },
+      "psychopy/app/runner/__init__.py": {
+        "size": 31
+      },
+      "psychopy/app/runner/runner.py": {
+        "size": 47728
+      },
+      "psychopy/app/runner/scriptProcess.py": {
+        "size": 12592
+      },
+      "psychopy/app/stdout/__init__.py": {
+        "size": 71
+      },
+      "psychopy/app/stdout/stdOutRich.py": {
+        "size": 13933
+      },
+      "psychopy/app/sysInfoDlg.py": {
+        "size": 9058
+      },
+      "psychopy/app/themes/__init__.py": {
+        "size": 2539
+      },
+      "psychopy/app/themes/colors.py": {
+        "size": 7425
+      },
+      "psychopy/app/themes/fonts.py": {
+        "size": 20976
+      },
+      "psychopy/app/themes/handlers.py": {
+        "size": 11688
+      },
+      "psychopy/app/themes/icons.py": {
+        "size": 10283
+      },
+      "psychopy/app/themes/spec/Classic.json": {
+        "size": 2358
+      },
+      "psychopy/app/themes/spec/ClassicDark.json": {
+        "size": 2375
+      },
+      "psychopy/app/themes/spec/GitHub.json": {
+        "size": 2372
+      },
+      "psychopy/app/themes/spec/HiVisDark.json": {
+        "size": 2456
+      },
+      "psychopy/app/themes/spec/HiVisLight.json": {
+        "size": 2444
+      },
+      "psychopy/app/themes/spec/MinimalDark.json": {
+        "size": 2422
+      },
+      "psychopy/app/themes/spec/MinimalLight.json": {
+        "size": 2453
+      },
+      "psychopy/app/themes/spec/PsychopyDark.json": {
+        "size": 3845
+      },
+      "psychopy/app/themes/spec/PsychopyLight.json": {
+        "size": 3845
+      },
+      "psychopy/app/themes/ui.py": {
+        "size": 2517
+      },
+      "psychopy/app/ui/__init__.py": {
+        "size": 5578
+      },
+      "psychopy/app/urls.py": {
+        "size": 1352
+      },
+      "psychopy/app/utils.py": {
+        "size": 61029
+      },
+      "psychopy/app/viewer/__init__.py": {
+        "size": 0
+      },
+      "psychopy/assets/__init__.py": {
+        "size": 0
+      },
+      "psychopy/assets/templates/__init__.py": {
+        "size": 0
+      },
+      "psychopy/changes/2023.1.0.md": {
+        "size": 510
+      },
+      "psychopy/changes/2024.1.0.md": {
+        "size": 990
+      },
+      "psychopy/changes/__init__.py": {
+        "size": 0
+      },
+      "psychopy/clock.py": {
+        "size": 21310
+      },
+      "psychopy/colors.py": {
+        "size": 41345
+      },
+      "psychopy/compatibility.py": {
+        "size": 4935
+      },
+      "psychopy/constants.py": {
+        "size": 3725
+      },
+      "psychopy/contrib/__init__.py": {
+        "size": 0
+      },
+      "psychopy/contrib/configobj/__init__.py": {
+        "size": 88180
+      },
+      "psychopy/contrib/configobj/_version.py": {
+        "size": 44
+      },
+      "psychopy/contrib/configobj/validate.py": {
+        "size": 46077
+      },
+      "psychopy/contrib/lazy_import.py": {
+        "size": 16238
+      },
+      "psychopy/contrib/mseq.py": {
+        "size": 13213
+      },
+      "psychopy/contrib/mseqSearch.py": {
+        "size": 7016
+      },
+      "psychopy/contrib/psi.py": {
+        "size": 4993
+      },
+      "psychopy/contrib/quest.py": {
+        "size": 19360
+      },
+      "psychopy/contrib/tesselate.py": {
+        "size": 6670
+      },
+      "psychopy/core.py": {
+        "size": 5864
+      },
+      "psychopy/data/__init__.py": {
+        "size": 1413
+      },
+      "psychopy/data/base.py": {
+        "size": 22185
+      },
+      "psychopy/data/counterbalance.py": {
+        "size": 6561
+      },
+      "psychopy/data/experiment.py": {
+        "size": 39695
+      },
+      "psychopy/data/fit.py": {
+        "size": 8562
+      },
+      "psychopy/data/routine.py": {
+        "size": 3219
+      },
+      "psychopy/data/shelf.py": {
+        "size": 7817
+      },
+      "psychopy/data/staircase.py": {
+        "size": 89236
+      },
+      "psychopy/data/trial.py": {
+        "size": 101741
+      },
+      "psychopy/data/utils.py": {
+        "size": 32594
+      },
+      "psychopy/demos/__init__.py": {
+        "size": 0
+      },
+      "psychopy/demos/builder/Design Templates/branchedExperiment/README.md": {
+        "size": 492
+      },
+      "psychopy/demos/builder/Design Templates/dualWindow/readme.md": {
+        "size": 1596
+      },
+      "psychopy/demos/builder/Design Templates/psychophysicsStaircase/README.md": {
+        "size": 1480
+      },
+      "psychopy/demos/builder/Design Templates/psychophysicsStairsInterleaved/README.md": {
+        "size": 1768
+      },
+      "psychopy/demos/builder/Design Templates/randomisedBlocks/README.md": {
+        "size": 1639
+      },
+      "psychopy/demos/builder/Experiments/BART/README.md": {
+        "size": 1235
+      },
+      "psychopy/demos/builder/Experiments/BigFiveInventory/README.md": {
+        "size": 1763
+      },
+      "psychopy/demos/builder/Experiments/dragAndDrop/README.md": {
+        "size": 448
+      },
+      "psychopy/demos/builder/Experiments/dragAndDrop/stimuli/readme.md": {
+        "size": 243
+      },
+      "psychopy/demos/builder/Experiments/goNoGo/readme.md": {
+        "size": 573
+      },
+      "psychopy/demos/builder/Experiments/mentalRotation/README.md": {
+        "size": 893
+      },
+      "psychopy/demos/builder/Experiments/navon/README.md": {
+        "size": 1096
+      },
+      "psychopy/demos/builder/Experiments/sternberg/README.md": {
+        "size": 1254
+      },
+      "psychopy/demos/builder/Experiments/stroop/README.md": {
+        "size": 1323
+      },
+      "psychopy/demos/builder/Experiments/stroopExtended/README.md": {
+        "size": 1341
+      },
+      "psychopy/demos/builder/Experiments/stroopVoice/README.md": {
+        "size": 2468
+      },
+      "psychopy/demos/builder/Feature Demos/buttonBox/readme.md": {
+        "size": 644
+      },
+      "psychopy/demos/builder/Feature Demos/gratings/readme.md": {
+        "size": 327
+      },
+      "psychopy/demos/builder/Feature Demos/movies/readme.md": {
+        "size": 183
+      },
+      "psychopy/demos/builder/Feature Demos/noise/readme.md": {
+        "size": 121
+      },
+      "psychopy/demos/builder/Feature Demos/pilotMode/readme.md": {
+        "size": 712
+      },
+      "psychopy/demos/builder/Feature Demos/progress/readme.md": {
+        "size": 264
+      },
+      "psychopy/demos/builder/Feature Demos/sliders/README.md": {
+        "size": 394
+      },
+      "psychopy/demos/builder/Feature Demos/visualValidator/readme.md": {
+        "size": 1724
+      },
+      "psychopy/demos/builder/Hardware/EGI_netstation/README.md": {
+        "size": 1530
+      },
+      "psychopy/demos/builder/Hardware/Eyetracking_visual_search/readme.md": {
+        "size": 1259
+      },
+      "psychopy/demos/builder/Hardware/camera/readme.md": {
+        "size": 303
+      },
+      "psychopy/demos/builder/Hardware/eyetracking/readme.md": {
+        "size": 1184
+      },
+      "psychopy/demos/builder/Hardware/eyetracking_custom_cal/readme.md": {
+        "size": 1184
+      },
+      "psychopy/demos/builder/Hardware/fMRI/readme.md": {
+        "size": 491
+      },
+      "psychopy/demos/builder/Hardware/microphone/readme.md": {
+        "size": 538
+      },
+      "psychopy/demos/builder/Hardware/pump/README.md": {
+        "size": 1626
+      },
+      "psychopy/demos/builder/Helper Tools/achorVSalignment/readme.md": {
+        "size": 307
+      },
+      "psychopy/demos/builder/Helper Tools/clockFace/README.md": {
+        "size": 271
+      },
+      "psychopy/demos/builder/Helper Tools/colors/README.md": {
+        "size": 608
+      },
+      "psychopy/demos/builder/Helper Tools/drawPolygon/README.md": {
+        "size": 693
+      },
+      "psychopy/demos/builder/Helper Tools/keyNameFinder/README.md": {
+        "size": 378
+      },
+      "psychopy/demos/builder/Helper Tools/spatialUnits/README.md": {
+        "size": 979
+      },
+      "psychopy/demos/builder/README.txt": {
+        "size": 1525
+      },
+      "psychopy/demos/builder/__init__.py": {
+        "size": 0
+      },
+      "psychopy/demos/coder/__init__.py": {
+        "size": 0
+      },
+      "psychopy/demos/coder/basic/hello_world.py": {
+        "size": 851
+      },
+      "psychopy/demos/coder/csvFromPsydat.py": {
+        "size": 736
+      },
+      "psychopy/demos/coder/experiment control/JND_staircase_analysis.py": {
+        "size": 2767
+      },
+      "psychopy/demos/coder/experiment control/JND_staircase_exp.py": {
+        "size": 3827
+      },
+      "psychopy/demos/coder/experiment control/TrialHandler.py": {
+        "size": 2028
+      },
+      "psychopy/demos/coder/experiment control/TrialHandler2.py": {
+        "size": 1407
+      },
+      "psychopy/demos/coder/experiment control/__init__.py": {
+        "size": 0
+      },
+      "psychopy/demos/coder/experiment control/autoDraw_autoLog.py": {
+        "size": 1456
+      },
+      "psychopy/demos/coder/experiment control/experimentHandler.py": {
+        "size": 1926
+      },
+      "psychopy/demos/coder/experiment control/fMRI_launchScan.py": {
+        "size": 2785
+      },
+      "psychopy/demos/coder/experiment control/gammaMotionAnalysis.py": {
+        "size": 1790
+      },
+      "psychopy/demos/coder/experiment control/gammaMotionNull.py": {
+        "size": 5824
+      },
+      "psychopy/demos/coder/experiment control/logFiles.py": {
+        "size": 2221
+      },
+      "psychopy/demos/coder/experiment control/piloting.py": {
+        "size": 2137
+      },
+      "psychopy/demos/coder/experiment control/runtimeInfo.py": {
+        "size": 3855
+      },
+      "psychopy/demos/coder/hardware/CRS_BitsBox.py": {
+        "size": 2456
+      },
+      "psychopy/demos/coder/hardware/CRS_BitsPlusPlus.py": {
+        "size": 2423
+      },
+      "psychopy/demos/coder/hardware/RiftHeadTrackingExample.py": {
+        "size": 3626
+      },
+      "psychopy/demos/coder/hardware/RiftMinimal.py": {
+        "size": 1626
+      },
+      "psychopy/demos/coder/hardware/VSHD_Distortion.py": {
+        "size": 1576
+      },
+      "psychopy/demos/coder/hardware/__init__.py": {
+        "size": 0
+      },
+      "psychopy/demos/coder/hardware/camera.py": {
+        "size": 3174
+      },
+      "psychopy/demos/coder/hardware/cedrusRB730.py": {
+        "size": 902
+      },
+      "psychopy/demos/coder/hardware/crsBitsAdvancedDemo.py": {
+        "size": 28454
+      },
+      "psychopy/demos/coder/hardware/egi_netstation.py": {
+        "size": 1038
+      },
+      "psychopy/demos/coder/hardware/hdf5_extract.py": {
+        "size": 4709
+      },
+      "psychopy/demos/coder/hardware/ioLab_bbox.py": {
+        "size": 1871
+      },
+      "psychopy/demos/coder/hardware/labjack_u3.py": {
+        "size": 1357
+      },
+      "psychopy/demos/coder/hardware/monitorDemo.py": {
+        "size": 883
+      },
+      "psychopy/demos/coder/hardware/parallelPortOutput.py": {
+        "size": 1340
+      },
+      "psychopy/demos/coder/hardware/qmixPump.py": {
+        "size": 2641
+      },
+      "psychopy/demos/coder/hardware/testSoundLatency.py": {
+        "size": 3821
+      },
+      "psychopy/demos/coder/input/GUI.py": {
+        "size": 1763
+      },
+      "psychopy/demos/coder/input/__init__.py": {
+        "size": 0
+      },
+      "psychopy/demos/coder/input/customMouse.py": {
+        "size": 1554
+      },
+      "psychopy/demos/coder/input/joystick_universal.py": {
+        "size": 2489
+      },
+      "psychopy/demos/coder/input/keyNameFinder.py": {
+        "size": 1117
+      },
+      "psychopy/demos/coder/input/mouse.py": {
+        "size": 1888
+      },
+      "psychopy/demos/coder/iohub/delaytest.py": {
+        "size": 8759
+      },
+      "psychopy/demos/coder/iohub/eyetracking/gcCursor/readTrialEventsByConditionVariables.py": {
+        "size": 2909
+      },
+      "psychopy/demos/coder/iohub/eyetracking/gcCursor/readTrialEventsByMessages.py": {
+        "size": 1472
+      },
+      "psychopy/demos/coder/iohub/eyetracking/gcCursor/run.py": {
+        "size": 15476
+      },
+      "psychopy/demos/coder/iohub/eyetracking/simple.py": {
+        "size": 5796
+      },
+      "psychopy/demos/coder/iohub/eyetracking/validation.py": {
+        "size": 12797
+      },
+      "psychopy/demos/coder/iohub/iodatastore/saveEventReport.py": {
+        "size": 2627
+      },
+      "psychopy/demos/coder/iohub/keyboard.py": {
+        "size": 7861
+      },
+      "psychopy/demos/coder/iohub/keyboardreactiontime.py": {
+        "size": 2681
+      },
+      "psychopy/demos/coder/iohub/launchHub.py": {
+        "size": 6310
+      },
+      "psychopy/demos/coder/iohub/mouse.py": {
+        "size": 4117
+      },
+      "psychopy/demos/coder/iohub/mouse_multi_window.py": {
+        "size": 4547
+      },
+      "psychopy/demos/coder/iohub/serial/_parseserial.py": {
+        "size": 2461
+      },
+      "psychopy/demos/coder/iohub/serial/customparser.py": {
+        "size": 2935
+      },
+      "psychopy/demos/coder/iohub/serial/pstbox.py": {
+        "size": 3876
+      },
+      "psychopy/demos/coder/iohub/wintab/_wintabgraphics.py": {
+        "size": 10797
+      },
+      "psychopy/demos/coder/iohub/wintab/pen_demo.py": {
+        "size": 9638
+      },
+      "psychopy/demos/coder/misc/encrypt_data.py": {
+        "size": 1545
+      },
+      "psychopy/demos/coder/misc/makeMovie.py": {
+        "size": 721
+      },
+      "psychopy/demos/coder/misc/rigidBodyTransform.py": {
+        "size": 2211
+      },
+      "psychopy/demos/coder/stimuli/MovieStim.py": {
+        "size": 1574
+      },
+      "psychopy/demos/coder/stimuli/__init__.py": {
+        "size": 0
+      },
+      "psychopy/demos/coder/stimuli/aperture.py": {
+        "size": 1146
+      },
+      "psychopy/demos/coder/stimuli/bufferImageStim.py": {
+        "size": 2984
+      },
+      "psychopy/demos/coder/stimuli/clockface.py": {
+        "size": 1300
+      },
+      "psychopy/demos/coder/stimuli/colorPalette.py": {
+        "size": 4240
+      },
+      "psychopy/demos/coder/stimuli/compare_text_timing.py": {
+        "size": 6879
+      },
+      "psychopy/demos/coder/stimuli/counterphase.py": {
+        "size": 1281
+      },
+      "psychopy/demos/coder/stimuli/customTextures.py": {
+        "size": 1935
+      },
+      "psychopy/demos/coder/stimuli/dot_gabors.py": {
+        "size": 1142
+      },
+      "psychopy/demos/coder/stimuli/dots.py": {
+        "size": 1017
+      },
+      "psychopy/demos/coder/stimuli/elementArrays.py": {
+        "size": 2984
+      },
+      "psychopy/demos/coder/stimuli/embeddedOpenGL.py": {
+        "size": 798
+      },
+      "psychopy/demos/coder/stimuli/face_jpg.py": {
+        "size": 1530
+      },
+      "psychopy/demos/coder/stimuli/gabor.py": {
+        "size": 775
+      },
+      "psychopy/demos/coder/stimuli/imagesAndPatches.py": {
+        "size": 1637
+      },
+      "psychopy/demos/coder/stimuli/kanizsa.py": {
+        "size": 971
+      },
+      "psychopy/demos/coder/stimuli/maskReveal.py": {
+        "size": 1834
+      },
+      "psychopy/demos/coder/stimuli/plaid.py": {
+        "size": 1430
+      },
+      "psychopy/demos/coder/stimuli/ratingScale.py": {
+        "size": 7136
+      },
+      "psychopy/demos/coder/stimuli/rotatingFlashingWedge.py": {
+        "size": 1158
+      },
+      "psychopy/demos/coder/stimuli/screensAndWindows.py": {
+        "size": 1846
+      },
+      "psychopy/demos/coder/stimuli/secondOrderGratings.py": {
+        "size": 2535
+      },
+      "psychopy/demos/coder/stimuli/shapeContains.py": {
+        "size": 1712
+      },
+      "psychopy/demos/coder/stimuli/shapes.py": {
+        "size": 4854
+      },
+      "psychopy/demos/coder/stimuli/soundStimuli.py": {
+        "size": 1242
+      },
+      "psychopy/demos/coder/stimuli/starField.py": {
+        "size": 1292
+      },
+      "psychopy/demos/coder/stimuli/stim3d.py": {
+        "size": 3395
+      },
+      "psychopy/demos/coder/stimuli/textBoxStim/textbox_glyph_placement.py": {
+        "size": 3233
+      },
+      "psychopy/demos/coder/stimuli/textBoxStim/textbox_simple.py": {
+        "size": 2248
+      },
+      "psychopy/demos/coder/stimuli/textStimuli.py": {
+        "size": 3801
+      },
+      "psychopy/demos/coder/stimuli/textbox_editable.py": {
+        "size": 2182
+      },
+      "psychopy/demos/coder/stimuli/variousVisualStims.py": {
+        "size": 1207
+      },
+      "psychopy/demos/coder/stimuli/visual_noise.py": {
+        "size": 736
+      },
+      "psychopy/demos/coder/sysInfo.py": {
+        "size": 1967
+      },
+      "psychopy/demos/coder/timing/__init__.py": {
+        "size": 0
+      },
+      "psychopy/demos/coder/timing/callOnFlip.py": {
+        "size": 1253
+      },
+      "psychopy/demos/coder/timing/clocksAndTimers.py": {
+        "size": 1216
+      },
+      "psychopy/demos/coder/timing/millikeyKeyboardTimingTest.py": {
+        "size": 11835
+      },
+      "psychopy/demos/coder/timing/timeByFrames.py": {
+        "size": 2370
+      },
+      "psychopy/demos/coder/timing/timeByFramesEx.py": {
+        "size": 3256
+      },
+      "psychopy/demos/coder/understanding psychopy/colors.py": {
+        "size": 2668
+      },
+      "psychopy/demos/coder/understanding psychopy/fontLayout.py": {
+        "size": 3730
+      },
+      "psychopy/demos/demo_migration.py": {
+        "size": 6790
+      },
+      "psychopy/demos/modernizeDemos.py": {
+        "size": 413
+      },
+      "psychopy/demos/test_demo_migration.py": {
+        "size": 4973
+      },
+      "psychopy/devices/__init__.py": {
+        "size": 278
+      },
+      "psychopy/event.py": {
+        "size": 49050
+      },
+      "psychopy/exceptions.py": {
+        "size": 1552
+      },
+      "psychopy/experiment/__init__.py": {
+        "size": 2363
+      },
+      "psychopy/experiment/_experiment.py": {
+        "size": 74497
+      },
+      "psychopy/experiment/components/__init__.py": {
+        "size": 15601
+      },
+      "psychopy/experiment/components/_base.py": {
+        "size": 67989
+      },
+      "psychopy/experiment/components/aperture/__init__.py": {
+        "size": 6276
+      },
+      "psychopy/experiment/components/brush/__init__.py": {
+        "size": 6947
+      },
+      "psychopy/experiment/components/button/__init__.py": {
+        "size": 21664
+      },
+      "psychopy/experiment/components/buttonBox/__init__.py": {
+        "size": 12307
+      },
+      "psychopy/experiment/components/camera/__init__.py": {
+        "size": 13270
+      },
+      "psychopy/experiment/components/code/__init__.py": {
+        "size": 16762
+      },
+      "psychopy/experiment/components/dots/__init__.py": {
+        "size": 9097
+      },
+      "psychopy/experiment/components/eyetracker_record/__init__.py": {
+        "size": 8511
+      },
+      "psychopy/experiment/components/form/__init__.py": {
+        "size": 9502
+      },
+      "psychopy/experiment/components/grating/__init__.py": {
+        "size": 9223
+      },
+      "psychopy/experiment/components/image/__init__.py": {
+        "size": 8454
+      },
+      "psychopy/experiment/components/joyButtons/__init__.py": {
+        "size": 20243
+      },
+      "psychopy/experiment/components/joyButtons/virtualJoyButtons.py": {
+        "size": 1288
+      },
+      "psychopy/experiment/components/joystick/__init__.py": {
+        "size": 26485
+      },
+      "psychopy/experiment/components/joystick/virtualJoystick.py": {
+        "size": 1359
+      },
+      "psychopy/experiment/components/keyboard/__init__.py": {
+        "size": 25193
+      },
+      "psychopy/experiment/components/microphone/__init__.py": {
+        "size": 24123
+      },
+      "psychopy/experiment/components/mouse/__init__.py": {
+        "size": 35426
+      },
+      "psychopy/experiment/components/movie/__init__.py": {
+        "size": 14812
+      },
+      "psychopy/experiment/components/panorama/__init__.py": {
+        "size": 20408
+      },
+      "psychopy/experiment/components/parallelOut/__init__.py": {
+        "size": 7902
+      },
+      "psychopy/experiment/components/polygon/__init__.py": {
+        "size": 15662
+      },
+      "psychopy/experiment/components/progress/__init__.py": {
+        "size": 5578
+      },
+      "psychopy/experiment/components/resourceManager/__init__.py": {
+        "size": 7341
+      },
+      "psychopy/experiment/components/roi/__init__.py": {
+        "size": 12873
+      },
+      "psychopy/experiment/components/routineSettings/__init__.py": {
+        "size": 15888
+      },
+      "psychopy/experiment/components/serialOut/__init__.py": {
+        "size": 12478
+      },
+      "psychopy/experiment/components/settings/__init__.py": {
+        "size": 98856
+      },
+      "psychopy/experiment/components/settings/eyetracking.py": {
+        "size": 3325
+      },
+      "psychopy/experiment/components/slider/__init__.py": {
+        "size": 18659
+      },
+      "psychopy/experiment/components/sound/__init__.py": {
+        "size": 17573
+      },
+      "psychopy/experiment/components/soundsensor/__init__.py": {
+        "size": 12175
+      },
+      "psychopy/experiment/components/static/__init__.py": {
+        "size": 12745
+      },
+      "psychopy/experiment/components/text/__init__.py": {
+        "size": 8633
+      },
+      "psychopy/experiment/components/textbox/__init__.py": {
+        "size": 16262
+      },
+      "psychopy/experiment/components/unknown/__init__.py": {
+        "size": 2642
+      },
+      "psychopy/experiment/components/unknownPlugin/__init__.py": {
+        "size": 2644
+      },
+      "psychopy/experiment/components/utils.py": {
+        "size": 0
+      },
+      "psychopy/experiment/components/variable/__init__.py": {
+        "size": 9891
+      },
+      "psychopy/experiment/devices.py": {
+        "size": 10670
+      },
+      "psychopy/experiment/exports.py": {
+        "size": 13662
+      },
+      "psychopy/experiment/flow.py": {
+        "size": 24951
+      },
+      "psychopy/experiment/localization.py": {
+        "size": 359
+      },
+      "psychopy/experiment/loops.py": {
+        "size": 48235
+      },
+      "psychopy/experiment/monitor.py": {
+        "size": 2365
+      },
+      "psychopy/experiment/params.py": {
+        "size": 23793
+      },
+      "psychopy/experiment/plugins.py": {
+        "size": 1306
+      },
+      "psychopy/experiment/py2js.py": {
+        "size": 7115
+      },
+      "psychopy/experiment/py2js_transpiler.py": {
+        "size": 21844
+      },
+      "psychopy/experiment/routines/__init__.py": {
+        "size": 3691
+      },
+      "psychopy/experiment/routines/_base.py": {
+        "size": 45321
+      },
+      "psychopy/experiment/routines/audioValidator/__init__.py": {
+        "size": 8293
+      },
+      "psychopy/experiment/routines/counterbalance/__init__.py": {
+        "size": 12826
+      },
+      "psychopy/experiment/routines/eyetracker_calibrate/__init__.py": {
+        "size": 16310
+      },
+      "psychopy/experiment/routines/eyetracker_validate/__init__.py": {
+        "size": 17737
+      },
+      "psychopy/experiment/routines/pavlovia_survey/__init__.py": {
+        "size": 9390
+      },
+      "psychopy/experiment/routines/unknown/__init__.py": {
+        "size": 887
+      },
+      "psychopy/experiment/routines/utils.py": {
+        "size": 0
+      },
+      "psychopy/experiment/routines/visualValidator/__init__.py": {
+        "size": 14516
+      },
+      "psychopy/experiment/utils.py": {
+        "size": 1549
+      },
+      "psychopy/filters.py": {
+        "size": 366
+      },
+      "psychopy/gamma.py": {
+        "size": 291
+      },
+      "psychopy/gui/__init__.py": {
+        "size": 1290
+      },
+      "psychopy/gui/qtgui.py": {
+        "size": 30977
+      },
+      "psychopy/gui/util.py": {
+        "size": 2447
+      },
+      "psychopy/gui/wxgui.py": {
+        "size": 15521
+      },
+      "psychopy/hardware/__init__.py": {
+        "size": 5666
+      },
+      "psychopy/hardware/base.py": {
+        "size": 16154
+      },
+      "psychopy/hardware/bbtk/__init__.py": {
+        "size": 591
+      },
+      "psychopy/hardware/brainproducts.py": {
+        "size": 709
+      },
+      "psychopy/hardware/button.py": {
+        "size": 8447
+      },
+      "psychopy/hardware/buttonbox/__init__.py": {
+        "size": 2987
+      },
+      "psychopy/hardware/camera/__init__.py": {
+        "size": 147957
+      },
+      "psychopy/hardware/cedrus.py": {
+        "size": 632
+      },
+      "psychopy/hardware/crs/__init__.py": {
+        "size": 1406
+      },
+      "psychopy/hardware/crs/bits.py": {
+        "size": 827
+      },
+      "psychopy/hardware/crs/colorcal.py": {
+        "size": 432
+      },
+      "psychopy/hardware/crs/optical.py": {
+        "size": 1371
+      },
+      "psychopy/hardware/crs/shaders.py": {
+        "size": 870
+      },
+      "psychopy/hardware/emotiv.py": {
+        "size": 1017
+      },
+      "psychopy/hardware/emulator.py": {
+        "size": 1138
+      },
+      "psychopy/hardware/exceptions.py": {
+        "size": 2679
+      },
+      "psychopy/hardware/eyetracker.py": {
+        "size": 4614
+      },
+      "psychopy/hardware/forp.py": {
+        "size": 991
+      },
+      "psychopy/hardware/gammasci.py": {
+        "size": 689
+      },
+      "psychopy/hardware/iolab.py": {
+        "size": 617
+      },
+      "psychopy/hardware/joystick/__init__.py": {
+        "size": 38034
+      },
+      "psychopy/hardware/joystick/_base.py": {
+        "size": 6421
+      },
+      "psychopy/hardware/joystick/backend_glfw.py": {
+        "size": 8350
+      },
+      "psychopy/hardware/joystick/backend_pyglet.py": {
+        "size": 8790
+      },
+      "psychopy/hardware/joystick/mappings.py": {
+        "size": 7516
+      },
+      "psychopy/hardware/keyboard.py": {
+        "size": 37639
+      },
+      "psychopy/hardware/knownDevices.json": {
+        "size": 1791
+      },
+      "psychopy/hardware/labhackers.py": {
+        "size": 864
+      },
+      "psychopy/hardware/labjacks.py": {
+        "size": 725
+      },
+      "psychopy/hardware/lightsensor.py": {
+        "size": 29546
+      },
+      "psychopy/hardware/listener.py": {
+        "size": 9994
+      },
+      "psychopy/hardware/manager.py": {
+        "size": 32336
+      },
+      "psychopy/hardware/microphone.py": {
+        "size": 59375
+      },
+      "psychopy/hardware/minolta.py": {
+        "size": 784
+      },
+      "psychopy/hardware/monitor.py": {
+        "size": 4258
+      },
+      "psychopy/hardware/mouse/__init__.py": {
+        "size": 29029
+      },
+      "psychopy/hardware/photometer/__init__.py": {
+        "size": 5937
+      },
+      "psychopy/hardware/pr.py": {
+        "size": 819
+      },
+      "psychopy/hardware/qmix.py": {
+        "size": 688
+      },
+      "psychopy/hardware/serialdevice.py": {
+        "size": 13887
+      },
+      "psychopy/hardware/soundsensor.py": {
+        "size": 18445
+      },
+      "psychopy/hardware/spatial/__init__.py": {
+        "size": 6063
+      },
+      "psychopy/hardware/speaker.py": {
+        "size": 13618
+      },
+      "psychopy/hardware/triggerbox/__init__.py": {
+        "size": 1798
+      },
+      "psychopy/hardware/triggerbox/base.py": {
+        "size": 3929
+      },
+      "psychopy/hardware/triggerbox/parallel.py": {
+        "size": 10530
+      },
+      "psychopy/info.py": {
+        "size": 27885
+      },
+      "psychopy/iohub/__init__.py": {
+        "size": 1467
+      },
+      "psychopy/iohub/client/__init__.py": {
+        "size": 57338
+      },
+      "psychopy/iohub/client/connect.py": {
+        "size": 10784
+      },
+      "psychopy/iohub/client/eyetracker/__init__.py": {
+        "size": 211
+      },
+      "psychopy/iohub/client/eyetracker/validation/__init__.py": {
+        "size": 380
+      },
+      "psychopy/iohub/client/eyetracker/validation/posgrid.py": {
+        "size": 11618
+      },
+      "psychopy/iohub/client/eyetracker/validation/procedure.py": {
+        "size": 60791
+      },
+      "psychopy/iohub/client/eyetracker/validation/trigger.py": {
+        "size": 8491
+      },
+      "psychopy/iohub/client/keyboard.py": {
+        "size": 18492
+      },
+      "psychopy/iohub/client/wintab.py": {
+        "size": 13202
+      },
+      "psychopy/iohub/constants.py": {
+        "size": 30618
+      },
+      "psychopy/iohub/datastore/__init__.py": {
+        "size": 18898
+      },
+      "psychopy/iohub/datastore/default_datastore.yaml": {
+        "size": 180
+      },
+      "psychopy/iohub/datastore/util.py": {
+        "size": 37743
+      },
+      "psychopy/iohub/default_config.yaml": {
+        "size": 755
+      },
+      "psychopy/iohub/devices/__init__.py": {
+        "size": 43547
+      },
+      "psychopy/iohub/devices/computer.py": {
+        "size": 21326
+      },
+      "psychopy/iohub/devices/default_device.yaml": {
+        "size": 476
+      },
+      "psychopy/iohub/devices/deviceConfigValidation.py": {
+        "size": 20532
+      },
+      "psychopy/iohub/devices/display/__init__.py": {
+        "size": 31543
+      },
+      "psychopy/iohub/devices/display/default_display.yaml": {
+        "size": 5224
+      },
+      "psychopy/iohub/devices/display/supported_config_settings.yaml": {
+        "size": 1842
+      },
+      "psychopy/iohub/devices/eventfilters.py": {
+        "size": 100440
+      },
+      "psychopy/iohub/devices/experiment/__init__.py": {
+        "size": 12018
+      },
+      "psychopy/iohub/devices/experiment/default_experiment.yaml": {
+        "size": 3597
+      },
+      "psychopy/iohub/devices/experiment/supported_config_settings.yaml": {
+        "size": 667
+      },
+      "psychopy/iohub/devices/eyetracker/__init__.py": {
+        "size": 20341
+      },
+      "psychopy/iohub/devices/eyetracker/calibration/__init__.py": {
+        "size": 48
+      },
+      "psychopy/iohub/devices/eyetracker/calibration/procedure.py": {
+        "size": 15692
+      },
+      "psychopy/iohub/devices/eyetracker/default_eyetracker.yaml": {
+        "size": 888
+      },
+      "psychopy/iohub/devices/eyetracker/eye_events.py": {
+        "size": 71885
+      },
+      "psychopy/iohub/devices/eyetracker/filters/__init__.py": {
+        "size": 206
+      },
+      "psychopy/iohub/devices/eyetracker/filters/parser.py": {
+        "size": 39535
+      },
+      "psychopy/iohub/devices/eyetracker/hw/__init__.py": {
+        "size": 211
+      },
+      "psychopy/iohub/devices/eyetracker/hw/gazepoint/__init__.py": {
+        "size": 918
+      },
+      "psychopy/iohub/devices/eyetracker/hw/gazepoint/gp3/__init__.py": {
+        "size": 919
+      },
+      "psychopy/iohub/devices/eyetracker/hw/gazepoint/gp3/calibration.py": {
+        "size": 673
+      },
+      "psychopy/iohub/devices/eyetracker/hw/gazepoint/gp3/eyetracker.py": {
+        "size": 1118
+      },
+      "psychopy/iohub/devices/eyetracker/hw/mouse/__init__.py": {
+        "size": 473
+      },
+      "psychopy/iohub/devices/eyetracker/hw/mouse/calibration.py": {
+        "size": 541
+      },
+      "psychopy/iohub/devices/eyetracker/hw/mouse/default_eyetracker.yaml": {
+        "size": 4270
+      },
+      "psychopy/iohub/devices/eyetracker/hw/mouse/eyetracker.py": {
+        "size": 19467
+      },
+      "psychopy/iohub/devices/eyetracker/hw/mouse/supported_config_settings.yaml": {
+        "size": 3438
+      },
+      "psychopy/iohub/devices/eyetracker/hw/pupil_labs/__init__.py": {
+        "size": 211
+      },
+      "psychopy/iohub/devices/eyetracker/hw/pupil_labs/neon/__init__.py": {
+        "size": 1029
+      },
+      "psychopy/iohub/devices/eyetracker/hw/pupil_labs/neon/eyetracker.py": {
+        "size": 665
+      },
+      "psychopy/iohub/devices/eyetracker/hw/pupil_labs/pupil_core/__init__.py": {
+        "size": 1042
+      },
+      "psychopy/iohub/devices/eyetracker/hw/pupil_labs/pupil_core/bisector.py": {
+        "size": 730
+      },
+      "psychopy/iohub/devices/eyetracker/hw/pupil_labs/pupil_core/constants.py": {
+        "size": 694
+      },
+      "psychopy/iohub/devices/eyetracker/hw/pupil_labs/pupil_core/data_parse.py": {
+        "size": 846
+      },
+      "psychopy/iohub/devices/eyetracker/hw/pupil_labs/pupil_core/eyetracker.py": {
+        "size": 671
+      },
+      "psychopy/iohub/devices/eyetracker/hw/pupil_labs/pupil_core/pupil_remote.py": {
+        "size": 674
+      },
+      "psychopy/iohub/devices/eyetracker/hw/sr_research/__init__.py": {
+        "size": 211
+      },
+      "psychopy/iohub/devices/eyetracker/hw/sr_research/eyelink/__init__.py": {
+        "size": 908
+      },
+      "psychopy/iohub/devices/eyetracker/hw/sr_research/eyelink/calibration.py": {
+        "size": 763
+      },
+      "psychopy/iohub/devices/eyetracker/hw/sr_research/eyelink/eyetracker.py": {
+        "size": 1217
+      },
+      "psychopy/iohub/devices/eyetracker/hw/tobii/__init__.py": {
+        "size": 884
+      },
+      "psychopy/iohub/devices/eyetracker/hw/tobii/calibration.py": {
+        "size": 649
+      },
+      "psychopy/iohub/devices/eyetracker/hw/tobii/eyetracker.py": {
+        "size": 621
+      },
+      "psychopy/iohub/devices/eyetracker/hw/tobii/tobiiwrapper.py": {
+        "size": 645
+      },
+      "psychopy/iohub/devices/eyetracker/supported_config_settings.yaml": {
+        "size": 1788
+      },
+      "psychopy/iohub/devices/keyboard/__init__.py": {
+        "size": 12637
+      },
+      "psychopy/iohub/devices/keyboard/darwin.py": {
+        "size": 17689
+      },
+      "psychopy/iohub/devices/keyboard/darwinkey.py": {
+        "size": 1886
+      },
+      "psychopy/iohub/devices/keyboard/default_keyboard.yaml": {
+        "size": 4137
+      },
+      "psychopy/iohub/devices/keyboard/linux2.py": {
+        "size": 4768
+      },
+      "psychopy/iohub/devices/keyboard/supported_config_settings.yaml": {
+        "size": 1048
+      },
+      "psychopy/iohub/devices/keyboard/win32.py": {
+        "size": 14343
+      },
+      "psychopy/iohub/devices/mouse/__init__.py": {
+        "size": 25017
+      },
+      "psychopy/iohub/devices/mouse/darwin.py": {
+        "size": 16234
+      },
+      "psychopy/iohub/devices/mouse/default_mouse.yaml": {
+        "size": 4363
+      },
+      "psychopy/iohub/devices/mouse/linux2.py": {
+        "size": 6561
+      },
+      "psychopy/iohub/devices/mouse/supported_config_settings.yaml": {
+        "size": 1251
+      },
+      "psychopy/iohub/devices/mouse/win32.py": {
+        "size": 10751
+      },
+      "psychopy/iohub/devices/pyXHook.py": {
+        "size": 24090
+      },
+      "psychopy/iohub/devices/serial/__init__.py": {
+        "size": 27548
+      },
+      "psychopy/iohub/devices/serial/default_pstbox.yaml": {
+        "size": 4559
+      },
+      "psychopy/iohub/devices/serial/default_serial.yaml": {
+        "size": 4543
+      },
+      "psychopy/iohub/devices/serial/supported_config_settings.yaml": {
+        "size": 2066
+      },
+      "psychopy/iohub/devices/serial/supported_config_settings_pstbox.yaml": {
+        "size": 2038
+      },
+      "psychopy/iohub/devices/supported_config_settings.yaml": {
+        "size": 863
+      },
+      "psychopy/iohub/devices/wintab/__init__.py": {
+        "size": 23717
+      },
+      "psychopy/iohub/devices/wintab/default_wintab.yaml": {
+        "size": 4060
+      },
+      "psychopy/iohub/devices/wintab/supported_config_settings.yaml": {
+        "size": 1070
+      },
+      "psychopy/iohub/devices/wintab/win32.py": {
+        "size": 20599
+      },
+      "psychopy/iohub/devices/xlib.py": {
+        "size": 190917
+      },
+      "psychopy/iohub/errors.py": {
+        "size": 2261
+      },
+      "psychopy/iohub/lazy_import.py": {
+        "size": 21623
+      },
+      "psychopy/iohub/net.py": {
+        "size": 12510
+      },
+      "psychopy/iohub/server.py": {
+        "size": 43732
+      },
+      "psychopy/iohub/start_iohub_process.py": {
+        "size": 6442
+      },
+      "psychopy/iohub/util/__init__.py": {
+        "size": 29393
+      },
+      "psychopy/iohub/util/visualangle.py": {
+        "size": 4520
+      },
+      "psychopy/layout.py": {
+        "size": 29247
+      },
+      "psychopy/liaison.py": {
+        "size": 14714
+      },
+      "psychopy/locale_setup.py": {
+        "size": 1502
+      },
+      "psychopy/localization/__init__.py": {
+        "size": 694
+      },
+      "psychopy/localization/_localization.py": {
+        "size": 5538
+      },
+      "psychopy/localization/generateTranslationTemplate.py": {
+        "size": 9015
+      },
+      "psychopy/localization/mappings.txt": {
+        "size": 2565
+      },
+      "psychopy/localization/readme.txt": {
+        "size": 3588
+      },
+      "psychopy/logging.py": {
+        "size": 13352
+      },
+      "psychopy/microphone.py": {
+        "size": 636
+      },
+      "psychopy/misc.py": {
+        "size": 1505
+      },
+      "psychopy/monitors/MonitorCenter.py": {
+        "size": 54934
+      },
+      "psychopy/monitors/__init__.py": {
+        "size": 1114
+      },
+      "psychopy/monitors/calibData.py": {
+        "size": 4934
+      },
+      "psychopy/monitors/calibTools.py": {
+        "size": 47412
+      },
+      "psychopy/monitors/getLumSeries.py": {
+        "size": 1833
+      },
+      "psychopy/parallel/__init__.py": {
+        "size": 7239
+      },
+      "psychopy/parallel/_dlportio.py": {
+        "size": 5783
+      },
+      "psychopy/parallel/_inpout.py": {
+        "size": 4120
+      },
+      "psychopy/parallel/_linux.py": {
+        "size": 3517
+      },
+      "psychopy/piloting.py": {
+        "size": 1310
+      },
+      "psychopy/platform_specific/__init__.py": {
+        "size": 1233
+      },
+      "psychopy/platform_specific/darwin.py": {
+        "size": 12201
+      },
+      "psychopy/platform_specific/linux.py": {
+        "size": 2604
+      },
+      "psychopy/platform_specific/win32.py": {
+        "size": 3786
+      },
+      "psychopy/plugins/__init__.py": {
+        "size": 50455
+      },
+      "psychopy/plugins/util.py": {
+        "size": 3346
+      },
+      "psychopy/preferences/__init__.py": {
+        "size": 513
+      },
+      "psychopy/preferences/devices.py": {
+        "size": 2898
+      },
+      "psychopy/preferences/generateHints.py": {
+        "size": 3494
+      },
+      "psychopy/preferences/generateSpec.py": {
+        "size": 3567
+      },
+      "psychopy/preferences/hints.py": {
+        "size": 11843
+      },
+      "psychopy/preferences/preferences.py": {
+        "size": 20533
+      },
+      "psychopy/projects/__init__.py": {
+        "size": 341
+      },
+      "psychopy/projects/gitignore.py": {
+        "size": 474
+      },
+      "psychopy/projects/pavlovia.py": {
+        "size": 64045
+      },
+      "psychopy/projects/sshkeys.py": {
+        "size": 3890
+      },
+      "psychopy/scripts/__init__.py": {
+        "size": 0
+      },
+      "psychopy/scripts/psychopy-pkgutil.py": {
+        "size": 33091
+      },
+      "psychopy/scripts/psyexpCompile.py": {
+        "size": 7750
+      },
+      "psychopy/session.py": {
+        "size": 60180
+      },
+      "psychopy/sound/__init__.py": {
+        "size": 1648
+      },
+      "psychopy/sound/_base.py": {
+        "size": 16361
+      },
+      "psychopy/sound/audioclip.py": {
+        "size": 46130
+      },
+      "psychopy/sound/audiodevice.py": {
+        "size": 28180
+      },
+      "psychopy/sound/backend_ptb.py": {
+        "size": 14539
+      },
+      "psychopy/sound/backend_pygame.py": {
+        "size": 11298
+      },
+      "psychopy/sound/backend_pyo.py": {
+        "size": 1103
+      },
+      "psychopy/sound/backend_pysound.py": {
+        "size": 11512
+      },
+      "psychopy/sound/backend_sounddevice.py": {
+        "size": 868
+      },
+      "psychopy/sound/backends/__init__.py": {
+        "size": 0
+      },
+      "psychopy/sound/exceptions.py": {
+        "size": 3013
+      },
+      "psychopy/sound/microphone.py": {
+        "size": 11127
+      },
+      "psychopy/sound/sound.py": {
+        "size": 1970
+      },
+      "psychopy/sound/transcribe.py": {
+        "size": 45883
+      },
+      "psychopy/tests/README.md": {
+        "size": 17073
+      },
+      "psychopy/tests/__init__.py": {
+        "size": 1611
+      },
+      "psychopy/tests/data/correctScript/js/correctCodeComponent.js": {
+        "size": 5507
+      },
+      "psychopy/tests/data/correctScript/js/correctImageComponent.js": {
+        "size": 6365
+      },
+      "psychopy/tests/data/correctScript/js/correctKeyboardComponent.js": {
+        "size": 7097
+      },
+      "psychopy/tests/data/correctScript/js/correctMouseComponent.js": {
+        "size": 7271
+      },
+      "psychopy/tests/data/correctScript/js/correctMovieComponent.js": {
+        "size": 6310
+      },
+      "psychopy/tests/data/correctScript/js/correctPolygonComponent.js": {
+        "size": 6455
+      },
+      "psychopy/tests/data/correctScript/js/correctSliderComponent.js": {
+        "size": 6513
+      },
+      "psychopy/tests/data/correctScript/js/correctSoundComponent.js": {
+        "size": 6465
+      },
+      "psychopy/tests/data/correctScript/js/correctTextComponent.js": {
+        "size": 6257
+      },
+      "psychopy/tests/data/correctScript/python/correctApertureComponent.py": {
+        "size": 6458
+      },
+      "psychopy/tests/data/correctScript/python/correctCodeComponent.py": {
+        "size": 5359
+      },
+      "psychopy/tests/data/correctScript/python/correctDotsComponent.py": {
+        "size": 6504
+      },
+      "psychopy/tests/data/correctScript/python/correctEnvGratingComponent.py": {
+        "size": 7087
+      },
+      "psychopy/tests/data/correctScript/python/correctFormComponent.py": {
+        "size": 5745
+      },
+      "psychopy/tests/data/correctScript/python/correctGratingComponent.py": {
+        "size": 6491
+      },
+      "psychopy/tests/data/correctScript/python/correctImageComponent.py": {
+        "size": 6458
+      },
+      "psychopy/tests/data/correctScript/python/correctJoyButtonsComponent.py": {
+        "size": 8642
+      },
+      "psychopy/tests/data/correctScript/python/correctJoystickComponent.py": {
+        "size": 9266
+      },
+      "psychopy/tests/data/correctScript/python/correctKeyboardComponent.py": {
+        "size": 6857
+      },
+      "psychopy/tests/data/correctScript/python/correctMicrophoneComponent.py": {
+        "size": 6445
+      },
+      "psychopy/tests/data/correctScript/python/correctMouseComponent.py": {
+        "size": 7187
+      },
+      "psychopy/tests/data/correctScript/python/correctMovieComponent.py": {
+        "size": 6367
+      },
+      "psychopy/tests/data/correctScript/python/correctNoiseStimComponent.py": {
+        "size": 6853
+      },
+      "psychopy/tests/data/correctScript/python/correctParallelOutComponent.py": {
+        "size": 6429
+      },
+      "psychopy/tests/data/correctScript/python/correctPatchComponent.py": {
+        "size": 6436
+      },
+      "psychopy/tests/data/correctScript/python/correctPolygonComponent.py": {
+        "size": 6584
+      },
+      "psychopy/tests/data/correctScript/python/correctQmixPumpComponent.py": {
+        "size": 6912
+      },
+      "psychopy/tests/data/correctScript/python/correctRatingScaleComponent.py": {
+        "size": 6205
+      },
+      "psychopy/tests/data/correctScript/python/correctSliderComponent.py": {
+        "size": 6322
+      },
+      "psychopy/tests/data/correctScript/python/correctSoundComponent.py": {
+        "size": 6489
+      },
+      "psychopy/tests/data/correctScript/python/correctStaticComponent.py": {
+        "size": 7276
+      },
+      "psychopy/tests/data/correctScript/python/correctTextComponent.py": {
+        "size": 6437
+      },
+      "psychopy/tests/data/correctScript/python/correctVariableComponent.py": {
+        "size": 5455
+      },
+      "psychopy/tests/data/correctScript/python/correctcedrusButtonBoxComponent.py": {
+        "size": 8233
+      },
+      "psychopy/tests/data/correctScript/python/correctioLabsButtonBoxComponent.py": {
+        "size": 7650
+      },
+      "psychopy/tests/data/test_basic_run.py": {
+        "size": 16
+      },
+      "psychopy/tests/run.py": {
+        "size": 1290
+      },
+      "psychopy/tests/test_Installation.py": {
+        "size": 958
+      },
+      "psychopy/tests/test_alerts/test_alerts.py": {
+        "size": 1407
+      },
+      "psychopy/tests/test_alerts/test_alerttools.py": {
+        "size": 5751
+      },
+      "psychopy/tests/test_app/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_app/conftest.py": {
+        "size": 930
+      },
+      "psychopy/tests/test_app/test_builder/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_app/test_builder/test_BuilderFrame.py": {
+        "size": 6432
+      },
+      "psychopy/tests/test_app/test_builder/test_CompileFromBuilder.py": {
+        "size": 4852
+      },
+      "psychopy/tests/test_app/test_builder/test_ComponentDialogs.py": {
+        "size": 4356
+      },
+      "psychopy/tests/test_app/test_command_line.py": {
+        "size": 1787
+      },
+      "psychopy/tests/test_app/test_runner/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_app/test_runner/test_RunnerFrame.py": {
+        "size": 5975
+      },
+      "psychopy/tests/test_app/test_speed.py": {
+        "size": 4701
+      },
+      "psychopy/tests/test_app/test_themes/test_icons.py": {
+        "size": 3131
+      },
+      "psychopy/tests/test_codecov.py": {
+        "size": 953
+      },
+      "psychopy/tests/test_colors/test_Color.py": {
+        "size": 1200
+      },
+      "psychopy/tests/test_data/test_ExperimentHandler.py": {
+        "size": 5363
+      },
+      "psychopy/tests/test_data/test_MultiStairHandler.py": {
+        "size": 6315
+      },
+      "psychopy/tests/test_data/test_StairHandlers.py": {
+        "size": 44492
+      },
+      "psychopy/tests/test_data/test_TrialHandler.py": {
+        "size": 13665
+      },
+      "psychopy/tests/test_data/test_TrialHandler2.py": {
+        "size": 22196
+      },
+      "psychopy/tests/test_data/test_TrialHandlerExt.py": {
+        "size": 14284
+      },
+      "psychopy/tests/test_data/test_fitFunctions.py": {
+        "size": 3670
+      },
+      "psychopy/tests/test_data/test_utils.py": {
+        "size": 8182
+      },
+      "psychopy/tests/test_data/test_xlsx.py": {
+        "size": 3481
+      },
+      "psychopy/tests/test_demos/test_builder_demos.py": {
+        "size": 2059
+      },
+      "psychopy/tests/test_experiment/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_experiment/known_py_diffs.txt": {
+        "size": 2729
+      },
+      "psychopy/tests/test_experiment/needs_wx/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_experiment/needs_wx/componsTemplate.txt": {
+        "size": 524312
+      },
+      "psychopy/tests/test_experiment/needs_wx/genComponsTemplate.py": {
+        "size": 4676
+      },
+      "psychopy/tests/test_experiment/needs_wx/test_Experiment.py": {
+        "size": 16508
+      },
+      "psychopy/tests/test_experiment/needs_wx/test_components.py": {
+        "size": 7095
+      },
+      "psychopy/tests/test_experiment/test_component_compile_js.py": {
+        "size": 2775
+      },
+      "psychopy/tests/test_experiment/test_component_compile_python.py": {
+        "size": 7002
+      },
+      "psychopy/tests/test_experiment/test_components/__init__.py": {
+        "size": 52
+      },
+      "psychopy/tests/test_experiment/test_components/test_ButtonBoxComponent.py": {
+        "size": 7668
+      },
+      "psychopy/tests/test_experiment/test_components/test_CodeComponent.py": {
+        "size": 3460
+      },
+      "psychopy/tests/test_experiment/test_components/test_GratingComponent.py": {
+        "size": 363
+      },
+      "psychopy/tests/test_experiment/test_components/test_ImageComponent.py": {
+        "size": 366
+      },
+      "psychopy/tests/test_experiment/test_components/test_KeyboardComponent.py": {
+        "size": 1054
+      },
+      "psychopy/tests/test_experiment/test_components/test_MouseComponent.py": {
+        "size": 7911
+      },
+      "psychopy/tests/test_experiment/test_components/test_PolygonComponent.py": {
+        "size": 2954
+      },
+      "psychopy/tests/test_experiment/test_components/test_ResourceManagerComponent.py": {
+        "size": 2533
+      },
+      "psychopy/tests/test_experiment/test_components/test_RoutineSettingsComponent.py": {
+        "size": 538
+      },
+      "psychopy/tests/test_experiment/test_components/test_SettingsComponent.py": {
+        "size": 3338
+      },
+      "psychopy/tests/test_experiment/test_components/test_StaticComponent.py": {
+        "size": 2434
+      },
+      "psychopy/tests/test_experiment/test_components/test_UnknownPluginComponent.py": {
+        "size": 1267
+      },
+      "psychopy/tests/test_experiment/test_components/test_all_components.py": {
+        "size": 4422
+      },
+      "psychopy/tests/test_experiment/test_components/test_base_components.py": {
+        "size": 20925
+      },
+      "psychopy/tests/test_experiment/test_experiment.py": {
+        "size": 9507
+      },
+      "psychopy/tests/test_experiment/test_loops.py": {
+        "size": 3978
+      },
+      "psychopy/tests/test_experiment/test_params.py": {
+        "size": 13992
+      },
+      "psychopy/tests/test_experiment/test_py2js.py": {
+        "size": 7668
+      },
+      "psychopy/tests/test_experiment/test_routines/__init__.py": {
+        "size": 83
+      },
+      "psychopy/tests/test_experiment/test_routines/test_EyetrackerCalibrationRoutine.py": {
+        "size": 459
+      },
+      "psychopy/tests/test_experiment/test_routines/test_PhotodiodeValidationRoutine.py": {
+        "size": 435
+      },
+      "psychopy/tests/test_experiment/test_routines/test_all_routines.py": {
+        "size": 948
+      },
+      "psychopy/tests/test_experiment/test_routines/test_base_routine.py": {
+        "size": 6396
+      },
+      "psychopy/tests/test_experiment/test_routines/test_standalone_routines.py": {
+        "size": 1124
+      },
+      "psychopy/tests/test_gui/test_DlgFromDictQt.py": {
+        "size": 2677
+      },
+      "psychopy/tests/test_gui/test_DlgFromDictWx.py": {
+        "size": 2613
+      },
+      "psychopy/tests/test_hardware/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_hardware/test_device_manager.py": {
+        "size": 1240
+      },
+      "psychopy/tests/test_hardware/test_emulator.py": {
+        "size": 4227
+      },
+      "psychopy/tests/test_hardware/test_gammasci.py": {
+        "size": 1140
+      },
+      "psychopy/tests/test_hardware/test_keyboard.py": {
+        "size": 8566
+      },
+      "psychopy/tests/test_hardware/test_keyboard_events.py": {
+        "size": 10989
+      },
+      "psychopy/tests/test_hardware/test_photodiode.py": {
+        "size": 2095
+      },
+      "psychopy/tests/test_hardware/test_ports.py": {
+        "size": 4277
+      },
+      "psychopy/tests/test_iohub/__init__.py": {
+        "size": 19
+      },
+      "psychopy/tests/test_iohub/test_computer.py": {
+        "size": 4426
+      },
+      "psychopy/tests/test_iohub/test_event_get_and_clear.py": {
+        "size": 2355
+      },
+      "psychopy/tests/test_iohub/test_keyboard.py": {
+        "size": 2744
+      },
+      "psychopy/tests/test_iohub/test_launch.py": {
+        "size": 444
+      },
+      "psychopy/tests/test_iohub/testutil.py": {
+        "size": 1486
+      },
+      "psychopy/tests/test_liaison/test_Liaison.py": {
+        "size": 10238
+      },
+      "psychopy/tests/test_misc/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_misc/memory_usage.py": {
+        "size": 5930
+      },
+      "psychopy/tests/test_misc/test_GammaFun.py": {
+        "size": 483
+      },
+      "psychopy/tests/test_misc/test_clock.py": {
+        "size": 1746
+      },
+      "psychopy/tests/test_misc/test_color.py": {
+        "size": 11123
+      },
+      "psychopy/tests/test_misc/test_core.py": {
+        "size": 13416
+      },
+      "psychopy/tests/test_misc/test_event.py": {
+        "size": 10304
+      },
+      "psychopy/tests/test_misc/test_info.py": {
+        "size": 437
+      },
+      "psychopy/tests/test_misc/test_layout.py": {
+        "size": 2162
+      },
+      "psychopy/tests/test_misc/test_locale.py": {
+        "size": 1030
+      },
+      "psychopy/tests/test_misc/test_web.py": {
+        "size": 511
+      },
+      "psychopy/tests/test_monitors/test_monitors.py": {
+        "size": 2986
+      },
+      "psychopy/tests/test_plugins/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_plugins/test_plugin_stubs.py": {
+        "size": 4228
+      },
+      "psychopy/tests/test_preferences/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_preferences/test_prefs.py": {
+        "size": 1184
+      },
+      "psychopy/tests/test_session/test_Session.py": {
+        "size": 9533
+      },
+      "psychopy/tests/test_sound/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_sound/test_audioclip.py": {
+        "size": 11490
+      },
+      "psychopy/tests/test_sound/test_hamming.py": {
+        "size": 1236
+      },
+      "psychopy/tests/test_sound/test_sound.py": {
+        "size": 4465
+      },
+      "psychopy/tests/test_sound/test_sound_pygame.py": {
+        "size": 1998
+      },
+      "psychopy/tests/test_tools/test_animationtools.py": {
+        "size": 2207
+      },
+      "psychopy/tests/test_tools/test_arraytools.py": {
+        "size": 11639
+      },
+      "psychopy/tests/test_tools/test_attributetools.py": {
+        "size": 9774
+      },
+      "psychopy/tests/test_tools/test_colorspacetools.py": {
+        "size": 4357
+      },
+      "psychopy/tests/test_tools/test_environmenttools.py": {
+        "size": 1843
+      },
+      "psychopy/tests/test_tools/test_fileerrortools.py": {
+        "size": 2953
+      },
+      "psychopy/tests/test_tools/test_filetools.py": {
+        "size": 3076
+      },
+      "psychopy/tests/test_tools/test_imagetools.py": {
+        "size": 2018
+      },
+      "psychopy/tests/test_tools/test_mathtools.py": {
+        "size": 21472
+      },
+      "psychopy/tests/test_tools/test_stringtools.py": {
+        "size": 7548
+      },
+      "psychopy/tests/test_tools/test_versionchooser.py": {
+        "size": 8260
+      },
+      "psychopy/tests/test_tools/test_viewtools.py": {
+        "size": 5296
+      },
+      "psychopy/tests/test_validators/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_validators/test_voicekeyValidator.py": {
+        "size": 3917
+      },
+      "psychopy/tests/test_visual/__init__.py": {
+        "size": 0
+      },
+      "psychopy/tests/test_visual/measure_parity.py": {
+        "size": 9550
+      },
+      "psychopy/tests/test_visual/test_all_stimuli.py": {
+        "size": 26451
+      },
+      "psychopy/tests/test_visual/test_basevisual.py": {
+        "size": 25149
+      },
+      "psychopy/tests/test_visual/test_brush.py": {
+        "size": 1982
+      },
+      "psychopy/tests/test_visual/test_button.py": {
+        "size": 637
+      },
+      "psychopy/tests/test_visual/test_circle.py": {
+        "size": 3037
+      },
+      "psychopy/tests/test_visual/test_contains_overlaps.py": {
+        "size": 8987
+      },
+      "psychopy/tests/test_visual/test_custommouse.py": {
+        "size": 1515
+      },
+      "psychopy/tests/test_visual/test_dots.py": {
+        "size": 6360
+      },
+      "psychopy/tests/test_visual/test_form.py": {
+        "size": 17071
+      },
+      "psychopy/tests/test_visual/test_framepacking.py": {
+        "size": 1199
+      },
+      "psychopy/tests/test_visual/test_gamma.py": {
+        "size": 4633
+      },
+      "psychopy/tests/test_visual/test_glfw_backend.py": {
+        "size": 524
+      },
+      "psychopy/tests/test_visual/test_image.py": {
+        "size": 8727
+      },
+      "psychopy/tests/test_visual/test_panorama.py": {
+        "size": 1545
+      },
+      "psychopy/tests/test_visual/test_progress.py": {
+        "size": 3699
+      },
+      "psychopy/tests/test_visual/test_projections.py": {
+        "size": 8092
+      },
+      "psychopy/tests/test_visual/test_projections_interactive.py": {
+        "size": 6780
+      },
+      "psychopy/tests/test_visual/test_roi.py": {
+        "size": 3658
+      },
+      "psychopy/tests/test_visual/test_shape.py": {
+        "size": 838
+      },
+      "psychopy/tests/test_visual/test_slider.py": {
+        "size": 13483
+      },
+      "psychopy/tests/test_visual/test_target.py": {
+        "size": 1400
+      },
+      "psychopy/tests/test_visual/test_textbox.py": {
+        "size": 23699
+      },
+      "psychopy/tests/test_visual/test_winFlipTiming.py": {
+        "size": 3275
+      },
+      "psychopy/tests/test_visual/test_winScalePos.py": {
+        "size": 3524
+      },
+      "psychopy/tests/test_visual/test_window.py": {
+        "size": 4891
+      },
+      "psychopy/tests/utils.py": {
+        "size": 14518
+      },
+      "psychopy/tools/LineBreak.txt": {
+        "size": 251681
+      },
+      "psychopy/tools/__init__.py": {
+        "size": 291
+      },
+      "psychopy/tools/animationtools.py": {
+        "size": 1720
+      },
+      "psychopy/tools/apptools.py": {
+        "size": 829
+      },
+      "psychopy/tools/arraytools.py": {
+        "size": 20999
+      },
+      "psychopy/tools/attributetools.py": {
+        "size": 9621
+      },
+      "psychopy/tools/audiotools.py": {
+        "size": 10522
+      },
+      "psychopy/tools/colorspacetools.py": {
+        "size": 26451
+      },
+      "psychopy/tools/coordinatetools.py": {
+        "size": 2808
+      },
+      "psychopy/tools/environmenttools.py": {
+        "size": 1927
+      },
+      "psychopy/tools/fileerrortools.py": {
+        "size": 2561
+      },
+      "psychopy/tools/filetools.py": {
+        "size": 13123
+      },
+      "psychopy/tools/fontmanager.py": {
+        "size": 42191
+      },
+      "psychopy/tools/gltools.py": {
+        "size": 252039
+      },
+      "psychopy/tools/imagetools.py": {
+        "size": 9230
+      },
+      "psychopy/tools/linebreak.py": {
+        "size": 9888
+      },
+      "psychopy/tools/mathtools.py": {
+        "size": 167907
+      },
+      "psychopy/tools/monitorunittools.py": {
+        "size": 9861
+      },
+      "psychopy/tools/movietools.py": {
+        "size": 41060
+      },
+      "psychopy/tools/pkgtools.py": {
+        "size": 22641
+      },
+      "psychopy/tools/plottools.py": {
+        "size": 748
+      },
+      "psychopy/tools/rifttools.py": {
+        "size": 1885
+      },
+      "psychopy/tools/servertools.py": {
+        "size": 3222
+      },
+      "psychopy/tools/stereotools.py": {
+        "size": 260
+      },
+      "psychopy/tools/stimulustools.py": {
+        "size": 6033
+      },
+      "psychopy/tools/stringtools.py": {
+        "size": 12603
+      },
+      "psychopy/tools/systemtools.py": {
+        "size": 48358
+      },
+      "psychopy/tools/typetools.py": {
+        "size": 1219
+      },
+      "psychopy/tools/unittools.py": {
+        "size": 470
+      },
+      "psychopy/tools/versionchooser.py": {
+        "size": 21189
+      },
+      "psychopy/tools/viewtools.py": {
+        "size": 37552
+      },
+      "psychopy/tools/wizard.py": {
+        "size": 35400
+      },
+      "psychopy/validation/__init__.py": {
+        "size": 224
+      },
+      "psychopy/validation/audio.py": {
+        "size": 2637
+      },
+      "psychopy/validation/visual.py": {
+        "size": 4034
+      },
+      "psychopy/visual/__init__.py": {
+        "size": 4156
+      },
+      "psychopy/visual/aperture.py": {
+        "size": 11198
+      },
+      "psychopy/visual/backends/__init__.py": {
+        "size": 2425
+      },
+      "psychopy/visual/backends/_base.py": {
+        "size": 16791
+      },
+      "psychopy/visual/backends/gamma.py": {
+        "size": 13419
+      },
+      "psychopy/visual/backends/glfwbackend.py": {
+        "size": 780
+      },
+      "psychopy/visual/backends/pygamebackend.py": {
+        "size": 12804
+      },
+      "psychopy/visual/backends/pygletbackend.py": {
+        "size": 38784
+      },
+      "psychopy/visual/basevisual.py": {
+        "size": 77282
+      },
+      "psychopy/visual/brush.py": {
+        "size": 5789
+      },
+      "psychopy/visual/bufferimage.py": {
+        "size": 12290
+      },
+      "psychopy/visual/button.py": {
+        "size": 6755
+      },
+      "psychopy/visual/circle.py": {
+        "size": 6530
+      },
+      "psychopy/visual/custommouse.py": {
+        "size": 9800
+      },
+      "psychopy/visual/dot.py": {
+        "size": 30755
+      },
+      "psychopy/visual/dropdown.py": {
+        "size": 6283
+      },
+      "psychopy/visual/elementarray.py": {
+        "size": 31074
+      },
+      "psychopy/visual/filters.py": {
+        "size": 14134
+      },
+      "psychopy/visual/form.py": {
+        "size": 44062
+      },
+      "psychopy/visual/globalVars.py": {
+        "size": 575
+      },
+      "psychopy/visual/grating.py": {
+        "size": 22635
+      },
+      "psychopy/visual/helpers.py": {
+        "size": 13047
+      },
+      "psychopy/visual/image.py": {
+        "size": 17193
+      },
+      "psychopy/visual/line.py": {
+        "size": 8127
+      },
+      "psychopy/visual/movie.py": {
+        "size": 353
+      },
+      "psychopy/visual/movie2.py": {
+        "size": 567
+      },
+      "psychopy/visual/movie3.py": {
+        "size": 439
+      },
+      "psychopy/visual/movies/__init__.py": {
+        "size": 76096
+      },
+      "psychopy/visual/movies/frame.py": {
+        "size": 7932
+      },
+      "psychopy/visual/movies/metadata.py": {
+        "size": 7118
+      },
+      "psychopy/visual/movies/players/_base.py": {
+        "size": 9782
+      },
+      "psychopy/visual/nnlvs.py": {
+        "size": 30422
+      },
+      "psychopy/visual/noise.py": {
+        "size": 1177
+      },
+      "psychopy/visual/panorama.py": {
+        "size": 10339
+      },
+      "psychopy/visual/patch.py": {
+        "size": 585
+      },
+      "psychopy/visual/pie.py": {
+        "size": 9144
+      },
+      "psychopy/visual/polygon.py": {
+        "size": 9145
+      },
+      "psychopy/visual/progress.py": {
+        "size": 10661
+      },
+      "psychopy/visual/radial.py": {
+        "size": 910
+      },
+      "psychopy/visual/ratingscale.py": {
+        "size": 521
+      },
+      "psychopy/visual/rect.py": {
+        "size": 8030
+      },
+      "psychopy/visual/rift.py": {
+        "size": 100008
+      },
+      "psychopy/visual/roi.py": {
+        "size": 5865
+      },
+      "psychopy/visual/secondorder.py": {
+        "size": 848
+      },
+      "psychopy/visual/shaders.py": {
+        "size": 28061
+      },
+      "psychopy/visual/shape.py": {
+        "size": 33401
+      },
+      "psychopy/visual/simpleimage.py": {
+        "size": 12029
+      },
+      "psychopy/visual/slider.py": {
+        "size": 44007
+      },
+      "psychopy/visual/stim3d.py": {
+        "size": 77268
+      },
+      "psychopy/visual/target.py": {
+        "size": 9431
+      },
+      "psychopy/visual/text.py": {
+        "size": 30808
+      },
+      "psychopy/visual/textbox/__init__.py": {
+        "size": 53776
+      },
+      "psychopy/visual/textbox/fontmanager.py": {
+        "size": 21695
+      },
+      "psychopy/visual/textbox/parsedtext.py": {
+        "size": 10413
+      },
+      "psychopy/visual/textbox/textgrid.py": {
+        "size": 9791
+      },
+      "psychopy/visual/textbox/textureatlas.py": {
+        "size": 7446
+      },
+      "psychopy/visual/textbox2/__init__.py": {
+        "size": 87
+      },
+      "psychopy/visual/textbox2/textbox2.py": {
+        "size": 73693
+      },
+      "psychopy/visual/vlcmoviestim.py": {
+        "size": 42414
+      },
+      "psychopy/visual/window.py": {
+        "size": 151750
+      },
+      "psychopy/visual/windowframepack.py": {
+        "size": 3260
+      },
+      "psychopy/visual/windowwarp.py": {
+        "size": 18099
+      },
+      "psychopy/voicekey/__init__.py": {
+        "size": 1094
+      },
+      "psychopy/voicekey/labjack_vks.py": {
+        "size": 190
+      },
+      "psychopy/voicekey/parallel_vks.py": {
+        "size": 189
+      },
+      "psychopy/voicekey/vk_tools.py": {
+        "size": 2262
+      },
+      "psychopy/web.py": {
+        "size": 10328
+      },
+      "pyproject.toml": {
+        "size": 4854
+      },
+      "pytest.ini": {
+        "size": 689
+      },
+      "setupApp.py": {
+        "size": 9928
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.building",
+      "source.psychopy",
+      "source.psychopy.alerts",
+      "source.psychopy.app",
+      "source.psychopy.assets",
+      "source.psychopy.changes",
+      "source.psychopy.contrib",
+      "source.psychopy.data",
+      "source.psychopy.demos",
+      "source.psychopy.devices",
+      "source.psychopy.experiment",
+      "source.psychopy.gui",
+      "source.psychopy.hardware",
+      "source.psychopy.iohub",
+      "source.psychopy.localization",
+      "source.psychopy.monitors",
+      "source.psychopy.parallel",
+      "source.psychopy.platform_specific",
+      "source.psychopy.plugins",
+      "source.psychopy.preferences",
+      "source.psychopy.projects",
+      "source.psychopy.scripts",
+      "source.psychopy.sound",
+      "source.psychopy.tests",
+      "source.psychopy.tools",
+      "source.psychopy.validation",
+      "source.psychopy.visual",
+      "source.psychopy.voicekey"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.psychopy.plugins",
+        "module": "__init__",
+        "functions": [
+          "activatePlugins",
+          "discoverPlugins",
+          "listPlugins",
+          "loadPlugin"
+        ],
+        "classes": [],
+        "description": "Central plugin lifecycle and discovery surface; best anchor for MCP integration with minimal intrusion."
+      },
+      {
+        "package": "source.psychopy.experiment",
+        "module": "plugins",
+        "functions": [
+          "loadPluginComponents"
+        ],
+        "classes": [],
+        "description": "Bridges plugin-provided Builder/Coder experiment components into experiment compilation/runtime."
+      },
+      {
+        "package": "source.psychopy.hardware",
+        "module": "manager",
+        "functions": [
+          "getAvailableDevices",
+          "openDevice",
+          "closeDevice"
+        ],
+        "classes": [
+          "DeviceManager"
+        ],
+        "description": "Hardware abstraction and routing layer; useful if MCP tools need controlled access to device inventory/actions."
+      },
+      {
+        "package": "source.psychopy.app.plugin_manager",
+        "module": "plugins",
+        "functions": [
+          "scanPlugins",
+          "installPlugin",
+          "uninstallPlugin"
+        ],
+        "classes": [],
+        "description": "GUI-facing plugin management logic; useful as reference but less suitable than core runtime plugin API for MCP."
+      },
+      {
+        "package": "source.psychopy.session",
+        "module": "session",
+        "functions": [
+          "start",
+          "stop"
+        ],
+        "classes": [
+          "Session"
+        ],
+        "description": "High-level orchestration context for experiment runtime, candidate MCP boundary for non-GUI execution workflows."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python -m psychopy.app",
+        "module": "source.psychopy.app.__main__",
+        "description": "Launches PsychoPy desktop app entry path."
+      },
+      {
+        "name": "psyexpCompile",
+        "module": "source.psychopy.scripts.psyexpCompile",
+        "description": "Compiles Builder .psyexp experiments to runnable scripts; good non-GUI command integration point."
+      },
+      {
+        "name": "psychopy-pkgutil",
+        "module": "source.psychopy.scripts.psychopy-pkgutil",
+        "description": "Package utility helper script for environment/package operations."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.87
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "packaging",
+        "requests",
+        "json_tricks"
+      ],
+      "optional": [
+        "wxPython",
+        "PyQt/PySide",
+        "pyglet",
+        "pygame",
+        "psychtoolbox",
+        "sounddevice",
+        "pyo",
+        "opencv-python",
+        "pylink / eyetracker SDKs",
+        "python-vlc",
+        "hidapi / vendor hardware drivers"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.82,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/psychopy/psychopy",
+    "repo_name": "psychopy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.82,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

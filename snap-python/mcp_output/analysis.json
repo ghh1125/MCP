@@ -1,0 +1,2104 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/snap-stanford/snap-python",
+    "summary": "Imported via zip fallback, file count: 238",
+    "file_tree": {
+      "CREDITS.txt": {
+        "size": 1015
+      },
+      "README.md": {
+        "size": 4798
+      },
+      "RELEASE.txt": {
+        "size": 8899
+      },
+      "dev/examples/benchmark.py": {
+        "size": 13737
+      },
+      "dev/examples/convert.py": {
+        "size": 6243
+      },
+      "dev/examples/data/p2p-Gnutella08.txt": {
+        "size": 194493
+      },
+      "dev/examples/getstats.py": {
+        "size": 9553
+      },
+      "dev/examples/load.py": {
+        "size": 207
+      },
+      "dev/examples/plot_results.py": {
+        "size": 5349
+      },
+      "dev/examples/result3.txt": {
+        "size": 131
+      },
+      "dev/examples/results-madmax/BFS_all.txt": {
+        "size": 5183
+      },
+      "dev/examples/results-madmax/BFS_pref.txt": {
+        "size": 868
+      },
+      "dev/examples/results-madmax/BFS_prefdeg3.txt": {
+        "size": 866
+      },
+      "dev/examples/results-madmax/BFS_rmat.txt": {
+        "size": 864
+      },
+      "dev/examples/results-madmax/BFS_rmatdeg3.txt": {
+        "size": 861
+      },
+      "dev/examples/results-madmax/BFS_sw.txt": {
+        "size": 864
+      },
+      "dev/examples/results-madmax/BFS_swdeg3.txt": {
+        "size": 860
+      },
+      "dev/examples/results-madmax/triads_all.txt": {
+        "size": 5163
+      },
+      "dev/examples/results-madmax/triads_pref.txt": {
+        "size": 863
+      },
+      "dev/examples/results-madmax/triads_prefdeg3.txt": {
+        "size": 860
+      },
+      "dev/examples/results-madmax/triads_rmat.txt": {
+        "size": 862
+      },
+      "dev/examples/results-madmax/triads_rmatdeg3.txt": {
+        "size": 860
+      },
+      "dev/examples/results-madmax/triads_sw.txt": {
+        "size": 861
+      },
+      "dev/examples/results-madmax/triads_swdeg3.txt": {
+        "size": 857
+      },
+      "dev/examples/snapswig-check.py": {
+        "size": 1191
+      },
+      "dev/examples/tneanet-cpp.py": {
+        "size": 262
+      },
+      "dev/examples/tneanet.py": {
+        "size": 9117
+      },
+      "dev/examples/tnodei.py": {
+        "size": 76
+      },
+      "dev/examples/tungraph.py": {
+        "size": 2674
+      },
+      "dev/examples/vector_comp.py": {
+        "size": 1563
+      },
+      "dev/swig-r/snappy.py": {
+        "size": 1067
+      },
+      "dev/test/adjlist.py": {
+        "size": 2256
+      },
+      "dev/test/data/p2p-Gnutella08.txt": {
+        "size": 194493
+      },
+      "dev/test/genrnd.py": {
+        "size": 847
+      },
+      "dev/test/hash.py": {
+        "size": 2654
+      },
+      "dev/test/hkey.py": {
+        "size": 390
+      },
+      "dev/test/install-dir.py": {
+        "size": 542
+      },
+      "dev/test/memtest.py": {
+        "size": 471
+      },
+      "dev/test/printstat.py": {
+        "size": 472
+      },
+      "dev/test/readvec.py": {
+        "size": 428
+      },
+      "dev/test/results-sheridan/coeff.txt": {
+        "size": 24
+      },
+      "dev/test/results-sheridan/pref-CDD.txt": {
+        "size": 139
+      },
+      "dev/test/results-sheridan/pref-ClustCoef.txt": {
+        "size": 139
+      },
+      "dev/test/results-sheridan/pref-DD.txt": {
+        "size": 139
+      },
+      "dev/test/results-sheridan/pref-HOP.txt": {
+        "size": 139
+      },
+      "dev/test/results-sheridan/pref-SVal.txt": {
+        "size": 140
+      },
+      "dev/test/results-sheridan/pref-SVec.txt": {
+        "size": 139
+      },
+      "dev/test/results-sheridan/pref-Scc.txt": {
+        "size": 139
+      },
+      "dev/test/results-sheridan/pref-Wcc.txt": {
+        "size": 139
+      },
+      "dev/test/results-sheridan/pref-info.txt": {
+        "size": 139
+      },
+      "dev/test/results-sheridan/rmat-CDD.txt": {
+        "size": 140
+      },
+      "dev/test/results-sheridan/rmat-ClustCoef.txt": {
+        "size": 140
+      },
+      "dev/test/results-sheridan/rmat-DD.txt": {
+        "size": 140
+      },
+      "dev/test/results-sheridan/rmat-HOP.txt": {
+        "size": 140
+      },
+      "dev/test/results-sheridan/rmat-SVal.txt": {
+        "size": 140
+      },
+      "dev/test/results-sheridan/rmat-SVec.txt": {
+        "size": 140
+      },
+      "dev/test/results-sheridan/rmat-Scc.txt": {
+        "size": 140
+      },
+      "dev/test/results-sheridan/rmat-Wcc.txt": {
+        "size": 140
+      },
+      "dev/test/results-sheridan/rmat-info.txt": {
+        "size": 140
+      },
+      "dev/test/results-sheridan/sw-CDD.txt": {
+        "size": 208
+      },
+      "dev/test/results-sheridan/sw-ClustCoef.txt": {
+        "size": 208
+      },
+      "dev/test/results-sheridan/sw-DD.txt": {
+        "size": 208
+      },
+      "dev/test/results-sheridan/sw-HOP.txt": {
+        "size": 208
+      },
+      "dev/test/results-sheridan/sw-SVal.txt": {
+        "size": 187
+      },
+      "dev/test/results-sheridan/sw-SVec.txt": {
+        "size": 187
+      },
+      "dev/test/results-sheridan/sw-Scc.txt": {
+        "size": 208
+      },
+      "dev/test/results-sheridan/sw-Wcc.txt": {
+        "size": 208
+      },
+      "dev/test/results-sheridan/sw-info.txt": {
+        "size": 208
+      },
+      "dev/test/tungraph.py": {
+        "size": 2714
+      },
+      "dev/test/vec.py": {
+        "size": 1487
+      },
+      "doc/README-DOC.TXT": {
+        "size": 3253
+      },
+      "doc/guide.txt": {
+        "size": 653
+      },
+      "doc/source/conf.py": {
+        "size": 8055
+      },
+      "doc/todo.txt": {
+        "size": 567
+      },
+      "docker/README.md": {
+        "size": 11893
+      },
+      "docker/requirements.txt": {
+        "size": 138
+      },
+      "examples/benchmark.py": {
+        "size": 14022
+      },
+      "examples/data/p2p-Gnutella08.txt": {
+        "size": 194493
+      },
+      "examples/stackoverflow/doJoin.py": {
+        "size": 1516
+      },
+      "examples/stackoverflow/getAnswers.py": {
+        "size": 1438
+      },
+      "examples/stackoverflow/getQuestions.py": {
+        "size": 1675
+      },
+      "examples/stackoverflow/getStats.py": {
+        "size": 2111
+      },
+      "examples/stackoverflow/getTag.py": {
+        "size": 1599
+      },
+      "examples/tneanet.py": {
+        "size": 9115
+      },
+      "hellotest/setup.py": {
+        "size": 148
+      },
+      "setup.py": {
+        "size": 1596
+      },
+      "setup/setup.py": {
+        "size": 2613
+      },
+      "setup/snap.py": {
+        "size": 524313
+      },
+      "snapx/README.md": {
+        "size": 2732
+      },
+      "snapx/setup.py": {
+        "size": 293
+      },
+      "snapx/snapx/__init__.py": {
+        "size": 271
+      },
+      "snapx/snapx/algorithms/__init__.py": {
+        "size": 171
+      },
+      "snapx/snapx/algorithms/centrality/__init__.py": {
+        "size": 24
+      },
+      "snapx/snapx/algorithms/centrality/snap_cent.py": {
+        "size": 115
+      },
+      "snapx/snapx/algorithms/community/__init__.py": {
+        "size": 50
+      },
+      "snapx/snapx/algorithms/community/snap_cmty.py": {
+        "size": 368
+      },
+      "snapx/snapx/algorithms/components/__init__.py": {
+        "size": 26
+      },
+      "snapx/snapx/algorithms/components/components.py": {
+        "size": 3784
+      },
+      "snapx/snapx/algorithms/dag.py": {
+        "size": 28823
+      },
+      "snapx/snapx/algorithms/shortest_paths/__init__.py": {
+        "size": 112
+      },
+      "snapx/snapx/algorithms/shortest_paths/unweighted.py": {
+        "size": 14520
+      },
+      "snapx/snapx/algorithms/shortest_paths/weighted.py": {
+        "size": 72792
+      },
+      "snapx/snapx/classes/__init__.py": {
+        "size": 168
+      },
+      "snapx/snapx/classes/_nodeiter.py": {
+        "size": 2521
+      },
+      "snapx/snapx/classes/attrdict.py": {
+        "size": 7278
+      },
+      "snapx/snapx/classes/coreviews.py": {
+        "size": 7082
+      },
+      "snapx/snapx/classes/digraph.py": {
+        "size": 40018
+      },
+      "snapx/snapx/classes/filters.py": {
+        "size": 1756
+      },
+      "snapx/snapx/classes/function.py": {
+        "size": 9997
+      },
+      "snapx/snapx/classes/graph.py": {
+        "size": 51329
+      },
+      "snapx/snapx/classes/graphviews.py": {
+        "size": 4930
+      },
+      "snapx/snapx/classes/reportviews.py": {
+        "size": 7755
+      },
+      "snapx/snapx/classes/tests/__init__.py": {
+        "size": 12
+      },
+      "snapx/snapx/classes/tests/test_attrdict.py": {
+        "size": 3830
+      },
+      "snapx/snapx/classes/tests/test_coreviews.py": {
+        "size": 4165
+      },
+      "snapx/snapx/classes/tests/test_graph.py": {
+        "size": 26667
+      },
+      "snapx/snapx/classes/tests/test_reportviews.py": {
+        "size": 14382
+      },
+      "snapx/snapx/convert.py": {
+        "size": 8514
+      },
+      "snapx/snapx/exception.py": {
+        "size": 1082
+      },
+      "snapx/snapx/generators/__init__.py": {
+        "size": 74
+      },
+      "snapx/snapx/generators/classic.py": {
+        "size": 4037
+      },
+      "snapx/snapx/generators/ego.py": {
+        "size": 2150
+      },
+      "snapx/snapx/relabel.py": {
+        "size": 7699
+      },
+      "snapx/snapx/testing/__init__.py": {
+        "size": 35
+      },
+      "snapx/snapx/testing/utils.py": {
+        "size": 1780
+      },
+      "snapx/snapx/utils/__init__.py": {
+        "size": 68
+      },
+      "snapx/snapx/utils/decorator.py": {
+        "size": 17222
+      },
+      "snapx/snapx/utils/decorators.py": {
+        "size": 3454
+      },
+      "snapx/snapx/utils/misc.py": {
+        "size": 577
+      },
+      "swig/README.txt": {
+        "size": 3310
+      },
+      "swig/gen/NOTES.TXT": {
+        "size": 3315
+      },
+      "swig/gen/disp-custom.py": {
+        "size": 6928
+      },
+      "swig/gen/dispatch-pneanet.txt": {
+        "size": 2480
+      },
+      "swig/gen/dispatch-pngraph.txt": {
+        "size": 2480
+      },
+      "swig/gen/dispatch-pngraphmp.txt": {
+        "size": 2534
+      },
+      "swig/gen/dispatch-pungraph.txt": {
+        "size": 2599
+      },
+      "swig/gen/dispatch.txt": {
+        "size": 10093
+      },
+      "swig/gen/genClassFn/README.txt": {
+        "size": 1193
+      },
+      "swig/gen/genClassFn/archive/README.txt": {
+        "size": 698
+      },
+      "swig/gen/genClassFn/archive/classFn.txt": {
+        "size": 266
+      },
+      "swig/gen/genClassFn/archive/classFnDef.txt": {
+        "size": 2415
+      },
+      "swig/gen/genClassFn/archive/classFnExt.txt": {
+        "size": 7672
+      },
+      "swig/gen/genClassFn/archive/genClassFnExt.py": {
+        "size": 2702
+      },
+      "swig/gen/genClassFn/classFn.txt": {
+        "size": 1728
+      },
+      "swig/gen/genClassFn/genPyClassFn.py": {
+        "size": 589
+      },
+      "swig/gen/gendispatch.py": {
+        "size": 1874
+      },
+      "swig/gen/gentypes.py": {
+        "size": 823
+      },
+      "swig/gen/hashes.txt": {
+        "size": 616
+      },
+      "swig/gen/types.txt": {
+        "size": 2858
+      },
+      "swig/gen/vectors.txt": {
+        "size": 969
+      },
+      "swig/setup.py": {
+        "size": 2136
+      },
+      "swig/snap/__init__.py": {
+        "size": 509
+      },
+      "test/adjlist.py": {
+        "size": 2286
+      },
+      "test/attributes.py": {
+        "size": 1128
+      },
+      "test/attrtest.py": {
+        "size": 804
+      },
+      "test/bfs.py": {
+        "size": 1529
+      },
+      "test/bug-2015-130-GetRndNI.py": {
+        "size": 146
+      },
+      "test/bug-2015-18-attr.py": {
+        "size": 1074
+      },
+      "test/bug-20150706-pagerank.py": {
+        "size": 160
+      },
+      "test/bug-328-cnm.py": {
+        "size": 170
+      },
+      "test/bug-585-genrndpowerlaw.py": {
+        "size": 171
+      },
+      "test/bug-AddFltAttrN.py": {
+        "size": 492
+      },
+      "test/bug-attr-mem.py": {
+        "size": 3056
+      },
+      "test/cncom.py": {
+        "size": 1602
+      },
+      "test/cpm_communities.py": {
+        "size": 671
+      },
+      "test/data/cooccurrence.txt": {
+        "size": 222
+      },
+      "test/data/data-table.txt": {
+        "size": 89
+      },
+      "test/data/example-LoadConnListStr.txt": {
+        "size": 12
+      },
+      "test/data/final_sorted_edges.txt": {
+        "size": 524313
+      },
+      "test/data/p2p-Gnutella08.txt": {
+        "size": 194498
+      },
+      "test/data/test-509.txt": {
+        "size": 12
+      },
+      "test/delnode.py": {
+        "size": 1141
+      },
+      "test/demo-random.py": {
+        "size": 505
+      },
+      "test/except.py": {
+        "size": 497
+      },
+      "test/genrnd.py": {
+        "size": 863
+      },
+      "test/getidv.py": {
+        "size": 207
+      },
+      "test/gnuplot.py": {
+        "size": 139
+      },
+      "test/graphviz.py": {
+        "size": 315
+      },
+      "test/hash.py": {
+        "size": 2688
+      },
+      "test/hkey.py": {
+        "size": 407
+      },
+      "test/intro.py": {
+        "size": 3055
+      },
+      "test/make-graph.py": {
+        "size": 749
+      },
+      "test/make-tab.py": {
+        "size": 330
+      },
+      "test/net.py": {
+        "size": 9161
+      },
+      "test/ops.py": {
+        "size": 2989
+      },
+      "test/ops1.py": {
+        "size": 1078
+      },
+      "test/pagerank.py": {
+        "size": 490
+      },
+      "test/plotdeg.py": {
+        "size": 368
+      },
+      "test/printsnap.py": {
+        "size": 59
+      },
+      "test/printstat.py": {
+        "size": 511
+      },
+      "test/props.py": {
+        "size": 594
+      },
+      "test/quick_test.py": {
+        "size": 291
+      },
+      "test/readgraph.py": {
+        "size": 2682
+      },
+      "test/readvec.py": {
+        "size": 439
+      },
+      "test/rnd.py": {
+        "size": 330
+      },
+      "test/snap-test-pylayer.py": {
+        "size": 137859
+      },
+      "test/snap-test.py": {
+        "size": 138461
+      },
+      "test/table-test-avery.py": {
+        "size": 3128
+      },
+      "test/test-131-setiter.py": {
+        "size": 334
+      },
+      "test/test-2015-18a-attr.py": {
+        "size": 1365
+      },
+      "test/test-2015-298.py": {
+        "size": 576
+      },
+      "test/test-20160801-LoadConnListStr.py": {
+        "size": 407
+      },
+      "test/test-20180416-table.py": {
+        "size": 805
+      },
+      "test/test-346-getei.py": {
+        "size": 917
+      },
+      "test/test-356-getei.py": {
+        "size": 545
+      },
+      "test/test-374-addstrattrdate.py": {
+        "size": 330
+      },
+      "test/test-384-deledge.py": {
+        "size": 205
+      },
+      "test/test-509-load.py": {
+        "size": 390
+      },
+      "test/test-582-getnodewcc.py": {
+        "size": 209
+      },
+      "test/test-585-genrndpowerlaw.py": {
+        "size": 57
+      },
+      "test/test-613-getbfstree.py": {
+        "size": 453
+      },
+      "test/test-GetBetweennessCentr.py": {
+        "size": 1035
+      },
+      "test/test-GetClosenessCentr.py": {
+        "size": 614
+      },
+      "test/test-GetFarnessCentr.py": {
+        "size": 596
+      },
+      "test/test-THashKeyDatI.py": {
+        "size": 178
+      },
+      "test/test-emptystr.py": {
+        "size": 353
+      },
+      "test/test-girvan-newman.py": {
+        "size": 710
+      },
+      "test/test-gnuplot.py": {
+        "size": 121
+      },
+      "test/test-graphviz.py": {
+        "size": 109
+      },
+      "test/test-io.py": {
+        "size": 2464
+      },
+      "test/test-node2vec.py": {
+        "size": 224
+      },
+      "test/test-pajek.py": {
+        "size": 1466
+      },
+      "test/test-rewire.py": {
+        "size": 278
+      },
+      "test/test-table.py": {
+        "size": 1780
+      },
+      "test/test-tnodei.py": {
+        "size": 1866
+      },
+      "test/test-vec-ops.py": {
+        "size": 1235
+      },
+      "test/thash.py": {
+        "size": 923
+      },
+      "test/titer.py": {
+        "size": 6659
+      },
+      "test/tmany.py": {
+        "size": 4540
+      },
+      "test/tneanet.py": {
+        "size": 29824
+      },
+      "test/tnodei.py": {
+        "size": 955
+      },
+      "test/tpair.py": {
+        "size": 83
+      },
+      "test/tree.py": {
+        "size": 369
+      },
+      "test/tutorial.py": {
+        "size": 3825
+      },
+      "test/tvec.py": {
+        "size": 704
+      },
+      "test/vec.py": {
+        "size": 1511
+      },
+      "test/vector_comp.py": {
+        "size": 1568
+      },
+      "troubleshooting.md": {
+        "size": 1594
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.snapx.snapx",
+      "source.swig.snap"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "setup",
+        "module": "setup",
+        "functions": [],
+        "classes": [
+          "SwigBuild",
+          "SwigExtension"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "swig",
+        "module": "setup",
+        "functions": [],
+        "classes": [
+          "PkgBuild",
+          "SwigExtension"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "swig.gen",
+        "module": "disp-custom",
+        "functions": [
+          "ConvertESubGraph",
+          "ConvertGraph",
+          "ConvertSubGraph",
+          "ToGraph",
+          "ToNetwork"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "ConvertGraph": [
+            "toutspec",
+            "tinspec"
+          ],
+          "ConvertSubGraph": [
+            "toutspec",
+            "tinspec"
+          ],
+          "ConvertESubGraph": [
+            "toutspec",
+            "tinspec"
+          ],
+          "ToNetwork": [
+            "tspec"
+          ],
+          "ToGraph": [
+            "tspec"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "swig.gen.genClassFn.archive",
+        "module": "genClassFnExt",
+        "functions": [
+          "genFuncCall",
+          "getFuncName",
+          "removeFirstParam",
+          "stripTypes"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "removeFirstParam": [
+            "funcDecl"
+          ],
+          "stripTypes": [
+            "decl"
+          ],
+          "genFuncCall": [
+            "funcDecl",
+            "funcName",
+            "graphType"
+          ],
+          "getFuncName": [
+            "funcDecl"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "setup",
+        "module": "snap",
+        "functions": [
+          "CalcAvgDiamPdf",
+          "CalcEffDiam",
+          "CalcEffDiamPdf",
+          "CmtyGirvanNewmanStep",
+          "CntDegNodes",
+          "CntEdgesToSet",
+          "CntInDegNodes",
+          "CntNonZNodes",
+          "CntOutDegNodes",
+          "CntSelfEdges",
+          "CntUniqBiDirEdges",
+          "CntUniqDirEdges",
+          "CntUniqUndirEdges",
+          "CommunityCNM",
+          "CommunityGirvanNewman",
+          "DrawGViz",
+          "ErrNotify",
+          "ExeStop",
+          "GVizDoLayout",
+          "GVizGetLayoutStr",
+          "GenConfModel",
+          "GenCopyModel",
+          "GenDegSeq",
+          "GenForestFire",
+          "GenGeoPrefAttach",
+          "GenPrefAttach",
+          "GenRMat",
+          "GenRMatEpinions",
+          "GenRewire",
+          "GenRndBipart",
+          "GenRndDegK",
+          "GenRndGnm",
+          "GenRndPowerLaw",
+          "GenSmallWorld",
+          "Get1CnCom",
+          "Get1CnComSzCnt",
+          "GetAnf",
+          "GetAnfEffDiam",
+          "GetArtPoints",
+          "GetBetweennessCentr",
+          "GetBfsEffDiam",
+          "GetBfsFullDiam",
+          "GetBfsTree",
+          "GetBiCon",
+          "GetBiConSzCnt",
+          "GetClosenessCentr",
+          "GetClustCf",
+          "GetCmnNbrs",
+          "GetDegCnt",
+          "GetDegSeqV",
+          "GetDegreeCentr",
+          "GetEdgeBridges",
+          "GetEdgesInOut",
+          "GetEigVals",
+          "GetEigVec",
+          "GetEigenVectorCentr",
+          "GetFarnessCentr",
+          "GetInDegCnt",
+          "GetInvParticipRat",
+          "GetInvParticipRatEig",
+          "GetModularity",
+          "GetMxBiCon",
+          "GetMxDegNId",
+          "GetMxInDegNId",
+          "GetMxOutDegNId",
+          "GetMxScc",
+          "GetMxWcc",
+          "GetMxWccSz",
+          "GetNodeClustCf",
+          "GetNodeInDegV",
+          "GetNodeOutDegV",
+          "GetNodeWcc",
+          "GetNodesAtHop",
+          "GetNodesAtHops",
+          "GetOutDegCnt",
+          "GetSccSzCnt",
+          "GetSccs",
+          "GetShortPath",
+          "GetSngVals",
+          "GetSngVec",
+          "GetSubGraph",
+          "GetSubTreeSz",
+          "GetTriadEdges",
+          "GetTriadParticip",
+          "GetTriads",
+          "GetWccSzCnt",
+          "GetWccs",
+          "InfoNotify",
+          "IsConnected",
+          "IsWeaklyConn",
+          "LoadDyNet",
+          "LoadDyNetGraphV",
+          "LoadEdgeList",
+          "MxDegree",
+          "MxSccSz",
+          "MxWccSz",
+          "NodesGTEDegree",
+          "PNEANet_New",
+          "PercentDegree",
+          "PercentMxScc",
+          "PercentMxWcc",
+          "PrintGraphStatTable",
+          "PyTFltV",
+          "PyToTIntV",
+          "SaveToErrLog",
+          "StatNotify",
+          "TBPGraph_GetSmallGraph",
+          "TBPGraph_Load",
+          "TBPGraph_New",
+          "TBigStrPool_Load",
+          "TBigStrPool_New",
+          "TBool_Get01Str",
+          "TBool_GetRnd",
+          "TBool_GetValFromStr",
+          "TBool_GetYNStr",
+          "TBool_GetYesNoStr",
+          "TBool_IsValStr",
+          "TChAIn_New",
+          "TChA_LoadTxt",
+          "TCh_GetHex",
+          "TCh_GetHexCh",
+          "TCh_GetNum",
+          "TCh_GetUc",
+          "TCh_GetUsFromYuAscii",
+          "TCh_IsAlNum",
+          "TCh_IsAlpha",
+          "TCh_IsHex",
+          "TCh_IsNum",
+          "TCh_IsUc",
+          "TCh_IsWs",
+          "TCnCom_Dump",
+          "TCnCom_SaveTxt",
+          "TCs_GetCsFromBf",
+          "TFIn_New",
+          "TFOut_New",
+          "TFfGGen_GenFFGraphs",
+          "TFile_Del",
+          "TFile_DelWc",
+          "TFile_Exists",
+          "TFile_GetUniqueFNm",
+          "TFile_Rename",
+          "TFltRect_Intersection",
+          "TFlt_Abs",
+          "TFlt_Eq6",
+          "TFlt_GetGigaStr",
+          "TFlt_GetInRng",
+          "TFlt_GetKiloStr",
+          "TFlt_GetMegaStr",
+          "TFlt_GetMn",
+          "TFlt_GetMx",
+          "TFlt_GetPrcStr",
+          "TFlt_GetRnd",
+          "TFlt_Round",
+          "TFlt_Sign",
+          "TForestFire_GenGraph",
+          "TGUtil_GetCCdf",
+          "TGUtil_GetCdf",
+          "TGUtil_GetPdf",
+          "TGUtil_MakeExpBins",
+          "TGUtil_Normalize",
+          "TIntIntVV_GetV",
+          "TIntIntVV_SwapI",
+          "TIntVToPy",
+          "TIntV_GetV",
+          "TIntV_SwapI",
+          "TInt_Abs",
+          "TInt_GetHexStr",
+          "TInt_GetInRng",
+          "TInt_GetKiloStr",
+          "TInt_GetMegaStr",
+          "TInt_GetMn",
+          "TInt_GetMx",
+          "TInt_GetRnd",
+          "TInt_IsEven",
+          "TInt_IsOdd",
+          "TInt_LoadFrugalInt",
+          "TInt_LoadFrugalIntV",
+          "TInt_SaveFrugalInt",
+          "TInt_SaveFrugalIntV",
+          "TInt_Sign",
+          "TInt_Swap",
+          "TInt_TestFrugalInt",
+          "TMIn_New",
+          "TMOut_New",
+          "TMemIn_New",
+          "TMemOut_New",
+          "TMem_LoadMem",
+          "TMem_New",
+          "TNEANet_Load",
+          "TNEANet_New",
+          "TNEGraph_Load",
+          "TNEGraph_New",
+          "TNGraph_GetSmallGraph",
+          "TNGraph_Load",
+          "TNGraph_New",
+          "TPairHashImpl1_GetHashCd",
+          "TPairHashImpl2_GetHashCd",
+          "TPrGraph",
+          "TRStr_CmpI",
+          "TRStr_GetNullRStr",
+          "TRnd_GetExpDevStep",
+          "TRnd_GetNrmDevStep",
+          "TRnd_GetUniDevStep",
+          "TRnd_LoadTxt",
+          "TStdIn_New",
+          "TStdOut_New",
+          "TStrHashF_DJB_GetPrimHashCd",
+          "TStrHashF_DJB_GetSecHashCd",
+          "TStrHashF_Md5_GetPrimHashCd",
+          "TStrHashF_Md5_GetSecHashCd",
+          "TStrHashF_OldGLib_GetPrimHashCd",
+          "TStrHashF_OldGLib_GetSecHashCd",
+          "TStrIn_New",
+          "TStrPool64_Load",
+          "TStrPool64_New",
+          "TStrPool_Load",
+          "TStrPool_New",
+          "TStrUtil_CountWords",
+          "TStrUtil_GetAddWIdV",
+          "TStrUtil_GetCleanStr",
+          "TStrUtil_GetCleanWrdStr",
+          "TStrUtil_GetDomNm",
+          "TStrUtil_GetDomNm2",
+          "TStrUtil_GetNormalizedUrl",
+          "TStrUtil_GetShorStr",
+          "TStrUtil_GetStdName",
+          "TStrUtil_GetStdNameV",
+          "TStrUtil_GetTmFromStr",
+          "TStrUtil_GetWIdV",
+          "TStrUtil_GetWebsiteNm",
+          "TStrUtil_GetXmlTagNmVal",
+          "TStrUtil_GetXmlTagNmVal2",
+          "TStrUtil_GetXmlTagVal",
+          "TStrUtil_IsLatinStr",
+          "TStrUtil_RemoveHtmlTags",
+          "TStrUtil_SplitLines",
+          "TStrUtil_SplitOnCh",
+          "TStrUtil_SplitSentences",
+          "TStrUtil_SplitWords",
+          "TStrUtil_StripEnd",
+          "TStrV_GetV",
+          "TStrV_SwapI",
+          "TStr_AddToFMid",
+          "TStr_Fmt",
+          "TStr_GetChStr",
+          "TStr_GetDChStr",
+          "TStr_GetFNmStr",
+          "TStr_GetNrAbsFPath",
+          "TStr_GetNrFExt",
+          "TStr_GetNrFMid",
+          "TStr_GetNrFNm",
+          "TStr_GetNrFPath",
+          "TStr_GetNrNumFExt",
+          "TStr_GetNullStr",
+          "TStr_GetNumFNm",
+          "TStr_GetSpaceStr",
+          "TStr_IsAbsFPath",
+          "TStr_LoadTxt",
+          "TStr_MkClone",
+          "TStr_PutFBase",
+          "TStr_PutFBaseIfEmpty",
+          "TStr_PutFExt",
+          "TStr_PutFExtIfEmpty",
+          "TUInt64_GetHexStr",
+          "TUInt64_GetKiloStr",
+          "TUInt64_GetMegaStr",
+          "TUInt_GetKiloStr",
+          "TUInt_GetMegaStr",
+          "TUInt_GetRnd",
+          "TUInt_GetStrFromIpUInt",
+          "TUInt_GetUIntFromIpStr",
+          "TUInt_IsIpStr",
+          "TUInt_IsIpv6Str",
+          "TUInt_JavaUIntToCppUInt",
+          "TUNGraph_GetSmallGraph",
+          "TUNGraph_Load",
+          "TUNGraph_New",
+          "WarnNotify",
+          "WrNotify",
+          "accept_array",
+          "count",
+          "print_array"
+        ],
+        "classes": [
+          "PNEANet",
+          "TArtPointVisitor",
+          "TAscFlt",
+          "TBPGraph",
+          "TBiConVisitor",
+          "TBigStrPool",
+          "TBool",
+          "TCRef",
+          "TCh",
+          "TChA",
+          "TChAIn",
+          "TChRet",
+          "TCnCom",
+          "TConv_Pt64Ints32",
+          "TCs",
+          "TDbStr",
+          "TFIn",
+          "TFOut",
+          "TFfGGen",
+          "TFile",
+          "TFlt",
+          "TFltRect",
+          "TForestFire",
+          "TGUtil",
+          "TInt",
+          "TIntH",
+          "TIntHI",
+          "TIntIntVH",
+          "TIntIntVV",
+          "TIntV",
+          "TLFlt",
+          "TLnRet",
+          "TMIn",
+          "TMOut",
+          "TMem",
+          "TMemIn",
+          "TMemOut",
+          "TNEANet",
+          "TNEANetAFltI",
+          "TNEANetAIntI",
+          "TNEANetAStrI",
+          "TNEANetEdgeI",
+          "TNEANetNodeI",
+          "TNEGraph",
+          "TNGraph",
+          "TNGraphEdgeI",
+          "TNGraphMtx",
+          "TNGraphNodeI",
+          "TPairHashImpl1",
+          "TPairHashImpl2",
+          "TRStr",
+          "TRnd",
+          "TSBase",
+          "TSFlt",
+          "TSIn",
+          "TSInOut",
+          "TSInt",
+          "TSOut",
+          "TSOutMnp",
+          "TSStr",
+          "TStdIn",
+          "TStdOut",
+          "TStr",
+          "TStrHashF_DJB",
+          "TStrHashF_Md5",
+          "TStrHashF_OldGLib",
+          "TStrIn",
+          "TStrPool",
+          "TStrPool64",
+          "TStrUtil",
+          "TStrV",
+          "TUCh",
+          "TUInt",
+          "TUInt64",
+          "TUNGraph",
+          "TUNGraphEdgeI",
+          "TUNGraphMtx",
+          "TUNGraphNodeI",
+          "TUndirFFire",
+          "TVoid"
+        ],
+        "function_signatures": {
+          "CalcEffDiam": [],
+          "CalcEffDiamPdf": [],
+          "CalcAvgDiamPdf": [],
+          "WrNotify": [],
+          "SaveToErrLog": [],
+          "InfoNotify": [],
+          "WarnNotify": [],
+          "ErrNotify": [],
+          "StatNotify": [],
+          "ExeStop": [],
+          "TPairHashImpl1_GetHashCd": [],
+          "TPairHashImpl2_GetHashCd": [],
+          "GetDegreeCentr": [],
+          "GetFarnessCentr": [],
+          "GetClosenessCentr": [],
+          "GetBetweennessCentr": [],
+          "GetEigenVectorCentr": [],
+          "CommunityGirvanNewman": [],
+          "CommunityCNM": [],
+          "CmtyGirvanNewmanStep": [],
+          "GetBiConSzCnt": [],
+          "GetBiCon": [],
+          "GetArtPoints": [],
+          "GetEdgeBridges": [],
+          "Get1CnComSzCnt": [],
+          "Get1CnCom": [],
+          "TCnCom_Dump": [],
+          "TCnCom_SaveTxt": [],
+          "TForestFire_GenGraph": [],
+          "TFfGGen_GenFFGraphs": [],
+          "TCs_GetCsFromBf": [],
+          "TStdIn_New": [],
+          "TStdOut_New": [],
+          "TFIn_New": [],
+          "TFOut_New": [],
+          "TMIn_New": [],
+          "TMOut_New": [
+            "MxBfL"
+          ],
+          "TFile_Exists": [],
+          "TFile_Del": [],
+          "TFile_DelWc": [],
+          "TFile_Rename": [],
+          "TFile_GetUniqueFNm": [],
+          "TUNGraph_New": [],
+          "TUNGraph_Load": [],
+          "TUNGraph_GetSmallGraph": [],
+          "TNGraph_New": [],
+          "TNGraph_Load": [],
+          "TNGraph_GetSmallGraph": [],
+          "TNEGraph_New": [],
+          "TNEGraph_Load": [],
+          "TBPGraph_New": [],
+          "TBPGraph_Load": [],
+          "TBPGraph_GetSmallGraph": [],
+          "GetSngVals": [],
+          "GetSngVec": [],
+          "GetEigVals": [],
+          "GetEigVec": [],
+          "GetInvParticipRat": [],
+          "GetInvParticipRatEig": [],
+          "LoadDyNet": [],
+          "LoadDyNetGraphV": [],
+          "GVizDoLayout": [],
+          "GVizGetLayoutStr": [],
+          "TBigStrPool_New": [],
+          "TBigStrPool_Load": [],
+          "TStrHashF_OldGLib_GetPrimHashCd": [],
+          "TStrHashF_OldGLib_GetSecHashCd": [],
+          "TStrHashF_Md5_GetPrimHashCd": [],
+          "TStrHashF_Md5_GetSecHashCd": [],
+          "TStrHashF_DJB_GetPrimHashCd": [],
+          "TStrHashF_DJB_GetSecHashCd": [],
+          "GenRndBipart": [],
+          "GenRndDegK": [],
+          "GenRndPowerLaw": [],
+          "GenDegSeq": [],
+          "GenPrefAttach": [],
+          "GenGeoPrefAttach": [],
+          "GenSmallWorld": [],
+          "GenForestFire": [],
+          "GenCopyModel": [],
+          "GenRMat": [],
+          "GenRMatEpinions": [],
+          "GenRewire": [],
+          "GenConfModel": [],
+          "GetSubGraph": [],
+          "TGUtil_GetCdf": [],
+          "TGUtil_GetCCdf": [],
+          "TGUtil_GetPdf": [],
+          "TGUtil_Normalize": [],
+          "TGUtil_MakeExpBins": [],
+          "TStrUtil_GetXmlTagVal": [],
+          "TStrUtil_GetXmlTagNmVal": [],
+          "TStrUtil_GetXmlTagNmVal2": [],
+          "TStrUtil_GetDomNm": [],
+          "TStrUtil_GetDomNm2": [],
+          "TStrUtil_GetWebsiteNm": [],
+          "TStrUtil_GetNormalizedUrl": [],
+          "TStrUtil_StripEnd": [],
+          "TStrUtil_GetShorStr": [],
+          "TStrUtil_GetCleanStr": [],
+          "TStrUtil_GetCleanWrdStr": [],
+          "TStrUtil_CountWords": [],
+          "TStrUtil_SplitWords": [],
+          "TStrUtil_SplitOnCh": [],
+          "TStrUtil_SplitLines": [],
+          "TStrUtil_SplitSentences": [],
+          "TStrUtil_RemoveHtmlTags": [],
+          "TStrUtil_IsLatinStr": [],
+          "TStrUtil_GetWIdV": [],
+          "TStrUtil_GetAddWIdV": [],
+          "TStrUtil_GetTmFromStr": [],
+          "TStrUtil_GetStdName": [],
+          "TStrUtil_GetStdNameV": [],
+          "TRnd_GetUniDevStep": [],
+          "TRnd_GetNrmDevStep": [],
+          "TRnd_GetExpDevStep": [],
+          "TRnd_LoadTxt": [],
+          "TMem_New": [],
+          "TMem_LoadMem": [],
+          "TMemIn_New": [],
+          "TMemOut_New": [],
+          "TChA_LoadTxt": [],
+          "TChAIn_New": [],
+          "TRStr_CmpI": [],
+          "TRStr_GetNullRStr": [],
+          "TStr_GetNrFPath": [],
+          "TStr_GetNrFMid": [],
+          "TStr_GetNrFExt": [],
+          "TStr_GetNrNumFExt": [],
+          "TStr_GetNrFNm": [],
+          "TStr_GetNrAbsFPath": [],
+          "TStr_IsAbsFPath": [],
+          "TStr_PutFExt": [],
+          "TStr_PutFExtIfEmpty": [],
+          "TStr_PutFBase": [],
+          "TStr_PutFBaseIfEmpty": [],
+          "TStr_AddToFMid": [],
+          "TStr_GetNumFNm": [],
+          "TStr_GetFNmStr": [],
+          "TStr_LoadTxt": [],
+          "TStr_GetChStr": [],
+          "TStr_GetDChStr": [],
+          "TStr_Fmt": [],
+          "TStr_GetSpaceStr": [],
+          "TStr_MkClone": [],
+          "TStr_GetNullStr": [],
+          "TStrIn_New": [],
+          "TStrPool_New": [],
+          "TStrPool_Load": [],
+          "TStrPool64_New": [
+            "MxBfL",
+            "GrowBy"
+          ],
+          "TStrPool64_Load": [],
+          "TBool_GetRnd": [],
+          "TBool_GetYNStr": [],
+          "TBool_GetYesNoStr": [],
+          "TBool_Get01Str": [],
+          "TBool_IsValStr": [],
+          "TBool_GetValFromStr": [],
+          "TCh_IsWs": [],
+          "TCh_IsAlpha": [],
+          "TCh_IsNum": [],
+          "TCh_IsAlNum": [],
+          "TCh_GetNum": [],
+          "TCh_IsHex": [],
+          "TCh_GetHex": [],
+          "TCh_GetHexCh": [],
+          "TCh_IsUc": [],
+          "TCh_GetUc": [],
+          "TCh_GetUsFromYuAscii": [],
+          "TInt_Abs": [],
+          "TInt_Sign": [],
+          "TInt_Swap": [],
+          "TInt_GetRnd": [
+            "Range"
+          ],
+          "TInt_IsOdd": [],
+          "TInt_IsEven": [],
+          "TInt_GetMn": [],
+          "TInt_GetMx": [],
+          "TInt_GetInRng": [],
+          "TInt_GetHexStr": [],
+          "TInt_GetKiloStr": [],
+          "TInt_GetMegaStr": [],
+          "TInt_SaveFrugalInt": [],
+          "TInt_LoadFrugalInt": [],
+          "TInt_TestFrugalInt": [],
+          "TInt_SaveFrugalIntV": [],
+          "TInt_LoadFrugalIntV": [],
+          "TUInt_GetRnd": [
+            "Range"
+          ],
+          "TUInt_GetKiloStr": [],
+          "TUInt_GetMegaStr": [],
+          "TUInt_JavaUIntToCppUInt": [],
+          "TUInt_IsIpStr": [],
+          "TUInt_GetUIntFromIpStr": [],
+          "TUInt_GetStrFromIpUInt": [],
+          "TUInt_IsIpv6Str": [],
+          "TUInt64_GetHexStr": [],
+          "TUInt64_GetKiloStr": [],
+          "TUInt64_GetMegaStr": [],
+          "TFlt_Abs": [],
+          "TFlt_Sign": [],
+          "TFlt_Round": [],
+          "TFlt_GetRnd": [],
+          "TFlt_Eq6": [],
+          "TFlt_GetMn": [],
+          "TFlt_GetMx": [],
+          "TFlt_GetInRng": [],
+          "TFlt_GetPrcStr": [],
+          "TFlt_GetKiloStr": [],
+          "TFlt_GetMegaStr": [],
+          "TFlt_GetGigaStr": [],
+          "TFltRect_Intersection": [],
+          "TIntV_SwapI": [],
+          "TIntV_GetV": [],
+          "TIntIntVV_SwapI": [],
+          "TIntIntVV_GetV": [],
+          "TStrV_SwapI": [],
+          "TStrV_GetV": [],
+          "TPrGraph": [],
+          "accept_array": [],
+          "print_array": [],
+          "PyTFltV": [],
+          "PyToTIntV": [],
+          "count": [],
+          "TIntVToPy": [],
+          "TNEANet_New": [],
+          "TNEANet_Load": [],
+          "PercentDegree": [],
+          "PercentMxWcc": [],
+          "PercentMxScc": [],
+          "LoadEdgeList": [],
+          "PrintGraphStatTable": [],
+          "GenRndGnm": [],
+          "NodesGTEDegree": [],
+          "MxDegree": [],
+          "MxSccSz": [],
+          "MxWccSz": [],
+          "PNEANet_New": [],
+          "GetNodeWcc": [],
+          "IsConnected": [],
+          "IsWeaklyConn": [],
+          "GetWccSzCnt": [],
+          "GetWccs": [],
+          "GetSccSzCnt": [],
+          "GetSccs": [],
+          "GetMxWccSz": [],
+          "GetMxWcc": [],
+          "GetMxScc": [],
+          "GetMxBiCon": [],
+          "CntInDegNodes": [],
+          "CntOutDegNodes": [],
+          "CntDegNodes": [],
+          "CntNonZNodes": [],
+          "CntEdgesToSet": [],
+          "GetMxDegNId": [],
+          "GetMxInDegNId": [],
+          "GetMxOutDegNId": [],
+          "GetInDegCnt": [],
+          "GetOutDegCnt": [],
+          "GetDegCnt": [],
+          "GetDegSeqV": [],
+          "GetNodeInDegV": [],
+          "GetNodeOutDegV": [],
+          "CntUniqUndirEdges": [],
+          "CntUniqDirEdges": [],
+          "CntUniqBiDirEdges": [],
+          "CntSelfEdges": [],
+          "GetBfsTree": [],
+          "GetSubTreeSz": [],
+          "GetNodesAtHop": [],
+          "GetNodesAtHops": [],
+          "GetShortPath": [],
+          "GetBfsFullDiam": [],
+          "GetBfsEffDiam": [],
+          "DrawGViz": [],
+          "GetClustCf": [],
+          "GetNodeClustCf": [],
+          "GetTriads": [],
+          "GetTriadEdges": [],
+          "GetTriadParticip": [],
+          "GetCmnNbrs": [],
+          "GetModularity": [],
+          "GetEdgesInOut": [],
+          "GetAnf": [],
+          "GetAnfEffDiam": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "dev.examples",
+        "module": "tneanet-cpp",
+        "functions": [
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "dev.examples",
+        "module": "snapswig-check",
+        "functions": [
+          "BfsDfsTest",
+          "GVizTest",
+          "main"
+        ],
+        "classes": [
+          "GVizTests"
+        ],
+        "function_signatures": {
+          "GVizTest": [
+            "NNodes",
+            "NEdges"
+          ],
+          "BfsDfsTest": [
+            "NNodes",
+            "NEdges"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx",
+        "module": "exception",
+        "functions": [],
+        "classes": [
+          "NodeNotFound",
+          "SnapXAlgorithmError",
+          "SnapXError",
+          "SnapXException",
+          "SnapXKeyError",
+          "SnapXNoPath",
+          "SnapXTypeError",
+          "SnapXUnfeasible"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx",
+        "module": "relabel",
+        "functions": [
+          "convert_node_labels_to_integers",
+          "relabel_nodes"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "relabel_nodes": [
+            "G",
+            "mapping",
+            "copy"
+          ],
+          "convert_node_labels_to_integers": [
+            "G",
+            "first_label",
+            "ordering",
+            "label_attribute"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx",
+        "module": "convert",
+        "functions": [
+          "from_dict_of_dicts",
+          "to_snapx_graph"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "to_snapx_graph": [
+            "data",
+            "create_using",
+            "multigraph_input"
+          ],
+          "from_dict_of_dicts": [
+            "d",
+            "create_using",
+            "multigraph_input"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.classes",
+        "module": "coreviews",
+        "functions": [],
+        "classes": [
+          "AdjacencyView",
+          "AtlasView",
+          "FilterAdjacency",
+          "FilterAtlas",
+          "FilterMultiAdjacency"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.classes",
+        "module": "graph",
+        "functions": [],
+        "classes": [
+          "Graph"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.classes",
+        "module": "attrdict",
+        "functions": [],
+        "classes": [
+          "AttributeDict"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.classes",
+        "module": "reportviews",
+        "functions": [],
+        "classes": [
+          "EdgeDataView",
+          "EdgeView",
+          "NodeDataView",
+          "NodeView",
+          "OutEdgeDataView",
+          "OutEdgeView"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.classes",
+        "module": "digraph",
+        "functions": [],
+        "classes": [
+          "DiGraph"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.classes",
+        "module": "filters",
+        "functions": [
+          "hide_diedges",
+          "hide_edges",
+          "hide_multidiedges",
+          "hide_multiedges",
+          "hide_nodes",
+          "no_filter",
+          "show_diedges",
+          "show_edges",
+          "show_multidiedges",
+          "show_multiedges"
+        ],
+        "classes": [
+          "show_nodes"
+        ],
+        "function_signatures": {
+          "no_filter": [],
+          "hide_nodes": [
+            "nodes"
+          ],
+          "hide_diedges": [
+            "edges"
+          ],
+          "hide_edges": [
+            "edges"
+          ],
+          "hide_multidiedges": [
+            "edges"
+          ],
+          "hide_multiedges": [
+            "edges"
+          ],
+          "show_diedges": [
+            "edges"
+          ],
+          "show_edges": [
+            "edges"
+          ],
+          "show_multidiedges": [
+            "edges"
+          ],
+          "show_multiedges": [
+            "edges"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.classes",
+        "module": "function",
+        "functions": [
+          "freeze",
+          "frozen",
+          "set_edge_attributes",
+          "set_node_attributes"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "set_node_attributes": [
+            "G",
+            "values",
+            "name"
+          ],
+          "set_edge_attributes": [
+            "G",
+            "values",
+            "name"
+          ],
+          "frozen": [],
+          "freeze": [
+            "G"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.classes",
+        "module": "graphviews",
+        "functions": [
+          "subgraph_view"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "subgraph_view": [
+            "G",
+            "filter_node",
+            "filter_edge"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.algorithms",
+        "module": "dag",
+        "functions": [
+          "topological_sort"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "topological_sort": [
+            "G"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.algorithms.centrality",
+        "module": "snap_cent",
+        "functions": [
+          "get_degree_centr"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_degree_centr": [
+            "graph",
+            "nid"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.algorithms.components",
+        "module": "components",
+        "functions": [
+          "connected_components",
+          "max_connected_component"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "connected_components": [
+            "G"
+          ],
+          "max_connected_component": [
+            "G"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.algorithms.shortest_paths",
+        "module": "weighted",
+        "functions": [
+          "all_pairs_dijkstra",
+          "all_pairs_dijkstra_path",
+          "all_pairs_dijkstra_path_length",
+          "bidirectional_dijkstra",
+          "dijkstra_path",
+          "dijkstra_path_length",
+          "dijkstra_predecessor_and_distance",
+          "johnson",
+          "multi_source_dijkstra",
+          "multi_source_dijkstra_path",
+          "multi_source_dijkstra_path_length",
+          "single_source_dijkstra",
+          "single_source_dijkstra_path",
+          "single_source_dijkstra_path_length"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "dijkstra_path": [
+            "G",
+            "source",
+            "target",
+            "weight"
+          ],
+          "dijkstra_path_length": [
+            "G",
+            "source",
+            "target",
+            "weight"
+          ],
+          "single_source_dijkstra_path": [
+            "G",
+            "source",
+            "cutoff",
+            "weight"
+          ],
+          "single_source_dijkstra_path_length": [
+            "G",
+            "source",
+            "cutoff",
+            "weight"
+          ],
+          "single_source_dijkstra": [
+            "G",
+            "source",
+            "target",
+            "cutoff",
+            "weight"
+          ],
+          "multi_source_dijkstra_path": [
+            "G",
+            "sources",
+            "cutoff",
+            "weight"
+          ],
+          "multi_source_dijkstra_path_length": [
+            "G",
+            "sources",
+            "cutoff",
+            "weight"
+          ],
+          "multi_source_dijkstra": [
+            "G",
+            "sources",
+            "target",
+            "cutoff",
+            "weight"
+          ],
+          "dijkstra_predecessor_and_distance": [
+            "G",
+            "source",
+            "cutoff",
+            "weight"
+          ],
+          "all_pairs_dijkstra": [
+            "G",
+            "cutoff",
+            "weight"
+          ],
+          "all_pairs_dijkstra_path_length": [
+            "G",
+            "cutoff",
+            "weight"
+          ],
+          "all_pairs_dijkstra_path": [
+            "G",
+            "cutoff",
+            "weight"
+          ],
+          "bidirectional_dijkstra": [
+            "G",
+            "source",
+            "target",
+            "weight"
+          ],
+          "johnson": [
+            "G",
+            "weight"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.algorithms.shortest_paths",
+        "module": "unweighted",
+        "functions": [
+          "all_pairs_shortest_path_length",
+          "bidirectional_shortest_path",
+          "single_source_shortest_path",
+          "single_source_shortest_path_length",
+          "single_target_shortest_path",
+          "single_target_shortest_path_length"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "single_source_shortest_path_length": [
+            "G",
+            "source",
+            "cutoff"
+          ],
+          "single_target_shortest_path_length": [
+            "G",
+            "target",
+            "cutoff"
+          ],
+          "all_pairs_shortest_path_length": [
+            "G",
+            "cutoff"
+          ],
+          "bidirectional_shortest_path": [
+            "G",
+            "source",
+            "target"
+          ],
+          "single_source_shortest_path": [
+            "G",
+            "source",
+            "cutoff"
+          ],
+          "single_target_shortest_path": [
+            "G",
+            "target",
+            "cutoff"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.algorithms.community",
+        "module": "snap_cmty",
+        "functions": [
+          "community_CNM",
+          "community_girvan_newman"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "community_CNM": [
+            "graph"
+          ],
+          "community_girvan_newman": [
+            "graph"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.utils",
+        "module": "misc",
+        "functions": [
+          "pairwise"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "pairwise": [
+            "iterable",
+            "cyclic"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.utils",
+        "module": "decorator",
+        "functions": [
+          "append",
+          "contextmanager",
+          "decorate",
+          "decorator",
+          "dispatch_on"
+        ],
+        "classes": [
+          "ContextManager",
+          "FunctionMaker"
+        ],
+        "function_signatures": {
+          "decorate": [
+            "func",
+            "caller",
+            "extras"
+          ],
+          "decorator": [
+            "caller",
+            "_func"
+          ],
+          "contextmanager": [
+            "func"
+          ],
+          "append": [
+            "a",
+            "vancestors"
+          ],
+          "dispatch_on": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.utils",
+        "module": "decorators",
+        "functions": [
+          "nodes_or_number",
+          "not_implemented_for"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "nodes_or_number": [
+            "which_args"
+          ],
+          "not_implemented_for": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.generators",
+        "module": "classic",
+        "functions": [
+          "empty_graph",
+          "path_graph"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "empty_graph": [
+            "n",
+            "create_using",
+            "default"
+          ],
+          "path_graph": [
+            "n",
+            "create_using"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "snapx.snapx.generators",
+        "module": "ego",
+        "functions": [
+          "ego_graph"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "ego_graph": [
+            "G",
+            "n",
+            "radius",
+            "sample",
+            "traversal",
+            "copy_attr"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python (runtime)",
+        "snapx package modules under source.snapx.snapx"
+      ],
+      "optional": [
+        "networkx (for interoperability paths in convert layer, if used)",
+        "compiled SNAP/SWIG extension for source.swig.snap usage",
+        "numpy/scipy (only if specific algorithm paths request them indirectly)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.82,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/snap-stanford/snap-python",
+    "repo_name": "snap-python",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.82,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

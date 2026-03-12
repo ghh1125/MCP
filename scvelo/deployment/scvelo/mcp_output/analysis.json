@@ -1,0 +1,466 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/theislab/scvelo",
+    "summary": "Imported via zip fallback, file count: 91",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 524
+      },
+      ".github/ISSUE_TEMPLATE/enhancement_request.md": {
+        "size": 181
+      },
+      ".github/pull_request_template.md": {
+        "size": 386
+      },
+      ".github/workflows/build.yml": {
+        "size": 625
+      },
+      ".github/workflows/ci.yml": {
+        "size": 2494
+      },
+      ".github/workflows/release.yml": {
+        "size": 906
+      },
+      ".pre-commit-config.yaml": {
+        "size": 1866
+      },
+      ".readthedocs.yml": {
+        "size": 265
+      },
+      "README.md": {
+        "size": 3513
+      },
+      "docs/source/_ext/edit_on_github.py": {
+        "size": 1434
+      },
+      "docs/source/conf.py": {
+        "size": 3341
+      },
+      "pyproject.toml": {
+        "size": 5489
+      },
+      "scvelo/__init__.py": {
+        "size": 1289
+      },
+      "scvelo/core/__init__.py": {
+        "size": 955
+      },
+      "scvelo/core/_anndata.py": {
+        "size": 23530
+      },
+      "scvelo/core/_arithmetic.py": {
+        "size": 2881
+      },
+      "scvelo/core/_base.py": {
+        "size": 1641
+      },
+      "scvelo/core/_linear_models.py": {
+        "size": 4685
+      },
+      "scvelo/core/_metrics.py": {
+        "size": 803
+      },
+      "scvelo/core/_models.py": {
+        "size": 4412
+      },
+      "scvelo/core/_parallelize.py": {
+        "size": 5174
+      },
+      "scvelo/core/_utils.py": {
+        "size": 1602
+      },
+      "scvelo/datasets/__init__.py": {
+        "size": 482
+      },
+      "scvelo/datasets/_biomart.py": {
+        "size": 0
+      },
+      "scvelo/datasets/_datasets.py": {
+        "size": 11250
+      },
+      "scvelo/datasets/_load.py": {
+        "size": 0
+      },
+      "scvelo/datasets/_read.py": {
+        "size": 1567
+      },
+      "scvelo/datasets/_simulate.py": {
+        "size": 6370
+      },
+      "scvelo/inference/__init__.py": {
+        "size": 300
+      },
+      "scvelo/inference/_metabolic_labeling.py": {
+        "size": 14558
+      },
+      "scvelo/logging/__init__.py": {
+        "size": 283
+      },
+      "scvelo/logging/_logging.py": {
+        "size": 7488
+      },
+      "scvelo/plotting/__init__.py": {
+        "size": 897
+      },
+      "scvelo/plotting/docs.py": {
+        "size": 7436
+      },
+      "scvelo/plotting/gridspec.py": {
+        "size": 4749
+      },
+      "scvelo/plotting/heatmap.py": {
+        "size": 5707
+      },
+      "scvelo/plotting/paga.py": {
+        "size": 38993
+      },
+      "scvelo/plotting/palettes.py": {
+        "size": 4859
+      },
+      "scvelo/plotting/proportions.py": {
+        "size": 5627
+      },
+      "scvelo/plotting/pseudotime.py": {
+        "size": 2112
+      },
+      "scvelo/plotting/scatter.py": {
+        "size": 35100
+      },
+      "scvelo/plotting/simulation.py": {
+        "size": 6546
+      },
+      "scvelo/plotting/summary.py": {
+        "size": 2475
+      },
+      "scvelo/plotting/utils.py": {
+        "size": 62146
+      },
+      "scvelo/plotting/velocity.py": {
+        "size": 9887
+      },
+      "scvelo/plotting/velocity_embedding.py": {
+        "size": 9314
+      },
+      "scvelo/plotting/velocity_embedding_grid.py": {
+        "size": 10789
+      },
+      "scvelo/plotting/velocity_embedding_stream.py": {
+        "size": 8785
+      },
+      "scvelo/plotting/velocity_graph.py": {
+        "size": 11293
+      },
+      "scvelo/preprocessing/__init__.py": {
+        "size": 311
+      },
+      "scvelo/preprocessing/moments.py": {
+        "size": 7705
+      },
+      "scvelo/preprocessing/neighbors.py": {
+        "size": 19945
+      },
+      "scvelo/preprocessing/utils.py": {
+        "size": 14858
+      },
+      "scvelo/read_load.py": {
+        "size": 4445
+      },
+      "scvelo/settings.py": {
+        "size": 10618
+      },
+      "scvelo/tools/__init__.py": {
+        "size": 1512
+      },
+      "scvelo/tools/_core.py": {
+        "size": 821
+      },
+      "scvelo/tools/_em_model.py": {
+        "size": 17880
+      },
+      "scvelo/tools/_em_model_core.py": {
+        "size": 44073
+      },
+      "scvelo/tools/_em_model_utils.py": {
+        "size": 62553
+      },
+      "scvelo/tools/_steady_state_model.py": {
+        "size": 10792
+      },
+      "scvelo/tools/optimization.py": {
+        "size": 8689
+      },
+      "scvelo/tools/paga.py": {
+        "size": 11678
+      },
+      "scvelo/tools/rank_velocity_genes.py": {
+        "size": 14460
+      },
+      "scvelo/tools/score_genes_cell_cycle.py": {
+        "size": 3804
+      },
+      "scvelo/tools/terminal_states.py": {
+        "size": 11969
+      },
+      "scvelo/tools/transition_matrix.py": {
+        "size": 7724
+      },
+      "scvelo/tools/utils.py": {
+        "size": 16198
+      },
+      "scvelo/tools/velocity.py": {
+        "size": 20463
+      },
+      "scvelo/tools/velocity_confidence.py": {
+        "size": 5020
+      },
+      "scvelo/tools/velocity_embedding.py": {
+        "size": 6772
+      },
+      "scvelo/tools/velocity_graph.py": {
+        "size": 14658
+      },
+      "scvelo/tools/velocity_pseudotime.py": {
+        "size": 10444
+      },
+      "scvelo/utils.py": {
+        "size": 1620
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/conftest.py": {
+        "size": 11905
+      },
+      "tests/core/__init__.py": {
+        "size": 80
+      },
+      "tests/core/test_anndata.py": {
+        "size": 43390
+      },
+      "tests/core/test_arithmetic.py": {
+        "size": 7783
+      },
+      "tests/core/test_base.py": {
+        "size": 12860
+      },
+      "tests/core/test_linear_models.py": {
+        "size": 2980
+      },
+      "tests/core/test_metrics.py": {
+        "size": 1761
+      },
+      "tests/core/test_models.py": {
+        "size": 8209
+      },
+      "tests/datasets/test_datasets.py": {
+        "size": 2028
+      },
+      "tests/datasets/test_simulate.py": {
+        "size": 5101
+      },
+      "tests/preprocessing/__init__.py": {
+        "size": 0
+      },
+      "tests/preprocessing/test_moments.py": {
+        "size": 19347
+      },
+      "tests/preprocessing/test_neighbors.py": {
+        "size": 72605
+      },
+      "tests/preprocessing/test_utils.py": {
+        "size": 43488
+      },
+      "tests/test_basic.py": {
+        "size": 2927
+      },
+      "tests/tools/test_steady_state_model.py": {
+        "size": 764
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.scvelo",
+      "source.scvelo.core",
+      "source.scvelo.datasets",
+      "source.scvelo.inference",
+      "source.scvelo.logging",
+      "source.scvelo.plotting",
+      "source.scvelo.preprocessing",
+      "source.scvelo.tools",
+      "source.tests",
+      "source.tests.core",
+      "source.tests.preprocessing"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.scvelo",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level API surface for scvelo; likely re-exports preprocessing, tools, plotting, datasets, and settings interfaces."
+      },
+      {
+        "package": "source.scvelo.core",
+        "module": "_anndata",
+        "functions": [],
+        "classes": [],
+        "description": "Core AnnData-centric utilities and data access/manipulation helpers; foundational for most downstream operations."
+      },
+      {
+        "package": "source.scvelo.core",
+        "module": "_parallelize",
+        "functions": [],
+        "classes": [],
+        "description": "Parallelization helpers used by computationally heavy preprocessing/tools routines."
+      },
+      {
+        "package": "source.scvelo.preprocessing",
+        "module": "neighbors",
+        "functions": [],
+        "classes": [],
+        "description": "Neighborhood graph construction and related preprocessing utilities; key prerequisite for velocity graph computation."
+      },
+      {
+        "package": "source.scvelo.preprocessing",
+        "module": "moments",
+        "functions": [],
+        "classes": [],
+        "description": "Computation of first/second-order moments from neighborhood structure; central to velocity modeling pipeline."
+      },
+      {
+        "package": "source.scvelo.tools",
+        "module": "velocity",
+        "functions": [],
+        "classes": [],
+        "description": "Primary RNA velocity estimation routines (steady-state/dynamical style workflows)."
+      },
+      {
+        "package": "source.scvelo.tools",
+        "module": "velocity_graph",
+        "functions": [],
+        "classes": [],
+        "description": "Transition/velocity graph computation on cell-state manifold."
+      },
+      {
+        "package": "source.scvelo.tools",
+        "module": "velocity_embedding",
+        "functions": [],
+        "classes": [],
+        "description": "Projection of velocity vectors into low-dimensional embeddings (e.g., UMAP)."
+      },
+      {
+        "package": "source.scvelo.tools",
+        "module": "velocity_pseudotime",
+        "functions": [],
+        "classes": [],
+        "description": "Velocity-based pseudotime inference utilities."
+      },
+      {
+        "package": "source.scvelo.tools",
+        "module": "terminal_states",
+        "functions": [],
+        "classes": [],
+        "description": "Root/terminal state inference from velocity-derived transitions."
+      },
+      {
+        "package": "source.scvelo.plotting",
+        "module": "velocity_embedding_stream",
+        "functions": [],
+        "classes": [],
+        "description": "High-level stream visualization for velocity fields."
+      },
+      {
+        "package": "source.scvelo.plotting",
+        "module": "scatter",
+        "functions": [],
+        "classes": [],
+        "description": "General plotting entry points for embedding/scatter-based visualization."
+      },
+      {
+        "package": "source.scvelo.datasets",
+        "module": "_datasets",
+        "functions": [],
+        "classes": [],
+        "description": "Built-in dataset loaders for examples and testing."
+      },
+      {
+        "package": "source.scvelo.read_load",
+        "module": "read_load",
+        "functions": [],
+        "classes": [],
+        "description": "I/O helpers for reading/loading AnnData-like objects and velocity-relevant layers."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.10",
+        "anndata",
+        "scanpy",
+        "numpy",
+        "scipy",
+        "pandas",
+        "matplotlib",
+        "scikit-learn",
+        "numba",
+        "h5py",
+        "joblib"
+      ],
+      "optional": [
+        "loompy",
+        "igraph",
+        "louvain",
+        "leidenalg",
+        "pynndescent",
+        "umap-learn",
+        "dask",
+        "jax",
+        "torch"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.88,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/theislab/scvelo",
+    "repo_name": "scvelo",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.88,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

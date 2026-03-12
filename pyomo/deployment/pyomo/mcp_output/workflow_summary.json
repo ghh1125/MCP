@@ -1,0 +1,220 @@
+{
+  "repository": {
+    "name": "pyomo",
+    "url": "https://github.com/Pyomo/pyomo",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pyomo",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773259723.8451781,
+    "end_time": 1773259990.2722912,
+    "duration": 266.4271140098572,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.94,
+      "intrusiveness_risk": "low",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/Pyomo/pyomo",
+      "repo_name": "pyomo",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pyomo/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/pyomo/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Operation timed out\nerror: 12 bytes of body are still expected\nfatal: expected flush after ref listing\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/pyomo/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Operation timed out\nerror: 12 bytes of body are still expected\nfatal: expected flush after ref listing\n"
+  ],
+  "recommendations": [
+    "add a minimal CI smoke test suite for the generated MCP plugin (service boot + one call per endpoint)",
+    "pin and validate packaging metadata in the MCP output (`pyproject.toml` with explicit Python version and dependency bounds) instead of only `requirements.txt`",
+    "implement structured error handling/mapping in `adapter.py` so Pyomo exceptions return consistent MCP error payloads",
+    "add endpoint-level input schemas and validation (types/ranges/defaults) with pydantic models to prevent invalid model construction calls",
+    "create integration tests against a tiny real Pyomo model for `ConcreteModel/Var/Constraint/Objective/SolverFactory/value` flow",
+    "add timeout/cancellation controls around solver-invoking paths to avoid hanging MCP requests",
+    "cache/import-optimize heavy modules in `mcp_service.py` to reduce cold-start latency",
+    "add observability (request IDs",
+    "endpoint latency",
+    "error rate",
+    "optional debug logs) and expose a health/readiness endpoint",
+    "document solver availability/fallback behavior clearly in `README_MCP.md` (local solvers vs unavailable backends)",
+    "add contract tests to keep MCP endpoint names stable (`concretemodel` vs `ConcreteModel`) and avoid breaking clients",
+    "expand security hardening: restrict arbitrary module access",
+    "sanitize file/path inputs",
+    "and cap resource usage for long solves",
+    "add versioned API namespace (e.g.",
+    "`v1`) for MCP endpoints to support non-breaking evolution",
+    "include reproducible local dev tooling (Makefile/tox/nox) for lint+test+run of only MCP artifacts",
+    "run static checks (ruff/mypy) on generated MCP code and enforce in CI",
+    "add regression tests for CLI passthrough endpoints (`main`",
+    "`run_pyomo`) with safe argument allowlists and clear stderr/stdout capture"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Robust fallback behavior: clone failure was mitigated by zip-based repository import (2352 files discovered).",
+      "MCP plugin bootstrap and health checks passed (service healthy over stdio).",
+      "Low-intrusiveness import adapter strategy matched Pyomo’s API-oriented architecture."
+    ],
+    "failure_reasons": [
+      "Primary Git clone failed due to network/RPC timeout (curl 56, expected flush after ref listing).",
+      "Observability and metrics are effectively missing or not captured (0 memory/cpu/response metrics, 0 tool endpoints reported in one section despite endpoint list elsewhere).",
+      "Original project test status is marked failed with no executed tests/details, indicating validation gap rather than confirmed functional regression.",
+      "Metadata inconsistencies suggest partial instrumentation defects (e.g., dependency detection false despite pyproject/setup.py present in tree)."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Likely dominant latency contributor due to clone timeout and fallback path; node completed via recovery mechanism.",
+      "analysis_time": "Moderate-heavy expected given 2352-file corpus; completed successfully but some extracted metadata appears inconsistent.",
+      "generation_time": "Fast-to-moderate; generated core MCP scaffold files and endpoint mapping for key Pyomo symbols.",
+      "test_time": "Minimal plugin smoke validation only; near-zero recorded duration indicates shallow test depth."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown in practice due to missing telemetry; no evidence of memory pressure, but current reporting is insufficient.",
+      "cpu_efficiency": "Unknown due to absent CPU sampling; elapsed time suggests IO/network and repository parsing were primary costs.",
+      "disk_usage": "Reasonable for large repo processing; generated MCP artifacts are small, but size metrics are incorrectly reported as zero."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 80,
+    "performance_score": 62,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}

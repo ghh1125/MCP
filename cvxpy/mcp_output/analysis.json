@@ -1,0 +1,1845 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/cvxpy/cvxpy",
+    "summary": "Imported via zip fallback, file count: 556",
+    "file_tree": {
+      ".devcontainer/devcontainer.json": {
+        "size": 344
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 627
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 572
+      },
+      ".github/dependabot.yml": {
+        "size": 496
+      },
+      ".github/pull_request_template.md": {
+        "size": 592
+      },
+      ".github/workflows/benchmarks.yml": {
+        "size": 168
+      },
+      ".github/workflows/build.yml": {
+        "size": 6911
+      },
+      ".github/workflows/claude-code-review.yml": {
+        "size": 2181
+      },
+      ".github/workflows/claude.yml": {
+        "size": 2639
+      },
+      ".github/workflows/cvxpygen.yml": {
+        "size": 650
+      },
+      ".github/workflows/docs.yml": {
+        "size": 2022
+      },
+      ".github/workflows/gcsopt.yml": {
+        "size": 631
+      },
+      ".github/workflows/pr_benchmark_comment.yml": {
+        "size": 201
+      },
+      ".github/workflows/pr_benchmarks.yml": {
+        "size": 130
+      },
+      ".github/workflows/pre-commit.yml": {
+        "size": 497
+      },
+      ".github/workflows/scorecards.yml": {
+        "size": 2036
+      },
+      ".github/workflows/test_backends.yml": {
+        "size": 1228
+      },
+      ".github/workflows/test_nlp_solvers.yml": {
+        "size": 1048
+      },
+      ".github/workflows/test_optional_solvers.yml": {
+        "size": 2108
+      },
+      ".pre-commit-config.yaml": {
+        "size": 629
+      },
+      ".readthedocs.yaml": {
+        "size": 892
+      },
+      "CLAUDE.md": {
+        "size": 7955
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 3383
+      },
+      "CONTRIBUTING.md": {
+        "size": 5684
+      },
+      "PROCEDURES.md": {
+        "size": 6953
+      },
+      "README.md": {
+        "size": 6985
+      },
+      "continuous_integration/doc_is_latest.py": {
+        "size": 1003
+      },
+      "copyright.txt": {
+        "size": 562
+      },
+      "cvxpy/__init__.py": {
+        "size": 3473
+      },
+      "cvxpy/atoms/__init__.py": {
+        "size": 6670
+      },
+      "cvxpy/atoms/affine/__init__.py": {
+        "size": 563
+      },
+      "cvxpy/atoms/affine/add_expr.py": {
+        "size": 5394
+      },
+      "cvxpy/atoms/affine/affine_atom.py": {
+        "size": 5769
+      },
+      "cvxpy/atoms/affine/binary_operators.py": {
+        "size": 22273
+      },
+      "cvxpy/atoms/affine/bmat.py": {
+        "size": 1137
+      },
+      "cvxpy/atoms/affine/broadcast_to.py": {
+        "size": 2340
+      },
+      "cvxpy/atoms/affine/concatenate.py": {
+        "size": 3076
+      },
+      "cvxpy/atoms/affine/conj.py": {
+        "size": 2315
+      },
+      "cvxpy/atoms/affine/conv.py": {
+        "size": 7284
+      },
+      "cvxpy/atoms/affine/cumsum.py": {
+        "size": 5198
+      },
+      "cvxpy/atoms/affine/diag.py": {
+        "size": 5808
+      },
+      "cvxpy/atoms/affine/diff.py": {
+        "size": 2390
+      },
+      "cvxpy/atoms/affine/einsum.py": {
+        "size": 15640
+      },
+      "cvxpy/atoms/affine/hstack.py": {
+        "size": 2593
+      },
+      "cvxpy/atoms/affine/imag.py": {
+        "size": 1439
+      },
+      "cvxpy/atoms/affine/index.py": {
+        "size": 7598
+      },
+      "cvxpy/atoms/affine/kron.py": {
+        "size": 4394
+      },
+      "cvxpy/atoms/affine/partial_trace.py": {
+        "size": 3259
+      },
+      "cvxpy/atoms/affine/partial_transpose.py": {
+        "size": 3323
+      },
+      "cvxpy/atoms/affine/promote.py": {
+        "size": 3510
+      },
+      "cvxpy/atoms/affine/real.py": {
+        "size": 1452
+      },
+      "cvxpy/atoms/affine/reshape.py": {
+        "size": 6122
+      },
+      "cvxpy/atoms/affine/squeeze.py": {
+        "size": 1891
+      },
+      "cvxpy/atoms/affine/stack.py": {
+        "size": 3485
+      },
+      "cvxpy/atoms/affine/sum.py": {
+        "size": 5554
+      },
+      "cvxpy/atoms/affine/trace.py": {
+        "size": 4296
+      },
+      "cvxpy/atoms/affine/transpose.py": {
+        "size": 5489
+      },
+      "cvxpy/atoms/affine/unary_operators.py": {
+        "size": 3816
+      },
+      "cvxpy/atoms/affine/upper_tri.py": {
+        "size": 5288
+      },
+      "cvxpy/atoms/affine/vec.py": {
+        "size": 1404
+      },
+      "cvxpy/atoms/affine/vstack.py": {
+        "size": 2409
+      },
+      "cvxpy/atoms/affine/wraps.py": {
+        "size": 4182
+      },
+      "cvxpy/atoms/atom.py": {
+        "size": 20274
+      },
+      "cvxpy/atoms/axis_atom.py": {
+        "size": 4963
+      },
+      "cvxpy/atoms/condition_number.py": {
+        "size": 3159
+      },
+      "cvxpy/atoms/cummax.py": {
+        "size": 2943
+      },
+      "cvxpy/atoms/cumprod.py": {
+        "size": 2399
+      },
+      "cvxpy/atoms/cvar.py": {
+        "size": 1925
+      },
+      "cvxpy/atoms/dist_ratio.py": {
+        "size": 2423
+      },
+      "cvxpy/atoms/dotsort.py": {
+        "size": 5037
+      },
+      "cvxpy/atoms/elementwise/__init__.py": {
+        "size": 563
+      },
+      "cvxpy/atoms/elementwise/abs.py": {
+        "size": 2739
+      },
+      "cvxpy/atoms/elementwise/ceil.py": {
+        "size": 4788
+      },
+      "cvxpy/atoms/elementwise/elementwise.py": {
+        "size": 2370
+      },
+      "cvxpy/atoms/elementwise/entr.py": {
+        "size": 2843
+      },
+      "cvxpy/atoms/elementwise/exp.py": {
+        "size": 2725
+      },
+      "cvxpy/atoms/elementwise/huber.py": {
+        "size": 3600
+      },
+      "cvxpy/atoms/elementwise/hyperbolic.py": {
+        "size": 5330
+      },
+      "cvxpy/atoms/elementwise/inv_pos.py": {
+        "size": 703
+      },
+      "cvxpy/atoms/elementwise/kl_div.py": {
+        "size": 3071
+      },
+      "cvxpy/atoms/elementwise/log.py": {
+        "size": 3129
+      },
+      "cvxpy/atoms/elementwise/log1p.py": {
+        "size": 2046
+      },
+      "cvxpy/atoms/elementwise/log_normcdf.py": {
+        "size": 2064
+      },
+      "cvxpy/atoms/elementwise/loggamma.py": {
+        "size": 1417
+      },
+      "cvxpy/atoms/elementwise/logic.py": {
+        "size": 8585
+      },
+      "cvxpy/atoms/elementwise/logistic.py": {
+        "size": 2442
+      },
+      "cvxpy/atoms/elementwise/maximum.py": {
+        "size": 3787
+      },
+      "cvxpy/atoms/elementwise/minimum.py": {
+        "size": 3489
+      },
+      "cvxpy/atoms/elementwise/neg.py": {
+        "size": 699
+      },
+      "cvxpy/atoms/elementwise/pos.py": {
+        "size": 696
+      },
+      "cvxpy/atoms/elementwise/power.py": {
+        "size": 15575
+      },
+      "cvxpy/atoms/elementwise/rel_entr.py": {
+        "size": 3055
+      },
+      "cvxpy/atoms/elementwise/scalene.py": {
+        "size": 779
+      },
+      "cvxpy/atoms/elementwise/sqrt.py": {
+        "size": 739
+      },
+      "cvxpy/atoms/elementwise/square.py": {
+        "size": 691
+      },
+      "cvxpy/atoms/elementwise/trig.py": {
+        "size": 5180
+      },
+      "cvxpy/atoms/elementwise/xexp.py": {
+        "size": 2866
+      },
+      "cvxpy/atoms/errormsg.py": {
+        "size": 243
+      },
+      "cvxpy/atoms/eye_minus_inv.py": {
+        "size": 3468
+      },
+      "cvxpy/atoms/gen_lambda_max.py": {
+        "size": 3525
+      },
+      "cvxpy/atoms/geo_mean.py": {
+        "size": 14538
+      },
+      "cvxpy/atoms/gmatmul.py": {
+        "size": 5023
+      },
+      "cvxpy/atoms/harmonic_mean.py": {
+        "size": 1292
+      },
+      "cvxpy/atoms/inv_prod.py": {
+        "size": 1337
+      },
+      "cvxpy/atoms/lambda_max.py": {
+        "size": 3309
+      },
+      "cvxpy/atoms/lambda_min.py": {
+        "size": 811
+      },
+      "cvxpy/atoms/lambda_sum_largest.py": {
+        "size": 2292
+      },
+      "cvxpy/atoms/lambda_sum_smallest.py": {
+        "size": 835
+      },
+      "cvxpy/atoms/length.py": {
+        "size": 2324
+      },
+      "cvxpy/atoms/log_det.py": {
+        "size": 3653
+      },
+      "cvxpy/atoms/log_sum_exp.py": {
+        "size": 2787
+      },
+      "cvxpy/atoms/matrix_frac.py": {
+        "size": 4540
+      },
+      "cvxpy/atoms/max.py": {
+        "size": 3962
+      },
+      "cvxpy/atoms/min.py": {
+        "size": 3962
+      },
+      "cvxpy/atoms/mixed_norm.py": {
+        "size": 1304
+      },
+      "cvxpy/atoms/norm.py": {
+        "size": 3384
+      },
+      "cvxpy/atoms/norm1.py": {
+        "size": 3667
+      },
+      "cvxpy/atoms/norm_inf.py": {
+        "size": 3840
+      },
+      "cvxpy/atoms/norm_nuc.py": {
+        "size": 2293
+      },
+      "cvxpy/atoms/one_minus_pos.py": {
+        "size": 2976
+      },
+      "cvxpy/atoms/perspective.py": {
+        "size": 5123
+      },
+      "cvxpy/atoms/pf_eigenvalue.py": {
+        "size": 3012
+      },
+      "cvxpy/atoms/pnorm.py": {
+        "size": 9484
+      },
+      "cvxpy/atoms/prod.py": {
+        "size": 5175
+      },
+      "cvxpy/atoms/ptp.py": {
+        "size": 971
+      },
+      "cvxpy/atoms/quad_form.py": {
+        "size": 10634
+      },
+      "cvxpy/atoms/quad_over_lin.py": {
+        "size": 5490
+      },
+      "cvxpy/atoms/quantum_cond_entr.py": {
+        "size": 2403
+      },
+      "cvxpy/atoms/quantum_rel_entr.py": {
+        "size": 4183
+      },
+      "cvxpy/atoms/sigma_max.py": {
+        "size": 2644
+      },
+      "cvxpy/atoms/sign.py": {
+        "size": 2121
+      },
+      "cvxpy/atoms/stats.py": {
+        "size": 2304
+      },
+      "cvxpy/atoms/sum_largest.py": {
+        "size": 4324
+      },
+      "cvxpy/atoms/sum_smallest.py": {
+        "size": 802
+      },
+      "cvxpy/atoms/sum_squares.py": {
+        "size": 1624
+      },
+      "cvxpy/atoms/suppfunc.py": {
+        "size": 4058
+      },
+      "cvxpy/atoms/total_variation.py": {
+        "size": 2223
+      },
+      "cvxpy/atoms/tr_inv.py": {
+        "size": 3920
+      },
+      "cvxpy/atoms/von_neumann_entr.py": {
+        "size": 4353
+      },
+      "cvxpy/constraints/__init__.py": {
+        "size": 1139
+      },
+      "cvxpy/constraints/cones.py": {
+        "size": 2258
+      },
+      "cvxpy/constraints/constraint.py": {
+        "size": 9149
+      },
+      "cvxpy/constraints/exponential.py": {
+        "size": 13527
+      },
+      "cvxpy/constraints/finite_set.py": {
+        "size": 4594
+      },
+      "cvxpy/constraints/nonpos.py": {
+        "size": 8536
+      },
+      "cvxpy/constraints/power.py": {
+        "size": 12862
+      },
+      "cvxpy/constraints/psd.py": {
+        "size": 3242
+      },
+      "cvxpy/constraints/second_order.py": {
+        "size": 6470
+      },
+      "cvxpy/constraints/utilities.py": {
+        "size": 3828
+      },
+      "cvxpy/constraints/zero.py": {
+        "size": 5318
+      },
+      "cvxpy/cvxcore/.bumpversion.cfg": {
+        "size": 106
+      },
+      "cvxpy/cvxcore/OLD_README.md": {
+        "size": 4740
+      },
+      "cvxpy/cvxcore/README.md": {
+        "size": 5059
+      },
+      "cvxpy/cvxcore/__init__.py": {
+        "size": 0
+      },
+      "cvxpy/cvxcore/include/Eigen/CMakeLists.txt": {
+        "size": 694
+      },
+      "cvxpy/cvxcore/python/__init__.py": {
+        "size": 348
+      },
+      "cvxpy/cvxcore/python/canonInterface.py": {
+        "size": 12168
+      },
+      "cvxpy/cvxcore/python/cppbackend.py": {
+        "size": 8562
+      },
+      "cvxpy/cvxcore/python/cvxcore.py": {
+        "size": 28678
+      },
+      "cvxpy/error.py": {
+        "size": 1378
+      },
+      "cvxpy/expressions/__init__.py": {
+        "size": 590
+      },
+      "cvxpy/expressions/constants/__init__.py": {
+        "size": 670
+      },
+      "cvxpy/expressions/constants/callback_param.py": {
+        "size": 1729
+      },
+      "cvxpy/expressions/constants/constant.py": {
+        "size": 9651
+      },
+      "cvxpy/expressions/constants/parameter.py": {
+        "size": 3898
+      },
+      "cvxpy/expressions/cvxtypes.py": {
+        "size": 3433
+      },
+      "cvxpy/expressions/expression.py": {
+        "size": 36511
+      },
+      "cvxpy/expressions/leaf.py": {
+        "size": 43120
+      },
+      "cvxpy/expressions/variable.py": {
+        "size": 5094
+      },
+      "cvxpy/interface/__init__.py": {
+        "size": 611
+      },
+      "cvxpy/interface/base_matrix_interface.py": {
+        "size": 5162
+      },
+      "cvxpy/interface/matrix_utilities.py": {
+        "size": 11113
+      },
+      "cvxpy/interface/numpy_interface/__init__.py": {
+        "size": 809
+      },
+      "cvxpy/interface/numpy_interface/matrix_interface.py": {
+        "size": 2058
+      },
+      "cvxpy/interface/numpy_interface/ndarray_interface.py": {
+        "size": 2548
+      },
+      "cvxpy/interface/numpy_interface/sparse_matrix_interface.py": {
+        "size": 3461
+      },
+      "cvxpy/lin_ops/__init__.py": {
+        "size": 684
+      },
+      "cvxpy/lin_ops/backends/__init__.py": {
+        "size": 2561
+      },
+      "cvxpy/lin_ops/backends/base.py": {
+        "size": 36347
+      },
+      "cvxpy/lin_ops/backends/coo_backend.py": {
+        "size": 92350
+      },
+      "cvxpy/lin_ops/backends/rust_backend.py": {
+        "size": 1884
+      },
+      "cvxpy/lin_ops/backends/scipy_backend.py": {
+        "size": 41870
+      },
+      "cvxpy/lin_ops/canon_backend.py": {
+        "size": 1286
+      },
+      "cvxpy/lin_ops/lin_constraints.py": {
+        "size": 1126
+      },
+      "cvxpy/lin_ops/lin_op.py": {
+        "size": 3567
+      },
+      "cvxpy/lin_ops/lin_utils.py": {
+        "size": 19697
+      },
+      "cvxpy/lin_ops/tree_mat.py": {
+        "size": 12127
+      },
+      "cvxpy/logic.py": {
+        "size": 887
+      },
+      "cvxpy/problems/__init__.py": {
+        "size": 563
+      },
+      "cvxpy/problems/iterative.py": {
+        "size": 4958
+      },
+      "cvxpy/problems/objective.py": {
+        "size": 7817
+      },
+      "cvxpy/problems/param_prob.py": {
+        "size": 1602
+      },
+      "cvxpy/problems/problem.py": {
+        "size": 64830
+      },
+      "cvxpy/problems/problem_form.py": {
+        "size": 15473
+      },
+      "cvxpy/reductions/__init__.py": {
+        "size": 1303
+      },
+      "cvxpy/reductions/canonicalization.py": {
+        "size": 6170
+      },
+      "cvxpy/reductions/chain.py": {
+        "size": 2667
+      },
+      "cvxpy/reductions/complex2real/__init__.py": {
+        "size": 566
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/__init__.py": {
+        "size": 9306
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/abs_canon.py": {
+        "size": 1087
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/aff_canon.py": {
+        "size": 3462
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/constant_canon.py": {
+        "size": 912
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/equality_canon.py": {
+        "size": 1780
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/inequality_canon.py": {
+        "size": 1460
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/matrix_canon.py": {
+        "size": 8196
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/param_canon.py": {
+        "size": 860
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/pnorm_canon.py": {
+        "size": 815
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/psd_canon.py": {
+        "size": 1042
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/soc_canon.py": {
+        "size": 1583
+      },
+      "cvxpy/reductions/complex2real/canonicalizers/variable_canon.py": {
+        "size": 1720
+      },
+      "cvxpy/reductions/complex2real/complex2real.py": {
+        "size": 13772
+      },
+      "cvxpy/reductions/cone2cone/__init__.py": {
+        "size": 0
+      },
+      "cvxpy/reductions/cone2cone/affine2direct.py": {
+        "size": 18569
+      },
+      "cvxpy/reductions/cone2cone/approx.py": {
+        "size": 10533
+      },
+      "cvxpy/reductions/cone2cone/cone_tree.py": {
+        "size": 2833
+      },
+      "cvxpy/reductions/cone2cone/exact.py": {
+        "size": 16157
+      },
+      "cvxpy/reductions/cone2cone/soc_dim3.py": {
+        "size": 18196
+      },
+      "cvxpy/reductions/cvx_attr2constr.py": {
+        "size": 12142
+      },
+      "cvxpy/reductions/dcp2cone/__init__.py": {
+        "size": 564
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/__init__.py": {
+        "size": 5220
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/entr_canon.py": {
+        "size": 1187
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/exp_canon.py": {
+        "size": 1204
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/geo_mean_canon.py": {
+        "size": 2715
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/huber_canon.py": {
+        "size": 1596
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/indicator_canon.py": {
+        "size": 773
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/kl_div_canon.py": {
+        "size": 1033
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/lambda_max_canon.py": {
+        "size": 1290
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/lambda_sum_largest_canon.py": {
+        "size": 1588
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/log1p_canon.py": {
+        "size": 837
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/log_canon.py": {
+        "size": 1288
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/log_det_canon.py": {
+        "size": 2370
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/log_sum_exp_canon.py": {
+        "size": 1691
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/logic_canon.py": {
+        "size": 1686
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/logistic_canon.py": {
+        "size": 1209
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/matrix_frac_canon.py": {
+        "size": 1313
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/mul_canon.py": {
+        "size": 1307
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/normNuc_canon.py": {
+        "size": 1398
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/perspective_canon.py": {
+        "size": 3786
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/pnorm_canon.py": {
+        "size": 4655
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/power_canon.py": {
+        "size": 3425
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/quad/__init__.py": {
+        "size": 1373
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/quad/huber_canon.py": {
+        "size": 1572
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/quad/power_canon.py": {
+        "size": 1515
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/quad/quad_form_canon.py": {
+        "size": 1063
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/quad/quad_over_lin_canon.py": {
+        "size": 4243
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/quad_form_canon.py": {
+        "size": 1757
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/quad_over_lin_canon.py": {
+        "size": 3158
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/quantum_rel_entr_canon.py": {
+        "size": 1099
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/rel_entr_canon.py": {
+        "size": 1034
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/sigma_max_canon.py": {
+        "size": 1219
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/suppfunc_canon.py": {
+        "size": 2239
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/tr_inv_canon.py": {
+        "size": 1761
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/von_neumann_entr_canon.py": {
+        "size": 2060
+      },
+      "cvxpy/reductions/dcp2cone/canonicalizers/xexp_canon.py": {
+        "size": 1219
+      },
+      "cvxpy/reductions/dcp2cone/cone_matrix_stuffing.py": {
+        "size": 20255
+      },
+      "cvxpy/reductions/dcp2cone/dcp2cone.py": {
+        "size": 6466
+      },
+      "cvxpy/reductions/dgp2dcp/__init__.py": {
+        "size": 0
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/__init__.py": {
+        "size": 9816
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/add_canon.py": {
+        "size": 1587
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/constant_canon.py": {
+        "size": 732
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/cumprod_canon.py": {
+        "size": 694
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/div_canon.py": {
+        "size": 101
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/exp_canon.py": {
+        "size": 114
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/eye_minus_inv_canon.py": {
+        "size": 1434
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/finite_set_canon.py": {
+        "size": 241
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/geo_mean_canon.py": {
+        "size": 152
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/gmatmul_canon.py": {
+        "size": 63
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/log_canon.py": {
+        "size": 101
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/mul_canon.py": {
+        "size": 126
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/mulexpression_canon.py": {
+        "size": 1469
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/nonpos_constr_canon.py": {
+        "size": 169
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/norm1_canon.py": {
+        "size": 253
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/norm_inf_canon.py": {
+        "size": 255
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/one_minus_pos_canon.py": {
+        "size": 173
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/parameter_canon.py": {
+        "size": 1015
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/pf_eigenvalue_canon.py": {
+        "size": 684
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/pnorm_canon.py": {
+        "size": 708
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/power_canon.py": {
+        "size": 122
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/prod_canon.py": {
+        "size": 154
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/quad_form_canon.py": {
+        "size": 326
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/quad_over_lin_canon.py": {
+        "size": 290
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/sum_canon.py": {
+        "size": 1296
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/trace_canon.py": {
+        "size": 288
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/xexp_canon.py": {
+        "size": 125
+      },
+      "cvxpy/reductions/dgp2dcp/canonicalizers/zero_constr_canon.py": {
+        "size": 161
+      },
+      "cvxpy/reductions/dgp2dcp/dgp2dcp.py": {
+        "size": 5896
+      },
+      "cvxpy/reductions/dgp2dcp/util.py": {
+        "size": 851
+      },
+      "cvxpy/reductions/discrete2mixedint/__init__.py": {
+        "size": 1
+      },
+      "cvxpy/reductions/discrete2mixedint/valinvec2mixedint.py": {
+        "size": 2728
+      },
+      "cvxpy/reductions/dnlp2smooth/__init__.py": {
+        "size": 565
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/__init__.py": {
+        "size": 4826
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/div_canon.py": {
+        "size": 1749
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/entr_canon.py": {
+        "size": 857
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/geo_mean_canon.py": {
+        "size": 1309
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/huber_canon.py": {
+        "size": 1788
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/hyperbolic_canon.py": {
+        "size": 800
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/kl_div_canon.py": {
+        "size": 906
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/log_canon.py": {
+        "size": 859
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/log_sum_exp_canon.py": {
+        "size": 1203
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/multiply_canon.py": {
+        "size": 1846
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/pnorm_canon.py": {
+        "size": 1284
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/power_canon.py": {
+        "size": 1432
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/quad_over_lin_canon.py": {
+        "size": 1863
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/rel_entr_canon.py": {
+        "size": 2156
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/smooth_full_domain_canon.py": {
+        "size": 1166
+      },
+      "cvxpy/reductions/dnlp2smooth/canonicalizers/trig_canon.py": {
+        "size": 814
+      },
+      "cvxpy/reductions/dnlp2smooth/dnlp2smooth.py": {
+        "size": 4241
+      },
+      "cvxpy/reductions/dqcp2dcp/__init__.py": {
+        "size": 562
+      },
+      "cvxpy/reductions/dqcp2dcp/dqcp2dcp.py": {
+        "size": 9583
+      },
+      "cvxpy/reductions/dqcp2dcp/inverse.py": {
+        "size": 3514
+      },
+      "cvxpy/reductions/dqcp2dcp/sets.py": {
+        "size": 5154
+      },
+      "cvxpy/reductions/dqcp2dcp/tighten.py": {
+        "size": 1154
+      },
+      "cvxpy/reductions/eliminate_pwl/__init__.py": {
+        "size": 566
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/__init__.py": {
+        "size": 2000
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/abs_canon.py": {
+        "size": 1179
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/cummax_canon.py": {
+        "size": 1202
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/cumsum_canon.py": {
+        "size": 2042
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/dotsort_canon.py": {
+        "size": 1542
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/max_canon.py": {
+        "size": 1677
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/maximum_canon.py": {
+        "size": 1367
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/min_canon.py": {
+        "size": 1013
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/minimum_canon.py": {
+        "size": 971
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/norm1_canon.py": {
+        "size": 1269
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/norm_inf_canon.py": {
+        "size": 1664
+      },
+      "cvxpy/reductions/eliminate_pwl/canonicalizers/sum_largest_canon.py": {
+        "size": 1619
+      },
+      "cvxpy/reductions/eliminate_pwl/eliminate_pwl.py": {
+        "size": 1451
+      },
+      "cvxpy/reductions/eliminate_zero_sized.py": {
+        "size": 5573
+      },
+      "cvxpy/reductions/eval_params.py": {
+        "size": 2689
+      },
+      "cvxpy/reductions/flip_objective.py": {
+        "size": 2051
+      },
+      "cvxpy/reductions/inverse_data.py": {
+        "size": 1944
+      },
+      "cvxpy/reductions/matrix_stuffing.py": {
+        "size": 8616
+      },
+      "cvxpy/reductions/reduction.py": {
+        "size": 8111
+      },
+      "cvxpy/reductions/solution.py": {
+        "size": 3020
+      },
+      "cvxpy/reductions/solvers/__init__.py": {
+        "size": 563
+      },
+      "cvxpy/reductions/solvers/bisection.py": {
+        "size": 7382
+      },
+      "cvxpy/reductions/solvers/compr_matrix.py": {
+        "size": 3636
+      },
+      "cvxpy/reductions/solvers/conic_solvers/__init__.py": {
+        "size": 1409
+      },
+      "cvxpy/reductions/solvers/conic_solvers/cbc_conif.py": {
+        "size": 8531
+      },
+      "cvxpy/reductions/solvers/conic_solvers/clarabel_conif.py": {
+        "size": 13442
+      },
+      "cvxpy/reductions/solvers/conic_solvers/conic_solver.py": {
+        "size": 15654
+      },
+      "cvxpy/reductions/solvers/conic_solvers/copt_conif.py": {
+        "size": 16667
+      },
+      "cvxpy/reductions/solvers/conic_solvers/cosmo_conif.py": {
+        "size": 5641
+      },
+      "cvxpy/reductions/solvers/conic_solvers/cplex_conif.py": {
+        "size": 19292
+      },
+      "cvxpy/reductions/solvers/conic_solvers/cuclarabel_conif.py": {
+        "size": 7407
+      },
+      "cvxpy/reductions/solvers/conic_solvers/cuopt_conif.py": {
+        "size": 11331
+      },
+      "cvxpy/reductions/solvers/conic_solvers/cvxopt_conif.py": {
+        "size": 13877
+      },
+      "cvxpy/reductions/solvers/conic_solvers/diffcp_conif.py": {
+        "size": 7392
+      },
+      "cvxpy/reductions/solvers/conic_solvers/ecos_bb_conif.py": {
+        "size": 5654
+      },
+      "cvxpy/reductions/solvers/conic_solvers/ecos_conif.py": {
+        "size": 7391
+      },
+      "cvxpy/reductions/solvers/conic_solvers/glop_conif.py": {
+        "size": 9579
+      },
+      "cvxpy/reductions/solvers/conic_solvers/glpk_conif.py": {
+        "size": 4227
+      },
+      "cvxpy/reductions/solvers/conic_solvers/glpk_mi_conif.py": {
+        "size": 4765
+      },
+      "cvxpy/reductions/solvers/conic_solvers/gurobi_conif.py": {
+        "size": 15134
+      },
+      "cvxpy/reductions/solvers/conic_solvers/highs_conif.py": {
+        "size": 13149
+      },
+      "cvxpy/reductions/solvers/conic_solvers/knitro_conif.py": {
+        "size": 22479
+      },
+      "cvxpy/reductions/solvers/conic_solvers/moreau_conif.py": {
+        "size": 10371
+      },
+      "cvxpy/reductions/solvers/conic_solvers/mosek_conif.py": {
+        "size": 34291
+      },
+      "cvxpy/reductions/solvers/conic_solvers/nag_conif.py": {
+        "size": 10731
+      },
+      "cvxpy/reductions/solvers/conic_solvers/pdcs_conif.py": {
+        "size": 9833
+      },
+      "cvxpy/reductions/solvers/conic_solvers/pdlp_conif.py": {
+        "size": 9247
+      },
+      "cvxpy/reductions/solvers/conic_solvers/qoco_conif.py": {
+        "size": 6966
+      },
+      "cvxpy/reductions/solvers/conic_solvers/scip_conif.py": {
+        "size": 16784
+      },
+      "cvxpy/reductions/solvers/conic_solvers/scipy_conif.py": {
+        "size": 12655
+      },
+      "cvxpy/reductions/solvers/conic_solvers/scs_conif.py": {
+        "size": 13497
+      },
+      "cvxpy/reductions/solvers/conic_solvers/sdpa_conif.py": {
+        "size": 6872
+      },
+      "cvxpy/reductions/solvers/conic_solvers/xpress_conif.py": {
+        "size": 20493
+      },
+      "cvxpy/reductions/solvers/constant_solver.py": {
+        "size": 1130
+      },
+      "cvxpy/reductions/solvers/defines.py": {
+        "size": 6609
+      },
+      "cvxpy/reductions/solvers/intermediate_chain.py": {
+        "size": 4024
+      },
+      "cvxpy/reductions/solvers/kktsolver.py": {
+        "size": 4372
+      },
+      "cvxpy/reductions/solvers/nlp_solvers/__init__.py": {
+        "size": 569
+      },
+      "cvxpy/reductions/solvers/nlp_solvers/copt_nlpif.py": {
+        "size": 10296
+      },
+      "cvxpy/reductions/solvers/nlp_solvers/diff_engine/__init__.py": {
+        "size": 1098
+      },
+      "cvxpy/reductions/solvers/nlp_solvers/diff_engine/c_problem.py": {
+        "size": 4340
+      },
+      "cvxpy/reductions/solvers/nlp_solvers/diff_engine/converters.py": {
+        "size": 14264
+      },
+      "cvxpy/reductions/solvers/nlp_solvers/ipopt_nlpif.py": {
+        "size": 8410
+      },
+      "cvxpy/reductions/solvers/nlp_solvers/knitro_nlpif.py": {
+        "size": 14338
+      },
+      "cvxpy/reductions/solvers/nlp_solvers/nlp_solver.py": {
+        "size": 9318
+      },
+      "cvxpy/reductions/solvers/nlp_solvers/uno_nlpif.py": {
+        "size": 13570
+      },
+      "cvxpy/reductions/solvers/nlp_solving_chain.py": {
+        "size": 8294
+      },
+      "cvxpy/reductions/solvers/qp_solvers/__init__.py": {
+        "size": 563
+      },
+      "cvxpy/reductions/solvers/qp_solvers/copt_qpif.py": {
+        "size": 8063
+      },
+      "cvxpy/reductions/solvers/qp_solvers/cplex_qpif.py": {
+        "size": 7044
+      },
+      "cvxpy/reductions/solvers/qp_solvers/daqp_qpif.py": {
+        "size": 7231
+      },
+      "cvxpy/reductions/solvers/qp_solvers/gurobi_qpif.py": {
+        "size": 8826
+      },
+      "cvxpy/reductions/solvers/qp_solvers/highs_qpif.py": {
+        "size": 9163
+      },
+      "cvxpy/reductions/solvers/qp_solvers/knitro_qpif.py": {
+        "size": 11533
+      },
+      "cvxpy/reductions/solvers/qp_solvers/mpax_qpif.py": {
+        "size": 5602
+      },
+      "cvxpy/reductions/solvers/qp_solvers/osqp_qpif.py": {
+        "size": 6339
+      },
+      "cvxpy/reductions/solvers/qp_solvers/piqp_qpif.py": {
+        "size": 7789
+      },
+      "cvxpy/reductions/solvers/qp_solvers/proxqp_qpif.py": {
+        "size": 7323
+      },
+      "cvxpy/reductions/solvers/qp_solvers/qp_solver.py": {
+        "size": 5548
+      },
+      "cvxpy/reductions/solvers/qp_solvers/qpalm_qpif.py": {
+        "size": 5665
+      },
+      "cvxpy/reductions/solvers/qp_solvers/xpress_qpif.py": {
+        "size": 13334
+      },
+      "cvxpy/reductions/solvers/solver.py": {
+        "size": 5087
+      },
+      "cvxpy/reductions/solvers/solver_inverse_data.py": {
+        "size": 2217
+      },
+      "cvxpy/reductions/solvers/solving_chain.py": {
+        "size": 19846
+      },
+      "cvxpy/reductions/solvers/solving_chain_utils.py": {
+        "size": 2110
+      },
+      "cvxpy/reductions/solvers/utilities.py": {
+        "size": 2830
+      },
+      "cvxpy/reductions/utilities.py": {
+        "size": 6177
+      },
+      "cvxpy/settings.py": {
+        "size": 6131
+      },
+      "cvxpy/tests/__init__.py": {
+        "size": 563
+      },
+      "cvxpy/tests/atoms/affine/test_stack.py": {
+        "size": 3625
+      },
+      "cvxpy/tests/base_test.py": {
+        "size": 1497
+      },
+      "cvxpy/tests/nlp_tests/__init__.py": {
+        "size": 563
+      },
+      "cvxpy/tests/nlp_tests/derivative_checker.py": {
+        "size": 9504
+      },
+      "cvxpy/tests/nlp_tests/stress_tests_diff_engine/__init__.py": {
+        "size": 563
+      },
+      "cvxpy/tests/nlp_tests/stress_tests_diff_engine/test_affine_matrix_atoms.py": {
+        "size": 7048
+      },
+      "cvxpy/tests/nlp_tests/stress_tests_diff_engine/test_affine_vector_atoms.py": {
+        "size": 8833
+      },
+      "cvxpy/tests/nlp_tests/stress_tests_diff_engine/test_matmul_sparse.py": {
+        "size": 2539
+      },
+      "cvxpy/tests/nlp_tests/stress_tests_diff_engine/test_multiply_sparse.py": {
+        "size": 2352
+      },
+      "cvxpy/tests/nlp_tests/stress_tests_diff_engine/test_quad_form.py": {
+        "size": 3566
+      },
+      "cvxpy/tests/nlp_tests/test_ML_Gaussian_stress.py": {
+        "size": 4531
+      },
+      "cvxpy/tests/nlp_tests/test_Sharpe_ratio.py": {
+        "size": 2214
+      },
+      "cvxpy/tests/nlp_tests/test_abs.py": {
+        "size": 5090
+      },
+      "cvxpy/tests/nlp_tests/test_best_of.py": {
+        "size": 4618
+      },
+      "cvxpy/tests/nlp_tests/test_broadcast.py": {
+        "size": 3170
+      },
+      "cvxpy/tests/nlp_tests/test_dnlp.py": {
+        "size": 4408
+      },
+      "cvxpy/tests/nlp_tests/test_entropy_related.py": {
+        "size": 6913
+      },
+      "cvxpy/tests/nlp_tests/test_huber_sum_largest.py": {
+        "size": 3312
+      },
+      "cvxpy/tests/nlp_tests/test_hyperbolic.py": {
+        "size": 2313
+      },
+      "cvxpy/tests/nlp_tests/test_initialization.py": {
+        "size": 3618
+      },
+      "cvxpy/tests/nlp_tests/test_interfaces.py": {
+        "size": 10638
+      },
+      "cvxpy/tests/nlp_tests/test_log_sum_exp.py": {
+        "size": 2599
+      },
+      "cvxpy/tests/nlp_tests/test_matmul.py": {
+        "size": 4104
+      },
+      "cvxpy/tests/nlp_tests/test_nlp_solvers.py": {
+        "size": 17992
+      },
+      "cvxpy/tests/nlp_tests/test_power_flow.py": {
+        "size": 4942
+      },
+      "cvxpy/tests/nlp_tests/test_problem.py": {
+        "size": 2694
+      },
+      "cvxpy/tests/nlp_tests/test_prod.py": {
+        "size": 10444
+      },
+      "cvxpy/tests/nlp_tests/test_quasi_newton.py": {
+        "size": 7780
+      },
+      "cvxpy/tests/nlp_tests/test_risk_parity.py": {
+        "size": 4842
+      },
+      "cvxpy/tests/nlp_tests/test_scalar_and_matrix_problems.py": {
+        "size": 11566
+      },
+      "cvxpy/tests/nlp_tests/test_sum.py": {
+        "size": 3621
+      },
+      "cvxpy/tests/ram_limited.py": {
+        "size": 1963
+      },
+      "cvxpy/tests/solver_test_helpers.py": {
+        "size": 54810
+      },
+      "cvxpy/tests/test_KKT.py": {
+        "size": 13688
+      },
+      "cvxpy/tests/test_atoms.py": {
+        "size": 89936
+      },
+      "cvxpy/tests/test_attributes.py": {
+        "size": 23293
+      },
+      "cvxpy/tests/test_backend_selection.py": {
+        "size": 8797
+      },
+      "cvxpy/tests/test_base_classes.py": {
+        "size": 874
+      },
+      "cvxpy/tests/test_bounds.py": {
+        "size": 45953
+      },
+      "cvxpy/tests/test_canon_sign.py": {
+        "size": 2055
+      },
+      "cvxpy/tests/test_clarabel.py": {
+        "size": 4750
+      },
+      "cvxpy/tests/test_coeff_extractor.py": {
+        "size": 15336
+      },
+      "cvxpy/tests/test_complex.py": {
+        "size": 31186
+      },
+      "cvxpy/tests/test_complex_dpp.py": {
+        "size": 7424
+      },
+      "cvxpy/tests/test_cone2cone.py": {
+        "size": 35489
+      },
+      "cvxpy/tests/test_conic_solvers.py": {
+        "size": 123566
+      },
+      "cvxpy/tests/test_constant.py": {
+        "size": 3394
+      },
+      "cvxpy/tests/test_constant_atoms.py": {
+        "size": 19110
+      },
+      "cvxpy/tests/test_constraints.py": {
+        "size": 25149
+      },
+      "cvxpy/tests/test_convolution.py": {
+        "size": 7510
+      },
+      "cvxpy/tests/test_copt_write.py": {
+        "size": 1252
+      },
+      "cvxpy/tests/test_copy.py": {
+        "size": 2983
+      },
+      "cvxpy/tests/test_curvature.py": {
+        "size": 3491
+      },
+      "cvxpy/tests/test_custom_solver.py": {
+        "size": 3939
+      },
+      "cvxpy/tests/test_cvxpygen.py": {
+        "size": 8878
+      },
+      "cvxpy/tests/test_derivative.py": {
+        "size": 30325
+      },
+      "cvxpy/tests/test_dgp.py": {
+        "size": 11591
+      },
+      "cvxpy/tests/test_dgp2dcp.py": {
+        "size": 27402
+      },
+      "cvxpy/tests/test_dgp_dpp.py": {
+        "size": 8697
+      },
+      "cvxpy/tests/test_domain.py": {
+        "size": 7205
+      },
+      "cvxpy/tests/test_dpp.py": {
+        "size": 37297
+      },
+      "cvxpy/tests/test_dqcp.py": {
+        "size": 27915
+      },
+      "cvxpy/tests/test_einsum.py": {
+        "size": 11884
+      },
+      "cvxpy/tests/test_errors.py": {
+        "size": 4296
+      },
+      "cvxpy/tests/test_examples.py": {
+        "size": 20386
+      },
+      "cvxpy/tests/test_expression_methods.py": {
+        "size": 14655
+      },
+      "cvxpy/tests/test_expressions.py": {
+        "size": 73157
+      },
+      "cvxpy/tests/test_fuzz_reshape.py": {
+        "size": 10695
+      },
+      "cvxpy/tests/test_grad.py": {
+        "size": 38660
+      },
+      "cvxpy/tests/test_gurobi_write.py": {
+        "size": 1260
+      },
+      "cvxpy/tests/test_interfaces.py": {
+        "size": 6304
+      },
+      "cvxpy/tests/test_kron_canon.py": {
+        "size": 7605
+      },
+      "cvxpy/tests/test_labels.py": {
+        "size": 16598
+      },
+      "cvxpy/tests/test_lin_ops.py": {
+        "size": 4945
+      },
+      "cvxpy/tests/test_linalg_utils.py": {
+        "size": 3634
+      },
+      "cvxpy/tests/test_linear_cone.py": {
+        "size": 16635
+      },
+      "cvxpy/tests/test_logic.py": {
+        "size": 14233
+      },
+      "cvxpy/tests/test_matrices.py": {
+        "size": 5078
+      },
+      "cvxpy/tests/test_matrix_utilities.py": {
+        "size": 2340
+      },
+      "cvxpy/tests/test_mip_vars.py": {
+        "size": 8279
+      },
+      "cvxpy/tests/test_monotonicity.py": {
+        "size": 2948
+      },
+      "cvxpy/tests/test_nd_matmul.py": {
+        "size": 21460
+      },
+      "cvxpy/tests/test_nonlinear_atoms.py": {
+        "size": 6429
+      },
+      "cvxpy/tests/test_objectives.py": {
+        "size": 4985
+      },
+      "cvxpy/tests/test_param_cone_prog.py": {
+        "size": 6669
+      },
+      "cvxpy/tests/test_param_quad_prog.py": {
+        "size": 7735
+      },
+      "cvxpy/tests/test_parametric_bounds.py": {
+        "size": 10184
+      },
+      "cvxpy/tests/test_perspective.py": {
+        "size": 13349
+      },
+      "cvxpy/tests/test_pow_cone_nd.py": {
+        "size": 10355
+      },
+      "cvxpy/tests/test_power_atom.py": {
+        "size": 15433
+      },
+      "cvxpy/tests/test_power_tools.py": {
+        "size": 4341
+      },
+      "cvxpy/tests/test_problem.py": {
+        "size": 92767
+      },
+      "cvxpy/tests/test_problem_form.py": {
+        "size": 13678
+      },
+      "cvxpy/tests/test_python_backends.py": {
+        "size": 129987
+      },
+      "cvxpy/tests/test_qp_solvers.py": {
+        "size": 39419
+      },
+      "cvxpy/tests/test_quad_form.py": {
+        "size": 13162
+      },
+      "cvxpy/tests/test_quadratic.py": {
+        "size": 7085
+      },
+      "cvxpy/tests/test_quantum_rel_entr.py": {
+        "size": 6168
+      },
+      "cvxpy/tests/test_scalarize.py": {
+        "size": 6964
+      },
+      "cvxpy/tests/test_semidefinite_vars.py": {
+        "size": 3230
+      },
+      "cvxpy/tests/test_shape.py": {
+        "size": 3235
+      },
+      "cvxpy/tests/test_sign.py": {
+        "size": 2694
+      },
+      "cvxpy/tests/test_soc_dim3.py": {
+        "size": 12718
+      },
+      "cvxpy/tests/test_solver_data_validation.py": {
+        "size": 2265
+      },
+      "cvxpy/tests/test_solver_inverse_data.py": {
+        "size": 1619
+      },
+      "cvxpy/tests/test_suppfunc.py": {
+        "size": 7759
+      },
+      "cvxpy/tests/test_valinvec2mixedint.py": {
+        "size": 14232
+      },
+      "cvxpy/tests/test_versioning.py": {
+        "size": 1901
+      },
+      "cvxpy/tests/test_von_neumann_entr.py": {
+        "size": 10226
+      },
+      "cvxpy/tests/test_zero_sized.py": {
+        "size": 12559
+      },
+      "cvxpy/transforms/__init__.py": {
+        "size": 996
+      },
+      "cvxpy/transforms/indicator.py": {
+        "size": 4192
+      },
+      "cvxpy/transforms/linearize.py": {
+        "size": 2110
+      },
+      "cvxpy/transforms/partial_optimize.py": {
+        "size": 11406
+      },
+      "cvxpy/transforms/scalarize.py": {
+        "size": 5042
+      },
+      "cvxpy/transforms/suppfunc.py": {
+        "size": 6761
+      },
+      "cvxpy/utilities/__init__.py": {
+        "size": 629
+      },
+      "cvxpy/utilities/bounds.py": {
+        "size": 26395
+      },
+      "cvxpy/utilities/canonical.py": {
+        "size": 7067
+      },
+      "cvxpy/utilities/citations.py": {
+        "size": 17402
+      },
+      "cvxpy/utilities/coeff_extractor.py": {
+        "size": 16466
+      },
+      "cvxpy/utilities/coo_array_compat.py": {
+        "size": 770
+      },
+      "cvxpy/utilities/cpp/__init__.py": {
+        "size": 1
+      },
+      "cvxpy/utilities/cpp/sparsecholesky/__init__.py": {
+        "size": 36
+      },
+      "cvxpy/utilities/cvxpy_upgrade.py": {
+        "size": 2968
+      },
+      "cvxpy/utilities/debug_tools.py": {
+        "size": 3264
+      },
+      "cvxpy/utilities/deterministic.py": {
+        "size": 245
+      },
+      "cvxpy/utilities/einsum_utilities.py": {
+        "size": 21853
+      },
+      "cvxpy/utilities/grad.py": {
+        "size": 1423
+      },
+      "cvxpy/utilities/key_utils.py": {
+        "size": 6835
+      },
+      "cvxpy/utilities/linalg.py": {
+        "size": 9246
+      },
+      "cvxpy/utilities/performance_utils.py": {
+        "size": 2557
+      },
+      "cvxpy/utilities/perspective_utils.py": {
+        "size": 2189
+      },
+      "cvxpy/utilities/power_tools.py": {
+        "size": 20017
+      },
+      "cvxpy/utilities/replace_quad_forms.py": {
+        "size": 1552
+      },
+      "cvxpy/utilities/scopes.py": {
+        "size": 1485
+      },
+      "cvxpy/utilities/shape.py": {
+        "size": 4486
+      },
+      "cvxpy/utilities/sign.py": {
+        "size": 1968
+      },
+      "cvxpy/utilities/solver_context.py": {
+        "size": 923
+      },
+      "cvxpy/utilities/versioning.py": {
+        "size": 1825
+      },
+      "cvxpy/utilities/warn.py": {
+        "size": 3506
+      },
+      "doc/requirements.txt": {
+        "size": 93
+      },
+      "doc/source/conf.py": {
+        "size": 13860
+      },
+      "doc/sphinxext/docscrape.py": {
+        "size": 16006
+      },
+      "doc/sphinxext/docscrape_sphinx.py": {
+        "size": 8343
+      },
+      "doc/sphinxext/numpydoc.py": {
+        "size": 6250
+      },
+      "pyproject.toml": {
+        "size": 2773
+      },
+      "requirements.txt": {
+        "size": 30
+      },
+      "setup.py": {
+        "size": 2448
+      },
+      "setup/__init__.py": {
+        "size": 0
+      },
+      "setup/build_meta.py": {
+        "size": 164
+      },
+      "setup/extensions.py": {
+        "size": 1810
+      },
+      "setup/versioning.py": {
+        "size": 4835
+      },
+      "tools/release_notes.py": {
+        "size": 6297
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "cvxpy",
+        "module": "__init__.py",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level public API re-export hub; best import surface for plugin integration."
+      },
+      {
+        "package": "cvxpy/problems",
+        "module": "problem.py",
+        "functions": [],
+        "classes": [
+          "Problem"
+        ],
+        "description": "Primary optimization model container and solve entrypoint."
+      },
+      {
+        "package": "cvxpy/expressions/variable.py",
+        "module": "variable.py",
+        "functions": [],
+        "classes": [
+          "Variable"
+        ],
+        "description": "Decision variable definition class used in nearly all models."
+      },
+      {
+        "package": "cvxpy/expressions/constants/parameter.py",
+        "module": "parameter.py",
+        "functions": [],
+        "classes": [
+          "Parameter"
+        ],
+        "description": "Parameterized constants for repeated solves / DPP workflows."
+      },
+      {
+        "package": "cvxpy/problems/objective.py",
+        "module": "objective.py",
+        "functions": [],
+        "classes": [
+          "Minimize",
+          "Maximize",
+          "Objective"
+        ],
+        "description": "Objective specification primitives."
+      },
+      {
+        "package": "cvxpy/constraints",
+        "module": "__init__.py",
+        "functions": [],
+        "classes": [
+          "Constraint",
+          "Equality",
+          "Inequality",
+          "NonPos",
+          "Zero",
+          "PSD",
+          "SOC",
+          "ExpCone",
+          "PowCone3D",
+          "PowConeND"
+        ],
+        "description": "Core constraint families exposed for model construction."
+      },
+      {
+        "package": "cvxpy/reductions/solvers",
+        "module": "defines.py",
+        "functions": [],
+        "classes": [],
+        "description": "Solver registry/constants; useful for capability discovery in MCP tools."
+      },
+      {
+        "package": "cvxpy/reductions/solvers",
+        "module": "solving_chain.py",
+        "functions": [],
+        "classes": [
+          "SolvingChain"
+        ],
+        "description": "Canonicalization-to-solver execution pipeline internals."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python -m cvxpy.utilities.cvxpy_upgrade",
+        "module": "cvxpy/utilities/cvxpy_upgrade.py",
+        "description": "Source migration helper (legacy API rewrites), utility CLI-like entry via module execution."
+      },
+      {
+        "name": "python tools/release_notes.py",
+        "module": "tools/release_notes.py",
+        "description": "Project maintenance script, not end-user optimization CLI."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy"
+      ],
+      "optional": [
+        "osqp",
+        "scs",
+        "clarabel",
+        "ecos",
+        "cvxopt",
+        "gurobipy",
+        "cplex",
+        "mosek",
+        "highspy",
+        "glpk",
+        "cbc",
+        "xpress",
+        "sdpa",
+        "diffcp",
+        "ipopt",
+        "knitro",
+        "copt",
+        "qoco",
+        "cuclarabel",
+        "cuopt",
+        "pdlp",
+        "scip"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.96,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/cvxpy/cvxpy",
+    "repo_name": "cvxpy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.96,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/YanLab-Westlake/SPM",
+    "summary": "Imported via zip fallback, file count: 3",
+    "file_tree": {
+      "README.md": {
+        "size": 1066
+      },
+      "output/test1_ranked.txt": {
+        "size": 13569
+      },
+      "scripts/SequencePatternMatching.py": {
+        "size": 3875
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "scripts/SequencePatternMatching.py",
+        "module": "SequencePatternMatching",
+        "functions": [],
+        "classes": [],
+        "description": "Single-script implementation of sequence pattern matching logic. Based on repository structure, this is the only executable core code file and should be treated as the primary functional module for MCP integration."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python scripts/SequencePatternMatching.py",
+        "module": "scripts/SequencePatternMatching.py",
+        "description": "Likely script-style entry execution for running sequence pattern matching and producing ranked output files (e.g., output/test1_ranked.txt). No formal CLI metadata (console_scripts/argparse click declaration) was detected from scanned paths."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python (runtime, exact version unspecified)"
+      ],
+      "optional": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.35,
+      "intrusiveness_risk": "medium",
+      "complexity": "simple"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/YanLab-Westlake/SPM",
+    "repo_name": "SPM",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.35,
+    "intrusiveness_risk": "medium",
+    "complexity": "simple"
+  }
+}

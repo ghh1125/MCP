@@ -1,0 +1,1770 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/microsoft/qlib",
+    "summary": "Imported via zip fallback, file count: 519",
+    "file_tree": {
+      ".commitlintrc.js": {
+        "size": 920
+      },
+      ".deepsource.toml": {
+        "size": 179
+      },
+      ".github/ISSUE_TEMPLATE/bug-report.md": {
+        "size": 832
+      },
+      ".github/ISSUE_TEMPLATE/documentation.md": {
+        "size": 201
+      },
+      ".github/ISSUE_TEMPLATE/feature-request.md": {
+        "size": 589
+      },
+      ".github/ISSUE_TEMPLATE/question.md": {
+        "size": 392
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 2310
+      },
+      ".github/release-drafter.yml": {
+        "size": 721
+      },
+      ".github/workflows/lint_title.yml": {
+        "size": 877
+      },
+      ".github/workflows/release.yml": {
+        "size": 3528
+      },
+      ".github/workflows/stale.yml": {
+        "size": 888
+      },
+      ".github/workflows/test_qlib_from_pip.yml": {
+        "size": 1652
+      },
+      ".github/workflows/test_qlib_from_source.yml": {
+        "size": 4568
+      },
+      ".github/workflows/test_qlib_from_source_slow.yml": {
+        "size": 1701
+      },
+      ".mypy.ini": {
+        "size": 359
+      },
+      ".pre-commit-config.yaml": {
+        "size": 278
+      },
+      ".readthedocs.yaml": {
+        "size": 574
+      },
+      "CHANGELOG.md": {
+        "size": 0
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 444
+      },
+      "README.md": {
+        "size": 43026
+      },
+      "SECURITY.md": {
+        "size": 2780
+      },
+      "docs/conf.py": {
+        "size": 6646
+      },
+      "docs/requirements.txt": {
+        "size": 71
+      },
+      "examples/README.md": {
+        "size": 307
+      },
+      "examples/benchmarks/ADARNN/README.md": {
+        "size": 283
+      },
+      "examples/benchmarks/ADARNN/requirements.txt": {
+        "size": 62
+      },
+      "examples/benchmarks/ADARNN/workflow_config_adarnn_Alpha360.yaml": {
+        "size": 2497
+      },
+      "examples/benchmarks/ADD/README.md": {
+        "size": 145
+      },
+      "examples/benchmarks/ADD/requirements.txt": {
+        "size": 62
+      },
+      "examples/benchmarks/ADD/workflow_config_add_Alpha360.yaml": {
+        "size": 2620
+      },
+      "examples/benchmarks/ALSTM/README.md": {
+        "size": 402
+      },
+      "examples/benchmarks/ALSTM/requirements.txt": {
+        "size": 62
+      },
+      "examples/benchmarks/ALSTM/workflow_config_alstm_Alpha158.yaml": {
+        "size": 2953
+      },
+      "examples/benchmarks/ALSTM/workflow_config_alstm_Alpha360.yaml": {
+        "size": 2521
+      },
+      "examples/benchmarks/CatBoost/README.md": {
+        "size": 343
+      },
+      "examples/benchmarks/CatBoost/requirements.txt": {
+        "size": 45
+      },
+      "examples/benchmarks/CatBoost/workflow_config_catboost_Alpha158.yaml": {
+        "size": 2070
+      },
+      "examples/benchmarks/CatBoost/workflow_config_catboost_Alpha158_csi500.yaml": {
+        "size": 2070
+      },
+      "examples/benchmarks/CatBoost/workflow_config_catboost_Alpha360.yaml": {
+        "size": 2279
+      },
+      "examples/benchmarks/CatBoost/workflow_config_catboost_Alpha360_csi500.yaml": {
+        "size": 2279
+      },
+      "examples/benchmarks/DoubleEnsemble/README.md": {
+        "size": 843
+      },
+      "examples/benchmarks/DoubleEnsemble/requirements.txt": {
+        "size": 45
+      },
+      "examples/benchmarks/DoubleEnsemble/workflow_config_doubleensemble_Alpha158.yaml": {
+        "size": 2686
+      },
+      "examples/benchmarks/DoubleEnsemble/workflow_config_doubleensemble_Alpha158_csi500.yaml": {
+        "size": 2664
+      },
+      "examples/benchmarks/DoubleEnsemble/workflow_config_doubleensemble_Alpha360.yaml": {
+        "size": 2905
+      },
+      "examples/benchmarks/DoubleEnsemble/workflow_config_doubleensemble_Alpha360_csi500.yaml": {
+        "size": 2876
+      },
+      "examples/benchmarks/DoubleEnsemble/workflow_config_doubleensemble_early_stop_Alpha158.yaml": {
+        "size": 2727
+      },
+      "examples/benchmarks/GATs/README.md": {
+        "size": 485
+      },
+      "examples/benchmarks/GATs/requirements.txt": {
+        "size": 62
+      },
+      "examples/benchmarks/GATs/workflow_config_gats_Alpha158.yaml": {
+        "size": 2963
+      },
+      "examples/benchmarks/GATs/workflow_config_gats_Alpha360.yaml": {
+        "size": 2558
+      },
+      "examples/benchmarks/GRU/README.md": {
+        "size": 174
+      },
+      "examples/benchmarks/GRU/requirements.txt": {
+        "size": 62
+      },
+      "examples/benchmarks/GRU/workflow_config_gru_Alpha158.yaml": {
+        "size": 2923
+      },
+      "examples/benchmarks/GRU/workflow_config_gru_Alpha360.yaml": {
+        "size": 2491
+      },
+      "examples/benchmarks/GeneralPtNN/README.md": {
+        "size": 1067
+      },
+      "examples/benchmarks/GeneralPtNN/workflow_config_gru.yaml": {
+        "size": 3078
+      },
+      "examples/benchmarks/GeneralPtNN/workflow_config_gru2mlp.yaml": {
+        "size": 2890
+      },
+      "examples/benchmarks/GeneralPtNN/workflow_config_mlp.yaml": {
+        "size": 2768
+      },
+      "examples/benchmarks/HIST/README.md": {
+        "size": 293
+      },
+      "examples/benchmarks/HIST/requirements.txt": {
+        "size": 61
+      },
+      "examples/benchmarks/HIST/workflow_config_hist_Alpha360.yaml": {
+        "size": 2700
+      },
+      "examples/benchmarks/IGMTF/README.md": {
+        "size": 221
+      },
+      "examples/benchmarks/IGMTF/requirements.txt": {
+        "size": 62
+      },
+      "examples/benchmarks/IGMTF/workflow_config_igmtf_Alpha360.yaml": {
+        "size": 2556
+      },
+      "examples/benchmarks/KRNN/README.md": {
+        "size": 406
+      },
+      "examples/benchmarks/KRNN/requirements.txt": {
+        "size": 28
+      },
+      "examples/benchmarks/KRNN/workflow_config_krnn_Alpha360.yaml": {
+        "size": 2523
+      },
+      "examples/benchmarks/LSTM/README.md": {
+        "size": 174
+      },
+      "examples/benchmarks/LSTM/requirements.txt": {
+        "size": 62
+      },
+      "examples/benchmarks/LSTM/workflow_config_lstm_Alpha158.yaml": {
+        "size": 2924
+      },
+      "examples/benchmarks/LSTM/workflow_config_lstm_Alpha360.yaml": {
+        "size": 2493
+      },
+      "examples/benchmarks/LightGBM/README.md": {
+        "size": 541
+      },
+      "examples/benchmarks/LightGBM/features_resample_N.py": {
+        "size": 583
+      },
+      "examples/benchmarks/LightGBM/features_sample.py": {
+        "size": 623
+      },
+      "examples/benchmarks/LightGBM/multi_freq_handler.py": {
+        "size": 7014
+      },
+      "examples/benchmarks/LightGBM/requirements.txt": {
+        "size": 37
+      },
+      "examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml": {
+        "size": 2080
+      },
+      "examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158_csi500.yaml": {
+        "size": 2074
+      },
+      "examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158_multi_freq.yaml": {
+        "size": 2393
+      },
+      "examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha360.yaml": {
+        "size": 2292
+      },
+      "examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha360_csi500.yaml": {
+        "size": 2292
+      },
+      "examples/benchmarks/LightGBM/workflow_config_lightgbm_configurable_dataset.yaml": {
+        "size": 3131
+      },
+      "examples/benchmarks/LightGBM/workflow_config_lightgbm_multi_freq.yaml": {
+        "size": 2539
+      },
+      "examples/benchmarks/Linear/requirements.txt": {
+        "size": 49
+      },
+      "examples/benchmarks/Linear/workflow_config_linear_Alpha158.yaml": {
+        "size": 2198
+      },
+      "examples/benchmarks/Linear/workflow_config_linear_Alpha158_csi500.yaml": {
+        "size": 2198
+      },
+      "examples/benchmarks/Linear/workflow_config_linear_Alpha158_multi_pass_bt.yaml": {
+        "size": 2255
+      },
+      "examples/benchmarks/Localformer/README.md": {
+        "size": 14
+      },
+      "examples/benchmarks/Localformer/requirements.txt": {
+        "size": 42
+      },
+      "examples/benchmarks/Localformer/workflow_config_localformer_Alpha158.yaml": {
+        "size": 2704
+      },
+      "examples/benchmarks/Localformer/workflow_config_localformer_Alpha360.yaml": {
+        "size": 2229
+      },
+      "examples/benchmarks/MLP/README.md": {
+        "size": 31
+      },
+      "examples/benchmarks/MLP/requirements.txt": {
+        "size": 62
+      },
+      "examples/benchmarks/MLP/workflow_config_mlp_Alpha158.yaml": {
+        "size": 2708
+      },
+      "examples/benchmarks/MLP/workflow_config_mlp_Alpha158_csi500.yaml": {
+        "size": 2708
+      },
+      "examples/benchmarks/MLP/workflow_config_mlp_Alpha360.yaml": {
+        "size": 2440
+      },
+      "examples/benchmarks/MLP/workflow_config_mlp_Alpha360_csi500.yaml": {
+        "size": 2440
+      },
+      "examples/benchmarks/README.md": {
+        "size": 16225
+      },
+      "examples/benchmarks/SFM/README.md": {
+        "size": 479
+      },
+      "examples/benchmarks/SFM/requirements.txt": {
+        "size": 62
+      },
+      "examples/benchmarks/SFM/workflow_config_sfm_Alpha360.yaml": {
+        "size": 2575
+      },
+      "examples/benchmarks/Sandwich/README.md": {
+        "size": 412
+      },
+      "examples/benchmarks/Sandwich/requirements.txt": {
+        "size": 28
+      },
+      "examples/benchmarks/Sandwich/workflow_config_sandwich_Alpha360.yaml": {
+        "size": 2587
+      },
+      "examples/benchmarks/TCN/README.md": {
+        "size": 222
+      },
+      "examples/benchmarks/TCN/requirements.txt": {
+        "size": 62
+      },
+      "examples/benchmarks/TCN/workflow_config_tcn_Alpha158.yaml": {
+        "size": 2974
+      },
+      "examples/benchmarks/TCN/workflow_config_tcn_Alpha360.yaml": {
+        "size": 2544
+      },
+      "examples/benchmarks/TCTS/README.md": {
+        "size": 5594
+      },
+      "examples/benchmarks/TCTS/requirements.txt": {
+        "size": 61
+      },
+      "examples/benchmarks/TCTS/workflow_config_tcts_Alpha360.yaml": {
+        "size": 2821
+      },
+      "examples/benchmarks/TFT/README.md": {
+        "size": 826
+      },
+      "examples/benchmarks/TFT/data_formatters/__init__.py": {
+        "size": 621
+      },
+      "examples/benchmarks/TFT/data_formatters/base.py": {
+        "size": 7910
+      },
+      "examples/benchmarks/TFT/data_formatters/qlib_Alpha158.py": {
+        "size": 8466
+      },
+      "examples/benchmarks/TFT/expt_settings/__init__.py": {
+        "size": 621
+      },
+      "examples/benchmarks/TFT/expt_settings/configs.py": {
+        "size": 3380
+      },
+      "examples/benchmarks/TFT/libs/__init__.py": {
+        "size": 621
+      },
+      "examples/benchmarks/TFT/libs/hyperparam_opt.py": {
+        "size": 15323
+      },
+      "examples/benchmarks/TFT/libs/tft_model.py": {
+        "size": 48499
+      },
+      "examples/benchmarks/TFT/libs/utils.py": {
+        "size": 7165
+      },
+      "examples/benchmarks/TFT/requirements.txt": {
+        "size": 39
+      },
+      "examples/benchmarks/TFT/tft.py": {
+        "size": 11011
+      },
+      "examples/benchmarks/TFT/workflow_config_tft_Alpha158.yaml": {
+        "size": 1800
+      },
+      "examples/benchmarks/TRA/README.md": {
+        "size": 3982
+      },
+      "examples/benchmarks/TRA/configs/config_alstm.yaml": {
+        "size": 1346
+      },
+      "examples/benchmarks/TRA/configs/config_alstm_tra.yaml": {
+        "size": 1386
+      },
+      "examples/benchmarks/TRA/configs/config_alstm_tra_init.yaml": {
+        "size": 1354
+      },
+      "examples/benchmarks/TRA/configs/config_transformer.yaml": {
+        "size": 1359
+      },
+      "examples/benchmarks/TRA/configs/config_transformer_tra.yaml": {
+        "size": 1403
+      },
+      "examples/benchmarks/TRA/configs/config_transformer_tra_init.yaml": {
+        "size": 1367
+      },
+      "examples/benchmarks/TRA/data/README.md": {
+        "size": 96
+      },
+      "examples/benchmarks/TRA/example.py": {
+        "size": 1207
+      },
+      "examples/benchmarks/TRA/requirements.txt": {
+        "size": 70
+      },
+      "examples/benchmarks/TRA/src/dataset.py": {
+        "size": 8978
+      },
+      "examples/benchmarks/TRA/src/model.py": {
+        "size": 19366
+      },
+      "examples/benchmarks/TRA/workflow_config_tra_Alpha158.yaml": {
+        "size": 3273
+      },
+      "examples/benchmarks/TRA/workflow_config_tra_Alpha158_full.yaml": {
+        "size": 2968
+      },
+      "examples/benchmarks/TRA/workflow_config_tra_Alpha360.yaml": {
+        "size": 2962
+      },
+      "examples/benchmarks/TabNet/README.md": {
+        "size": 199
+      },
+      "examples/benchmarks/TabNet/requirements.txt": {
+        "size": 61
+      },
+      "examples/benchmarks/TabNet/workflow_config_TabNet_Alpha158.yaml": {
+        "size": 2419
+      },
+      "examples/benchmarks/TabNet/workflow_config_TabNet_Alpha360.yaml": {
+        "size": 2419
+      },
+      "examples/benchmarks/Transformer/README.md": {
+        "size": 242
+      },
+      "examples/benchmarks/Transformer/requirements.txt": {
+        "size": 42
+      },
+      "examples/benchmarks/Transformer/workflow_config_transformer_Alpha158.yaml": {
+        "size": 2694
+      },
+      "examples/benchmarks/Transformer/workflow_config_transformer_Alpha360.yaml": {
+        "size": 2285
+      },
+      "examples/benchmarks/XGBoost/README.md": {
+        "size": 241
+      },
+      "examples/benchmarks/XGBoost/requirements.txt": {
+        "size": 42
+      },
+      "examples/benchmarks/XGBoost/workflow_config_xgboost_Alpha158.yaml": {
+        "size": 2018
+      },
+      "examples/benchmarks/XGBoost/workflow_config_xgboost_Alpha360.yaml": {
+        "size": 2227
+      },
+      "examples/benchmarks_dynamic/DDG-DA/README.md": {
+        "size": 2323
+      },
+      "examples/benchmarks_dynamic/DDG-DA/requirements.txt": {
+        "size": 15
+      },
+      "examples/benchmarks_dynamic/DDG-DA/vis_data.py": {
+        "size": 2667
+      },
+      "examples/benchmarks_dynamic/DDG-DA/workflow.py": {
+        "size": 1367
+      },
+      "examples/benchmarks_dynamic/README.md": {
+        "size": 2071
+      },
+      "examples/benchmarks_dynamic/baseline/README.md": {
+        "size": 606
+      },
+      "examples/benchmarks_dynamic/baseline/rolling_benchmark.py": {
+        "size": 1255
+      },
+      "examples/benchmarks_dynamic/baseline/workflow_config_lightgbm_Alpha158.yaml": {
+        "size": 2080
+      },
+      "examples/benchmarks_dynamic/baseline/workflow_config_linear_Alpha158.yaml": {
+        "size": 2224
+      },
+      "examples/data_demo/README.md": {
+        "size": 112
+      },
+      "examples/data_demo/data_cache_demo.py": {
+        "size": 1905
+      },
+      "examples/data_demo/data_mem_resuse_demo.py": {
+        "size": 2209
+      },
+      "examples/highfreq/README.md": {
+        "size": 1756
+      },
+      "examples/highfreq/highfreq_handler.py": {
+        "size": 6020
+      },
+      "examples/highfreq/highfreq_ops.py": {
+        "size": 4513
+      },
+      "examples/highfreq/highfreq_processor.py": {
+        "size": 3265
+      },
+      "examples/highfreq/workflow.py": {
+        "size": 5812
+      },
+      "examples/highfreq/workflow_config_High_Freq_Tree_Alpha158.yaml": {
+        "size": 2091
+      },
+      "examples/hyperparameter/LightGBM/Readme.md": {
+        "size": 470
+      },
+      "examples/hyperparameter/LightGBM/hyperparameter_158.py": {
+        "size": 1902
+      },
+      "examples/hyperparameter/LightGBM/hyperparameter_360.py": {
+        "size": 2031
+      },
+      "examples/hyperparameter/LightGBM/requirements.txt": {
+        "size": 82
+      },
+      "examples/model_interpreter/feature.py": {
+        "size": 938
+      },
+      "examples/model_rolling/requirements.txt": {
+        "size": 8
+      },
+      "examples/model_rolling/task_manager_rolling.py": {
+        "size": 4276
+      },
+      "examples/nested_decision_execution/README.md": {
+        "size": 1190
+      },
+      "examples/nested_decision_execution/workflow.py": {
+        "size": 15636
+      },
+      "examples/online_srv/online_management_simulate.py": {
+        "size": 6209
+      },
+      "examples/online_srv/rolling_online_management.py": {
+        "size": 6192
+      },
+      "examples/online_srv/update_online_pred.py": {
+        "size": 1942
+      },
+      "examples/orderbook_data/README.md": {
+        "size": 1961
+      },
+      "examples/orderbook_data/create_dataset.py": {
+        "size": 12307
+      },
+      "examples/orderbook_data/example.py": {
+        "size": 12640
+      },
+      "examples/portfolio/README.md": {
+        "size": 1649
+      },
+      "examples/portfolio/config_enhanced_indexing.yaml": {
+        "size": 2108
+      },
+      "examples/portfolio/prepare_riskdata.py": {
+        "size": 1711
+      },
+      "examples/rl_order_execution/README.md": {
+        "size": 6131
+      },
+      "examples/rl_order_execution/exp_configs/backtest_opds.yml": {
+        "size": 1711
+      },
+      "examples/rl_order_execution/exp_configs/backtest_ppo.yml": {
+        "size": 1709
+      },
+      "examples/rl_order_execution/exp_configs/backtest_twap.yml": {
+        "size": 492
+      },
+      "examples/rl_order_execution/exp_configs/train_opds.yml": {
+        "size": 1667
+      },
+      "examples/rl_order_execution/exp_configs/train_ppo.yml": {
+        "size": 1724
+      },
+      "examples/rl_order_execution/scripts/gen_pickle_data.py": {
+        "size": 1766
+      },
+      "examples/rl_order_execution/scripts/gen_training_orders.py": {
+        "size": 2024
+      },
+      "examples/rl_order_execution/scripts/merge_orders.py": {
+        "size": 540
+      },
+      "examples/rl_order_execution/scripts/pickle_data_config.yml": {
+        "size": 2866
+      },
+      "examples/rolling_process_data/README.md": {
+        "size": 717
+      },
+      "examples/rolling_process_data/rolling_handler.py": {
+        "size": 1010
+      },
+      "examples/rolling_process_data/workflow.py": {
+        "size": 5492
+      },
+      "examples/run_all_model.py": {
+        "size": 16482
+      },
+      "examples/workflow_by_code.py": {
+        "size": 3035
+      },
+      "pyproject.toml": {
+        "size": 3370
+      },
+      "qlib/__init__.py": {
+        "size": 12608
+      },
+      "qlib/backtest/__init__.py": {
+        "size": 11864
+      },
+      "qlib/backtest/account.py": {
+        "size": 17999
+      },
+      "qlib/backtest/backtest.py": {
+        "size": 4038
+      },
+      "qlib/backtest/decision.py": {
+        "size": 21870
+      },
+      "qlib/backtest/exchange.py": {
+        "size": 44233
+      },
+      "qlib/backtest/executor.py": {
+        "size": 26612
+      },
+      "qlib/backtest/high_performance_ds.py": {
+        "size": 23270
+      },
+      "qlib/backtest/position.py": {
+        "size": 20033
+      },
+      "qlib/backtest/profit_attribution.py": {
+        "size": 14962
+      },
+      "qlib/backtest/report.py": {
+        "size": 27900
+      },
+      "qlib/backtest/signal.py": {
+        "size": 4003
+      },
+      "qlib/backtest/utils.py": {
+        "size": 10536
+      },
+      "qlib/cli/__init__.py": {
+        "size": 0
+      },
+      "qlib/cli/data.py": {
+        "size": 175
+      },
+      "qlib/cli/run.py": {
+        "size": 4754
+      },
+      "qlib/config.py": {
+        "size": 18926
+      },
+      "qlib/constant.py": {
+        "size": 499
+      },
+      "qlib/contrib/__init__.py": {
+        "size": 0
+      },
+      "qlib/contrib/data/__init__.py": {
+        "size": 0
+      },
+      "qlib/contrib/data/data.py": {
+        "size": 2130
+      },
+      "qlib/contrib/data/dataset.py": {
+        "size": 14051
+      },
+      "qlib/contrib/data/handler.py": {
+        "size": 5092
+      },
+      "qlib/contrib/data/highfreq_handler.py": {
+        "size": 18734
+      },
+      "qlib/contrib/data/highfreq_processor.py": {
+        "size": 3069
+      },
+      "qlib/contrib/data/highfreq_provider.py": {
+        "size": 12284
+      },
+      "qlib/contrib/data/loader.py": {
+        "size": 16080
+      },
+      "qlib/contrib/data/processor.py": {
+        "size": 4810
+      },
+      "qlib/contrib/data/utils/__init__.py": {
+        "size": 0
+      },
+      "qlib/contrib/data/utils/sepdf.py": {
+        "size": 6953
+      },
+      "qlib/contrib/eva/__init__.py": {
+        "size": 0
+      },
+      "qlib/contrib/eva/alpha.py": {
+        "size": 6758
+      },
+      "qlib/contrib/evaluate.py": {
+        "size": 14842
+      },
+      "qlib/contrib/evaluate_portfolio.py": {
+        "size": 6395
+      },
+      "qlib/contrib/meta/__init__.py": {
+        "size": 199
+      },
+      "qlib/contrib/meta/data_selection/__init__.py": {
+        "size": 210
+      },
+      "qlib/contrib/meta/data_selection/dataset.py": {
+        "size": 19334
+      },
+      "qlib/contrib/meta/data_selection/model.py": {
+        "size": 6806
+      },
+      "qlib/contrib/meta/data_selection/net.py": {
+        "size": 3024
+      },
+      "qlib/contrib/meta/data_selection/utils.py": {
+        "size": 4097
+      },
+      "qlib/contrib/model/__init__.py": {
+        "size": 1711
+      },
+      "qlib/contrib/model/catboost_model.py": {
+        "size": 3779
+      },
+      "qlib/contrib/model/double_ensemble.py": {
+        "size": 12217
+      },
+      "qlib/contrib/model/gbdt.py": {
+        "size": 4979
+      },
+      "qlib/contrib/model/highfreq_gdbt_model.py": {
+        "size": 6851
+      },
+      "qlib/contrib/model/linear.py": {
+        "size": 4240
+      },
+      "qlib/contrib/model/pytorch_adarnn.py": {
+        "size": 27898
+      },
+      "qlib/contrib/model/pytorch_add.py": {
+        "size": 21570
+      },
+      "qlib/contrib/model/pytorch_alstm.py": {
+        "size": 11333
+      },
+      "qlib/contrib/model/pytorch_alstm_ts.py": {
+        "size": 11747
+      },
+      "qlib/contrib/model/pytorch_gats.py": {
+        "size": 12724
+      },
+      "qlib/contrib/model/pytorch_gats_ts.py": {
+        "size": 13202
+      },
+      "qlib/contrib/model/pytorch_general_nn.py": {
+        "size": 12244
+      },
+      "qlib/contrib/model/pytorch_gru.py": {
+        "size": 10553
+      },
+      "qlib/contrib/model/pytorch_gru_ts.py": {
+        "size": 9855
+      },
+      "qlib/contrib/model/pytorch_hist.py": {
+        "size": 18707
+      },
+      "qlib/contrib/model/pytorch_igmtf.py": {
+        "size": 15862
+      },
+      "qlib/contrib/model/pytorch_krnn.py": {
+        "size": 16247
+      },
+      "qlib/contrib/model/pytorch_localformer.py": {
+        "size": 11037
+      },
+      "qlib/contrib/model/pytorch_localformer_ts.py": {
+        "size": 10366
+      },
+      "qlib/contrib/model/pytorch_lstm.py": {
+        "size": 9411
+      },
+      "qlib/contrib/model/pytorch_lstm_ts.py": {
+        "size": 9647
+      },
+      "qlib/contrib/model/pytorch_nn.py": {
+        "size": 18020
+      },
+      "qlib/contrib/model/pytorch_sandwich.py": {
+        "size": 11663
+      },
+      "qlib/contrib/model/pytorch_sfm.py": {
+        "size": 15887
+      },
+      "qlib/contrib/model/pytorch_tabnet.py": {
+        "size": 22851
+      },
+      "qlib/contrib/model/pytorch_tcn.py": {
+        "size": 9582
+      },
+      "qlib/contrib/model/pytorch_tcn_ts.py": {
+        "size": 9164
+      },
+      "qlib/contrib/model/pytorch_tcts.py": {
+        "size": 14290
+      },
+      "qlib/contrib/model/pytorch_tra.py": {
+        "size": 34218
+      },
+      "qlib/contrib/model/pytorch_transformer.py": {
+        "size": 9864
+      },
+      "qlib/contrib/model/pytorch_transformer_ts.py": {
+        "size": 9168
+      },
+      "qlib/contrib/model/pytorch_utils.py": {
+        "size": 1197
+      },
+      "qlib/contrib/model/tcn.py": {
+        "size": 2606
+      },
+      "qlib/contrib/model/xgboost.py": {
+        "size": 3085
+      },
+      "qlib/contrib/online/__init__.py": {
+        "size": 586
+      },
+      "qlib/contrib/online/manager.py": {
+        "size": 5548
+      },
+      "qlib/contrib/online/online_model.py": {
+        "size": 1110
+      },
+      "qlib/contrib/online/operator.py": {
+        "size": 13138
+      },
+      "qlib/contrib/online/user.py": {
+        "size": 2980
+      },
+      "qlib/contrib/online/utils.py": {
+        "size": 3206
+      },
+      "qlib/contrib/ops/__init__.py": {
+        "size": 0
+      },
+      "qlib/contrib/ops/high_freq.py": {
+        "size": 8157
+      },
+      "qlib/contrib/report/__init__.py": {
+        "size": 356
+      },
+      "qlib/contrib/report/analysis_model/__init__.py": {
+        "size": 177
+      },
+      "qlib/contrib/report/analysis_model/analysis_model_performance.py": {
+        "size": 11602
+      },
+      "qlib/contrib/report/analysis_position/__init__.py": {
+        "size": 403
+      },
+      "qlib/contrib/report/analysis_position/cumulative_return.py": {
+        "size": 9470
+      },
+      "qlib/contrib/report/analysis_position/parse_position.py": {
+        "size": 6560
+      },
+      "qlib/contrib/report/analysis_position/rank_label.py": {
+        "size": 4340
+      },
+      "qlib/contrib/report/analysis_position/report.py": {
+        "size": 8413
+      },
+      "qlib/contrib/report/analysis_position/risk_analysis.py": {
+        "size": 10719
+      },
+      "qlib/contrib/report/analysis_position/score_ic.py": {
+        "size": 2622
+      },
+      "qlib/contrib/report/data/__init__.py": {
+        "size": 124
+      },
+      "qlib/contrib/report/data/ana.py": {
+        "size": 7259
+      },
+      "qlib/contrib/report/data/base.py": {
+        "size": 1526
+      },
+      "qlib/contrib/report/graph.py": {
+        "size": 11191
+      },
+      "qlib/contrib/report/utils.py": {
+        "size": 2487
+      },
+      "qlib/contrib/rolling/__init__.py": {
+        "size": 319
+      },
+      "qlib/contrib/rolling/__main__.py": {
+        "size": 642
+      },
+      "qlib/contrib/rolling/base.py": {
+        "size": 11509
+      },
+      "qlib/contrib/rolling/ddgda.py": {
+        "size": 15464
+      },
+      "qlib/contrib/strategy/__init__.py": {
+        "size": 511
+      },
+      "qlib/contrib/strategy/cost_control.py": {
+        "size": 4471
+      },
+      "qlib/contrib/strategy/optimizer/__init__.py": {
+        "size": 285
+      },
+      "qlib/contrib/strategy/optimizer/base.py": {
+        "size": 314
+      },
+      "qlib/contrib/strategy/optimizer/enhanced_indexing.py": {
+        "size": 6514
+      },
+      "qlib/contrib/strategy/optimizer/optimizer.py": {
+        "size": 8639
+      },
+      "qlib/contrib/strategy/order_generator.py": {
+        "size": 8261
+      },
+      "qlib/contrib/strategy/rule_strategy.py": {
+        "size": 29498
+      },
+      "qlib/contrib/strategy/signal_strategy.py": {
+        "size": 22423
+      },
+      "qlib/contrib/torch.py": {
+        "size": 1063
+      },
+      "qlib/contrib/tuner/__init__.py": {
+        "size": 35
+      },
+      "qlib/contrib/tuner/config.py": {
+        "size": 3686
+      },
+      "qlib/contrib/tuner/launcher.py": {
+        "size": 820
+      },
+      "qlib/contrib/tuner/pipeline.py": {
+        "size": 3447
+      },
+      "qlib/contrib/tuner/space.py": {
+        "size": 432
+      },
+      "qlib/contrib/tuner/tuner.py": {
+        "size": 8056
+      },
+      "qlib/contrib/workflow/__init__.py": {
+        "size": 205
+      },
+      "qlib/contrib/workflow/record_temp.py": {
+        "size": 3368
+      },
+      "qlib/data/__init__.py": {
+        "size": 1409
+      },
+      "qlib/data/_libs/__init__.py": {
+        "size": 73
+      },
+      "qlib/data/base.py": {
+        "size": 8387
+      },
+      "qlib/data/cache.py": {
+        "size": 47353
+      },
+      "qlib/data/client.py": {
+        "size": 3670
+      },
+      "qlib/data/data.py": {
+        "size": 49455
+      },
+      "qlib/data/dataset/__init__.py": {
+        "size": 27496
+      },
+      "qlib/data/dataset/handler.py": {
+        "size": 28357
+      },
+      "qlib/data/dataset/loader.py": {
+        "size": 15136
+      },
+      "qlib/data/dataset/processor.py": {
+        "size": 14534
+      },
+      "qlib/data/dataset/storage.py": {
+        "size": 7895
+      },
+      "qlib/data/dataset/utils.py": {
+        "size": 4153
+      },
+      "qlib/data/dataset/weight.py": {
+        "size": 754
+      },
+      "qlib/data/filter.py": {
+        "size": 13950
+      },
+      "qlib/data/inst_processor.py": {
+        "size": 598
+      },
+      "qlib/data/ops.py": {
+        "size": 45446
+      },
+      "qlib/data/pit.py": {
+        "size": 3232
+      },
+      "qlib/data/storage/__init__.py": {
+        "size": 268
+      },
+      "qlib/data/storage/file_storage.py": {
+        "size": 14383
+      },
+      "qlib/data/storage/storage.py": {
+        "size": 14662
+      },
+      "qlib/log.py": {
+        "size": 7600
+      },
+      "qlib/model/__init__.py": {
+        "size": 148
+      },
+      "qlib/model/base.py": {
+        "size": 3771
+      },
+      "qlib/model/ens/__init__.py": {
+        "size": 0
+      },
+      "qlib/model/ens/ensemble.py": {
+        "size": 4551
+      },
+      "qlib/model/ens/group.py": {
+        "size": 3912
+      },
+      "qlib/model/interpret/__init__.py": {
+        "size": 0
+      },
+      "qlib/model/interpret/base.py": {
+        "size": 1133
+      },
+      "qlib/model/meta/__init__.py": {
+        "size": 181
+      },
+      "qlib/model/meta/dataset.py": {
+        "size": 2779
+      },
+      "qlib/model/meta/model.py": {
+        "size": 2355
+      },
+      "qlib/model/meta/task.py": {
+        "size": 1753
+      },
+      "qlib/model/riskmodel/__init__.py": {
+        "size": 335
+      },
+      "qlib/model/riskmodel/base.py": {
+        "size": 5035
+      },
+      "qlib/model/riskmodel/poet.py": {
+        "size": 3203
+      },
+      "qlib/model/riskmodel/shrink.py": {
+        "size": 10409
+      },
+      "qlib/model/riskmodel/structured.py": {
+        "size": 3799
+      },
+      "qlib/model/trainer.py": {
+        "size": 22805
+      },
+      "qlib/model/utils.py": {
+        "size": 579
+      },
+      "qlib/rl/__init__.py": {
+        "size": 339
+      },
+      "qlib/rl/aux_info.py": {
+        "size": 1122
+      },
+      "qlib/rl/contrib/__init__.py": {
+        "size": 0
+      },
+      "qlib/rl/contrib/backtest.py": {
+        "size": 13230
+      },
+      "qlib/rl/contrib/naive_config_parser.py": {
+        "size": 3452
+      },
+      "qlib/rl/contrib/train_onpolicy.py": {
+        "size": 10160
+      },
+      "qlib/rl/contrib/utils.py": {
+        "size": 836
+      },
+      "qlib/rl/data/__init__.py": {
+        "size": 245
+      },
+      "qlib/rl/data/base.py": {
+        "size": 1754
+      },
+      "qlib/rl/data/integration.py": {
+        "size": 3111
+      },
+      "qlib/rl/data/native.py": {
+        "size": 7469
+      },
+      "qlib/rl/data/pickle_styled.py": {
+        "size": 10544
+      },
+      "qlib/rl/interpreter.py": {
+        "size": 5235
+      },
+      "qlib/rl/order_execution/__init__.py": {
+        "size": 1008
+      },
+      "qlib/rl/order_execution/interpreter.py": {
+        "size": 9669
+      },
+      "qlib/rl/order_execution/network.py": {
+        "size": 4830
+      },
+      "qlib/rl/order_execution/policy.py": {
+        "size": 7008
+      },
+      "qlib/rl/order_execution/reward.py": {
+        "size": 3549
+      },
+      "qlib/rl/order_execution/simulator_qlib.py": {
+        "size": 4765
+      },
+      "qlib/rl/order_execution/simulator_simple.py": {
+        "size": 14742
+      },
+      "qlib/rl/order_execution/state.py": {
+        "size": 3690
+      },
+      "qlib/rl/order_execution/strategy.py": {
+        "size": 21177
+      },
+      "qlib/rl/order_execution/utils.py": {
+        "size": 1631
+      },
+      "qlib/rl/reward.py": {
+        "size": 2703
+      },
+      "qlib/rl/seed.py": {
+        "size": 339
+      },
+      "qlib/rl/simulator.py": {
+        "size": 3031
+      },
+      "qlib/rl/strategy/__init__.py": {
+        "size": 154
+      },
+      "qlib/rl/strategy/single_order.py": {
+        "size": 1049
+      },
+      "qlib/rl/trainer/__init__.py": {
+        "size": 463
+      },
+      "qlib/rl/trainer/api.py": {
+        "size": 3650
+      },
+      "qlib/rl/trainer/callbacks.py": {
+        "size": 11576
+      },
+      "qlib/rl/trainer/trainer.py": {
+        "size": 13496
+      },
+      "qlib/rl/trainer/vessel.py": {
+        "size": 9941
+      },
+      "qlib/rl/utils/__init__.py": {
+        "size": 527
+      },
+      "qlib/rl/utils/data_queue.py": {
+        "size": 6597
+      },
+      "qlib/rl/utils/env_wrapper.py": {
+        "size": 9844
+      },
+      "qlib/rl/utils/finite_env.py": {
+        "size": 13367
+      },
+      "qlib/rl/utils/log.py": {
+        "size": 18541
+      },
+      "qlib/strategy/__init__.py": {
+        "size": 73
+      },
+      "qlib/strategy/base.py": {
+        "size": 11155
+      },
+      "qlib/tests/__init__.py": {
+        "size": 12236
+      },
+      "qlib/tests/config.py": {
+        "size": 4834
+      },
+      "qlib/tests/data.py": {
+        "size": 8446
+      },
+      "qlib/typehint.py": {
+        "size": 1995
+      },
+      "qlib/utils/__init__.py": {
+        "size": 30184
+      },
+      "qlib/utils/data.py": {
+        "size": 3353
+      },
+      "qlib/utils/exceptions.py": {
+        "size": 438
+      },
+      "qlib/utils/file.py": {
+        "size": 5738
+      },
+      "qlib/utils/index_data.py": {
+        "size": 22840
+      },
+      "qlib/utils/mod.py": {
+        "size": 7704
+      },
+      "qlib/utils/objm.py": {
+        "size": 3372
+      },
+      "qlib/utils/paral.py": {
+        "size": 10119
+      },
+      "qlib/utils/pickle_utils.py": {
+        "size": 5205
+      },
+      "qlib/utils/resam.py": {
+        "size": 9393
+      },
+      "qlib/utils/serial.py": {
+        "size": 6074
+      },
+      "qlib/utils/time.py": {
+        "size": 11778
+      },
+      "qlib/workflow/__init__.py": {
+        "size": 25381
+      },
+      "qlib/workflow/exp.py": {
+        "size": 15192
+      },
+      "qlib/workflow/expm.py": {
+        "size": 17853
+      },
+      "qlib/workflow/online/__init__.py": {
+        "size": 0
+      },
+      "qlib/workflow/online/manager.py": {
+        "size": 17366
+      },
+      "qlib/workflow/online/strategy.py": {
+        "size": 8410
+      },
+      "qlib/workflow/online/update.py": {
+        "size": 10586
+      },
+      "qlib/workflow/online/utils.py": {
+        "size": 6475
+      },
+      "qlib/workflow/record_temp.py": {
+        "size": 28018
+      },
+      "qlib/workflow/recorder.py": {
+        "size": 18438
+      },
+      "qlib/workflow/task/__init__.py": {
+        "size": 535
+      },
+      "qlib/workflow/task/collect.py": {
+        "size": 10057
+      },
+      "qlib/workflow/task/gen.py": {
+        "size": 11846
+      },
+      "qlib/workflow/task/manage.py": {
+        "size": 18482
+      },
+      "qlib/workflow/task/utils.py": {
+        "size": 10014
+      },
+      "qlib/workflow/utils.py": {
+        "size": 1616
+      },
+      "scripts/README.md": {
+        "size": 1886
+      },
+      "scripts/check_data_health.py": {
+        "size": 10844
+      },
+      "scripts/check_dump_bin.py": {
+        "size": 5565
+      },
+      "scripts/collect_info.py": {
+        "size": 1825
+      },
+      "scripts/data_collector/README.md": {
+        "size": 2362
+      },
+      "scripts/data_collector/baostock_5min/README.md": {
+        "size": 4700
+      },
+      "scripts/data_collector/baostock_5min/collector.py": {
+        "size": 12149
+      },
+      "scripts/data_collector/baostock_5min/requirements.txt": {
+        "size": 99
+      },
+      "scripts/data_collector/base.py": {
+        "size": 16066
+      },
+      "scripts/data_collector/br_index/README.md": {
+        "size": 3025
+      },
+      "scripts/data_collector/br_index/collector.py": {
+        "size": 10205
+      },
+      "scripts/data_collector/br_index/requirements.txt": {
+        "size": 562
+      },
+      "scripts/data_collector/cn_index/README.md": {
+        "size": 507
+      },
+      "scripts/data_collector/cn_index/collector.py": {
+        "size": 15949
+      },
+      "scripts/data_collector/cn_index/requirements.txt": {
+        "size": 67
+      },
+      "scripts/data_collector/contrib/fill_cn_1min_data/README.md": {
+        "size": 551
+      },
+      "scripts/data_collector/contrib/fill_cn_1min_data/fill_cn_1min_data.py": {
+        "size": 3683
+      },
+      "scripts/data_collector/contrib/fill_cn_1min_data/requirements.txt": {
+        "size": 30
+      },
+      "scripts/data_collector/contrib/future_trading_date_collector/README.md": {
+        "size": 399
+      },
+      "scripts/data_collector/contrib/future_trading_date_collector/future_trading_date_collector.py": {
+        "size": 2873
+      },
+      "scripts/data_collector/contrib/future_trading_date_collector/requirements.txt": {
+        "size": 34
+      },
+      "scripts/data_collector/crowd_source/README.md": {
+        "size": 1580
+      },
+      "scripts/data_collector/crypto/README.md": {
+        "size": 1617
+      },
+      "scripts/data_collector/crypto/collector.py": {
+        "size": 10135
+      },
+      "scripts/data_collector/crypto/requirement.txt": {
+        "size": 55
+      },
+      "scripts/data_collector/fund/README.md": {
+        "size": 1487
+      },
+      "scripts/data_collector/fund/collector.py": {
+        "size": 9998
+      },
+      "scripts/data_collector/fund/requirements.txt": {
+        "size": 62
+      },
+      "scripts/data_collector/future_calendar_collector.py": {
+        "size": 4160
+      },
+      "scripts/data_collector/index.py": {
+        "size": 8400
+      },
+      "scripts/data_collector/pit/README.md": {
+        "size": 1440
+      },
+      "scripts/data_collector/pit/collector.py": {
+        "size": 10595
+      },
+      "scripts/data_collector/pit/requirements.txt": {
+        "size": 80
+      },
+      "scripts/data_collector/us_index/README.md": {
+        "size": 518
+      },
+      "scripts/data_collector/us_index/collector.py": {
+        "size": 10210
+      },
+      "scripts/data_collector/us_index/requirements.txt": {
+        "size": 48
+      },
+      "scripts/data_collector/utils.py": {
+        "size": 28202
+      },
+      "scripts/data_collector/yahoo/README.md": {
+        "size": 13499
+      },
+      "scripts/data_collector/yahoo/collector.py": {
+        "size": 37667
+      },
+      "scripts/data_collector/yahoo/requirements.txt": {
+        "size": 98
+      },
+      "scripts/dump_bin.py": {
+        "size": 21847
+      },
+      "scripts/dump_pit.py": {
+        "size": 11326
+      },
+      "scripts/get_data.py": {
+        "size": 175
+      },
+      "setup.py": {
+        "size": 509
+      },
+      "tests/backtest/test_file_strategy.py": {
+        "size": 4258
+      },
+      "tests/backtest/test_high_freq_trading.py": {
+        "size": 4845
+      },
+      "tests/backtest/test_soft_topk_strategy.py": {
+        "size": 1912
+      },
+      "tests/backtest/test_soft_topk_strategy_cold_start.py": {
+        "size": 1065
+      },
+      "tests/conftest.py": {
+        "size": 247
+      },
+      "tests/data_mid_layer_tests/README.md": {
+        "size": 102
+      },
+      "tests/data_mid_layer_tests/test_dataloader.py": {
+        "size": 2830
+      },
+      "tests/data_mid_layer_tests/test_dataset.py": {
+        "size": 6016
+      },
+      "tests/data_mid_layer_tests/test_handler.py": {
+        "size": 1203
+      },
+      "tests/data_mid_layer_tests/test_handler_storage.py": {
+        "size": 3968
+      },
+      "tests/data_mid_layer_tests/test_processor.py": {
+        "size": 3170
+      },
+      "tests/dataset_tests/README.md": {
+        "size": 91
+      },
+      "tests/dataset_tests/test_datalayer.py": {
+        "size": 1768
+      },
+      "tests/dependency_tests/README.md": {
+        "size": 149
+      },
+      "tests/dependency_tests/test_mlflow.py": {
+        "size": 1125
+      },
+      "tests/misc/test_get_multi_proc.py": {
+        "size": 922
+      },
+      "tests/misc/test_index_data.py": {
+        "size": 4958
+      },
+      "tests/misc/test_sepdf.py": {
+        "size": 1875
+      },
+      "tests/misc/test_utils.py": {
+        "size": 4681
+      },
+      "tests/model/test_general_nn.py": {
+        "size": 2612
+      },
+      "tests/ops/test_elem_operator.py": {
+        "size": 2271
+      },
+      "tests/ops/test_special_ops.py": {
+        "size": 3646
+      },
+      "tests/pytest.ini": {
+        "size": 198
+      },
+      "tests/rl/test_data_queue.py": {
+        "size": 2395
+      },
+      "tests/rl/test_finite_env.py": {
+        "size": 7863
+      },
+      "tests/rl/test_logger.py": {
+        "size": 5594
+      },
+      "tests/rl/test_qlib_simulator.py": {
+        "size": 7413
+      },
+      "tests/rl/test_saoe_simple.py": {
+        "size": 13012
+      },
+      "tests/rl/test_trainer.py": {
+        "size": 6265
+      },
+      "tests/rolling_tests/test_update_pred.py": {
+        "size": 4585
+      },
+      "tests/storage_tests/test_storage.py": {
+        "size": 6253
+      },
+      "tests/test_all_pipeline.py": {
+        "size": 5717
+      },
+      "tests/test_contrib_model.py": {
+        "size": 684
+      },
+      "tests/test_contrib_workflow.py": {
+        "size": 2696
+      },
+      "tests/test_dump_data.py": {
+        "size": 3135
+      },
+      "tests/test_get_data.py": {
+        "size": 1608
+      },
+      "tests/test_pit.py": {
+        "size": 15881
+      },
+      "tests/test_register_ops.py": {
+        "size": 1804
+      },
+      "tests/test_structured_cov_estimator.py": {
+        "size": 3921
+      },
+      "tests/test_workflow.py": {
+        "size": 882
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.qlib",
+      "source.qlib.backtest",
+      "source.qlib.cli",
+      "source.qlib.contrib",
+      "source.qlib.data",
+      "source.qlib.model",
+      "source.qlib.rl",
+      "source.qlib.strategy",
+      "source.qlib.tests",
+      "source.qlib.utils",
+      "source.qlib.workflow"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.qlib",
+        "module": "__init__",
+        "functions": [
+          "init",
+          "auto_init"
+        ],
+        "classes": [],
+        "description": "Global initialization/config bootstrap for Qlib runtime, provider URI, cache, and environment setup."
+      },
+      {
+        "package": "source.qlib.data",
+        "module": "data",
+        "functions": [],
+        "classes": [
+          "D",
+          "LocalProvider",
+          "ClientProvider"
+        ],
+        "description": "Primary market data access layer and provider abstraction; central entry for feature/instrument/calendar retrieval."
+      },
+      {
+        "package": "source.qlib.data",
+        "module": "dataset.handler",
+        "functions": [],
+        "classes": [
+          "DataHandler",
+          "DataHandlerLP",
+          "Alpha158",
+          "Alpha360"
+        ],
+        "description": "Dataset handler pipeline definitions, feature engineering, preprocessing, and learned/processed data interfaces."
+      },
+      {
+        "package": "source.qlib.data",
+        "module": "dataset.processor",
+        "functions": [],
+        "classes": [
+          "Processor",
+          "DropnaProcessor",
+          "Fillna",
+          "ZScoreNorm",
+          "CSZScoreNorm"
+        ],
+        "description": "Feature/label preprocessing components used in configurable data pipelines."
+      },
+      {
+        "package": "source.qlib.model",
+        "module": "trainer",
+        "functions": [
+          "task_train",
+          "begin_task_train",
+          "end_task_train"
+        ],
+        "classes": [],
+        "description": "Task-oriented model training orchestration and workflow integration."
+      },
+      {
+        "package": "source.qlib.workflow",
+        "module": "__init__",
+        "functions": [
+          "R",
+          "init"
+        ],
+        "classes": [],
+        "description": "Experiment tracking facade (recorder access, logging, artifact lifecycle), commonly used by benchmark workflows."
+      },
+      {
+        "package": "source.qlib.workflow",
+        "module": "recorder",
+        "functions": [],
+        "classes": [
+          "Recorder",
+          "MLflowRecorder"
+        ],
+        "description": "Experiment record persistence/logging backend abstraction."
+      },
+      {
+        "package": "source.qlib.backtest",
+        "module": "backtest",
+        "functions": [
+          "backtest",
+          "collect_data_loop"
+        ],
+        "classes": [],
+        "description": "Backtest execution entry and result collection loop."
+      },
+      {
+        "package": "source.qlib.contrib.model",
+        "module": "gbdt",
+        "functions": [],
+        "classes": [
+          "LGBModel"
+        ],
+        "description": "Common baseline model wrapper (LightGBM) used across benchmark configurations."
+      },
+      {
+        "package": "source.qlib.contrib.strategy",
+        "module": "signal_strategy",
+        "functions": [],
+        "classes": [
+          "TopkDropoutStrategy",
+          "WeightStrategyBase"
+        ],
+        "description": "Signal-to-order portfolio strategies used in evaluation and backtesting."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "qlib-run",
+        "module": "source.qlib.cli.run",
+        "description": "Run workflow from YAML/task config; the practical CLI entry for training/evaluation pipelines."
+      },
+      {
+        "name": "qlib-data",
+        "module": "source.qlib.cli.data",
+        "description": "Data-related CLI wrapper (thin entry; typically delegates to scripts/get_data.py patterns)."
+      },
+      {
+        "name": "python -m qlib.contrib.rolling",
+        "module": "source.qlib.contrib.rolling.__main__",
+        "description": "Rolling training/evaluation execution entrypoint."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.89
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "pandas",
+        "pyyaml",
+        "mlflow",
+        "ruamel.yaml",
+        "requests",
+        "python-dateutil"
+      ],
+      "optional": [
+        "lightgbm",
+        "xgboost",
+        "catboost",
+        "torch",
+        "tensorflow",
+        "cvxpy",
+        "plotly",
+        "baostock",
+        "yfinance"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.87,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/microsoft/qlib",
+    "repo_name": "qlib",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.87,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

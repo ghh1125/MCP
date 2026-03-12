@@ -1,0 +1,2456 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/networkx/networkx",
+    "summary": "Imported via zip fallback, file count: 740",
+    "file_tree": {
+      ".circleci/config.yml": {
+        "size": 4032
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 714
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 389
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 484
+      },
+      ".github/dependabot.yml": {
+        "size": 348
+      },
+      ".github/workflows/benchmark.yml": {
+        "size": 4060
+      },
+      ".github/workflows/circleci.yml": {
+        "size": 1472
+      },
+      ".github/workflows/deploy-docs.yml": {
+        "size": 1701
+      },
+      ".github/workflows/label-check.yml": {
+        "size": 465
+      },
+      ".github/workflows/lint.yml": {
+        "size": 380
+      },
+      ".github/workflows/milestone-merged-prs.yaml": {
+        "size": 377
+      },
+      ".github/workflows/mypy.yml": {
+        "size": 405
+      },
+      ".github/workflows/nightly-release-test.yml": {
+        "size": 875
+      },
+      ".github/workflows/nightly.yml": {
+        "size": 1060
+      },
+      ".github/workflows/pytest-randomly.yml": {
+        "size": 435
+      },
+      ".github/workflows/release.yml": {
+        "size": 1222
+      },
+      ".github/workflows/test.yml": {
+        "size": 3325
+      },
+      ".github/workflows/weekly-dispatch.yml": {
+        "size": 1780
+      },
+      ".pre-commit-config.yaml": {
+        "size": 2735
+      },
+      "LICENSE.txt": {
+        "size": 1763
+      },
+      "benchmarks/README.md": {
+        "size": 3606
+      },
+      "benchmarks/asv.conf.json": {
+        "size": 698
+      },
+      "benchmarks/benchmarks/__init__.py": {
+        "size": 1
+      },
+      "benchmarks/benchmarks/benchmark_algorithms.py": {
+        "size": 8022
+      },
+      "benchmarks/benchmarks/benchmark_aperiodic.py": {
+        "size": 1330
+      },
+      "benchmarks/benchmarks/benchmark_chordal.py": {
+        "size": 1170
+      },
+      "benchmarks/benchmarks/benchmark_classes.py": {
+        "size": 1316
+      },
+      "benchmarks/benchmarks/benchmark_harmonic_centrality.py": {
+        "size": 1180
+      },
+      "benchmarks/benchmarks/benchmark_many_components.py": {
+        "size": 915
+      },
+      "benchmarks/benchmarks/benchmark_neighbors.py": {
+        "size": 1752
+      },
+      "benchmarks/benchmarks/benchmark_regular.py": {
+        "size": 1368
+      },
+      "benchmarks/benchmarks/benchmark_shortest_path.py": {
+        "size": 1686
+      },
+      "benchmarks/benchmarks/benchmark_to_networkx_graph.py": {
+        "size": 1294
+      },
+      "benchmarks/benchmarks/distance_measures.py": {
+        "size": 540
+      },
+      "benchmarks/benchmarks/utils.py": {
+        "size": 2443
+      },
+      "doc/_static/README.md": {
+        "size": 285
+      },
+      "doc/_static/copybutton.js": {
+        "size": 2795
+      },
+      "doc/_static/version_switcher.json": {
+        "size": 1344
+      },
+      "doc/backends.md": {
+        "size": 1508
+      },
+      "doc/conf.py": {
+        "size": 9805
+      },
+      "doc/reference/introduction.md": {
+        "size": 13557
+      },
+      "doc/release/contribs.py": {
+        "size": 2515
+      },
+      "doc/release/report_functions_without_rst_generated.py": {
+        "size": 777
+      },
+      "doc/tutorial.md": {
+        "size": 25685
+      },
+      "examples/3d_drawing/README.txt": {
+        "size": 22
+      },
+      "examples/3d_drawing/mayavi2_spring.py": {
+        "size": 934
+      },
+      "examples/3d_drawing/plot_3d_animation_basic.py": {
+        "size": 1499
+      },
+      "examples/3d_drawing/plot_3d_animation_walk.py": {
+        "size": 2084
+      },
+      "examples/3d_drawing/plot_basic.py": {
+        "size": 1149
+      },
+      "examples/3d_drawing/plot_facebook_3d.py": {
+        "size": 1669
+      },
+      "examples/README.txt": {
+        "size": 185
+      },
+      "examples/algorithms/README.txt": {
+        "size": 22
+      },
+      "examples/algorithms/WormNet.v3.benchmark.txt": {
+        "size": 524313
+      },
+      "examples/algorithms/plot_beam_search.py": {
+        "size": 4120
+      },
+      "examples/algorithms/plot_betweenness_centrality.py": {
+        "size": 2126
+      },
+      "examples/algorithms/plot_bipartite_motif_abcore.py": {
+        "size": 1081
+      },
+      "examples/algorithms/plot_blockmodel.py": {
+        "size": 2661
+      },
+      "examples/algorithms/plot_circuits.py": {
+        "size": 3482
+      },
+      "examples/algorithms/plot_cycle_detection.py": {
+        "size": 850
+      },
+      "examples/algorithms/plot_davis_club.py": {
+        "size": 1195
+      },
+      "examples/algorithms/plot_dedensification.py": {
+        "size": 2250
+      },
+      "examples/algorithms/plot_girvan_newman.py": {
+        "size": 2472
+      },
+      "examples/algorithms/plot_greedy_coloring.py": {
+        "size": 890
+      },
+      "examples/algorithms/plot_image_segmentation_spectral_graph_partition.py": {
+        "size": 6108
+      },
+      "examples/algorithms/plot_iterated_dynamical_systems.py": {
+        "size": 5996
+      },
+      "examples/algorithms/plot_krackhardt_centrality.py": {
+        "size": 637
+      },
+      "examples/algorithms/plot_lca.py": {
+        "size": 1739
+      },
+      "examples/algorithms/plot_maximum_independent_set.py": {
+        "size": 911
+      },
+      "examples/algorithms/plot_metric_closure.py": {
+        "size": 2015
+      },
+      "examples/algorithms/plot_parallel_betweenness.py": {
+        "size": 2235
+      },
+      "examples/algorithms/plot_rcm.py": {
+        "size": 1039
+      },
+      "examples/algorithms/plot_shortest_path.py": {
+        "size": 1485
+      },
+      "examples/algorithms/plot_snap.py": {
+        "size": 3063
+      },
+      "examples/algorithms/plot_subgraphs.py": {
+        "size": 6471
+      },
+      "examples/algorithms/plot_trust_rank.py": {
+        "size": 1895
+      },
+      "examples/basic/README.txt": {
+        "size": 12
+      },
+      "examples/basic/plot_properties.py": {
+        "size": 1059
+      },
+      "examples/basic/plot_read_write.py": {
+        "size": 525
+      },
+      "examples/basic/plot_simple_graph.py": {
+        "size": 1240
+      },
+      "examples/drawing/README.txt": {
+        "size": 16
+      },
+      "examples/drawing/plot_center_node.py": {
+        "size": 621
+      },
+      "examples/drawing/plot_chess_masters.py": {
+        "size": 4579
+      },
+      "examples/drawing/plot_clusters.py": {
+        "size": 1195
+      },
+      "examples/drawing/plot_custom_node_icons.py": {
+        "size": 2139
+      },
+      "examples/drawing/plot_degree.py": {
+        "size": 1557
+      },
+      "examples/drawing/plot_directed.py": {
+        "size": 1115
+      },
+      "examples/drawing/plot_edge_colormap.py": {
+        "size": 441
+      },
+      "examples/drawing/plot_ego_graph.py": {
+        "size": 909
+      },
+      "examples/drawing/plot_eigenvalues.py": {
+        "size": 549
+      },
+      "examples/drawing/plot_four_grids.py": {
+        "size": 1054
+      },
+      "examples/drawing/plot_house_with_colors.py": {
+        "size": 666
+      },
+      "examples/drawing/plot_knuth_miles.py": {
+        "size": 4103
+      },
+      "examples/drawing/plot_labels_and_colors.py": {
+        "size": 1244
+      },
+      "examples/drawing/plot_multigraphs.py": {
+        "size": 2264
+      },
+      "examples/drawing/plot_multipartite_graph.py": {
+        "size": 993
+      },
+      "examples/drawing/plot_node_colormap.py": {
+        "size": 288
+      },
+      "examples/drawing/plot_rainbow_coloring.py": {
+        "size": 2173
+      },
+      "examples/drawing/plot_random_geometric_graph.py": {
+        "size": 932
+      },
+      "examples/drawing/plot_sampson.py": {
+        "size": 1262
+      },
+      "examples/drawing/plot_selfloops.py": {
+        "size": 754
+      },
+      "examples/drawing/plot_simple_path.py": {
+        "size": 253
+      },
+      "examples/drawing/plot_spectral_grid.py": {
+        "size": 1592
+      },
+      "examples/drawing/plot_spring_layout.py": {
+        "size": 2871
+      },
+      "examples/drawing/plot_tsp.py": {
+        "size": 1360
+      },
+      "examples/drawing/plot_unix_email.py": {
+        "size": 1964
+      },
+      "examples/drawing/plot_weighted_graph.py": {
+        "size": 1125
+      },
+      "examples/external/README.txt": {
+        "size": 91
+      },
+      "examples/external/force/README.txt": {
+        "size": 251
+      },
+      "examples/external/force/force.js": {
+        "size": 2062
+      },
+      "examples/external/javascript_force.py": {
+        "size": 1002
+      },
+      "examples/external/plot_igraph.py": {
+        "size": 1053
+      },
+      "examples/external/plot_iplotx.py": {
+        "size": 1466
+      },
+      "examples/geospatial/README.txt": {
+        "size": 317
+      },
+      "examples/geospatial/plot_delaunay.py": {
+        "size": 3164
+      },
+      "examples/geospatial/plot_lines.py": {
+        "size": 4061
+      },
+      "examples/geospatial/plot_osmnx.py": {
+        "size": 2174
+      },
+      "examples/geospatial/plot_points.py": {
+        "size": 2324
+      },
+      "examples/geospatial/plot_polygons.py": {
+        "size": 2249
+      },
+      "examples/graph/README.txt": {
+        "size": 12
+      },
+      "examples/graph/plot_dag_layout.py": {
+        "size": 1011
+      },
+      "examples/graph/plot_degree_sequence.py": {
+        "size": 807
+      },
+      "examples/graph/plot_erdos_renyi.py": {
+        "size": 837
+      },
+      "examples/graph/plot_expected_degree_sequence.py": {
+        "size": 498
+      },
+      "examples/graph/plot_football.py": {
+        "size": 1294
+      },
+      "examples/graph/plot_karate_club.py": {
+        "size": 494
+      },
+      "examples/graph/plot_morse_trie.py": {
+        "size": 2963
+      },
+      "examples/graph/plot_mst.py": {
+        "size": 1390
+      },
+      "examples/graph/plot_napoleon_russian_campaign.py": {
+        "size": 2901
+      },
+      "examples/graph/plot_roget.py": {
+        "size": 2126
+      },
+      "examples/graph/plot_triad_types.py": {
+        "size": 1948
+      },
+      "examples/graph/plot_visibility_graph.py": {
+        "size": 1432
+      },
+      "examples/graph/plot_words.py": {
+        "size": 2681
+      },
+      "examples/graphviz_drawing/README.txt": {
+        "size": 188
+      },
+      "examples/graphviz_drawing/plot_attributes.py": {
+        "size": 694
+      },
+      "examples/graphviz_drawing/plot_conversion.py": {
+        "size": 609
+      },
+      "examples/graphviz_drawing/plot_grid.py": {
+        "size": 715
+      },
+      "examples/graphviz_drawing/plot_mini_atlas.py": {
+        "size": 597
+      },
+      "examples/graphviz_layout/README.txt": {
+        "size": 183
+      },
+      "examples/graphviz_layout/plot_atlas.py": {
+        "size": 1428
+      },
+      "examples/graphviz_layout/plot_circular_tree.py": {
+        "size": 374
+      },
+      "examples/graphviz_layout/plot_decomposition.py": {
+        "size": 1104
+      },
+      "examples/graphviz_layout/plot_giant_component.py": {
+        "size": 1723
+      },
+      "examples/graphviz_layout/plot_lanl_routes.py": {
+        "size": 1552
+      },
+      "examples/subclass/README.txt": {
+        "size": 18
+      },
+      "examples/subclass/plot_antigraph.py": {
+        "size": 6024
+      },
+      "examples/subclass/plot_printgraph.py": {
+        "size": 2286
+      },
+      "networkx/__init__.py": {
+        "size": 1631
+      },
+      "networkx/algorithms/__init__.py": {
+        "size": 6607
+      },
+      "networkx/algorithms/approximation/__init__.py": {
+        "size": 1234
+      },
+      "networkx/algorithms/approximation/clique.py": {
+        "size": 7682
+      },
+      "networkx/algorithms/approximation/clustering_coefficient.py": {
+        "size": 2161
+      },
+      "networkx/algorithms/approximation/connectivity.py": {
+        "size": 13118
+      },
+      "networkx/algorithms/approximation/density.py": {
+        "size": 15256
+      },
+      "networkx/algorithms/approximation/distance_measures.py": {
+        "size": 5804
+      },
+      "networkx/algorithms/approximation/dominating_set.py": {
+        "size": 5030
+      },
+      "networkx/algorithms/approximation/kcomponents.py": {
+        "size": 13243
+      },
+      "networkx/algorithms/approximation/matching.py": {
+        "size": 1175
+      },
+      "networkx/algorithms/approximation/maxcut.py": {
+        "size": 4333
+      },
+      "networkx/algorithms/approximation/ramsey.py": {
+        "size": 1358
+      },
+      "networkx/algorithms/approximation/steinertree.py": {
+        "size": 9351
+      },
+      "networkx/algorithms/approximation/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/approximation/tests/test_approx_clust_coeff.py": {
+        "size": 1171
+      },
+      "networkx/algorithms/approximation/tests/test_clique.py": {
+        "size": 3021
+      },
+      "networkx/algorithms/approximation/tests/test_connectivity.py": {
+        "size": 5952
+      },
+      "networkx/algorithms/approximation/tests/test_density.py": {
+        "size": 5298
+      },
+      "networkx/algorithms/approximation/tests/test_distance_measures.py": {
+        "size": 2023
+      },
+      "networkx/algorithms/approximation/tests/test_dominating_set.py": {
+        "size": 3404
+      },
+      "networkx/algorithms/approximation/tests/test_kcomponents.py": {
+        "size": 9346
+      },
+      "networkx/algorithms/approximation/tests/test_matching.py": {
+        "size": 186
+      },
+      "networkx/algorithms/approximation/tests/test_maxcut.py": {
+        "size": 2804
+      },
+      "networkx/algorithms/approximation/tests/test_ramsey.py": {
+        "size": 1143
+      },
+      "networkx/algorithms/approximation/tests/test_steinertree.py": {
+        "size": 10727
+      },
+      "networkx/algorithms/approximation/tests/test_traveling_salesman.py": {
+        "size": 32048
+      },
+      "networkx/algorithms/approximation/tests/test_treewidth.py": {
+        "size": 8868
+      },
+      "networkx/algorithms/approximation/tests/test_vertex_cover.py": {
+        "size": 1942
+      },
+      "networkx/algorithms/approximation/traveling_salesman.py": {
+        "size": 56206
+      },
+      "networkx/algorithms/approximation/treewidth.py": {
+        "size": 8389
+      },
+      "networkx/algorithms/approximation/vertex_cover.py": {
+        "size": 2801
+      },
+      "networkx/algorithms/assortativity/__init__.py": {
+        "size": 294
+      },
+      "networkx/algorithms/assortativity/connectivity.py": {
+        "size": 4217
+      },
+      "networkx/algorithms/assortativity/correlation.py": {
+        "size": 8689
+      },
+      "networkx/algorithms/assortativity/mixing.py": {
+        "size": 7586
+      },
+      "networkx/algorithms/assortativity/neighbor_degree.py": {
+        "size": 5279
+      },
+      "networkx/algorithms/assortativity/pairs.py": {
+        "size": 3841
+      },
+      "networkx/algorithms/assortativity/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/assortativity/tests/base_test.py": {
+        "size": 2651
+      },
+      "networkx/algorithms/assortativity/tests/test_connectivity.py": {
+        "size": 4978
+      },
+      "networkx/algorithms/assortativity/tests/test_correlation.py": {
+        "size": 5068
+      },
+      "networkx/algorithms/assortativity/tests/test_mixing.py": {
+        "size": 6802
+      },
+      "networkx/algorithms/assortativity/tests/test_neighbor_degree.py": {
+        "size": 3934
+      },
+      "networkx/algorithms/assortativity/tests/test_pairs.py": {
+        "size": 3008
+      },
+      "networkx/algorithms/asteroidal.py": {
+        "size": 5499
+      },
+      "networkx/algorithms/bipartite/__init__.py": {
+        "size": 3883
+      },
+      "networkx/algorithms/bipartite/basic.py": {
+        "size": 8052
+      },
+      "networkx/algorithms/bipartite/centrality.py": {
+        "size": 9156
+      },
+      "networkx/algorithms/bipartite/cluster.py": {
+        "size": 7342
+      },
+      "networkx/algorithms/bipartite/covering.py": {
+        "size": 2163
+      },
+      "networkx/algorithms/bipartite/edgelist.py": {
+        "size": 11409
+      },
+      "networkx/algorithms/bipartite/extendability.py": {
+        "size": 3987
+      },
+      "networkx/algorithms/bipartite/generators.py": {
+        "size": 20406
+      },
+      "networkx/algorithms/bipartite/link_analysis.py": {
+        "size": 12770
+      },
+      "networkx/algorithms/bipartite/matching.py": {
+        "size": 21635
+      },
+      "networkx/algorithms/bipartite/matrix.py": {
+        "size": 8320
+      },
+      "networkx/algorithms/bipartite/projection.py": {
+        "size": 17201
+      },
+      "networkx/algorithms/bipartite/redundancy.py": {
+        "size": 3339
+      },
+      "networkx/algorithms/bipartite/spectral.py": {
+        "size": 1900
+      },
+      "networkx/algorithms/bipartite/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/bipartite/tests/test_basic.py": {
+        "size": 4291
+      },
+      "networkx/algorithms/bipartite/tests/test_centrality.py": {
+        "size": 6362
+      },
+      "networkx/algorithms/bipartite/tests/test_cluster.py": {
+        "size": 2801
+      },
+      "networkx/algorithms/bipartite/tests/test_covering.py": {
+        "size": 1221
+      },
+      "networkx/algorithms/bipartite/tests/test_edgelist.py": {
+        "size": 8471
+      },
+      "networkx/algorithms/bipartite/tests/test_extendability.py": {
+        "size": 7043
+      },
+      "networkx/algorithms/bipartite/tests/test_generators.py": {
+        "size": 13203
+      },
+      "networkx/algorithms/bipartite/tests/test_link_analysis.py": {
+        "size": 6914
+      },
+      "networkx/algorithms/bipartite/tests/test_matching.py": {
+        "size": 11737
+      },
+      "networkx/algorithms/bipartite/tests/test_matrix.py": {
+        "size": 5063
+      },
+      "networkx/algorithms/bipartite/tests/test_project.py": {
+        "size": 15294
+      },
+      "networkx/algorithms/bipartite/tests/test_redundancy.py": {
+        "size": 917
+      },
+      "networkx/algorithms/bipartite/tests/test_spectral_bipartivity.py": {
+        "size": 2356
+      },
+      "networkx/algorithms/boundary.py": {
+        "size": 5339
+      },
+      "networkx/algorithms/bridges.py": {
+        "size": 6066
+      },
+      "networkx/algorithms/broadcasting.py": {
+        "size": 4972
+      },
+      "networkx/algorithms/centrality/__init__.py": {
+        "size": 558
+      },
+      "networkx/algorithms/centrality/betweenness.py": {
+        "size": 23238
+      },
+      "networkx/algorithms/centrality/betweenness_subset.py": {
+        "size": 8486
+      },
+      "networkx/algorithms/centrality/closeness.py": {
+        "size": 11382
+      },
+      "networkx/algorithms/centrality/current_flow_betweenness.py": {
+        "size": 12717
+      },
+      "networkx/algorithms/centrality/current_flow_betweenness_subset.py": {
+        "size": 8107
+      },
+      "networkx/algorithms/centrality/current_flow_closeness.py": {
+        "size": 3327
+      },
+      "networkx/algorithms/centrality/degree_alg.py": {
+        "size": 3894
+      },
+      "networkx/algorithms/centrality/dispersion.py": {
+        "size": 3631
+      },
+      "networkx/algorithms/centrality/eigenvector.py": {
+        "size": 13613
+      },
+      "networkx/algorithms/centrality/flow_matrix.py": {
+        "size": 3834
+      },
+      "networkx/algorithms/centrality/group.py": {
+        "size": 27956
+      },
+      "networkx/algorithms/centrality/harmonic.py": {
+        "size": 2832
+      },
+      "networkx/algorithms/centrality/katz.py": {
+        "size": 11038
+      },
+      "networkx/algorithms/centrality/laplacian.py": {
+        "size": 5554
+      },
+      "networkx/algorithms/centrality/load.py": {
+        "size": 6857
+      },
+      "networkx/algorithms/centrality/percolation.py": {
+        "size": 4415
+      },
+      "networkx/algorithms/centrality/reaching.py": {
+        "size": 7253
+      },
+      "networkx/algorithms/centrality/second_order.py": {
+        "size": 5008
+      },
+      "networkx/algorithms/centrality/subgraph_alg.py": {
+        "size": 10518
+      },
+      "networkx/algorithms/centrality/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/centrality/tests/test_betweenness_centrality.py": {
+        "size": 33669
+      },
+      "networkx/algorithms/centrality/tests/test_betweenness_centrality_subset.py": {
+        "size": 13085
+      },
+      "networkx/algorithms/centrality/tests/test_closeness_centrality.py": {
+        "size": 10196
+      },
+      "networkx/algorithms/centrality/tests/test_current_flow_betweenness_centrality.py": {
+        "size": 10072
+      },
+      "networkx/algorithms/centrality/tests/test_current_flow_betweenness_centrality_subset.py": {
+        "size": 5839
+      },
+      "networkx/algorithms/centrality/tests/test_current_flow_closeness.py": {
+        "size": 1379
+      },
+      "networkx/algorithms/centrality/tests/test_degree_centrality.py": {
+        "size": 4101
+      },
+      "networkx/algorithms/centrality/tests/test_dispersion.py": {
+        "size": 1959
+      },
+      "networkx/algorithms/centrality/tests/test_eigenvector_centrality.py": {
+        "size": 5254
+      },
+      "networkx/algorithms/centrality/tests/test_group.py": {
+        "size": 8685
+      },
+      "networkx/algorithms/centrality/tests/test_harmonic_centrality.py": {
+        "size": 3867
+      },
+      "networkx/algorithms/centrality/tests/test_katz_centrality.py": {
+        "size": 11240
+      },
+      "networkx/algorithms/centrality/tests/test_laplacian_centrality.py": {
+        "size": 5898
+      },
+      "networkx/algorithms/centrality/tests/test_load_centrality.py": {
+        "size": 11343
+      },
+      "networkx/algorithms/centrality/tests/test_percolation_centrality.py": {
+        "size": 2591
+      },
+      "networkx/algorithms/centrality/tests/test_reaching.py": {
+        "size": 5090
+      },
+      "networkx/algorithms/centrality/tests/test_second_order_centrality.py": {
+        "size": 1999
+      },
+      "networkx/algorithms/centrality/tests/test_subgraph.py": {
+        "size": 3729
+      },
+      "networkx/algorithms/centrality/tests/test_trophic.py": {
+        "size": 8796
+      },
+      "networkx/algorithms/centrality/tests/test_voterank.py": {
+        "size": 1687
+      },
+      "networkx/algorithms/centrality/trophic.py": {
+        "size": 5328
+      },
+      "networkx/algorithms/centrality/voterank_alg.py": {
+        "size": 3231
+      },
+      "networkx/algorithms/chains.py": {
+        "size": 6966
+      },
+      "networkx/algorithms/chordal.py": {
+        "size": 12913
+      },
+      "networkx/algorithms/clique.py": {
+        "size": 27527
+      },
+      "networkx/algorithms/cluster.py": {
+        "size": 24839
+      },
+      "networkx/algorithms/coloring/__init__.py": {
+        "size": 182
+      },
+      "networkx/algorithms/coloring/equitable_coloring.py": {
+        "size": 16314
+      },
+      "networkx/algorithms/coloring/greedy_coloring.py": {
+        "size": 20040
+      },
+      "networkx/algorithms/coloring/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/coloring/tests/test_coloring.py": {
+        "size": 23697
+      },
+      "networkx/algorithms/communicability_alg.py": {
+        "size": 4545
+      },
+      "networkx/algorithms/community/__init__.py": {
+        "size": 1279
+      },
+      "networkx/algorithms/community/asyn_fluid.py": {
+        "size": 5976
+      },
+      "networkx/algorithms/community/bipartitions.py": {
+        "size": 12236
+      },
+      "networkx/algorithms/community/centrality.py": {
+        "size": 6631
+      },
+      "networkx/algorithms/community/community_utils.py": {
+        "size": 908
+      },
+      "networkx/algorithms/community/divisive.py": {
+        "size": 6655
+      },
+      "networkx/algorithms/community/kclique.py": {
+        "size": 2457
+      },
+      "networkx/algorithms/community/label_propagation.py": {
+        "size": 11876
+      },
+      "networkx/algorithms/community/leiden.py": {
+        "size": 6962
+      },
+      "networkx/algorithms/community/local.py": {
+        "size": 7314
+      },
+      "networkx/algorithms/community/louvain.py": {
+        "size": 15419
+      },
+      "networkx/algorithms/community/lukes.py": {
+        "size": 8113
+      },
+      "networkx/algorithms/community/modularity_max.py": {
+        "size": 18093
+      },
+      "networkx/algorithms/community/quality.py": {
+        "size": 17046
+      },
+      "networkx/algorithms/community/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/community/tests/test_asyn_fluid.py": {
+        "size": 3738
+      },
+      "networkx/algorithms/community/tests/test_bipartitions.py": {
+        "size": 4639
+      },
+      "networkx/algorithms/community/tests/test_centrality.py": {
+        "size": 2932
+      },
+      "networkx/algorithms/community/tests/test_divisive.py": {
+        "size": 3441
+      },
+      "networkx/algorithms/community/tests/test_kclique.py": {
+        "size": 2413
+      },
+      "networkx/algorithms/community/tests/test_label_propagation.py": {
+        "size": 7985
+      },
+      "networkx/algorithms/community/tests/test_leiden.py": {
+        "size": 4803
+      },
+      "networkx/algorithms/community/tests/test_local.py": {
+        "size": 1809
+      },
+      "networkx/algorithms/community/tests/test_louvain.py": {
+        "size": 8071
+      },
+      "networkx/algorithms/community/tests/test_lukes.py": {
+        "size": 3961
+      },
+      "networkx/algorithms/community/tests/test_modularity_max.py": {
+        "size": 10617
+      },
+      "networkx/algorithms/community/tests/test_quality.py": {
+        "size": 11107
+      },
+      "networkx/algorithms/community/tests/test_utils.py": {
+        "size": 704
+      },
+      "networkx/algorithms/components/__init__.py": {
+        "size": 173
+      },
+      "networkx/algorithms/components/attracting.py": {
+        "size": 2712
+      },
+      "networkx/algorithms/components/biconnected.py": {
+        "size": 12774
+      },
+      "networkx/algorithms/components/connected.py": {
+        "size": 7904
+      },
+      "networkx/algorithms/components/semiconnected.py": {
+        "size": 2030
+      },
+      "networkx/algorithms/components/strongly_connected.py": {
+        "size": 9911
+      },
+      "networkx/algorithms/components/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/components/tests/test_attracting.py": {
+        "size": 2243
+      },
+      "networkx/algorithms/components/tests/test_biconnected.py": {
+        "size": 6036
+      },
+      "networkx/algorithms/components/tests/test_connected.py": {
+        "size": 4815
+      },
+      "networkx/algorithms/components/tests/test_semiconnected.py": {
+        "size": 1792
+      },
+      "networkx/algorithms/components/tests/test_strongly_connected.py": {
+        "size": 6021
+      },
+      "networkx/algorithms/components/tests/test_weakly_connected.py": {
+        "size": 3083
+      },
+      "networkx/algorithms/components/weakly_connected.py": {
+        "size": 4413
+      },
+      "networkx/algorithms/connectivity/__init__.py": {
+        "size": 281
+      },
+      "networkx/algorithms/connectivity/connectivity.py": {
+        "size": 29367
+      },
+      "networkx/algorithms/connectivity/cuts.py": {
+        "size": 23199
+      },
+      "networkx/algorithms/connectivity/disjoint_paths.py": {
+        "size": 14612
+      },
+      "networkx/algorithms/connectivity/edge_augmentation.py": {
+        "size": 44063
+      },
+      "networkx/algorithms/connectivity/edge_kcomponents.py": {
+        "size": 20890
+      },
+      "networkx/algorithms/connectivity/kcomponents.py": {
+        "size": 8086
+      },
+      "networkx/algorithms/connectivity/kcutsets.py": {
+        "size": 9371
+      },
+      "networkx/algorithms/connectivity/stoerwagner.py": {
+        "size": 5431
+      },
+      "networkx/algorithms/connectivity/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/connectivity/tests/test_connectivity.py": {
+        "size": 15027
+      },
+      "networkx/algorithms/connectivity/tests/test_cuts.py": {
+        "size": 10356
+      },
+      "networkx/algorithms/connectivity/tests/test_disjoint_paths.py": {
+        "size": 8392
+      },
+      "networkx/algorithms/connectivity/tests/test_edge_augmentation.py": {
+        "size": 15737
+      },
+      "networkx/algorithms/connectivity/tests/test_edge_kcomponents.py": {
+        "size": 16453
+      },
+      "networkx/algorithms/connectivity/tests/test_kcomponents.py": {
+        "size": 9276
+      },
+      "networkx/algorithms/connectivity/tests/test_kcutsets.py": {
+        "size": 8974
+      },
+      "networkx/algorithms/connectivity/tests/test_stoer_wagner.py": {
+        "size": 3011
+      },
+      "networkx/algorithms/connectivity/utils.py": {
+        "size": 3217
+      },
+      "networkx/algorithms/core.py": {
+        "size": 17476
+      },
+      "networkx/algorithms/covering.py": {
+        "size": 5278
+      },
+      "networkx/algorithms/cuts.py": {
+        "size": 10407
+      },
+      "networkx/algorithms/cycles.py": {
+        "size": 43292
+      },
+      "networkx/algorithms/d_separation.py": {
+        "size": 26081
+      },
+      "networkx/algorithms/dag.py": {
+        "size": 44658
+      },
+      "networkx/algorithms/distance_measures.py": {
+        "size": 38108
+      },
+      "networkx/algorithms/distance_regular.py": {
+        "size": 8391
+      },
+      "networkx/algorithms/dominance.py": {
+        "size": 3897
+      },
+      "networkx/algorithms/dominating.py": {
+        "size": 8145
+      },
+      "networkx/algorithms/efficiency_measures.py": {
+        "size": 4698
+      },
+      "networkx/algorithms/euler.py": {
+        "size": 14205
+      },
+      "networkx/algorithms/flow/__init__.py": {
+        "size": 341
+      },
+      "networkx/algorithms/flow/boykovkolmogorov.py": {
+        "size": 13793
+      },
+      "networkx/algorithms/flow/capacityscaling.py": {
+        "size": 14462
+      },
+      "networkx/algorithms/flow/dinitz_alg.py": {
+        "size": 8800
+      },
+      "networkx/algorithms/flow/edmondskarp.py": {
+        "size": 8515
+      },
+      "networkx/algorithms/flow/gomory_hu.py": {
+        "size": 6804
+      },
+      "networkx/algorithms/flow/maxflow.py": {
+        "size": 23938
+      },
+      "networkx/algorithms/flow/mincost.py": {
+        "size": 12853
+      },
+      "networkx/algorithms/flow/networksimplex.py": {
+        "size": 25098
+      },
+      "networkx/algorithms/flow/preflowpush.py": {
+        "size": 16180
+      },
+      "networkx/algorithms/flow/shortestaugmentingpath.py": {
+        "size": 10831
+      },
+      "networkx/algorithms/flow/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/flow/tests/test_gomory_hu.py": {
+        "size": 4471
+      },
+      "networkx/algorithms/flow/tests/test_maxflow.py": {
+        "size": 20361
+      },
+      "networkx/algorithms/flow/tests/test_maxflow_large_graph.py": {
+        "size": 4612
+      },
+      "networkx/algorithms/flow/tests/test_mincost.py": {
+        "size": 17806
+      },
+      "networkx/algorithms/flow/tests/test_networksimplex.py": {
+        "size": 14162
+      },
+      "networkx/algorithms/flow/utils.py": {
+        "size": 7676
+      },
+      "networkx/algorithms/graph_hashing.py": {
+        "size": 16918
+      },
+      "networkx/algorithms/graphical.py": {
+        "size": 15824
+      },
+      "networkx/algorithms/hierarchy.py": {
+        "size": 1786
+      },
+      "networkx/algorithms/hybrid.py": {
+        "size": 6209
+      },
+      "networkx/algorithms/isolate.py": {
+        "size": 2251
+      },
+      "networkx/algorithms/isomorphism/__init__.py": {
+        "size": 406
+      },
+      "networkx/algorithms/isomorphism/ismags.py": {
+        "size": 60498
+      },
+      "networkx/algorithms/isomorphism/isomorph.py": {
+        "size": 8564
+      },
+      "networkx/algorithms/isomorphism/isomorphvf2.py": {
+        "size": 47637
+      },
+      "networkx/algorithms/isomorphism/matchhelpers.py": {
+        "size": 10884
+      },
+      "networkx/algorithms/isomorphism/temporalisomorphvf2.py": {
+        "size": 10946
+      },
+      "networkx/algorithms/isomorphism/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/isomorphism/tests/test_common.py": {
+        "size": 25881
+      },
+      "networkx/algorithms/isomorphism/tests/test_ismags.py": {
+        "size": 24842
+      },
+      "networkx/algorithms/isomorphism/tests/test_isomorphism.py": {
+        "size": 3831
+      },
+      "networkx/algorithms/isomorphism/tests/test_isomorphvf2.py": {
+        "size": 15308
+      },
+      "networkx/algorithms/isomorphism/tests/test_match_helpers.py": {
+        "size": 2483
+      },
+      "networkx/algorithms/isomorphism/tests/test_temporalisomorphvf2.py": {
+        "size": 7343
+      },
+      "networkx/algorithms/isomorphism/tests/test_tree_isomorphism.py": {
+        "size": 5681
+      },
+      "networkx/algorithms/isomorphism/tests/test_vf2pp.py": {
+        "size": 51884
+      },
+      "networkx/algorithms/isomorphism/tests/test_vf2pp_helpers.py": {
+        "size": 43633
+      },
+      "networkx/algorithms/isomorphism/tests/test_vf2userfunc.py": {
+        "size": 6309
+      },
+      "networkx/algorithms/isomorphism/tree_isomorphism.py": {
+        "size": 9033
+      },
+      "networkx/algorithms/isomorphism/vf2pp.py": {
+        "size": 39420
+      },
+      "networkx/algorithms/isomorphism/vf2userfunc.py": {
+        "size": 7371
+      },
+      "networkx/algorithms/link_analysis/__init__.py": {
+        "size": 118
+      },
+      "networkx/algorithms/link_analysis/hits_alg.py": {
+        "size": 7262
+      },
+      "networkx/algorithms/link_analysis/pagerank_alg.py": {
+        "size": 17203
+      },
+      "networkx/algorithms/link_analysis/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/link_analysis/tests/test_hits.py": {
+        "size": 2268
+      },
+      "networkx/algorithms/link_analysis/tests/test_pagerank.py": {
+        "size": 7282
+      },
+      "networkx/algorithms/link_prediction.py": {
+        "size": 22253
+      },
+      "networkx/algorithms/lowest_common_ancestors.py": {
+        "size": 9286
+      },
+      "networkx/algorithms/matching.py": {
+        "size": 44325
+      },
+      "networkx/algorithms/minors/__init__.py": {
+        "size": 587
+      },
+      "networkx/algorithms/minors/contraction.py": {
+        "size": 27580
+      },
+      "networkx/algorithms/minors/tests/test_contraction.py": {
+        "size": 17674
+      },
+      "networkx/algorithms/mis.py": {
+        "size": 3725
+      },
+      "networkx/algorithms/moral.py": {
+        "size": 1535
+      },
+      "networkx/algorithms/node_classification.py": {
+        "size": 6464
+      },
+      "networkx/algorithms/non_randomness.py": {
+        "size": 5783
+      },
+      "networkx/algorithms/operators/__init__.py": {
+        "size": 201
+      },
+      "networkx/algorithms/operators/all.py": {
+        "size": 9718
+      },
+      "networkx/algorithms/operators/binary.py": {
+        "size": 13150
+      },
+      "networkx/algorithms/operators/product.py": {
+        "size": 19625
+      },
+      "networkx/algorithms/operators/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/operators/tests/test_all.py": {
+        "size": 8280
+      },
+      "networkx/algorithms/operators/tests/test_binary.py": {
+        "size": 12190
+      },
+      "networkx/algorithms/operators/tests/test_product.py": {
+        "size": 15155
+      },
+      "networkx/algorithms/operators/tests/test_unary.py": {
+        "size": 1415
+      },
+      "networkx/algorithms/operators/unary.py": {
+        "size": 1795
+      },
+      "networkx/algorithms/perfect_graph.py": {
+        "size": 2588
+      },
+      "networkx/algorithms/planar_drawing.py": {
+        "size": 16254
+      },
+      "networkx/algorithms/planarity.py": {
+        "size": 49887
+      },
+      "networkx/algorithms/polynomials.py": {
+        "size": 11276
+      },
+      "networkx/algorithms/reciprocity.py": {
+        "size": 2855
+      },
+      "networkx/algorithms/regular.py": {
+        "size": 4874
+      },
+      "networkx/algorithms/richclub.py": {
+        "size": 4891
+      },
+      "networkx/algorithms/shortest_paths/__init__.py": {
+        "size": 285
+      },
+      "networkx/algorithms/shortest_paths/astar.py": {
+        "size": 8937
+      },
+      "networkx/algorithms/shortest_paths/dense.py": {
+        "size": 16444
+      },
+      "networkx/algorithms/shortest_paths/generic.py": {
+        "size": 25337
+      },
+      "networkx/algorithms/shortest_paths/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/shortest_paths/tests/test_astar.py": {
+        "size": 8989
+      },
+      "networkx/algorithms/shortest_paths/tests/test_dense.py": {
+        "size": 10201
+      },
+      "networkx/algorithms/shortest_paths/tests/test_dense_numpy.py": {
+        "size": 3606
+      },
+      "networkx/algorithms/shortest_paths/tests/test_generic.py": {
+        "size": 20609
+      },
+      "networkx/algorithms/shortest_paths/tests/test_unweighted.py": {
+        "size": 5879
+      },
+      "networkx/algorithms/shortest_paths/tests/test_weighted.py": {
+        "size": 35502
+      },
+      "networkx/algorithms/shortest_paths/unweighted.py": {
+        "size": 17825
+      },
+      "networkx/algorithms/shortest_paths/weighted.py": {
+        "size": 84147
+      },
+      "networkx/algorithms/similarity.py": {
+        "size": 72673
+      },
+      "networkx/algorithms/simple_paths.py": {
+        "size": 31091
+      },
+      "networkx/algorithms/smallworld.py": {
+        "size": 13565
+      },
+      "networkx/algorithms/smetric.py": {
+        "size": 770
+      },
+      "networkx/algorithms/sparsifiers.py": {
+        "size": 10048
+      },
+      "networkx/algorithms/structuralholes.py": {
+        "size": 12622
+      },
+      "networkx/algorithms/summarization.py": {
+        "size": 23247
+      },
+      "networkx/algorithms/swap.py": {
+        "size": 14734
+      },
+      "networkx/algorithms/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/tests/test_asteroidal.py": {
+        "size": 502
+      },
+      "networkx/algorithms/tests/test_boundary.py": {
+        "size": 6227
+      },
+      "networkx/algorithms/tests/test_bridges.py": {
+        "size": 4026
+      },
+      "networkx/algorithms/tests/test_broadcasting.py": {
+        "size": 3034
+      },
+      "networkx/algorithms/tests/test_chains.py": {
+        "size": 4196
+      },
+      "networkx/algorithms/tests/test_chordal.py": {
+        "size": 5668
+      },
+      "networkx/algorithms/tests/test_clique.py": {
+        "size": 9772
+      },
+      "networkx/algorithms/tests/test_cluster.py": {
+        "size": 19320
+      },
+      "networkx/algorithms/tests/test_communicability.py": {
+        "size": 2938
+      },
+      "networkx/algorithms/tests/test_core.py": {
+        "size": 9619
+      },
+      "networkx/algorithms/tests/test_covering.py": {
+        "size": 2718
+      },
+      "networkx/algorithms/tests/test_cuts.py": {
+        "size": 5376
+      },
+      "networkx/algorithms/tests/test_cycles.py": {
+        "size": 34799
+      },
+      "networkx/algorithms/tests/test_d_separation.py": {
+        "size": 10714
+      },
+      "networkx/algorithms/tests/test_dag.py": {
+        "size": 30163
+      },
+      "networkx/algorithms/tests/test_distance_measures.py": {
+        "size": 29081
+      },
+      "networkx/algorithms/tests/test_distance_regular.py": {
+        "size": 2915
+      },
+      "networkx/algorithms/tests/test_dominance.py": {
+        "size": 9811
+      },
+      "networkx/algorithms/tests/test_dominating.py": {
+        "size": 3112
+      },
+      "networkx/algorithms/tests/test_efficiency.py": {
+        "size": 1894
+      },
+      "networkx/algorithms/tests/test_euler.py": {
+        "size": 11209
+      },
+      "networkx/algorithms/tests/test_graph_hashing.py": {
+        "size": 31567
+      },
+      "networkx/algorithms/tests/test_graphical.py": {
+        "size": 5366
+      },
+      "networkx/algorithms/tests/test_hierarchy.py": {
+        "size": 1184
+      },
+      "networkx/algorithms/tests/test_hybrid.py": {
+        "size": 720
+      },
+      "networkx/algorithms/tests/test_isolate.py": {
+        "size": 555
+      },
+      "networkx/algorithms/tests/test_link_prediction.py": {
+        "size": 20451
+      },
+      "networkx/algorithms/tests/test_lowest_common_ancestors.py": {
+        "size": 14160
+      },
+      "networkx/algorithms/tests/test_matching.py": {
+        "size": 18319
+      },
+      "networkx/algorithms/tests/test_max_weight_clique.py": {
+        "size": 6739
+      },
+      "networkx/algorithms/tests/test_mis.py": {
+        "size": 1865
+      },
+      "networkx/algorithms/tests/test_moral.py": {
+        "size": 452
+      },
+      "networkx/algorithms/tests/test_node_classification.py": {
+        "size": 4663
+      },
+      "networkx/algorithms/tests/test_non_randomness.py": {
+        "size": 1678
+      },
+      "networkx/algorithms/tests/test_perfect_graph.py": {
+        "size": 609
+      },
+      "networkx/algorithms/tests/test_planar_drawing.py": {
+        "size": 8765
+      },
+      "networkx/algorithms/tests/test_planarity.py": {
+        "size": 17312
+      },
+      "networkx/algorithms/tests/test_polynomials.py": {
+        "size": 1983
+      },
+      "networkx/algorithms/tests/test_reciprocity.py": {
+        "size": 1296
+      },
+      "networkx/algorithms/tests/test_regular.py": {
+        "size": 2951
+      },
+      "networkx/algorithms/tests/test_richclub.py": {
+        "size": 3884
+      },
+      "networkx/algorithms/tests/test_similarity.py": {
+        "size": 41248
+      },
+      "networkx/algorithms/tests/test_simple_paths.py": {
+        "size": 25181
+      },
+      "networkx/algorithms/tests/test_smallworld.py": {
+        "size": 2390
+      },
+      "networkx/algorithms/tests/test_smetric.py": {
+        "size": 144
+      },
+      "networkx/algorithms/tests/test_sparsifiers.py": {
+        "size": 4044
+      },
+      "networkx/algorithms/tests/test_structuralholes.py": {
+        "size": 7592
+      },
+      "networkx/algorithms/tests/test_summarization.py": {
+        "size": 21312
+      },
+      "networkx/algorithms/tests/test_swap.py": {
+        "size": 6144
+      },
+      "networkx/algorithms/tests/test_threshold.py": {
+        "size": 9723
+      },
+      "networkx/algorithms/tests/test_time_dependent.py": {
+        "size": 13342
+      },
+      "networkx/algorithms/tests/test_tournament.py": {
+        "size": 4107
+      },
+      "networkx/algorithms/tests/test_triads.py": {
+        "size": 8219
+      },
+      "networkx/algorithms/tests/test_vitality.py": {
+        "size": 1380
+      },
+      "networkx/algorithms/tests/test_voronoi.py": {
+        "size": 3477
+      },
+      "networkx/algorithms/tests/test_walks.py": {
+        "size": 5555
+      },
+      "networkx/algorithms/tests/test_wiener.py": {
+        "size": 4186
+      },
+      "networkx/algorithms/threshold.py": {
+        "size": 30776
+      },
+      "networkx/algorithms/time_dependent.py": {
+        "size": 5762
+      },
+      "networkx/algorithms/tournament.py": {
+        "size": 11613
+      },
+      "networkx/algorithms/traversal/__init__.py": {
+        "size": 142
+      },
+      "networkx/algorithms/traversal/beamsearch.py": {
+        "size": 3473
+      },
+      "networkx/algorithms/traversal/breadth_first_search.py": {
+        "size": 19074
+      },
+      "networkx/algorithms/traversal/depth_first_search.py": {
+        "size": 16795
+      },
+      "networkx/algorithms/traversal/edgebfs.py": {
+        "size": 6333
+      },
+      "networkx/algorithms/traversal/edgedfs.py": {
+        "size": 6041
+      },
+      "networkx/algorithms/traversal/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/traversal/tests/test_beamsearch.py": {
+        "size": 900
+      },
+      "networkx/algorithms/traversal/tests/test_bfs.py": {
+        "size": 6703
+      },
+      "networkx/algorithms/traversal/tests/test_dfs.py": {
+        "size": 10580
+      },
+      "networkx/algorithms/traversal/tests/test_edgebfs.py": {
+        "size": 4702
+      },
+      "networkx/algorithms/traversal/tests/test_edgedfs.py": {
+        "size": 4775
+      },
+      "networkx/algorithms/tree/__init__.py": {
+        "size": 182
+      },
+      "networkx/algorithms/tree/branchings.py": {
+        "size": 34316
+      },
+      "networkx/algorithms/tree/coding.py": {
+        "size": 13445
+      },
+      "networkx/algorithms/tree/decomposition.py": {
+        "size": 3067
+      },
+      "networkx/algorithms/tree/distance_measures.py": {
+        "size": 6981
+      },
+      "networkx/algorithms/tree/mst.py": {
+        "size": 46397
+      },
+      "networkx/algorithms/tree/operations.py": {
+        "size": 4048
+      },
+      "networkx/algorithms/tree/recognition.py": {
+        "size": 7549
+      },
+      "networkx/algorithms/tree/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/algorithms/tree/tests/test_branchings.py": {
+        "size": 17731
+      },
+      "networkx/algorithms/tree/tests/test_coding.py": {
+        "size": 3952
+      },
+      "networkx/algorithms/tree/tests/test_decomposition.py": {
+        "size": 1871
+      },
+      "networkx/algorithms/tree/tests/test_distance_measures.py": {
+        "size": 3389
+      },
+      "networkx/algorithms/tree/tests/test_mst.py": {
+        "size": 32372
+      },
+      "networkx/algorithms/tree/tests/test_operations.py": {
+        "size": 1961
+      },
+      "networkx/algorithms/tree/tests/test_recognition.py": {
+        "size": 4521
+      },
+      "networkx/algorithms/triads.py": {
+        "size": 14233
+      },
+      "networkx/algorithms/vitality.py": {
+        "size": 2289
+      },
+      "networkx/algorithms/voronoi.py": {
+        "size": 3183
+      },
+      "networkx/algorithms/walks.py": {
+        "size": 7145
+      },
+      "networkx/algorithms/wiener.py": {
+        "size": 9214
+      },
+      "networkx/classes/__init__.py": {
+        "size": 364
+      },
+      "networkx/classes/coreviews.py": {
+        "size": 13251
+      },
+      "networkx/classes/digraph.py": {
+        "size": 48733
+      },
+      "networkx/classes/filters.py": {
+        "size": 2817
+      },
+      "networkx/classes/function.py": {
+        "size": 44468
+      },
+      "networkx/classes/graph.py": {
+        "size": 72311
+      },
+      "networkx/classes/graphviews.py": {
+        "size": 8478
+      },
+      "networkx/classes/multidigraph.py": {
+        "size": 36961
+      },
+      "networkx/classes/multigraph.py": {
+        "size": 47927
+      },
+      "networkx/classes/reportviews.py": {
+        "size": 49900
+      },
+      "networkx/classes/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/classes/tests/dispatch_interface.py": {
+        "size": 6823
+      },
+      "networkx/classes/tests/historical_tests.py": {
+        "size": 16291
+      },
+      "networkx/classes/tests/test_coreviews.py": {
+        "size": 12128
+      },
+      "networkx/classes/tests/test_digraph.py": {
+        "size": 12283
+      },
+      "networkx/classes/tests/test_digraph_historical.py": {
+        "size": 3668
+      },
+      "networkx/classes/tests/test_filters.py": {
+        "size": 5851
+      },
+      "networkx/classes/tests/test_function.py": {
+        "size": 35481
+      },
+      "networkx/classes/tests/test_graph.py": {
+        "size": 31798
+      },
+      "networkx/classes/tests/test_graph_historical.py": {
+        "size": 258
+      },
+      "networkx/classes/tests/test_graphviews.py": {
+        "size": 11496
+      },
+      "networkx/classes/tests/test_multidigraph.py": {
+        "size": 16342
+      },
+      "networkx/classes/tests/test_multigraph.py": {
+        "size": 18777
+      },
+      "networkx/classes/tests/test_reportviews.py": {
+        "size": 41332
+      },
+      "networkx/classes/tests/test_special.py": {
+        "size": 4053
+      },
+      "networkx/classes/tests/test_subgraphviews.py": {
+        "size": 13669
+      },
+      "networkx/conftest.py": {
+        "size": 8154
+      },
+      "networkx/convert.py": {
+        "size": 16143
+      },
+      "networkx/convert_matrix.py": {
+        "size": 45634
+      },
+      "networkx/drawing/__init__.py": {
+        "size": 160
+      },
+      "networkx/drawing/layout.py": {
+        "size": 66445
+      },
+      "networkx/drawing/nx_agraph.py": {
+        "size": 14355
+      },
+      "networkx/drawing/nx_latex.py": {
+        "size": 24846
+      },
+      "networkx/drawing/nx_pydot.py": {
+        "size": 9992
+      },
+      "networkx/drawing/nx_pylab.py": {
+        "size": 103488
+      },
+      "networkx/drawing/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/drawing/tests/test_agraph.py": {
+        "size": 9534
+      },
+      "networkx/drawing/tests/test_image_comparison_pylab_mpl.py": {
+        "size": 6340
+      },
+      "networkx/drawing/tests/test_latex.py": {
+        "size": 8621
+      },
+      "networkx/drawing/tests/test_layout.py": {
+        "size": 24891
+      },
+      "networkx/drawing/tests/test_pydot.py": {
+        "size": 4973
+      },
+      "networkx/drawing/tests/test_pylab.py": {
+        "size": 54823
+      },
+      "networkx/exception.py": {
+        "size": 3787
+      },
+      "networkx/generators/__init__.py": {
+        "size": 1366
+      },
+      "networkx/generators/atlas.py": {
+        "size": 6955
+      },
+      "networkx/generators/classic.py": {
+        "size": 33288
+      },
+      "networkx/generators/cographs.py": {
+        "size": 1891
+      },
+      "networkx/generators/community.py": {
+        "size": 34911
+      },
+      "networkx/generators/degree_seq.py": {
+        "size": 30491
+      },
+      "networkx/generators/directed.py": {
+        "size": 18148
+      },
+      "networkx/generators/duplication.py": {
+        "size": 5792
+      },
+      "networkx/generators/ego.py": {
+        "size": 1894
+      },
+      "networkx/generators/expanders.py": {
+        "size": 15425
+      },
+      "networkx/generators/geometric.py": {
+        "size": 39447
+      },
+      "networkx/generators/harary_graph.py": {
+        "size": 4920
+      },
+      "networkx/generators/internet_as_graphs.py": {
+        "size": 14226
+      },
+      "networkx/generators/intersection.py": {
+        "size": 4093
+      },
+      "networkx/generators/interval_graph.py": {
+        "size": 2204
+      },
+      "networkx/generators/joint_degree_seq.py": {
+        "size": 24773
+      },
+      "networkx/generators/lattice.py": {
+        "size": 14701
+      },
+      "networkx/generators/line.py": {
+        "size": 17540
+      },
+      "networkx/generators/mycielski.py": {
+        "size": 3314
+      },
+      "networkx/generators/nonisomorphic_trees.py": {
+        "size": 6993
+      },
+      "networkx/generators/random_clustered.py": {
+        "size": 4183
+      },
+      "networkx/generators/random_graphs.py": {
+        "size": 55518
+      },
+      "networkx/generators/small.py": {
+        "size": 30926
+      },
+      "networkx/generators/social.py": {
+        "size": 23416
+      },
+      "networkx/generators/spectral_graph_forge.py": {
+        "size": 4282
+      },
+      "networkx/generators/stochastic.py": {
+        "size": 1981
+      },
+      "networkx/generators/sudoku.py": {
+        "size": 4246
+      },
+      "networkx/generators/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/generators/tests/test_atlas.py": {
+        "size": 2530
+      },
+      "networkx/generators/tests/test_classic.py": {
+        "size": 24544
+      },
+      "networkx/generators/tests/test_cographs.py": {
+        "size": 553
+      },
+      "networkx/generators/tests/test_community.py": {
+        "size": 11311
+      },
+      "networkx/generators/tests/test_degree_seq.py": {
+        "size": 7254
+      },
+      "networkx/generators/tests/test_directed.py": {
+        "size": 6020
+      },
+      "networkx/generators/tests/test_duplication.py": {
+        "size": 3155
+      },
+      "networkx/generators/tests/test_ego.py": {
+        "size": 1327
+      },
+      "networkx/generators/tests/test_expanders.py": {
+        "size": 6363
+      },
+      "networkx/generators/tests/test_geometric.py": {
+        "size": 18087
+      },
+      "networkx/generators/tests/test_harary_graph.py": {
+        "size": 4936
+      },
+      "networkx/generators/tests/test_internet_as_graphs.py": {
+        "size": 8514
+      },
+      "networkx/generators/tests/test_intersection.py": {
+        "size": 819
+      },
+      "networkx/generators/tests/test_interval_graph.py": {
+        "size": 4277
+      },
+      "networkx/generators/tests/test_joint_degree_seq.py": {
+        "size": 4270
+      },
+      "networkx/generators/tests/test_lattice.py": {
+        "size": 10102
+      },
+      "networkx/generators/tests/test_line.py": {
+        "size": 10516
+      },
+      "networkx/generators/tests/test_mycielski.py": {
+        "size": 946
+      },
+      "networkx/generators/tests/test_nonisomorphic_trees.py": {
+        "size": 2945
+      },
+      "networkx/generators/tests/test_random_clustered.py": {
+        "size": 1297
+      },
+      "networkx/generators/tests/test_random_graphs.py": {
+        "size": 21553
+      },
+      "networkx/generators/tests/test_small.py": {
+        "size": 8074
+      },
+      "networkx/generators/tests/test_spectral_graph_forge.py": {
+        "size": 1614
+      },
+      "networkx/generators/tests/test_stochastic.py": {
+        "size": 2179
+      },
+      "networkx/generators/tests/test_sudoku.py": {
+        "size": 1968
+      },
+      "networkx/generators/tests/test_time_series.py": {
+        "size": 2230
+      },
+      "networkx/generators/tests/test_trees.py": {
+        "size": 7006
+      },
+      "networkx/generators/tests/test_triads.py": {
+        "size": 333
+      },
+      "networkx/generators/time_series.py": {
+        "size": 2439
+      },
+      "networkx/generators/trees.py": {
+        "size": 36503
+      },
+      "networkx/generators/triads.py": {
+        "size": 2452
+      },
+      "networkx/lazy_imports.py": {
+        "size": 5764
+      },
+      "networkx/linalg/__init__.py": {
+        "size": 568
+      },
+      "networkx/linalg/algebraicconnectivity.py": {
+        "size": 20790
+      },
+      "networkx/linalg/attrmatrix.py": {
+        "size": 15900
+      },
+      "networkx/linalg/bethehessianmatrix.py": {
+        "size": 2512
+      },
+      "networkx/linalg/graphmatrix.py": {
+        "size": 5623
+      },
+      "networkx/linalg/laplacianmatrix.py": {
+        "size": 16718
+      },
+      "networkx/linalg/modularitymatrix.py": {
+        "size": 4706
+      },
+      "networkx/linalg/spectrum.py": {
+        "size": 4214
+      },
+      "networkx/linalg/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/linalg/tests/test_algebraic_connectivity.py": {
+        "size": 13735
+      },
+      "networkx/linalg/tests/test_attrmatrix.py": {
+        "size": 2833
+      },
+      "networkx/linalg/tests/test_bethehessian.py": {
+        "size": 1268
+      },
+      "networkx/linalg/tests/test_graphmatrix.py": {
+        "size": 8613
+      },
+      "networkx/linalg/tests/test_laplacian.py": {
+        "size": 13953
+      },
+      "networkx/linalg/tests/test_modularity.py": {
+        "size": 3056
+      },
+      "networkx/linalg/tests/test_spectrum.py": {
+        "size": 2769
+      },
+      "networkx/readwrite/__init__.py": {
+        "size": 561
+      },
+      "networkx/readwrite/adjlist.py": {
+        "size": 9050
+      },
+      "networkx/readwrite/edgelist.py": {
+        "size": 14292
+      },
+      "networkx/readwrite/gexf.py": {
+        "size": 40438
+      },
+      "networkx/readwrite/gml.py": {
+        "size": 31248
+      },
+      "networkx/readwrite/graph6.py": {
+        "size": 11642
+      },
+      "networkx/readwrite/graphml.py": {
+        "size": 39326
+      },
+      "networkx/readwrite/json_graph/__init__.py": {
+        "size": 677
+      },
+      "networkx/readwrite/json_graph/adjacency.py": {
+        "size": 4716
+      },
+      "networkx/readwrite/json_graph/cytoscape.py": {
+        "size": 5841
+      },
+      "networkx/readwrite/json_graph/node_link.py": {
+        "size": 7850
+      },
+      "networkx/readwrite/json_graph/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/readwrite/json_graph/tests/test_adjacency.py": {
+        "size": 2456
+      },
+      "networkx/readwrite/json_graph/tests/test_cytoscape.py": {
+        "size": 2044
+      },
+      "networkx/readwrite/json_graph/tests/test_node_link.py": {
+        "size": 3362
+      },
+      "networkx/readwrite/json_graph/tests/test_tree.py": {
+        "size": 1352
+      },
+      "networkx/readwrite/json_graph/tree.py": {
+        "size": 3851
+      },
+      "networkx/readwrite/leda.py": {
+        "size": 2840
+      },
+      "networkx/readwrite/multiline_adjlist.py": {
+        "size": 11384
+      },
+      "networkx/readwrite/p2g.py": {
+        "size": 3253
+      },
+      "networkx/readwrite/pajek.py": {
+        "size": 8746
+      },
+      "networkx/readwrite/sparse6.py": {
+        "size": 10400
+      },
+      "networkx/readwrite/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/readwrite/tests/test_adjlist.py": {
+        "size": 12756
+      },
+      "networkx/readwrite/tests/test_edgelist.py": {
+        "size": 10190
+      },
+      "networkx/readwrite/tests/test_gexf.py": {
+        "size": 21327
+      },
+      "networkx/readwrite/tests/test_gml.py": {
+        "size": 21399
+      },
+      "networkx/readwrite/tests/test_graph6.py": {
+        "size": 6559
+      },
+      "networkx/readwrite/tests/test_graphml.py": {
+        "size": 67633
+      },
+      "networkx/readwrite/tests/test_leda.py": {
+        "size": 1392
+      },
+      "networkx/readwrite/tests/test_p2g.py": {
+        "size": 1319
+      },
+      "networkx/readwrite/tests/test_pajek.py": {
+        "size": 4696
+      },
+      "networkx/readwrite/tests/test_sparse6.py": {
+        "size": 5288
+      },
+      "networkx/readwrite/tests/test_text.py": {
+        "size": 48505
+      },
+      "networkx/readwrite/text.py": {
+        "size": 28404
+      },
+      "networkx/relabel.py": {
+        "size": 10300
+      },
+      "networkx/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/tests/test_all_random_functions.py": {
+        "size": 8549
+      },
+      "networkx/tests/test_convert.py": {
+        "size": 12731
+      },
+      "networkx/tests/test_convert_numpy.py": {
+        "size": 19032
+      },
+      "networkx/tests/test_convert_pandas.py": {
+        "size": 13351
+      },
+      "networkx/tests/test_convert_scipy.py": {
+        "size": 10381
+      },
+      "networkx/tests/test_exceptions.py": {
+        "size": 927
+      },
+      "networkx/tests/test_import.py": {
+        "size": 220
+      },
+      "networkx/tests/test_lazy_imports.py": {
+        "size": 2675
+      },
+      "networkx/tests/test_relabel.py": {
+        "size": 15001
+      },
+      "networkx/tests/test_removed_functions_exception_messages.py": {
+        "size": 177
+      },
+      "networkx/utils/__init__.py": {
+        "size": 302
+      },
+      "networkx/utils/backends.py": {
+        "size": 97543
+      },
+      "networkx/utils/configs.py": {
+        "size": 15440
+      },
+      "networkx/utils/decorators.py": {
+        "size": 44713
+      },
+      "networkx/utils/heaps.py": {
+        "size": 10355
+      },
+      "networkx/utils/mapped_queue.py": {
+        "size": 10184
+      },
+      "networkx/utils/misc.py": {
+        "size": 23366
+      },
+      "networkx/utils/random_sequence.py": {
+        "size": 5303
+      },
+      "networkx/utils/rcm.py": {
+        "size": 4618
+      },
+      "networkx/utils/tests/__init__.py": {
+        "size": 0
+      },
+      "networkx/utils/tests/test__init.py": {
+        "size": 363
+      },
+      "networkx/utils/tests/test_backends.py": {
+        "size": 7784
+      },
+      "networkx/utils/tests/test_config.py": {
+        "size": 8717
+      },
+      "networkx/utils/tests/test_decorators.py": {
+        "size": 14050
+      },
+      "networkx/utils/tests/test_heaps.py": {
+        "size": 3711
+      },
+      "networkx/utils/tests/test_mapped_queue.py": {
+        "size": 7354
+      },
+      "networkx/utils/tests/test_misc.py": {
+        "size": 14635
+      },
+      "networkx/utils/tests/test_random_sequence.py": {
+        "size": 1502
+      },
+      "networkx/utils/tests/test_rcm.py": {
+        "size": 1421
+      },
+      "networkx/utils/tests/test_unionfind.py": {
+        "size": 1579
+      },
+      "networkx/utils/union_find.py": {
+        "size": 3338
+      },
+      "pyproject.toml": {
+        "size": 12004
+      },
+      "requirements/README.md": {
+        "size": 1006
+      },
+      "requirements/benchmarking.txt": {
+        "size": 139
+      },
+      "requirements/default.txt": {
+        "size": 175
+      },
+      "requirements/developer.txt": {
+        "size": 151
+      },
+      "requirements/doc.txt": {
+        "size": 258
+      },
+      "requirements/example.txt": {
+        "size": 241
+      },
+      "requirements/extra.txt": {
+        "size": 176
+      },
+      "requirements/release.txt": {
+        "size": 175
+      },
+      "requirements/test-extras.txt": {
+        "size": 151
+      },
+      "requirements/test.txt": {
+        "size": 170
+      },
+      "tools/generate_requirements.py": {
+        "size": 930
+      },
+      "tools/team_list.py": {
+        "size": 2166
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.benchmarks.benchmarks",
+      "source.networkx",
+      "source.networkx.algorithms",
+      "source.networkx.classes",
+      "source.networkx.drawing",
+      "source.networkx.generators",
+      "source.networkx.linalg",
+      "source.networkx.readwrite",
+      "source.networkx.tests",
+      "source.networkx.utils"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.networkx",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level import surface for NetworkX; re-exports graph classes, algorithms, generators, read/write, and utility APIs for direct import usage."
+      },
+      {
+        "package": "source.networkx.classes",
+        "module": "graph",
+        "functions": [],
+        "classes": [
+          "Graph"
+        ],
+        "description": "Core undirected graph data structure with node/edge attribute support; foundational object for most algorithms."
+      },
+      {
+        "package": "source.networkx.classes",
+        "module": "digraph",
+        "functions": [],
+        "classes": [
+          "DiGraph"
+        ],
+        "description": "Directed graph data structure used by traversal, shortest path, flow, and DAG algorithms."
+      },
+      {
+        "package": "source.networkx.classes",
+        "module": "multigraph",
+        "functions": [],
+        "classes": [
+          "MultiGraph"
+        ],
+        "description": "Undirected multigraph supporting parallel edges and attributes."
+      },
+      {
+        "package": "source.networkx.classes",
+        "module": "multidigraph",
+        "functions": [],
+        "classes": [
+          "MultiDiGraph"
+        ],
+        "description": "Directed multigraph with parallel edge support."
+      },
+      {
+        "package": "source.networkx.algorithms",
+        "module": "shortest_paths.weighted",
+        "functions": [
+          "dijkstra_path",
+          "dijkstra_path_length",
+          "single_source_dijkstra",
+          "all_pairs_dijkstra",
+          "bellman_ford_path",
+          "floyd_warshall"
+        ],
+        "classes": [],
+        "description": "Primary weighted shortest-path implementations; high-value callable set for MCP tool exposure."
+      },
+      {
+        "package": "source.networkx.algorithms",
+        "module": "shortest_paths.unweighted",
+        "functions": [
+          "single_source_shortest_path",
+          "single_target_shortest_path",
+          "all_pairs_shortest_path",
+          "bidirectional_shortest_path"
+        ],
+        "classes": [],
+        "description": "Unweighted shortest path routines for general graph analysis."
+      },
+      {
+        "package": "source.networkx.algorithms",
+        "module": "centrality.betweenness",
+        "functions": [
+          "betweenness_centrality",
+          "edge_betweenness_centrality"
+        ],
+        "classes": [],
+        "description": "Widely used centrality metrics for node/edge importance."
+      },
+      {
+        "package": "source.networkx.algorithms",
+        "module": "components.connected",
+        "functions": [
+          "connected_components",
+          "is_connected",
+          "number_connected_components"
+        ],
+        "classes": [],
+        "description": "Connectivity decomposition for undirected graphs."
+      },
+      {
+        "package": "source.networkx.algorithms",
+        "module": "community.louvain",
+        "functions": [
+          "louvain_communities",
+          "louvain_partitions"
+        ],
+        "classes": [],
+        "description": "Community detection entry points suitable for higher-level analytical MCP operations."
+      },
+      {
+        "package": "source.networkx.generators",
+        "module": "random_graphs",
+        "functions": [
+          "erdos_renyi_graph",
+          "barabasi_albert_graph",
+          "watts_strogatz_graph"
+        ],
+        "classes": [],
+        "description": "Common graph generators for synthetic test/sample graphs."
+      },
+      {
+        "package": "source.networkx.readwrite",
+        "module": "graphml",
+        "functions": [
+          "read_graphml",
+          "write_graphml"
+        ],
+        "classes": [],
+        "description": "GraphML interoperability for import/export workflows."
+      },
+      {
+        "package": "source.networkx.readwrite",
+        "module": "gexf",
+        "functions": [
+          "read_gexf",
+          "write_gexf"
+        ],
+        "classes": [],
+        "description": "GEXF format I/O for exchange with external graph tools."
+      },
+      {
+        "package": "source.networkx.readwrite",
+        "module": "json_graph.node_link",
+        "functions": [
+          "node_link_data",
+          "node_link_graph"
+        ],
+        "classes": [],
+        "description": "JSON-safe graph conversion ideal for MCP tool input/output payloads."
+      },
+      {
+        "package": "source.networkx.convert_matrix",
+        "module": "convert_matrix",
+        "functions": [
+          "from_numpy_array",
+          "to_numpy_array",
+          "from_scipy_sparse_array",
+          "to_scipy_sparse_array"
+        ],
+        "classes": [],
+        "description": "Matrix conversion bridge between NetworkX and numerical backends."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.96
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.11",
+        "networkx package itself (source.networkx)"
+      ],
+      "optional": [
+        "numpy",
+        "scipy",
+        "matplotlib",
+        "pandas",
+        "pygraphviz",
+        "pydot",
+        "lxml"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.97,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/networkx/networkx",
+    "repo_name": "networkx",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.97,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

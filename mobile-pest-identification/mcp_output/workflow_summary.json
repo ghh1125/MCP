@@ -1,0 +1,235 @@
+{
+  "repository": {
+    "name": "mobile-pest-identification",
+    "url": "https://github.com/wikilimo/mobile-pest-identification",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/mobile-pest-identification",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773249647.71298,
+    "end_time": 1773249940.9092429,
+    "duration": 293.1962628364563,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.42,
+      "intrusiveness_risk": "medium",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/wikilimo/mobile-pest-identification",
+      "repo_name": "mobile-pest-identification",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/mobile-pest-identification/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/mobile-pest-identification/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75004 ms: Couldn't connect to server\nfatal: expected 'packfile'\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/mobile-pest-identification/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75004 ms: Couldn't connect to server\nfatal: expected 'packfile'\n"
+  ],
+  "recommendations": [
+    "Add a proper Python package structure (`src/mobile_pest_identification/__init__.py`) and move script logic out of `src/pest.py` into importable modules",
+    "Create a real CLI with `argparse`/`typer` (e.g.",
+    "`train`",
+    "`predict`",
+    "`evaluate`) instead of only `python src/pest.py`",
+    "Fix dependency metadata inconsistency (analysis says no `requirements.txt` while file tree shows one) and pin critical ML versions for reproducibility",
+    "Add `pyproject.toml` (or `setup.cfg`) with project metadata",
+    "entry points",
+    "and tooling config",
+    "Introduce automated tests (unit tests for `utils.py`",
+    "smoke tests for inference",
+    "dataset-path validation tests) and wire them into CI",
+    "Add a dataset handling module for IP102 split parsing (`train.txt`",
+    "`val.txt`",
+    "`test.txt`) with schema checks and clear error messages",
+    "Externalize runtime configuration (paths",
+    "model yaml",
+    "thresholds",
+    "device) via config files/env vars instead of hardcoded values",
+    "Improve README with exact setup/run commands",
+    "expected directory layout",
+    "sample inference command",
+    "and troubleshooting",
+    "Add logging (structured levels",
+    "timing",
+    "device/model info) and replace print-style flow with consistent logger usage",
+    "Add model artifact/version management (checkpoint naming",
+    "metadata",
+    "and compatibility notes with `mobile.yaml`)",
+    "Add lint/format/type tooling (`ruff`/`flake8`",
+    "`black`",
+    "`mypy`) and pre-commit hooks",
+    "Add baseline evaluation reporting (accuracy/F1/confusion matrix) and persist metrics for comparisons",
+    "Add graceful failure paths for missing files/dependencies and clearer user-facing exceptions",
+    "Ensure MCP plugin endpoints are actually defined and documented (currently empty)",
+    "Add integration tests for MCP adapter/service startup and core command invocation",
+    "Provide a Dockerfile (or reproducible environment spec) for consistent training/inference environments across machines"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow orchestration was resilient: despite git clone failure, pipeline continued via zip fallback and reached finalize.",
+      "All major nodes executed (download, analysis, env, generate, run, review, finalize) and workflow_status is success.",
+      "MCP scaffold generation completed with expected core files and a healthy service startup check.",
+      "Adapter mode selected as import with moderate confidence, suitable for script-first Python projects."
+    ],
+    "failure_reasons": [
+      "Primary repository clone failed due to network/connectivity timeout to github.com:443 (curl 28), causing degraded source acquisition path.",
+      "Generated MCP plugin contains zero defined tool endpoints, limiting functional value despite passing health checks.",
+      "Repository metadata detection is inconsistent (requirements.txt present in file tree but has_requirements_txt=false), reducing analysis reliability.",
+      "No effective project test execution (original_project.passed=false with empty details), so functional correctness is unverified."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Dominant delay source; includes ~75s network timeout before fallback. Indicates external connectivity bottleneck rather than compute.",
+      "analysis_time": "Completed on limited/discovered artifacts; fast structurally but shallow (no package discovery, no entry points extracted).",
+      "generation_time": "Efficient scaffold generation; produced standard MCP files quickly, but output depth is low (0 tools, 0 LOC metrics captured).",
+      "test_time": "Minimal/near-zero timing reported; health check passed but lacks substantive integration/functional tests."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB). Cannot validate memory profile.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%). Likely low CPU pressure given lightweight generation.",
+      "disk_usage": "Low-to-moderate inferred footprint (small codebase + dataset index text files); generated artifact size metrics missing."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 58,
+    "architecture_score": 62,
+    "performance_score": 50,
+    "maintainability_score": 57,
+    "security_score": 85,
+    "scalability_score": 54
+  }
+}

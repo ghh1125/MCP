@@ -1,0 +1,612 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/MolecularAI/aizynthfinder",
+    "summary": "Imported via zip fallback, file count: 143",
+    "file_tree": {
+      ".github/workflows/docs.yml": {
+        "size": 655
+      },
+      ".github/workflows/publish_to_pypi.yml": {
+        "size": 793
+      },
+      ".github/workflows/tests.yml": {
+        "size": 781
+      },
+      "CHANGELOG.md": {
+        "size": 13399
+      },
+      "README.md": {
+        "size": 5551
+      },
+      "aizynthfinder/__init__.py": {
+        "size": 0
+      },
+      "aizynthfinder/aizynthfinder.py": {
+        "size": 15755
+      },
+      "aizynthfinder/analysis/__init__.py": {
+        "size": 249
+      },
+      "aizynthfinder/analysis/routes.py": {
+        "size": 12868
+      },
+      "aizynthfinder/analysis/tree_analysis.py": {
+        "size": 16442
+      },
+      "aizynthfinder/analysis/utils.py": {
+        "size": 4985
+      },
+      "aizynthfinder/chem/__init__.py": {
+        "size": 493
+      },
+      "aizynthfinder/chem/mol.py": {
+        "size": 13936
+      },
+      "aizynthfinder/chem/reaction.py": {
+        "size": 22347
+      },
+      "aizynthfinder/chem/serialization.py": {
+        "size": 4772
+      },
+      "aizynthfinder/context/__init__.py": {
+        "size": 0
+      },
+      "aizynthfinder/context/collection.py": {
+        "size": 4585
+      },
+      "aizynthfinder/context/config.py": {
+        "size": 6476
+      },
+      "aizynthfinder/context/policy/__init__.py": {
+        "size": 559
+      },
+      "aizynthfinder/context/policy/expansion_strategies.py": {
+        "size": 18512
+      },
+      "aizynthfinder/context/policy/filter_strategies.py": {
+        "size": 8214
+      },
+      "aizynthfinder/context/policy/policies.py": {
+        "size": 7915
+      },
+      "aizynthfinder/context/policy/utils.py": {
+        "size": 572
+      },
+      "aizynthfinder/context/scoring/__init__.py": {
+        "size": 975
+      },
+      "aizynthfinder/context/scoring/collection.py": {
+        "size": 6401
+      },
+      "aizynthfinder/context/scoring/scorers.py": {
+        "size": 15898
+      },
+      "aizynthfinder/context/scoring/scorers_base.py": {
+        "size": 6416
+      },
+      "aizynthfinder/context/scoring/scorers_mols.py": {
+        "size": 12953
+      },
+      "aizynthfinder/context/scoring/scorers_reactions.py": {
+        "size": 6572
+      },
+      "aizynthfinder/context/stock/__init__.py": {
+        "size": 282
+      },
+      "aizynthfinder/context/stock/queries.py": {
+        "size": 8284
+      },
+      "aizynthfinder/context/stock/stock.py": {
+        "size": 11114
+      },
+      "aizynthfinder/data/default_training.yml": {
+        "size": 1446
+      },
+      "aizynthfinder/data/logging.yml": {
+        "size": 487
+      },
+      "aizynthfinder/interfaces/__init__.py": {
+        "size": 176
+      },
+      "aizynthfinder/interfaces/aizynthapp.py": {
+        "size": 14411
+      },
+      "aizynthfinder/interfaces/aizynthcli.py": {
+        "size": 11941
+      },
+      "aizynthfinder/interfaces/gui/__init__.py": {
+        "size": 35
+      },
+      "aizynthfinder/interfaces/gui/clustering.py": {
+        "size": 4095
+      },
+      "aizynthfinder/interfaces/gui/pareto_fronts.py": {
+        "size": 5865
+      },
+      "aizynthfinder/interfaces/gui/utils.py": {
+        "size": 4124
+      },
+      "aizynthfinder/reactiontree.py": {
+        "size": 14915
+      },
+      "aizynthfinder/search/__init__.py": {
+        "size": 0
+      },
+      "aizynthfinder/search/andor_trees.py": {
+        "size": 8159
+      },
+      "aizynthfinder/search/breadth_first/__init__.py": {
+        "size": 124
+      },
+      "aizynthfinder/search/breadth_first/nodes.py": {
+        "size": 7760
+      },
+      "aizynthfinder/search/breadth_first/search_tree.py": {
+        "size": 5603
+      },
+      "aizynthfinder/search/dfpn/__init__.py": {
+        "size": 106
+      },
+      "aizynthfinder/search/dfpn/nodes.py": {
+        "size": 11087
+      },
+      "aizynthfinder/search/dfpn/search_tree.py": {
+        "size": 4758
+      },
+      "aizynthfinder/search/mcts/__init__.py": {
+        "size": 211
+      },
+      "aizynthfinder/search/mcts/node.py": {
+        "size": 28273
+      },
+      "aizynthfinder/search/mcts/search.py": {
+        "size": 8259
+      },
+      "aizynthfinder/search/mcts/state.py": {
+        "size": 5022
+      },
+      "aizynthfinder/search/mcts/utils.py": {
+        "size": 2582
+      },
+      "aizynthfinder/search/retrostar/__init__.py": {
+        "size": 0
+      },
+      "aizynthfinder/search/retrostar/cost.py": {
+        "size": 4486
+      },
+      "aizynthfinder/search/retrostar/nodes.py": {
+        "size": 12266
+      },
+      "aizynthfinder/search/retrostar/search_tree.py": {
+        "size": 6719
+      },
+      "aizynthfinder/tools/__init__.py": {
+        "size": 0
+      },
+      "aizynthfinder/tools/cat_output.py": {
+        "size": 815
+      },
+      "aizynthfinder/tools/download_public_data.py": {
+        "size": 3203
+      },
+      "aizynthfinder/tools/make_stock.py": {
+        "size": 7259
+      },
+      "aizynthfinder/utils/__init__.py": {
+        "size": 0
+      },
+      "aizynthfinder/utils/bonds.py": {
+        "size": 2515
+      },
+      "aizynthfinder/utils/exceptions.py": {
+        "size": 914
+      },
+      "aizynthfinder/utils/files.py": {
+        "size": 5322
+      },
+      "aizynthfinder/utils/image.py": {
+        "size": 3711
+      },
+      "aizynthfinder/utils/loading.py": {
+        "size": 1532
+      },
+      "aizynthfinder/utils/logging.py": {
+        "size": 1694
+      },
+      "aizynthfinder/utils/math.py": {
+        "size": 1104
+      },
+      "aizynthfinder/utils/models.py": {
+        "size": 12070
+      },
+      "aizynthfinder/utils/mongo.py": {
+        "size": 1584
+      },
+      "aizynthfinder/utils/paths.py": {
+        "size": 355
+      },
+      "aizynthfinder/utils/sc_score.py": {
+        "size": 3059
+      },
+      "aizynthfinder/utils/type_utils.py": {
+        "size": 729
+      },
+      "docs/conf.py": {
+        "size": 737
+      },
+      "env-dev.yml": {
+        "size": 145
+      },
+      "plugins/README.md": {
+        "size": 3057
+      },
+      "plugins/expansion_strategies.py": {
+        "size": 16420
+      },
+      "pyproject.toml": {
+        "size": 2651
+      },
+      "tasks.py": {
+        "size": 856
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/breadth_first/__init__.py": {
+        "size": 0
+      },
+      "tests/breadth_first/test_nodes.py": {
+        "size": 2345
+      },
+      "tests/breadth_first/test_search.py": {
+        "size": 3743
+      },
+      "tests/chem/__init__.py": {
+        "size": 0
+      },
+      "tests/chem/test_mol.py": {
+        "size": 2044
+      },
+      "tests/chem/test_reaction.py": {
+        "size": 9725
+      },
+      "tests/chem/test_serialization.py": {
+        "size": 2379
+      },
+      "tests/conftest.py": {
+        "size": 18821
+      },
+      "tests/context/__init__.py": {
+        "size": 0
+      },
+      "tests/context/conftest.py": {
+        "size": 3531
+      },
+      "tests/context/data/branched_route.json": {
+        "size": 3151
+      },
+      "tests/context/data/custom_loader.py": {
+        "size": 219
+      },
+      "tests/context/data/custom_loader2.py": {
+        "size": 78
+      },
+      "tests/context/data/linear_route_w_metadata.json": {
+        "size": 2319
+      },
+      "tests/context/data/reaction_classes.txt": {
+        "size": 3
+      },
+      "tests/context/test_collection.py": {
+        "size": 4206
+      },
+      "tests/context/test_expansion_strategies.py": {
+        "size": 6615
+      },
+      "tests/context/test_mcts_config.py": {
+        "size": 13117
+      },
+      "tests/context/test_policy.py": {
+        "size": 16049
+      },
+      "tests/context/test_score.py": {
+        "size": 29389
+      },
+      "tests/context/test_stock.py": {
+        "size": 15847
+      },
+      "tests/data/and_or_tree.json": {
+        "size": 123081
+      },
+      "tests/data/branched_route.json": {
+        "size": 4260
+      },
+      "tests/data/combined_example_tree.json": {
+        "size": 4086
+      },
+      "tests/data/combined_example_tree2.json": {
+        "size": 4097
+      },
+      "tests/data/linear_route.json": {
+        "size": 2048
+      },
+      "tests/data/post_processing_test.py": {
+        "size": 80
+      },
+      "tests/data/pre_processing_test.py": {
+        "size": 73
+      },
+      "tests/data/routes_for_clustering.json": {
+        "size": 8241
+      },
+      "tests/data/tree_for_clustering.json": {
+        "size": 7150
+      },
+      "tests/dfpn/__init__.py": {
+        "size": 0
+      },
+      "tests/dfpn/test_nodes.py": {
+        "size": 2556
+      },
+      "tests/dfpn/test_search.py": {
+        "size": 2466
+      },
+      "tests/mcts/__init__.py": {
+        "size": 0
+      },
+      "tests/mcts/conftest.py": {
+        "size": 1898
+      },
+      "tests/mcts/test_multiobjective.py": {
+        "size": 3456
+      },
+      "tests/mcts/test_node.py": {
+        "size": 5039
+      },
+      "tests/mcts/test_reward.py": {
+        "size": 4462
+      },
+      "tests/mcts/test_serialization.py": {
+        "size": 6181
+      },
+      "tests/mcts/test_tree.py": {
+        "size": 1379
+      },
+      "tests/retrostar/__init__.py": {
+        "size": 0
+      },
+      "tests/retrostar/conftest.py": {
+        "size": 1532
+      },
+      "tests/retrostar/data/andor_tree_for_clustering.json": {
+        "size": 154139
+      },
+      "tests/retrostar/test_retrostar.py": {
+        "size": 4212
+      },
+      "tests/retrostar/test_retrostar_cost.py": {
+        "size": 1257
+      },
+      "tests/retrostar/test_retrostar_nodes.py": {
+        "size": 4683
+      },
+      "tests/test_analysis.py": {
+        "size": 15331
+      },
+      "tests/test_cli.py": {
+        "size": 14008
+      },
+      "tests/test_expander.py": {
+        "size": 2258
+      },
+      "tests/test_finder.py": {
+        "size": 32984
+      },
+      "tests/test_gui.py": {
+        "size": 1149
+      },
+      "tests/test_reactiontree.py": {
+        "size": 5916
+      },
+      "tests/utils/__init__.py": {
+        "size": 0
+      },
+      "tests/utils/test_bonds.py": {
+        "size": 1395
+      },
+      "tests/utils/test_dynamic_loading.py": {
+        "size": 1372
+      },
+      "tests/utils/test_external_tf_models.py": {
+        "size": 4306
+      },
+      "tests/utils/test_file_utils.py": {
+        "size": 4279
+      },
+      "tests/utils/test_image.py": {
+        "size": 1489
+      },
+      "tests/utils/test_local_onnx_model.py": {
+        "size": 911
+      },
+      "tests/utils/test_scscore.py": {
+        "size": 561
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "aizynthfinder",
+        "module": "aizynthfinder.aizynthfinder",
+        "functions": [],
+        "classes": [
+          "AiZynthFinder"
+        ],
+        "description": "Primary orchestration class for retrosynthesis setup, search execution, and route extraction; best central integration point for MCP tool wrapping."
+      },
+      {
+        "package": "aizynthfinder.interfaces",
+        "module": "aizynthfinder.interfaces.aizynthcli",
+        "functions": [],
+        "classes": [],
+        "description": "CLI interface module for running retrosynthesis workflows from configuration files and command-line parameters."
+      },
+      {
+        "package": "aizynthfinder.interfaces",
+        "module": "aizynthfinder.interfaces.aizynthapp",
+        "functions": [],
+        "classes": [],
+        "description": "Application-level interface for higher-level execution patterns; useful if exposing app-style workflows in MCP."
+      },
+      {
+        "package": "aizynthfinder.context",
+        "module": "aizynthfinder.context.config",
+        "functions": [],
+        "classes": [
+          "Configuration"
+        ],
+        "description": "Configuration loader/container used to initialize policies, stocks, and scorers; key for non-intrusive programmatic bootstrapping."
+      },
+      {
+        "package": "aizynthfinder.analysis",
+        "module": "aizynthfinder.analysis.tree_analysis",
+        "functions": [],
+        "classes": [
+          "TreeAnalysis"
+        ],
+        "description": "Post-search route/tree analysis and scoring access point for MCP read/query tools."
+      },
+      {
+        "package": "aizynthfinder.search.mcts",
+        "module": "aizynthfinder.search.mcts.search",
+        "functions": [],
+        "classes": [
+          "MctsSearchTree"
+        ],
+        "description": "Default/major search implementation module (MCTS), useful for advanced MCP tools if direct search control is needed."
+      },
+      {
+        "package": "aizynthfinder.search.retrostar",
+        "module": "aizynthfinder.search.retrostar.search_tree",
+        "functions": [],
+        "classes": [
+          "RetroStarSearchTree"
+        ],
+        "description": "Alternative search backend; include as optional MCP capability when config selects Retro*."
+      },
+      {
+        "package": "aizynthfinder.search.breadth_first",
+        "module": "aizynthfinder.search.breadth_first.search_tree",
+        "functions": [],
+        "classes": [
+          "BreadthFirstSearchTree"
+        ],
+        "description": "Breadth-first search backend available for specialized or debugging workflows."
+      },
+      {
+        "package": "aizynthfinder.search.dfpn",
+        "module": "aizynthfinder.search.dfpn.search_tree",
+        "functions": [],
+        "classes": [
+          "DFPNSearchTree"
+        ],
+        "description": "DFPN search backend; optional algorithmic path for MCP-exposed strategy selection."
+      },
+      {
+        "package": "aizynthfinder.reactiontree",
+        "module": "aizynthfinder.reactiontree",
+        "functions": [],
+        "classes": [
+          "ReactionTree"
+        ],
+        "description": "Route/reaction-tree representation object for serialization and downstream inspection."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "aizynthcli",
+        "module": "aizynthfinder.interfaces.aizynthcli",
+        "description": "Main command-line entry for retrosynthesis runs, config-driven execution, and output generation."
+      },
+      {
+        "name": "cat_aizynth_output",
+        "module": "aizynthfinder.tools.cat_output",
+        "description": "Utility command to inspect/concatenate generated AiZynthFinder output artifacts."
+      },
+      {
+        "name": "download_public_data",
+        "module": "aizynthfinder.tools.download_public_data",
+        "description": "Command to download public model/data assets required for running retrosynthesis."
+      },
+      {
+        "name": "make_stock",
+        "module": "aizynthfinder.tools.make_stock",
+        "description": "Command to build stock files/databases used by stock availability checks."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.10",
+        "numpy",
+        "pandas",
+        "PyYAML",
+        "networkx",
+        "rdkit",
+        "onnxruntime"
+      ],
+      "optional": [
+        "tensorflow",
+        "rdchiral",
+        "pymongo",
+        "paretoset",
+        "ipywidgets",
+        "jupyter"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.88,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/MolecularAI/aizynthfinder",
+    "repo_name": "aizynthfinder",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.88,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

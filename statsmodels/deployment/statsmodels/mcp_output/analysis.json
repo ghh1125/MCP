@@ -1,0 +1,4502 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/statsmodels/statsmodels",
+    "summary": "Imported via zip fallback, file count: 1441",
+    "file_tree": {
+      ".codacy.yml": {
+        "size": 96
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 1696
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 586
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 1244
+      },
+      ".github/dependabot.yml": {
+        "size": 218
+      },
+      ".github/workflows/codeql.yml": {
+        "size": 2345
+      },
+      ".github/workflows/cron-test.yml": {
+        "size": 1206
+      },
+      ".github/workflows/emscripten.yml": {
+        "size": 1017
+      },
+      ".github/workflows/generate-documentation.yml": {
+        "size": 2502
+      },
+      ".pep8speaks.yml": {
+        "size": 156
+      },
+      "CHANGES.md": {
+        "size": 246
+      },
+      "COPYRIGHTS.txt": {
+        "size": 11732
+      },
+      "INSTALL.txt": {
+        "size": 2637
+      },
+      "LICENSE.txt": {
+        "size": 1636
+      },
+      "README_l1.txt": {
+        "size": 1279
+      },
+      "archive/README.md": {
+        "size": 507
+      },
+      "archive/docs/fix_longtable.py": {
+        "size": 573
+      },
+      "archive/docs/source/genericmle.rst.TXT": {
+        "size": 0
+      },
+      "archive/tsa/ex_arma.py": {
+        "size": 2999
+      },
+      "archive/tsa/notes_organize.txt": {
+        "size": 6834
+      },
+      "azure-pipelines.yml": {
+        "size": 850
+      },
+      "codecov.yml": {
+        "size": 214
+      },
+      "docs/README.md": {
+        "size": 1149
+      },
+      "docs/source/_static/facebox.js": {
+        "size": 9251
+      },
+      "docs/source/_static/mktree.js": {
+        "size": 5197
+      },
+      "docs/source/_static/scripts.js": {
+        "size": 1818
+      },
+      "docs/source/_static/versions.json": {
+        "size": 523
+      },
+      "docs/source/conf.py": {
+        "size": 15412
+      },
+      "docs/source/examples/landing.yml": {
+        "size": 11924
+      },
+      "docs/source/extending.rst.TXT": {
+        "size": 0
+      },
+      "docs/source/glm_techn1.rst.TXT": {
+        "size": 149
+      },
+      "docs/source/glm_techn2.rst.TXT": {
+        "size": 183
+      },
+      "docs/source/gmm_techn1.rst.TXT": {
+        "size": 1882
+      },
+      "docs/source/names_wordlist.txt": {
+        "size": 2705
+      },
+      "docs/source/plots/arma_predict_plot.py": {
+        "size": 491
+      },
+      "docs/source/plots/bkf_plot.py": {
+        "size": 222
+      },
+      "docs/source/plots/cff_plot.py": {
+        "size": 233
+      },
+      "docs/source/plots/graphics-mean_diff_plot.py": {
+        "size": 393
+      },
+      "docs/source/plots/graphics_boxplot_beanplot.py": {
+        "size": 889
+      },
+      "docs/source/plots/graphics_boxplot_violinplot.py": {
+        "size": 895
+      },
+      "docs/source/plots/graphics_correlation_plot_corr.py": {
+        "size": 340
+      },
+      "docs/source/plots/graphics_correlation_plot_corr_grid.py": {
+        "size": 550
+      },
+      "docs/source/plots/graphics_functional_fboxplot.py": {
+        "size": 972
+      },
+      "docs/source/plots/graphics_functional_hdrboxplot.py": {
+        "size": 951
+      },
+      "docs/source/plots/graphics_functional_rainbowplot.py": {
+        "size": 637
+      },
+      "docs/source/plots/graphics_gofplots_qqplot.py": {
+        "size": 1888
+      },
+      "docs/source/plots/graphics_gofplots_qqplot_2samples.py": {
+        "size": 404
+      },
+      "docs/source/plots/graphics_gofplots_qqplot_qqline.py": {
+        "size": 504
+      },
+      "docs/source/plots/graphics_mosaicplot_mosaic.py": {
+        "size": 1919
+      },
+      "docs/source/plots/graphics_plot_fit_ex.py": {
+        "size": 707
+      },
+      "docs/source/plots/graphics_plot_grids_scatter_ellipse.py": {
+        "size": 364
+      },
+      "docs/source/plots/graphics_regression_abline.py": {
+        "size": 550
+      },
+      "docs/source/plots/graphics_regression_ccpr.py": {
+        "size": 567
+      },
+      "docs/source/plots/graphics_regression_ccpr_grid.py": {
+        "size": 543
+      },
+      "docs/source/plots/graphics_regression_ceres_residuals.py": {
+        "size": 520
+      },
+      "docs/source/plots/graphics_regression_influence.py": {
+        "size": 534
+      },
+      "docs/source/plots/graphics_regression_leverage_resid2.py": {
+        "size": 530
+      },
+      "docs/source/plots/graphics_regression_partregress.py": {
+        "size": 526
+      },
+      "docs/source/plots/graphics_regression_partregress_grid.py": {
+        "size": 660
+      },
+      "docs/source/plots/graphics_regression_regress_exog.py": {
+        "size": 846
+      },
+      "docs/source/plots/graphics_tsa_month_plot.py": {
+        "size": 406
+      },
+      "docs/source/plots/graphics_tsa_plot_acf.py": {
+        "size": 385
+      },
+      "docs/source/plots/graphics_tsa_plot_pacf.py": {
+        "size": 408
+      },
+      "docs/source/plots/graphics_tsa_quarter_plot.py": {
+        "size": 388
+      },
+      "docs/source/plots/hpf_plot.py": {
+        "size": 417
+      },
+      "docs/source/plots/load_macrodata.py": {
+        "size": 227
+      },
+      "docs/source/plots/mice_example_1.txt": {
+        "size": 893
+      },
+      "docs/source/plots/mstl_plot.py": {
+        "size": 685
+      },
+      "docs/source/plots/stl_plot.py": {
+        "size": 345
+      },
+      "docs/source/plots/var_plot_acorr.py": {
+        "size": 47
+      },
+      "docs/source/plots/var_plot_fevd.py": {
+        "size": 45
+      },
+      "docs/source/plots/var_plot_forecast.py": {
+        "size": 53
+      },
+      "docs/source/plots/var_plot_input.py": {
+        "size": 47
+      },
+      "docs/source/plots/var_plot_irf.py": {
+        "size": 43
+      },
+      "docs/source/plots/var_plot_irf_cum.py": {
+        "size": 51
+      },
+      "docs/source/plots/var_plots.py": {
+        "size": 874
+      },
+      "docs/source/regression_techn1.rst.TXT": {
+        "size": 163
+      },
+      "docs/source/spelling_wordlist.txt": {
+        "size": 22690
+      },
+      "docs/source/tsastats.rst.TXT": {
+        "size": 553
+      },
+      "docs/source/version_info/versions-v3.json": {
+        "size": 822
+      },
+      "examples/incomplete/arima.py": {
+        "size": 1591
+      },
+      "examples/incomplete/arma2.py": {
+        "size": 864
+      },
+      "examples/incomplete/dates.py": {
+        "size": 1261
+      },
+      "examples/incomplete/glsar.py": {
+        "size": 4706
+      },
+      "examples/incomplete/ols_table.py": {
+        "size": 1998
+      },
+      "examples/incomplete/ols_tftest.py": {
+        "size": 5813
+      },
+      "examples/incomplete/wls_extended.py": {
+        "size": 16074
+      },
+      "examples/python/autoregressions.py": {
+        "size": 11755
+      },
+      "examples/python/autoregressive_distributed_lag.py": {
+        "size": 15288
+      },
+      "examples/python/categorical_interaction_plot.py": {
+        "size": 1056
+      },
+      "examples/python/chi2_fitting.py": {
+        "size": 4202
+      },
+      "examples/python/contrasts.py": {
+        "size": 9064
+      },
+      "examples/python/copula.py": {
+        "size": 4006
+      },
+      "examples/python/deterministics.py": {
+        "size": 9203
+      },
+      "examples/python/discrete_choice_example.py": {
+        "size": 6172
+      },
+      "examples/python/discrete_choice_overview.py": {
+        "size": 2714
+      },
+      "examples/python/distributed_estimation.py": {
+        "size": 3472
+      },
+      "examples/python/ets.py": {
+        "size": 9064
+      },
+      "examples/python/exponential_smoothing.py": {
+        "size": 17799
+      },
+      "examples/python/formulas.py": {
+        "size": 5220
+      },
+      "examples/python/gee_nested_simulation.py": {
+        "size": 2662
+      },
+      "examples/python/gee_score_test_simulation.py": {
+        "size": 6117
+      },
+      "examples/python/generic_mle.py": {
+        "size": 7765
+      },
+      "examples/python/glm.py": {
+        "size": 4387
+      },
+      "examples/python/glm_formula.py": {
+        "size": 1751
+      },
+      "examples/python/glm_weights.py": {
+        "size": 13791
+      },
+      "examples/python/gls.py": {
+        "size": 2556
+      },
+      "examples/python/influence_glm_logit.py": {
+        "size": 3030
+      },
+      "examples/python/interactions_anova.py": {
+        "size": 11301
+      },
+      "examples/python/kernel_density.py": {
+        "size": 8790
+      },
+      "examples/python/linear_regression_diagnostics_plots.py": {
+        "size": 12675
+      },
+      "examples/python/lowess.py": {
+        "size": 3427
+      },
+      "examples/python/markov_autoregression.py": {
+        "size": 11008
+      },
+      "examples/python/markov_regression.py": {
+        "size": 8286
+      },
+      "examples/python/mediation_survival.py": {
+        "size": 2762
+      },
+      "examples/python/metaanalysis1.py": {
+        "size": 12438
+      },
+      "examples/python/mixed_lm_example.py": {
+        "size": 11707
+      },
+      "examples/python/ols.py": {
+        "size": 5878
+      },
+      "examples/python/ordinal_regression.py": {
+        "size": 11661
+      },
+      "examples/python/pca_fertility_factors.py": {
+        "size": 6100
+      },
+      "examples/python/plots_boxplots.py": {
+        "size": 6033
+      },
+      "examples/python/predict.py": {
+        "size": 1836
+      },
+      "examples/python/quantile_regression.py": {
+        "size": 4068
+      },
+      "examples/python/quasibinomial.py": {
+        "size": 3310
+      },
+      "examples/python/recursive_ls.py": {
+        "size": 6271
+      },
+      "examples/python/regression_diagnostics.py": {
+        "size": 3104
+      },
+      "examples/python/regression_plots.py": {
+        "size": 9903
+      },
+      "examples/python/robust_models_0.py": {
+        "size": 3303
+      },
+      "examples/python/robust_models_1.py": {
+        "size": 10718
+      },
+      "examples/python/rolling_ls.py": {
+        "size": 5029
+      },
+      "examples/python/statespace_arma_0.py": {
+        "size": 2576
+      },
+      "examples/python/statespace_chandrasekhar.py": {
+        "size": 14000
+      },
+      "examples/python/statespace_concentrated_scale.py": {
+        "size": 9033
+      },
+      "examples/python/statespace_custom_models.py": {
+        "size": 27074
+      },
+      "examples/python/statespace_cycles.py": {
+        "size": 4583
+      },
+      "examples/python/statespace_dfm_coincident.py": {
+        "size": 30885
+      },
+      "examples/python/statespace_fixed_params.py": {
+        "size": 7289
+      },
+      "examples/python/statespace_forecasting.py": {
+        "size": 15790
+      },
+      "examples/python/statespace_local_linear_trend.py": {
+        "size": 10045
+      },
+      "examples/python/statespace_news.py": {
+        "size": 26294
+      },
+      "examples/python/statespace_sarimax_faq.py": {
+        "size": 16875
+      },
+      "examples/python/statespace_sarimax_internet.py": {
+        "size": 5933
+      },
+      "examples/python/statespace_sarimax_pymc3.py": {
+        "size": 15882
+      },
+      "examples/python/statespace_sarimax_stata.py": {
+        "size": 20890
+      },
+      "examples/python/statespace_seasonal.py": {
+        "size": 16043
+      },
+      "examples/python/statespace_structural_harvey_jaeger.py": {
+        "size": 14974
+      },
+      "examples/python/statespace_tvpvar_mcmc_cfa.py": {
+        "size": 28610
+      },
+      "examples/python/statespace_varmax.py": {
+        "size": 3491
+      },
+      "examples/python/stationarity_detrending_adf_kpss.py": {
+        "size": 6419
+      },
+      "examples/python/stl_decomposition.py": {
+        "size": 10936
+      },
+      "examples/python/theta-model.py": {
+        "size": 6914
+      },
+      "examples/python/tsa_arma_0.py": {
+        "size": 4611
+      },
+      "examples/python/tsa_arma_1.py": {
+        "size": 1364
+      },
+      "examples/python/tsa_dates.py": {
+        "size": 1207
+      },
+      "examples/python/tsa_filters.py": {
+        "size": 4757
+      },
+      "examples/python/variance_components.py": {
+        "size": 6148
+      },
+      "examples/python/wls.py": {
+        "size": 3200
+      },
+      "examples/run_all.py": {
+        "size": 1622
+      },
+      "pyproject.toml": {
+        "size": 10463
+      },
+      "requirements-dev.txt": {
+        "size": 373
+      },
+      "requirements-doc.txt": {
+        "size": 373
+      },
+      "requirements.txt": {
+        "size": 334
+      },
+      "statsmodels/__init__.py": {
+        "size": 1115
+      },
+      "statsmodels/_build/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/_build/git_version.py": {
+        "size": 2469
+      },
+      "statsmodels/_build/tempita.py": {
+        "size": 1688
+      },
+      "statsmodels/api.py": {
+        "size": 3411
+      },
+      "statsmodels/base/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/base/_constraints.py": {
+        "size": 13404
+      },
+      "statsmodels/base/_parameter_inference.py": {
+        "size": 15353
+      },
+      "statsmodels/base/_penalized.py": {
+        "size": 7620
+      },
+      "statsmodels/base/_penalties.py": {
+        "size": 17031
+      },
+      "statsmodels/base/_prediction_inference.py": {
+        "size": 29850
+      },
+      "statsmodels/base/_screening.py": {
+        "size": 18146
+      },
+      "statsmodels/base/covtype.py": {
+        "size": 15357
+      },
+      "statsmodels/base/data.py": {
+        "size": 24727
+      },
+      "statsmodels/base/distributed_estimation.py": {
+        "size": 21915
+      },
+      "statsmodels/base/elastic_net.py": {
+        "size": 12769
+      },
+      "statsmodels/base/l1_cvxopt.py": {
+        "size": 6697
+      },
+      "statsmodels/base/l1_slsqp.py": {
+        "size": 5620
+      },
+      "statsmodels/base/l1_solvers_common.py": {
+        "size": 5673
+      },
+      "statsmodels/base/model.py": {
+        "size": 112686
+      },
+      "statsmodels/base/optimizer.py": {
+        "size": 44282
+      },
+      "statsmodels/base/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/base/tests/test_data.py": {
+        "size": 33093
+      },
+      "statsmodels/base/tests/test_distributed_estimation.py": {
+        "size": 16054
+      },
+      "statsmodels/base/tests/test_generic_methods.py": {
+        "size": 28996
+      },
+      "statsmodels/base/tests/test_optimize.py": {
+        "size": 4397
+      },
+      "statsmodels/base/tests/test_penalized.py": {
+        "size": 25603
+      },
+      "statsmodels/base/tests/test_penalties.py": {
+        "size": 4430
+      },
+      "statsmodels/base/tests/test_predict.py": {
+        "size": 5570
+      },
+      "statsmodels/base/tests/test_screening.py": {
+        "size": 11754
+      },
+      "statsmodels/base/tests/test_shrink_pickle.py": {
+        "size": 10711
+      },
+      "statsmodels/base/tests/test_transform.py": {
+        "size": 4387
+      },
+      "statsmodels/base/transform.py": {
+        "size": 8009
+      },
+      "statsmodels/base/wrapper.py": {
+        "size": 3586
+      },
+      "statsmodels/compat/__init__.py": {
+        "size": 313
+      },
+      "statsmodels/compat/_scipy_multivariate_t.py": {
+        "size": 39372
+      },
+      "statsmodels/compat/matplotlib.py": {
+        "size": 232
+      },
+      "statsmodels/compat/numpy.py": {
+        "size": 2440
+      },
+      "statsmodels/compat/pandas.py": {
+        "size": 5200
+      },
+      "statsmodels/compat/patsy.py": {
+        "size": 4438
+      },
+      "statsmodels/compat/platform.py": {
+        "size": 461
+      },
+      "statsmodels/compat/pytest.py": {
+        "size": 1255
+      },
+      "statsmodels/compat/python.py": {
+        "size": 1371
+      },
+      "statsmodels/compat/scipy.py": {
+        "size": 4841
+      },
+      "statsmodels/compat/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/compat/tests/test_itercompat.py": {
+        "size": 1156
+      },
+      "statsmodels/compat/tests/test_pandas.py": {
+        "size": 1238
+      },
+      "statsmodels/compat/tests/test_scipy_compat.py": {
+        "size": 2824
+      },
+      "statsmodels/conftest.py": {
+        "size": 6099
+      },
+      "statsmodels/datasets/__init__.py": {
+        "size": 1180
+      },
+      "statsmodels/datasets/anes96/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/anes96/data.py": {
+        "size": 3687
+      },
+      "statsmodels/datasets/cancer/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/cancer/data.py": {
+        "size": 1155
+      },
+      "statsmodels/datasets/ccard/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/ccard/data.py": {
+        "size": 1334
+      },
+      "statsmodels/datasets/ccard/src/names.txt": {
+        "size": 275
+      },
+      "statsmodels/datasets/china_smoking/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/china_smoking/data.py": {
+        "size": 1495
+      },
+      "statsmodels/datasets/co2/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/co2/data.py": {
+        "size": 2335
+      },
+      "statsmodels/datasets/committee/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/committee/data.py": {
+        "size": 2301
+      },
+      "statsmodels/datasets/copper/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/copper/data.py": {
+        "size": 2013
+      },
+      "statsmodels/datasets/cpunish/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/cpunish/data.py": {
+        "size": 2297
+      },
+      "statsmodels/datasets/danish_data/__init__.py": {
+        "size": 264
+      },
+      "statsmodels/datasets/danish_data/data.py": {
+        "size": 1742
+      },
+      "statsmodels/datasets/elec_equip/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/elec_equip/data.py": {
+        "size": 1519
+      },
+      "statsmodels/datasets/elnino/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/elnino/data.py": {
+        "size": 1448
+      },
+      "statsmodels/datasets/engel/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/engel/data.py": {
+        "size": 1350
+      },
+      "statsmodels/datasets/fair/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/fair/data.py": {
+        "size": 2469
+      },
+      "statsmodels/datasets/fertility/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/fertility/data.py": {
+        "size": 2012
+      },
+      "statsmodels/datasets/grunfeld/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/grunfeld/data.py": {
+        "size": 2288
+      },
+      "statsmodels/datasets/heart/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/heart/data.py": {
+        "size": 1296
+      },
+      "statsmodels/datasets/interest_inflation/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/interest_inflation/data.py": {
+        "size": 1403
+      },
+      "statsmodels/datasets/longley/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/longley/data.py": {
+        "size": 1656
+      },
+      "statsmodels/datasets/macrodata/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/macrodata/data.py": {
+        "size": 2916
+      },
+      "statsmodels/datasets/modechoice/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/modechoice/data.py": {
+        "size": 2636
+      },
+      "statsmodels/datasets/nile/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/nile/data.py": {
+        "size": 1376
+      },
+      "statsmodels/datasets/randhie/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/randhie/data.py": {
+        "size": 2280
+      },
+      "statsmodels/datasets/randhie/src/randdesc.txt": {
+        "size": 3109
+      },
+      "statsmodels/datasets/scotland/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/scotland/data.py": {
+        "size": 2703
+      },
+      "statsmodels/datasets/spector/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/spector/data.py": {
+        "size": 1722
+      },
+      "statsmodels/datasets/stackloss/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/stackloss/data.py": {
+        "size": 1586
+      },
+      "statsmodels/datasets/star98/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/star98/data.py": {
+        "size": 3625
+      },
+      "statsmodels/datasets/statecrime/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/statecrime/data.py": {
+        "size": 2469
+      },
+      "statsmodels/datasets/strikes/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/strikes/data.py": {
+        "size": 1609
+      },
+      "statsmodels/datasets/sunspots/__init__.py": {
+        "size": 320
+      },
+      "statsmodels/datasets/sunspots/data.py": {
+        "size": 1512
+      },
+      "statsmodels/datasets/template_data.py": {
+        "size": 1201
+      },
+      "statsmodels/datasets/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/datasets/tests/test_data.py": {
+        "size": 1199
+      },
+      "statsmodels/datasets/tests/test_utils.py": {
+        "size": 3457
+      },
+      "statsmodels/datasets/utils.py": {
+        "size": 10471
+      },
+      "statsmodels/discrete/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/discrete/_diagnostics_count.py": {
+        "size": 20119
+      },
+      "statsmodels/discrete/conditional_models.py": {
+        "size": 18770
+      },
+      "statsmodels/discrete/count_model.py": {
+        "size": 44207
+      },
+      "statsmodels/discrete/diagnostic.py": {
+        "size": 9030
+      },
+      "statsmodels/discrete/discrete_margins.py": {
+        "size": 27016
+      },
+      "statsmodels/discrete/discrete_model.py": {
+        "size": 201719
+      },
+      "statsmodels/discrete/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/discrete/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/discrete/tests/results/mn_logit_summary.txt": {
+        "size": 3871
+      },
+      "statsmodels/discrete/tests/results/results_count_margins.py": {
+        "size": 17071
+      },
+      "statsmodels/discrete/tests/results/results_count_robust_cluster.py": {
+        "size": 23384
+      },
+      "statsmodels/discrete/tests/results/results_discrete.py": {
+        "size": 52369
+      },
+      "statsmodels/discrete/tests/results/results_glm_logit_constrained.py": {
+        "size": 24456
+      },
+      "statsmodels/discrete/tests/results/results_poisson_constrained.py": {
+        "size": 27922
+      },
+      "statsmodels/discrete/tests/results/results_predict.py": {
+        "size": 11600
+      },
+      "statsmodels/discrete/tests/results/results_truncated.py": {
+        "size": 2270
+      },
+      "statsmodels/discrete/tests/results/results_truncated_st.py": {
+        "size": 26509
+      },
+      "statsmodels/discrete/tests/test_conditional.py": {
+        "size": 10982
+      },
+      "statsmodels/discrete/tests/test_constrained.py": {
+        "size": 22635
+      },
+      "statsmodels/discrete/tests/test_count_model.py": {
+        "size": 28425
+      },
+      "statsmodels/discrete/tests/test_diagnostic.py": {
+        "size": 4652
+      },
+      "statsmodels/discrete/tests/test_discrete.py": {
+        "size": 108023
+      },
+      "statsmodels/discrete/tests/test_margins.py": {
+        "size": 4637
+      },
+      "statsmodels/discrete/tests/test_predict.py": {
+        "size": 15521
+      },
+      "statsmodels/discrete/tests/test_sandwich_cov.py": {
+        "size": 26094
+      },
+      "statsmodels/discrete/tests/test_truncated_model.py": {
+        "size": 20884
+      },
+      "statsmodels/discrete/truncated_model.py": {
+        "size": 50818
+      },
+      "statsmodels/distributions/__init__.py": {
+        "size": 526
+      },
+      "statsmodels/distributions/bernstein.py": {
+        "size": 7378
+      },
+      "statsmodels/distributions/copula/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/distributions/copula/_special.py": {
+        "size": 2418
+      },
+      "statsmodels/distributions/copula/api.py": {
+        "size": 821
+      },
+      "statsmodels/distributions/copula/archimedean.py": {
+        "size": 14592
+      },
+      "statsmodels/distributions/copula/copulas.py": {
+        "size": 17815
+      },
+      "statsmodels/distributions/copula/depfunc_ev.py": {
+        "size": 9215
+      },
+      "statsmodels/distributions/copula/elliptical.py": {
+        "size": 10233
+      },
+      "statsmodels/distributions/copula/extreme_value.py": {
+        "size": 4947
+      },
+      "statsmodels/distributions/copula/other_copulas.py": {
+        "size": 3485
+      },
+      "statsmodels/distributions/copula/tests/test_copula.py": {
+        "size": 24768
+      },
+      "statsmodels/distributions/copula/tests/test_model.py": {
+        "size": 7383
+      },
+      "statsmodels/distributions/copula/transforms.py": {
+        "size": 6413
+      },
+      "statsmodels/distributions/discrete.py": {
+        "size": 15008
+      },
+      "statsmodels/distributions/edgeworth.py": {
+        "size": 6630
+      },
+      "statsmodels/distributions/empirical_distribution.py": {
+        "size": 6997
+      },
+      "statsmodels/distributions/mixture_rvs.py": {
+        "size": 10233
+      },
+      "statsmodels/distributions/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/distributions/tests/test_bernstein.py": {
+        "size": 5553
+      },
+      "statsmodels/distributions/tests/test_discrete.py": {
+        "size": 19542
+      },
+      "statsmodels/distributions/tests/test_ecdf.py": {
+        "size": 2714
+      },
+      "statsmodels/distributions/tests/test_edgeworth.py": {
+        "size": 6818
+      },
+      "statsmodels/distributions/tests/test_mixture.py": {
+        "size": 5115
+      },
+      "statsmodels/distributions/tests/test_tools.py": {
+        "size": 5569
+      },
+      "statsmodels/distributions/tools.py": {
+        "size": 15073
+      },
+      "statsmodels/duration/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/duration/_kernel_estimates.py": {
+        "size": 6225
+      },
+      "statsmodels/duration/api.py": {
+        "size": 172
+      },
+      "statsmodels/duration/hazard_regression.py": {
+        "size": 58647
+      },
+      "statsmodels/duration/survfunc.py": {
+        "size": 27469
+      },
+      "statsmodels/duration/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/duration/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/duration/tests/results/phreg_gentests.py": {
+        "size": 1937
+      },
+      "statsmodels/duration/tests/results/survival_enet_r_results.py": {
+        "size": 273
+      },
+      "statsmodels/duration/tests/results/survival_r_results.py": {
+        "size": 13236
+      },
+      "statsmodels/duration/tests/test_phreg.py": {
+        "size": 15656
+      },
+      "statsmodels/duration/tests/test_survfunc.py": {
+        "size": 19296
+      },
+      "statsmodels/emplike/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/emplike/aft_el.py": {
+        "size": 18348
+      },
+      "statsmodels/emplike/api.py": {
+        "size": 317
+      },
+      "statsmodels/emplike/descriptive.py": {
+        "size": 38822
+      },
+      "statsmodels/emplike/elanova.py": {
+        "size": 3659
+      },
+      "statsmodels/emplike/elregress.py": {
+        "size": 2955
+      },
+      "statsmodels/emplike/originregress.py": {
+        "size": 8973
+      },
+      "statsmodels/emplike/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/emplike/tests/results/__init__.py": {
+        "size": 19
+      },
+      "statsmodels/emplike/tests/results/el_results.py": {
+        "size": 18427
+      },
+      "statsmodels/emplike/tests/test_aft.py": {
+        "size": 1597
+      },
+      "statsmodels/emplike/tests/test_anova.py": {
+        "size": 862
+      },
+      "statsmodels/emplike/tests/test_descriptive.py": {
+        "size": 4314
+      },
+      "statsmodels/emplike/tests/test_origin.py": {
+        "size": 1442
+      },
+      "statsmodels/emplike/tests/test_regression.py": {
+        "size": 5764
+      },
+      "statsmodels/examples/es_misc_poisson2.py": {
+        "size": 1880
+      },
+      "statsmodels/examples/ex_arch_canada.py": {
+        "size": 8645
+      },
+      "statsmodels/examples/ex_emplike_1.py": {
+        "size": 3663
+      },
+      "statsmodels/examples/ex_emplike_2.py": {
+        "size": 2544
+      },
+      "statsmodels/examples/ex_emplike_3.py": {
+        "size": 812
+      },
+      "statsmodels/examples/ex_feasible_gls_het.py": {
+        "size": 4238
+      },
+      "statsmodels/examples/ex_feasible_gls_het_0.py": {
+        "size": 6448
+      },
+      "statsmodels/examples/ex_generic_mle.py": {
+        "size": 14847
+      },
+      "statsmodels/examples/ex_generic_mle_t.py": {
+        "size": 10061
+      },
+      "statsmodels/examples/ex_generic_mle_tdist.py": {
+        "size": 28124
+      },
+      "statsmodels/examples/ex_grangercausality.py": {
+        "size": 1122
+      },
+      "statsmodels/examples/ex_inter_rater.py": {
+        "size": 3076
+      },
+      "statsmodels/examples/ex_kde_confint.py": {
+        "size": 1901
+      },
+      "statsmodels/examples/ex_kde_normalreference.py": {
+        "size": 1557
+      },
+      "statsmodels/examples/ex_kernel_regression.py": {
+        "size": 1978
+      },
+      "statsmodels/examples/ex_kernel_regression2.py": {
+        "size": 1313
+      },
+      "statsmodels/examples/ex_kernel_regression3.py": {
+        "size": 2177
+      },
+      "statsmodels/examples/ex_kernel_regression_censored2.py": {
+        "size": 1061
+      },
+      "statsmodels/examples/ex_kernel_regression_dgp.py": {
+        "size": 1121
+      },
+      "statsmodels/examples/ex_kernel_regression_sigtest.py": {
+        "size": 3113
+      },
+      "statsmodels/examples/ex_kernel_semilinear_dgp.py": {
+        "size": 5217
+      },
+      "statsmodels/examples/ex_kernel_singleindex_dgp.py": {
+        "size": 3559
+      },
+      "statsmodels/examples/ex_kernel_test_functional.py": {
+        "size": 2123
+      },
+      "statsmodels/examples/ex_kernel_test_functional_li_wang.py": {
+        "size": 4209
+      },
+      "statsmodels/examples/ex_lowess.py": {
+        "size": 2167
+      },
+      "statsmodels/examples/ex_misc_tarma.py": {
+        "size": 1808
+      },
+      "statsmodels/examples/ex_misc_tmodel.py": {
+        "size": 2382
+      },
+      "statsmodels/examples/ex_multivar_kde.py": {
+        "size": 1423
+      },
+      "statsmodels/examples/ex_nearest_corr.py": {
+        "size": 3644
+      },
+      "statsmodels/examples/ex_ols_robustcov.py": {
+        "size": 1716
+      },
+      "statsmodels/examples/ex_ordered_model.py": {
+        "size": 2951
+      },
+      "statsmodels/examples/ex_outliers_influence.py": {
+        "size": 3960
+      },
+      "statsmodels/examples/ex_pandas.py": {
+        "size": 3007
+      },
+      "statsmodels/examples/ex_pareto_plot.py": {
+        "size": 775
+      },
+      "statsmodels/examples/ex_predict_results.py": {
+        "size": 2641
+      },
+      "statsmodels/examples/ex_proportion.py": {
+        "size": 1869
+      },
+      "statsmodels/examples/ex_regressionplots.py": {
+        "size": 4469
+      },
+      "statsmodels/examples/ex_rootfinding.py": {
+        "size": 3157
+      },
+      "statsmodels/examples/ex_sandwich.py": {
+        "size": 2665
+      },
+      "statsmodels/examples/ex_sandwich2.py": {
+        "size": 3075
+      },
+      "statsmodels/examples/ex_sandwich3.py": {
+        "size": 1945
+      },
+      "statsmodels/examples/ex_scatter_ellipse.py": {
+        "size": 1388
+      },
+      "statsmodels/examples/ex_univar_kde.py": {
+        "size": 5025
+      },
+      "statsmodels/examples/ex_wald_anova.py": {
+        "size": 1507
+      },
+      "statsmodels/examples/example_discrete_mnl.py": {
+        "size": 2236
+      },
+      "statsmodels/examples/example_enhanced_boxplots.py": {
+        "size": 3111
+      },
+      "statsmodels/examples/example_functional_plots.py": {
+        "size": 1289
+      },
+      "statsmodels/examples/example_kde.py": {
+        "size": 1040
+      },
+      "statsmodels/examples/example_ols_minimal_comp.py": {
+        "size": 695
+      },
+      "statsmodels/examples/example_rpy.py": {
+        "size": 1692
+      },
+      "statsmodels/examples/koul_and_mc.py": {
+        "size": 1080
+      },
+      "statsmodels/examples/l1_demo/demo.py": {
+        "size": 13629
+      },
+      "statsmodels/examples/l1_demo/short_demo.py": {
+        "size": 3654
+      },
+      "statsmodels/examples/l1_demo/sklearn_compare.py": {
+        "size": 3591
+      },
+      "statsmodels/examples/run_all.py": {
+        "size": 2043
+      },
+      "statsmodels/examples/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/examples/tests/test_notebooks.py": {
+        "size": 2439
+      },
+      "statsmodels/examples/try_2regress.py": {
+        "size": 1900
+      },
+      "statsmodels/examples/try_fit_constrained.py": {
+        "size": 7097
+      },
+      "statsmodels/examples/try_gee.py": {
+        "size": 2088
+      },
+      "statsmodels/examples/try_gof_chisquare.py": {
+        "size": 3236
+      },
+      "statsmodels/examples/try_polytrend.py": {
+        "size": 1398
+      },
+      "statsmodels/examples/try_power.py": {
+        "size": 2443
+      },
+      "statsmodels/examples/try_power2.py": {
+        "size": 3950
+      },
+      "statsmodels/examples/try_tukey_hsd.py": {
+        "size": 8166
+      },
+      "statsmodels/examples/tsa/ar1cholesky.py": {
+        "size": 1190
+      },
+      "statsmodels/examples/tsa/arma_plots.py": {
+        "size": 2543
+      },
+      "statsmodels/examples/tsa/compare_arma.py": {
+        "size": 2264
+      },
+      "statsmodels/examples/tsa/ex_arma_all.py": {
+        "size": 1953
+      },
+      "statsmodels/examples/tsa/ex_coint.py": {
+        "size": 177
+      },
+      "statsmodels/examples/tsa/ex_var.py": {
+        "size": 1320
+      },
+      "statsmodels/examples/tsa/ex_var_reorder.py": {
+        "size": 121
+      },
+      "statsmodels/examples/tsa/lagpolynomial.py": {
+        "size": 1039
+      },
+      "statsmodels/examples/tsa/try_ar.py": {
+        "size": 2563
+      },
+      "statsmodels/examples/tut_ols_ancova.py": {
+        "size": 2430
+      },
+      "statsmodels/examples/tut_ols_rlm_short.py": {
+        "size": 1621
+      },
+      "statsmodels/formula/__init__.py": {
+        "size": 272
+      },
+      "statsmodels/formula/_manager.py": {
+        "size": 30730
+      },
+      "statsmodels/formula/api.py": {
+        "size": 1757
+      },
+      "statsmodels/formula/formulatools.py": {
+        "size": 3383
+      },
+      "statsmodels/formula/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/formula/tests/test_formula.py": {
+        "size": 10012
+      },
+      "statsmodels/formula/tests/test_manager.py": {
+        "size": 17113
+      },
+      "statsmodels/gam/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/gam/api.py": {
+        "size": 260
+      },
+      "statsmodels/gam/gam_cross_validation/__init__.py": {
+        "size": 50
+      },
+      "statsmodels/gam/gam_cross_validation/cross_validators.py": {
+        "size": 1638
+      },
+      "statsmodels/gam/gam_cross_validation/gam_cross_validation.py": {
+        "size": 7532
+      },
+      "statsmodels/gam/gam_penalties.py": {
+        "size": 9812
+      },
+      "statsmodels/gam/generalized_additive_model.py": {
+        "size": 38458
+      },
+      "statsmodels/gam/smooth_basis.py": {
+        "size": 39337
+      },
+      "statsmodels/gam/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/gam/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/gam/tests/results/results_mpg_bs.py": {
+        "size": 76491
+      },
+      "statsmodels/gam/tests/results/results_mpg_bs_poisson.py": {
+        "size": 104519
+      },
+      "statsmodels/gam/tests/results/results_pls.py": {
+        "size": 21722
+      },
+      "statsmodels/gam/tests/test_gam.py": {
+        "size": 26129
+      },
+      "statsmodels/gam/tests/test_penalized.py": {
+        "size": 26006
+      },
+      "statsmodels/gam/tests/test_smooth_basis.py": {
+        "size": 1175
+      },
+      "statsmodels/genmod/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/genmod/_tweedie_compound_poisson.py": {
+        "size": 2808
+      },
+      "statsmodels/genmod/api.py": {
+        "size": 386
+      },
+      "statsmodels/genmod/bayes_mixed_glm.py": {
+        "size": 38409
+      },
+      "statsmodels/genmod/cov_struct.py": {
+        "size": 51709
+      },
+      "statsmodels/genmod/families/__init__.py": {
+        "size": 802
+      },
+      "statsmodels/genmod/families/family.py": {
+        "size": 59051
+      },
+      "statsmodels/genmod/families/links.py": {
+        "size": 32348
+      },
+      "statsmodels/genmod/families/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/genmod/families/tests/test_family.py": {
+        "size": 4034
+      },
+      "statsmodels/genmod/families/tests/test_link.py": {
+        "size": 6329
+      },
+      "statsmodels/genmod/families/varfuncs.py": {
+        "size": 5378
+      },
+      "statsmodels/genmod/generalized_estimating_equations.py": {
+        "size": 117227
+      },
+      "statsmodels/genmod/generalized_linear_model.py": {
+        "size": 105680
+      },
+      "statsmodels/genmod/qif.py": {
+        "size": 16428
+      },
+      "statsmodels/genmod/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/genmod/tests/gee_categorical_simulation_check.py": {
+        "size": 8601
+      },
+      "statsmodels/genmod/tests/gee_categorical_simulation_check.txt": {
+        "size": 142
+      },
+      "statsmodels/genmod/tests/gee_gaussian_simulation_check.py": {
+        "size": 9891
+      },
+      "statsmodels/genmod/tests/gee_gaussian_simulation_check.txt": {
+        "size": 11375
+      },
+      "statsmodels/genmod/tests/gee_poisson_simulation_check.py": {
+        "size": 9147
+      },
+      "statsmodels/genmod/tests/gee_poisson_simulation_check.txt": {
+        "size": 2934
+      },
+      "statsmodels/genmod/tests/gee_simulation_check.py": {
+        "size": 9382
+      },
+      "statsmodels/genmod/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/genmod/tests/results/elastic_net_generate_tests.py": {
+        "size": 638
+      },
+      "statsmodels/genmod/tests/results/gee_generate_tests.py": {
+        "size": 5371
+      },
+      "statsmodels/genmod/tests/results/glm_test_resids.py": {
+        "size": 321621
+      },
+      "statsmodels/genmod/tests/results/glmnet_r_results.py": {
+        "size": 1926
+      },
+      "statsmodels/genmod/tests/results/res_R_var_weight.py": {
+        "size": 8562
+      },
+      "statsmodels/genmod/tests/results/results_glm.py": {
+        "size": 273706
+      },
+      "statsmodels/genmod/tests/results/results_glm_poisson_weights.py": {
+        "size": 94890
+      },
+      "statsmodels/genmod/tests/test_bayes_mixed_glm.py": {
+        "size": 18152
+      },
+      "statsmodels/genmod/tests/test_constrained.py": {
+        "size": 9192
+      },
+      "statsmodels/genmod/tests/test_gee.py": {
+        "size": 79533
+      },
+      "statsmodels/genmod/tests/test_gee_glm.py": {
+        "size": 4122
+      },
+      "statsmodels/genmod/tests/test_glm.py": {
+        "size": 105856
+      },
+      "statsmodels/genmod/tests/test_glm_weights.py": {
+        "size": 38471
+      },
+      "statsmodels/genmod/tests/test_qif.py": {
+        "size": 4710
+      },
+      "statsmodels/genmod/tests/test_score_test.py": {
+        "size": 9562
+      },
+      "statsmodels/graphics/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/graphics/_regressionplots_doc.py": {
+        "size": 7728
+      },
+      "statsmodels/graphics/agreement.py": {
+        "size": 5203
+      },
+      "statsmodels/graphics/api.py": {
+        "size": 968
+      },
+      "statsmodels/graphics/boxplots.py": {
+        "size": 17040
+      },
+      "statsmodels/graphics/correlation.py": {
+        "size": 7721
+      },
+      "statsmodels/graphics/dotplots.py": {
+        "size": 17859
+      },
+      "statsmodels/graphics/factorplots.py": {
+        "size": 7634
+      },
+      "statsmodels/graphics/functional.py": {
+        "size": 31499
+      },
+      "statsmodels/graphics/gofplots.py": {
+        "size": 35876
+      },
+      "statsmodels/graphics/mosaicplot.py": {
+        "size": 26774
+      },
+      "statsmodels/graphics/plot_grids.py": {
+        "size": 5997
+      },
+      "statsmodels/graphics/plottools.py": {
+        "size": 640
+      },
+      "statsmodels/graphics/regressionplots.py": {
+        "size": 43999
+      },
+      "statsmodels/graphics/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/graphics/tests/test_agreement.py": {
+        "size": 1195
+      },
+      "statsmodels/graphics/tests/test_boxplots.py": {
+        "size": 3234
+      },
+      "statsmodels/graphics/tests/test_correlation.py": {
+        "size": 847
+      },
+      "statsmodels/graphics/tests/test_dotplot.py": {
+        "size": 15258
+      },
+      "statsmodels/graphics/tests/test_factorplots.py": {
+        "size": 3276
+      },
+      "statsmodels/graphics/tests/test_functional.py": {
+        "size": 9780
+      },
+      "statsmodels/graphics/tests/test_gofplots.py": {
+        "size": 23067
+      },
+      "statsmodels/graphics/tests/test_mosaicplot.py": {
+        "size": 19475
+      },
+      "statsmodels/graphics/tests/test_regressionplots.py": {
+        "size": 13010
+      },
+      "statsmodels/graphics/tests/test_tsaplots.py": {
+        "size": 13050
+      },
+      "statsmodels/graphics/tsaplots.py": {
+        "size": 28386
+      },
+      "statsmodels/graphics/tukeyplot.py": {
+        "size": 2566
+      },
+      "statsmodels/graphics/utils.py": {
+        "size": 4061
+      },
+      "statsmodels/imputation/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/imputation/bayes_mi.py": {
+        "size": 13492
+      },
+      "statsmodels/imputation/mice.py": {
+        "size": 45490
+      },
+      "statsmodels/imputation/ros.py": {
+        "size": 19083
+      },
+      "statsmodels/imputation/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/imputation/tests/test_bayes_mi.py": {
+        "size": 5088
+      },
+      "statsmodels/imputation/tests/test_mice.py": {
+        "size": 13271
+      },
+      "statsmodels/imputation/tests/test_ros.py": {
+        "size": 32398
+      },
+      "statsmodels/includes/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/iolib/__init__.py": {
+        "size": 350
+      },
+      "statsmodels/iolib/api.py": {
+        "size": 214
+      },
+      "statsmodels/iolib/foreign.py": {
+        "size": 4345
+      },
+      "statsmodels/iolib/openfile.py": {
+        "size": 2183
+      },
+      "statsmodels/iolib/smpickle.py": {
+        "size": 922
+      },
+      "statsmodels/iolib/stata_summary_examples.py": {
+        "size": 4616
+      },
+      "statsmodels/iolib/summary.py": {
+        "size": 30921
+      },
+      "statsmodels/iolib/summary2.py": {
+        "size": 23871
+      },
+      "statsmodels/iolib/table.py": {
+        "size": 33342
+      },
+      "statsmodels/iolib/tableformatting.py": {
+        "size": 3462
+      },
+      "statsmodels/iolib/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/iolib/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/iolib/tests/results/macrodata.py": {
+        "size": 23569
+      },
+      "statsmodels/iolib/tests/test_pickle.py": {
+        "size": 1720
+      },
+      "statsmodels/iolib/tests/test_summary.py": {
+        "size": 3244
+      },
+      "statsmodels/iolib/tests/test_summary2.py": {
+        "size": 9629
+      },
+      "statsmodels/iolib/tests/test_summary_old.py": {
+        "size": 3289
+      },
+      "statsmodels/iolib/tests/test_table.py": {
+        "size": 9444
+      },
+      "statsmodels/iolib/tests/test_table_econpy.py": {
+        "size": 4211
+      },
+      "statsmodels/miscmodels/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/miscmodels/api.py": {
+        "size": 216
+      },
+      "statsmodels/miscmodels/count.py": {
+        "size": 7025
+      },
+      "statsmodels/miscmodels/nonlinls.py": {
+        "size": 9215
+      },
+      "statsmodels/miscmodels/ordinal_model.py": {
+        "size": 24637
+      },
+      "statsmodels/miscmodels/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/miscmodels/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/miscmodels/tests/results/results_ordinal_model.py": {
+        "size": 5448
+      },
+      "statsmodels/miscmodels/tests/results_tmodel.py": {
+        "size": 11991
+      },
+      "statsmodels/miscmodels/tests/test_generic_mle.py": {
+        "size": 7821
+      },
+      "statsmodels/miscmodels/tests/test_ordinal_model.py": {
+        "size": 20319
+      },
+      "statsmodels/miscmodels/tests/test_poisson.py": {
+        "size": 7849
+      },
+      "statsmodels/miscmodels/tests/test_tmodel.py": {
+        "size": 7716
+      },
+      "statsmodels/miscmodels/tmodel.py": {
+        "size": 7239
+      },
+      "statsmodels/miscmodels/try_mlecov.py": {
+        "size": 7026
+      },
+      "statsmodels/multivariate/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/multivariate/api.py": {
+        "size": 261
+      },
+      "statsmodels/multivariate/cancorr.py": {
+        "size": 5854
+      },
+      "statsmodels/multivariate/factor.py": {
+        "size": 35987
+      },
+      "statsmodels/multivariate/factor_rotation/COPYRIGHTS.txt": {
+        "size": 328
+      },
+      "statsmodels/multivariate/factor_rotation/LICENSE.txt": {
+        "size": 1507
+      },
+      "statsmodels/multivariate/factor_rotation/__init__.py": {
+        "size": 1283
+      },
+      "statsmodels/multivariate/factor_rotation/_analytic_rotation.py": {
+        "size": 3984
+      },
+      "statsmodels/multivariate/factor_rotation/_gpa_rotation.py": {
+        "size": 18716
+      },
+      "statsmodels/multivariate/factor_rotation/_wrappers.py": {
+        "size": 14176
+      },
+      "statsmodels/multivariate/factor_rotation/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/multivariate/factor_rotation/tests/test_rotation.py": {
+        "size": 21593
+      },
+      "statsmodels/multivariate/manova.py": {
+        "size": 5030
+      },
+      "statsmodels/multivariate/multivariate_ols.py": {
+        "size": 30395
+      },
+      "statsmodels/multivariate/pca.py": {
+        "size": 32952
+      },
+      "statsmodels/multivariate/plots.py": {
+        "size": 4359
+      },
+      "statsmodels/multivariate/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/multivariate/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/multivariate/tests/results/datamlw.py": {
+        "size": 15557
+      },
+      "statsmodels/multivariate/tests/test_cancorr.py": {
+        "size": 4443
+      },
+      "statsmodels/multivariate/tests/test_factor.py": {
+        "size": 11486
+      },
+      "statsmodels/multivariate/tests/test_manova.py": {
+        "size": 8766
+      },
+      "statsmodels/multivariate/tests/test_ml_factor.py": {
+        "size": 6164
+      },
+      "statsmodels/multivariate/tests/test_multivariate_ols.py": {
+        "size": 12358
+      },
+      "statsmodels/multivariate/tests/test_pca.py": {
+        "size": 16293
+      },
+      "statsmodels/nonparametric/__init__.py": {
+        "size": 233
+      },
+      "statsmodels/nonparametric/_kernel_base.py": {
+        "size": 20532
+      },
+      "statsmodels/nonparametric/api.py": {
+        "size": 563
+      },
+      "statsmodels/nonparametric/bandwidths.py": {
+        "size": 4579
+      },
+      "statsmodels/nonparametric/kde.py": {
+        "size": 19164
+      },
+      "statsmodels/nonparametric/kdetools.py": {
+        "size": 1262
+      },
+      "statsmodels/nonparametric/kernel_density.py": {
+        "size": 26573
+      },
+      "statsmodels/nonparametric/kernel_regression.py": {
+        "size": 37247
+      },
+      "statsmodels/nonparametric/kernels.py": {
+        "size": 7013
+      },
+      "statsmodels/nonparametric/kernels_asymmetric.py": {
+        "size": 26383
+      },
+      "statsmodels/nonparametric/smoothers_lowess.py": {
+        "size": 10170
+      },
+      "statsmodels/nonparametric/smoothers_lowess_old.py": {
+        "size": 10382
+      },
+      "statsmodels/nonparametric/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/nonparametric/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/nonparametric/tests/test_asymmetric.py": {
+        "size": 4405
+      },
+      "statsmodels/nonparametric/tests/test_bandwidths.py": {
+        "size": 2331
+      },
+      "statsmodels/nonparametric/tests/test_kde.py": {
+        "size": 13091
+      },
+      "statsmodels/nonparametric/tests/test_kernel_density.py": {
+        "size": 19599
+      },
+      "statsmodels/nonparametric/tests/test_kernel_regression.py": {
+        "size": 21041
+      },
+      "statsmodels/nonparametric/tests/test_kernels.py": {
+        "size": 4950
+      },
+      "statsmodels/nonparametric/tests/test_lowess.py": {
+        "size": 10736
+      },
+      "statsmodels/othermod/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/othermod/api.py": {
+        "size": 56
+      },
+      "statsmodels/othermod/betareg.py": {
+        "size": 31387
+      },
+      "statsmodels/othermod/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/othermod/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/othermod/tests/results/results_betareg.py": {
+        "size": 3400
+      },
+      "statsmodels/othermod/tests/test_beta.py": {
+        "size": 16714
+      },
+      "statsmodels/regression/__init__.py": {
+        "size": 153
+      },
+      "statsmodels/regression/_prediction.py": {
+        "size": 7075
+      },
+      "statsmodels/regression/_tools.py": {
+        "size": 4335
+      },
+      "statsmodels/regression/dimred.py": {
+        "size": 20223
+      },
+      "statsmodels/regression/feasible_gls.py": {
+        "size": 7040
+      },
+      "statsmodels/regression/linear_model.py": {
+        "size": 119385
+      },
+      "statsmodels/regression/mixed_linear_model.py": {
+        "size": 105182
+      },
+      "statsmodels/regression/process_regression.py": {
+        "size": 28604
+      },
+      "statsmodels/regression/quantile_regression.py": {
+        "size": 14310
+      },
+      "statsmodels/regression/recursive_ls.py": {
+        "size": 32384
+      },
+      "statsmodels/regression/rolling.py": {
+        "size": 28594
+      },
+      "statsmodels/regression/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/regression/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/regression/tests/results/generate_lasso.py": {
+        "size": 632
+      },
+      "statsmodels/regression/tests/results/generate_lme.py": {
+        "size": 2031
+      },
+      "statsmodels/regression/tests/results/glmnet_r_results.py": {
+        "size": 6855
+      },
+      "statsmodels/regression/tests/results/leverage_influence_ols_nostars.txt": {
+        "size": 14543
+      },
+      "statsmodels/regression/tests/results/lme_r_results.py": {
+        "size": 15667
+      },
+      "statsmodels/regression/tests/results/macro_gr_corc_stata.py": {
+        "size": 11101
+      },
+      "statsmodels/regression/tests/results/results_grunfeld_ols_robust_cluster.py": {
+        "size": 23447
+      },
+      "statsmodels/regression/tests/results/results_macro_ols_robust.py": {
+        "size": 12960
+      },
+      "statsmodels/regression/tests/results/results_quantile_regression.py": {
+        "size": 27645
+      },
+      "statsmodels/regression/tests/results/results_regression.py": {
+        "size": 9784
+      },
+      "statsmodels/regression/tests/results/results_theil_textile.py": {
+        "size": 2188
+      },
+      "statsmodels/regression/tests/test_cov.py": {
+        "size": 1190
+      },
+      "statsmodels/regression/tests/test_dimred.py": {
+        "size": 6668
+      },
+      "statsmodels/regression/tests/test_glsar_gretl.py": {
+        "size": 24471
+      },
+      "statsmodels/regression/tests/test_glsar_stata.py": {
+        "size": 3427
+      },
+      "statsmodels/regression/tests/test_lme.py": {
+        "size": 46113
+      },
+      "statsmodels/regression/tests/test_predict.py": {
+        "size": 10072
+      },
+      "statsmodels/regression/tests/test_processreg.py": {
+        "size": 6006
+      },
+      "statsmodels/regression/tests/test_quantile_regression.py": {
+        "size": 10984
+      },
+      "statsmodels/regression/tests/test_recursive_ls.py": {
+        "size": 19213
+      },
+      "statsmodels/regression/tests/test_regression.py": {
+        "size": 52440
+      },
+      "statsmodels/regression/tests/test_robustcov.py": {
+        "size": 31979
+      },
+      "statsmodels/regression/tests/test_rolling.py": {
+        "size": 10551
+      },
+      "statsmodels/regression/tests/test_theil.py": {
+        "size": 14625
+      },
+      "statsmodels/regression/tests/test_tools.py": {
+        "size": 2668
+      },
+      "statsmodels/robust/__init__.py": {
+        "size": 264
+      },
+      "statsmodels/robust/_tables.py": {
+        "size": 919
+      },
+      "statsmodels/robust/covariance.py": {
+        "size": 69462
+      },
+      "statsmodels/robust/norms.py": {
+        "size": 35695
+      },
+      "statsmodels/robust/resistant_linear_model.py": {
+        "size": 8888
+      },
+      "statsmodels/robust/robust_linear_model.py": {
+        "size": 23139
+      },
+      "statsmodels/robust/scale.py": {
+        "size": 21461
+      },
+      "statsmodels/robust/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/robust/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/robust/tests/results/results_cov.py": {
+        "size": 6123
+      },
+      "statsmodels/robust/tests/results/results_norms.py": {
+        "size": 1408
+      },
+      "statsmodels/robust/tests/results/results_rlm.py": {
+        "size": 19220
+      },
+      "statsmodels/robust/tests/test_covariance.py": {
+        "size": 12794
+      },
+      "statsmodels/robust/tests/test_mquantiles.py": {
+        "size": 2729
+      },
+      "statsmodels/robust/tests/test_norms.py": {
+        "size": 3856
+      },
+      "statsmodels/robust/tests/test_rlm.py": {
+        "size": 12565
+      },
+      "statsmodels/robust/tests/test_scale.py": {
+        "size": 13840
+      },
+      "statsmodels/robust/tests/test_tools.py": {
+        "size": 2636
+      },
+      "statsmodels/robust/tools.py": {
+        "size": 17029
+      },
+      "statsmodels/sandbox/__init__.py": {
+        "size": 107
+      },
+      "statsmodels/sandbox/archive/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/sandbox/archive/linalg_covmat.py": {
+        "size": 8681
+      },
+      "statsmodels/sandbox/archive/linalg_decomp_1.py": {
+        "size": 7689
+      },
+      "statsmodels/sandbox/archive/tsa.py": {
+        "size": 1514
+      },
+      "statsmodels/sandbox/bspline.py": {
+        "size": 20750
+      },
+      "statsmodels/sandbox/datarich/__init__.py": {
+        "size": 6356
+      },
+      "statsmodels/sandbox/datarich/factormodels.py": {
+        "size": 6981
+      },
+      "statsmodels/sandbox/descstats.py": {
+        "size": 6544
+      },
+      "statsmodels/sandbox/distributions/__init__.py": {
+        "size": 664
+      },
+      "statsmodels/sandbox/distributions/estimators.py": {
+        "size": 24174
+      },
+      "statsmodels/sandbox/distributions/examples/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/sandbox/distributions/examples/ex_extras.py": {
+        "size": 4143
+      },
+      "statsmodels/sandbox/distributions/examples/ex_fitfr.py": {
+        "size": 932
+      },
+      "statsmodels/sandbox/distributions/examples/ex_gof.py": {
+        "size": 360
+      },
+      "statsmodels/sandbox/distributions/examples/ex_mvelliptical.py": {
+        "size": 5094
+      },
+      "statsmodels/sandbox/distributions/examples/ex_transf2.py": {
+        "size": 14209
+      },
+      "statsmodels/sandbox/distributions/examples/matchdist.py": {
+        "size": 10793
+      },
+      "statsmodels/sandbox/distributions/extras.py": {
+        "size": 39645
+      },
+      "statsmodels/sandbox/distributions/genpareto.py": {
+        "size": 10163
+      },
+      "statsmodels/sandbox/distributions/gof_new.py": {
+        "size": 21603
+      },
+      "statsmodels/sandbox/distributions/multivariate.py": {
+        "size": 5019
+      },
+      "statsmodels/sandbox/distributions/mv_measures.py": {
+        "size": 6319
+      },
+      "statsmodels/sandbox/distributions/mv_normal.py": {
+        "size": 38769
+      },
+      "statsmodels/sandbox/distributions/otherdist.py": {
+        "size": 10104
+      },
+      "statsmodels/sandbox/distributions/quantize.py": {
+        "size": 4211
+      },
+      "statsmodels/sandbox/distributions/sppatch.py": {
+        "size": 24057
+      },
+      "statsmodels/sandbox/distributions/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/sandbox/distributions/tests/_est_fit.py": {
+        "size": 2538
+      },
+      "statsmodels/sandbox/distributions/tests/check_moments.py": {
+        "size": 5651
+      },
+      "statsmodels/sandbox/distributions/tests/distparams.py": {
+        "size": 5168
+      },
+      "statsmodels/sandbox/distributions/tests/test_extras.py": {
+        "size": 5120
+      },
+      "statsmodels/sandbox/distributions/tests/test_gof_new.py": {
+        "size": 1063
+      },
+      "statsmodels/sandbox/distributions/tests/test_multivariate.py": {
+        "size": 6447
+      },
+      "statsmodels/sandbox/distributions/tests/test_norm_expan.py": {
+        "size": 2771
+      },
+      "statsmodels/sandbox/distributions/tests/test_transf.py": {
+        "size": 6851
+      },
+      "statsmodels/sandbox/distributions/transform_functions.py": {
+        "size": 3297
+      },
+      "statsmodels/sandbox/distributions/transformed.py": {
+        "size": 16040
+      },
+      "statsmodels/sandbox/distributions/try_max.py": {
+        "size": 2300
+      },
+      "statsmodels/sandbox/distributions/try_pot.py": {
+        "size": 1926
+      },
+      "statsmodels/sandbox/examples/bayesprior.py": {
+        "size": 7120
+      },
+      "statsmodels/sandbox/examples/ex_cusum.py": {
+        "size": 2934
+      },
+      "statsmodels/sandbox/examples/ex_gam_results.py": {
+        "size": 1645
+      },
+      "statsmodels/sandbox/examples/ex_mixed_lls_0.py": {
+        "size": 5221
+      },
+      "statsmodels/sandbox/examples/ex_mixed_lls_re.py": {
+        "size": 5406
+      },
+      "statsmodels/sandbox/examples/ex_mixed_lls_timecorr.py": {
+        "size": 7885
+      },
+      "statsmodels/sandbox/examples/ex_onewaygls.py": {
+        "size": 6864
+      },
+      "statsmodels/sandbox/examples/ex_random_panel.py": {
+        "size": 6261
+      },
+      "statsmodels/sandbox/examples/example_crossval.py": {
+        "size": 2122
+      },
+      "statsmodels/sandbox/examples/example_gam.py": {
+        "size": 2294
+      },
+      "statsmodels/sandbox/examples/example_gam_0.py": {
+        "size": 4465
+      },
+      "statsmodels/sandbox/examples/example_mle.py": {
+        "size": 2132
+      },
+      "statsmodels/sandbox/examples/example_nbin.py": {
+        "size": 12270
+      },
+      "statsmodels/sandbox/examples/example_pca.py": {
+        "size": 556
+      },
+      "statsmodels/sandbox/examples/example_pca_regression.py": {
+        "size": 3580
+      },
+      "statsmodels/sandbox/examples/example_sysreg.py": {
+        "size": 8208
+      },
+      "statsmodels/sandbox/examples/run_all.py": {
+        "size": 1351
+      },
+      "statsmodels/sandbox/examples/thirdparty/ex_ratereturn.py": {
+        "size": 4291
+      },
+      "statsmodels/sandbox/examples/thirdparty/findow_1.py": {
+        "size": 2586
+      },
+      "statsmodels/sandbox/examples/thirdparty/try_interchange.py": {
+        "size": 2693
+      },
+      "statsmodels/sandbox/examples/try_gmm_other.py": {
+        "size": 5516
+      },
+      "statsmodels/sandbox/examples/try_multiols.py": {
+        "size": 1248
+      },
+      "statsmodels/sandbox/examples/try_quantile_regression.py": {
+        "size": 1269
+      },
+      "statsmodels/sandbox/examples/try_quantile_regression1.py": {
+        "size": 1162
+      },
+      "statsmodels/sandbox/examples/try_smoothers.py": {
+        "size": 2594
+      },
+      "statsmodels/sandbox/gam.py": {
+        "size": 15660
+      },
+      "statsmodels/sandbox/infotheo.py": {
+        "size": 17540
+      },
+      "statsmodels/sandbox/mcevaluate/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/sandbox/mcevaluate/arma.py": {
+        "size": 4617
+      },
+      "statsmodels/sandbox/mcevaluate/mcresuts_arma1.txt": {
+        "size": 8686
+      },
+      "statsmodels/sandbox/mle.py": {
+        "size": 1753
+      },
+      "statsmodels/sandbox/multilinear.py": {
+        "size": 14025
+      },
+      "statsmodels/sandbox/nonparametric/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/sandbox/nonparametric/densityorthopoly.py": {
+        "size": 17925
+      },
+      "statsmodels/sandbox/nonparametric/dgp_examples.py": {
+        "size": 5681
+      },
+      "statsmodels/sandbox/nonparametric/kde2.py": {
+        "size": 3183
+      },
+      "statsmodels/sandbox/nonparametric/kdecovclass.py": {
+        "size": 5790
+      },
+      "statsmodels/sandbox/nonparametric/kernel_extras.py": {
+        "size": 14511
+      },
+      "statsmodels/sandbox/nonparametric/kernels.py": {
+        "size": 19964
+      },
+      "statsmodels/sandbox/nonparametric/smoothers.py": {
+        "size": 12148
+      },
+      "statsmodels/sandbox/nonparametric/testdata.py": {
+        "size": 9586
+      },
+      "statsmodels/sandbox/nonparametric/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/sandbox/nonparametric/tests/ex_gam_am_new.py": {
+        "size": 2356
+      },
+      "statsmodels/sandbox/nonparametric/tests/ex_gam_new.py": {
+        "size": 3687
+      },
+      "statsmodels/sandbox/nonparametric/tests/ex_smoothers.py": {
+        "size": 1303
+      },
+      "statsmodels/sandbox/nonparametric/tests/test_kernel_extras.py": {
+        "size": 5548
+      },
+      "statsmodels/sandbox/nonparametric/tests/test_smoothers.py": {
+        "size": 2803
+      },
+      "statsmodels/sandbox/panel/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/sandbox/panel/correlation_structures.py": {
+        "size": 5099
+      },
+      "statsmodels/sandbox/panel/mixed.py": {
+        "size": 20863
+      },
+      "statsmodels/sandbox/panel/panel_short.py": {
+        "size": 8119
+      },
+      "statsmodels/sandbox/panel/panelmod.py": {
+        "size": 15067
+      },
+      "statsmodels/sandbox/panel/random_panel.py": {
+        "size": 4904
+      },
+      "statsmodels/sandbox/panel/sandwich_covariance_generic.py": {
+        "size": 3796
+      },
+      "statsmodels/sandbox/panel/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/sandbox/panel/tests/test_random_panel.py": {
+        "size": 5381
+      },
+      "statsmodels/sandbox/pca.py": {
+        "size": 7398
+      },
+      "statsmodels/sandbox/predict_functional.py": {
+        "size": 15736
+      },
+      "statsmodels/sandbox/regression/__init__.py": {
+        "size": 99
+      },
+      "statsmodels/sandbox/regression/anova_nistcertified.py": {
+        "size": 3914
+      },
+      "statsmodels/sandbox/regression/ar_panel.py": {
+        "size": 4031
+      },
+      "statsmodels/sandbox/regression/example_kernridge.py": {
+        "size": 1265
+      },
+      "statsmodels/sandbox/regression/gmm.py": {
+        "size": 61186
+      },
+      "statsmodels/sandbox/regression/kernridgeregress_class.py": {
+        "size": 7854
+      },
+      "statsmodels/sandbox/regression/notes_runmnl.txt": {
+        "size": 1426
+      },
+      "statsmodels/sandbox/regression/ols_anova_original.py": {
+        "size": 10679
+      },
+      "statsmodels/sandbox/regression/onewaygls.py": {
+        "size": 15278
+      },
+      "statsmodels/sandbox/regression/penalized.py": {
+        "size": 17477
+      },
+      "statsmodels/sandbox/regression/predstd.py": {
+        "size": 3002
+      },
+      "statsmodels/sandbox/regression/runmnl.py": {
+        "size": 11868
+      },
+      "statsmodels/sandbox/regression/sympy_diff.py": {
+        "size": 1830
+      },
+      "statsmodels/sandbox/regression/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/sandbox/regression/tests/results_gmm_griliches.py": {
+        "size": 18059
+      },
+      "statsmodels/sandbox/regression/tests/results_gmm_griliches_iter.py": {
+        "size": 9021
+      },
+      "statsmodels/sandbox/regression/tests/results_gmm_poisson.py": {
+        "size": 30501
+      },
+      "statsmodels/sandbox/regression/tests/results_ivreg2_griliches.py": {
+        "size": 45990
+      },
+      "statsmodels/sandbox/regression/tests/test_gmm.py": {
+        "size": 33010
+      },
+      "statsmodels/sandbox/regression/tests/test_gmm_poisson.py": {
+        "size": 13528
+      },
+      "statsmodels/sandbox/regression/tools.py": {
+        "size": 13590
+      },
+      "statsmodels/sandbox/regression/treewalkerclass.py": {
+        "size": 21576
+      },
+      "statsmodels/sandbox/regression/try_catdata.py": {
+        "size": 4751
+      },
+      "statsmodels/sandbox/regression/try_ols_anova.py": {
+        "size": 9443
+      },
+      "statsmodels/sandbox/regression/try_treewalker.py": {
+        "size": 4354
+      },
+      "statsmodels/sandbox/rls.py": {
+        "size": 5234
+      },
+      "statsmodels/sandbox/rlsdata.txt": {
+        "size": 919
+      },
+      "statsmodels/sandbox/stats/__init__.py": {
+        "size": 664
+      },
+      "statsmodels/sandbox/stats/contrast_tools.py": {
+        "size": 28624
+      },
+      "statsmodels/sandbox/stats/diagnostic.py": {
+        "size": 1035
+      },
+      "statsmodels/sandbox/stats/ex_newtests.py": {
+        "size": 675
+      },
+      "statsmodels/sandbox/stats/multicomp.py": {
+        "size": 74736
+      },
+      "statsmodels/sandbox/stats/notes_fdr.txt": {
+        "size": 4377
+      },
+      "statsmodels/sandbox/stats/runs.py": {
+        "size": 20799
+      },
+      "statsmodels/sandbox/stats/stats_dhuard.py": {
+        "size": 10340
+      },
+      "statsmodels/sandbox/stats/stats_mstats_short.py": {
+        "size": 15575
+      },
+      "statsmodels/sandbox/stats/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/sandbox/stats/tests/test_multicomp.py": {
+        "size": 576
+      },
+      "statsmodels/sandbox/stats/tests/test_runs.py": {
+        "size": 1061
+      },
+      "statsmodels/sandbox/sysreg.py": {
+        "size": 15096
+      },
+      "statsmodels/sandbox/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/sandbox/tests/maketests_mlabwrap.py": {
+        "size": 8563
+      },
+      "statsmodels/sandbox/tests/savervs.py": {
+        "size": 1172
+      },
+      "statsmodels/sandbox/tests/test_bspline.py.txt": {
+        "size": 1928
+      },
+      "statsmodels/sandbox/tests/test_gam.py": {
+        "size": 10648
+      },
+      "statsmodels/sandbox/tests/test_pca.py": {
+        "size": 2529
+      },
+      "statsmodels/sandbox/tests/test_predict_functional.py": {
+        "size": 13121
+      },
+      "statsmodels/sandbox/tools/TODO.txt": {
+        "size": 2681
+      },
+      "statsmodels/sandbox/tools/__init__.py": {
+        "size": 216
+      },
+      "statsmodels/sandbox/tools/cross_val.py": {
+        "size": 11054
+      },
+      "statsmodels/sandbox/tools/mctools.py": {
+        "size": 17093
+      },
+      "statsmodels/sandbox/tools/tools_pca.py": {
+        "size": 4087
+      },
+      "statsmodels/sandbox/tools/try_mctools.py": {
+        "size": 1907
+      },
+      "statsmodels/sandbox/tsa/__init__.py": {
+        "size": 842
+      },
+      "statsmodels/sandbox/tsa/diffusion.py": {
+        "size": 18749
+      },
+      "statsmodels/sandbox/tsa/diffusion2.py": {
+        "size": 13724
+      },
+      "statsmodels/sandbox/tsa/example_arma.py": {
+        "size": 11542
+      },
+      "statsmodels/sandbox/tsa/examples/ex_mle_arma.py": {
+        "size": 4445
+      },
+      "statsmodels/sandbox/tsa/examples/example_var.py": {
+        "size": 1206
+      },
+      "statsmodels/sandbox/tsa/examples/try_ld_nitime.py": {
+        "size": 359
+      },
+      "statsmodels/sandbox/tsa/fftarma.py": {
+        "size": 16263
+      },
+      "statsmodels/sandbox/tsa/movstat.py": {
+        "size": 16953
+      },
+      "statsmodels/sandbox/tsa/try_arma_more.py": {
+        "size": 2853
+      },
+      "statsmodels/sandbox/tsa/try_fi.py": {
+        "size": 2620
+      },
+      "statsmodels/sandbox/tsa/try_var_convolve.py": {
+        "size": 9068
+      },
+      "statsmodels/sandbox/tsa/varma.py": {
+        "size": 4814
+      },
+      "statsmodels/stats/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/stats/_adnorm.py": {
+        "size": 4421
+      },
+      "statsmodels/stats/_delta_method.py": {
+        "size": 10022
+      },
+      "statsmodels/stats/_diagnostic_other.py": {
+        "size": 39607
+      },
+      "statsmodels/stats/_inference_tools.py": {
+        "size": 2738
+      },
+      "statsmodels/stats/_knockoff.py": {
+        "size": 7418
+      },
+      "statsmodels/stats/_lilliefors.py": {
+        "size": 9748
+      },
+      "statsmodels/stats/_lilliefors_critical_values.py": {
+        "size": 13918
+      },
+      "statsmodels/stats/_results_store.py": {
+        "size": 134
+      },
+      "statsmodels/stats/anova.py": {
+        "size": 22782
+      },
+      "statsmodels/stats/api.py": {
+        "size": 7496
+      },
+      "statsmodels/stats/base.py": {
+        "size": 4089
+      },
+      "statsmodels/stats/contingency_tables.py": {
+        "size": 44423
+      },
+      "statsmodels/stats/contrast.py": {
+        "size": 28257
+      },
+      "statsmodels/stats/correlation_tools.py": {
+        "size": 32351
+      },
+      "statsmodels/stats/covariance.py": {
+        "size": 7901
+      },
+      "statsmodels/stats/descriptivestats.py": {
+        "size": 21628
+      },
+      "statsmodels/stats/diagnostic.py": {
+        "size": 59968
+      },
+      "statsmodels/stats/diagnostic_gen.py": {
+        "size": 8137
+      },
+      "statsmodels/stats/dist_dependence_measures.py": {
+        "size": 17659
+      },
+      "statsmodels/stats/effect_size.py": {
+        "size": 4894
+      },
+      "statsmodels/stats/gof.py": {
+        "size": 16786
+      },
+      "statsmodels/stats/inter_rater.py": {
+        "size": 18852
+      },
+      "statsmodels/stats/knockoff_regeffects.py": {
+        "size": 5338
+      },
+      "statsmodels/stats/libqsturng/LICENSE.txt": {
+        "size": 1566
+      },
+      "statsmodels/stats/libqsturng/__init__.py": {
+        "size": 197
+      },
+      "statsmodels/stats/libqsturng/make_tbls.py": {
+        "size": 63962
+      },
+      "statsmodels/stats/libqsturng/qsturng_.py": {
+        "size": 64566
+      },
+      "statsmodels/stats/libqsturng/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/stats/libqsturng/tests/test_qsturng.py": {
+        "size": 8405
+      },
+      "statsmodels/stats/mediation.py": {
+        "size": 16540
+      },
+      "statsmodels/stats/meta_analysis.py": {
+        "size": 26601
+      },
+      "statsmodels/stats/moment_helpers.py": {
+        "size": 8647
+      },
+      "statsmodels/stats/multicomp.py": {
+        "size": 2024
+      },
+      "statsmodels/stats/multitest.py": {
+        "size": 26610
+      },
+      "statsmodels/stats/multivariate.py": {
+        "size": 19213
+      },
+      "statsmodels/stats/multivariate_tools.py": {
+        "size": 7075
+      },
+      "statsmodels/stats/nonparametric.py": {
+        "size": 35908
+      },
+      "statsmodels/stats/oaxaca.py": {
+        "size": 21287
+      },
+      "statsmodels/stats/oneway.py": {
+        "size": 45756
+      },
+      "statsmodels/stats/outliers_influence.py": {
+        "size": 55881
+      },
+      "statsmodels/stats/power.py": {
+        "size": 62917
+      },
+      "statsmodels/stats/proportion.py": {
+        "size": 85671
+      },
+      "statsmodels/stats/rates.py": {
+        "size": 77293
+      },
+      "statsmodels/stats/regularized_covariance.py": {
+        "size": 4794
+      },
+      "statsmodels/stats/robust_compare.py": {
+        "size": 9868
+      },
+      "statsmodels/stats/sandwich_covariance.py": {
+        "size": 27871
+      },
+      "statsmodels/stats/stattools.py": {
+        "size": 14222
+      },
+      "statsmodels/stats/tabledist.py": {
+        "size": 9724
+      },
+      "statsmodels/stats/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/stats/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/stats/tests/results/influence_lsdiag_R.json": {
+        "size": 19805
+      },
+      "statsmodels/stats/tests/results/lilliefors_critical_value_simulation.py": {
+        "size": 5270
+      },
+      "statsmodels/stats/tests/results/results_meta.py": {
+        "size": 18488
+      },
+      "statsmodels/stats/tests/results/results_multinomial_proportions.py": {
+        "size": 2658
+      },
+      "statsmodels/stats/tests/results/results_panelrobust.py": {
+        "size": 1980
+      },
+      "statsmodels/stats/tests/results/results_power.py": {
+        "size": 4524
+      },
+      "statsmodels/stats/tests/results/results_proportion.py": {
+        "size": 5041
+      },
+      "statsmodels/stats/tests/results/results_rates.py": {
+        "size": 1303
+      },
+      "statsmodels/stats/tests/test_anova.py": {
+        "size": 17676
+      },
+      "statsmodels/stats/tests/test_anova_rm.py": {
+        "size": 5387
+      },
+      "statsmodels/stats/tests/test_base.py": {
+        "size": 1710
+      },
+      "statsmodels/stats/tests/test_contingency_tables.py": {
+        "size": 20220
+      },
+      "statsmodels/stats/tests/test_contrast.py": {
+        "size": 2358
+      },
+      "statsmodels/stats/tests/test_correlation.py": {
+        "size": 1725
+      },
+      "statsmodels/stats/tests/test_corrpsd.py": {
+        "size": 19955
+      },
+      "statsmodels/stats/tests/test_covariance.py": {
+        "size": 2248
+      },
+      "statsmodels/stats/tests/test_data.txt": {
+        "size": 215000
+      },
+      "statsmodels/stats/tests/test_deltacov.py": {
+        "size": 4048
+      },
+      "statsmodels/stats/tests/test_descriptivestats.py": {
+        "size": 5619
+      },
+      "statsmodels/stats/tests/test_diagnostic.py": {
+        "size": 62379
+      },
+      "statsmodels/stats/tests/test_diagnostic_other.py": {
+        "size": 8747
+      },
+      "statsmodels/stats/tests/test_dist_dependant_measures.py": {
+        "size": 7333
+      },
+      "statsmodels/stats/tests/test_effectsize.py": {
+        "size": 2264
+      },
+      "statsmodels/stats/tests/test_gof.py": {
+        "size": 3380
+      },
+      "statsmodels/stats/tests/test_groups_sw.py": {
+        "size": 2970
+      },
+      "statsmodels/stats/tests/test_influence.py": {
+        "size": 11745
+      },
+      "statsmodels/stats/tests/test_inter_rater.py": {
+        "size": 12223
+      },
+      "statsmodels/stats/tests/test_knockoff.py": {
+        "size": 4302
+      },
+      "statsmodels/stats/tests/test_lilliefors.py": {
+        "size": 5130
+      },
+      "statsmodels/stats/tests/test_mediation.py": {
+        "size": 12166
+      },
+      "statsmodels/stats/tests/test_meta.py": {
+        "size": 14854
+      },
+      "statsmodels/stats/tests/test_moment_helpers.py": {
+        "size": 4616
+      },
+      "statsmodels/stats/tests/test_multi.py": {
+        "size": 24133
+      },
+      "statsmodels/stats/tests/test_multivariate.py": {
+        "size": 11720
+      },
+      "statsmodels/stats/tests/test_nonparametric.py": {
+        "size": 28547
+      },
+      "statsmodels/stats/tests/test_oaxaca.py": {
+        "size": 12556
+      },
+      "statsmodels/stats/tests/test_oneway.py": {
+        "size": 22113
+      },
+      "statsmodels/stats/tests/test_outliers_influence.py": {
+        "size": 958
+      },
+      "statsmodels/stats/tests/test_pairwise.py": {
+        "size": 18262
+      },
+      "statsmodels/stats/tests/test_panel_robustcov.py": {
+        "size": 2730
+      },
+      "statsmodels/stats/tests/test_power.py": {
+        "size": 29573
+      },
+      "statsmodels/stats/tests/test_proportion.py": {
+        "size": 45166
+      },
+      "statsmodels/stats/tests/test_qsturng.py": {
+        "size": 820
+      },
+      "statsmodels/stats/tests/test_rates_poisson.py": {
+        "size": 44352
+      },
+      "statsmodels/stats/tests/test_regularized_covariance.py": {
+        "size": 1527
+      },
+      "statsmodels/stats/tests/test_robust_compare.py": {
+        "size": 12322
+      },
+      "statsmodels/stats/tests/test_sandwich.py": {
+        "size": 3786
+      },
+      "statsmodels/stats/tests/test_statstools.py": {
+        "size": 11708
+      },
+      "statsmodels/stats/tests/test_tabledist.py": {
+        "size": 4270
+      },
+      "statsmodels/stats/tests/test_tost.py": {
+        "size": 24206
+      },
+      "statsmodels/stats/tests/test_weightstats.py": {
+        "size": 30124
+      },
+      "statsmodels/stats/weightstats.py": {
+        "size": 55329
+      },
+      "statsmodels/tests/__init__.py": {
+        "size": 48
+      },
+      "statsmodels/tests/test_package.py": {
+        "size": 1115
+      },
+      "statsmodels/tests/test_x13.py": {
+        "size": 280
+      },
+      "statsmodels/tools/__init__.py": {
+        "size": 176
+      },
+      "statsmodels/tools/_test_runner.py": {
+        "size": 916
+      },
+      "statsmodels/tools/_testing.py": {
+        "size": 5554
+      },
+      "statsmodels/tools/catadd.py": {
+        "size": 992
+      },
+      "statsmodels/tools/data.py": {
+        "size": 4452
+      },
+      "statsmodels/tools/decorators.py": {
+        "size": 4247
+      },
+      "statsmodels/tools/docstring.py": {
+        "size": 21879
+      },
+      "statsmodels/tools/eval_measures.py": {
+        "size": 15806
+      },
+      "statsmodels/tools/grouputils.py": {
+        "size": 18277
+      },
+      "statsmodels/tools/linalg.py": {
+        "size": 4911
+      },
+      "statsmodels/tools/numdiff.py": {
+        "size": 15797
+      },
+      "statsmodels/tools/parallel.py": {
+        "size": 2220
+      },
+      "statsmodels/tools/print_version.py": {
+        "size": 8403
+      },
+      "statsmodels/tools/rng_qrng.py": {
+        "size": 1852
+      },
+      "statsmodels/tools/rootfinding.py": {
+        "size": 7685
+      },
+      "statsmodels/tools/sequences.py": {
+        "size": 6725
+      },
+      "statsmodels/tools/sm_exceptions.py": {
+        "size": 4053
+      },
+      "statsmodels/tools/testing.py": {
+        "size": 2418
+      },
+      "statsmodels/tools/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tools/tests/test_catadd.py": {
+        "size": 697
+      },
+      "statsmodels/tools/tests/test_data.py": {
+        "size": 1583
+      },
+      "statsmodels/tools/tests/test_decorators.py": {
+        "size": 1908
+      },
+      "statsmodels/tools/tests/test_docstring.py": {
+        "size": 3252
+      },
+      "statsmodels/tools/tests/test_eval_measures.py": {
+        "size": 4073
+      },
+      "statsmodels/tools/tests/test_grouputils.py": {
+        "size": 15016
+      },
+      "statsmodels/tools/tests/test_linalg.py": {
+        "size": 732
+      },
+      "statsmodels/tools/tests/test_numdiff.py": {
+        "size": 14392
+      },
+      "statsmodels/tools/tests/test_parallel.py": {
+        "size": 408
+      },
+      "statsmodels/tools/tests/test_rootfinding.py": {
+        "size": 2893
+      },
+      "statsmodels/tools/tests/test_sequences.py": {
+        "size": 1637
+      },
+      "statsmodels/tools/tests/test_testing.py": {
+        "size": 711
+      },
+      "statsmodels/tools/tests/test_tools.py": {
+        "size": 10771
+      },
+      "statsmodels/tools/tests/test_transform_model.py": {
+        "size": 1760
+      },
+      "statsmodels/tools/tests/test_web.py": {
+        "size": 1601
+      },
+      "statsmodels/tools/tools.py": {
+        "size": 15148
+      },
+      "statsmodels/tools/transform_model.py": {
+        "size": 2799
+      },
+      "statsmodels/tools/typing.py": {
+        "size": 1185
+      },
+      "statsmodels/tools/validation/__init__.py": {
+        "size": 329
+      },
+      "statsmodels/tools/validation/decorators.py": {
+        "size": 985
+      },
+      "statsmodels/tools/validation/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tools/validation/tests/test_validation.py": {
+        "size": 12568
+      },
+      "statsmodels/tools/validation/validation.py": {
+        "size": 14505
+      },
+      "statsmodels/tools/web.py": {
+        "size": 2217
+      },
+      "statsmodels/treatment/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/treatment/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/treatment/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/treatment/tests/results/results_teffects.py": {
+        "size": 21373
+      },
+      "statsmodels/treatment/tests/test_teffects.py": {
+        "size": 4665
+      },
+      "statsmodels/treatment/treatment_effects.py": {
+        "size": 32834
+      },
+      "statsmodels/tsa/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/tsa/_bds.py": {
+        "size": 7401
+      },
+      "statsmodels/tsa/_leybourne.py": {
+        "size": 3393
+      },
+      "statsmodels/tsa/adfvalues.py": {
+        "size": 16272
+      },
+      "statsmodels/tsa/api.py": {
+        "size": 2722
+      },
+      "statsmodels/tsa/ar_model.py": {
+        "size": 79857
+      },
+      "statsmodels/tsa/ardl/__init__.py": {
+        "size": 332
+      },
+      "statsmodels/tsa/ardl/_pss_critical_values/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/ardl/_pss_critical_values/pss-process.py": {
+        "size": 5604
+      },
+      "statsmodels/tsa/ardl/_pss_critical_values/pss.py": {
+        "size": 2624
+      },
+      "statsmodels/tsa/ardl/model.py": {
+        "size": 96294
+      },
+      "statsmodels/tsa/ardl/pss_critical_values.py": {
+        "size": 22428
+      },
+      "statsmodels/tsa/ardl/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/ardl/tests/test_ardl.py": {
+        "size": 24888
+      },
+      "statsmodels/tsa/arima/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/arima/api.py": {
+        "size": 67
+      },
+      "statsmodels/tsa/arima/datasets/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/arima/datasets/brockwell_davis_2002/__init__.py": {
+        "size": 366
+      },
+      "statsmodels/tsa/arima/datasets/brockwell_davis_2002/data/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/arima/datasets/brockwell_davis_2002/data/dowj.py": {
+        "size": 1358
+      },
+      "statsmodels/tsa/arima/datasets/brockwell_davis_2002/data/lake.py": {
+        "size": 1220
+      },
+      "statsmodels/tsa/arima/datasets/brockwell_davis_2002/data/oshorts.py": {
+        "size": 819
+      },
+      "statsmodels/tsa/arima/datasets/brockwell_davis_2002/data/sbl.py": {
+        "size": 1399
+      },
+      "statsmodels/tsa/arima/estimators/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/arima/estimators/burg.py": {
+        "size": 2286
+      },
+      "statsmodels/tsa/arima/estimators/durbin_levinson.py": {
+        "size": 3580
+      },
+      "statsmodels/tsa/arima/estimators/gls.py": {
+        "size": 13771
+      },
+      "statsmodels/tsa/arima/estimators/hannan_rissanen.py": {
+        "size": 17099
+      },
+      "statsmodels/tsa/arima/estimators/innovations.py": {
+        "size": 9930
+      },
+      "statsmodels/tsa/arima/estimators/statespace.py": {
+        "size": 4949
+      },
+      "statsmodels/tsa/arima/estimators/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/arima/estimators/tests/test_burg.py": {
+        "size": 3994
+      },
+      "statsmodels/tsa/arima/estimators/tests/test_durbin_levinson.py": {
+        "size": 4054
+      },
+      "statsmodels/tsa/arima/estimators/tests/test_gls.py": {
+        "size": 8683
+      },
+      "statsmodels/tsa/arima/estimators/tests/test_hannan_rissanen.py": {
+        "size": 14630
+      },
+      "statsmodels/tsa/arima/estimators/tests/test_innovations.py": {
+        "size": 13006
+      },
+      "statsmodels/tsa/arima/estimators/tests/test_statespace.py": {
+        "size": 2199
+      },
+      "statsmodels/tsa/arima/estimators/tests/test_yule_walker.py": {
+        "size": 2956
+      },
+      "statsmodels/tsa/arima/estimators/yule_walker.py": {
+        "size": 2517
+      },
+      "statsmodels/tsa/arima/model.py": {
+        "size": 25881
+      },
+      "statsmodels/tsa/arima/params.py": {
+        "size": 15117
+      },
+      "statsmodels/tsa/arima/specification.py": {
+        "size": 46344
+      },
+      "statsmodels/tsa/arima/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/arima/tests/test_model.py": {
+        "size": 15644
+      },
+      "statsmodels/tsa/arima/tests/test_params.py": {
+        "size": 22729
+      },
+      "statsmodels/tsa/arima/tests/test_specification.py": {
+        "size": 25978
+      },
+      "statsmodels/tsa/arima/tests/test_tools.py": {
+        "size": 3533
+      },
+      "statsmodels/tsa/arima/tools.py": {
+        "size": 5497
+      },
+      "statsmodels/tsa/arima_model.py": {
+        "size": 1807
+      },
+      "statsmodels/tsa/arima_process.py": {
+        "size": 30810
+      },
+      "statsmodels/tsa/arma_mle.py": {
+        "size": 538
+      },
+      "statsmodels/tsa/base/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/tsa/base/datetools.py": {
+        "size": 5790
+      },
+      "statsmodels/tsa/base/prediction.py": {
+        "size": 6155
+      },
+      "statsmodels/tsa/base/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/base/tests/test_base.py": {
+        "size": 3848
+      },
+      "statsmodels/tsa/base/tests/test_datetools.py": {
+        "size": 3161
+      },
+      "statsmodels/tsa/base/tests/test_prediction.py": {
+        "size": 1534
+      },
+      "statsmodels/tsa/base/tests/test_tsa_indexes.py": {
+        "size": 45472
+      },
+      "statsmodels/tsa/base/tsa_model.py": {
+        "size": 34584
+      },
+      "statsmodels/tsa/coint_tables.py": {
+        "size": 7336
+      },
+      "statsmodels/tsa/descriptivestats.py": {
+        "size": 2211
+      },
+      "statsmodels/tsa/deterministic.py": {
+        "size": 52342
+      },
+      "statsmodels/tsa/exponential_smoothing/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/exponential_smoothing/base.py": {
+        "size": 36532
+      },
+      "statsmodels/tsa/exponential_smoothing/ets.py": {
+        "size": 88682
+      },
+      "statsmodels/tsa/exponential_smoothing/initialization.py": {
+        "size": 4483
+      },
+      "statsmodels/tsa/filters/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/tsa/filters/_utils.py": {
+        "size": 2982
+      },
+      "statsmodels/tsa/filters/api.py": {
+        "size": 346
+      },
+      "statsmodels/tsa/filters/bk_filter.py": {
+        "size": 3570
+      },
+      "statsmodels/tsa/filters/cf_filter.py": {
+        "size": 3852
+      },
+      "statsmodels/tsa/filters/filtertools.py": {
+        "size": 12148
+      },
+      "statsmodels/tsa/filters/hp_filter.py": {
+        "size": 3359
+      },
+      "statsmodels/tsa/filters/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/filters/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/filters/tests/results/filter_results.py": {
+        "size": 3862
+      },
+      "statsmodels/tsa/filters/tests/test_filters.py": {
+        "size": 44447
+      },
+      "statsmodels/tsa/forecasting/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/forecasting/stl.py": {
+        "size": 18552
+      },
+      "statsmodels/tsa/forecasting/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/forecasting/tests/test_stl.py": {
+        "size": 6645
+      },
+      "statsmodels/tsa/forecasting/tests/test_theta.py": {
+        "size": 5407
+      },
+      "statsmodels/tsa/forecasting/theta.py": {
+        "size": 23111
+      },
+      "statsmodels/tsa/holtwinters/__init__.py": {
+        "size": 354
+      },
+      "statsmodels/tsa/holtwinters/_smoothers.py": {
+        "size": 10006
+      },
+      "statsmodels/tsa/holtwinters/model.py": {
+        "size": 67851
+      },
+      "statsmodels/tsa/holtwinters/results.py": {
+        "size": 25767
+      },
+      "statsmodels/tsa/holtwinters/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/holtwinters/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/holtwinters/tests/test_holtwinters.py": {
+        "size": 67909
+      },
+      "statsmodels/tsa/innovations/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/tsa/innovations/api.py": {
+        "size": 251
+      },
+      "statsmodels/tsa/innovations/arma_innovations.py": {
+        "size": 9808
+      },
+      "statsmodels/tsa/innovations/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/innovations/tests/test_arma_innovations.py": {
+        "size": 2138
+      },
+      "statsmodels/tsa/innovations/tests/test_cython_arma_innovations_fast.py": {
+        "size": 13879
+      },
+      "statsmodels/tsa/interp/__init__.py": {
+        "size": 138
+      },
+      "statsmodels/tsa/interp/denton.py": {
+        "size": 10810
+      },
+      "statsmodels/tsa/interp/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/interp/tests/test_denton.py": {
+        "size": 1221
+      },
+      "statsmodels/tsa/mlemodel.py": {
+        "size": 2164
+      },
+      "statsmodels/tsa/regime_switching/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/tsa/regime_switching/markov_autoregression.py": {
+        "size": 18050
+      },
+      "statsmodels/tsa/regime_switching/markov_regression.py": {
+        "size": 16536
+      },
+      "statsmodels/tsa/regime_switching/markov_switching.py": {
+        "size": 83452
+      },
+      "statsmodels/tsa/regime_switching/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/regime_switching/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/regime_switching/tests/test_markov_autoregression.py": {
+        "size": 41138
+      },
+      "statsmodels/tsa/regime_switching/tests/test_markov_regression.py": {
+        "size": 86991
+      },
+      "statsmodels/tsa/regime_switching/tests/test_markov_switching.py": {
+        "size": 12253
+      },
+      "statsmodels/tsa/seasonal/__init__.py": {
+        "size": 306
+      },
+      "statsmodels/tsa/seasonal/_seasonal.py": {
+        "size": 11306
+      },
+      "statsmodels/tsa/statespace/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/tsa/statespace/_filters/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/statespace/_pykalman_smoother.py": {
+        "size": 11021
+      },
+      "statsmodels/tsa/statespace/_quarterly_ar1.py": {
+        "size": 7330
+      },
+      "statsmodels/tsa/statespace/_smoothers/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/statespace/api.py": {
+        "size": 359
+      },
+      "statsmodels/tsa/statespace/cfa_simulation_smoother.py": {
+        "size": 10275
+      },
+      "statsmodels/tsa/statespace/dynamic_factor.py": {
+        "size": 54280
+      },
+      "statsmodels/tsa/statespace/dynamic_factor_mq.py": {
+        "size": 197171
+      },
+      "statsmodels/tsa/statespace/exponential_smoothing.py": {
+        "size": 30610
+      },
+      "statsmodels/tsa/statespace/initialization.py": {
+        "size": 33914
+      },
+      "statsmodels/tsa/statespace/kalman_filter.py": {
+        "size": 106103
+      },
+      "statsmodels/tsa/statespace/kalman_smoother.py": {
+        "size": 83168
+      },
+      "statsmodels/tsa/statespace/mlemodel.py": {
+        "size": 221272
+      },
+      "statsmodels/tsa/statespace/news.py": {
+        "size": 71660
+      },
+      "statsmodels/tsa/statespace/representation.py": {
+        "size": 48841
+      },
+      "statsmodels/tsa/statespace/sarimax.py": {
+        "size": 84655
+      },
+      "statsmodels/tsa/statespace/simulation_smoother.py": {
+        "size": 30828
+      },
+      "statsmodels/tsa/statespace/structural.py": {
+        "size": 79298
+      },
+      "statsmodels/tsa/statespace/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/statespace/tests/kfas_helpers.py": {
+        "size": 3680
+      },
+      "statsmodels/tsa/statespace/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/statespace/tests/results/frbny_nowcast/Nowcasting/README.md": {
+        "size": 685
+      },
+      "statsmodels/tsa/statespace/tests/results/frbny_nowcast/Nowcasting/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/statespace/tests/results/frbny_nowcast/Nowcasting/data/US/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/statespace/tests/results/frbny_nowcast/Nowcasting/data/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/statespace/tests/results/frbny_nowcast/Nowcasting/functions/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/statespace/tests/results/frbny_nowcast/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/statespace/tests/results/results_dynamic_factor.py": {
+        "size": 6766
+      },
+      "statsmodels/tsa/statespace/tests/results/results_kalman_filter.py": {
+        "size": 41500
+      },
+      "statsmodels/tsa/statespace/tests/results/results_sarimax.py": {
+        "size": 13785
+      },
+      "statsmodels/tsa/statespace/tests/results/results_structural.py": {
+        "size": 9324
+      },
+      "statsmodels/tsa/statespace/tests/results/results_var_R.py": {
+        "size": 5619
+      },
+      "statsmodels/tsa/statespace/tests/results/results_var_misc.py": {
+        "size": 5676
+      },
+      "statsmodels/tsa/statespace/tests/results/results_varmax.py": {
+        "size": 8709
+      },
+      "statsmodels/tsa/statespace/tests/test_cfa_simulation_smoothing.py": {
+        "size": 6760
+      },
+      "statsmodels/tsa/statespace/tests/test_cfa_tvpvar.py": {
+        "size": 7549
+      },
+      "statsmodels/tsa/statespace/tests/test_chandrasekhar.py": {
+        "size": 8762
+      },
+      "statsmodels/tsa/statespace/tests/test_collapsed.py": {
+        "size": 27378
+      },
+      "statsmodels/tsa/statespace/tests/test_concentrated.py": {
+        "size": 11665
+      },
+      "statsmodels/tsa/statespace/tests/test_conserve_memory.py": {
+        "size": 13579
+      },
+      "statsmodels/tsa/statespace/tests/test_decompose.py": {
+        "size": 11991
+      },
+      "statsmodels/tsa/statespace/tests/test_dynamic_factor.py": {
+        "size": 38280
+      },
+      "statsmodels/tsa/statespace/tests/test_dynamic_factor_mq.py": {
+        "size": 86508
+      },
+      "statsmodels/tsa/statespace/tests/test_dynamic_factor_mq_frbny_nowcast.py": {
+        "size": 18981
+      },
+      "statsmodels/tsa/statespace/tests/test_dynamic_factor_mq_monte_carlo.py": {
+        "size": 24589
+      },
+      "statsmodels/tsa/statespace/tests/test_exact_diffuse_filtering.py": {
+        "size": 40092
+      },
+      "statsmodels/tsa/statespace/tests/test_exponential_smoothing.py": {
+        "size": 35900
+      },
+      "statsmodels/tsa/statespace/tests/test_fixed_params.py": {
+        "size": 29045
+      },
+      "statsmodels/tsa/statespace/tests/test_forecasting.py": {
+        "size": 1576
+      },
+      "statsmodels/tsa/statespace/tests/test_impulse_responses.py": {
+        "size": 27079
+      },
+      "statsmodels/tsa/statespace/tests/test_initialization.py": {
+        "size": 13519
+      },
+      "statsmodels/tsa/statespace/tests/test_kalman.py": {
+        "size": 26863
+      },
+      "statsmodels/tsa/statespace/tests/test_mlemodel.py": {
+        "size": 47790
+      },
+      "statsmodels/tsa/statespace/tests/test_models.py": {
+        "size": 10519
+      },
+      "statsmodels/tsa/statespace/tests/test_multivariate_switch_univariate.py": {
+        "size": 18999
+      },
+      "statsmodels/tsa/statespace/tests/test_news.py": {
+        "size": 54422
+      },
+      "statsmodels/tsa/statespace/tests/test_options.py": {
+        "size": 9334
+      },
+      "statsmodels/tsa/statespace/tests/test_pickle.py": {
+        "size": 5109
+      },
+      "statsmodels/tsa/statespace/tests/test_prediction.py": {
+        "size": 23913
+      },
+      "statsmodels/tsa/statespace/tests/test_representation.py": {
+        "size": 46896
+      },
+      "statsmodels/tsa/statespace/tests/test_sarimax.py": {
+        "size": 104143
+      },
+      "statsmodels/tsa/statespace/tests/test_save.py": {
+        "size": 4835
+      },
+      "statsmodels/tsa/statespace/tests/test_simulate.py": {
+        "size": 71530
+      },
+      "statsmodels/tsa/statespace/tests/test_simulation_smoothing.py": {
+        "size": 33609
+      },
+      "statsmodels/tsa/statespace/tests/test_smoothing.py": {
+        "size": 61524
+      },
+      "statsmodels/tsa/statespace/tests/test_structural.py": {
+        "size": 27235
+      },
+      "statsmodels/tsa/statespace/tests/test_tools.py": {
+        "size": 30229
+      },
+      "statsmodels/tsa/statespace/tests/test_univariate.py": {
+        "size": 26879
+      },
+      "statsmodels/tsa/statespace/tests/test_var.py": {
+        "size": 8417
+      },
+      "statsmodels/tsa/statespace/tests/test_varmax.py": {
+        "size": 48267
+      },
+      "statsmodels/tsa/statespace/tests/test_weights.py": {
+        "size": 21292
+      },
+      "statsmodels/tsa/statespace/tools.py": {
+        "size": 82021
+      },
+      "statsmodels/tsa/statespace/varmax.py": {
+        "size": 50883
+      },
+      "statsmodels/tsa/stattools/__init__.py": {
+        "size": 980
+      },
+      "statsmodels/tsa/stattools/_arma_order_selection.py": {
+        "size": 4867
+      },
+      "statsmodels/tsa/stattools/_leybourne.py": {
+        "size": 10970
+      },
+      "statsmodels/tsa/stattools/_stattools.py": {
+        "size": 91287
+      },
+      "statsmodels/tsa/stl/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/tsa/stl/mstl.py": {
+        "size": 10093
+      },
+      "statsmodels/tsa/stl/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/stl/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/stl/tests/test_mstl.py": {
+        "size": 5074
+      },
+      "statsmodels/tsa/stl/tests/test_stl.py": {
+        "size": 11401
+      },
+      "statsmodels/tsa/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/tests/results/arima111_css_results.py": {
+        "size": 26973
+      },
+      "statsmodels/tsa/tests/results/arima111_results.py": {
+        "size": 26963
+      },
+      "statsmodels/tsa/tests/results/arima111nc_css_results.py": {
+        "size": 26700
+      },
+      "statsmodels/tsa/tests/results/arima111nc_results.py": {
+        "size": 26703
+      },
+      "statsmodels/tsa/tests/results/arima112_css_results.py": {
+        "size": 27174
+      },
+      "statsmodels/tsa/tests/results/arima112_results.py": {
+        "size": 27176
+      },
+      "statsmodels/tsa/tests/results/arima112nc_css_results.py": {
+        "size": 26734
+      },
+      "statsmodels/tsa/tests/results/arima112nc_results.py": {
+        "size": 22617
+      },
+      "statsmodels/tsa/tests/results/arima211_css_results.py": {
+        "size": 27164
+      },
+      "statsmodels/tsa/tests/results/arima211_results.py": {
+        "size": 27157
+      },
+      "statsmodels/tsa/tests/results/arima211nc_css_results.py": {
+        "size": 26862
+      },
+      "statsmodels/tsa/tests/results/arima211nc_results.py": {
+        "size": 22618
+      },
+      "statsmodels/tsa/tests/results/datamlw_tls.py": {
+        "size": 6548
+      },
+      "statsmodels/tsa/tests/results/fit_ets_results.json": {
+        "size": 118496
+      },
+      "statsmodels/tsa/tests/results/fit_ets_results_nonseasonal.json": {
+        "size": 26377
+      },
+      "statsmodels/tsa/tests/results/fit_ets_results_seasonal.json": {
+        "size": 85617
+      },
+      "statsmodels/tsa/tests/results/make_arma.py": {
+        "size": 1876
+      },
+      "statsmodels/tsa/tests/results/results_ar.py": {
+        "size": 9336
+      },
+      "statsmodels/tsa/tests/results/results_arima.py": {
+        "size": 23358
+      },
+      "statsmodels/tsa/tests/results/results_arma.py": {
+        "size": 42416
+      },
+      "statsmodels/tsa/tests/results/results_arma_acf.py": {
+        "size": 2005
+      },
+      "statsmodels/tsa/tests/results/results_process.py": {
+        "size": 1379
+      },
+      "statsmodels/tsa/tests/results/savedrvs.py": {
+        "size": 19303
+      },
+      "statsmodels/tsa/tests/test_adfuller_lag.py": {
+        "size": 1810
+      },
+      "statsmodels/tsa/tests/test_ar.py": {
+        "size": 43716
+      },
+      "statsmodels/tsa/tests/test_arima_process.py": {
+        "size": 17184
+      },
+      "statsmodels/tsa/tests/test_bds.py": {
+        "size": 2707
+      },
+      "statsmodels/tsa/tests/test_deterministic.py": {
+        "size": 22837
+      },
+      "statsmodels/tsa/tests/test_exponential_smoothing.py": {
+        "size": 31449
+      },
+      "statsmodels/tsa/tests/test_seasonal.py": {
+        "size": 22245
+      },
+      "statsmodels/tsa/tests/test_stattools.py": {
+        "size": 56226
+      },
+      "statsmodels/tsa/tests/test_tsa_tools.py": {
+        "size": 29363
+      },
+      "statsmodels/tsa/tests/test_x13.py": {
+        "size": 6180
+      },
+      "statsmodels/tsa/tsatools.py": {
+        "size": 23135
+      },
+      "statsmodels/tsa/varma_process.py": {
+        "size": 19230
+      },
+      "statsmodels/tsa/vector_ar/__init__.py": {
+        "size": 79
+      },
+      "statsmodels/tsa/vector_ar/api.py": {
+        "size": 83
+      },
+      "statsmodels/tsa/vector_ar/hypothesis_test_results.py": {
+        "size": 7339
+      },
+      "statsmodels/tsa/vector_ar/irf.py": {
+        "size": 24379
+      },
+      "statsmodels/tsa/vector_ar/output.py": {
+        "size": 6879
+      },
+      "statsmodels/tsa/vector_ar/plotting.py": {
+        "size": 7208
+      },
+      "statsmodels/tsa/vector_ar/svar_model.py": {
+        "size": 22614
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c.txt": {
+        "size": 3500
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c_Sigmau.txt": {
+        "size": 645
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c_diag.txt": {
+        "size": 2245
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c_fc5.txt": {
+        "size": 1491
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c_granger_causality_realcons.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c_granger_causality_realcons_realgdp.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c_granger_causality_realcons_realinv.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c_granger_causality_realgdp.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c_granger_causality_realgdp_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c_granger_causality_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c_ir.txt": {
+        "size": 4739
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_c_lagorder.txt": {
+        "size": 444
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs.txt": {
+        "size": 4001
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs_Sigmau.txt": {
+        "size": 645
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs_diag.txt": {
+        "size": 2245
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs_fc5.txt": {
+        "size": 1491
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs_granger_causality_realcons.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs_granger_causality_realcons_realgdp.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs_granger_causality_realcons_realinv.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs_granger_causality_realgdp.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs_granger_causality_realgdp_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs_granger_causality_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs_ir.txt": {
+        "size": 4739
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cs_lagorder.txt": {
+        "size": 453
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst.txt": {
+        "size": 4171
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst_Sigmau.txt": {
+        "size": 645
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst_diag.txt": {
+        "size": 2245
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst_fc5.txt": {
+        "size": 1491
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst_granger_causality_realcons.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst_granger_causality_realcons_realgdp.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst_granger_causality_realcons_realinv.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst_granger_causality_realgdp.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst_granger_causality_realgdp_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst_granger_causality_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst_ir.txt": {
+        "size": 4739
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_cst_lagorder.txt": {
+        "size": 459
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct.txt": {
+        "size": 3670
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct_Sigmau.txt": {
+        "size": 645
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct_diag.txt": {
+        "size": 2245
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct_fc5.txt": {
+        "size": 1491
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct_granger_causality_realcons.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct_granger_causality_realcons_realgdp.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct_granger_causality_realcons_realinv.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct_granger_causality_realgdp.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct_granger_causality_realgdp_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct_granger_causality_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct_ir.txt": {
+        "size": 4739
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ct_lagorder.txt": {
+        "size": 450
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc.txt": {
+        "size": 3170
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc_Sigmau.txt": {
+        "size": 645
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc_diag.txt": {
+        "size": 2245
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc_fc5.txt": {
+        "size": 1491
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc_granger_causality_realcons.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc_granger_causality_realcons_realgdp.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc_granger_causality_realcons_realinv.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc_granger_causality_realgdp.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc_granger_causality_realgdp_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc_granger_causality_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc_ir.txt": {
+        "size": 4739
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_nc_lagorder.txt": {
+        "size": 411
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs.txt": {
+        "size": 3831
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs_Sigmau.txt": {
+        "size": 645
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs_diag.txt": {
+        "size": 2245
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs_fc5.txt": {
+        "size": 1491
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs_granger_causality_realcons.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs_granger_causality_realcons_realgdp.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs_granger_causality_realcons_realinv.txt": {
+        "size": 337
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs_granger_causality_realgdp.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs_granger_causality_realgdp_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs_granger_causality_realinv.txt": {
+        "size": 336
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs_ir.txt": {
+        "size": 4739
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/macrodata_jmulti_ncs_lagorder.txt": {
+        "size": 447
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/parse_jmulti_var_output.py": {
+        "size": 17958
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/parse_jmulti_vecm_output.py": {
+        "size": 23627
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ci.txt": {
+        "size": 3653
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ci_Sigmau.txt": {
+        "size": 371
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ci_diag.txt": {
+        "size": 1819
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ci_fc5.txt": {
+        "size": 1067
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ci_granger_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ci_granger_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ci_inst_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ci_inst_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ci_ir.txt": {
+        "size": 2441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ci_lagorder.txt": {
+        "size": 432
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cili.txt": {
+        "size": 4071
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cili_Sigmau.txt": {
+        "size": 371
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cili_diag.txt": {
+        "size": 1819
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cili_fc5.txt": {
+        "size": 1067
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cili_granger_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cili_granger_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cili_inst_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cili_inst_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cili_ir.txt": {
+        "size": 2441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cili_lagorder.txt": {
+        "size": 438
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cis.txt": {
+        "size": 4654
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cis_Sigmau.txt": {
+        "size": 371
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cis_diag.txt": {
+        "size": 1819
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cis_fc5.txt": {
+        "size": 1067
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cis_granger_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cis_granger_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cis_inst_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cis_inst_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cis_ir.txt": {
+        "size": 2441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cis_lagorder.txt": {
+        "size": 441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cisli.txt": {
+        "size": 5015
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cisli_Sigmau.txt": {
+        "size": 371
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cisli_diag.txt": {
+        "size": 1819
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cisli_fc5.txt": {
+        "size": 1067
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cisli_granger_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cisli_granger_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cisli_inst_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cisli_inst_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cisli_ir.txt": {
+        "size": 2441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cisli_lagorder.txt": {
+        "size": 447
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_co.txt": {
+        "size": 3866
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_co_Sigmau.txt": {
+        "size": 371
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_co_diag.txt": {
+        "size": 1819
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_co_fc5.txt": {
+        "size": 1067
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_co_granger_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_co_granger_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_co_inst_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_co_inst_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_co_ir.txt": {
+        "size": 2441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_co_lagorder.txt": {
+        "size": 432
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_colo.txt": {
+        "size": 4195
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_colo_Sigmau.txt": {
+        "size": 371
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_colo_diag.txt": {
+        "size": 1819
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_colo_fc5.txt": {
+        "size": 1067
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_colo_granger_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_colo_granger_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_colo_inst_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_colo_inst_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_colo_ir.txt": {
+        "size": 2441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_colo_lagorder.txt": {
+        "size": 438
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cos.txt": {
+        "size": 4694
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cos_Sigmau.txt": {
+        "size": 371
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cos_diag.txt": {
+        "size": 1819
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cos_fc5.txt": {
+        "size": 1067
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cos_granger_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cos_granger_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cos_inst_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cos_inst_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cos_ir.txt": {
+        "size": 2441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_cos_lagorder.txt": {
+        "size": 441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_coslo.txt": {
+        "size": 4948
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_coslo_Sigmau.txt": {
+        "size": 371
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_coslo_diag.txt": {
+        "size": 1819
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_coslo_fc5.txt": {
+        "size": 1067
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_coslo_granger_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_coslo_granger_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_coslo_inst_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_coslo_inst_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_coslo_ir.txt": {
+        "size": 2441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_coslo_lagorder.txt": {
+        "size": 447
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_nc.txt": {
+        "size": 3426
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_nc_Sigmau.txt": {
+        "size": 371
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_nc_diag.txt": {
+        "size": 1819
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_nc_fc5.txt": {
+        "size": 1067
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_nc_granger_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_nc_granger_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_nc_inst_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_nc_inst_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_nc_ir.txt": {
+        "size": 2441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_nc_lagorder.txt": {
+        "size": 399
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ncs.txt": {
+        "size": 4440
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ncs_Sigmau.txt": {
+        "size": 371
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ncs_diag.txt": {
+        "size": 1819
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ncs_fc5.txt": {
+        "size": 1067
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ncs_granger_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ncs_granger_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ncs_inst_causality_dp_r.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ncs_inst_causality_r_dp.txt": {
+        "size": 294
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ncs_ir.txt": {
+        "size": 2441
+      },
+      "statsmodels/tsa/vector_ar/tests/JMulTi_results/vecm_e6_jmulti_ncs_lagorder.txt": {
+        "size": 435
+      },
+      "statsmodels/tsa/vector_ar/tests/Matlab_results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/vector_ar/tests/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/vector_ar/tests/example_svar.py": {
+        "size": 1008
+      },
+      "statsmodels/tsa/vector_ar/tests/results/__init__.py": {
+        "size": 0
+      },
+      "statsmodels/tsa/vector_ar/tests/results/results_svar.py": {
+        "size": 387
+      },
+      "statsmodels/tsa/vector_ar/tests/results/results_svar_st.py": {
+        "size": 41894
+      },
+      "statsmodels/tsa/vector_ar/tests/results/results_var.py": {
+        "size": 2647
+      },
+      "statsmodels/tsa/vector_ar/tests/results/results_var_data.py": {
+        "size": 6778
+      },
+      "statsmodels/tsa/vector_ar/tests/test_coint.py": {
+        "size": 9909
+      },
+      "statsmodels/tsa/vector_ar/tests/test_svar.py": {
+        "size": 3674
+      },
+      "statsmodels/tsa/vector_ar/tests/test_var.py": {
+        "size": 31572
+      },
+      "statsmodels/tsa/vector_ar/tests/test_var_jmulti.py": {
+        "size": 25236
+      },
+      "statsmodels/tsa/vector_ar/tests/test_vecm.py": {
+        "size": 74568
+      },
+      "statsmodels/tsa/vector_ar/util.py": {
+        "size": 11063
+      },
+      "statsmodels/tsa/vector_ar/var_model.py": {
+        "size": 76295
+      },
+      "statsmodels/tsa/vector_ar/vecm.py": {
+        "size": 94303
+      },
+      "statsmodels/tsa/x13.py": {
+        "size": 26259
+      },
+      "tools/R2nparray/README.txt": {
+        "size": 1028
+      },
+      "tools/check_api.py": {
+        "size": 1306
+      },
+      "tools/ci/README.md": {
+        "size": 202
+      },
+      "tools/ci/azure/azure_template_posix.yml": {
+        "size": 8440
+      },
+      "tools/ci/azure/azure_template_windows.yml": {
+        "size": 2113
+      },
+      "tools/dataset_rst.py": {
+        "size": 2370
+      },
+      "tools/export_notebooks_to_python.py": {
+        "size": 4745
+      },
+      "tools/generate_formula_api.py": {
+        "size": 2622
+      },
+      "tools/nbgenerate.py": {
+        "size": 9406
+      },
+      "tools/releasing/enumerate-api.py": {
+        "size": 10045
+      },
+      "tools/releasing/release_note.py": {
+        "size": 6117
+      },
+      "tools/validate_docstrings.py": {
+        "size": 39815
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "statsmodels",
+        "module": "statsmodels/api.py",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level public API aggregator exposing major modeling families and utilities; best primary import surface for MCP wrapping."
+      },
+      {
+        "package": "statsmodels",
+        "module": "statsmodels/formula/api.py",
+        "functions": [],
+        "classes": [],
+        "description": "Formula interface entrypoint (patsy-backed) for user-friendly model construction; useful for high-level MCP tools."
+      },
+      {
+        "package": "statsmodels",
+        "module": "statsmodels/regression/linear_model.py",
+        "functions": [
+          "yule_walker"
+        ],
+        "classes": [
+          "OLS",
+          "WLS",
+          "GLS",
+          "GLSAR",
+          "RegressionResults",
+          "RegressionResultsWrapper"
+        ],
+        "description": "Core linear regression stack and result objects; stable, widely used modeling foundation."
+      },
+      {
+        "package": "statsmodels",
+        "module": "statsmodels/genmod/generalized_linear_model.py",
+        "functions": [],
+        "classes": [
+          "GLM",
+          "GLMResults",
+          "GLMResultsWrapper"
+        ],
+        "description": "Generalized Linear Models implementation (families/links integration), central for non-Gaussian regression workflows."
+      },
+      {
+        "package": "statsmodels",
+        "module": "statsmodels/discrete/discrete_model.py",
+        "functions": [],
+        "classes": [
+          "Logit",
+          "Probit",
+          "MNLogit",
+          "Poisson",
+          "NegativeBinomial",
+          "DiscreteResults",
+          "BinaryResults",
+          "MultinomialResults"
+        ],
+        "description": "Discrete response models including binary, multinomial, and count families."
+      },
+      {
+        "package": "statsmodels",
+        "module": "statsmodels/tsa/api.py",
+        "functions": [],
+        "classes": [],
+        "description": "Time-series API aggregator exposing ARIMA, state space, exponential smoothing, VAR/VECM and related utilities."
+      },
+      {
+        "package": "statsmodels",
+        "module": "statsmodels/tsa/arima/model.py",
+        "functions": [],
+        "classes": [
+          "ARIMA",
+          "ARIMAResults",
+          "ARIMAResultsWrapper"
+        ],
+        "description": "Modern ARIMA interface for univariate time-series modeling and forecasting."
+      },
+      {
+        "package": "statsmodels",
+        "module": "statsmodels/tsa/statespace/sarimax.py",
+        "functions": [],
+        "classes": [
+          "SARIMAX",
+          "SARIMAXResults",
+          "SARIMAXResultsWrapper"
+        ],
+        "description": "State-space SARIMAX implementation for seasonal/exogenous ARIMA-class models."
+      },
+      {
+        "package": "statsmodels",
+        "module": "statsmodels/stats/api.py",
+        "functions": [],
+        "classes": [],
+        "description": "Statistical tests/effect-size/power/diagnostics API surface suitable for test-oriented MCP tools."
+      },
+      {
+        "package": "statsmodels",
+        "module": "statsmodels/datasets/__init__.py",
+        "functions": [],
+        "classes": [],
+        "description": "Bundled dataset loaders; useful for deterministic examples and smoke tests in MCP integration."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python -m statsmodels.tools.print_version",
+        "module": "statsmodels/tools/print_version.py",
+        "description": "Environment/version diagnostic module; practical lightweight CLI-style entry for health checks."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "pandas",
+        "patsy",
+        "packaging"
+      ],
+      "optional": [
+        "matplotlib",
+        "cvxopt",
+        "joblib",
+        "pytest",
+        "x13as (external binary for statsmodels.tsa.x13 workflows)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/statsmodels/statsmodels",
+    "repo_name": "statsmodels",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "complex"
+  }
+}

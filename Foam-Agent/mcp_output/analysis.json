@@ -1,0 +1,1210 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/csml-rpi/Foam-Agent",
+    "summary": "Imported via zip fallback, file count: 51",
+    "file_tree": {
+      "README.md": {
+        "size": 18357
+      },
+      "app.py": {
+        "size": 226
+      },
+      "database/foamgpt/foamgpt_data.py": {
+        "size": 3386
+      },
+      "database/foamgpt/foamgpt_gen.py": {
+        "size": 9158
+      },
+      "database/foamgpt/foamgpt_huggingface.py": {
+        "size": 2091
+      },
+      "database/foamgpt/foamgpt_openai.py": {
+        "size": 3616
+      },
+      "database/foamgpt/foamgpt_parser.py": {
+        "size": 6659
+      },
+      "database/raw/openfoam_allrun_scripts.txt": {
+        "size": 131
+      },
+      "database/raw/openfoam_case_stats.json": {
+        "size": 129
+      },
+      "database/raw/openfoam_command_help.txt": {
+        "size": 131
+      },
+      "database/raw/openfoam_commands.txt": {
+        "size": 129
+      },
+      "database/raw/openfoam_tutorials_details.txt": {
+        "size": 133
+      },
+      "database/raw/openfoam_tutorials_structure.txt": {
+        "size": 131
+      },
+      "database/script/faiss_allrun_scripts.py": {
+        "size": 5342
+      },
+      "database/script/faiss_command_help.py": {
+        "size": 3939
+      },
+      "database/script/faiss_tutorials_details.py": {
+        "size": 5224
+      },
+      "database/script/faiss_tutorials_structure.py": {
+        "size": 4858
+      },
+      "database/script/tutorial_parser.py": {
+        "size": 17652
+      },
+      "environment.yml": {
+        "size": 14071
+      },
+      "foambench_main.py": {
+        "size": 3037
+      },
+      "init_database.py": {
+        "size": 3373
+      },
+      "src/codex_instructions_default.txt": {
+        "size": 10625
+      },
+      "src/config.py": {
+        "size": 3785
+      },
+      "src/main.py": {
+        "size": 6094
+      },
+      "src/mcp/README.md": {
+        "size": 6774
+      },
+      "src/mcp/fastmcp_server.py": {
+        "size": 22431
+      },
+      "src/mcp/start_mcp.py": {
+        "size": 634
+      },
+      "src/models.py": {
+        "size": 2686
+      },
+      "src/nodes/__init__.py": {
+        "size": 16
+      },
+      "src/nodes/hpc_runner_node.py": {
+        "size": 4796
+      },
+      "src/nodes/input_writer_node.py": {
+        "size": 4153
+      },
+      "src/nodes/local_runner_node.py": {
+        "size": 961
+      },
+      "src/nodes/meshing_node.py": {
+        "size": 1952
+      },
+      "src/nodes/planner_node.py": {
+        "size": 4883
+      },
+      "src/nodes/reviewer_node.py": {
+        "size": 1556
+      },
+      "src/nodes/visualization_node.py": {
+        "size": 7803
+      },
+      "src/router_func.py": {
+        "size": 7243
+      },
+      "src/services/__init__.py": {
+        "size": 187
+      },
+      "src/services/input_writer.py": {
+        "size": 25222
+      },
+      "src/services/mesh.py": {
+        "size": 33188
+      },
+      "src/services/plan.py": {
+        "size": 15208
+      },
+      "src/services/review.py": {
+        "size": 5758
+      },
+      "src/services/run_hpc.py": {
+        "size": 14507
+      },
+      "src/services/run_local.py": {
+        "size": 4180
+      },
+      "src/services/visualization.py": {
+        "size": 8762
+      },
+      "src/tracking_aws.py": {
+        "size": 5466
+      },
+      "src/utils.py": {
+        "size": 46373
+      },
+      "tests/test_lid_driven_cavity_mcp.py": {
+        "size": 10488
+      },
+      "tests/test_lid_driven_cavity_services.py": {
+        "size": 8834
+      },
+      "user_req_tandem_wing.txt": {
+        "size": 789
+      },
+      "user_requirement.txt": {
+        "size": 764
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.src.nodes",
+      "source.src.services"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": true,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "init_database",
+        "module": "init_database",
+        "functions": [
+          "main",
+          "parse_args",
+          "run_command"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "parse_args": [],
+          "run_command": [
+            "command_str"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "foambench_main",
+        "module": "foambench_main",
+        "functions": [
+          "main",
+          "parse_args",
+          "run_command"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "parse_args": [],
+          "run_command": [
+            "command_str"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "database.script",
+        "module": "faiss_tutorials_structure",
+        "functions": [
+          "extract_field",
+          "main",
+          "tokenize"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "extract_field": [
+            "field_name",
+            "text"
+          ],
+          "tokenize": [
+            "text"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "database.script",
+        "module": "faiss_tutorials_details",
+        "functions": [
+          "extract_field",
+          "main",
+          "tokenize"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "extract_field": [
+            "field_name",
+            "text"
+          ],
+          "tokenize": [
+            "text"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "database.script",
+        "module": "faiss_allrun_scripts",
+        "functions": [
+          "extract_field",
+          "main",
+          "tokenize"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "extract_field": [
+            "field_name",
+            "text"
+          ],
+          "tokenize": [
+            "text"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "database.script",
+        "module": "tutorial_parser",
+        "functions": [
+          "fetch_command_helps",
+          "find_cases",
+          "get_command_help",
+          "get_commands_from_directory",
+          "read_files_into_dict",
+          "save_cases_to_file"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "read_files_into_dict": [
+            "base_path",
+            "stats"
+          ],
+          "find_cases": [
+            "root_dir"
+          ],
+          "save_cases_to_file": [
+            "cases",
+            "output_dir"
+          ],
+          "get_commands_from_directory": [
+            "directory_path"
+          ],
+          "get_command_help": [
+            "command",
+            "directory_path"
+          ],
+          "fetch_command_helps": [
+            "commands",
+            "directory_path"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "database.script",
+        "module": "faiss_command_help",
+        "functions": [
+          "main",
+          "tokenize"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "tokenize": [
+            "text"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "database.foamgpt",
+        "module": "foamgpt_parser",
+        "functions": [
+          "main",
+          "parse_case_content",
+          "parse_tutorials",
+          "process_file"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "parse_case_content": [
+            "case_content"
+          ],
+          "parse_tutorials": [
+            "tutorials_content"
+          ],
+          "process_file": [
+            "input_path",
+            "output_path",
+            "char_limit"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "database.foamgpt",
+        "module": "foamgpt_openai",
+        "functions": [
+          "convert_to_openai_format",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "convert_to_openai_format": [
+            "input_file",
+            "output_file"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "database.foamgpt",
+        "module": "foamgpt_data",
+        "functions": [
+          "load_jsonl_data",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "load_jsonl_data": [
+            "file_path"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "database.foamgpt",
+        "module": "foamgpt_huggingface",
+        "functions": [
+          "split_data",
+          "upload_to_huggingface"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "split_data": [],
+          "upload_to_huggingface": [
+            "train_file",
+            "test_file"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "database.foamgpt",
+        "module": "foamgpt_gen",
+        "functions": [
+          "create_system_prompt",
+          "create_user_prompt",
+          "group_by_case_name",
+          "load_jsonl_data",
+          "main",
+          "process_cases"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "load_jsonl_data": [
+            "file_path"
+          ],
+          "group_by_case_name": [
+            "data"
+          ],
+          "create_system_prompt": [],
+          "create_user_prompt": [
+            "case_data"
+          ],
+          "process_cases": [
+            "grouped_data",
+            "llm_service",
+            "output_path"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src",
+        "module": "config",
+        "functions": [],
+        "classes": [
+          "Config"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src",
+        "module": "models",
+        "functions": [],
+        "classes": [
+          "ApplyFixIn",
+          "ApplyFixOut",
+          "CreateCaseIn",
+          "CreateCaseOut",
+          "GenerateFileIn",
+          "GenerateFileOut",
+          "HPCScriptIn",
+          "HPCScriptOut",
+          "JobStatusIn",
+          "JobStatusOut",
+          "LogsIn",
+          "LogsOut",
+          "MeshIn",
+          "MeshOut",
+          "PlanIn",
+          "PlanOut",
+          "RunIn",
+          "RunOut",
+          "Subtask",
+          "VisualizationIn",
+          "VisualizationOut"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src",
+        "module": "tracking_aws",
+        "functions": [
+          "get_usage",
+          "new_default_client",
+          "read_usage",
+          "track_usage",
+          "use_model"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "use_model": [
+            "model",
+            "eval_model"
+          ],
+          "track_usage": [
+            "client",
+            "path"
+          ],
+          "get_usage": [
+            "response",
+            "model"
+          ],
+          "read_usage": [
+            "path"
+          ],
+          "new_default_client": [
+            "default"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src",
+        "module": "utils",
+        "functions": [
+          "check_foam_errors",
+          "extract_commands_from_allrun_out",
+          "find_input_file",
+          "find_similar_file",
+          "get_embedding_model",
+          "list_case_files",
+          "load_faiss_dbs",
+          "parse_case_name",
+          "parse_context",
+          "parse_directory_structure",
+          "parse_file_name",
+          "parse_folder_name",
+          "read_case_foamfiles",
+          "read_commands",
+          "read_file",
+          "remove_file",
+          "remove_files",
+          "remove_numeric_folders",
+          "retrieve_faiss",
+          "run_command",
+          "save_file",
+          "scan_case_directory",
+          "split_subtasks",
+          "tokenize"
+        ],
+        "classes": [
+          "FoamPydantic",
+          "FoamfilePydantic",
+          "GraphState",
+          "LLMService",
+          "ResponseWithThinkPydantic"
+        ],
+        "function_signatures": {
+          "get_embedding_model": [
+            "config"
+          ],
+          "load_faiss_dbs": [
+            "config"
+          ],
+          "tokenize": [
+            "text"
+          ],
+          "save_file": [
+            "path",
+            "content"
+          ],
+          "read_file": [
+            "path"
+          ],
+          "list_case_files": [
+            "case_dir"
+          ],
+          "remove_files": [
+            "directory",
+            "prefix"
+          ],
+          "remove_file": [
+            "path"
+          ],
+          "remove_numeric_folders": [
+            "case_dir"
+          ],
+          "scan_case_directory": [
+            "case_dir"
+          ],
+          "read_case_foamfiles": [
+            "case_dir",
+            "dir_structure"
+          ],
+          "run_command": [
+            "script_path",
+            "out_file",
+            "err_file",
+            "working_dir",
+            "max_time_limit"
+          ],
+          "check_foam_errors": [
+            "directory"
+          ],
+          "extract_commands_from_allrun_out": [
+            "out_file"
+          ],
+          "parse_case_name": [
+            "text"
+          ],
+          "split_subtasks": [
+            "text"
+          ],
+          "parse_context": [
+            "text"
+          ],
+          "parse_file_name": [
+            "subtask"
+          ],
+          "parse_folder_name": [
+            "subtask"
+          ],
+          "find_similar_file": [
+            "description",
+            "tutorial"
+          ],
+          "read_commands": [
+            "file_path"
+          ],
+          "find_input_file": [
+            "case_dir",
+            "command"
+          ],
+          "retrieve_faiss": [
+            "database_name",
+            "query",
+            "topk"
+          ],
+          "parse_directory_structure": [
+            "data"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src",
+        "module": "main",
+        "functions": [
+          "create_foam_agent_graph",
+          "initialize_state",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "create_foam_agent_graph": [],
+          "initialize_state": [
+            "user_requirement",
+            "config",
+            "custom_mesh_path"
+          ],
+          "main": [
+            "user_requirement",
+            "config",
+            "custom_mesh_path"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src",
+        "module": "router_func",
+        "functions": [
+          "llm_requires_custom_mesh",
+          "llm_requires_hpc",
+          "llm_requires_visualization",
+          "route_after_input_writer",
+          "route_after_planner",
+          "route_after_reviewer",
+          "route_after_runner"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "llm_requires_custom_mesh": [
+            "state"
+          ],
+          "llm_requires_hpc": [
+            "state"
+          ],
+          "llm_requires_visualization": [
+            "state"
+          ],
+          "route_after_planner": [
+            "state"
+          ],
+          "route_after_input_writer": [
+            "state"
+          ],
+          "route_after_runner": [
+            "state"
+          ],
+          "route_after_reviewer": [
+            "state"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.nodes",
+        "module": "local_runner_node",
+        "functions": [
+          "local_runner_node"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "local_runner_node": [
+            "state"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.nodes",
+        "module": "visualization_node",
+        "functions": [
+          "visualization_node"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "visualization_node": [
+            "state"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.nodes",
+        "module": "reviewer_node",
+        "functions": [
+          "reviewer_node"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "reviewer_node": [
+            "state"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.nodes",
+        "module": "planner_node",
+        "functions": [
+          "planner_node"
+        ],
+        "classes": [
+          "CaseSummaryPydantic",
+          "OpenFOAMPlanPydantic",
+          "SubtaskPydantic"
+        ],
+        "function_signatures": {
+          "planner_node": [
+            "state"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.nodes",
+        "module": "meshing_node",
+        "functions": [
+          "handle_standard_mesh",
+          "meshing_node"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "handle_standard_mesh": [
+            "state",
+            "case_dir"
+          ],
+          "meshing_node": [
+            "state"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.nodes",
+        "module": "hpc_runner_node",
+        "functions": [
+          "hpc_runner_node"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "hpc_runner_node": [
+            "state"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.nodes",
+        "module": "input_writer_node",
+        "functions": [
+          "input_writer_node",
+          "parse_allrun",
+          "retrieve_commands"
+        ],
+        "classes": [
+          "CommandsPydantic"
+        ],
+        "function_signatures": {
+          "parse_allrun": [
+            "text"
+          ],
+          "retrieve_commands": [
+            "command_path"
+          ],
+          "input_writer_node": [
+            "state"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.mcp",
+        "module": "fastmcp_server",
+        "functions": [],
+        "classes": [
+          "ApplyFixesRequest",
+          "ApplyFixesResponse",
+          "GenerateFilesRequest",
+          "GenerateFilesResponse",
+          "PlanRequest",
+          "PlanResponse",
+          "ReviewRequest",
+          "ReviewResponse",
+          "RunSimulationRequest",
+          "RunSimulationResponse",
+          "VisualizationRequest",
+          "VisualizationResponse"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.services",
+        "module": "plan",
+        "functions": [
+          "decompose_to_subtasks",
+          "generate_simulation_plan",
+          "parse_requirement_to_case_info",
+          "resolve_case_dir",
+          "retrieve_references"
+        ],
+        "classes": [
+          "CaseSummaryModel",
+          "OpenFOAMPlanModel",
+          "SimilarCaseAdviceModel",
+          "SubtaskModel"
+        ],
+        "function_signatures": {
+          "parse_requirement_to_case_info": [
+            "user_requirement",
+            "case_stats"
+          ],
+          "resolve_case_dir": [
+            "case_name",
+            "case_dir",
+            "run_times",
+            "run_directory"
+          ],
+          "retrieve_references": [
+            "case_name",
+            "case_solver",
+            "case_domain",
+            "case_category",
+            "searchdocs",
+            "user_requirement"
+          ],
+          "decompose_to_subtasks": [
+            "user_requirement",
+            "dir_structure",
+            "dir_counts_str"
+          ],
+          "generate_simulation_plan": [
+            "user_requirement",
+            "case_stats",
+            "case_dir",
+            "searchdocs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.services",
+        "module": "mesh",
+        "functions": [
+          "check_boundary_file_for_missing_boundaries",
+          "copy_custom_mesh",
+          "extract_boundary_names_from_requirements",
+          "handle_gmsh_mesh",
+          "prepare_standard_mesh",
+          "run_checkmesh_and_correct"
+        ],
+        "classes": [
+          "GMSHPythonCode",
+          "GMSHPythonCorrection"
+        ],
+        "function_signatures": {
+          "copy_custom_mesh": [
+            "custom_mesh_path",
+            "user_requirement",
+            "case_dir"
+          ],
+          "prepare_standard_mesh": [
+            "user_requirement",
+            "case_dir"
+          ],
+          "extract_boundary_names_from_requirements": [
+            "user_requirement"
+          ],
+          "check_boundary_file_for_missing_boundaries": [
+            "boundary_file_path",
+            "expected_boundaries"
+          ],
+          "run_checkmesh_and_correct": [
+            "case_dir",
+            "python_file",
+            "max_loop",
+            "current_loop"
+          ],
+          "handle_gmsh_mesh": [
+            "user_requirement",
+            "case_dir",
+            "max_loop"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.services",
+        "module": "visualization",
+        "functions": [
+          "ensure_foam_file",
+          "fix_pyvista_script",
+          "generate_deterministic_pyvista_script",
+          "generate_pyvista_script",
+          "run_pyvista_script"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "ensure_foam_file": [
+            "case_dir"
+          ],
+          "generate_pyvista_script": [
+            "case_dir",
+            "foam_file",
+            "user_requirement",
+            "previous_errors"
+          ],
+          "run_pyvista_script": [
+            "case_dir",
+            "script"
+          ],
+          "fix_pyvista_script": [
+            "foam_file",
+            "original_script",
+            "error_logs"
+          ],
+          "generate_deterministic_pyvista_script": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.services",
+        "module": "review",
+        "functions": [
+          "generate_rewrite_plan",
+          "review_error_logs"
+        ],
+        "classes": [
+          "PlannedFileChange",
+          "RewritePlan"
+        ],
+        "function_signatures": {
+          "review_error_logs": [
+            "tutorial_reference",
+            "foamfiles",
+            "error_logs",
+            "user_requirement",
+            "similar_case_advice",
+            "history_text"
+          ],
+          "generate_rewrite_plan": [
+            "foamfiles",
+            "error_logs",
+            "review_analysis",
+            "user_requirement"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.services",
+        "module": "run_local",
+        "functions": [
+          "run_allrun_and_collect_errors",
+          "run_simulation_local"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "run_allrun_and_collect_errors": [
+            "case_dir",
+            "timeout",
+            "max_retries"
+          ],
+          "run_simulation_local": [
+            "case_id",
+            "case_dir",
+            "timeout",
+            "max_retries"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.services",
+        "module": "input_writer",
+        "functions": [
+          "build_allrun",
+          "compute_priority",
+          "initial_write",
+          "rewrite_files"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "compute_priority": [
+            "subtask"
+          ],
+          "initial_write": [
+            "case_dir",
+            "subtasks",
+            "user_requirement",
+            "tutorial_reference",
+            "case_solver",
+            "generation_mode",
+            "case_info",
+            "allrun_reference",
+            "mesh_type",
+            "mesh_commands",
+            "database_path",
+            "searchdocs",
+            "similar_case_advice",
+            "reuse_generated_dir"
+          ],
+          "build_allrun": [
+            "case_dir",
+            "database_path",
+            "searchdocs",
+            "dir_structure",
+            "case_info",
+            "allrun_reference",
+            "mesh_type",
+            "mesh_commands",
+            "user_requirement"
+          ],
+          "rewrite_files": [
+            "case_dir",
+            "error_logs",
+            "review_analysis",
+            "rewrite_plan",
+            "user_requirement",
+            "foamfiles",
+            "dir_structure"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.services",
+        "module": "run_hpc",
+        "functions": [
+          "check_job",
+          "check_job_status",
+          "check_logs_for_errors",
+          "create_slurm_script",
+          "create_slurm_script_with_error_context",
+          "extract_cluster_info_from_requirement",
+          "generate_hpc_script",
+          "run_simulation_hpc",
+          "submit_slurm_job",
+          "wait_for_job"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "create_slurm_script": [
+            "case_dir",
+            "cluster_info"
+          ],
+          "create_slurm_script_with_error_context": [
+            "case_dir",
+            "cluster_info",
+            "error_message",
+            "previous_script_content"
+          ],
+          "submit_slurm_job": [
+            "script_path"
+          ],
+          "check_job_status": [
+            "job_id"
+          ],
+          "generate_hpc_script": [
+            "inp",
+            "case_dir"
+          ],
+          "run_simulation_hpc": [
+            "script_path"
+          ],
+          "check_job": [
+            "inp"
+          ],
+          "extract_cluster_info_from_requirement": [
+            "user_requirement",
+            "case_dir"
+          ],
+          "check_logs_for_errors": [
+            "case_dir"
+          ],
+          "wait_for_job": [
+            "job_id",
+            "max_wait_time",
+            "wait_interval"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python src/mcp/start_mcp.py",
+        "module": "src.mcp.start_mcp",
+        "description": "Starts MCP server entrypoint (FastMCP-based integration layer)."
+      },
+      {
+        "name": "python src/main.py",
+        "module": "src.main",
+        "description": "Primary orchestration entrypoint for agent workflow execution."
+      },
+      {
+        "name": "python app.py",
+        "module": "app",
+        "description": "Top-level lightweight launcher delegating to project runtime."
+      },
+      {
+        "name": "python init_database.py",
+        "module": "init_database",
+        "description": "Initializes/refreshes local RAG and FAISS-related data assets."
+      },
+      {
+        "name": "python foambench_main.py",
+        "module": "foambench_main",
+        "description": "Benchmark/evaluation runner for Foam-Agent pipeline."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.10",
+        "openfoam runtime (system-level)",
+        "fastmcp",
+        "pydantic",
+        "langchain/langgraph-style orchestration stack",
+        "faiss (or faiss-cpu)",
+        "numpy",
+        "requests",
+        "PyYAML"
+      ],
+      "optional": [
+        "openai",
+        "transformers",
+        "huggingface_hub",
+        "boto3",
+        "matplotlib",
+        "paraview/python-paraview bindings",
+        "slurm client utilities (sbatch/squeue/scancel)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.83,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/csml-rpi/Foam-Agent",
+    "repo_name": "Foam-Agent",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.83,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

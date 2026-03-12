@@ -1,0 +1,213 @@
+{
+  "repository": {
+    "name": "oemof",
+    "url": "https://github.com/oemof/oemof",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/oemof",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "simple",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773247667.613471,
+    "end_time": 1773247815.811595,
+    "duration": 148.19812393188477,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 1,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.src.oemof"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.61,
+      "intrusiveness_risk": "low",
+      "complexity": "simple"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/oemof/oemof",
+      "repo_name": "oemof",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/oemof/mcp_output/README_MCP.md",
+    "adapter_mode": "cli",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add and run a minimal automated test suite for the generated MCP plugin (smoke test for `start_mcp.py`",
+    "unit tests for `adapter.main` success/failure paths",
+    "and CLI invocation tests)",
+    "deduplicate endpoint registration (plugin reports `['main'",
+    "'main']`) and enforce unique command naming",
+    "harden CLI adapter error handling with structured exceptions/timeouts and user-friendly stderr messages",
+    "pin and align packaging metadata (single source of truth in `pyproject.toml`",
+    "reduce overlap with `setup.py`/`setup.cfg`)",
+    "add CI workflow (GitHub Actions) to run lint/type/test/build on push and PR",
+    "introduce code quality gates (ruff/black + mypy or pyright) and pre-commit hooks",
+    "improve MCP README with concrete run examples",
+    "expected inputs/outputs",
+    "and troubleshooting",
+    "add dependency/security hygiene (lock file",
+    "`pip-audit`/`safety`",
+    "Dependabot)",
+    "add observability basics (debug logging levels and optional request/response tracing in `mcp_service.py`)",
+    "validate compatibility matrix (Python versions and OS) and document supported environments",
+    "replace legacy CI template remnants (`.travis.yml`/appveyor templates) with current maintained CI configuration",
+    "strengthen release process with semantic versioning checks and changelog automation",
+    "add integration test that exercises MCP server end-to-end against the oemof CLI entrypoint (`python -m oemof`)"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Repository complexity and intrusiveness risk were low/simple, enabling straightforward CLI-based adapter generation.",
+      "Generated MCP plugin started successfully (service_health=healthy, transport=stdio), indicating viable runtime wiring.",
+      "Existing CLI entrypoint (`python -m oemof` / `oemof.cli.main`) provided a clear integration surface for tool wrapping.",
+      "No runtime errors or warnings were emitted by the pipeline execution."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality/completeness gaps: duplicated endpoint registration (`main`, `main`), missing effective test execution for original project, and incomplete performance telemetry (all zeros/empty).",
+      "DeepWiki enrichment failed, reducing analysis depth for architecture/domain context.",
+      "Packaging metadata is fragmented across pyproject/setup.py/setup.cfg, increasing drift risk."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; likely fast due to small repository footprint (26 files).",
+      "analysis_time": "Moderate and sufficient for structure/dependency/risk extraction, but DeepWiki step failed and entry-point discovery remained shallow.",
+      "generation_time": "Efficient; plugin scaffold generated with expected files and requirements, though metrics reported 0 LOC/size suggest instrumentation gaps.",
+      "test_time": "MCP plugin smoke status passed, but original project tests effectively not run (passed=false with empty test details), so confidence is limited."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/undetermined due to zeroed metrics; no signs of memory pressure in logs.",
+      "cpu_efficiency": "Unknown/undetermined due to zeroed metrics; runtime (148s total) appears acceptable for this repository size.",
+      "disk_usage": "Low absolute footprint expected (small repo + minimal generated files), but generated size telemetry is missing (0)."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 74,
+    "performance_score": 61,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 64
+  }
+}

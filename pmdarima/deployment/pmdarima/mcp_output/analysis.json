@@ -1,0 +1,674 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/alkaline-ml/pmdarima",
+    "summary": "Imported via zip fallback, file count: 148",
+    "file_tree": {
+      ".circleci/config.yml": {
+        "size": 4666
+      },
+      ".codecov.yml": {
+        "size": 632
+      },
+      ".github/CONTRIBUTING.md": {
+        "size": 4573
+      },
+      ".github/FUNDING.yml": {
+        "size": 38
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.yml": {
+        "size": 2339
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.yml": {
+        "size": 1272
+      },
+      ".github/ISSUE_TEMPLATE/question.yml": {
+        "size": 1832
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 1323
+      },
+      ".github/stale.yml": {
+        "size": 1934
+      },
+      ".github/utils/get_dependency_releases.py": {
+        "size": 864
+      },
+      ".github/workflows/badges.yml": {
+        "size": 677
+      },
+      ".github/workflows/build_and_deploy.yml": {
+        "size": 3374
+      },
+      ".github/workflows/nightly_cron.yml": {
+        "size": 5767
+      },
+      "AUTHORS.md": {
+        "size": 757
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 3381
+      },
+      "README.md": {
+        "size": 5857
+      },
+      "benchmarks/benchmark_funcs.py": {
+        "size": 1331
+      },
+      "build_tools/get_tag.py": {
+        "size": 925
+      },
+      "build_tools/github/get_latest_dependencies.py": {
+        "size": 2824
+      },
+      "doc/_static/js/contrib.js": {
+        "size": 2709
+      },
+      "doc/_static/js/jquery.min.js": {
+        "size": 89501
+      },
+      "doc/conf.py": {
+        "size": 7516
+      },
+      "doc/sphinxext/github_link.py": {
+        "size": 2672
+      },
+      "etc/downloads_badges.py": {
+        "size": 4026
+      },
+      "examples/README.txt": {
+        "size": 240
+      },
+      "examples/arima/README.txt": {
+        "size": 159
+      },
+      "examples/arima/example_add_new_samples.py": {
+        "size": 2463
+      },
+      "examples/arima/example_auto_arima.py": {
+        "size": 1936
+      },
+      "examples/arima/example_persisting_a_model.py": {
+        "size": 1311
+      },
+      "examples/arima/example_seasonal_decomposition.py": {
+        "size": 3037
+      },
+      "examples/datasets/README.txt": {
+        "size": 231
+      },
+      "examples/datasets/example_load_data.py": {
+        "size": 953
+      },
+      "examples/example_pipeline.py": {
+        "size": 3655
+      },
+      "examples/example_simple_fit.py": {
+        "size": 1155
+      },
+      "examples/model_selection/README.txt": {
+        "size": 230
+      },
+      "examples/model_selection/example_cross_val_predict.py": {
+        "size": 1386
+      },
+      "examples/model_selection/example_cross_validation.py": {
+        "size": 2021
+      },
+      "examples/preprocessing/README.txt": {
+        "size": 245
+      },
+      "examples/preprocessing/example_date_featurizer.py": {
+        "size": 2754
+      },
+      "examples/utils/README.txt": {
+        "size": 187
+      },
+      "examples/utils/example_array_concatenation.py": {
+        "size": 858
+      },
+      "examples/utils/example_array_differencing.py": {
+        "size": 1230
+      },
+      "examples/utils/example_tsdisplay.py": {
+        "size": 1231
+      },
+      "pmdarima/__check_build/__init__.py": {
+        "size": 1671
+      },
+      "pmdarima/__check_build/tests/__init__.py": {
+        "size": 24
+      },
+      "pmdarima/__check_build/tests/test_check_build.py": {
+        "size": 405
+      },
+      "pmdarima/__init__.py": {
+        "size": 3396
+      },
+      "pmdarima/_build_utils/__init__.py": {
+        "size": 4058
+      },
+      "pmdarima/_build_utils/pre_build_helpers.py": {
+        "size": 2390
+      },
+      "pmdarima/_build_utils/tests/__init__.py": {
+        "size": 24
+      },
+      "pmdarima/arima/__init__.py": {
+        "size": 487
+      },
+      "pmdarima/arima/_auto_solvers.py": {
+        "size": 20640
+      },
+      "pmdarima/arima/_context.py": {
+        "size": 6992
+      },
+      "pmdarima/arima/_doc.py": {
+        "size": 14039
+      },
+      "pmdarima/arima/_validation.py": {
+        "size": 5090
+      },
+      "pmdarima/arima/approx.py": {
+        "size": 5849
+      },
+      "pmdarima/arima/arima.py": {
+        "size": 52546
+      },
+      "pmdarima/arima/auto.py": {
+        "size": 23332
+      },
+      "pmdarima/arima/seasonality.py": {
+        "size": 22032
+      },
+      "pmdarima/arima/stationarity.py": {
+        "size": 16521
+      },
+      "pmdarima/arima/tests/__init__.py": {
+        "size": 0
+      },
+      "pmdarima/arima/tests/test_approx.py": {
+        "size": 2414
+      },
+      "pmdarima/arima/tests/test_arima.py": {
+        "size": 26262
+      },
+      "pmdarima/arima/tests/test_arima_diagnostics.py": {
+        "size": 2667
+      },
+      "pmdarima/arima/tests/test_auto.py": {
+        "size": 16758
+      },
+      "pmdarima/arima/tests/test_auto_solvers.py": {
+        "size": 1164
+      },
+      "pmdarima/arima/tests/test_c_arima.py": {
+        "size": 225
+      },
+      "pmdarima/arima/tests/test_context.py": {
+        "size": 4794
+      },
+      "pmdarima/arima/tests/test_seasonality.py": {
+        "size": 12095
+      },
+      "pmdarima/arima/tests/test_stationarity.py": {
+        "size": 6807
+      },
+      "pmdarima/arima/tests/test_utils.py": {
+        "size": 1042
+      },
+      "pmdarima/arima/tests/test_validation.py": {
+        "size": 6518
+      },
+      "pmdarima/arima/utils.py": {
+        "size": 6450
+      },
+      "pmdarima/base.py": {
+        "size": 2321
+      },
+      "pmdarima/compat/__init__.py": {
+        "size": 384
+      },
+      "pmdarima/compat/matplotlib.py": {
+        "size": 2244
+      },
+      "pmdarima/compat/numpy.py": {
+        "size": 576
+      },
+      "pmdarima/compat/pandas.py": {
+        "size": 199
+      },
+      "pmdarima/compat/pytest.py": {
+        "size": 613
+      },
+      "pmdarima/compat/sklearn.py": {
+        "size": 2773
+      },
+      "pmdarima/compat/statsmodels.py": {
+        "size": 1872
+      },
+      "pmdarima/compat/tests/__init__.py": {
+        "size": 0
+      },
+      "pmdarima/compat/tests/test_sklearn.py": {
+        "size": 1113
+      },
+      "pmdarima/compat/tests/test_statsmodels.py": {
+        "size": 1158
+      },
+      "pmdarima/context_managers.py": {
+        "size": 1144
+      },
+      "pmdarima/datasets/__init__.py": {
+        "size": 315
+      },
+      "pmdarima/datasets/_base.py": {
+        "size": 2332
+      },
+      "pmdarima/datasets/airpassengers.py": {
+        "size": 3134
+      },
+      "pmdarima/datasets/ausbeer.py": {
+        "size": 5191
+      },
+      "pmdarima/datasets/austres.py": {
+        "size": 3306
+      },
+      "pmdarima/datasets/gasoline.py": {
+        "size": 2009
+      },
+      "pmdarima/datasets/heartrate.py": {
+        "size": 4646
+      },
+      "pmdarima/datasets/lynx.py": {
+        "size": 3573
+      },
+      "pmdarima/datasets/stocks.py": {
+        "size": 782
+      },
+      "pmdarima/datasets/sunspots.py": {
+        "size": 2250
+      },
+      "pmdarima/datasets/taylor.py": {
+        "size": 35522
+      },
+      "pmdarima/datasets/tests/__init__.py": {
+        "size": 0
+      },
+      "pmdarima/datasets/tests/test_load_datasets.py": {
+        "size": 2241
+      },
+      "pmdarima/datasets/wineind.py": {
+        "size": 4838
+      },
+      "pmdarima/datasets/woolyrnq.py": {
+        "size": 3720
+      },
+      "pmdarima/decorators.py": {
+        "size": 1211
+      },
+      "pmdarima/metrics.py": {
+        "size": 1586
+      },
+      "pmdarima/model_selection/__init__.py": {
+        "size": 129
+      },
+      "pmdarima/model_selection/_split.py": {
+        "size": 13283
+      },
+      "pmdarima/model_selection/_validation.py": {
+        "size": 13444
+      },
+      "pmdarima/model_selection/tests/__init__.py": {
+        "size": 0
+      },
+      "pmdarima/model_selection/tests/test_split.py": {
+        "size": 4588
+      },
+      "pmdarima/model_selection/tests/test_validation.py": {
+        "size": 4849
+      },
+      "pmdarima/pipeline.py": {
+        "size": 22230
+      },
+      "pmdarima/preprocessing/__init__.py": {
+        "size": 141
+      },
+      "pmdarima/preprocessing/base.py": {
+        "size": 4708
+      },
+      "pmdarima/preprocessing/endog/__init__.py": {
+        "size": 233
+      },
+      "pmdarima/preprocessing/endog/base.py": {
+        "size": 1264
+      },
+      "pmdarima/preprocessing/endog/boxcox.py": {
+        "size": 5456
+      },
+      "pmdarima/preprocessing/endog/log.py": {
+        "size": 4618
+      },
+      "pmdarima/preprocessing/endog/tests/__init__.py": {
+        "size": 0
+      },
+      "pmdarima/preprocessing/endog/tests/test_base.py": {
+        "size": 390
+      },
+      "pmdarima/preprocessing/endog/tests/test_boxcox.py": {
+        "size": 2483
+      },
+      "pmdarima/preprocessing/endog/tests/test_log.py": {
+        "size": 1097
+      },
+      "pmdarima/preprocessing/exog/__init__.py": {
+        "size": 236
+      },
+      "pmdarima/preprocessing/exog/base.py": {
+        "size": 3245
+      },
+      "pmdarima/preprocessing/exog/dates.py": {
+        "size": 7249
+      },
+      "pmdarima/preprocessing/exog/fourier.py": {
+        "size": 8782
+      },
+      "pmdarima/preprocessing/exog/tests/__init__.py": {
+        "size": 24
+      },
+      "pmdarima/preprocessing/exog/tests/test_base.py": {
+        "size": 1152
+      },
+      "pmdarima/preprocessing/exog/tests/test_dates.py": {
+        "size": 3618
+      },
+      "pmdarima/preprocessing/exog/tests/test_fourier.py": {
+        "size": 4976
+      },
+      "pmdarima/preprocessing/tests/__init__.py": {
+        "size": 0
+      },
+      "pmdarima/preprocessing/tests/test_base.py": {
+        "size": 316
+      },
+      "pmdarima/tests/__init__.py": {
+        "size": 0
+      },
+      "pmdarima/tests/test_context_managers.py": {
+        "size": 1299
+      },
+      "pmdarima/tests/test_estimators.py": {
+        "size": 898
+      },
+      "pmdarima/tests/test_metrics.py": {
+        "size": 800
+      },
+      "pmdarima/tests/test_pipeline.py": {
+        "size": 8792
+      },
+      "pmdarima/utils/__init__.py": {
+        "size": 790
+      },
+      "pmdarima/utils/_show_versions.py": {
+        "size": 2442
+      },
+      "pmdarima/utils/array.py": {
+        "size": 15942
+      },
+      "pmdarima/utils/metaestimators.py": {
+        "size": 3457
+      },
+      "pmdarima/utils/tests/__init__.py": {
+        "size": 0
+      },
+      "pmdarima/utils/tests/test_array.py": {
+        "size": 8696
+      },
+      "pmdarima/utils/tests/test_meta.py": {
+        "size": 662
+      },
+      "pmdarima/utils/tests/test_show_versions.py": {
+        "size": 329
+      },
+      "pmdarima/utils/tests/test_vis.py": {
+        "size": 1324
+      },
+      "pmdarima/utils/tests/test_wrapped.py": {
+        "size": 622
+      },
+      "pmdarima/utils/visualization.py": {
+        "size": 13714
+      },
+      "pmdarima/utils/wrapped.py": {
+        "size": 2270
+      },
+      "pmdarima/warnings.py": {
+        "size": 521
+      },
+      "pyproject.toml": {
+        "size": 2822
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.pmdarima",
+      "source.pmdarima.__check_build",
+      "source.pmdarima._build_utils",
+      "source.pmdarima.arima",
+      "source.pmdarima.compat",
+      "source.pmdarima.datasets",
+      "source.pmdarima.model_selection",
+      "source.pmdarima.preprocessing",
+      "source.pmdarima.tests",
+      "source.pmdarima.utils"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.pmdarima.arima",
+        "module": "auto",
+        "functions": [
+          "auto_arima"
+        ],
+        "classes": [
+          "AutoARIMA",
+          "StepwiseContext"
+        ],
+        "description": "Primary high-level ARIMA model selection interface (stepwise/grid search), central to forecasting workflows."
+      },
+      {
+        "package": "source.pmdarima.arima",
+        "module": "arima",
+        "functions": [],
+        "classes": [
+          "ARIMA"
+        ],
+        "description": "Core estimator implementation wrapping statsmodels ARIMA/SARIMAX behavior with sklearn-style API."
+      },
+      {
+        "package": "source.pmdarima.arima",
+        "module": "seasonality",
+        "functions": [
+          "decompose"
+        ],
+        "classes": [],
+        "description": "Seasonality diagnostics and decomposition helpers used during order/seasonality reasoning."
+      },
+      {
+        "package": "source.pmdarima.arima",
+        "module": "stationarity",
+        "functions": [
+          "ADFTest",
+          "KPSSTest",
+          "PPTest"
+        ],
+        "classes": [],
+        "description": "Stationarity testing utilities used for differencing and order decisions."
+      },
+      {
+        "package": "source.pmdarima.model_selection",
+        "module": "_validation",
+        "functions": [
+          "cross_val_score",
+          "cross_val_predict"
+        ],
+        "classes": [],
+        "description": "Time-series-aware validation utilities for estimator selection and forecast evaluation."
+      },
+      {
+        "package": "source.pmdarima.model_selection",
+        "module": "_split",
+        "functions": [],
+        "classes": [
+          "RollingForecastCV",
+          "SlidingWindowForecastCV"
+        ],
+        "description": "Cross-validation splitters tailored for temporal data."
+      },
+      {
+        "package": "source.pmdarima.preprocessing.exog",
+        "module": "dates",
+        "functions": [],
+        "classes": [
+          "DateFeaturizer"
+        ],
+        "description": "Date feature extraction for exogenous regressors."
+      },
+      {
+        "package": "source.pmdarima.preprocessing.exog",
+        "module": "fourier",
+        "functions": [],
+        "classes": [
+          "FourierFeaturizer"
+        ],
+        "description": "Fourier term generation for seasonal/exogenous modeling."
+      },
+      {
+        "package": "source.pmdarima.preprocessing.endog",
+        "module": "boxcox",
+        "functions": [],
+        "classes": [
+          "BoxCoxEndogTransformer"
+        ],
+        "description": "Target-series Box-Cox transformations."
+      },
+      {
+        "package": "source.pmdarima.preprocessing.endog",
+        "module": "log",
+        "functions": [],
+        "classes": [
+          "LogEndogTransformer"
+        ],
+        "description": "Log transformation preprocessing for endogenous series."
+      },
+      {
+        "package": "source.pmdarima",
+        "module": "pipeline",
+        "functions": [],
+        "classes": [
+          "Pipeline"
+        ],
+        "description": "Sklearn-like compositional pipeline for preprocessing + ARIMA modeling."
+      },
+      {
+        "package": "source.pmdarima.datasets",
+        "module": "__init__",
+        "functions": [
+          "load_airpassengers",
+          "load_ausbeer",
+          "load_austres",
+          "load_gasoline",
+          "load_heartrate",
+          "load_lynx",
+          "load_sunspots",
+          "load_taylor",
+          "load_wineind",
+          "load_woolyrnq"
+        ],
+        "classes": [],
+        "description": "Built-in demo datasets useful for plugin smoke-tests and examples."
+      },
+      {
+        "package": "source.pmdarima",
+        "module": "metrics",
+        "functions": [
+          "smape"
+        ],
+        "classes": [],
+        "description": "Forecast metric utilities."
+      },
+      {
+        "package": "source.pmdarima.utils",
+        "module": "__init__",
+        "functions": [
+          "acf",
+          "pacf",
+          "c",
+          "diff",
+          "ndiffs",
+          "nsdiffs"
+        ],
+        "classes": [],
+        "description": "General utility/statistical helper functions used by higher-level APIs."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.95
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "scikit-learn",
+        "pandas",
+        "statsmodels",
+        "joblib",
+        "Cython"
+      ],
+      "optional": [
+        "matplotlib",
+        "pytest"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.92,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/alkaline-ml/pmdarima",
+    "repo_name": "pmdarima",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.92,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

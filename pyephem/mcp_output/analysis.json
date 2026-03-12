@@ -1,0 +1,440 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/brandon-rhodes/pyephem",
+    "summary": "Imported via zip fallback, file count: 57",
+    "file_tree": {
+      ".github/workflows/build-and-test.yml": {
+        "size": 1457
+      },
+      ".github/workflows/github-deploy.yml": {
+        "size": 4445
+      },
+      "CMakeLists.txt": {
+        "size": 1143
+      },
+      "data/README.txt": {
+        "size": 75
+      },
+      "data/horizons_moon_magnitude.txt": {
+        "size": 9192
+      },
+      "ephem/__init__.py": {
+        "size": 25798
+      },
+      "ephem/cities.py": {
+        "size": 10672
+      },
+      "ephem/doc/conf.py": {
+        "size": 5602
+      },
+      "ephem/stars.py": {
+        "size": 9302
+      },
+      "ephem/tests/__init__.py": {
+        "size": 0
+      },
+      "ephem/tests/jpl/europa.txt": {
+        "size": 7951
+      },
+      "ephem/tests/jpl/hyperion.txt": {
+        "size": 5683
+      },
+      "ephem/tests/jpl/jupiter.txt": {
+        "size": 6519
+      },
+      "ephem/tests/jpl/mars.txt": {
+        "size": 7956
+      },
+      "ephem/tests/jpl/neptune.txt": {
+        "size": 5239
+      },
+      "ephem/tests/jpl/oberon.txt": {
+        "size": 5233
+      },
+      "ephem/tests/jpl/phobos.txt": {
+        "size": 7957
+      },
+      "ephem/tests/jpl/saturn.txt": {
+        "size": 5721
+      },
+      "ephem/tests/jpl/uranus.txt": {
+        "size": 5239
+      },
+      "ephem/tests/test_angles.py": {
+        "size": 2482
+      },
+      "ephem/tests/test_bodies.py": {
+        "size": 13187
+      },
+      "ephem/tests/test_cities.py": {
+        "size": 284
+      },
+      "ephem/tests/test_constants.py": {
+        "size": 434
+      },
+      "ephem/tests/test_dates.py": {
+        "size": 5029
+      },
+      "ephem/tests/test_github_issues.py": {
+        "size": 4344
+      },
+      "ephem/tests/test_jpl.py": {
+        "size": 3026
+      },
+      "ephem/tests/test_launchpad_236872.py": {
+        "size": 371
+      },
+      "ephem/tests/test_launchpad_244811.py": {
+        "size": 801
+      },
+      "ephem/tests/test_locales.py": {
+        "size": 1307
+      },
+      "ephem/tests/test_mag.py": {
+        "size": 1573
+      },
+      "ephem/tests/test_observers.py": {
+        "size": 1412
+      },
+      "ephem/tests/test_rise_set.py": {
+        "size": 6888
+      },
+      "ephem/tests/test_rst.py": {
+        "size": 1113
+      },
+      "ephem/tests/test_satellite.py": {
+        "size": 4624
+      },
+      "ephem/tests/test_stars.py": {
+        "size": 9026
+      },
+      "ephem/tests/test_usno.py": {
+        "size": 17288
+      },
+      "ephem/tests/test_usno_equinoxes.py": {
+        "size": 6856
+      },
+      "ephem/tests/usno/appgeo_deneb.txt": {
+        "size": 1181
+      },
+      "ephem/tests/usno/appgeo_jupiter.txt": {
+        "size": 1296
+      },
+      "ephem/tests/usno/appgeo_moon.txt": {
+        "size": 1284
+      },
+      "ephem/tests/usno/appgeo_sun.txt": {
+        "size": 1421
+      },
+      "ephem/tests/usno/apptopo_deneb.txt": {
+        "size": 1391
+      },
+      "ephem/tests/usno/apptopo_moon.txt": {
+        "size": 1515
+      },
+      "ephem/tests/usno/apptopo_sun.txt": {
+        "size": 1527
+      },
+      "ephem/tests/usno/astrom_antares.txt": {
+        "size": 1181
+      },
+      "ephem/tests/usno/astrom_mercury.txt": {
+        "size": 1296
+      },
+      "ephem/tests/usno/astrom_neptune.txt": {
+        "size": 1296
+      },
+      "ephem/tests/usno/moon_phases.txt": {
+        "size": 1072
+      },
+      "ephem/tests/usno/riset_moon.txt": {
+        "size": 5498
+      },
+      "ephem/tests/usno/riset_sun.txt": {
+        "size": 5498
+      },
+      "ephem/tests/usno/risettran_moon.txt": {
+        "size": 2036
+      },
+      "ephem/tests/usno/risettran_rigel.txt": {
+        "size": 2476
+      },
+      "ephem/tests/wulfgar.py": {
+        "size": 748
+      },
+      "generate/cities.py": {
+        "size": 2402
+      },
+      "pyephem/setup.py": {
+        "size": 1648
+      },
+      "requirements.txt": {
+        "size": 31
+      },
+      "setup.py": {
+        "size": 3160
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.ephem",
+      "source.ephem.tests"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": true,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "ephem",
+        "module": "ephem",
+        "functions": [
+          "city",
+          "describe_riset_search",
+          "holiday",
+          "localtime",
+          "newton",
+          "next_autumnal_equinox",
+          "next_equinox",
+          "next_first_quarter_moon",
+          "next_full_moon",
+          "next_last_quarter_moon",
+          "next_new_moon",
+          "next_solstice",
+          "next_summer_solstice",
+          "next_vernal_equinox",
+          "next_winter_solstice",
+          "previous_autumnal_equinox",
+          "previous_equinox",
+          "previous_first_quarter_moon",
+          "previous_full_moon",
+          "previous_last_quarter_moon",
+          "previous_new_moon",
+          "previous_solstice",
+          "previous_summer_solstice",
+          "previous_vernal_equinox",
+          "previous_winter_solstice",
+          "star",
+          "to_timezone"
+        ],
+        "classes": [
+          "AlwaysUpError",
+          "Ariel",
+          "Callisto",
+          "CircumpolarError",
+          "Coordinate",
+          "Deimos",
+          "Dione",
+          "Ecliptic",
+          "Enceladus",
+          "Equatorial",
+          "Europa",
+          "Galactic",
+          "Ganymede",
+          "Hyperion",
+          "Iapetus",
+          "Io",
+          "Jupiter",
+          "LonLatCoordinate",
+          "Mars",
+          "Mercury",
+          "Mimas",
+          "Miranda",
+          "Moon",
+          "Neptune",
+          "NeverUpError",
+          "Oberon",
+          "Observer",
+          "Phobos",
+          "Pluto",
+          "Rhea",
+          "Saturn",
+          "Sun",
+          "Tethys",
+          "Titan",
+          "Titania",
+          "Umbriel",
+          "Uranus",
+          "Venus"
+        ],
+        "function_signatures": {
+          "newton": [
+            "f",
+            "x0",
+            "x1",
+            "precision"
+          ],
+          "holiday": [
+            "d0",
+            "motion",
+            "offset"
+          ],
+          "previous_vernal_equinox": [
+            "date"
+          ],
+          "next_vernal_equinox": [
+            "date"
+          ],
+          "previous_summer_solstice": [
+            "date"
+          ],
+          "next_summer_solstice": [
+            "date"
+          ],
+          "previous_autumnal_equinox": [
+            "date"
+          ],
+          "next_autumnal_equinox": [
+            "date"
+          ],
+          "previous_winter_solstice": [
+            "date"
+          ],
+          "next_winter_solstice": [
+            "date"
+          ],
+          "previous_equinox": [
+            "date"
+          ],
+          "next_equinox": [
+            "date"
+          ],
+          "previous_solstice": [
+            "date"
+          ],
+          "next_solstice": [
+            "date"
+          ],
+          "previous_new_moon": [
+            "date"
+          ],
+          "next_new_moon": [
+            "date"
+          ],
+          "previous_first_quarter_moon": [
+            "date"
+          ],
+          "next_first_quarter_moon": [
+            "date"
+          ],
+          "previous_full_moon": [
+            "date"
+          ],
+          "next_full_moon": [
+            "date"
+          ],
+          "previous_last_quarter_moon": [
+            "date"
+          ],
+          "next_last_quarter_moon": [
+            "date"
+          ],
+          "describe_riset_search": [
+            "method"
+          ],
+          "localtime": [
+            "date"
+          ],
+          "to_timezone": [
+            "date",
+            "tzinfo"
+          ],
+          "star": [
+            "name"
+          ],
+          "city": [
+            "name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "ephem",
+        "module": "stars",
+        "functions": [
+          "build_stars",
+          "star"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "build_stars": [],
+          "star": [
+            "name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "ephem",
+        "module": "cities",
+        "functions": [
+          "city",
+          "lookup",
+          "lookup_with_geonames"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "city": [
+            "name"
+          ],
+          "lookup": [
+            "address"
+          ],
+          "lookup_with_geonames": [
+            "q",
+            "username"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "Python runtime",
+        "built extension bundled with package (PyEphem C extension via setup/CMake build)"
+      ],
+      "optional": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/brandon-rhodes/pyephem",
+    "repo_name": "pyephem",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

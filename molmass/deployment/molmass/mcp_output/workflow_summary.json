@@ -1,0 +1,219 @@
+{
+  "repository": {
+    "name": "molmass",
+    "url": "https://github.com/cgohlke/molmass",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/molmass",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "simple",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773265759.1715531,
+    "end_time": 1773266015.6803598,
+    "duration": 256.50880670547485,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.96,
+      "intrusiveness_risk": "low",
+      "complexity": "simple"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/cgohlke/molmass",
+      "repo_name": "molmass",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/molmass/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/molmass/temp_clone'...\nfatal: unable to access 'https://github.com/cgohlke/molmass/': Error in the HTTP2 framing layer\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/molmass/temp_clone'...\nfatal: unable to access 'https://github.com/cgohlke/molmass/': Error in the HTTP2 framing layer\n"
+  ],
+  "recommendations": [
+    "add and run a focused MCP test suite (unit + smoke) since Test status is empty",
+    "trim exposed endpoints to a curated stable surface (prioritize molmass core: analyze/from_* helpers/Formula/Composition/Spectrum) and remove GUI/web/internal classes from default export",
+    "resolve endpoint name collisions (multiple `main`) with explicit namespacing",
+    "add strict input/output Pydantic schemas and consistent error mapping (e.g.",
+    "FormulaError → structured MCP error)",
+    "implement version/compatibility guards against upstream molmass changes plus contract tests",
+    "improve packaging metadata detection in the pipeline (pyproject/setup were present but reported false) and add a lockfile/reproducible install flow",
+    "add performance benchmarks for heavy formula/spectrum paths and cache immutable element-table lookups",
+    "strengthen observability (structured logs",
+    "request IDs",
+    "timing",
+    "endpoint-level success/failure counters)",
+    "document endpoint semantics and examples in README_MCP (including unsupported/optional GUI-web features)",
+    "add CI gates (lint",
+    "type-check",
+    "tests",
+    "build",
+    "MCP startup check) and release automation",
+    "harden security/robustness with input size limits and timeout guards for expensive analyses",
+    "split adapter into domain-focused modules (core chemistry vs auxiliary interfaces) to reduce maintenance risk",
+    "pin and periodically audit dependencies (fastmcp/pydantic) with minimal version matrix testing"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Robust fallback behavior: after git clone failure, pipeline continued via zip-based source ingestion and still produced MCP artifacts.",
+      "Import-based adapter strategy matched repository characteristics (simple Python package, high import feasibility 0.96).",
+      "Generated service started successfully with healthy MCP status over stdio transport."
+    ],
+    "failure_reasons": [
+      "Primary source acquisition failed due to transient network/protocol issue: GitHub HTTP2 framing error during clone.",
+      "Metadata extraction inconsistency: pyproject/setup.py existed in analyzed file tree but dependency flags were reported false.",
+      "Quality signals are partially unreliable because several metrics were zero/empty (files processed, LOC, performance telemetry, code review object).",
+      "Original project test outcome is inconsistent (reported failed with 100% coverage and zero execution time), suggesting test harness/reporting defect."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Likely elevated due to clone retry/failure path; node degraded but recovered through zip fallback.",
+      "analysis_time": "Effective enough to identify core modules, entry points, and API surface despite metadata parsing gaps.",
+      "generation_time": "Efficient artifact generation (7 files) with successful startup; however endpoint curation quality needs refinement.",
+      "test_time": "Insufficiently measured (startup healthy, but meaningful unit/smoke MCP tests absent or not reported)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Undetermined from telemetry (reported 0 MB). For this small codebase, expected low footprint; add actual sampling.",
+      "cpu_efficiency": "Undetermined from telemetry (reported 0%). Runtime likely light except possible spectrum-heavy operations.",
+      "disk_usage": "Low absolute footprint (small source tree and generated plugin), but generated size metrics were missing/zero."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 74,
+    "performance_score": 63,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 66
+  }
+}

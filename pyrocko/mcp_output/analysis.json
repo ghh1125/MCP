@@ -1,0 +1,1717 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/pyrocko/pyrocko",
+    "summary": "Imported via zip fallback, file count: 495",
+    "file_tree": {
+      ".drone.yml": {
+        "size": 31082
+      },
+      ".gitea/issue_template.md": {
+        "size": 119
+      },
+      ".gitea/pull_request_template.md": {
+        "size": 1570
+      },
+      ".pre-commit-config.yaml": {
+        "size": 221
+      },
+      "AUTHORS.md": {
+        "size": 707
+      },
+      "CHANGELOG.md": {
+        "size": 28120
+      },
+      "CONTRIBUTING.md": {
+        "size": 6788
+      },
+      "LICENSE.md": {
+        "size": 32196
+      },
+      "README.md": {
+        "size": 3450
+      },
+      "doc/README.md": {
+        "size": 174
+      },
+      "doc/source/conf.py": {
+        "size": 10163
+      },
+      "doc/source/static/STS2-Generic.polezero.txt": {
+        "size": 231
+      },
+      "examples/README.md": {
+        "size": 121
+      },
+      "examples/automap_example.py": {
+        "size": 2815
+      },
+      "examples/automap_example2.py": {
+        "size": 3962
+      },
+      "examples/beachball_example01.py": {
+        "size": 1108
+      },
+      "examples/beachball_example02.py": {
+        "size": 4106
+      },
+      "examples/beachball_example03.py": {
+        "size": 794
+      },
+      "examples/beachball_example04.py": {
+        "size": 2194
+      },
+      "examples/beachball_example05.py": {
+        "size": 944
+      },
+      "examples/beachball_example06.py": {
+        "size": 1205
+      },
+      "examples/cake_arrivals.py": {
+        "size": 614
+      },
+      "examples/cake_first_arrivals.py": {
+        "size": 990
+      },
+      "examples/cake_raytracing.py": {
+        "size": 3144
+      },
+      "examples/catalog_search_geofon.py": {
+        "size": 497
+      },
+      "examples/catalog_search_globalcmt.py": {
+        "size": 621
+      },
+      "examples/convert_mseed_ascii.py": {
+        "size": 316
+      },
+      "examples/convert_mseed_sac.py": {
+        "size": 974
+      },
+      "examples/dynamic_rupture_map.py": {
+        "size": 2987
+      },
+      "examples/dynamic_rupture_movie.py": {
+        "size": 2350
+      },
+      "examples/dynamic_rupture_viewer.py": {
+        "size": 3163
+      },
+      "examples/eikonal_example1.py": {
+        "size": 1420
+      },
+      "examples/eikonal_example2.py": {
+        "size": 1158
+      },
+      "examples/fdsn_request_geofon.py": {
+        "size": 2115
+      },
+      "examples/fdsn_stationxml_modify.py": {
+        "size": 1016
+      },
+      "examples/gf_custom_stf.py": {
+        "size": 1396
+      },
+      "examples/gf_forward_example1.py": {
+        "size": 2090
+      },
+      "examples/gf_forward_example2.py": {
+        "size": 3453
+      },
+      "examples/gf_forward_example2_kite.py": {
+        "size": 1810
+      },
+      "examples/gf_forward_example2_sill.py": {
+        "size": 3923
+      },
+      "examples/gf_forward_example3.py": {
+        "size": 4087
+      },
+      "examples/gf_forward_example4.py": {
+        "size": 6464
+      },
+      "examples/gf_forward_pseudo_rupture_basic.py": {
+        "size": 1792
+      },
+      "examples/gf_forward_pseudo_rupture_basic_plot.py": {
+        "size": 1728
+      },
+      "examples/gf_forward_pseudo_rupture_cfs.py": {
+        "size": 4193
+      },
+      "examples/gf_forward_pseudo_rupture_complex.py": {
+        "size": 2753
+      },
+      "examples/gf_forward_pseudo_rupture_static.py": {
+        "size": 4178
+      },
+      "examples/gf_forward_pseudo_rupture_waveforms.py": {
+        "size": 1695
+      },
+      "examples/gf_forward_viscoelastic.py": {
+        "size": 5203
+      },
+      "examples/gf_store_get_many_t.py": {
+        "size": 1067
+      },
+      "examples/gmtpy_example1.py": {
+        "size": 960
+      },
+      "examples/gmtpy_example2.py": {
+        "size": 1419
+      },
+      "examples/gmtpy_example3.py": {
+        "size": 1667
+      },
+      "examples/gmtpy_example4.py": {
+        "size": 898
+      },
+      "examples/gmtpy_examples.py": {
+        "size": 4249
+      },
+      "examples/gnss_campaign.py": {
+        "size": 1921
+      },
+      "examples/gnss_unr_campaign.py": {
+        "size": 1818
+      },
+      "examples/gshhg_example.py": {
+        "size": 591
+      },
+      "examples/guts_example.yaml": {
+        "size": 213
+      },
+      "examples/guts_sensor_array.py": {
+        "size": 448
+      },
+      "examples/guts_usage.py": {
+        "size": 1411
+      },
+      "examples/hudson_diagram.py": {
+        "size": 1163
+      },
+      "examples/make_flat_stationxml.py": {
+        "size": 783
+      },
+      "examples/make_hour_files.py": {
+        "size": 715
+      },
+      "examples/make_quakeml.py": {
+        "size": 1554
+      },
+      "examples/markers_example1.py": {
+        "size": 551
+      },
+      "examples/moment_tensor_example1.py": {
+        "size": 890
+      },
+      "examples/moment_tensor_example2.py": {
+        "size": 405
+      },
+      "examples/obspy_compat_snuffle.py": {
+        "size": 354
+      },
+      "examples/okada_forward_example.py": {
+        "size": 6435
+      },
+      "examples/okada_inversion_example.py": {
+        "size": 6700
+      },
+      "examples/orthodrome_example1.py": {
+        "size": 342
+      },
+      "examples/orthodrome_example2.py": {
+        "size": 391
+      },
+      "examples/orthodrome_example3.py": {
+        "size": 527
+      },
+      "examples/orthodrome_example4.py": {
+        "size": 624
+      },
+      "examples/orthodrome_example5.py": {
+        "size": 261
+      },
+      "examples/pile_chopper.py": {
+        "size": 610
+      },
+      "examples/pile_downsample.py": {
+        "size": 1120
+      },
+      "examples/plot_directivity.py": {
+        "size": 1394
+      },
+      "examples/plot_radiation_pattern.py": {
+        "size": 1611
+      },
+      "examples/plot_skeleton.py": {
+        "size": 802
+      },
+      "examples/progress_demo.py": {
+        "size": 3739
+      },
+      "examples/readnwrite_quakml.py": {
+        "size": 472
+      },
+      "examples/snuffler_quicklook.py": {
+        "size": 585
+      },
+      "examples/squirrel_rms1.py": {
+        "size": 2963
+      },
+      "examples/squirrel_rms2.py": {
+        "size": 1444
+      },
+      "examples/squirrel_rms3.py": {
+        "size": 2179
+      },
+      "examples/squirrel_rms4.py": {
+        "size": 1237
+      },
+      "examples/station_from_XML.py": {
+        "size": 343
+      },
+      "examples/stations_pyr2xml.py": {
+        "size": 430
+      },
+      "examples/stf_plot.py": {
+        "size": 1151
+      },
+      "examples/tectonics_example.py": {
+        "size": 309
+      },
+      "examples/test_response_plot.py": {
+        "size": 391
+      },
+      "examples/topo_example.py": {
+        "size": 1120
+      },
+      "examples/trace_extract.py": {
+        "size": 379
+      },
+      "examples/trace_misfit.py": {
+        "size": 1479
+      },
+      "examples/trace_restitution_dseed.py": {
+        "size": 958
+      },
+      "examples/trace_restitution_pz.py": {
+        "size": 1069
+      },
+      "examples/trace_restitution_resp.py": {
+        "size": 1043
+      },
+      "examples/trace_scratch.py": {
+        "size": 484
+      },
+      "install.py": {
+        "size": 12210
+      },
+      "maintenance/argparse_help_to_rst.py": {
+        "size": 5015
+      },
+      "maintenance/check-eols.py": {
+        "size": 1460
+      },
+      "maintenance/conda/build/meta.yaml": {
+        "size": 1146
+      },
+      "maintenance/conda/build_windows/meta.yaml": {
+        "size": 1249
+      },
+      "maintenance/docstring_cop.py": {
+        "size": 543
+      },
+      "maintenance/drone-matterpost.py": {
+        "size": 3592
+      },
+      "maintenance/matterpost.py": {
+        "size": 2651
+      },
+      "maintenance/server-user_survey.py": {
+        "size": 3213
+      },
+      "maintenance/vagrant_tests_collect.py": {
+        "size": 2585
+      },
+      "pyproject.toml": {
+        "size": 3459
+      },
+      "requirements-all.txt": {
+        "size": 171
+      },
+      "requirements-conda-windows.txt": {
+        "size": 120
+      },
+      "requirements-conda.txt": {
+        "size": 96
+      },
+      "requirements.txt": {
+        "size": 123
+      },
+      "setup.py": {
+        "size": 19375
+      },
+      "src/__init__.py": {
+        "size": 2796
+      },
+      "src/ahfullgreen.py": {
+        "size": 5306
+      },
+      "src/apps/__init__.py": {
+        "size": 144
+      },
+      "src/apps/automap.py": {
+        "size": 8495
+      },
+      "src/apps/cake.py": {
+        "size": 29474
+      },
+      "src/apps/colosseo.py": {
+        "size": 7616
+      },
+      "src/apps/drum.py": {
+        "size": 319
+      },
+      "src/apps/fomosto.py": {
+        "size": 41906
+      },
+      "src/apps/hamster.py": {
+        "size": 4453
+      },
+      "src/apps/jackseis.py": {
+        "size": 19446
+      },
+      "src/apps/pyrocko.py": {
+        "size": 3070
+      },
+      "src/apps/snuffler.py": {
+        "size": 388
+      },
+      "src/apps/sparrow.py": {
+        "size": 296
+      },
+      "src/apps/squirrel.py": {
+        "size": 238
+      },
+      "src/autopick.py": {
+        "size": 979
+      },
+      "src/cake.py": {
+        "size": 133455
+      },
+      "src/client/__init__.py": {
+        "size": 203
+      },
+      "src/client/base_catalog.py": {
+        "size": 1089
+      },
+      "src/client/catalog.py": {
+        "size": 641
+      },
+      "src/client/fdsn.py": {
+        "size": 31745
+      },
+      "src/client/geofon.py": {
+        "size": 5838
+      },
+      "src/client/globalcmt.py": {
+        "size": 7011
+      },
+      "src/client/iris.py": {
+        "size": 9929
+      },
+      "src/client/isc.py": {
+        "size": 6083
+      },
+      "src/client/saxony.py": {
+        "size": 2896
+      },
+      "src/client/usgs.py": {
+        "size": 3937
+      },
+      "src/client/wadl.py": {
+        "size": 10284
+      },
+      "src/color.py": {
+        "size": 15245
+      },
+      "src/config.py": {
+        "size": 6480
+      },
+      "src/data/tectonics/bird2003_plates.txt": {
+        "size": 976
+      },
+      "src/data/tectonics/gsrm1_plates.txt": {
+        "size": 346
+      },
+      "src/dataset/__init__.py": {
+        "size": 288
+      },
+      "src/dataset/active_faults.py": {
+        "size": 4651
+      },
+      "src/dataset/crust2x2.py": {
+        "size": 12268
+      },
+      "src/dataset/crust2x2_data.py": {
+        "size": 62373
+      },
+      "src/dataset/crustdb.py": {
+        "size": 35554
+      },
+      "src/dataset/crustdb_abbr.py": {
+        "size": 21580
+      },
+      "src/dataset/geonames.py": {
+        "size": 7998
+      },
+      "src/dataset/gshhg.py": {
+        "size": 20144
+      },
+      "src/dataset/tectonics.py": {
+        "size": 11361
+      },
+      "src/dataset/topo/__init__.py": {
+        "size": 4182
+      },
+      "src/dataset/topo/dataset.py": {
+        "size": 7090
+      },
+      "src/dataset/topo/etopo1.py": {
+        "size": 3023
+      },
+      "src/dataset/topo/srtmgl3.py": {
+        "size": 5106
+      },
+      "src/dataset/topo/tile.py": {
+        "size": 6327
+      },
+      "src/dataset/util.py": {
+        "size": 583
+      },
+      "src/dataset/volcanoes.py": {
+        "size": 5173
+      },
+      "src/deps.py": {
+        "size": 5006
+      },
+      "src/dummy_progressbar.py": {
+        "size": 1333
+      },
+      "src/evalresp.py": {
+        "size": 1470
+      },
+      "src/example.py": {
+        "size": 951
+      },
+      "src/ext/pyavl-1.12/README.md": {
+        "size": 3173
+      },
+      "src/ext/pyavl-1.12/setup.py": {
+        "size": 2116
+      },
+      "src/file.py": {
+        "size": 10751
+      },
+      "src/fomosto/__init__.py": {
+        "size": 584
+      },
+      "src/fomosto/ahfullgreen.py": {
+        "size": 9223
+      },
+      "src/fomosto/dummy.py": {
+        "size": 3066
+      },
+      "src/fomosto/elastic10_fd_to_elastic10.py": {
+        "size": 1760
+      },
+      "src/fomosto/elastic10_to_rotational8.py": {
+        "size": 8239
+      },
+      "src/fomosto/poel.py": {
+        "size": 21848
+      },
+      "src/fomosto/psgrn_pscmp.py": {
+        "size": 60500
+      },
+      "src/fomosto/qseis.py": {
+        "size": 42266
+      },
+      "src/fomosto/qseis2d.py": {
+        "size": 39889
+      },
+      "src/fomosto/qssp.py": {
+        "size": 44402
+      },
+      "src/fomosto/report/__init__.py": {
+        "size": 180
+      },
+      "src/fomosto/report/report_call.py": {
+        "size": 19502
+      },
+      "src/fomosto/report/report_main.py": {
+        "size": 58254
+      },
+      "src/geometry.py": {
+        "size": 7057
+      },
+      "src/gf/__init__.py": {
+        "size": 1334
+      },
+      "src/gf/builder.py": {
+        "size": 6023
+      },
+      "src/gf/error.py": {
+        "size": 297
+      },
+      "src/gf/fd_rotation.py": {
+        "size": 2977
+      },
+      "src/gf/meta.py": {
+        "size": 99864
+      },
+      "src/gf/seismosizer.py": {
+        "size": 216260
+      },
+      "src/gf/server.py": {
+        "size": 15287
+      },
+      "src/gf/store.py": {
+        "size": 74624
+      },
+      "src/gf/targets.py": {
+        "size": 13324
+      },
+      "src/gf/tractions.py": {
+        "size": 12530
+      },
+      "src/gf/ws.py": {
+        "size": 4266
+      },
+      "src/gui/__init__.py": {
+        "size": 151
+      },
+      "src/gui/drum/__init__.py": {
+        "size": 110
+      },
+      "src/gui/drum/cli.py": {
+        "size": 3972
+      },
+      "src/gui/drum/main.py": {
+        "size": 5335
+      },
+      "src/gui/drum/state.py": {
+        "size": 4114
+      },
+      "src/gui/drum/view.py": {
+        "size": 27545
+      },
+      "src/gui/moment_tensor_viewer.py": {
+        "size": 4214
+      },
+      "src/gui/qt_compat.py": {
+        "size": 1863
+      },
+      "src/gui/snuffler/__init__.py": {
+        "size": 149
+      },
+      "src/gui/snuffler/marker.py": {
+        "size": 25760
+      },
+      "src/gui/snuffler/marker_editor.py": {
+        "size": 26973
+      },
+      "src/gui/snuffler/pile_viewer.py": {
+        "size": 162953
+      },
+      "src/gui/snuffler/pile_viewer_waterfall.py": {
+        "size": 5823
+      },
+      "src/gui/snuffler/snuffler.py": {
+        "size": 10374
+      },
+      "src/gui/snuffler/snuffler_app.py": {
+        "size": 24709
+      },
+      "src/gui/snuffler/snuffling.py": {
+        "size": 62562
+      },
+      "src/gui/snuffler/snufflings/__init__.py": {
+        "size": 685
+      },
+      "src/gui/snuffler/snufflings/ampspec.py": {
+        "size": 4984
+      },
+      "src/gui/snuffler/snufflings/cake_phase.py": {
+        "size": 7911
+      },
+      "src/gui/snuffler/snufflings/catalogs.py": {
+        "size": 3066
+      },
+      "src/gui/snuffler/snufflings/download.py": {
+        "size": 5240
+      },
+      "src/gui/snuffler/snufflings/geofon.py": {
+        "size": 1592
+      },
+      "src/gui/snuffler/snufflings/map/__init__.py": {
+        "size": 15355
+      },
+      "src/gui/snuffler/snufflings/map/loadxmldoc.js": {
+        "size": 260
+      },
+      "src/gui/snuffler/snufflings/map/map_util.js": {
+        "size": 3002
+      },
+      "src/gui/snuffler/snufflings/map/xmlMarker.py": {
+        "size": 1129
+      },
+      "src/gui/snuffler/snufflings/minmax.py": {
+        "size": 1897
+      },
+      "src/gui/snuffler/snufflings/polarization.py": {
+        "size": 32600
+      },
+      "src/gui/snuffler/snufflings/rms.py": {
+        "size": 5674
+      },
+      "src/gui/snuffler/snufflings/seisbench_picker.py": {
+        "size": 12769
+      },
+      "src/gui/snuffler/snufflings/seismosizer.py": {
+        "size": 19633
+      },
+      "src/gui/snuffler/snufflings/spectrogram.py": {
+        "size": 10664
+      },
+      "src/gui/snuffler/snufflings/stalta.py": {
+        "size": 7982
+      },
+      "src/gui/sparrow/__init__.py": {
+        "size": 110
+      },
+      "src/gui/sparrow/cli.py": {
+        "size": 4685
+      },
+      "src/gui/sparrow/common.py": {
+        "size": 11415
+      },
+      "src/gui/sparrow/elements/__init__.py": {
+        "size": 799
+      },
+      "src/gui/sparrow/elements/active_faults.py": {
+        "size": 6492
+      },
+      "src/gui/sparrow/elements/axes_box.py": {
+        "size": 14031
+      },
+      "src/gui/sparrow/elements/base.py": {
+        "size": 16302
+      },
+      "src/gui/sparrow/elements/borders.py": {
+        "size": 668
+      },
+      "src/gui/sparrow/elements/catalog.py": {
+        "size": 13759
+      },
+      "src/gui/sparrow/elements/coastlines.py": {
+        "size": 676
+      },
+      "src/gui/sparrow/elements/crosshair.py": {
+        "size": 6052
+      },
+      "src/gui/sparrow/elements/custom_topo.py": {
+        "size": 6181
+      },
+      "src/gui/sparrow/elements/geometry.py": {
+        "size": 14917
+      },
+      "src/gui/sparrow/elements/geonames.py": {
+        "size": 9763
+      },
+      "src/gui/sparrow/elements/grid.py": {
+        "size": 5950
+      },
+      "src/gui/sparrow/elements/gshhg.py": {
+        "size": 8126
+      },
+      "src/gui/sparrow/elements/hud.py": {
+        "size": 5719
+      },
+      "src/gui/sparrow/elements/icosphere.py": {
+        "size": 7290
+      },
+      "src/gui/sparrow/elements/kite_insar.py": {
+        "size": 9116
+      },
+      "src/gui/sparrow/elements/plates.py": {
+        "size": 5853
+      },
+      "src/gui/sparrow/elements/rivers.py": {
+        "size": 648
+      },
+      "src/gui/sparrow/elements/source.py": {
+        "size": 18754
+      },
+      "src/gui/sparrow/elements/spheroid.py": {
+        "size": 5596
+      },
+      "src/gui/sparrow/elements/stations.py": {
+        "size": 7011
+      },
+      "src/gui/sparrow/elements/table.py": {
+        "size": 17303
+      },
+      "src/gui/sparrow/elements/topo.py": {
+        "size": 14119
+      },
+      "src/gui/sparrow/elements/volcanoes.py": {
+        "size": 4018
+      },
+      "src/gui/sparrow/light.py": {
+        "size": 1657
+      },
+      "src/gui/sparrow/main.py": {
+        "size": 60784
+      },
+      "src/gui/sparrow/overlays.py": {
+        "size": 1535
+      },
+      "src/gui/sparrow/snapshots.py": {
+        "size": 25487
+      },
+      "src/gui/sparrow/state.py": {
+        "size": 10248
+      },
+      "src/gui/state.py": {
+        "size": 6777
+      },
+      "src/gui/talkie.py": {
+        "size": 15738
+      },
+      "src/gui/util.py": {
+        "size": 60534
+      },
+      "src/gui/vtk_util.py": {
+        "size": 27876
+      },
+      "src/guts.py": {
+        "size": 76211
+      },
+      "src/guts_agnostic.py": {
+        "size": 4646
+      },
+      "src/guts_array.py": {
+        "size": 7804
+      },
+      "src/hamster_pile.py": {
+        "size": 6836
+      },
+      "src/has_paths.py": {
+        "size": 2949
+      },
+      "src/himesh.py": {
+        "size": 3456
+      },
+      "src/icosphere.py": {
+        "size": 6470
+      },
+      "src/io/__init__.py": {
+        "size": 12456
+      },
+      "src/io/css.py": {
+        "size": 6105
+      },
+      "src/io/datacube.py": {
+        "size": 24353
+      },
+      "src/io/enhanced_sacpz.py": {
+        "size": 5870
+      },
+      "src/io/eventdata.py": {
+        "size": 5934
+      },
+      "src/io/gcf.py": {
+        "size": 7071
+      },
+      "src/io/gse1.py": {
+        "size": 3981
+      },
+      "src/io/gse2.py": {
+        "size": 2865
+      },
+      "src/io/hdf5_idas.py": {
+        "size": 4525
+      },
+      "src/io/hdf5_optodas.py": {
+        "size": 1369
+      },
+      "src/io/ims.py": {
+        "size": 75701
+      },
+      "src/io/io_common.py": {
+        "size": 1271
+      },
+      "src/io/kan.py": {
+        "size": 2927
+      },
+      "src/io/mseed.py": {
+        "size": 9048
+      },
+      "src/io/quakeml.py": {
+        "size": 37103
+      },
+      "src/io/rdseed.py": {
+        "size": 13433
+      },
+      "src/io/resp.py": {
+        "size": 17625
+      },
+      "src/io/sac.py": {
+        "size": 14095
+      },
+      "src/io/segy.py": {
+        "size": 7677
+      },
+      "src/io/seisan_response.py": {
+        "size": 9850
+      },
+      "src/io/seisan_waveform.py": {
+        "size": 5083
+      },
+      "src/io/stationxml.py": {
+        "size": 83283
+      },
+      "src/io/suds.py": {
+        "size": 8609
+      },
+      "src/io/tdms_idas.py": {
+        "size": 20445
+      },
+      "src/io/yaff.py": {
+        "size": 3397
+      },
+      "src/model/__init__.py": {
+        "size": 568
+      },
+      "src/model/codes.py": {
+        "size": 9203
+      },
+      "src/model/content.py": {
+        "size": 2291
+      },
+      "src/model/event.py": {
+        "size": 18172
+      },
+      "src/model/geometry.py": {
+        "size": 5368
+      },
+      "src/model/gnss.py": {
+        "size": 8044
+      },
+      "src/model/location.py": {
+        "size": 11055
+      },
+      "src/model/station.py": {
+        "size": 18030
+      },
+      "src/modelling/__init__.py": {
+        "size": 212
+      },
+      "src/modelling/cracksol.py": {
+        "size": 7747
+      },
+      "src/modelling/eikonal.py": {
+        "size": 1225
+      },
+      "src/modelling/okada.py": {
+        "size": 20902
+      },
+      "src/moment_tensor.py": {
+        "size": 34505
+      },
+      "src/multitrace.py": {
+        "size": 3722
+      },
+      "src/obspy_compat/__init__.py": {
+        "size": 240
+      },
+      "src/obspy_compat/base.py": {
+        "size": 13113
+      },
+      "src/obspy_compat/snuffling.py": {
+        "size": 2297
+      },
+      "src/orthodrome.py": {
+        "size": 51405
+      },
+      "src/parimap.py": {
+        "size": 4931
+      },
+      "src/parstack.py": {
+        "size": 3372
+      },
+      "src/pchain.py": {
+        "size": 1405
+      },
+      "src/pile.py": {
+        "size": 51095
+      },
+      "src/plot/__init__.py": {
+        "size": 24915
+      },
+      "src/plot/automap.py": {
+        "size": 43745
+      },
+      "src/plot/beachball.py": {
+        "size": 35581
+      },
+      "src/plot/cake_plot.py": {
+        "size": 21829
+      },
+      "src/plot/cpt.py": {
+        "size": 5812
+      },
+      "src/plot/directivity.py": {
+        "size": 14391
+      },
+      "src/plot/dynamic_rupture.py": {
+        "size": 62939
+      },
+      "src/plot/gmtpy.py": {
+        "size": 128896
+      },
+      "src/plot/hudson.py": {
+        "size": 2758
+      },
+      "src/plot/response.py": {
+        "size": 18906
+      },
+      "src/plot/smartplot.py": {
+        "size": 31874
+      },
+      "src/plot/terminal.py": {
+        "size": 5475
+      },
+      "src/print_version.py": {
+        "size": 2273
+      },
+      "src/progress.py": {
+        "size": 13155
+      },
+      "src/pz.py": {
+        "size": 6854
+      },
+      "src/response.py": {
+        "size": 26406
+      },
+      "src/scenario/__init__.py": {
+        "size": 476
+      },
+      "src/scenario/base.py": {
+        "size": 8719
+      },
+      "src/scenario/collection.py": {
+        "size": 6387
+      },
+      "src/scenario/error.py": {
+        "size": 369
+      },
+      "src/scenario/scenario.py": {
+        "size": 14719
+      },
+      "src/scenario/sources/__init__.py": {
+        "size": 404
+      },
+      "src/scenario/sources/base.py": {
+        "size": 3422
+      },
+      "src/scenario/sources/dcsource.py": {
+        "size": 3050
+      },
+      "src/scenario/sources/pseudodynrupture.py": {
+        "size": 4037
+      },
+      "src/scenario/sources/rectangularsource.py": {
+        "size": 2794
+      },
+      "src/scenario/station.py": {
+        "size": 6881
+      },
+      "src/scenario/targets/__init__.py": {
+        "size": 416
+      },
+      "src/scenario/targets/base.py": {
+        "size": 1544
+      },
+      "src/scenario/targets/gnss_campaign.py": {
+        "size": 4275
+      },
+      "src/scenario/targets/insar.py": {
+        "size": 16205
+      },
+      "src/scenario/targets/waveform.py": {
+        "size": 15833
+      },
+      "src/scenario/util.py": {
+        "size": 387
+      },
+      "src/server.py": {
+        "size": 8308
+      },
+      "src/shadow_pile.py": {
+        "size": 3659
+      },
+      "src/spit.py": {
+        "size": 17520
+      },
+      "src/squirrel/__init__.py": {
+        "size": 2647
+      },
+      "src/squirrel/base.py": {
+        "size": 123270
+      },
+      "src/squirrel/cache.py": {
+        "size": 8155
+      },
+      "src/squirrel/check.py": {
+        "size": 10379
+      },
+      "src/squirrel/client/__init__.py": {
+        "size": 379
+      },
+      "src/squirrel/client/base.py": {
+        "size": 4704
+      },
+      "src/squirrel/client/catalog.py": {
+        "size": 11982
+      },
+      "src/squirrel/client/fdsn.py": {
+        "size": 32397
+      },
+      "src/squirrel/client/local.py": {
+        "size": 1942
+      },
+      "src/squirrel/database.py": {
+        "size": 39459
+      },
+      "src/squirrel/dataset.py": {
+        "size": 5097
+      },
+      "src/squirrel/environment.py": {
+        "size": 5092
+      },
+      "src/squirrel/error.py": {
+        "size": 1022
+      },
+      "src/squirrel/io/__init__.py": {
+        "size": 223
+      },
+      "src/squirrel/io/backends/__init__.py": {
+        "size": 165
+      },
+      "src/squirrel/io/backends/datacube.py": {
+        "size": 1074
+      },
+      "src/squirrel/io/backends/hdf5_optodas.py": {
+        "size": 1526
+      },
+      "src/squirrel/io/backends/mseed.py": {
+        "size": 1774
+      },
+      "src/squirrel/io/backends/sac.py": {
+        "size": 3067
+      },
+      "src/squirrel/io/backends/spickle.py": {
+        "size": 1162
+      },
+      "src/squirrel/io/backends/stationxml.py": {
+        "size": 4694
+      },
+      "src/squirrel/io/backends/tdms_idas.py": {
+        "size": 1081
+      },
+      "src/squirrel/io/backends/textfiles.py": {
+        "size": 5777
+      },
+      "src/squirrel/io/backends/virtual.py": {
+        "size": 1727
+      },
+      "src/squirrel/io/backends/yaml.py": {
+        "size": 1248
+      },
+      "src/squirrel/io/base.py": {
+        "size": 14134
+      },
+      "src/squirrel/lock.py": {
+        "size": 964
+      },
+      "src/squirrel/model.py": {
+        "size": 42376
+      },
+      "src/squirrel/operators/__init__.py": {
+        "size": 228
+      },
+      "src/squirrel/operators/base.py": {
+        "size": 11900
+      },
+      "src/squirrel/pile.py": {
+        "size": 14425
+      },
+      "src/squirrel/selection.py": {
+        "size": 24688
+      },
+      "src/squirrel/storage.py": {
+        "size": 9599
+      },
+      "src/squirrel/streaming.py": {
+        "size": 5363
+      },
+      "src/squirrel/tool/__init__.py": {
+        "size": 271
+      },
+      "src/squirrel/tool/cli.py": {
+        "size": 3565
+      },
+      "src/squirrel/tool/commands/__init__.py": {
+        "size": 354
+      },
+      "src/squirrel/tool/commands/benchmark.py": {
+        "size": 8671
+      },
+      "src/squirrel/tool/commands/catalog.py": {
+        "size": 3511
+      },
+      "src/squirrel/tool/commands/check.py": {
+        "size": 2295
+      },
+      "src/squirrel/tool/commands/codes.py": {
+        "size": 998
+      },
+      "src/squirrel/tool/commands/coverage.py": {
+        "size": 3592
+      },
+      "src/squirrel/tool/commands/database.py": {
+        "size": 5614
+      },
+      "src/squirrel/tool/commands/dataset.py": {
+        "size": 3617
+      },
+      "src/squirrel/tool/commands/files.py": {
+        "size": 1133
+      },
+      "src/squirrel/tool/commands/info.py": {
+        "size": 1956
+      },
+      "src/squirrel/tool/commands/init.py": {
+        "size": 1186
+      },
+      "src/squirrel/tool/commands/jackseis.py": {
+        "size": 26806
+      },
+      "src/squirrel/tool/commands/merge.py": {
+        "size": 9037
+      },
+      "src/squirrel/tool/commands/nuts.py": {
+        "size": 1501
+      },
+      "src/squirrel/tool/commands/operators.py": {
+        "size": 963
+      },
+      "src/squirrel/tool/commands/persistent.py": {
+        "size": 1907
+      },
+      "src/squirrel/tool/commands/remove.py": {
+        "size": 1225
+      },
+      "src/squirrel/tool/commands/response.py": {
+        "size": 5423
+      },
+      "src/squirrel/tool/commands/scan.py": {
+        "size": 1623
+      },
+      "src/squirrel/tool/commands/snuffler.py": {
+        "size": 553
+      },
+      "src/squirrel/tool/commands/stationxml.py": {
+        "size": 2042
+      },
+      "src/squirrel/tool/commands/summon.py": {
+        "size": 5423
+      },
+      "src/squirrel/tool/commands/template.py": {
+        "size": 5957
+      },
+      "src/squirrel/tool/commands/update.py": {
+        "size": 1634
+      },
+      "src/squirrel/tool/common.py": {
+        "size": 35627
+      },
+      "src/streaming/__init__.py": {
+        "size": 275
+      },
+      "src/streaming/datacube.py": {
+        "size": 6307
+      },
+      "src/streaming/edl.py": {
+        "size": 15500
+      },
+      "src/streaming/serial_hamster.py": {
+        "size": 16136
+      },
+      "src/streaming/slink.py": {
+        "size": 4041
+      },
+      "src/table.py": {
+        "size": 16549
+      },
+      "src/trace.py": {
+        "size": 134138
+      },
+      "src/util.py": {
+        "size": 81593
+      },
+      "src/weeding.py": {
+        "size": 3990
+      },
+      "test/__init__.py": {
+        "size": 180
+      },
+      "test/base/__init__.py": {
+        "size": 0
+      },
+      "test/base/test_ahfull.py": {
+        "size": 5279
+      },
+      "test/base/test_automap.py": {
+        "size": 4406
+      },
+      "test/base/test_avl.py": {
+        "size": 20180
+      },
+      "test/base/test_backwards_compat.py": {
+        "size": 1164
+      },
+      "test/base/test_beachball.py": {
+        "size": 8354
+      },
+      "test/base/test_cake.py": {
+        "size": 9558
+      },
+      "test/base/test_catalog.py": {
+        "size": 5203
+      },
+      "test/base/test_crust2x2.py": {
+        "size": 937
+      },
+      "test/base/test_crustdb.py": {
+        "size": 1673
+      },
+      "test/base/test_datacube.py": {
+        "size": 5655
+      },
+      "test/base/test_eikonal.py": {
+        "size": 9987
+      },
+      "test/base/test_entrypoints.py": {
+        "size": 1465
+      },
+      "test/base/test_fdsn.py": {
+        "size": 9628
+      },
+      "test/base/test_fomosto.py": {
+        "size": 2622
+      },
+      "test/base/test_fomosto_report.py": {
+        "size": 3689
+      },
+      "test/base/test_geonames.py": {
+        "size": 602
+      },
+      "test/base/test_gmtpy.py": {
+        "size": 11143
+      },
+      "test/base/test_gshhg.py": {
+        "size": 7921
+      },
+      "test/base/test_guts.py": {
+        "size": 40680
+      },
+      "test/base/test_ims.py": {
+        "size": 13384
+      },
+      "test/base/test_io.py": {
+        "size": 13499
+      },
+      "test/base/test_marker.py": {
+        "size": 1683
+      },
+      "test/base/test_model.py": {
+        "size": 12412
+      },
+      "test/base/test_moment_tensor.py": {
+        "size": 6656
+      },
+      "test/base/test_multitrace.py": {
+        "size": 2019
+      },
+      "test/base/test_obspy_compat.py": {
+        "size": 2750
+      },
+      "test/base/test_orthodrome.py": {
+        "size": 22427
+      },
+      "test/base/test_parimap.py": {
+        "size": 3358
+      },
+      "test/base/test_parstack.py": {
+        "size": 12860
+      },
+      "test/base/test_pile.py": {
+        "size": 3769
+      },
+      "test/base/test_plot.py": {
+        "size": 491
+      },
+      "test/base/test_progress.py": {
+        "size": 1373
+      },
+      "test/base/test_rdseed.py": {
+        "size": 1294
+      },
+      "test/base/test_response.py": {
+        "size": 9344
+      },
+      "test/base/test_response_plot.py": {
+        "size": 2358
+      },
+      "test/base/test_scenario.py": {
+        "size": 11788
+      },
+      "test/base/test_smartplot.py": {
+        "size": 3220
+      },
+      "test/base/test_squirrel.py": {
+        "size": 42092
+      },
+      "test/base/test_table.py": {
+        "size": 1321
+      },
+      "test/base/test_tectonics.py": {
+        "size": 3094
+      },
+      "test/base/test_topo.py": {
+        "size": 844
+      },
+      "test/base/test_trace.py": {
+        "size": 33557
+      },
+      "test/base/test_urls.py": {
+        "size": 2011
+      },
+      "test/base/test_util.py": {
+        "size": 10333
+      },
+      "test/base/test_volcanoes.py": {
+        "size": 266
+      },
+      "test/common.py": {
+        "size": 9021
+      },
+      "test/examples/__init__.py": {
+        "size": 0
+      },
+      "test/examples/test_examples.py": {
+        "size": 4481
+      },
+      "test/extra/__init__.py": {
+        "size": 0
+      },
+      "test/extra/datasource_deprecated.py": {
+        "size": 959
+      },
+      "test/extra/speed_filtering.py": {
+        "size": 956
+      },
+      "test/gf/__init__.py": {
+        "size": 0
+      },
+      "test/gf/test_gf.py": {
+        "size": 55766
+      },
+      "test/gf/test_gf_ahfull.py": {
+        "size": 1523
+      },
+      "test/gf/test_gf_benchmark.py": {
+        "size": 6693
+      },
+      "test/gf/test_gf_psgrn_pscmp.py": {
+        "size": 17289
+      },
+      "test/gf/test_gf_qseis.py": {
+        "size": 14750
+      },
+      "test/gf/test_gf_qseis_qseis2d.py": {
+        "size": 6790
+      },
+      "test/gf/test_gf_qssp.py": {
+        "size": 3417
+      },
+      "test/gf/test_gf_scenarios.py": {
+        "size": 10603
+      },
+      "test/gf/test_gf_source_types.py": {
+        "size": 18207
+      },
+      "test/gf/test_gf_sources.py": {
+        "size": 16307
+      },
+      "test/gf/test_gf_static.py": {
+        "size": 21472
+      },
+      "test/gf/test_gf_stf.py": {
+        "size": 5955
+      },
+      "test/gf/test_gf_ws.py": {
+        "size": 1963
+      },
+      "test/gf/test_modelling_okada.py": {
+        "size": 29126
+      },
+      "test/gui/__init__.py": {
+        "size": 0
+      },
+      "test/gui/test_snuffler.py": {
+        "size": 15453
+      },
+      "test/gui/test_sparrow.py": {
+        "size": 3802
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "src",
+        "module": "__init__.py",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level package initializer; likely exposes versioning/config helpers and package-wide imports."
+      },
+      {
+        "package": "src",
+        "module": "trace.py",
+        "functions": [
+          "rotate",
+          "project",
+          "correlate",
+          "deconvolve"
+        ],
+        "classes": [
+          "Trace"
+        ],
+        "description": "Core waveform container and processing utilities; central for time-series manipulation."
+      },
+      {
+        "package": "src",
+        "module": "pile.py",
+        "functions": [
+          "make_pile"
+        ],
+        "classes": [
+          "Pile"
+        ],
+        "description": "Waveform collection/index abstraction for multi-file, multi-station handling."
+      },
+      {
+        "package": "src",
+        "module": "cake.py",
+        "functions": [
+          "load_model",
+          "phase_definitions"
+        ],
+        "classes": [
+          "LayeredModel",
+          "PhaseDef"
+        ],
+        "description": "Seismic travel-time and ray-tracing engine; one of the primary computational modules."
+      },
+      {
+        "package": "src/gf",
+        "module": "seismosizer.py",
+        "functions": [
+          "process",
+          "prepare"
+        ],
+        "classes": [
+          "LocalEngine",
+          "RemoteEngine",
+          "Source",
+          "Target"
+        ],
+        "description": "Green’s-function based forward modelling orchestration."
+      },
+      {
+        "package": "src/gf",
+        "module": "store.py",
+        "functions": [
+          "create",
+          "open_store"
+        ],
+        "classes": [
+          "Store"
+        ],
+        "description": "GF store access and interpolation backend."
+      },
+      {
+        "package": "src/io",
+        "module": "__init__.py",
+        "functions": [
+          "load",
+          "save",
+          "iload"
+        ],
+        "classes": [],
+        "description": "Unified I/O dispatch layer for waveform/event/station formats."
+      },
+      {
+        "package": "src/model",
+        "module": "event.py",
+        "functions": [
+          "load_events",
+          "dump_events"
+        ],
+        "classes": [
+          "Event"
+        ],
+        "description": "Event domain model and serialization support."
+      },
+      {
+        "package": "src/client",
+        "module": "fdsn.py",
+        "functions": [
+          "station",
+          "dataselect",
+          "event"
+        ],
+        "classes": [
+          "FDSNException"
+        ],
+        "description": "FDSN web-service client integration."
+      },
+      {
+        "package": "src/squirrel",
+        "module": "base.py",
+        "functions": [
+          "get_waveforms",
+          "add",
+          "update"
+        ],
+        "classes": [
+          "Squirrel"
+        ],
+        "description": "Modern data access/index framework for waveform and metadata workflows."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "pyrocko",
+        "module": "src/apps/pyrocko.py",
+        "description": "Main umbrella CLI entry for Pyrocko tooling."
+      },
+      {
+        "name": "cake",
+        "module": "src/apps/cake.py",
+        "description": "Travel-time, ray, and Earth model command-line tools."
+      },
+      {
+        "name": "fomosto",
+        "module": "src/apps/fomosto.py",
+        "description": "Green’s-function store management and processing CLI."
+      },
+      {
+        "name": "jackseis",
+        "module": "src/apps/jackseis.py",
+        "description": "Waveform conversion/processing command-line utility."
+      },
+      {
+        "name": "automap",
+        "module": "src/apps/automap.py",
+        "description": "Map rendering automation CLI."
+      },
+      {
+        "name": "hamster",
+        "module": "src/apps/hamster.py",
+        "description": "Acquisition/stream utility CLI."
+      },
+      {
+        "name": "squirrel",
+        "module": "src/squirrel/tool/cli.py",
+        "description": "Data index/query CLI with subcommands (scan, update, info, catalog, etc.)."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "PyYAML",
+        "requests"
+      ],
+      "optional": [
+        "matplotlib",
+        "PyQt5/PySide2",
+        "vtk",
+        "lxml",
+        "h5py",
+        "pyproj",
+        "cartopy",
+        "obspy"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.84,
+      "intrusiveness_risk": "low",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/pyrocko/pyrocko",
+    "repo_name": "pyrocko",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.84,
+    "intrusiveness_risk": "low",
+    "complexity": "complex"
+  }
+}

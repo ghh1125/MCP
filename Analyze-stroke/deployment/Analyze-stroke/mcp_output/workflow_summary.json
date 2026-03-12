@@ -1,0 +1,233 @@
+{
+  "repository": {
+    "name": "Analyze-stroke",
+    "url": "https://github.com/ghh1125/Analyze-stroke",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/Analyze-stroke",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773273470.308597,
+    "end_time": 1773273677.288221,
+    "duration": 206.97962379455566,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": true,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.42,
+      "intrusiveness_risk": "medium",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/ghh1125/Analyze-stroke",
+      "repo_name": "Analyze-stroke",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/Analyze-stroke/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal `requirements.txt` (or `pyproject.toml`) alongside `environment.yml` for easier pip-based setup",
+    "pin and audit dependency versions in `environment.yml` to improve reproducibility and reduce environment drift",
+    "convert script-style entry points (`main.py`",
+    "`run_all_causal.py`) into a proper package with console scripts for cleaner imports and CLI usability",
+    "increase importability by isolating side effects under `if __name__ == \"__main__\":` and keeping module top-level code lightweight",
+    "add comprehensive unit tests for core classes (`DataLoader`",
+    "`DimensionAnalyzer`",
+    "`FeatureSelectionAnalyzer`",
+    "`ModelManager`",
+    "`CausalAnalyzer`) and key plotting helpers",
+    "introduce integration tests for end-to-end pipelines (with and without plotting) and include a small fixture dataset",
+    "set up CI (e.g.",
+    "GitHub Actions) to run `test_env.py`",
+    "linting",
+    "and tests on every push/PR",
+    "add static quality tooling (`ruff`/`flake8`",
+    "`black`",
+    "`isort`",
+    "optional `mypy`) with pre-commit hooks",
+    "strengthen error handling and validation in data ingestion/model steps (missing columns",
+    "NaNs",
+    "incompatible dtypes",
+    "empty frames)",
+    "add structured logging (levels",
+    "module-based loggers",
+    "optional JSON logs) instead of ad-hoc prints/DualLogger-only behavior",
+    "externalize runtime configuration (paths",
+    "model params",
+    "output dirs",
+    "random seeds) into a YAML/JSON config file plus CLI flags",
+    "enforce deterministic behavior by setting and documenting random seeds across NumPy/scikit-learn workflows",
+    "improve project documentation with a clear README covering architecture",
+    "module responsibilities",
+    "input/output schemas",
+    "and command examples",
+    "document causal-analysis assumptions and required optional libraries explicitly to reduce setup ambiguity",
+    "standardize outputs by defining a consistent artifacts directory layout and file naming convention for tables/figures/logs",
+    "decouple visualization from computation so headless and automated runs can skip plotting without code duplication",
+    "add performance profiling for expensive stages (feature selection/model training/causal runs) and cache intermediate results where appropriate",
+    "add data/schema contracts (e.g.",
+    "with `pydantic` models or explicit validators) for safer pipeline handoffs",
+    "provide smoke tests for generated MCP endpoints to ensure adapter compatibility after refactors",
+    "include example notebooks or reproducible scripts demonstrating typical workflows and expected outputs"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status `success` and executed all planned nodes: download, analysis, env, generate, run, review, finalize.",
+      "Repository ingestion succeeded via zip fallback and AST-based analysis identified core modules/classes/functions despite non-packaged project structure.",
+      "MCP plugin artifacts were generated consistently (startup script, adapter, service, README, requirements).",
+      "Generated MCP service health check passed (`healthy`) with stdio transport, indicating runnable baseline service.",
+      "No runtime errors or warnings were recorded in workflow logs."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki analysis failed (external analysis subsystem), reducing enrichment depth but not blocking generation.",
+      "Original project tests did not pass (or were effectively absent), limiting confidence in behavioral equivalence of exposed tools.",
+      "Metrics collection appears incomplete/instrumented as zero (files processed/performance metrics), which impairs diagnostic fidelity."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository imported via zip fallback. Timing per-node not provided, but overall pipeline remained within ~207s.",
+      "analysis_time": "Static/AST analysis succeeded and extracted actionable module inventory; DeepWiki sub-step failed but did not block progression.",
+      "generation_time": "Generation completed with 7 files created and import-mode adapter; endpoint exposure appears function-rich.",
+      "test_time": "MCP plugin health test passed quickly (startup_time=0 reported), while original project test status is not reliable due to absent test suite artifacts."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Undetermined due to missing telemetry (reported 0 MB). No evidence of memory pressure in logs.",
+      "cpu_efficiency": "Undetermined due to missing telemetry (reported 0%). Execution duration suggests moderate compute use.",
+      "disk_usage": "Low-to-moderate; small repository (11 files) and limited generated output. Reported generated size=0 indicates measurement gap, not literal zero."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 72,
+    "performance_score": 66,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}

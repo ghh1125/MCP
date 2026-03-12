@@ -1,0 +1,213 @@
+{
+  "repository": {
+    "name": "chemlib",
+    "url": "https://github.com/harirakul/chemlib",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/chemlib",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "simple",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773262245.845,
+    "end_time": 1773262391.7701418,
+    "duration": 145.92514181137085,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 1,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.chemlib"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": false,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.94,
+      "intrusiveness_risk": "low",
+      "complexity": "simple"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/harirakul/chemlib",
+      "repo_name": "chemlib",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/chemlib/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "adopt a `pyproject.toml`-based build (PEP 517/621) and gradually retire `setup.py`",
+    "add a complete CI matrix (Python versions + OS) with coverage reporting and a minimum coverage gate",
+    "expand tests beyond current chemistry basics to include electrochemistry/thermochemistry/quantum modules plus edge/error cases",
+    "remove committed generated docs under `docs/build/` from version control and rebuild in CI/deploy pipeline",
+    "tighten dependency management by pinning ranges and adding dev/test extras (e.g.",
+    "`requirements-dev.txt` or optional dependency groups)",
+    "add static quality checks (ruff/flake8 + black + isort + mypy) enforced in CI",
+    "improve public API consistency and naming (e.g.",
+    "avoid mixed styles like `pH`",
+    "`Galvanic_Cell`",
+    "`CoffeeCup`) with deprecation shims for backward compatibility",
+    "add explicit type hints and richer docstrings for all exported functions/classes including parameter/return units",
+    "introduce structured error handling with custom exceptions for parsing/invalid chemistry inputs",
+    "add property-based tests for formula parsing/reaction balancing invariants",
+    "add regression tests for MCP plugin endpoints and ensure endpoint schema/version stability",
+    "set up security and maintenance automation (CodeQL/pip-audit",
+    "Dependabot for pip if missing",
+    "vulnerability checks in CI)",
+    "improve release process with semantic versioning checks and automated changelog generation",
+    "enrich README with focused quick-start examples for each major module and a clear API reference link",
+    "add benchmark/performance smoke tests for heavy paths (formula parsing",
+    "reaction balancing) and track trends in CI"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Low-risk import-based adapter strategy (import_feasibility=0.94, intrusiveness=low) matched the project’s simple Python package structure.",
+      "Repository is small/moderate and well-structured (core modules discoverable via AST), enabling fast tool surface generation.",
+      "Generated MCP service started healthy over stdio and MCP plugin tests passed."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality signal gap: original project tests are marked passed=false with empty details despite reported 100% coverage (likely test execution/reporting inconsistency).",
+      "DeepWiki enrichment failed, reducing analysis depth and confidence in semantic/tooling documentation.",
+      "Generation metadata inconsistency: tool_endpoints reported as 0 while service lists multiple endpoints; indicates reporting bug."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; likely efficient given total runtime (~146s) and small repo size.",
+      "analysis_time": "Static/AST analysis succeeded with medium complexity findings and dependency/risk extraction; no blocking issues.",
+      "generation_time": "MCP scaffold generated successfully (7 files) with import adapter; endpoint extraction succeeded in service info.",
+      "test_time": "Plugin health test passed quickly (startup_time=0 reported), but original-project test telemetry appears unreliable."
+    },
+    "resource_usage": {
+      "memory_efficiency": "No memory telemetry captured (reported 0 MB), so efficiency cannot be validated; runtime profile suggests lightweight execution.",
+      "cpu_efficiency": "No CPU telemetry captured (0%), preventing quantitative assessment; no signs of CPU-bound slowdown.",
+      "disk_usage": "Generated output is small, but repository contains committed docs/build artifacts that inflate checkout and analysis footprint."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 82,
+    "performance_score": 70,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 72
+  }
+}

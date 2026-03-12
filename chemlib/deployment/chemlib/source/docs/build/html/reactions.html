@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chemical Reactions &mdash; chemlib v1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Aqueous Solutions" href="solution.html" />
+    <link rel="prev" title="Empirical Formulae" href="formulae.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> chemlib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compounds.html">Chemical Compounds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulae.html">Empirical Formulae</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chemical Reactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#making-a-reaction">Making a Reaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#combustion-reactions">Combustion Reactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#balancing-the-equation">Balancing the Equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stoichiometry">Stoichiometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limiting-reagent">Limiting Reagent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="solution.html">Aqueous Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="electrochemistry.html">Electrochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantum.html">Quantum Mechanics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">chemlib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Chemical Reactions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/reactions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="chemical-reactions">
+<h1>Chemical Reactions<a class="headerlink" href="#chemical-reactions" title="Permalink to this headline"></a></h1>
+<section id="making-a-reaction">
+<h2>Making a Reaction<a class="headerlink" href="#making-a-reaction" title="Permalink to this headline"></a></h2>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="chemlib.chemistry.Reaction">
+<span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.</span></span><span class="sig-name descname"><span class="pre">Reaction</span></span><a class="reference internal" href="_modules/chemlib/chemistry.html#Reaction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chemlib.chemistry.Reaction" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-obj docutils literal notranslate"><span class="pre">chemlib.chemistry.chemlib.chemistry.Reaction._name</span></code></p>
+</dd></dl>
+
+<p>Instantiate a <code class="docutils literal notranslate"><span class="pre">chemlib.Reaction</span></code> object with a list of reactant Compounds and product Compounds.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">chemlib</span> <span class="kn">import</span> <span class="n">Compound</span><span class="p">,</span> <span class="n">Reaction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N2O5</span> <span class="o">=</span> <span class="n">Compound</span><span class="p">(</span><span class="s2">&quot;N2O5&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">H2O</span> <span class="o">=</span> <span class="n">Compound</span><span class="p">(</span><span class="s2">&quot;H2O&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">HNO3</span> <span class="o">=</span> <span class="n">Compound</span><span class="p">(</span><span class="s2">&quot;HNO3&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">Reaction</span><span class="p">([</span><span class="n">N2O5</span><span class="p">,</span> <span class="n">H2O</span><span class="p">],</span> <span class="p">[</span><span class="n">HNO3</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="chemlib.chemistry.Reaction.by_formula">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.Reaction.</span></span><span class="sig-name descname"><span class="pre">by_formula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formula</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemlib.chemistry.Reaction.by_formula" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p>OR Instantiate a <code class="docutils literal notranslate"><span class="pre">chemlib.Reaction</span></code> object using a string to represent the formula:</p>
+<p>In the formula string, place the formulae of reactants separated by <code class="docutils literal notranslate"><span class="pre">+</span></code> signs on the left side of the arrow <code class="docutils literal notranslate"><span class="pre">--&gt;</span></code>. On the right side of the arrow, place the formulae of products separated by <code class="docutils literal notranslate"><span class="pre">+</span></code> signs:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">chemlib</span> <span class="kn">import</span> <span class="n">Reaction</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">Reaction</span><span class="o">.</span><span class="n">by_formula</span><span class="p">(</span><span class="s2">&quot;N2O5 + H2O --&gt; HNO3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><dl class="py data">
+<dt class="sig sig-object py" id="chemlib.chemistry.Reaction.formula">
+<span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.Reaction.</span></span><span class="sig-name descname"><span class="pre">formula</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#chemlib.chemistry.Reaction.formula" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">formula</span>
+<span class="go">&#39;1N₂O₅ + 1H₂O₁ --&gt; 1H₁N₁O₃&#39;</span>
+</pre></div>
+</div>
+<dl class="py data">
+<dt class="sig sig-object py" id="chemlib.chemistry.Reaction.is_balanced">
+<span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.Reaction.</span></span><span class="sig-name descname"><span class="pre">is_balanced</span></span><em class="property"><span class="pre">:</span> <span class="pre">boolean</span></em><a class="headerlink" href="#chemlib.chemistry.Reaction.is_balanced" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">is_balanced</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<dl class="py data">
+<dt class="sig sig-object py" id="chemlib.chemistry.Reaction.reactant_formulas">
+<span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.Reaction.</span></span><span class="sig-name descname"><span class="pre">reactant_formulas</span></span><em class="property"><span class="pre">:</span> <span class="pre">list</span></em><a class="headerlink" href="#chemlib.chemistry.Reaction.reactant_formulas" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">reactant_formulas</span>
+<span class="go">[&#39;N₂O₅&#39;, &#39;H₂O₁&#39;]</span>
+</pre></div>
+</div>
+<dl class="py data">
+<dt class="sig sig-object py" id="chemlib.chemistry.Reaction.product_formulas">
+<span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.Reaction.</span></span><span class="sig-name descname"><span class="pre">product_formulas</span></span><em class="property"><span class="pre">:</span> <span class="pre">list</span></em><a class="headerlink" href="#chemlib.chemistry.Reaction.product_formulas" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">product_formulas</span>
+<span class="go">[&#39;H₁N₁O₃&#39;]</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="combustion-reactions">
+<h2>Combustion Reactions<a class="headerlink" href="#combustion-reactions" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="chemlib.chemistry.Combustion">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.</span></span><span class="sig-name descname"><span class="pre">Combustion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compound</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemlib.chemistry.Combustion" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p>Inherits from <code class="docutils literal notranslate"><span class="pre">chemlib.chemistry.Reaction</span></code></p>
+<p>Makes a chemical reaction involving the combustion of one compound. Formula will be balanced.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">chemlib</span> <span class="kn">import</span> <span class="n">Compound</span><span class="p">,</span> <span class="n">Combustion</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">methane</span> <span class="o">=</span> <span class="n">Compound</span><span class="p">(</span><span class="s1">&#39;CH4&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">Combustion</span><span class="p">(</span><span class="n">methane</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">formula</span>
+<span class="go">&#39;1C₁H₄ + 2O₂ --&gt; 2H₂O₁ + 1C₁O₂&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">is_balanced</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</section>
+<section id="balancing-the-equation">
+<h2>Balancing the Equation<a class="headerlink" href="#balancing-the-equation" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="chemlib.chemistry.Reaction.balance">
+<span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.Reaction.</span></span><span class="sig-name descname"><span class="pre">balance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#chemlib.chemistry.Reaction.balance" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p>Balances the chemical equation using linear algebra. See <a class="reference external" href="http://www.math.utah.edu/~gustafso/s2017/2270/projects-2016/sanchezDario-chemistry-balancing-chemical-equations.pdf">Applications of Linear Algebra in Chemistry</a>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">balance</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">formula</span>
+<span class="go">&#39;1N₂O₅ + 1H₂O₁ --&gt; 2H₁N₁O₃&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">is_balanced</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</section>
+<section id="stoichiometry">
+<h2>Stoichiometry<a class="headerlink" href="#stoichiometry" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="chemlib.chemistry.Reaction.get_amounts">
+<span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.Reaction.</span></span><span class="sig-name descname"><span class="pre">get_amounts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compound_number</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemlib.chemistry.Reaction.get_amounts" title="Permalink to this definition"></a></dt>
+<dd><p>Get stoichiometric amounts of ALL compounds in the reaction given the amount of one compound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>compound_number</strong> (<em>int</em>) – The chosen compound in the reaction by order of appearance.</p></li>
+<li><p><strong>kwargs</strong> – The amount of the chosen compound (grams=, moles=, or molecules=)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the amounts of each compound in the reaction</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of dicts</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – if the compound_number is less than 1 or greater than the number of compounds in the reaction</p></li>
+<li><p><strong>ValueError</strong> – if more than one argument is given under kwargs</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Best demonstrated by example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">formula</span>
+<span class="go">&#39;1N₂O₅ + 1H₂O₁ --&gt; 2H₁N₁O₃&#39;</span>
+</pre></div>
+</div>
+<p>Get the amounts of ALL compounds in the above reaction given 5 grams of N₂O₅. It is the first compound in the reaction by order of appearance (left to right).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">get_amounts</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">grams</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">[{&#39;Compound&#39;: &#39;N₂O₅&#39;, &#39;Grams&#39;: 5, &#39;Moles&#39;: 0.0463, &#39;Molecules&#39;: 2.787e+22}, {&#39;Compound&#39;: &#39;H₂O₁&#39;, &#39;Grams&#39;: 0.834, &#39;Moles&#39;: 0.0463, &#39;Molecules&#39;: 2.787e+22}, {&#39;Compound&#39;: &#39;H₁N₁O₃&#39;, &#39;Grams&#39;: 5.835, &#39;Moles&#39;: 0.0926, &#39;Molecules&#39;: 5.575e+22}]</span>
+</pre></div>
+</div>
+<p>Get the amounts of ALL compounds in the above reaction given 3.5 moles of HNO₃. It is the third compound in the reaction by order of appearance (left to right).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r</span><span class="o">.</span><span class="n">get_amounts</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">moles</span><span class="o">=</span><span class="mf">3.5</span><span class="p">)</span>
+<span class="go">[{&#39;Compound&#39;: &#39;N₂O₅&#39;, &#39;Grams&#39;: 189.018, &#39;Moles&#39;: 1.75, &#39;Molecules&#39;: 1.054e+24}, {&#39;Compound&#39;: &#39;H₂O₁&#39;, &#39;Grams&#39;: 31.518, &#39;Moles&#39;: 1.75, &#39;Molecules&#39;: 1.054e+24}, {&#39;Compound&#39;: &#39;H₁N₁O₃&#39;, &#39;Grams&#39;: 220.535, &#39;Moles&#39;: 3.5, &#39;Molecules&#39;: 2.107e+24}]</span>
+</pre></div>
+</div>
+</section>
+<section id="limiting-reagent">
+<h2>Limiting Reagent<a class="headerlink" href="#limiting-reagent" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="chemlib.chemistry.Reaction.limiting_reagent">
+<span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.Reaction.</span></span><span class="sig-name descname"><span class="pre">limiting_reagent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'grams'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemlib.chemistry.Reaction.limiting_reagent" title="Permalink to this definition"></a></dt>
+<dd><p>Get the limiting reagent (limiting reactant) in the chemical reaction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> – The amounts of each reactant to use in the chemical reaction.</p></li>
+<li><p><strong>mode</strong> (<em>str</em>) – The units of each amount in args. Default is grams, can also be moles or molecules.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The limiting reagent of the reaction.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>chemlib.chemistry.Compound</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> – If the number of args doesn’t match the number of reactants in the reaction.</p></li>
+<li><p><strong>ValueError</strong> – If the mode is not grams, moles, or molecules.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Find the limiting reagent of the reaction when using 50 grams of the first reactant (N₂O₅) and 80 grams of the second reactant (H₂O):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">limiting_reagent</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lr</span><span class="o">.</span><span class="n">formula</span>
+<span class="go">&#39;N₂O₅&#39;</span>
+</pre></div>
+</div>
+<p>Find the limiting reagent of the reaction when using 3 moles of the first reactant (N₂O₅) and 1 mole of the second reactant (H₂O):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">limiting_reagent</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;moles&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lr</span><span class="o">.</span><span class="n">formula</span>
+<span class="go">&#39;H₂O₁&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="formulae.html" class="btn btn-neutral float-left" title="Empirical Formulae" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="solution.html" class="btn btn-neutral float-right" title="Aqueous Solutions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Hari Ambethkar.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

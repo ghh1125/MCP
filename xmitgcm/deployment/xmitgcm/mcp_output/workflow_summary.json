@@ -1,0 +1,212 @@
+{
+  "repository": {
+    "name": "xmitgcm",
+    "url": "https://github.com/MITgcm/xmitgcm",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/xmitgcm",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773277763.544387,
+    "end_time": 1773277951.5847628,
+    "duration": 188.0403757095337,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 3,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.xmitgcm",
+        "source.xmitgcm.llcreader",
+        "source.xmitgcm.test"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.94,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/MITgcm/xmitgcm",
+      "repo_name": "xmitgcm",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/xmitgcm/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add and run a dedicated MCP test suite in CI (smoke + contract tests for all exposed endpoints)",
+    "deduplicate and normalize endpoint names/signatures in the adapter (e.g.",
+    "repeated open_mdsdataset/open_mdsdataset_from_mds_store",
+    "class-vs-function naming)",
+    "introduce strict Pydantic request/response schemas with clear error models for every tool",
+    "pin and validate compatibility matrix across Python 3.11–3.13 and key deps (xarray/dask/fsspec/zarr)",
+    "add requirements/dev lock files (or uv/poetry lock) for reproducible MCP builds",
+    "harden I/O paths with explicit validation/sandboxing and safer cache clearing behavior",
+    "add structured logging + tracing around heavy read paths (parse_meta_file/read_mds/get_dataset) with timing and dataset-size metadata",
+    "implement performance regression benchmarks for large MDS/LLC loads and remote HTTPStore access",
+    "improve docs with endpoint-level examples",
+    "expected inputs/outputs",
+    "and failure modes in README_MCP",
+    "add type-checking and lint gates (mypy/ruff) for mcp_output plus public xmitgcm-facing wrappers",
+    "add resilience features for remote stores (timeouts/retries/backoff/circuit-breaker)",
+    "cache metadata/index parsing results where safe to reduce repeated startup latency",
+    "expose versioned API surface for MCP tools to avoid breaking downstream clients",
+    "add security/dependency scanning in CI (pip-audit/safety + codeql)",
+    "publish minimal health and readiness endpoints (or equivalent MCP checks) for deployment monitoring"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize)",
+      "Import-based adapter strategy was feasible (import_feasibility=0.94, low intrusiveness risk), enabling rapid MCP wrapping of existing APIs",
+      "Repository structure was analyzable via zip fallback (33 files discovered) despite DeepWiki failure",
+      "Generated MCP service started and passed plugin-level health checks (healthy, stdio transport)"
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred",
+      "DeepWiki analysis failed, reducing external semantic enrichment but not blocking generation",
+      "Original project test stage reported passed=false with zero execution evidence (execution_time=0, no test files), indicating test validation gap rather than runtime failure",
+      "Generation metadata inconsistency (tool_endpoints=0 vs discovered endpoint list) suggests reporting/instrumentation defect"
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; exact per-node timing not provided. Zip fallback import indicates resilient but potentially slower retrieval path.",
+      "analysis_time": "Completed successfully with structural/dependency/risk outputs; moderate analysis depth achieved without LLM/DeepWiki call utilization.",
+      "generation_time": "Completed successfully; MCP scaffold and adapter files produced, but code-size metrics recorded as zero indicate telemetry inaccuracies.",
+      "test_time": "MCP plugin smoke health passed; original project tests were effectively not executed (0s), so validation quality is incomplete."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown from metrics (reported 0 MB likely missing instrumentation). No evidence of memory pressure during pipeline execution.",
+      "cpu_efficiency": "Unknown from metrics (0% recorded). Runtime of ~188s for a medium Python repo is acceptable but not optimizable without real CPU traces.",
+      "disk_usage": "Low absolute footprint expected (few generated files), but generated_files_size=0 indicates missing disk accounting."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 73,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 71,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}

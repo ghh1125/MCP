@@ -1,0 +1,1036 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/duartegroup/autodE",
+    "summary": "Imported via zip fallback, file count: 275",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 567
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 194
+      },
+      ".github/pull_request_template.md": {
+        "size": 273
+      },
+      ".github/workflows/catch.yml": {
+        "size": 651
+      },
+      ".github/workflows/deploy.yml": {
+        "size": 824
+      },
+      ".github/workflows/lint.yml": {
+        "size": 683
+      },
+      ".github/workflows/pytest.yml": {
+        "size": 1191
+      },
+      ".github/workflows/pytest_cov.yml": {
+        "size": 1396
+      },
+      ".pre-commit-config.yaml": {
+        "size": 446
+      },
+      "CONTRIBUTING.md": {
+        "size": 228
+      },
+      "LICENSE.md": {
+        "size": 1067
+      },
+      "README.md": {
+        "size": 4804
+      },
+      "autode/__init__.py": {
+        "size": 1744
+      },
+      "autode/atoms.py": {
+        "size": 46059
+      },
+      "autode/bond_rearrangement.py": {
+        "size": 28652
+      },
+      "autode/bonds.py": {
+        "size": 2554
+      },
+      "autode/bracket/__init__.py": {
+        "size": 70
+      },
+      "autode/bracket/base.py": {
+        "size": 11755
+      },
+      "autode/bracket/dhs.py": {
+        "size": 28076
+      },
+      "autode/bracket/ieip.py": {
+        "size": 22489
+      },
+      "autode/bracket/imagepair.py": {
+        "size": 21276
+      },
+      "autode/calculations/__init__.py": {
+        "size": 236
+      },
+      "autode/calculations/calculation.py": {
+        "size": 10489
+      },
+      "autode/calculations/executors.py": {
+        "size": 18044
+      },
+      "autode/calculations/input.py": {
+        "size": 2394
+      },
+      "autode/calculations/output.py": {
+        "size": 2371
+      },
+      "autode/calculations/types.py": {
+        "size": 167
+      },
+      "autode/config.py": {
+        "size": 19291
+      },
+      "autode/conformers/__init__.py": {
+        "size": 141
+      },
+      "autode/conformers/conf_gen.py": {
+        "size": 16976
+      },
+      "autode/conformers/conformer.py": {
+        "size": 5866
+      },
+      "autode/conformers/conformers.py": {
+        "size": 12027
+      },
+      "autode/constants.py": {
+        "size": 965
+      },
+      "autode/constraints.py": {
+        "size": 5418
+      },
+      "autode/exceptions.py": {
+        "size": 4054
+      },
+      "autode/ext/CMakeLists.txt": {
+        "size": 941
+      },
+      "autode/ext/README.md": {
+        "size": 374
+      },
+      "autode/ext/__init__.py": {
+        "size": 0
+      },
+      "autode/geom.py": {
+        "size": 9283
+      },
+      "autode/hessians.py": {
+        "size": 23080
+      },
+      "autode/input_output.py": {
+        "size": 5343
+      },
+      "autode/log/__init__.py": {
+        "size": 57
+      },
+      "autode/log/log.py": {
+        "size": 2015
+      },
+      "autode/log/methods.py": {
+        "size": 1210
+      },
+      "autode/methods.py": {
+        "size": 4468
+      },
+      "autode/mol_graphs.py": {
+        "size": 24611
+      },
+      "autode/neb/__init__.py": {
+        "size": 96
+      },
+      "autode/neb/ci.py": {
+        "size": 3882
+      },
+      "autode/neb/idpp.py": {
+        "size": 5325
+      },
+      "autode/neb/neb.py": {
+        "size": 1899
+      },
+      "autode/neb/original.py": {
+        "size": 25297
+      },
+      "autode/opt/__init__.py": {
+        "size": 164
+      },
+      "autode/opt/coordinates/__init__.py": {
+        "size": 184
+      },
+      "autode/opt/coordinates/_autodiff.py": {
+        "size": 24107
+      },
+      "autode/opt/coordinates/base.py": {
+        "size": 14924
+      },
+      "autode/opt/coordinates/cartesian.py": {
+        "size": 4114
+      },
+      "autode/opt/coordinates/dic.py": {
+        "size": 18255
+      },
+      "autode/opt/coordinates/dimer.py": {
+        "size": 8581
+      },
+      "autode/opt/coordinates/internals.py": {
+        "size": 19160
+      },
+      "autode/opt/coordinates/primitives.py": {
+        "size": 19426
+      },
+      "autode/opt/optimisers/__init__.py": {
+        "size": 565
+      },
+      "autode/opt/optimisers/base.py": {
+        "size": 43844
+      },
+      "autode/opt/optimisers/crfo.py": {
+        "size": 9294
+      },
+      "autode/opt/optimisers/dimer.py": {
+        "size": 13546
+      },
+      "autode/opt/optimisers/hessian_update.py": {
+        "size": 17503
+      },
+      "autode/opt/optimisers/prfo.py": {
+        "size": 4780
+      },
+      "autode/opt/optimisers/qa.py": {
+        "size": 4388
+      },
+      "autode/opt/optimisers/rfo.py": {
+        "size": 5307
+      },
+      "autode/opt/optimisers/steepest_descent.py": {
+        "size": 1992
+      },
+      "autode/opt/optimisers/utils.py": {
+        "size": 5039
+      },
+      "autode/path/__init__.py": {
+        "size": 117
+      },
+      "autode/path/adaptive.py": {
+        "size": 12943
+      },
+      "autode/path/interpolation.py": {
+        "size": 8476
+      },
+      "autode/path/path.py": {
+        "size": 5925
+      },
+      "autode/pes/__init__.py": {
+        "size": 139
+      },
+      "autode/pes/mep.py": {
+        "size": 1239
+      },
+      "autode/pes/pes_nd.py": {
+        "size": 29328
+      },
+      "autode/pes/reactive.py": {
+        "size": 13627
+      },
+      "autode/pes/relaxed.py": {
+        "size": 7520
+      },
+      "autode/pes/unrelaxed.py": {
+        "size": 4701
+      },
+      "autode/plotting.py": {
+        "size": 16231
+      },
+      "autode/point_charges.py": {
+        "size": 1084
+      },
+      "autode/reactions/__init__.py": {
+        "size": 150
+      },
+      "autode/reactions/multistep.py": {
+        "size": 7474
+      },
+      "autode/reactions/reaction.py": {
+        "size": 32095
+      },
+      "autode/reactions/reaction_types.py": {
+        "size": 2720
+      },
+      "autode/smiles/__init__.py": {
+        "size": 115
+      },
+      "autode/smiles/angles.py": {
+        "size": 9039
+      },
+      "autode/smiles/atom_types.py": {
+        "size": 12856
+      },
+      "autode/smiles/base.py": {
+        "size": 8439
+      },
+      "autode/smiles/builder.py": {
+        "size": 36448
+      },
+      "autode/smiles/parser.py": {
+        "size": 18540
+      },
+      "autode/smiles/smiles.py": {
+        "size": 5932
+      },
+      "autode/solvent/__init__.py": {
+        "size": 211
+      },
+      "autode/solvent/explicit_solvent.py": {
+        "size": 8622
+      },
+      "autode/solvent/solvents.py": {
+        "size": 65287
+      },
+      "autode/species/__init__.py": {
+        "size": 522
+      },
+      "autode/species/complex.py": {
+        "size": 15627
+      },
+      "autode/species/molecule.py": {
+        "size": 9914
+      },
+      "autode/species/species.py": {
+        "size": 54754
+      },
+      "autode/substitution.py": {
+        "size": 10025
+      },
+      "autode/thermochemistry/__init__.py": {
+        "size": 177
+      },
+      "autode/thermochemistry/igm.py": {
+        "size": 17425
+      },
+      "autode/thermochemistry/symmetry.py": {
+        "size": 8040
+      },
+      "autode/transition_states/__init__.py": {
+        "size": 258
+      },
+      "autode/transition_states/base.py": {
+        "size": 19578
+      },
+      "autode/transition_states/lib/template0.txt": {
+        "size": 497
+      },
+      "autode/transition_states/locate_tss.py": {
+        "size": 12006
+      },
+      "autode/transition_states/templates.py": {
+        "size": 14335
+      },
+      "autode/transition_states/transition_state.py": {
+        "size": 13849
+      },
+      "autode/transition_states/transition_states.py": {
+        "size": 863
+      },
+      "autode/transition_states/truncation.py": {
+        "size": 11766
+      },
+      "autode/transition_states/ts_guess.py": {
+        "size": 8954
+      },
+      "autode/units.py": {
+        "size": 7919
+      },
+      "autode/utils.py": {
+        "size": 22566
+      },
+      "autode/values.py": {
+        "size": 23224
+      },
+      "autode/wrappers/G09.py": {
+        "size": 24012
+      },
+      "autode/wrappers/G16.py": {
+        "size": 503
+      },
+      "autode/wrappers/MOPAC.py": {
+        "size": 12114
+      },
+      "autode/wrappers/NWChem.py": {
+        "size": 15218
+      },
+      "autode/wrappers/ORCA.py": {
+        "size": 20640
+      },
+      "autode/wrappers/QChem.py": {
+        "size": 20416
+      },
+      "autode/wrappers/XTB.py": {
+        "size": 14414
+      },
+      "autode/wrappers/__init__.py": {
+        "size": 0
+      },
+      "autode/wrappers/keywords/__init__.py": {
+        "size": 1238
+      },
+      "autode/wrappers/keywords/basis_sets.py": {
+        "size": 1051
+      },
+      "autode/wrappers/keywords/dispersion.py": {
+        "size": 226
+      },
+      "autode/wrappers/keywords/functionals.py": {
+        "size": 662
+      },
+      "autode/wrappers/keywords/implicit_solvent_types.py": {
+        "size": 358
+      },
+      "autode/wrappers/keywords/keywords.py": {
+        "size": 19880
+      },
+      "autode/wrappers/keywords/ri.py": {
+        "size": 146
+      },
+      "autode/wrappers/keywords/wf.py": {
+        "size": 92
+      },
+      "autode/wrappers/methods.py": {
+        "size": 10180
+      },
+      "doc/README.md": {
+        "size": 318
+      },
+      "doc/common/DA_2d.py": {
+        "size": 368
+      },
+      "doc/common/DA_2d_interp.py": {
+        "size": 134
+      },
+      "doc/common/OH_PES_relaxed.py": {
+        "size": 614
+      },
+      "doc/common/OH_PES_unrelaxed.py": {
+        "size": 667
+      },
+      "doc/common/OH_PES_unrelaxed_DFT.py": {
+        "size": 734
+      },
+      "doc/common/XY_bde_XTB.py": {
+        "size": 2167
+      },
+      "doc/common/claisen_cineb.py": {
+        "size": 505
+      },
+      "doc/common/curtius.py": {
+        "size": 169
+      },
+      "doc/common/methane_molfunc.py": {
+        "size": 409
+      },
+      "doc/common/na_h2o_3.py": {
+        "size": 460
+      },
+      "doc/common/nci_FF_example.py": {
+        "size": 3894
+      },
+      "doc/common/rmsd.py": {
+        "size": 2490
+      },
+      "doc/common/vaskas_conformers.py": {
+        "size": 1013
+      },
+      "doc/common/water_trimer.py": {
+        "size": 681
+      },
+      "doc/conf.py": {
+        "size": 1617
+      },
+      "doc/requirements.txt": {
+        "size": 25
+      },
+      "examples/README.md": {
+        "size": 343
+      },
+      "examples/diels_alder.py": {
+        "size": 134
+      },
+      "examples/sn2.py": {
+        "size": 159
+      },
+      "examples/tutorials/a_atoms.py": {
+        "size": 995
+      },
+      "examples/tutorials/b_atom_collections.py": {
+        "size": 655
+      },
+      "examples/tutorials/c_species.py": {
+        "size": 980
+      },
+      "examples/tutorials/d_solvated_species.py": {
+        "size": 741
+      },
+      "examples/tutorials/e_molecules.py": {
+        "size": 1409
+      },
+      "examples/tutorials/f_molecule_io.py": {
+        "size": 1304
+      },
+      "examples/tutorials/g_conformers.py": {
+        "size": 1427
+      },
+      "examples/tutorials/h_configuration.py": {
+        "size": 1321
+      },
+      "examples/tutorials/i_constrained_opt.py": {
+        "size": 1475
+      },
+      "examples/tutorials/j_NEB.py": {
+        "size": 965
+      },
+      "examples/tutorials/k_1d_pes.py": {
+        "size": 755
+      },
+      "examples/tutorials/l_2d_pes.py": {
+        "size": 860
+      },
+      "examples/tutorials/m_thermochem.py": {
+        "size": 867
+      },
+      "examples/tutorials/n_normal_modes.py": {
+        "size": 921
+      },
+      "examples/tutorials/o_transition_states.py": {
+        "size": 1088
+      },
+      "examples/tutorials/p_reaction_profile1.py": {
+        "size": 718
+      },
+      "examples/tutorials/q_reaction_profile2.py": {
+        "size": 1065
+      },
+      "examples/tutorials/r_hessians.py": {
+        "size": 547
+      },
+      "examples/tutorials/s_logging.py": {
+        "size": 543
+      },
+      "examples/tutorials/t_identity_reactions.py": {
+        "size": 842
+      },
+      "examples/tutorials/u_reaction_profile_reload.py": {
+        "size": 863
+      },
+      "pyproject.toml": {
+        "size": 366
+      },
+      "requirements.txt": {
+        "size": 64
+      },
+      "setup.py": {
+        "size": 2005
+      },
+      "tests/README.md": {
+        "size": 1601
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/benchmark.py": {
+        "size": 11598
+      },
+      "tests/conftest.py": {
+        "size": 740
+      },
+      "tests/data/benchmark/ADE_SM.txt": {
+        "size": 106
+      },
+      "tests/data/benchmark/ADE_SO.txt": {
+        "size": 482
+      },
+      "tests/data/test_subprocess.py": {
+        "size": 21
+      },
+      "tests/requirements.txt": {
+        "size": 34
+      },
+      "tests/test_atoms.py": {
+        "size": 13407
+      },
+      "tests/test_attack.py": {
+        "size": 2151
+      },
+      "tests/test_bond_rearrangement.py": {
+        "size": 17958
+      },
+      "tests/test_bracket/__init__.py": {
+        "size": 0
+      },
+      "tests/test_bracket/test_dhs.py": {
+        "size": 11627
+      },
+      "tests/test_bracket/test_ieip.py": {
+        "size": 5293
+      },
+      "tests/test_bracket/test_imagepair.py": {
+        "size": 10123
+      },
+      "tests/test_calculation.py": {
+        "size": 16185
+      },
+      "tests/test_comp_methods.py": {
+        "size": 741
+      },
+      "tests/test_complex.py": {
+        "size": 7841
+      },
+      "tests/test_conf_gen.py": {
+        "size": 10342
+      },
+      "tests/test_config.py": {
+        "size": 3871
+      },
+      "tests/test_conformers.py": {
+        "size": 11906
+      },
+      "tests/test_const_opt.py": {
+        "size": 748
+      },
+      "tests/test_constraints.py": {
+        "size": 3203
+      },
+      "tests/test_examples.py": {
+        "size": 2831
+      },
+      "tests/test_explicit_solvent.py": {
+        "size": 3735
+      },
+      "tests/test_g16.py": {
+        "size": 154
+      },
+      "tests/test_geom.py": {
+        "size": 3074
+      },
+      "tests/test_graphs.py": {
+        "size": 12383
+      },
+      "tests/test_hessian.py": {
+        "size": 30049
+      },
+      "tests/test_import.py": {
+        "size": 940
+      },
+      "tests/test_input_output.py": {
+        "size": 3916
+      },
+      "tests/test_locate_tss.py": {
+        "size": 2687
+      },
+      "tests/test_log.py": {
+        "size": 856
+      },
+      "tests/test_methods.py": {
+        "size": 3515
+      },
+      "tests/test_molecule.py": {
+        "size": 8215
+      },
+      "tests/test_multistep.py": {
+        "size": 4088
+      },
+      "tests/test_nci_complex.py": {
+        "size": 1044
+      },
+      "tests/test_neb.py": {
+        "size": 11578
+      },
+      "tests/test_opt/__init__.py": {
+        "size": 0
+      },
+      "tests/test_opt/molecules.py": {
+        "size": 2438
+      },
+      "tests/test_opt/setup.py": {
+        "size": 493
+      },
+      "tests/test_opt/test_autodiff.py": {
+        "size": 6118
+      },
+      "tests/test_opt/test_coordiantes.py": {
+        "size": 31278
+      },
+      "tests/test_opt/test_crfo.py": {
+        "size": 13397
+      },
+      "tests/test_opt/test_dimer.py": {
+        "size": 7715
+      },
+      "tests/test_opt/test_hessian_update.py": {
+        "size": 9860
+      },
+      "tests/test_opt/test_opt.py": {
+        "size": 18254
+      },
+      "tests/test_opt/test_opt_utils.py": {
+        "size": 2978
+      },
+      "tests/test_opt/test_prfo.py": {
+        "size": 3741
+      },
+      "tests/test_opt/test_qa.py": {
+        "size": 3301
+      },
+      "tests/test_opt/test_rfo.py": {
+        "size": 3062
+      },
+      "tests/test_path.py": {
+        "size": 9185
+      },
+      "tests/test_pes/__init__.py": {
+        "size": 0
+      },
+      "tests/test_pes/sample_pes.py": {
+        "size": 864
+      },
+      "tests/test_pes/test_base_class.py": {
+        "size": 3058
+      },
+      "tests/test_pes/test_calculate.py": {
+        "size": 1641
+      },
+      "tests/test_pes/test_load_save.py": {
+        "size": 2097
+      },
+      "tests/test_pes/test_mep.py": {
+        "size": 2958
+      },
+      "tests/test_pes/test_points.py": {
+        "size": 6631
+      },
+      "tests/test_pes/test_relaxed.py": {
+        "size": 6719
+      },
+      "tests/test_pes/test_rs.py": {
+        "size": 6049
+      },
+      "tests/test_pes/test_unrelaxed.py": {
+        "size": 2271
+      },
+      "tests/test_plotting.py": {
+        "size": 7230
+      },
+      "tests/test_point_charge.py": {
+        "size": 780
+      },
+      "tests/test_qrc.py": {
+        "size": 1362
+      },
+      "tests/test_rb_min.py": {
+        "size": 1579
+      },
+      "tests/test_reaction_class.py": {
+        "size": 17661
+      },
+      "tests/test_reaction_with_complexes.py": {
+        "size": 1233
+      },
+      "tests/test_reactions.py": {
+        "size": 1203
+      },
+      "tests/test_smiles_base.py": {
+        "size": 1190
+      },
+      "tests/test_smiles_builder.py": {
+        "size": 21622
+      },
+      "tests/test_smiles_parser.py": {
+        "size": 14277
+      },
+      "tests/test_sn2prime.py": {
+        "size": 2722
+      },
+      "tests/test_solvents.py": {
+        "size": 2315
+      },
+      "tests/test_species.py": {
+        "size": 20762
+      },
+      "tests/test_substitution.py": {
+        "size": 2411
+      },
+      "tests/test_thermochem.py": {
+        "size": 10114
+      },
+      "tests/test_truncation.py": {
+        "size": 7249
+      },
+      "tests/test_ts/__init__.py": {
+        "size": 0
+      },
+      "tests/test_ts/test_mode_checking.py": {
+        "size": 3312
+      },
+      "tests/test_ts/test_ts_adapt_neb.py": {
+        "size": 2762
+      },
+      "tests/test_ts/test_ts_base.py": {
+        "size": 1668
+      },
+      "tests/test_ts/test_ts_guess.py": {
+        "size": 370
+      },
+      "tests/test_ts/test_ts_template.py": {
+        "size": 7961
+      },
+      "tests/test_units.py": {
+        "size": 753
+      },
+      "tests/test_utils.py": {
+        "size": 12326
+      },
+      "tests/test_value.py": {
+        "size": 7621
+      },
+      "tests/test_values.py": {
+        "size": 3635
+      },
+      "tests/test_wrappers/__init__.py": {
+        "size": 0
+      },
+      "tests/test_wrappers/test_gaussian.py": {
+        "size": 13535
+      },
+      "tests/test_wrappers/test_keywords.py": {
+        "size": 6887
+      },
+      "tests/test_wrappers/test_mopac.py": {
+        "size": 9087
+      },
+      "tests/test_wrappers/test_nwchem.py": {
+        "size": 7848
+      },
+      "tests/test_wrappers/test_orca.py": {
+        "size": 12660
+      },
+      "tests/test_wrappers/test_qchem.py": {
+        "size": 16267
+      },
+      "tests/test_wrappers/test_wrappers.py": {
+        "size": 344
+      },
+      "tests/test_wrappers/test_xtb.py": {
+        "size": 12198
+      },
+      "tests/testutils.py": {
+        "size": 1682
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.autode",
+      "source.autode.bracket",
+      "source.autode.calculations",
+      "source.autode.conformers",
+      "source.autode.ext",
+      "source.autode.log",
+      "source.autode.neb",
+      "source.autode.opt",
+      "source.autode.path",
+      "source.autode.pes",
+      "source.autode.reactions",
+      "source.autode.smiles",
+      "source.autode.solvent",
+      "source.autode.species",
+      "source.autode.thermochemistry",
+      "source.autode.transition_states",
+      "source.autode.wrappers",
+      "source.tests",
+      "source.tests.test_bracket",
+      "source.tests.test_opt",
+      "source.tests.test_pes",
+      "source.tests.test_ts",
+      "source.tests.test_wrappers"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.autode",
+        "module": "source.autode.reactions.reaction",
+        "functions": [],
+        "classes": [
+          "Reaction"
+        ],
+        "description": "High-level reaction workflow orchestration (reactants/products, TS search, profiles, multi-step integration point)."
+      },
+      {
+        "package": "source.autode",
+        "module": "source.autode.species.molecule",
+        "functions": [],
+        "classes": [
+          "Molecule"
+        ],
+        "description": "Primary molecular object construction and manipulation for downstream calculations."
+      },
+      {
+        "package": "source.autode",
+        "module": "source.autode.species.species",
+        "functions": [],
+        "classes": [
+          "Species"
+        ],
+        "description": "Base chemical species abstraction used by molecules, complexes, and reaction components."
+      },
+      {
+        "package": "source.autode",
+        "module": "source.autode.calculations.calculation",
+        "functions": [],
+        "classes": [
+          "Calculation"
+        ],
+        "description": "Execution unit for external electronic-structure jobs (input preparation, run, output association)."
+      },
+      {
+        "package": "source.autode",
+        "module": "source.autode.wrappers.methods",
+        "functions": [],
+        "classes": [
+          "Method",
+          "ExternalMethod"
+        ],
+        "description": "Abstractions for computational method wrappers and capability dispatch."
+      },
+      {
+        "package": "source.autode",
+        "module": "source.autode.wrappers.ORCA",
+        "functions": [],
+        "classes": [
+          "ORCA"
+        ],
+        "description": "ORCA backend wrapper for job generation/parsing."
+      },
+      {
+        "package": "source.autode",
+        "module": "source.autode.wrappers.XTB",
+        "functions": [],
+        "classes": [
+          "XTB"
+        ],
+        "description": "xTB backend wrapper for semiempirical calculations."
+      },
+      {
+        "package": "source.autode",
+        "module": "source.autode.transition_states.locate_tss",
+        "functions": [
+          "find_tss",
+          "ts_guess_funcs_prms"
+        ],
+        "classes": [],
+        "description": "Transition-state location entry routines used by reaction pipelines."
+      },
+      {
+        "package": "source.autode",
+        "module": "source.autode.neb.original",
+        "functions": [],
+        "classes": [
+          "NEB"
+        ],
+        "description": "Nudged elastic band implementation for path/TS guess generation."
+      },
+      {
+        "package": "source.autode",
+        "module": "source.autode.conformers.conf_gen",
+        "functions": [
+          "get_simanl_atoms",
+          "get_simanl_conformer",
+          "get_simanl_conformers"
+        ],
+        "classes": [],
+        "description": "Conformer generation utilities (important for robust reaction/species initialization)."
+      },
+      {
+        "package": "source.autode",
+        "module": "source.autode.smiles.smiles",
+        "functions": [],
+        "classes": [
+          "SMILES"
+        ],
+        "description": "SMILES-driven molecule construction and parsing interface."
+      },
+      {
+        "package": "source.autode",
+        "module": "source.autode.config",
+        "functions": [],
+        "classes": [
+          "Config"
+        ],
+        "description": "Global runtime configuration for methods, resources, and external executables."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "networkx"
+      ],
+      "optional": [
+        "rdkit",
+        "matplotlib",
+        "xtb (external binary)",
+        "orca (external binary)",
+        "gaussian (external binary)",
+        "qchem (external binary)",
+        "nwchem (external binary)",
+        "mopac (external binary)",
+        "cclib"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/duartegroup/autodE",
+    "repo_name": "autodE",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

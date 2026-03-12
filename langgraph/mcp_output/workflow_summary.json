@@ -1,0 +1,229 @@
+{
+  "repository": {
+    "name": "langgraph",
+    "url": "https://github.com/langchain-ai/langgraph",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/langgraph",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773288075.108274,
+    "end_time": 1773288308.4799201,
+    "duration": 233.37164616584778,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/langchain-ai/langgraph",
+      "repo_name": "langgraph",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/langgraph/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/langgraph/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Operation timed out\nerror: 16 bytes of body are still expected\nfatal: expected flush after ref listing\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/langgraph/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Operation timed out\nerror: 16 bytes of body are still expected\nfatal: expected flush after ref listing\n"
+  ],
+  "recommendations": [
+    "add a minimal smoke test suite for the generated MCP plugin (startup",
+    "import checks",
+    "and one call per endpoint)",
+    "pin and align dependency versions with upstream project constraints (especially pydantic/httpx/typing-related libs)",
+    "replace broad endpoint exposure with a curated stable surface plus explicit versioning (e.g.",
+    "v1 tools)",
+    "add structured error mapping in `adapter.py`/`mcp_service.py` (LangGraph exceptions → MCP-friendly codes/messages)",
+    "implement request/response schema validation for each tool endpoint with strict Pydantic models",
+    "add timeout/retry/circuit-breaker guards around long-running Pregel and remote SDK calls",
+    "introduce observability hooks (structured logs",
+    "latency/error counters",
+    "optional tracing IDs)",
+    "add compatibility tests across sync/async paths (`get_client` vs `get_sync_client`) and local vs remote execution modes",
+    "create contract tests to detect upstream API drift for `StateGraph`",
+    "`Pregel`",
+    "`ToolNode`",
+    "and `create_react_agent`",
+    "harden packaging by adding `pyproject.toml` for `mcp_output` and lockfile-based reproducible installs",
+    "improve README_MCP with concrete invocation examples",
+    "env var matrix",
+    "and failure troubleshooting",
+    "add security guardrails (input size limits",
+    "tool allowlist",
+    "safe deserialization expectations)",
+    "define performance baselines (cold start time",
+    "per-endpoint p95 latency",
+    "memory) and a lightweight benchmark CI job",
+    "integrate CI workflow for `mcp_output` (lint",
+    "type-check",
+    "tests) instead of relying only on parent repo workflows",
+    "add graceful degradation/fallback behavior when optional backends (postgres/redis/checkpointers) are unavailable",
+    "refactor very large adapter/service functions into smaller units with typed interfaces to reduce maintenance risk"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Resilience mechanism worked: clone failure was tolerated via zip fallback, enabling downstream analysis and generation.",
+      "Import-based adapter strategy was appropriate for LangGraph (import feasibility 0.86, low intrusiveness risk).",
+      "Generated MCP service started healthy over stdio transport, indicating baseline runtime viability."
+    ],
+    "failure_reasons": [
+      "Primary repository clone failed due to network/RPC timeout (curl 56 Recv failure, expected flush after ref listing).",
+      "Analysis metadata quality degraded in parts (e.g., total_files_processed=0 and empty dependency flags) despite fallback evidence of 402 files, indicating telemetry inconsistency.",
+      "Validation depth was insufficient: original project tests were not executed successfully and MCP tests were minimal/no substantive endpoint validation."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Download node encountered a blocking clone timeout; recovery path (zip fallback) prevented hard failure but likely consumed disproportionate time.",
+      "analysis_time": "Analysis completed and identified key integration anchors (StateGraph, Pregel, ToolNode, create_react_agent, SDK clients), but reported counters are inconsistent, suggesting partial instrumentation gaps.",
+      "generation_time": "Generation completed quickly with standard scaffold files; however, generated LOC/size/tool counts reported as zero indicates post-generation metric collection issues.",
+      "test_time": "Runtime health check passed for MCP plugin, but no meaningful functional/performance/security test execution was captured (execution_time=0, empty details)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient data (reported 0 MB likely means not collected).",
+      "cpu_efficiency": "Unknown/insufficient data (reported 0% likely means not collected).",
+      "disk_usage": "Low for generated output, but measured size=0 is likely a telemetry defect rather than true zero usage."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 80,
+    "performance_score": 58,
+    "maintainability_score": 74,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

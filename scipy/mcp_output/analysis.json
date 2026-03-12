@@ -1,0 +1,4351 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/scipy/scipy",
+    "summary": "Imported via zip fallback, file count: 1336",
+    "file_tree": {
+      ".devcontainer/devcontainer.json": {
+        "size": 455
+      },
+      ".spin/cmds.py": {
+        "size": 38723
+      },
+      "LICENSE.txt": {
+        "size": 1531
+      },
+      "LICENSES_bundled.txt": {
+        "size": 7247
+      },
+      "benchmarks/asv.conf.json": {
+        "size": 3400
+      },
+      "benchmarks/benchmarks/__init__.py": {
+        "size": 73
+      },
+      "benchmarks/benchmarks/array_api.py": {
+        "size": 972
+      },
+      "benchmarks/benchmarks/blas_lapack.py": {
+        "size": 1015
+      },
+      "benchmarks/benchmarks/cluster.py": {
+        "size": 4269
+      },
+      "benchmarks/benchmarks/cluster_hierarchy_disjoint_set.py": {
+        "size": 1653
+      },
+      "benchmarks/benchmarks/common.py": {
+        "size": 13935
+      },
+      "benchmarks/benchmarks/cutest/calfun.py": {
+        "size": 1607
+      },
+      "benchmarks/benchmarks/cutest/dfo.txt": {
+        "size": 1115
+      },
+      "benchmarks/benchmarks/cutest/dfovec.py": {
+        "size": 10172
+      },
+      "benchmarks/benchmarks/cutest/dfoxs.py": {
+        "size": 2637
+      },
+      "benchmarks/benchmarks/cython_special.py": {
+        "size": 1940
+      },
+      "benchmarks/benchmarks/fft_basic.py": {
+        "size": 10009
+      },
+      "benchmarks/benchmarks/fftpack_pseudo_diffs.py": {
+        "size": 2237
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/__init__.py": {
+        "size": 2622
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_benchmark.py": {
+        "size": 5855
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_A.py": {
+        "size": 7933
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_B.py": {
+        "size": 21631
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_C.py": {
+        "size": 18237
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_D.py": {
+        "size": 17834
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_E.py": {
+        "size": 9759
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_F.py": {
+        "size": 1305
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_G.py": {
+        "size": 6456
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_H.py": {
+        "size": 11255
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_I.py": {
+        "size": 1082
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_J.py": {
+        "size": 3557
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_K.py": {
+        "size": 4594
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_L.py": {
+        "size": 9864
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_M.py": {
+        "size": 20837
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_N.py": {
+        "size": 4094
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_O.py": {
+        "size": 1895
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_P.py": {
+        "size": 20908
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_Q.py": {
+        "size": 3808
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_R.py": {
+        "size": 12385
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_S.py": {
+        "size": 40684
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_T.py": {
+        "size": 12659
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_U.py": {
+        "size": 5143
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_V.py": {
+        "size": 2676
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_W.py": {
+        "size": 9739
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_X.py": {
+        "size": 7709
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_Y.py": {
+        "size": 2839
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_Z.py": {
+        "size": 6758
+      },
+      "benchmarks/benchmarks/go_benchmark_functions/go_funcs_univariate.py": {
+        "size": 16731
+      },
+      "benchmarks/benchmarks/integrate.py": {
+        "size": 9941
+      },
+      "benchmarks/benchmarks/interpolate.py": {
+        "size": 17986
+      },
+      "benchmarks/benchmarks/io_matlab.py": {
+        "size": 3266
+      },
+      "benchmarks/benchmarks/io_mm.py": {
+        "size": 6719
+      },
+      "benchmarks/benchmarks/linalg.py": {
+        "size": 11289
+      },
+      "benchmarks/benchmarks/linalg_logm.py": {
+        "size": 773
+      },
+      "benchmarks/benchmarks/linalg_solve_toeplitz.py": {
+        "size": 1102
+      },
+      "benchmarks/benchmarks/linalg_sqrtm.py": {
+        "size": 659
+      },
+      "benchmarks/benchmarks/linprog_benchmark_files/__init__.py": {
+        "size": 647
+      },
+      "benchmarks/benchmarks/linprog_benchmark_files/summary.txt": {
+        "size": 7184
+      },
+      "benchmarks/benchmarks/lsq_problems.py": {
+        "size": 17292
+      },
+      "benchmarks/benchmarks/ndimage_interpolation.py": {
+        "size": 2227
+      },
+      "benchmarks/benchmarks/optimize.py": {
+        "size": 22341
+      },
+      "benchmarks/benchmarks/optimize_lap.py": {
+        "size": 1956
+      },
+      "benchmarks/benchmarks/optimize_linprog.py": {
+        "size": 8268
+      },
+      "benchmarks/benchmarks/optimize_milp.py": {
+        "size": 2630
+      },
+      "benchmarks/benchmarks/optimize_qap.py": {
+        "size": 2852
+      },
+      "benchmarks/benchmarks/optimize_zeros.py": {
+        "size": 3776
+      },
+      "benchmarks/benchmarks/peak_finding.py": {
+        "size": 1523
+      },
+      "benchmarks/benchmarks/signal.py": {
+        "size": 6762
+      },
+      "benchmarks/benchmarks/signal_filtering.py": {
+        "size": 3495
+      },
+      "benchmarks/benchmarks/sparse.py": {
+        "size": 19208
+      },
+      "benchmarks/benchmarks/sparse_csgraph.py": {
+        "size": 867
+      },
+      "benchmarks/benchmarks/sparse_csgraph_dijkstra.py": {
+        "size": 2299
+      },
+      "benchmarks/benchmarks/sparse_csgraph_matching.py": {
+        "size": 3078
+      },
+      "benchmarks/benchmarks/sparse_csgraph_maxflow.py": {
+        "size": 714
+      },
+      "benchmarks/benchmarks/sparse_csgraph_yen.py": {
+        "size": 958
+      },
+      "benchmarks/benchmarks/sparse_linalg_expm.py": {
+        "size": 2246
+      },
+      "benchmarks/benchmarks/sparse_linalg_lobpcg.py": {
+        "size": 7722
+      },
+      "benchmarks/benchmarks/sparse_linalg_onenormest.py": {
+        "size": 1998
+      },
+      "benchmarks/benchmarks/sparse_linalg_solve.py": {
+        "size": 2086
+      },
+      "benchmarks/benchmarks/sparse_linalg_spsolve_triangular.py": {
+        "size": 1298
+      },
+      "benchmarks/benchmarks/sparse_linalg_svds.py": {
+        "size": 3307
+      },
+      "benchmarks/benchmarks/sparse_matrix_power.py": {
+        "size": 465
+      },
+      "benchmarks/benchmarks/spatial.py": {
+        "size": 19689
+      },
+      "benchmarks/benchmarks/special.py": {
+        "size": 1576
+      },
+      "benchmarks/benchmarks/stats.py": {
+        "size": 29185
+      },
+      "benchmarks/benchmarks/stats_sampling.py": {
+        "size": 8814
+      },
+      "benchmarks/benchmarks/test_functions.py": {
+        "size": 8342
+      },
+      "benchmarks/benchmarks/tests/__init__.py": {
+        "size": 0
+      },
+      "benchmarks/benchmarks/tests/test_go_benchmark_functions.py": {
+        "size": 2683
+      },
+      "benchmarks/process_global_benchmarks.py": {
+        "size": 1244
+      },
+      "doc/README.md": {
+        "size": 1246
+      },
+      "doc/source/_static/custom-icons.js": {
+        "size": 3549
+      },
+      "doc/source/_static/version_switcher.json": {
+        "size": 8888
+      },
+      "doc/source/array_api_capabilities_table.py": {
+        "size": 5896
+      },
+      "doc/source/conf.py": {
+        "size": 19339
+      },
+      "doc/source/doi_role.py": {
+        "size": 1761
+      },
+      "doc/source/overrides.json": {
+        "size": 271
+      },
+      "doc/source/scipyoptdoc.py": {
+        "size": 5502
+      },
+      "doc/source/try_examples.json": {
+        "size": 68
+      },
+      "doc/source/tutorial/conftest.py": {
+        "size": 53
+      },
+      "doc/source/tutorial/examples/fft_ParametricClosedCurve.py": {
+        "size": 1505
+      },
+      "doc/source/tutorial/examples/fft_compare_DFT_fft_rfft.py": {
+        "size": 1462
+      },
+      "doc/source/tutorial/examples/fft_remove_trend.py": {
+        "size": 1613
+      },
+      "doc/source/tutorial/examples/gaussian_filter_plot1.py": {
+        "size": 1256
+      },
+      "doc/source/tutorial/examples/morphology_binary_dilation_erosion.py": {
+        "size": 1332
+      },
+      "doc/source/tutorial/examples/ndimage/3D_binary_structure.py": {
+        "size": 454
+      },
+      "doc/source/tutorial/examples/newton_krylov_preconditioning.py": {
+        "size": 2499
+      },
+      "doc/source/tutorial/examples/normdiscr_plot1.py": {
+        "size": 1536
+      },
+      "doc/source/tutorial/examples/normdiscr_plot2.py": {
+        "size": 1631
+      },
+      "doc/source/tutorial/examples/optimize_global_1.py": {
+        "size": 1623
+      },
+      "doc/source/tutorial/examples/optimize_global_2.py": {
+        "size": 617
+      },
+      "doc/source/tutorial/examples/plot_boundary_modes.py": {
+        "size": 1744
+      },
+      "doc/source/tutorial/examples/plot_interp_grid.py": {
+        "size": 1985
+      },
+      "doc/source/tutorial/examples/signal_Filtering_firwin2_example.py": {
+        "size": 798
+      },
+      "doc/source/tutorial/examples/signal_Filtering_firwin_example.py": {
+        "size": 1361
+      },
+      "doc/source/tutorial/examples/signal_SpectralAnalysis_ContinuousSpectralRepresentations.py": {
+        "size": 935
+      },
+      "doc/source/tutorial/examples/signal_SpectralAnalysis_MagnitudeSpectrum_Hann_3x.py": {
+        "size": 1568
+      },
+      "doc/source/tutorial/examples/signal_SpectralAnalysis_PeriodogramWelch.py": {
+        "size": 1025
+      },
+      "doc/source/tutorial/examples/signal_SpectralAnalysis_SampledContinuousSpectrum.py": {
+        "size": 1291
+      },
+      "doc/source/tutorial/examples/signal_SpectralAnalysis_SpectralLeakageWindows.py": {
+        "size": 1174
+      },
+      "doc/source/tutorial/examples/signal_SpectralAnalysis_SpectrumPhaseDelay.py": {
+        "size": 1283
+      },
+      "doc/source/tutorial/examples/signal_SpectralAnalysis_TwoSinesNoWindow.py": {
+        "size": 846
+      },
+      "doc/source/tutorial/interpolate/interp_transition_guide.md": {
+        "size": 9832
+      },
+      "doc/source/tutorial/linalg_batch.md": {
+        "size": 6706
+      },
+      "doc/source/tutorial/stats/hypothesis_bartlett.md": {
+        "size": 5998
+      },
+      "doc/source/tutorial/stats/hypothesis_chi2_contingency.md": {
+        "size": 2574
+      },
+      "doc/source/tutorial/stats/hypothesis_chisquare.md": {
+        "size": 2249
+      },
+      "doc/source/tutorial/stats/hypothesis_dunnett.md": {
+        "size": 2796
+      },
+      "doc/source/tutorial/stats/hypothesis_fisher_exact.md": {
+        "size": 3123
+      },
+      "doc/source/tutorial/stats/hypothesis_fligner.md": {
+        "size": 5971
+      },
+      "doc/source/tutorial/stats/hypothesis_friedmanchisquare.md": {
+        "size": 1518
+      },
+      "doc/source/tutorial/stats/hypothesis_jarque_bera.md": {
+        "size": 4856
+      },
+      "doc/source/tutorial/stats/hypothesis_kendalltau.md": {
+        "size": 6994
+      },
+      "doc/source/tutorial/stats/hypothesis_kurtosistest.md": {
+        "size": 5530
+      },
+      "doc/source/tutorial/stats/hypothesis_levene.md": {
+        "size": 6208
+      },
+      "doc/source/tutorial/stats/hypothesis_normaltest.md": {
+        "size": 5477
+      },
+      "doc/source/tutorial/stats/hypothesis_odds_ratio.md": {
+        "size": 2419
+      },
+      "doc/source/tutorial/stats/hypothesis_pearsonr.md": {
+        "size": 8261
+      },
+      "doc/source/tutorial/stats/hypothesis_shapiro.md": {
+        "size": 4219
+      },
+      "doc/source/tutorial/stats/hypothesis_skewtest.md": {
+        "size": 5095
+      },
+      "doc/source/tutorial/stats/hypothesis_spearmanr.md": {
+        "size": 7556
+      },
+      "doc/source/tutorial/stats/landau_energy_loss.md": {
+        "size": 4188
+      },
+      "doc/source/tutorial/stats/outliers.md": {
+        "size": 21246
+      },
+      "doc/source/tutorial/stats/plots/hinv_plot.py": {
+        "size": 752
+      },
+      "doc/source/tutorial/stats/plots/kde_plot2.py": {
+        "size": 630
+      },
+      "doc/source/tutorial/stats/plots/kde_plot3.py": {
+        "size": 1249
+      },
+      "doc/source/tutorial/stats/plots/kde_plot4.py": {
+        "size": 1457
+      },
+      "doc/source/tutorial/stats/plots/kde_plot5.py": {
+        "size": 814
+      },
+      "doc/source/tutorial/stats/plots/mgc_plot1.py": {
+        "size": 577
+      },
+      "doc/source/tutorial/stats/plots/mgc_plot2.py": {
+        "size": 1282
+      },
+      "doc/source/tutorial/stats/plots/mgc_plot3.py": {
+        "size": 648
+      },
+      "doc/source/tutorial/stats/plots/mgc_plot4.py": {
+        "size": 1352
+      },
+      "doc/source/tutorial/stats/plots/qmc_plot_conv_mc.py": {
+        "size": 1708
+      },
+      "doc/source/tutorial/stats/plots/qmc_plot_conv_mc_sobol.py": {
+        "size": 2391
+      },
+      "doc/source/tutorial/stats/plots/qmc_plot_curse.py": {
+        "size": 770
+      },
+      "doc/source/tutorial/stats/plots/qmc_plot_discrepancy.py": {
+        "size": 847
+      },
+      "doc/source/tutorial/stats/plots/qmc_plot_mc.py": {
+        "size": 530
+      },
+      "doc/source/tutorial/stats/plots/qmc_plot_mc_qmc.py": {
+        "size": 673
+      },
+      "doc/source/tutorial/stats/plots/qmc_plot_sobol_halton.py": {
+        "size": 706
+      },
+      "doc/source/tutorial/stats/rv_infrastructure.md": {
+        "size": 38421
+      },
+      "doc/source/tutorial/stats/sampling.md": {
+        "size": 14724
+      },
+      "mypy.ini": {
+        "size": 15308
+      },
+      "pixi.toml": {
+        "size": 20220
+      },
+      "pyproject.toml": {
+        "size": 6364
+      },
+      "pytest.ini": {
+        "size": 2383
+      },
+      "requirements/all.txt": {
+        "size": 201
+      },
+      "requirements/build.txt": {
+        "size": 241
+      },
+      "requirements/default.txt": {
+        "size": 167
+      },
+      "requirements/delvewheel_requirements.txt": {
+        "size": 51
+      },
+      "requirements/dev.txt": {
+        "size": 260
+      },
+      "requirements/doc.txt": {
+        "size": 395
+      },
+      "requirements/openblas.txt": {
+        "size": 30
+      },
+      "requirements/openblas64.txt": {
+        "size": 60
+      },
+      "requirements/test.txt": {
+        "size": 458
+      },
+      "scipy/__init__.py": {
+        "size": 4194
+      },
+      "scipy/_build_utils/_generate_blas_wrapper.py": {
+        "size": 4937
+      },
+      "scipy/_build_utils/_wrappers_common.py": {
+        "size": 4449
+      },
+      "scipy/_build_utils/system_info.py": {
+        "size": 1177
+      },
+      "scipy/_build_utils/tempita.py": {
+        "size": 1759
+      },
+      "scipy/_build_utils/tempita/LICENSE.txt": {
+        "size": 1072
+      },
+      "scipy/_build_utils/tempita/__init__.py": {
+        "size": 152
+      },
+      "scipy/_build_utils/tempita/_looper.py": {
+        "size": 4011
+      },
+      "scipy/_build_utils/tempita/_tempita.py": {
+        "size": 37611
+      },
+      "scipy/_distributor_init.py": {
+        "size": 611
+      },
+      "scipy/_external/__init__.py": {
+        "size": 162
+      },
+      "scipy/_external/_array_api_compat_vendor.py": {
+        "size": 412
+      },
+      "scipy/_external/packaging_version/README.md": {
+        "size": 83
+      },
+      "scipy/_external/packaging_version/src/_structures.py": {
+        "size": 1431
+      },
+      "scipy/_external/packaging_version/src/version.py": {
+        "size": 16676
+      },
+      "scipy/_lib/__init__.py": {
+        "size": 353
+      },
+      "scipy/_lib/_array_api.py": {
+        "size": 43488
+      },
+      "scipy/_lib/_array_api_docs_tables.py": {
+        "size": 10662
+      },
+      "scipy/_lib/_array_api_no_0d.py": {
+        "size": 4425
+      },
+      "scipy/_lib/_array_api_override.py": {
+        "size": 5615
+      },
+      "scipy/_lib/_bunch.py": {
+        "size": 8305
+      },
+      "scipy/_lib/_ccallback.py": {
+        "size": 7087
+      },
+      "scipy/_lib/_disjoint_set.py": {
+        "size": 6388
+      },
+      "scipy/_lib/_docscrape.py": {
+        "size": 23807
+      },
+      "scipy/_lib/_elementwise_iterative_method.py": {
+        "size": 15486
+      },
+      "scipy/_lib/_gcutils.py": {
+        "size": 2449
+      },
+      "scipy/_lib/_public_api.py": {
+        "size": 1828
+      },
+      "scipy/_lib/_sparse.py": {
+        "size": 905
+      },
+      "scipy/_lib/_testutils.py": {
+        "size": 12302
+      },
+      "scipy/_lib/_uarray/__init__.py": {
+        "size": 4493
+      },
+      "scipy/_lib/_uarray/_backend.py": {
+        "size": 20531
+      },
+      "scipy/_lib/_util.py": {
+        "size": 46460
+      },
+      "scipy/_lib/deprecation.py": {
+        "size": 9854
+      },
+      "scipy/_lib/doccer.py": {
+        "size": 10721
+      },
+      "scipy/_lib/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/_lib/tests/test__gcutils.py": {
+        "size": 3452
+      },
+      "scipy/_lib/tests/test__testutils.py": {
+        "size": 800
+      },
+      "scipy/_lib/tests/test__util.py": {
+        "size": 22560
+      },
+      "scipy/_lib/tests/test_array_api.py": {
+        "size": 15715
+      },
+      "scipy/_lib/tests/test_bunch.py": {
+        "size": 6389
+      },
+      "scipy/_lib/tests/test_ccallback.py": {
+        "size": 6040
+      },
+      "scipy/_lib/tests/test_config.py": {
+        "size": 1244
+      },
+      "scipy/_lib/tests/test_deprecation.py": {
+        "size": 440
+      },
+      "scipy/_lib/tests/test_doccer.py": {
+        "size": 4150
+      },
+      "scipy/_lib/tests/test_import_cycles.py": {
+        "size": 843
+      },
+      "scipy/_lib/tests/test_public_api.py": {
+        "size": 17726
+      },
+      "scipy/_lib/tests/test_scipy_version.py": {
+        "size": 918
+      },
+      "scipy/_lib/tests/test_warnings.py": {
+        "size": 5005
+      },
+      "scipy/_lib/tests/test_xp_capabilities.py": {
+        "size": 1947
+      },
+      "scipy/_lib/uarray.py": {
+        "size": 838
+      },
+      "scipy/cluster/__init__.py": {
+        "size": 880
+      },
+      "scipy/cluster/hierarchy/__init__.py": {
+        "size": 2762
+      },
+      "scipy/cluster/hierarchy/_hierarchy_impl.py": {
+        "size": 154726
+      },
+      "scipy/cluster/hierarchy/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/cluster/hierarchy/tests/hierarchy_test_data.py": {
+        "size": 6850
+      },
+      "scipy/cluster/hierarchy/tests/test_disjoint_set.py": {
+        "size": 5525
+      },
+      "scipy/cluster/hierarchy/tests/test_hierarchy.py": {
+        "size": 51023
+      },
+      "scipy/cluster/vq/__init__.py": {
+        "size": 3551
+      },
+      "scipy/cluster/vq/_vq_impl.py": {
+        "size": 28105
+      },
+      "scipy/cluster/vq/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/cluster/vq/tests/test_vq.py": {
+        "size": 18947
+      },
+      "scipy/conftest.py": {
+        "size": 29445
+      },
+      "scipy/constants/__init__.py": {
+        "size": 14839
+      },
+      "scipy/constants/_codata.py": {
+        "size": 202505
+      },
+      "scipy/constants/_constants.py": {
+        "size": 10572
+      },
+      "scipy/constants/codata.py": {
+        "size": 614
+      },
+      "scipy/constants/constants.py": {
+        "size": 2250
+      },
+      "scipy/constants/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/constants/tests/test_codata.py": {
+        "size": 2854
+      },
+      "scipy/constants/tests/test_constants.py": {
+        "size": 4247
+      },
+      "scipy/datasets/__init__.py": {
+        "size": 2802
+      },
+      "scipy/datasets/_download_all.py": {
+        "size": 2174
+      },
+      "scipy/datasets/_fetchers.py": {
+        "size": 7052
+      },
+      "scipy/datasets/_registry.py": {
+        "size": 1072
+      },
+      "scipy/datasets/_utils.py": {
+        "size": 2931
+      },
+      "scipy/datasets/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/datasets/tests/test_data.py": {
+        "size": 4017
+      },
+      "scipy/differentiate/__init__.py": {
+        "size": 621
+      },
+      "scipy/differentiate/_differentiate.py": {
+        "size": 51639
+      },
+      "scipy/differentiate/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/differentiate/tests/test_differentiate.py": {
+        "size": 28266
+      },
+      "scipy/fft/__init__.py": {
+        "size": 3632
+      },
+      "scipy/fft/_backend.py": {
+        "size": 6964
+      },
+      "scipy/fft/_basic.py": {
+        "size": 64356
+      },
+      "scipy/fft/_basic_backend.py": {
+        "size": 7443
+      },
+      "scipy/fft/_debug_backends.py": {
+        "size": 598
+      },
+      "scipy/fft/_fftlog.py": {
+        "size": 7999
+      },
+      "scipy/fft/_fftlog_backend.py": {
+        "size": 5357
+      },
+      "scipy/fft/_helper.py": {
+        "size": 11514
+      },
+      "scipy/fft/_pocketfft/LICENSE.md": {
+        "size": 1498
+      },
+      "scipy/fft/_pocketfft/README.md": {
+        "size": 821
+      },
+      "scipy/fft/_pocketfft/__init__.py": {
+        "size": 207
+      },
+      "scipy/fft/_pocketfft/basic.py": {
+        "size": 8138
+      },
+      "scipy/fft/_pocketfft/helper.py": {
+        "size": 7068
+      },
+      "scipy/fft/_pocketfft/realtransforms.py": {
+        "size": 3344
+      },
+      "scipy/fft/_pocketfft/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/fft/_pocketfft/tests/test_basic.py": {
+        "size": 35633
+      },
+      "scipy/fft/_pocketfft/tests/test_real_transforms.py": {
+        "size": 16864
+      },
+      "scipy/fft/_pocketfft/version.md": {
+        "size": 467
+      },
+      "scipy/fft/_realtransforms.py": {
+        "size": 26450
+      },
+      "scipy/fft/_realtransforms_backend.py": {
+        "size": 2389
+      },
+      "scipy/fft/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/fft/tests/mock_backend.py": {
+        "size": 2685
+      },
+      "scipy/fft/tests/test_backend.py": {
+        "size": 4285
+      },
+      "scipy/fft/tests/test_basic.py": {
+        "size": 23145
+      },
+      "scipy/fft/tests/test_fftlog.py": {
+        "size": 7878
+      },
+      "scipy/fft/tests/test_helper.py": {
+        "size": 19486
+      },
+      "scipy/fft/tests/test_multithreading.py": {
+        "size": 2150
+      },
+      "scipy/fft/tests/test_real_transforms.py": {
+        "size": 9289
+      },
+      "scipy/fftpack/__init__.py": {
+        "size": 3155
+      },
+      "scipy/fftpack/_basic.py": {
+        "size": 13170
+      },
+      "scipy/fftpack/_helper.py": {
+        "size": 3348
+      },
+      "scipy/fftpack/_pseudo_diffs.py": {
+        "size": 16083
+      },
+      "scipy/fftpack/_realtransforms.py": {
+        "size": 19222
+      },
+      "scipy/fftpack/basic.py": {
+        "size": 577
+      },
+      "scipy/fftpack/helper.py": {
+        "size": 580
+      },
+      "scipy/fftpack/pseudo_diffs.py": {
+        "size": 658
+      },
+      "scipy/fftpack/realtransforms.py": {
+        "size": 595
+      },
+      "scipy/fftpack/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/fftpack/tests/gen_fftw_ref.py": {
+        "size": 1886
+      },
+      "scipy/fftpack/tests/gendata.py": {
+        "size": 163
+      },
+      "scipy/fftpack/tests/test_basic.py": {
+        "size": 30472
+      },
+      "scipy/fftpack/tests/test_helper.py": {
+        "size": 1675
+      },
+      "scipy/fftpack/tests/test_import.py": {
+        "size": 1156
+      },
+      "scipy/fftpack/tests/test_pseudo_diffs.py": {
+        "size": 13733
+      },
+      "scipy/fftpack/tests/test_real_transforms.py": {
+        "size": 24460
+      },
+      "scipy/integrate/__init__.py": {
+        "size": 4373
+      },
+      "scipy/integrate/_bvp.py": {
+        "size": 41542
+      },
+      "scipy/integrate/_cubature.py": {
+        "size": 25767
+      },
+      "scipy/integrate/_ivp/__init__.py": {
+        "size": 256
+      },
+      "scipy/integrate/_ivp/base.py": {
+        "size": 10514
+      },
+      "scipy/integrate/_ivp/bdf.py": {
+        "size": 17541
+      },
+      "scipy/integrate/_ivp/common.py": {
+        "size": 15787
+      },
+      "scipy/integrate/_ivp/dop853_coefficients.py": {
+        "size": 7237
+      },
+      "scipy/integrate/_ivp/ivp.py": {
+        "size": 32015
+      },
+      "scipy/integrate/_ivp/lsoda.py": {
+        "size": 10234
+      },
+      "scipy/integrate/_ivp/radau.py": {
+        "size": 19716
+      },
+      "scipy/integrate/_ivp/rk.py": {
+        "size": 23016
+      },
+      "scipy/integrate/_ivp/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/integrate/_ivp/tests/test_ivp.py": {
+        "size": 43352
+      },
+      "scipy/integrate/_ivp/tests/test_rk.py": {
+        "size": 1326
+      },
+      "scipy/integrate/_lebedev.py": {
+        "size": 262106
+      },
+      "scipy/integrate/_ode.py": {
+        "size": 50611
+      },
+      "scipy/integrate/_odepack_py.py": {
+        "size": 11236
+      },
+      "scipy/integrate/_quad_vec.py": {
+        "size": 21453
+      },
+      "scipy/integrate/_quadpack_py.py": {
+        "size": 54616
+      },
+      "scipy/integrate/_quadrature.py": {
+        "size": 49490
+      },
+      "scipy/integrate/_rules/__init__.py": {
+        "size": 328
+      },
+      "scipy/integrate/_rules/_base.py": {
+        "size": 17927
+      },
+      "scipy/integrate/_rules/_gauss_kronrod.py": {
+        "size": 8473
+      },
+      "scipy/integrate/_rules/_gauss_legendre.py": {
+        "size": 1733
+      },
+      "scipy/integrate/_rules/_genz_malik.py": {
+        "size": 7299
+      },
+      "scipy/integrate/_tanhsinh.py": {
+        "size": 61955
+      },
+      "scipy/integrate/dop.py": {
+        "size": 422
+      },
+      "scipy/integrate/lsoda.py": {
+        "size": 438
+      },
+      "scipy/integrate/odepack.py": {
+        "size": 545
+      },
+      "scipy/integrate/quadpack.py": {
+        "size": 604
+      },
+      "scipy/integrate/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/integrate/tests/test__quad_vec.py": {
+        "size": 7157
+      },
+      "scipy/integrate/tests/test_banded_ode_solvers.py": {
+        "size": 9244
+      },
+      "scipy/integrate/tests/test_bvp.py": {
+        "size": 20221
+      },
+      "scipy/integrate/tests/test_cubature.py": {
+        "size": 37275
+      },
+      "scipy/integrate/tests/test_integrate.py": {
+        "size": 24823
+      },
+      "scipy/integrate/tests/test_quadpack.py": {
+        "size": 29837
+      },
+      "scipy/integrate/tests/test_quadrature.py": {
+        "size": 31846
+      },
+      "scipy/integrate/tests/test_tanhsinh.py": {
+        "size": 45608
+      },
+      "scipy/integrate/vode.py": {
+        "size": 424
+      },
+      "scipy/interpolate/__init__.py": {
+        "size": 4073
+      },
+      "scipy/interpolate/_bary_rational.py": {
+        "size": 29419
+      },
+      "scipy/interpolate/_bsplines.py": {
+        "size": 90782
+      },
+      "scipy/interpolate/_cubic.py": {
+        "size": 40701
+      },
+      "scipy/interpolate/_fitpack2.py": {
+        "size": 100790
+      },
+      "scipy/interpolate/_fitpack_impl.py": {
+        "size": 29026
+      },
+      "scipy/interpolate/_fitpack_py.py": {
+        "size": 32532
+      },
+      "scipy/interpolate/_fitpack_repro.py": {
+        "size": 51915
+      },
+      "scipy/interpolate/_interpnd_info.py": {
+        "size": 869
+      },
+      "scipy/interpolate/_interpolate.py": {
+        "size": 82374
+      },
+      "scipy/interpolate/_ndbspline.py": {
+        "size": 17831
+      },
+      "scipy/interpolate/_ndgriddata.py": {
+        "size": 12830
+      },
+      "scipy/interpolate/_pade.py": {
+        "size": 2311
+      },
+      "scipy/interpolate/_polyint.py": {
+        "size": 39893
+      },
+      "scipy/interpolate/_rbf.py": {
+        "size": 11767
+      },
+      "scipy/interpolate/_rbfinterp.py": {
+        "size": 19423
+      },
+      "scipy/interpolate/_rbfinterp_common.py": {
+        "size": 973
+      },
+      "scipy/interpolate/_rbfinterp_np.py": {
+        "size": 3003
+      },
+      "scipy/interpolate/_rbfinterp_pythran.py": {
+        "size": 5837
+      },
+      "scipy/interpolate/_rbfinterp_xp.py": {
+        "size": 7654
+      },
+      "scipy/interpolate/_rgi.py": {
+        "size": 32347
+      },
+      "scipy/interpolate/dfitpack.py": {
+        "size": 593
+      },
+      "scipy/interpolate/fitpack.py": {
+        "size": 702
+      },
+      "scipy/interpolate/fitpack2.py": {
+        "size": 817
+      },
+      "scipy/interpolate/interpnd.py": {
+        "size": 609
+      },
+      "scipy/interpolate/interpolate.py": {
+        "size": 754
+      },
+      "scipy/interpolate/ndgriddata.py": {
+        "size": 636
+      },
+      "scipy/interpolate/polyint.py": {
+        "size": 672
+      },
+      "scipy/interpolate/rbf.py": {
+        "size": 519
+      },
+      "scipy/interpolate/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/interpolate/tests/test_bary_rational.py": {
+        "size": 16909
+      },
+      "scipy/interpolate/tests/test_bsplines.py": {
+        "size": 153732
+      },
+      "scipy/interpolate/tests/test_fitpack.py": {
+        "size": 17397
+      },
+      "scipy/interpolate/tests/test_fitpack2.py": {
+        "size": 64468
+      },
+      "scipy/interpolate/tests/test_gil.py": {
+        "size": 1831
+      },
+      "scipy/interpolate/tests/test_interpnd.py": {
+        "size": 18467
+      },
+      "scipy/interpolate/tests/test_interpolate.py": {
+        "size": 102756
+      },
+      "scipy/interpolate/tests/test_ndgriddata.py": {
+        "size": 10994
+      },
+      "scipy/interpolate/tests/test_pade.py": {
+        "size": 4217
+      },
+      "scipy/interpolate/tests/test_polyint.py": {
+        "size": 37574
+      },
+      "scipy/interpolate/tests/test_rbf.py": {
+        "size": 7004
+      },
+      "scipy/interpolate/tests/test_rbfinterp.py": {
+        "size": 20750
+      },
+      "scipy/interpolate/tests/test_rgi.py": {
+        "size": 49988
+      },
+      "scipy/io/__init__.py": {
+        "size": 2773
+      },
+      "scipy/io/_fast_matrix_market/LICENSE.txt": {
+        "size": 1275
+      },
+      "scipy/io/_fast_matrix_market/README.md": {
+        "size": 3525
+      },
+      "scipy/io/_fast_matrix_market/__init__.py": {
+        "size": 18376
+      },
+      "scipy/io/_fast_matrix_market/fast_matrix_market/dependencies/fast_float/README.md": {
+        "size": 1898
+      },
+      "scipy/io/_fast_matrix_market/fast_matrix_market/dependencies/ryu/README.md": {
+        "size": 635
+      },
+      "scipy/io/_fortran.py": {
+        "size": 10860
+      },
+      "scipy/io/_harwell_boeing/__init__.py": {
+        "size": 164
+      },
+      "scipy/io/_harwell_boeing/_fortran_format_parser.py": {
+        "size": 9003
+      },
+      "scipy/io/_harwell_boeing/hb.py": {
+        "size": 20455
+      },
+      "scipy/io/_harwell_boeing/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/io/_harwell_boeing/tests/test_fortran_format.py": {
+        "size": 2383
+      },
+      "scipy/io/_harwell_boeing/tests/test_hb.py": {
+        "size": 2686
+      },
+      "scipy/io/_idl.py": {
+        "size": 27002
+      },
+      "scipy/io/_mmio.py": {
+        "size": 33660
+      },
+      "scipy/io/_netcdf.py": {
+        "size": 39502
+      },
+      "scipy/io/arff/__init__.py": {
+        "size": 805
+      },
+      "scipy/io/arff/_arffread.py": {
+        "size": 26288
+      },
+      "scipy/io/arff/arffread.py": {
+        "size": 575
+      },
+      "scipy/io/arff/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/io/arff/tests/test_arffread.py": {
+        "size": 13094
+      },
+      "scipy/io/harwell_boeing.py": {
+        "size": 538
+      },
+      "scipy/io/idl.py": {
+        "size": 504
+      },
+      "scipy/io/matlab/__init__.py": {
+        "size": 2245
+      },
+      "scipy/io/matlab/_byteordercodes.py": {
+        "size": 1983
+      },
+      "scipy/io/matlab/_mio.py": {
+        "size": 15405
+      },
+      "scipy/io/matlab/_mio4.py": {
+        "size": 20993
+      },
+      "scipy/io/matlab/_mio5.py": {
+        "size": 33965
+      },
+      "scipy/io/matlab/_mio5_params.py": {
+        "size": 8588
+      },
+      "scipy/io/matlab/_miobase.py": {
+        "size": 13103
+      },
+      "scipy/io/matlab/byteordercodes.py": {
+        "size": 528
+      },
+      "scipy/io/matlab/mio.py": {
+        "size": 539
+      },
+      "scipy/io/matlab/mio4.py": {
+        "size": 508
+      },
+      "scipy/io/matlab/mio5.py": {
+        "size": 638
+      },
+      "scipy/io/matlab/mio5_params.py": {
+        "size": 593
+      },
+      "scipy/io/matlab/mio5_utils.py": {
+        "size": 520
+      },
+      "scipy/io/matlab/mio_utils.py": {
+        "size": 518
+      },
+      "scipy/io/matlab/miobase.py": {
+        "size": 565
+      },
+      "scipy/io/matlab/streams.py": {
+        "size": 513
+      },
+      "scipy/io/matlab/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/io/matlab/tests/data/japanese_utf8.txt": {
+        "size": 100
+      },
+      "scipy/io/matlab/tests/test_byteordercodes.py": {
+        "size": 938
+      },
+      "scipy/io/matlab/tests/test_mio.py": {
+        "size": 47338
+      },
+      "scipy/io/matlab/tests/test_mio5_utils.py": {
+        "size": 5389
+      },
+      "scipy/io/matlab/tests/test_mio_funcs.py": {
+        "size": 1390
+      },
+      "scipy/io/matlab/tests/test_mio_utils.py": {
+        "size": 1594
+      },
+      "scipy/io/matlab/tests/test_miobase.py": {
+        "size": 1460
+      },
+      "scipy/io/matlab/tests/test_pathological.py": {
+        "size": 1055
+      },
+      "scipy/io/matlab/tests/test_streams.py": {
+        "size": 7543
+      },
+      "scipy/io/mmio.py": {
+        "size": 526
+      },
+      "scipy/io/netcdf.py": {
+        "size": 533
+      },
+      "scipy/io/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/io/tests/test_fortran.py": {
+        "size": 11363
+      },
+      "scipy/io/tests/test_idl.py": {
+        "size": 21260
+      },
+      "scipy/io/tests/test_mmio.py": {
+        "size": 29340
+      },
+      "scipy/io/tests/test_netcdf.py": {
+        "size": 19547
+      },
+      "scipy/io/tests/test_paths.py": {
+        "size": 3278
+      },
+      "scipy/io/tests/test_wavfile.py": {
+        "size": 18775
+      },
+      "scipy/io/wavfile.py": {
+        "size": 30685
+      },
+      "scipy/linalg/__init__.py": {
+        "size": 7426
+      },
+      "scipy/linalg/_basic.py": {
+        "size": 75118
+      },
+      "scipy/linalg/_cython_signature_generator.py": {
+        "size": 10580
+      },
+      "scipy/linalg/_decomp.py": {
+        "size": 63942
+      },
+      "scipy/linalg/_decomp_cholesky.py": {
+        "size": 16305
+      },
+      "scipy/linalg/_decomp_cossin.py": {
+        "size": 9393
+      },
+      "scipy/linalg/_decomp_ldl.py": {
+        "size": 12612
+      },
+      "scipy/linalg/_decomp_lu.py": {
+        "size": 13540
+      },
+      "scipy/linalg/_decomp_polar.py": {
+        "size": 3654
+      },
+      "scipy/linalg/_decomp_qr.py": {
+        "size": 15506
+      },
+      "scipy/linalg/_decomp_qz.py": {
+        "size": 16424
+      },
+      "scipy/linalg/_decomp_schur.py": {
+        "size": 12172
+      },
+      "scipy/linalg/_decomp_svd.py": {
+        "size": 18909
+      },
+      "scipy/linalg/_expm_frechet.py": {
+        "size": 12416
+      },
+      "scipy/linalg/_generate_pyx.py": {
+        "size": 20772
+      },
+      "scipy/linalg/_linalg_pythran.py": {
+        "size": 844
+      },
+      "scipy/linalg/_matfuncs.py": {
+        "size": 26438
+      },
+      "scipy/linalg/_matfuncs_inv_ssq.py": {
+        "size": 28086
+      },
+      "scipy/linalg/_matfuncs_sqrtm.py": {
+        "size": 3423
+      },
+      "scipy/linalg/_matfuncs_sqrtm_triu.py": {
+        "size": 966
+      },
+      "scipy/linalg/_misc.py": {
+        "size": 6301
+      },
+      "scipy/linalg/_procrustes.py": {
+        "size": 3859
+      },
+      "scipy/linalg/_sketches.py": {
+        "size": 7198
+      },
+      "scipy/linalg/_solvers.py": {
+        "size": 30122
+      },
+      "scipy/linalg/_special_matrices.py": {
+        "size": 41213
+      },
+      "scipy/linalg/_testutils.py": {
+        "size": 1943
+      },
+      "scipy/linalg/basic.py": {
+        "size": 753
+      },
+      "scipy/linalg/blas.py": {
+        "size": 11833
+      },
+      "scipy/linalg/cython_blas_signatures.txt": {
+        "size": 12139
+      },
+      "scipy/linalg/cython_lapack_signatures.txt": {
+        "size": 173787
+      },
+      "scipy/linalg/decomp.py": {
+        "size": 708
+      },
+      "scipy/linalg/decomp_cholesky.py": {
+        "size": 649
+      },
+      "scipy/linalg/decomp_lu.py": {
+        "size": 593
+      },
+      "scipy/linalg/decomp_qr.py": {
+        "size": 567
+      },
+      "scipy/linalg/decomp_schur.py": {
+        "size": 602
+      },
+      "scipy/linalg/decomp_svd.py": {
+        "size": 631
+      },
+      "scipy/linalg/interpolative.py": {
+        "size": 31169
+      },
+      "scipy/linalg/lapack.py": {
+        "size": 18420
+      },
+      "scipy/linalg/matfuncs.py": {
+        "size": 744
+      },
+      "scipy/linalg/misc.py": {
+        "size": 592
+      },
+      "scipy/linalg/special_matrices.py": {
+        "size": 749
+      },
+      "scipy/linalg/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/linalg/tests/test_basic.py": {
+        "size": 110839
+      },
+      "scipy/linalg/tests/test_batch.py": {
+        "size": 31372
+      },
+      "scipy/linalg/tests/test_blas.py": {
+        "size": 37595
+      },
+      "scipy/linalg/tests/test_cython_blas.py": {
+        "size": 4087
+      },
+      "scipy/linalg/tests/test_cython_lapack.py": {
+        "size": 796
+      },
+      "scipy/linalg/tests/test_cythonized_array_utils.py": {
+        "size": 4203
+      },
+      "scipy/linalg/tests/test_decomp.py": {
+        "size": 121831
+      },
+      "scipy/linalg/tests/test_decomp_cholesky.py": {
+        "size": 15125
+      },
+      "scipy/linalg/tests/test_decomp_cossin.py": {
+        "size": 12348
+      },
+      "scipy/linalg/tests/test_decomp_ldl.py": {
+        "size": 5034
+      },
+      "scipy/linalg/tests/test_decomp_lu.py": {
+        "size": 12629
+      },
+      "scipy/linalg/tests/test_decomp_polar.py": {
+        "size": 3287
+      },
+      "scipy/linalg/tests/test_decomp_update.py": {
+        "size": 68424
+      },
+      "scipy/linalg/tests/test_extending.py": {
+        "size": 1823
+      },
+      "scipy/linalg/tests/test_fblas.py": {
+        "size": 18664
+      },
+      "scipy/linalg/tests/test_interpolative.py": {
+        "size": 8616
+      },
+      "scipy/linalg/tests/test_lapack.py": {
+        "size": 138869
+      },
+      "scipy/linalg/tests/test_matfuncs.py": {
+        "size": 43923
+      },
+      "scipy/linalg/tests/test_matmul_toeplitz.py": {
+        "size": 4088
+      },
+      "scipy/linalg/tests/test_procrustes.py": {
+        "size": 9058
+      },
+      "scipy/linalg/tests/test_sketches.py": {
+        "size": 4010
+      },
+      "scipy/linalg/tests/test_solve_toeplitz.py": {
+        "size": 4579
+      },
+      "scipy/linalg/tests/test_solvers.py": {
+        "size": 34598
+      },
+      "scipy/linalg/tests/test_special_matrices.py": {
+        "size": 24843
+      },
+      "scipy/misc/__init__.py": {
+        "size": 135
+      },
+      "scipy/misc/common.py": {
+        "size": 142
+      },
+      "scipy/misc/doccer.py": {
+        "size": 142
+      },
+      "scipy/ndimage/LICENSE.txt": {
+        "size": 1389
+      },
+      "scipy/ndimage/__init__.py": {
+        "size": 5175
+      },
+      "scipy/ndimage/_delegators.py": {
+        "size": 9410
+      },
+      "scipy/ndimage/_filters.py": {
+        "size": 93373
+      },
+      "scipy/ndimage/_fourier.py": {
+        "size": 11266
+      },
+      "scipy/ndimage/_interpolation.py": {
+        "size": 37697
+      },
+      "scipy/ndimage/_measurements.py": {
+        "size": 56274
+      },
+      "scipy/ndimage/_morphology.py": {
+        "size": 100958
+      },
+      "scipy/ndimage/_ndimage_api.py": {
+        "size": 586
+      },
+      "scipy/ndimage/_ni_docstrings.py": {
+        "size": 9046
+      },
+      "scipy/ndimage/_ni_support.py": {
+        "size": 5216
+      },
+      "scipy/ndimage/_support_alternative_backends.py": {
+        "size": 4206
+      },
+      "scipy/ndimage/filters.py": {
+        "size": 976
+      },
+      "scipy/ndimage/fourier.py": {
+        "size": 599
+      },
+      "scipy/ndimage/interpolation.py": {
+        "size": 664
+      },
+      "scipy/ndimage/measurements.py": {
+        "size": 788
+      },
+      "scipy/ndimage/morphology.py": {
+        "size": 965
+      },
+      "scipy/ndimage/tests/__init__.py": {
+        "size": 314
+      },
+      "scipy/ndimage/tests/data/README.txt": {
+        "size": 278
+      },
+      "scipy/ndimage/tests/data/label_inputs.txt": {
+        "size": 294
+      },
+      "scipy/ndimage/tests/data/label_results.txt": {
+        "size": 4309
+      },
+      "scipy/ndimage/tests/data/label_strels.txt": {
+        "size": 252
+      },
+      "scipy/ndimage/tests/test_c_api.py": {
+        "size": 3738
+      },
+      "scipy/ndimage/tests/test_datatypes.py": {
+        "size": 2819
+      },
+      "scipy/ndimage/tests/test_filters.py": {
+        "size": 145352
+      },
+      "scipy/ndimage/tests/test_fourier.py": {
+        "size": 8080
+      },
+      "scipy/ndimage/tests/test_interpolation.py": {
+        "size": 61290
+      },
+      "scipy/ndimage/tests/test_measurements.py": {
+        "size": 62456
+      },
+      "scipy/ndimage/tests/test_morphology.py": {
+        "size": 138109
+      },
+      "scipy/ndimage/tests/test_ni_support.py": {
+        "size": 2484
+      },
+      "scipy/ndimage/tests/test_splines.py": {
+        "size": 2360
+      },
+      "scipy/ndimage/utils/generate_label_testvectors.py": {
+        "size": 1669
+      },
+      "scipy/odr/__init__.py": {
+        "size": 6214
+      },
+      "scipy/odr/_add_newdocs.py": {
+        "size": 1328
+      },
+      "scipy/odr/_models.py": {
+        "size": 8781
+      },
+      "scipy/odr/_odrpack.py": {
+        "size": 44307
+      },
+      "scipy/odr/models.py": {
+        "size": 785
+      },
+      "scipy/odr/odrpack.py": {
+        "size": 828
+      },
+      "scipy/odr/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/odr/tests/test_odr.py": {
+        "size": 22478
+      },
+      "scipy/optimize/__init__.py": {
+        "size": 13279
+      },
+      "scipy/optimize/_basinhopping.py": {
+        "size": 29977
+      },
+      "scipy/optimize/_bracket.py": {
+        "size": 31340
+      },
+      "scipy/optimize/_chandrupatla.py": {
+        "size": 24747
+      },
+      "scipy/optimize/_cobyla_py.py": {
+        "size": 11008
+      },
+      "scipy/optimize/_cobyqa_py.py": {
+        "size": 2931
+      },
+      "scipy/optimize/_constraints.py": {
+        "size": 23542
+      },
+      "scipy/optimize/_dcsrch.py": {
+        "size": 25234
+      },
+      "scipy/optimize/_differentiable_functions.py": {
+        "size": 29965
+      },
+      "scipy/optimize/_differentialevolution.py": {
+        "size": 90020
+      },
+      "scipy/optimize/_direct_py.py": {
+        "size": 11848
+      },
+      "scipy/optimize/_dual_annealing.py": {
+        "size": 31121
+      },
+      "scipy/optimize/_elementwise.py": {
+        "size": 34741
+      },
+      "scipy/optimize/_group_columns.py": {
+        "size": 2659
+      },
+      "scipy/optimize/_hessian_update_strategy.py": {
+        "size": 18423
+      },
+      "scipy/optimize/_highspy/__init__.py": {
+        "size": 0
+      },
+      "scipy/optimize/_highspy/_highs_wrapper.py": {
+        "size": 11294
+      },
+      "scipy/optimize/_isotonic.py": {
+        "size": 6076
+      },
+      "scipy/optimize/_lbfgsb_py.py": {
+        "size": 21077
+      },
+      "scipy/optimize/_linesearch.py": {
+        "size": 27216
+      },
+      "scipy/optimize/_linprog.py": {
+        "size": 30240
+      },
+      "scipy/optimize/_linprog_doc.py": {
+        "size": 61929
+      },
+      "scipy/optimize/_linprog_highs.py": {
+        "size": 17145
+      },
+      "scipy/optimize/_linprog_ip.py": {
+        "size": 46651
+      },
+      "scipy/optimize/_linprog_rs.py": {
+        "size": 23146
+      },
+      "scipy/optimize/_linprog_simplex.py": {
+        "size": 24748
+      },
+      "scipy/optimize/_linprog_util.py": {
+        "size": 62738
+      },
+      "scipy/optimize/_lsq/__init__.py": {
+        "size": 172
+      },
+      "scipy/optimize/_lsq/bvls.py": {
+        "size": 5195
+      },
+      "scipy/optimize/_lsq/common.py": {
+        "size": 20481
+      },
+      "scipy/optimize/_lsq/dogbox.py": {
+        "size": 12177
+      },
+      "scipy/optimize/_lsq/least_squares.py": {
+        "size": 42812
+      },
+      "scipy/optimize/_lsq/lsq_linear.py": {
+        "size": 15273
+      },
+      "scipy/optimize/_lsq/trf.py": {
+        "size": 20516
+      },
+      "scipy/optimize/_lsq/trf_linear.py": {
+        "size": 7642
+      },
+      "scipy/optimize/_milp.py": {
+        "size": 15252
+      },
+      "scipy/optimize/_minimize.py": {
+        "size": 53050
+      },
+      "scipy/optimize/_minpack_py.py": {
+        "size": 45487
+      },
+      "scipy/optimize/_nnls.py": {
+        "size": 2543
+      },
+      "scipy/optimize/_nonlin.py": {
+        "size": 52360
+      },
+      "scipy/optimize/_numdiff.py": {
+        "size": 37226
+      },
+      "scipy/optimize/_optimize.py": {
+        "size": 149861
+      },
+      "scipy/optimize/_qap.py": {
+        "size": 27361
+      },
+      "scipy/optimize/_remove_redundancy.py": {
+        "size": 18757
+      },
+      "scipy/optimize/_root.py": {
+        "size": 28706
+      },
+      "scipy/optimize/_root_scalar.py": {
+        "size": 20383
+      },
+      "scipy/optimize/_shgo.py": {
+        "size": 63491
+      },
+      "scipy/optimize/_shgo_lib/__init__.py": {
+        "size": 0
+      },
+      "scipy/optimize/_shgo_lib/_complex.py": {
+        "size": 50260
+      },
+      "scipy/optimize/_shgo_lib/_vertex.py": {
+        "size": 13996
+      },
+      "scipy/optimize/_slsqp_py.py": {
+        "size": 24433
+      },
+      "scipy/optimize/_spectral.py": {
+        "size": 8128
+      },
+      "scipy/optimize/_tnc.py": {
+        "size": 17344
+      },
+      "scipy/optimize/_trlib/__init__.py": {
+        "size": 524
+      },
+      "scipy/optimize/_trustregion.py": {
+        "size": 11866
+      },
+      "scipy/optimize/_trustregion_constr/__init__.py": {
+        "size": 180
+      },
+      "scipy/optimize/_trustregion_constr/canonical_constraint.py": {
+        "size": 12542
+      },
+      "scipy/optimize/_trustregion_constr/equality_constrained_sqp.py": {
+        "size": 9160
+      },
+      "scipy/optimize/_trustregion_constr/minimize_trustregion_constr.py": {
+        "size": 26579
+      },
+      "scipy/optimize/_trustregion_constr/projections.py": {
+        "size": 13514
+      },
+      "scipy/optimize/_trustregion_constr/qp_subproblem.py": {
+        "size": 22591
+      },
+      "scipy/optimize/_trustregion_constr/report.py": {
+        "size": 1782
+      },
+      "scipy/optimize/_trustregion_constr/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/optimize/_trustregion_constr/tests/test_canonical_constraint.py": {
+        "size": 9869
+      },
+      "scipy/optimize/_trustregion_constr/tests/test_nested_minimize.py": {
+        "size": 1216
+      },
+      "scipy/optimize/_trustregion_constr/tests/test_projections.py": {
+        "size": 8869
+      },
+      "scipy/optimize/_trustregion_constr/tests/test_qp_subproblem.py": {
+        "size": 27642
+      },
+      "scipy/optimize/_trustregion_constr/tests/test_report.py": {
+        "size": 1104
+      },
+      "scipy/optimize/_trustregion_constr/tr_interior_point.py": {
+        "size": 14740
+      },
+      "scipy/optimize/_trustregion_dogleg.py": {
+        "size": 4389
+      },
+      "scipy/optimize/_trustregion_exact.py": {
+        "size": 16672
+      },
+      "scipy/optimize/_trustregion_krylov.py": {
+        "size": 3030
+      },
+      "scipy/optimize/_trustregion_ncg.py": {
+        "size": 4580
+      },
+      "scipy/optimize/_tstutils.py": {
+        "size": 34060
+      },
+      "scipy/optimize/_zeros_py.py": {
+        "size": 57031
+      },
+      "scipy/optimize/cobyla.py": {
+        "size": 557
+      },
+      "scipy/optimize/cython_optimize/__init__.py": {
+        "size": 4887
+      },
+      "scipy/optimize/elementwise.py": {
+        "size": 1190
+      },
+      "scipy/optimize/lbfgsb.py": {
+        "size": 601
+      },
+      "scipy/optimize/linesearch.py": {
+        "size": 535
+      },
+      "scipy/optimize/minpack.py": {
+        "size": 664
+      },
+      "scipy/optimize/minpack2.py": {
+        "size": 514
+      },
+      "scipy/optimize/moduleTNC.py": {
+        "size": 507
+      },
+      "scipy/optimize/nonlin.py": {
+        "size": 710
+      },
+      "scipy/optimize/optimize.py": {
+        "size": 877
+      },
+      "scipy/optimize/slsqp.py": {
+        "size": 569
+      },
+      "scipy/optimize/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/optimize/tests/test__basinhopping.py": {
+        "size": 19230
+      },
+      "scipy/optimize/tests/test__differential_evolution.py": {
+        "size": 71576
+      },
+      "scipy/optimize/tests/test__dual_annealing.py": {
+        "size": 16603
+      },
+      "scipy/optimize/tests/test__linprog_clean_inputs.py": {
+        "size": 11876
+      },
+      "scipy/optimize/tests/test__numdiff.py": {
+        "size": 36935
+      },
+      "scipy/optimize/tests/test__remove_redundancy.py": {
+        "size": 6883
+      },
+      "scipy/optimize/tests/test__root.py": {
+        "size": 4199
+      },
+      "scipy/optimize/tests/test__shgo.py": {
+        "size": 42197
+      },
+      "scipy/optimize/tests/test__spectral.py": {
+        "size": 6639
+      },
+      "scipy/optimize/tests/test_bracket.py": {
+        "size": 37431
+      },
+      "scipy/optimize/tests/test_chandrupatla.py": {
+        "size": 38644
+      },
+      "scipy/optimize/tests/test_cobyla.py": {
+        "size": 6822
+      },
+      "scipy/optimize/tests/test_cobyqa.py": {
+        "size": 8143
+      },
+      "scipy/optimize/tests/test_constraint_conversion.py": {
+        "size": 12522
+      },
+      "scipy/optimize/tests/test_constraints.py": {
+        "size": 9407
+      },
+      "scipy/optimize/tests/test_cython_optimize.py": {
+        "size": 2638
+      },
+      "scipy/optimize/tests/test_differentiable_functions.py": {
+        "size": 38600
+      },
+      "scipy/optimize/tests/test_direct.py": {
+        "size": 13267
+      },
+      "scipy/optimize/tests/test_extending.py": {
+        "size": 1104
+      },
+      "scipy/optimize/tests/test_hessian_update_strategy.py": {
+        "size": 14337
+      },
+      "scipy/optimize/tests/test_isotonic_regression.py": {
+        "size": 7113
+      },
+      "scipy/optimize/tests/test_lbfgsb_hessinv.py": {
+        "size": 1934
+      },
+      "scipy/optimize/tests/test_lbfgsb_setulb.py": {
+        "size": 3683
+      },
+      "scipy/optimize/tests/test_least_squares.py": {
+        "size": 38297
+      },
+      "scipy/optimize/tests/test_linear_assignment.py": {
+        "size": 4103
+      },
+      "scipy/optimize/tests/test_linesearch.py": {
+        "size": 11598
+      },
+      "scipy/optimize/tests/test_linprog.py": {
+        "size": 105114
+      },
+      "scipy/optimize/tests/test_lsq_common.py": {
+        "size": 9500
+      },
+      "scipy/optimize/tests/test_lsq_linear.py": {
+        "size": 11000
+      },
+      "scipy/optimize/tests/test_milp.py": {
+        "size": 18811
+      },
+      "scipy/optimize/tests/test_minimize_constrained.py": {
+        "size": 34786
+      },
+      "scipy/optimize/tests/test_minpack.py": {
+        "size": 44879
+      },
+      "scipy/optimize/tests/test_nnls.py": {
+        "size": 26896
+      },
+      "scipy/optimize/tests/test_nonlin.py": {
+        "size": 20250
+      },
+      "scipy/optimize/tests/test_optimize.py": {
+        "size": 143191
+      },
+      "scipy/optimize/tests/test_quadratic_assignment.py": {
+        "size": 16430
+      },
+      "scipy/optimize/tests/test_regression.py": {
+        "size": 1077
+      },
+      "scipy/optimize/tests/test_slsqp.py": {
+        "size": 25662
+      },
+      "scipy/optimize/tests/test_tnc.py": {
+        "size": 12700
+      },
+      "scipy/optimize/tests/test_trustregion.py": {
+        "size": 4638
+      },
+      "scipy/optimize/tests/test_trustregion_exact.py": {
+        "size": 21301
+      },
+      "scipy/optimize/tests/test_trustregion_krylov.py": {
+        "size": 6571
+      },
+      "scipy/optimize/tests/test_zeros.py": {
+        "size": 39066
+      },
+      "scipy/optimize/tnc.py": {
+        "size": 560
+      },
+      "scipy/optimize/zeros.py": {
+        "size": 620
+      },
+      "scipy/signal/__init__.py": {
+        "size": 13561
+      },
+      "scipy/signal/_arraytools.py": {
+        "size": 8294
+      },
+      "scipy/signal/_czt.py": {
+        "size": 19572
+      },
+      "scipy/signal/_delegators.py": {
+        "size": 14651
+      },
+      "scipy/signal/_filter_design.py": {
+        "size": 204462
+      },
+      "scipy/signal/_fir_filter_design.py": {
+        "size": 63983
+      },
+      "scipy/signal/_lti_conversion.py": {
+        "size": 19651
+      },
+      "scipy/signal/_ltisys.py": {
+        "size": 132346
+      },
+      "scipy/signal/_max_len_seq.py": {
+        "size": 5060
+      },
+      "scipy/signal/_max_len_seq_inner.py": {
+        "size": 821
+      },
+      "scipy/signal/_peak_finding.py": {
+        "size": 48762
+      },
+      "scipy/signal/_polyutils.py": {
+        "size": 8421
+      },
+      "scipy/signal/_savitzky_golay.py": {
+        "size": 14682
+      },
+      "scipy/signal/_short_time_fft.py": {
+        "size": 103145
+      },
+      "scipy/signal/_signal_api.py": {
+        "size": 1237
+      },
+      "scipy/signal/_signaltools.py": {
+        "size": 197146
+      },
+      "scipy/signal/_spectral_py.py": {
+        "size": 97055
+      },
+      "scipy/signal/_spline_filters.py": {
+        "size": 25458
+      },
+      "scipy/signal/_support_alternative_backends.py": {
+        "size": 18929
+      },
+      "scipy/signal/_upfirdn.py": {
+        "size": 7976
+      },
+      "scipy/signal/_waveforms.py": {
+        "size": 22954
+      },
+      "scipy/signal/_wavelets.py": {
+        "size": 886
+      },
+      "scipy/signal/bsplines.py": {
+        "size": 651
+      },
+      "scipy/signal/filter_design.py": {
+        "size": 1112
+      },
+      "scipy/signal/fir_filter_design.py": {
+        "size": 657
+      },
+      "scipy/signal/lti_conversion.py": {
+        "size": 639
+      },
+      "scipy/signal/ltisys.py": {
+        "size": 869
+      },
+      "scipy/signal/signaltools.py": {
+        "size": 1038
+      },
+      "scipy/signal/spectral.py": {
+        "size": 662
+      },
+      "scipy/signal/spline.py": {
+        "size": 536
+      },
+      "scipy/signal/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/signal/tests/_scipy_spectral_test_shim.py": {
+        "size": 12748
+      },
+      "scipy/signal/tests/mpsig.py": {
+        "size": 3308
+      },
+      "scipy/signal/tests/test_array_tools.py": {
+        "size": 3589
+      },
+      "scipy/signal/tests/test_bsplines.py": {
+        "size": 19202
+      },
+      "scipy/signal/tests/test_cont2discrete.py": {
+        "size": 15541
+      },
+      "scipy/signal/tests/test_czt.py": {
+        "size": 7156
+      },
+      "scipy/signal/tests/test_dltisys.py": {
+        "size": 21567
+      },
+      "scipy/signal/tests/test_filter_design.py": {
+        "size": 230546
+      },
+      "scipy/signal/tests/test_fir_filter_design.py": {
+        "size": 36658
+      },
+      "scipy/signal/tests/test_ltisys.py": {
+        "size": 47705
+      },
+      "scipy/signal/tests/test_max_len_seq.py": {
+        "size": 3318
+      },
+      "scipy/signal/tests/test_peak_finding.py": {
+        "size": 37733
+      },
+      "scipy/signal/tests/test_result_type.py": {
+        "size": 1573
+      },
+      "scipy/signal/tests/test_savitzky_golay.py": {
+        "size": 14329
+      },
+      "scipy/signal/tests/test_short_time_fft.py": {
+        "size": 48294
+      },
+      "scipy/signal/tests/test_signaltools.py": {
+        "size": 197175
+      },
+      "scipy/signal/tests/test_spectral.py": {
+        "size": 83384
+      },
+      "scipy/signal/tests/test_splines.py": {
+        "size": 17014
+      },
+      "scipy/signal/tests/test_upfirdn.py": {
+        "size": 13021
+      },
+      "scipy/signal/tests/test_waveforms.py": {
+        "size": 16962
+      },
+      "scipy/signal/tests/test_wavelets.py": {
+        "size": 2145
+      },
+      "scipy/signal/tests/test_windows.py": {
+        "size": 55213
+      },
+      "scipy/signal/waveforms.py": {
+        "size": 599
+      },
+      "scipy/signal/wavelets.py": {
+        "size": 510
+      },
+      "scipy/signal/windows/__init__.py": {
+        "size": 2126
+      },
+      "scipy/signal/windows/_windows.py": {
+        "size": 95045
+      },
+      "scipy/signal/windows/windows.py": {
+        "size": 839
+      },
+      "scipy/sparse/__init__.py": {
+        "size": 10147
+      },
+      "scipy/sparse/_base.py": {
+        "size": 63135
+      },
+      "scipy/sparse/_bsr.py": {
+        "size": 31508
+      },
+      "scipy/sparse/_compressed.py": {
+        "size": 52384
+      },
+      "scipy/sparse/_construct.py": {
+        "size": 60448
+      },
+      "scipy/sparse/_coo.py": {
+        "size": 76383
+      },
+      "scipy/sparse/_csc.py": {
+        "size": 12071
+      },
+      "scipy/sparse/_csr.py": {
+        "size": 19510
+      },
+      "scipy/sparse/_data.py": {
+        "size": 21340
+      },
+      "scipy/sparse/_dia.py": {
+        "size": 24407
+      },
+      "scipy/sparse/_dok.py": {
+        "size": 26894
+      },
+      "scipy/sparse/_extract.py": {
+        "size": 5047
+      },
+      "scipy/sparse/_generate_sparsetools.py": {
+        "size": 13299
+      },
+      "scipy/sparse/_index.py": {
+        "size": 18216
+      },
+      "scipy/sparse/_lil.py": {
+        "size": 21882
+      },
+      "scipy/sparse/_matrix.py": {
+        "size": 5097
+      },
+      "scipy/sparse/_matrix_io.py": {
+        "size": 6242
+      },
+      "scipy/sparse/_spfuncs.py": {
+        "size": 1987
+      },
+      "scipy/sparse/_sputils.py": {
+        "size": 20485
+      },
+      "scipy/sparse/base.py": {
+        "size": 609
+      },
+      "scipy/sparse/bsr.py": {
+        "size": 561
+      },
+      "scipy/sparse/compressed.py": {
+        "size": 550
+      },
+      "scipy/sparse/construct.py": {
+        "size": 812
+      },
+      "scipy/sparse/coo.py": {
+        "size": 592
+      },
+      "scipy/sparse/csc.py": {
+        "size": 561
+      },
+      "scipy/sparse/csgraph/__init__.py": {
+        "size": 7842
+      },
+      "scipy/sparse/csgraph/_laplacian.py": {
+        "size": 18277
+      },
+      "scipy/sparse/csgraph/_validation.py": {
+        "size": 2629
+      },
+      "scipy/sparse/csgraph/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/sparse/csgraph/tests/test_connected_components.py": {
+        "size": 3948
+      },
+      "scipy/sparse/csgraph/tests/test_conversions.py": {
+        "size": 1854
+      },
+      "scipy/sparse/csgraph/tests/test_flow.py": {
+        "size": 7718
+      },
+      "scipy/sparse/csgraph/tests/test_graph_laplacian.py": {
+        "size": 10952
+      },
+      "scipy/sparse/csgraph/tests/test_index_arrays_dtype.py": {
+        "size": 3084
+      },
+      "scipy/sparse/csgraph/tests/test_matching.py": {
+        "size": 12367
+      },
+      "scipy/sparse/csgraph/tests/test_pydata_sparse.py": {
+        "size": 4990
+      },
+      "scipy/sparse/csgraph/tests/test_reordering.py": {
+        "size": 2569
+      },
+      "scipy/sparse/csgraph/tests/test_shortest_path.py": {
+        "size": 18744
+      },
+      "scipy/sparse/csgraph/tests/test_spanning_tree.py": {
+        "size": 2164
+      },
+      "scipy/sparse/csgraph/tests/test_traversal.py": {
+        "size": 6212
+      },
+      "scipy/sparse/csr.py": {
+        "size": 561
+      },
+      "scipy/sparse/data.py": {
+        "size": 504
+      },
+      "scipy/sparse/dia.py": {
+        "size": 561
+      },
+      "scipy/sparse/dok.py": {
+        "size": 561
+      },
+      "scipy/sparse/extract.py": {
+        "size": 567
+      },
+      "scipy/sparse/lil.py": {
+        "size": 562
+      },
+      "scipy/sparse/linalg/__init__.py": {
+        "size": 4228
+      },
+      "scipy/sparse/linalg/_dsolve/SuperLU/License.txt": {
+        "size": 1681
+      },
+      "scipy/sparse/linalg/_dsolve/__init__.py": {
+        "size": 2039
+      },
+      "scipy/sparse/linalg/_dsolve/_add_newdocs.py": {
+        "size": 3743
+      },
+      "scipy/sparse/linalg/_dsolve/linsolve.py": {
+        "size": 33636
+      },
+      "scipy/sparse/linalg/_dsolve/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/sparse/linalg/_dsolve/tests/test_linsolve.py": {
+        "size": 34644
+      },
+      "scipy/sparse/linalg/_eigen/__init__.py": {
+        "size": 460
+      },
+      "scipy/sparse/linalg/_eigen/_svds.py": {
+        "size": 20305
+      },
+      "scipy/sparse/linalg/_eigen/_svds_doc.py": {
+        "size": 15003
+      },
+      "scipy/sparse/linalg/_eigen/arpack/__init__.py": {
+        "size": 562
+      },
+      "scipy/sparse/linalg/_eigen/arpack/arnaud/ARPACK_LICENSE.txt": {
+        "size": 4256
+      },
+      "scipy/sparse/linalg/_eigen/arpack/arpack.py": {
+        "size": 70130
+      },
+      "scipy/sparse/linalg/_eigen/arpack/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/sparse/linalg/_eigen/arpack/tests/test_arpack.py": {
+        "size": 24892
+      },
+      "scipy/sparse/linalg/_eigen/lobpcg/__init__.py": {
+        "size": 420
+      },
+      "scipy/sparse/linalg/_eigen/lobpcg/lobpcg.py": {
+        "size": 41982
+      },
+      "scipy/sparse/linalg/_eigen/lobpcg/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/sparse/linalg/_eigen/lobpcg/tests/test_lobpcg.py": {
+        "size": 27406
+      },
+      "scipy/sparse/linalg/_eigen/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/sparse/linalg/_eigen/tests/test_svds.py": {
+        "size": 36792
+      },
+      "scipy/sparse/linalg/_expm_multiply.py": {
+        "size": 26484
+      },
+      "scipy/sparse/linalg/_funm_multiply_krylov.py": {
+        "size": 12180
+      },
+      "scipy/sparse/linalg/_interface.py": {
+        "size": 41205
+      },
+      "scipy/sparse/linalg/_isolve/__init__.py": {
+        "size": 479
+      },
+      "scipy/sparse/linalg/_isolve/_gcrotmk.py": {
+        "size": 15827
+      },
+      "scipy/sparse/linalg/_isolve/iterative.py": {
+        "size": 33619
+      },
+      "scipy/sparse/linalg/_isolve/lgmres.py": {
+        "size": 8704
+      },
+      "scipy/sparse/linalg/_isolve/lsmr.py": {
+        "size": 15841
+      },
+      "scipy/sparse/linalg/_isolve/lsqr.py": {
+        "size": 21425
+      },
+      "scipy/sparse/linalg/_isolve/minres.py": {
+        "size": 10993
+      },
+      "scipy/sparse/linalg/_isolve/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/sparse/linalg/_isolve/tests/test_gcrotmk.py": {
+        "size": 6069
+      },
+      "scipy/sparse/linalg/_isolve/tests/test_iterative.py": {
+        "size": 29118
+      },
+      "scipy/sparse/linalg/_isolve/tests/test_lgmres.py": {
+        "size": 7512
+      },
+      "scipy/sparse/linalg/_isolve/tests/test_lsmr.py": {
+        "size": 7079
+      },
+      "scipy/sparse/linalg/_isolve/tests/test_lsqr.py": {
+        "size": 4024
+      },
+      "scipy/sparse/linalg/_isolve/tests/test_minres.py": {
+        "size": 2434
+      },
+      "scipy/sparse/linalg/_isolve/tests/test_utils.py": {
+        "size": 265
+      },
+      "scipy/sparse/linalg/_isolve/tfqmr.py": {
+        "size": 6231
+      },
+      "scipy/sparse/linalg/_isolve/utils.py": {
+        "size": 3490
+      },
+      "scipy/sparse/linalg/_matfuncs.py": {
+        "size": 29333
+      },
+      "scipy/sparse/linalg/_norm.py": {
+        "size": 6307
+      },
+      "scipy/sparse/linalg/_onenormest.py": {
+        "size": 11945
+      },
+      "scipy/sparse/linalg/_propack/PROPACK/PROPACK_LICENSE.txt": {
+        "size": 2061
+      },
+      "scipy/sparse/linalg/_special_sparse_arrays.py": {
+        "size": 34350
+      },
+      "scipy/sparse/linalg/_svdp.py": {
+        "size": 10352
+      },
+      "scipy/sparse/linalg/dsolve.py": {
+        "size": 654
+      },
+      "scipy/sparse/linalg/eigen.py": {
+        "size": 626
+      },
+      "scipy/sparse/linalg/interface.py": {
+        "size": 573
+      },
+      "scipy/sparse/linalg/isolve.py": {
+        "size": 649
+      },
+      "scipy/sparse/linalg/matfuncs.py": {
+        "size": 570
+      },
+      "scipy/sparse/linalg/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/sparse/linalg/tests/test_expm_multiply.py": {
+        "size": 15000
+      },
+      "scipy/sparse/linalg/tests/test_funm_multiply_krylov.py": {
+        "size": 7289
+      },
+      "scipy/sparse/linalg/tests/test_interface.py": {
+        "size": 50825
+      },
+      "scipy/sparse/linalg/tests/test_matfuncs.py": {
+        "size": 22017
+      },
+      "scipy/sparse/linalg/tests/test_norm.py": {
+        "size": 6572
+      },
+      "scipy/sparse/linalg/tests/test_onenormest.py": {
+        "size": 8619
+      },
+      "scipy/sparse/linalg/tests/test_propack.py": {
+        "size": 7453
+      },
+      "scipy/sparse/linalg/tests/test_pydata_sparse.py": {
+        "size": 7302
+      },
+      "scipy/sparse/linalg/tests/test_special_sparse_arrays.py": {
+        "size": 13105
+      },
+      "scipy/sparse/sparsetools.py": {
+        "size": 516
+      },
+      "scipy/sparse/spfuncs.py": {
+        "size": 508
+      },
+      "scipy/sparse/sputils.py": {
+        "size": 508
+      },
+      "scipy/sparse/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/sparse/tests/test_64bit.py": {
+        "size": 12975
+      },
+      "scipy/sparse/tests/test_arithmetic1d.py": {
+        "size": 11984
+      },
+      "scipy/sparse/tests/test_array_api.py": {
+        "size": 14186
+      },
+      "scipy/sparse/tests/test_base.py": {
+        "size": 227317
+      },
+      "scipy/sparse/tests/test_common1d.py": {
+        "size": 15653
+      },
+      "scipy/sparse/tests/test_construct.py": {
+        "size": 50069
+      },
+      "scipy/sparse/tests/test_coo.py": {
+        "size": 49046
+      },
+      "scipy/sparse/tests/test_csc.py": {
+        "size": 4313
+      },
+      "scipy/sparse/tests/test_csr.py": {
+        "size": 8239
+      },
+      "scipy/sparse/tests/test_dok.py": {
+        "size": 6683
+      },
+      "scipy/sparse/tests/test_extract.py": {
+        "size": 1685
+      },
+      "scipy/sparse/tests/test_indexing1d.py": {
+        "size": 21067
+      },
+      "scipy/sparse/tests/test_matrix_io.py": {
+        "size": 3867
+      },
+      "scipy/sparse/tests/test_minmax1d.py": {
+        "size": 4269
+      },
+      "scipy/sparse/tests/test_sparsetools.py": {
+        "size": 10613
+      },
+      "scipy/sparse/tests/test_spfuncs.py": {
+        "size": 3258
+      },
+      "scipy/sparse/tests/test_sputils.py": {
+        "size": 16486
+      },
+      "scipy/spatial/COPYING_QHULL.txt": {
+        "size": 1720
+      },
+      "scipy/spatial/__init__.py": {
+        "size": 3752
+      },
+      "scipy/spatial/_geometric_slerp.py": {
+        "size": 8619
+      },
+      "scipy/spatial/_kdtree.py": {
+        "size": 35880
+      },
+      "scipy/spatial/_plotutils.py": {
+        "size": 7191
+      },
+      "scipy/spatial/_procrustes.py": {
+        "size": 4427
+      },
+      "scipy/spatial/_spherical_voronoi.py": {
+        "size": 13521
+      },
+      "scipy/spatial/ckdtree.py": {
+        "size": 523
+      },
+      "scipy/spatial/distance.py": {
+        "size": 91989
+      },
+      "scipy/spatial/kdtree.py": {
+        "size": 636
+      },
+      "scipy/spatial/qhull.py": {
+        "size": 622
+      },
+      "scipy/spatial/qhull_misc_README.txt": {
+        "size": 1760
+      },
+      "scipy/spatial/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/spatial/tests/data/cdist-X1.txt": {
+        "size": 5750
+      },
+      "scipy/spatial/tests/data/cdist-X2.txt": {
+        "size": 11500
+      },
+      "scipy/spatial/tests/data/iris.txt": {
+        "size": 15000
+      },
+      "scipy/spatial/tests/data/pdist-boolean-inp.txt": {
+        "size": 50000
+      },
+      "scipy/spatial/tests/data/pdist-chebyshev-ml-iris.txt": {
+        "size": 178801
+      },
+      "scipy/spatial/tests/data/pdist-chebyshev-ml.txt": {
+        "size": 3041
+      },
+      "scipy/spatial/tests/data/pdist-cityblock-ml-iris.txt": {
+        "size": 178801
+      },
+      "scipy/spatial/tests/data/pdist-cityblock-ml.txt": {
+        "size": 3041
+      },
+      "scipy/spatial/tests/data/pdist-correlation-ml-iris.txt": {
+        "size": 178801
+      },
+      "scipy/spatial/tests/data/pdist-correlation-ml.txt": {
+        "size": 3041
+      },
+      "scipy/spatial/tests/data/pdist-cosine-ml-iris.txt": {
+        "size": 178801
+      },
+      "scipy/spatial/tests/data/pdist-cosine-ml.txt": {
+        "size": 3041
+      },
+      "scipy/spatial/tests/data/pdist-double-inp.txt": {
+        "size": 50000
+      },
+      "scipy/spatial/tests/data/pdist-euclidean-ml-iris.txt": {
+        "size": 178801
+      },
+      "scipy/spatial/tests/data/pdist-euclidean-ml.txt": {
+        "size": 3041
+      },
+      "scipy/spatial/tests/data/pdist-hamming-ml.txt": {
+        "size": 3041
+      },
+      "scipy/spatial/tests/data/pdist-jaccard-ml.txt": {
+        "size": 3041
+      },
+      "scipy/spatial/tests/data/pdist-jensenshannon-ml-iris.txt": {
+        "size": 172738
+      },
+      "scipy/spatial/tests/data/pdist-jensenshannon-ml.txt": {
+        "size": 2818
+      },
+      "scipy/spatial/tests/data/pdist-minkowski-3.2-ml-iris.txt": {
+        "size": 178801
+      },
+      "scipy/spatial/tests/data/pdist-minkowski-3.2-ml.txt": {
+        "size": 3041
+      },
+      "scipy/spatial/tests/data/pdist-minkowski-5.8-ml-iris.txt": {
+        "size": 178801
+      },
+      "scipy/spatial/tests/data/pdist-seuclidean-ml-iris.txt": {
+        "size": 178801
+      },
+      "scipy/spatial/tests/data/pdist-seuclidean-ml.txt": {
+        "size": 3041
+      },
+      "scipy/spatial/tests/data/pdist-spearman-ml.txt": {
+        "size": 3041
+      },
+      "scipy/spatial/tests/data/random-bool-data.txt": {
+        "size": 6000
+      },
+      "scipy/spatial/tests/data/random-double-data.txt": {
+        "size": 75000
+      },
+      "scipy/spatial/tests/data/random-int-data.txt": {
+        "size": 10266
+      },
+      "scipy/spatial/tests/data/random-uint-data.txt": {
+        "size": 8711
+      },
+      "scipy/spatial/tests/data/selfdual-4d-polytope.txt": {
+        "size": 480
+      },
+      "scipy/spatial/tests/test__plotutils.py": {
+        "size": 3814
+      },
+      "scipy/spatial/tests/test__procrustes.py": {
+        "size": 4974
+      },
+      "scipy/spatial/tests/test_distance.py": {
+        "size": 84629
+      },
+      "scipy/spatial/tests/test_hausdorff.py": {
+        "size": 8217
+      },
+      "scipy/spatial/tests/test_kdtree.py": {
+        "size": 50083
+      },
+      "scipy/spatial/tests/test_qhull.py": {
+        "size": 50120
+      },
+      "scipy/spatial/tests/test_slerp.py": {
+        "size": 18455
+      },
+      "scipy/spatial/tests/test_spherical_voronoi.py": {
+        "size": 14500
+      },
+      "scipy/spatial/transform/__init__.py": {
+        "size": 826
+      },
+      "scipy/spatial/transform/_rigid_transform.py": {
+        "size": 72741
+      },
+      "scipy/spatial/transform/_rigid_transform_xp.py": {
+        "size": 16522
+      },
+      "scipy/spatial/transform/_rotation.py": {
+        "size": 106711
+      },
+      "scipy/spatial/transform/_rotation_groups.py": {
+        "size": 4422
+      },
+      "scipy/spatial/transform/_rotation_spline.py": {
+        "size": 14244
+      },
+      "scipy/spatial/transform/_rotation_xp.py": {
+        "size": 44188
+      },
+      "scipy/spatial/transform/rotation.py": {
+        "size": 556
+      },
+      "scipy/spatial/transform/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/spatial/transform/tests/test_rigid_transform.py": {
+        "size": 60377
+      },
+      "scipy/spatial/transform/tests/test_rotation.py": {
+        "size": 116843
+      },
+      "scipy/spatial/transform/tests/test_rotation_groups.py": {
+        "size": 5552
+      },
+      "scipy/spatial/transform/tests/test_rotation_spline.py": {
+        "size": 5886
+      },
+      "scipy/special/__init__.py": {
+        "size": 31817
+      },
+      "scipy/special/_add_newdocs.py": {
+        "size": 240163
+      },
+      "scipy/special/_basic.py": {
+        "size": 107182
+      },
+      "scipy/special/_ellip_harm.py": {
+        "size": 5390
+      },
+      "scipy/special/_generate_pyx.py": {
+        "size": 28766
+      },
+      "scipy/special/_input_validation.py": {
+        "size": 474
+      },
+      "scipy/special/_lambertw.py": {
+        "size": 3962
+      },
+      "scipy/special/_logsumexp.py": {
+        "size": 14437
+      },
+      "scipy/special/_mptestutils.py": {
+        "size": 14441
+      },
+      "scipy/special/_multiufuncs.py": {
+        "size": 19407
+      },
+      "scipy/special/_orthogonal.py": {
+        "size": 76307
+      },
+      "scipy/special/_precompute/__init__.py": {
+        "size": 0
+      },
+      "scipy/special/_precompute/cosine_cdf.py": {
+        "size": 354
+      },
+      "scipy/special/_precompute/expn_asy.py": {
+        "size": 1265
+      },
+      "scipy/special/_precompute/gammainc_asy.py": {
+        "size": 2502
+      },
+      "scipy/special/_precompute/gammainc_data.py": {
+        "size": 4077
+      },
+      "scipy/special/_precompute/hyp2f1_data.py": {
+        "size": 14707
+      },
+      "scipy/special/_precompute/lambertw.py": {
+        "size": 1961
+      },
+      "scipy/special/_precompute/loggamma.py": {
+        "size": 1094
+      },
+      "scipy/special/_precompute/struve_convergence.py": {
+        "size": 3624
+      },
+      "scipy/special/_precompute/utils.py": {
+        "size": 887
+      },
+      "scipy/special/_precompute/wright_bessel.py": {
+        "size": 12868
+      },
+      "scipy/special/_precompute/wright_bessel_data.py": {
+        "size": 5647
+      },
+      "scipy/special/_precompute/wrightomega.py": {
+        "size": 955
+      },
+      "scipy/special/_precompute/zetac.py": {
+        "size": 591
+      },
+      "scipy/special/_sf_error.py": {
+        "size": 375
+      },
+      "scipy/special/_spfun_stats.py": {
+        "size": 3870
+      },
+      "scipy/special/_spherical_bessel.py": {
+        "size": 12786
+      },
+      "scipy/special/_support_alternative_backends.py": {
+        "size": 31003
+      },
+      "scipy/special/_testutils.py": {
+        "size": 11994
+      },
+      "scipy/special/add_newdocs.py": {
+        "size": 436
+      },
+      "scipy/special/basic.py": {
+        "size": 1546
+      },
+      "scipy/special/functions.json": {
+        "size": 25318
+      },
+      "scipy/special/orthogonal.py": {
+        "size": 1724
+      },
+      "scipy/special/sf_error.py": {
+        "size": 573
+      },
+      "scipy/special/specfun.py": {
+        "size": 552
+      },
+      "scipy/special/spfun_stats.py": {
+        "size": 535
+      },
+      "scipy/special/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/special/tests/data/__init__.py": {
+        "size": 0
+      },
+      "scipy/special/tests/data/boost/assoc_legendre_p_ipp/assoc_legendre_p.txt": {
+        "size": 42700
+      },
+      "scipy/special/tests/data/boost/bessel_i_data_ipp/bessel_i_data.txt": {
+        "size": 22123
+      },
+      "scipy/special/tests/data/boost/bessel_i_int_data_ipp/bessel_i_int_data.txt": {
+        "size": 40797
+      },
+      "scipy/special/tests/data/boost/bessel_i_prime_int_data_ipp/bessel_i_prime_int_data.txt": {
+        "size": 182926
+      },
+      "scipy/special/tests/data/boost/bessel_j_data_ipp/bessel_j_data.txt": {
+        "size": 38272
+      },
+      "scipy/special/tests/data/boost/bessel_j_int_data_ipp/bessel_j_int_data.txt": {
+        "size": 18833
+      },
+      "scipy/special/tests/data/boost/bessel_j_large_data_ipp/bessel_j_large_data.txt": {
+        "size": 6331
+      },
+      "scipy/special/tests/data/boost/bessel_j_prime_int_data_ipp/bessel_j_prime_int_data.txt": {
+        "size": 84676
+      },
+      "scipy/special/tests/data/boost/bessel_j_prime_large_data_ipp/bessel_j_prime_large_data.txt": {
+        "size": 13920
+      },
+      "scipy/special/tests/data/boost/bessel_k_data_ipp/bessel_k_data.txt": {
+        "size": 24301
+      },
+      "scipy/special/tests/data/boost/bessel_k_int_data_ipp/bessel_k_int_data.txt": {
+        "size": 36665
+      },
+      "scipy/special/tests/data/boost/bessel_k_prime_data_ipp/bessel_k_prime_data.txt": {
+        "size": 53826
+      },
+      "scipy/special/tests/data/boost/bessel_k_prime_int_data_ipp/bessel_k_prime_int_data.txt": {
+        "size": 82863
+      },
+      "scipy/special/tests/data/boost/bessel_y01_data_ipp/bessel_y01_data.txt": {
+        "size": 7559
+      },
+      "scipy/special/tests/data/boost/bessel_yn_data_ipp/bessel_yn_data.txt": {
+        "size": 23209
+      },
+      "scipy/special/tests/data/boost/bessel_yv_data_ipp/bessel_yv_data.txt": {
+        "size": 42703
+      },
+      "scipy/special/tests/data/boost/bessel_yv_prime_data_ipp/bessel_yv_prime_data.txt": {
+        "size": 92420
+      },
+      "scipy/special/tests/data/boost/beta_exp_data_ipp/beta_exp_data.txt": {
+        "size": 36732
+      },
+      "scipy/special/tests/data/boost/beta_med_data_ipp/beta_med_data.txt": {
+        "size": 162740
+      },
+      "scipy/special/tests/data/boost/binomial_data_ipp/binomial_data.txt": {
+        "size": 6301
+      },
+      "scipy/special/tests/data/boost/binomial_large_data_ipp/binomial_large_data.txt": {
+        "size": 9244
+      },
+      "scipy/special/tests/data/boost/binomial_quantile_ipp/binomial_quantile_data.txt": {
+        "size": 524313
+      },
+      "scipy/special/tests/data/boost/cbrt_data_ipp/cbrt_data.txt": {
+        "size": 6113
+      },
+      "scipy/special/tests/data/boost/digamma_data_ipp/digamma_data.txt": {
+        "size": 30341
+      },
+      "scipy/special/tests/data/boost/digamma_neg_data_ipp/digamma_neg_data.txt": {
+        "size": 12881
+      },
+      "scipy/special/tests/data/boost/digamma_root_data_ipp/digamma_root_data.txt": {
+        "size": 13946
+      },
+      "scipy/special/tests/data/boost/digamma_small_data_ipp/digamma_small_data.txt": {
+        "size": 2622
+      },
+      "scipy/special/tests/data/boost/ellint_e2_data_ipp/ellint_e2_data.txt": {
+        "size": 56999
+      },
+      "scipy/special/tests/data/boost/ellint_e_data_ipp/ellint_e_data.txt": {
+        "size": 8289
+      },
+      "scipy/special/tests/data/boost/ellint_f_data_ipp/ellint_f_data.txt": {
+        "size": 66564
+      },
+      "scipy/special/tests/data/boost/ellint_k_data_ipp/ellint_k_data.txt": {
+        "size": 8438
+      },
+      "scipy/special/tests/data/boost/ellint_pi2_data_ipp/ellint_pi2_data.txt": {
+        "size": 55184
+      },
+      "scipy/special/tests/data/boost/ellint_pi3_data_ipp/ellint_pi3_data.txt": {
+        "size": 56372
+      },
+      "scipy/special/tests/data/boost/ellint_pi3_large_data_ipp/ellint_pi3_large_data.txt": {
+        "size": 51279
+      },
+      "scipy/special/tests/data/boost/ellint_rc_data_ipp/ellint_rc_data.txt": {
+        "size": 26610
+      },
+      "scipy/special/tests/data/boost/ellint_rd_0xy_ipp/ellint_rd_0xy.txt": {
+        "size": 59220
+      },
+      "scipy/special/tests/data/boost/ellint_rd_0yy_ipp/ellint_rd_0yy.txt": {
+        "size": 41548
+      },
+      "scipy/special/tests/data/boost/ellint_rd_data_ipp/ellint_rd_data.txt": {
+        "size": 34465
+      },
+      "scipy/special/tests/data/boost/ellint_rd_xxx_ipp/ellint_rd_xxx.txt": {
+        "size": 41548
+      },
+      "scipy/special/tests/data/boost/ellint_rd_xxz_ipp/ellint_rd_xxz.txt": {
+        "size": 415480
+      },
+      "scipy/special/tests/data/boost/ellint_rd_xyy_ipp/ellint_rd_xyy.txt": {
+        "size": 524313
+      },
+      "scipy/special/tests/data/boost/ellint_rf_0yy_ipp/ellint_rf_0yy.txt": {
+        "size": 41548
+      },
+      "scipy/special/tests/data/boost/ellint_rf_data_ipp/ellint_rf_data.txt": {
+        "size": 68350
+      },
+      "scipy/special/tests/data/boost/ellint_rf_xxx_ipp/ellint_rf_xxx.txt": {
+        "size": 41548
+      },
+      "scipy/special/tests/data/boost/ellint_rf_xy0_ipp/ellint_rf_xy0.txt": {
+        "size": 59220
+      },
+      "scipy/special/tests/data/boost/ellint_rf_xyy_ipp/ellint_rf_xyy.txt": {
+        "size": 524313
+      },
+      "scipy/special/tests/data/boost/ellint_rg_00x_ipp/ellint_rg_00x.txt": {
+        "size": 124644
+      },
+      "scipy/special/tests/data/boost/ellint_rg_ipp/ellint_rg.txt": {
+        "size": 524313
+      },
+      "scipy/special/tests/data/boost/ellint_rg_xxx_ipp/ellint_rg_xxx.txt": {
+        "size": 124644
+      },
+      "scipy/special/tests/data/boost/ellint_rg_xy0_ipp/ellint_rg_xy0.txt": {
+        "size": 47376
+      },
+      "scipy/special/tests/data/boost/ellint_rg_xyy_ipp/ellint_rg_xyy.txt": {
+        "size": 524313
+      },
+      "scipy/special/tests/data/boost/ellint_rj_data_ipp/ellint_rj_data.txt": {
+        "size": 166782
+      },
+      "scipy/special/tests/data/boost/erf_data_ipp/erf_data.txt": {
+        "size": 55147
+      },
+      "scipy/special/tests/data/boost/erf_inv_data_ipp/erf_inv_data.txt": {
+        "size": 6925
+      },
+      "scipy/special/tests/data/boost/erf_large_data_ipp/erf_large_data.txt": {
+        "size": 22318
+      },
+      "scipy/special/tests/data/boost/erf_small_data_ipp/erf_small_data.txt": {
+        "size": 19459
+      },
+      "scipy/special/tests/data/boost/erfc_inv_big_data_ipp/erfc_inv_big_data.txt": {
+        "size": 18021
+      },
+      "scipy/special/tests/data/boost/erfc_inv_data_ipp/erfc_inv_data.txt": {
+        "size": 6926
+      },
+      "scipy/special/tests/data/boost/expint_1_data_ipp/expint_1_data.txt": {
+        "size": 6047
+      },
+      "scipy/special/tests/data/boost/expint_data_ipp/expint_data.txt": {
+        "size": 43517
+      },
+      "scipy/special/tests/data/boost/expint_small_data_ipp/expint_small_data.txt": {
+        "size": 31242
+      },
+      "scipy/special/tests/data/boost/expinti_data_double_ipp/expinti_data_double.txt": {
+        "size": 6556
+      },
+      "scipy/special/tests/data/boost/expinti_data_ipp/expinti_data.txt": {
+        "size": 22757
+      },
+      "scipy/special/tests/data/boost/expinti_data_long_ipp/expinti_data_long.txt": {
+        "size": 6399
+      },
+      "scipy/special/tests/data/boost/gamma_inv_big_data_ipp/gamma_inv_big_data.txt": {
+        "size": 31587
+      },
+      "scipy/special/tests/data/boost/gamma_inv_data_ipp/gamma_inv_data.txt": {
+        "size": 49996
+      },
+      "scipy/special/tests/data/boost/gamma_inv_small_data_ipp/gamma_inv_small_data.txt": {
+        "size": 62169
+      },
+      "scipy/special/tests/data/boost/hermite_ipp/hermite.txt": {
+        "size": 35671
+      },
+      "scipy/special/tests/data/boost/ibeta_data_ipp/ibeta_data.txt": {
+        "size": 123014
+      },
+      "scipy/special/tests/data/boost/ibeta_int_data_ipp/ibeta_int_data.txt": {
+        "size": 215786
+      },
+      "scipy/special/tests/data/boost/ibeta_inv_data_ipp/ibeta_inv_data.txt": {
+        "size": 299678
+      },
+      "scipy/special/tests/data/boost/ibeta_inva_data_ipp/ibeta_inva_data.txt": {
+        "size": 524313
+      },
+      "scipy/special/tests/data/boost/ibeta_large_data_ipp/ibeta_large_data.txt": {
+        "size": 286111
+      },
+      "scipy/special/tests/data/boost/ibeta_small_data_ipp/ibeta_small_data.txt": {
+        "size": 125560
+      },
+      "scipy/special/tests/data/boost/igamma_big_data_ipp/igamma_big_data.txt": {
+        "size": 127279
+      },
+      "scipy/special/tests/data/boost/igamma_int_data_ipp/igamma_int_data.txt": {
+        "size": 58168
+      },
+      "scipy/special/tests/data/boost/igamma_inva_data_ipp/igamma_inva_data.txt": {
+        "size": 107642
+      },
+      "scipy/special/tests/data/boost/igamma_med_data_ipp/igamma_med_data.txt": {
+        "size": 306282
+      },
+      "scipy/special/tests/data/boost/igamma_small_data_ipp/igamma_small_data.txt": {
+        "size": 124973
+      },
+      "scipy/special/tests/data/boost/laguerre2_ipp/laguerre2.txt": {
+        "size": 23634
+      },
+      "scipy/special/tests/data/boost/laguerre3_ipp/laguerre3.txt": {
+        "size": 204360
+      },
+      "scipy/special/tests/data/boost/legendre_p_ipp/legendre_p.txt": {
+        "size": 19191
+      },
+      "scipy/special/tests/data/boost/legendre_p_large_ipp/legendre_p_large.txt": {
+        "size": 22091
+      },
+      "scipy/special/tests/data/boost/log1p_expm1_data_ipp/log1p_expm1_data.txt": {
+        "size": 9877
+      },
+      "scipy/special/tests/data/boost/ncbeta_big_ipp/ncbeta_big.txt": {
+        "size": 19193
+      },
+      "scipy/special/tests/data/boost/ncbeta_ipp/ncbeta.txt": {
+        "size": 524313
+      },
+      "scipy/special/tests/data/boost/nccs_big_ipp/nccs_big.txt": {
+        "size": 47821
+      },
+      "scipy/special/tests/data/boost/nccs_ipp/nccs.txt": {
+        "size": 524313
+      },
+      "scipy/special/tests/data/boost/negative_binomial_quantile_ipp/negative_binomial_quantile_data.txt": {
+        "size": 127804
+      },
+      "scipy/special/tests/data/boost/owens_t_ipp/owens_t.txt": {
+        "size": 128400
+      },
+      "scipy/special/tests/data/boost/owens_t_large_data_ipp/owens_t_large_data.txt": {
+        "size": 211470
+      },
+      "scipy/special/tests/data/boost/poisson_quantile_ipp/poisson_quantile_data.txt": {
+        "size": 91906
+      },
+      "scipy/special/tests/data/boost/sinc_data_ipp/sinc_data.txt": {
+        "size": 8023
+      },
+      "scipy/special/tests/data/boost/sph_bessel_data_ipp/sph_bessel_data.txt": {
+        "size": 38839
+      },
+      "scipy/special/tests/data/boost/sph_neumann_data_ipp/sph_neumann_data.txt": {
+        "size": 22077
+      },
+      "scipy/special/tests/data/boost/spherical_harmonic_ipp/spherical_harmonic.txt": {
+        "size": 177328
+      },
+      "scipy/special/tests/data/boost/test_gamma_data_ipp/factorials.txt": {
+        "size": 17206
+      },
+      "scipy/special/tests/data/boost/test_gamma_data_ipp/gammap1m1_data.txt": {
+        "size": 12019
+      },
+      "scipy/special/tests/data/boost/test_gamma_data_ipp/near_0.txt": {
+        "size": 3849
+      },
+      "scipy/special/tests/data/boost/test_gamma_data_ipp/near_1.txt": {
+        "size": 3996
+      },
+      "scipy/special/tests/data/boost/test_gamma_data_ipp/near_2.txt": {
+        "size": 3998
+      },
+      "scipy/special/tests/data/boost/test_gamma_data_ipp/near_m10.txt": {
+        "size": 4082
+      },
+      "scipy/special/tests/data/boost/test_gamma_data_ipp/near_m55.txt": {
+        "size": 4164
+      },
+      "scipy/special/tests/data/boost/tgamma_delta_ratio_data_ipp/tgamma_delta_ratio_data.txt": {
+        "size": 83110
+      },
+      "scipy/special/tests/data/boost/tgamma_delta_ratio_int2_ipp/tgamma_delta_ratio_int2.txt": {
+        "size": 15452
+      },
+      "scipy/special/tests/data/boost/tgamma_delta_ratio_int_ipp/tgamma_delta_ratio_int.txt": {
+        "size": 40943
+      },
+      "scipy/special/tests/data/boost/tgamma_ratio_data_ipp/tgamma_ratio_data.txt": {
+        "size": 33944
+      },
+      "scipy/special/tests/data/boost/zeta_1_below_data_ipp/zeta_1_below_data.txt": {
+        "size": 1638
+      },
+      "scipy/special/tests/data/boost/zeta_1_up_data_ipp/zeta_1_up_data.txt": {
+        "size": 1592
+      },
+      "scipy/special/tests/data/boost/zeta_data_ipp/zeta_data.txt": {
+        "size": 12746
+      },
+      "scipy/special/tests/data/boost/zeta_neg_data_ipp/zeta_neg_data.txt": {
+        "size": 13558
+      },
+      "scipy/special/tests/data/gsl/mathieu_ab.txt": {
+        "size": 18466
+      },
+      "scipy/special/tests/data/gsl/mathieu_ce_se.txt": {
+        "size": 302846
+      },
+      "scipy/special/tests/data/gsl/mathieu_mc_ms.txt": {
+        "size": 78943
+      },
+      "scipy/special/tests/data/local/ellip.txt": {
+        "size": 21723
+      },
+      "scipy/special/tests/data/local/ellipeinc_neg_m.txt": {
+        "size": 177344
+      },
+      "scipy/special/tests/data/local/ellipkinc_neg_m.txt": {
+        "size": 177381
+      },
+      "scipy/special/tests/data/local/ellipkm1.txt": {
+        "size": 1699
+      },
+      "scipy/special/tests/data/local/gammainc.txt": {
+        "size": 67535
+      },
+      "scipy/special/tests/data/local/gammaincc.txt": {
+        "size": 67544
+      },
+      "scipy/special/tests/data/local/log1p_expm1_complex.txt": {
+        "size": 461071
+      },
+      "scipy/special/tests/data/local/wright_bessel.txt": {
+        "size": 351635
+      },
+      "scipy/special/tests/test_basic.py": {
+        "size": 199902
+      },
+      "scipy/special/tests/test_bdtr.py": {
+        "size": 3289
+      },
+      "scipy/special/tests/test_boost_ufuncs.py": {
+        "size": 3023
+      },
+      "scipy/special/tests/test_boxcox.py": {
+        "size": 3263
+      },
+      "scipy/special/tests/test_cdflib.py": {
+        "size": 34534
+      },
+      "scipy/special/tests/test_cdft_asymptotic.py": {
+        "size": 1619
+      },
+      "scipy/special/tests/test_cephes_intp_cast.py": {
+        "size": 1129
+      },
+      "scipy/special/tests/test_cosine_distr.py": {
+        "size": 2689
+      },
+      "scipy/special/tests/test_cython_special.py": {
+        "size": 19046
+      },
+      "scipy/special/tests/test_data.py": {
+        "size": 28349
+      },
+      "scipy/special/tests/test_dd.py": {
+        "size": 1564
+      },
+      "scipy/special/tests/test_digamma.py": {
+        "size": 1382
+      },
+      "scipy/special/tests/test_ellip_harm.py": {
+        "size": 9969
+      },
+      "scipy/special/tests/test_erfinv.py": {
+        "size": 3059
+      },
+      "scipy/special/tests/test_exponential_integrals.py": {
+        "size": 3863
+      },
+      "scipy/special/tests/test_extending.py": {
+        "size": 1184
+      },
+      "scipy/special/tests/test_faddeeva.py": {
+        "size": 2568
+      },
+      "scipy/special/tests/test_gamma.py": {
+        "size": 258
+      },
+      "scipy/special/tests/test_gammainc.py": {
+        "size": 4441
+      },
+      "scipy/special/tests/test_gen_harmonic.py": {
+        "size": 3110
+      },
+      "scipy/special/tests/test_hyp2f1.py": {
+        "size": 92261
+      },
+      "scipy/special/tests/test_hypergeometric.py": {
+        "size": 9996
+      },
+      "scipy/special/tests/test_iv_ratio.py": {
+        "size": 10108
+      },
+      "scipy/special/tests/test_kolmogorov.py": {
+        "size": 19280
+      },
+      "scipy/special/tests/test_lambertw.py": {
+        "size": 4572
+      },
+      "scipy/special/tests/test_legendre.py": {
+        "size": 53904
+      },
+      "scipy/special/tests/test_log1mexp.py": {
+        "size": 3142
+      },
+      "scipy/special/tests/test_loggamma.py": {
+        "size": 1992
+      },
+      "scipy/special/tests/test_logit.py": {
+        "size": 6470
+      },
+      "scipy/special/tests/test_logsumexp.py": {
+        "size": 19392
+      },
+      "scipy/special/tests/test_mpmath.py": {
+        "size": 69354
+      },
+      "scipy/special/tests/test_nan_inputs.py": {
+        "size": 1956
+      },
+      "scipy/special/tests/test_ndtr.py": {
+        "size": 2680
+      },
+      "scipy/special/tests/test_ndtri_exp.py": {
+        "size": 3708
+      },
+      "scipy/special/tests/test_orthogonal.py": {
+        "size": 32878
+      },
+      "scipy/special/tests/test_orthogonal_eval.py": {
+        "size": 12255
+      },
+      "scipy/special/tests/test_owens_t.py": {
+        "size": 1791
+      },
+      "scipy/special/tests/test_pcf.py": {
+        "size": 664
+      },
+      "scipy/special/tests/test_pdtr.py": {
+        "size": 1366
+      },
+      "scipy/special/tests/test_powm1.py": {
+        "size": 2276
+      },
+      "scipy/special/tests/test_precompute_expn_asy.py": {
+        "size": 583
+      },
+      "scipy/special/tests/test_precompute_gammainc.py": {
+        "size": 4620
+      },
+      "scipy/special/tests/test_precompute_utils.py": {
+        "size": 1165
+      },
+      "scipy/special/tests/test_round.py": {
+        "size": 511
+      },
+      "scipy/special/tests/test_sf_error.py": {
+        "size": 4562
+      },
+      "scipy/special/tests/test_sici.py": {
+        "size": 1227
+      },
+      "scipy/special/tests/test_specfun.py": {
+        "size": 1687
+      },
+      "scipy/special/tests/test_spence.py": {
+        "size": 1099
+      },
+      "scipy/special/tests/test_spfun_stats.py": {
+        "size": 2029
+      },
+      "scipy/special/tests/test_sph_harm.py": {
+        "size": 1780
+      },
+      "scipy/special/tests/test_spherical_bessel.py": {
+        "size": 15195
+      },
+      "scipy/special/tests/test_support_alternative_backends.py": {
+        "size": 15777
+      },
+      "scipy/special/tests/test_trig.py": {
+        "size": 2400
+      },
+      "scipy/special/tests/test_ufunc_signatures.py": {
+        "size": 4390
+      },
+      "scipy/special/tests/test_wright_bessel.py": {
+        "size": 7694
+      },
+      "scipy/special/tests/test_wrightomega.py": {
+        "size": 3560
+      },
+      "scipy/special/tests/test_zeta.py": {
+        "size": 11549
+      },
+      "scipy/special/utils/README.md": {
+        "size": 938
+      },
+      "scipy/special/utils/convert.py": {
+        "size": 3439
+      },
+      "scipy/special/utils/datafunc.py": {
+        "size": 1757
+      },
+      "scipy/special/utils/makenpz.py": {
+        "size": 2646
+      },
+      "scipy/stats/__init__.py": {
+        "size": 18535
+      },
+      "scipy/stats/_axis_nan_policy.py": {
+        "size": 33291
+      },
+      "scipy/stats/_binned_statistic.py": {
+        "size": 32940
+      },
+      "scipy/stats/_binomtest.py": {
+        "size": 14914
+      },
+      "scipy/stats/_bws_test.py": {
+        "size": 8556
+      },
+      "scipy/stats/_censored_data.py": {
+        "size": 18526
+      },
+      "scipy/stats/_common.py": {
+        "size": 172
+      },
+      "scipy/stats/_constants.py": {
+        "size": 1002
+      },
+      "scipy/stats/_continued_fraction.py": {
+        "size": 15508
+      },
+      "scipy/stats/_continuous_distns.py": {
+        "size": 411430
+      },
+      "scipy/stats/_correlation.py": {
+        "size": 30669
+      },
+      "scipy/stats/_covariance.py": {
+        "size": 23524
+      },
+      "scipy/stats/_crosstab.py": {
+        "size": 7351
+      },
+      "scipy/stats/_discrete_distns.py": {
+        "size": 66304
+      },
+      "scipy/stats/_distn_infrastructure.py": {
+        "size": 155055
+      },
+      "scipy/stats/_distr_params.py": {
+        "size": 9083
+      },
+      "scipy/stats/_distribution_infrastructure.py": {
+        "size": 234413
+      },
+      "scipy/stats/_entropy.py": {
+        "size": 15792
+      },
+      "scipy/stats/_finite_differences.py": {
+        "size": 4168
+      },
+      "scipy/stats/_fit.py": {
+        "size": 59673
+      },
+      "scipy/stats/_hypotests.py": {
+        "size": 87779
+      },
+      "scipy/stats/_kde.py": {
+        "size": 26333
+      },
+      "scipy/stats/_ksstats.py": {
+        "size": 20128
+      },
+      "scipy/stats/_levy_stable/__init__.py": {
+        "size": 46462
+      },
+      "scipy/stats/_mannwhitneyu.py": {
+        "size": 20261
+      },
+      "scipy/stats/_mgc.py": {
+        "size": 21396
+      },
+      "scipy/stats/_morestats.py": {
+        "size": 192349
+      },
+      "scipy/stats/_mstats_basic.py": {
+        "size": 130187
+      },
+      "scipy/stats/_mstats_extras.py": {
+        "size": 16409
+      },
+      "scipy/stats/_multicomp.py": {
+        "size": 16904
+      },
+      "scipy/stats/_multivariate.py": {
+        "size": 273896
+      },
+      "scipy/stats/_new_distributions.py": {
+        "size": 19390
+      },
+      "scipy/stats/_odds_ratio.py": {
+        "size": 17005
+      },
+      "scipy/stats/_page_trend_test.py": {
+        "size": 19312
+      },
+      "scipy/stats/_probability_distribution.py": {
+        "size": 74762
+      },
+      "scipy/stats/_qmc.py": {
+        "size": 107782
+      },
+      "scipy/stats/_qmvnt.py": {
+        "size": 16447
+      },
+      "scipy/stats/_quantile.py": {
+        "size": 21303
+      },
+      "scipy/stats/_rcont/__init__.py": {
+        "size": 84
+      },
+      "scipy/stats/_relative_risk.py": {
+        "size": 9571
+      },
+      "scipy/stats/_resampling.py": {
+        "size": 106522
+      },
+      "scipy/stats/_result_classes.py": {
+        "size": 1085
+      },
+      "scipy/stats/_sampling.py": {
+        "size": 46524
+      },
+      "scipy/stats/_sensitivity_analysis.py": {
+        "size": 25124
+      },
+      "scipy/stats/_stats_mstats_common.py": {
+        "size": 1185
+      },
+      "scipy/stats/_stats_py.py": {
+        "size": 436878
+      },
+      "scipy/stats/_stats_pythran.py": {
+        "size": 13641
+      },
+      "scipy/stats/_survival.py": {
+        "size": 26051
+      },
+      "scipy/stats/_tukeylambda_stats.py": {
+        "size": 6881
+      },
+      "scipy/stats/_unuran/__init__.py": {
+        "size": 0
+      },
+      "scipy/stats/_variation.py": {
+        "size": 4864
+      },
+      "scipy/stats/_warnings_errors.py": {
+        "size": 1534
+      },
+      "scipy/stats/_wilcoxon.py": {
+        "size": 11146
+      },
+      "scipy/stats/biasedurn.py": {
+        "size": 431
+      },
+      "scipy/stats/biasedurn/license.txt": {
+        "size": 1214
+      },
+      "scipy/stats/contingency.py": {
+        "size": 18823
+      },
+      "scipy/stats/distributions.py": {
+        "size": 859
+      },
+      "scipy/stats/kde.py": {
+        "size": 516
+      },
+      "scipy/stats/libnpyrandom/README.md": {
+        "size": 226
+      },
+      "scipy/stats/morestats.py": {
+        "size": 957
+      },
+      "scipy/stats/mstats.py": {
+        "size": 2466
+      },
+      "scipy/stats/mstats_basic.py": {
+        "size": 1394
+      },
+      "scipy/stats/mstats_extras.py": {
+        "size": 721
+      },
+      "scipy/stats/mvn.py": {
+        "size": 498
+      },
+      "scipy/stats/qmc.py": {
+        "size": 11703
+      },
+      "scipy/stats/sampling.py": {
+        "size": 1939
+      },
+      "scipy/stats/stats.py": {
+        "size": 1475
+      },
+      "scipy/stats/tests/__init__.py": {
+        "size": 0
+      },
+      "scipy/stats/tests/common_tests.py": {
+        "size": 12327
+      },
+      "scipy/stats/tests/data/_mvt.py": {
+        "size": 6905
+      },
+      "scipy/stats/tests/data/fisher_exact_results_from_r.py": {
+        "size": 27349
+      },
+      "scipy/stats/tests/data/studentized_range_mpmath_ref.json": {
+        "size": 29239
+      },
+      "scipy/stats/tests/test_axis_nan_policy.py": {
+        "size": 64741
+      },
+      "scipy/stats/tests/test_binned_statistic.py": {
+        "size": 20314
+      },
+      "scipy/stats/tests/test_censored_data.py": {
+        "size": 6935
+      },
+      "scipy/stats/tests/test_contingency.py": {
+        "size": 10937
+      },
+      "scipy/stats/tests/test_continued_fraction.py": {
+        "size": 6402
+      },
+      "scipy/stats/tests/test_continuous.py": {
+        "size": 98042
+      },
+      "scipy/stats/tests/test_continuous_basic.py": {
+        "size": 43661
+      },
+      "scipy/stats/tests/test_continuous_fit_censored.py": {
+        "size": 24188
+      },
+      "scipy/stats/tests/test_correlation.py": {
+        "size": 18890
+      },
+      "scipy/stats/tests/test_crosstab.py": {
+        "size": 3906
+      },
+      "scipy/stats/tests/test_device_dtype.py": {
+        "size": 10022
+      },
+      "scipy/stats/tests/test_discrete_basic.py": {
+        "size": 22740
+      },
+      "scipy/stats/tests/test_discrete_distns.py": {
+        "size": 27016
+      },
+      "scipy/stats/tests/test_distributions.py": {
+        "size": 423012
+      },
+      "scipy/stats/tests/test_entropy.py": {
+        "size": 12877
+      },
+      "scipy/stats/tests/test_fast_gen_inversion.py": {
+        "size": 16062
+      },
+      "scipy/stats/tests/test_fit.py": {
+        "size": 48935
+      },
+      "scipy/stats/tests/test_generation/__init__.py": {
+        "size": 0
+      },
+      "scipy/stats/tests/test_generation/reference_distribution_infrastructure_tests.py": {
+        "size": 3041
+      },
+      "scipy/stats/tests/test_generation/reference_distributions.py": {
+        "size": 15417
+      },
+      "scipy/stats/tests/test_generation/studentized_range_mpmath_ref.py": {
+        "size": 7632
+      },
+      "scipy/stats/tests/test_hypotests.py": {
+        "size": 99719
+      },
+      "scipy/stats/tests/test_kdeoth.py": {
+        "size": 22863
+      },
+      "scipy/stats/tests/test_marray.py": {
+        "size": 25216
+      },
+      "scipy/stats/tests/test_mgc.py": {
+        "size": 8914
+      },
+      "scipy/stats/tests/test_morestats.py": {
+        "size": 167975
+      },
+      "scipy/stats/tests/test_mstats_basic.py": {
+        "size": 90783
+      },
+      "scipy/stats/tests/test_mstats_extras.py": {
+        "size": 7317
+      },
+      "scipy/stats/tests/test_multicomp.py": {
+        "size": 17826
+      },
+      "scipy/stats/tests/test_multivariate.py": {
+        "size": 197964
+      },
+      "scipy/stats/tests/test_new_distributions.py": {
+        "size": 874
+      },
+      "scipy/stats/tests/test_odds_ratio.py": {
+        "size": 6727
+      },
+      "scipy/stats/tests/test_qmc.py": {
+        "size": 59246
+      },
+      "scipy/stats/tests/test_quantile.py": {
+        "size": 18085
+      },
+      "scipy/stats/tests/test_rank.py": {
+        "size": 12853
+      },
+      "scipy/stats/tests/test_relative_risk.py": {
+        "size": 3646
+      },
+      "scipy/stats/tests/test_resampling.py": {
+        "size": 93824
+      },
+      "scipy/stats/tests/test_sampling.py": {
+        "size": 55138
+      },
+      "scipy/stats/tests/test_sensitivity_analysis.py": {
+        "size": 10678
+      },
+      "scipy/stats/tests/test_stats.py": {
+        "size": 422406
+      },
+      "scipy/stats/tests/test_survival.py": {
+        "size": 21958
+      },
+      "scipy/stats/tests/test_tukeylambda_stats.py": {
+        "size": 3231
+      },
+      "scipy/stats/tests/test_variation.py": {
+        "size": 9410
+      },
+      "subprojects/pyprima/README.md": {
+        "size": 77
+      },
+      "subprojects/pyprima/pyprima/LICENCE.txt": {
+        "size": 1533
+      },
+      "subprojects/pyprima/pyprima/pyprima/README.md": {
+        "size": 4701
+      },
+      "subprojects/pyprima/pyprima/pyprima/pyproject.toml": {
+        "size": 293
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/__init__.py": {
+        "size": 8461
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/cobyla/__init__.py": {
+        "size": 0
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/cobyla/cobyla.py": {
+        "size": 22146
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/cobyla/cobylb.py": {
+        "size": 40764
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/cobyla/geometry.py": {
+        "size": 10645
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/cobyla/initialize.py": {
+        "size": 9409
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/cobyla/trustregion.py": {
+        "size": 25200
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/cobyla/update.py": {
+        "size": 13882
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/__init__.py": {
+        "size": 0
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/_bounds.py": {
+        "size": 1636
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/_linear_constraints.py": {
+        "size": 2162
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/_nonlinear_constraints.py": {
+        "size": 2150
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/_project.py": {
+        "size": 7863
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/checkbreak.py": {
+        "size": 3451
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/consts.py": {
+        "size": 1310
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/evaluate.py": {
+        "size": 3150
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/history.py": {
+        "size": 1361
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/infos.py": {
+        "size": 704
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/linalg.py": {
+        "size": 14280
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/message.py": {
+        "size": 9663
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/powalg.py": {
+        "size": 6785
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/preproc.py": {
+        "size": 13820
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/present.py": {
+        "size": 146
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/ratio.py": {
+        "size": 1823
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/redrho.py": {
+        "size": 1258
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/common/selectx.py": {
+        "size": 14120
+      },
+      "subprojects/pyprima/pyprima/pyprima/src/pyprima/examples/cobyla/cobyla_example.py": {
+        "size": 3365
+      },
+      "subprojects/pyprima/pyprima/pyprima/tests/conftest.py": {
+        "size": 817
+      },
+      "subprojects/pyprima/pyprima/pyprima/tests/requirements.txt": {
+        "size": 45
+      },
+      "subprojects/pyprima/pyprima/pyprima/tests/test_bounds.py": {
+        "size": 508
+      },
+      "subprojects/pyprima/pyprima/pyprima/tests/test_end_to_end.py": {
+        "size": 1275
+      },
+      "subprojects/pyprima/pyprima/pyprima/tests/test_get_lincon.py": {
+        "size": 1684
+      },
+      "subprojects/pyprima/pyprima/pyprima/tests/test_miscellaneous.py": {
+        "size": 2736
+      },
+      "subprojects/pyprima/pyprima/pyprima/tests/test_pycutest.py": {
+        "size": 20007
+      },
+      "subprojects/pyprima/pyprima/pyprima/tests/test_threading.py": {
+        "size": 2049
+      },
+      "subprojects/qhull_r/README.md": {
+        "size": 78
+      },
+      "subprojects/qhull_r/libqhull_r/Announce.txt": {
+        "size": 2218
+      },
+      "subprojects/qhull_r/libqhull_r/COPYING.txt": {
+        "size": 1720
+      },
+      "tach.toml": {
+        "size": 6371
+      },
+      "tools/asan-ignore.txt": {
+        "size": 165
+      },
+      "tools/authors.py": {
+        "size": 7381
+      },
+      "tools/check_installation.py": {
+        "size": 4550
+      },
+      "tools/check_python_h_first.py": {
+        "size": 7272
+      },
+      "tools/check_test_name.py": {
+        "size": 6220
+      },
+      "tools/check_unicode.py": {
+        "size": 3829
+      },
+      "tools/check_xp_untested.py": {
+        "size": 3691
+      },
+      "tools/download-wheels.py": {
+        "size": 3066
+      },
+      "tools/generate_f2pymod.py": {
+        "size": 9806
+      },
+      "tools/generate_requirements.py": {
+        "size": 1906
+      },
+      "tools/get_submodule_paths.py": {
+        "size": 909
+      },
+      "tools/gh_lists.py": {
+        "size": 9018
+      },
+      "tools/gitversion.py": {
+        "size": 2613
+      },
+      "tools/lint.py": {
+        "size": 6256
+      },
+      "tools/lint.toml": {
+        "size": 1616
+      },
+      "tools/ninjatracing.py": {
+        "size": 6920
+      },
+      "tools/numpydoc_lint.py": {
+        "size": 26050
+      },
+      "tools/pre-commit-hook.py": {
+        "size": 3243
+      },
+      "tools/refguide_check.py": {
+        "size": 18765
+      },
+      "tools/refguide_summaries.py": {
+        "size": 3451
+      },
+      "tools/trim_sdist_content.py": {
+        "size": 1273
+      },
+      "tools/write_release_and_log.py": {
+        "size": 3345
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.benchmarks.benchmarks",
+      "source.scipy",
+      "source.scipy._external",
+      "source.scipy._lib",
+      "source.scipy.cluster",
+      "source.scipy.constants",
+      "source.scipy.datasets",
+      "source.scipy.differentiate",
+      "source.scipy.fft",
+      "source.scipy.fftpack",
+      "source.scipy.integrate",
+      "source.scipy.interpolate",
+      "source.scipy.io",
+      "source.scipy.linalg",
+      "source.scipy.misc",
+      "source.scipy.ndimage",
+      "source.scipy.odr",
+      "source.scipy.optimize",
+      "source.scipy.signal",
+      "source.scipy.sparse",
+      "source.scipy.spatial",
+      "source.scipy.special",
+      "source.scipy.stats"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": true,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.scipy",
+        "module": "__init__",
+        "functions": [
+          "show_config",
+          "test"
+        ],
+        "classes": [],
+        "description": "Top-level SciPy namespace and public API bootstrap; exposes package-wide utilities and lazy access to subpackages."
+      },
+      {
+        "package": "source.scipy.linalg",
+        "module": "__init__",
+        "functions": [
+          "solve",
+          "inv",
+          "det",
+          "svd",
+          "eig",
+          "qr",
+          "lu",
+          "cholesky",
+          "lstsq"
+        ],
+        "classes": [
+          "LinAlgError"
+        ],
+        "description": "Dense linear algebra façade over LAPACK/BLAS-backed implementations."
+      },
+      {
+        "package": "source.scipy.optimize",
+        "module": "__init__",
+        "functions": [
+          "minimize",
+          "minimize_scalar",
+          "root",
+          "root_scalar",
+          "least_squares",
+          "curve_fit",
+          "linprog",
+          "milp",
+          "differential_evolution",
+          "basinhopping"
+        ],
+        "classes": [
+          "OptimizeResult",
+          "Bounds",
+          "LinearConstraint",
+          "NonlinearConstraint"
+        ],
+        "description": "Optimization/root-finding hub with local/global, constrained/unconstrained, and least-squares solvers."
+      },
+      {
+        "package": "source.scipy.integrate",
+        "module": "__init__",
+        "functions": [
+          "quad",
+          "quad_vec",
+          "dblquad",
+          "tplquad",
+          "nquad",
+          "solve_ivp",
+          "odeint",
+          "simpson",
+          "trapezoid",
+          "romb"
+        ],
+        "classes": [
+          "ODEintWarning",
+          "OdeSolution",
+          "DenseOutput"
+        ],
+        "description": "Numerical integration for quadrature and ODE initial/boundary value problems."
+      },
+      {
+        "package": "source.scipy.interpolate",
+        "module": "__init__",
+        "functions": [
+          "interp1d",
+          "griddata",
+          "interpn",
+          "splrep",
+          "splev",
+          "make_interp_spline",
+          "RegularGridInterpolator"
+        ],
+        "classes": [
+          "BSpline",
+          "PPoly",
+          "BPoly",
+          "CubicSpline",
+          "RegularGridInterpolator"
+        ],
+        "description": "1D/ND interpolation, splines, and scattered/regular-grid interpolation utilities."
+      },
+      {
+        "package": "source.scipy.sparse",
+        "module": "__init__",
+        "functions": [
+          "csr_matrix",
+          "csc_matrix",
+          "coo_matrix",
+          "diags",
+          "identity",
+          "issparse",
+          "save_npz",
+          "load_npz"
+        ],
+        "classes": [
+          "spmatrix",
+          "csr_matrix",
+          "csc_matrix",
+          "coo_matrix",
+          "dok_matrix",
+          "lil_matrix"
+        ],
+        "description": "Sparse matrix core types and constructors with IO/helpers."
+      },
+      {
+        "package": "source.scipy.sparse.linalg",
+        "module": "__init__",
+        "functions": [
+          "spsolve",
+          "splu",
+          "cg",
+          "gmres",
+          "bicgstab",
+          "eigs",
+          "eigsh",
+          "svds",
+          "expm_multiply"
+        ],
+        "classes": [
+          "LinearOperator"
+        ],
+        "description": "Sparse linear solvers, iterative methods, eigensolvers, and matrix functions."
+      },
+      {
+        "package": "source.scipy.signal",
+        "module": "__init__",
+        "functions": [
+          "convolve",
+          "correlate",
+          "filtfilt",
+          "lfilter",
+          "butter",
+          "welch",
+          "spectrogram",
+          "find_peaks",
+          "stft",
+          "istft"
+        ],
+        "classes": [
+          "TransferFunction",
+          "StateSpace",
+          "ZerosPolesGain"
+        ],
+        "description": "Signal processing primitives including filtering, spectral analysis, and LTI systems."
+      },
+      {
+        "package": "source.scipy.stats",
+        "module": "__init__",
+        "functions": [
+          "norm",
+          "t",
+          "chi2",
+          "ks_2samp",
+          "ttest_ind",
+          "pearsonr",
+          "spearmanr",
+          "bootstrap",
+          "permutation_test",
+          "gaussian_kde"
+        ],
+        "classes": [
+          "rv_continuous",
+          "rv_discrete",
+          "gaussian_kde"
+        ],
+        "description": "Probability distributions, hypothesis tests, resampling, and descriptive statistics."
+      },
+      {
+        "package": "source.scipy.fft",
+        "module": "__init__",
+        "functions": [
+          "fft",
+          "ifft",
+          "rfft",
+          "irfft",
+          "fftn",
+          "ifftn",
+          "fftshift",
+          "fftfreq",
+          "next_fast_len"
+        ],
+        "classes": [],
+        "description": "Modern FFT interface with backend dispatch support."
+      },
+      {
+        "package": "source.scipy.special",
+        "module": "__init__",
+        "functions": [
+          "gamma",
+          "gammaln",
+          "erf",
+          "erfc",
+          "beta",
+          "jv",
+          "yv",
+          "iv",
+          "kv",
+          "logsumexp",
+          "softmax"
+        ],
+        "classes": [],
+        "description": "Special functions and transcendental/statistical function building blocks."
+      },
+      {
+        "package": "source.scipy.spatial",
+        "module": "__init__",
+        "functions": [
+          "distance_matrix",
+          "minkowski_distance",
+          "procrustes",
+          "geometric_slerp"
+        ],
+        "classes": [
+          "KDTree",
+          "cKDTree",
+          "Delaunay",
+          "ConvexHull",
+          "Voronoi"
+        ],
+        "description": "Computational geometry, nearest neighbors, and distance computations."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python -m scipy",
+        "module": "source.scipy.__main__ (not explicitly listed in scan output)",
+        "description": "Potential module execution entry; primary repository focus is library API, not CLI."
+      },
+      {
+        "name": "python -m pytest scipy/...",
+        "module": "pytest test harness",
+        "description": "Project-native operational entrypoint for validation, though external to package CLI."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.94
+    },
+    "dependencies": {
+      "required": [
+        "numpy"
+      ],
+      "optional": [
+        "pytest",
+        "mpmath",
+        "matplotlib",
+        "threadpoolctl",
+        "pooch",
+        "pybind11",
+        "pythran",
+        "C/C++/Fortran toolchain",
+        "BLAS/LAPACK (e.g., OpenBLAS)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/scipy/scipy",
+    "repo_name": "scipy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.91,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

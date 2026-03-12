@@ -1,0 +1,236 @@
+{
+  "repository": {
+    "name": "scCellFie",
+    "url": "https://github.com/earmingol/scCellFie",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/scCellFie",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773295303.280863,
+    "end_time": 1773295534.726811,
+    "duration": 231.4459478855133,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 12,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.sccellfie",
+        "source.sccellfie.communication",
+        "source.sccellfie.datasets",
+        "source.sccellfie.expression",
+        "source.sccellfie.external",
+        "source.sccellfie.io",
+        "source.sccellfie.plotting",
+        "source.sccellfie.preprocessing",
+        "source.sccellfie.reports",
+        "source.sccellfie.spatial",
+        "source.sccellfie.stats",
+        "source.sccellfie.tests"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.83,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/earmingol/scCellFie",
+      "repo_name": "scCellFie",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/scCellFie/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "migrate packaging to `pyproject.toml` (keep `setup.py` shim if needed)",
+    "add pinned/dev dependency sets and optional extras (e.g.",
+    "`spatial`",
+    "`plotly`",
+    "`docs`) with a lockfile for reproducibility",
+    "expand CI matrix to multiple Python/OS versions and include lint/type/doc/build jobs",
+    "add static quality gates (`ruff` + `black` + `isort` + `mypy`) and enforce via pre-commit",
+    "introduce coverage reporting with thresholds and prioritize tests for high-complexity modules (`sccellfie_pipeline.py`",
+    "`reports/summary.py`",
+    "plotting)",
+    "add integration tests that run the full pipeline on toy AnnData (including spatial and communication paths)",
+    "strengthen input validation and error messages across public APIs (required AnnData keys/layers",
+    "organism names",
+    "threshold bounds)",
+    "standardize API signatures and docs (clear defaults",
+    "`inplace` behavior",
+    "return types)",
+    "improve performance in heavy paths with vectorization/chunking benchmarks and optional parallelization",
+    "add lightweight caching for repeatedly loaded database/task JSON assets",
+    "reduce repository bloat by moving large static map/data files to release assets or optional download step",
+    "document memory/runtime guidance for large datasets and recommended chunk sizes",
+    "add deterministic behavior controls (`random_state`) consistently where sampling or stochastic steps occur",
+    "create a small CLI for common workflows (run pipeline/load/save/report) to complement the MCP endpoints",
+    "publish richer examples/tutorial notebooks for end-to-end use cases (basic",
+    "spatial",
+    "differential",
+    "GAM)",
+    "harden docs build and API reference generation from docstrings (Sphinx autodoc/napoleon) with linkcheck in CI",
+    "define deprecation/versioning policy and changelog automation",
+    "add security and supply-chain checks (Dependabot",
+    "pip-audit",
+    "GitHub Action pinning)",
+    "include benchmark and regression suite to track runtime/accuracy across releases",
+    "separate pure computation from plotting side effects to improve testability and headless execution",
+    "add MCP plugin contract tests and schema validation for endpoint I/O consistency"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter mode was feasible (import feasibility 0.83, low intrusiveness risk), enabling broad automatic endpoint exposure.",
+      "Generated MCP plugin started successfully and passed health checks (stdio transport, service_health=healthy).",
+      "Repository has clear Python package structure and rich functional surface area, which helped tool generation."
+    ],
+    "failure_reasons": [
+      "No blocking workflow failure detected.",
+      "DeepWiki analysis failed (non-blocking) and reduced external context enrichment.",
+      "Original project tests were not validated as passing in this run (passed=false with empty details), creating uncertainty about baseline correctness."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; likely efficient for a medium repository (113 files).",
+      "analysis_time": "Moderate-to-high due to broad AST/module discovery and endpoint extraction across many packages.",
+      "generation_time": "Efficient; core MCP scaffold and adapter files were generated without reported errors.",
+      "test_time": "MCP plugin smoke/health tests succeeded quickly; original project test execution appears incomplete or not instrumented."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Insufficient telemetry (reported 0 MB), but no OOM or instability signs during generation/run.",
+      "cpu_efficiency": "Insufficient telemetry (reported 0%), execution duration suggests acceptable CPU use for medium complexity.",
+      "disk_usage": "Generated artifact set is small; repository contains sizable static JSON map/data assets that dominate storage footprint."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 82,
+    "architecture_score": 84,
+    "performance_score": 71,
+    "maintainability_score": 78,
+    "security_score": 85,
+    "scalability_score": 74
+  }
+}

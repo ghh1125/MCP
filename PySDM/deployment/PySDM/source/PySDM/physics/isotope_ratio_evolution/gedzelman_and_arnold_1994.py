@@ -1,0 +1,22 @@
+"""
+saturation when no change in isotopic ratio
+in liquid eq 22 and in vapour eq 23
+in [Gedzelman & Arnold 1994](https://doi.org/10.1029/93JD03518)
+"""
+
+
+# pylint: disable=too-few-public-methods
+class GedzelmanAndArnold1994:
+    def __init__(self, _):
+        pass
+
+    # pylint: disable=too-many-arguments
+    @staticmethod
+    def saturation_for_zero_dR_condition(
+        _, diff_rat_light_to_heavy, iso_ratio_x, iso_ratio_r, iso_ratio_v, b, alpha_w
+    ):
+        return (diff_rat_light_to_heavy * iso_ratio_x - iso_ratio_r / alpha_w) / (
+            diff_rat_light_to_heavy * iso_ratio_x
+            - (1 + b) * iso_ratio_v
+            + b * iso_ratio_r / alpha_w
+        )

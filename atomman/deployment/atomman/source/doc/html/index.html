@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>atomman: Atomistic Manipulation Toolkit &#8212; atomman 1.4.11 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=eeb27264" />
+    <script src="_static/documentation_options.js?v=651a37ba"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorials" href="tutorial/index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tutorial/index.html" title="Tutorials"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">atomman 1.4.11 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">atomman: Atomistic Manipulation Toolkit</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="atomman-atomistic-manipulation-toolkit">
+<h1>atomman: Atomistic Manipulation Toolkit<a class="headerlink" href="#atomman-atomistic-manipulation-toolkit" title="Link to this heading">¶</a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>AtomMan: the Atomistic Manipulation Toolkit is a Python library for
+creating, representing, manipulating, and analyzing large-scale atomic
+systems of atoms. The focus of the package is to facilitate the rapid design
+and development of simulations that are fully documented and easily adaptable
+to new potentials, configurations, etc.  The code has no requirements that
+limit which systems it can be used on, i.e. it should work on Linux, Mac and
+Windows computers.</p>
+<p>Features:</p>
+<ol class="arabic simple">
+<li><p>Allows for efficient and fast calculations on millions of atoms, each with
+many freely defined per-atom properties.</p></li>
+<li><p>Built-in tools for generating and analyzing crystalline defects, such as
+point defects, stacking faults, and dislocations.</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Call LAMMPS directly from Python and instantly retrieve the resulting data
+or LAMMPS error statement.</p></li>
+<li><p>Easily convert systems to/from the other Python atomic representations, such
+as ase.Atoms and pymatgen.Structure.</p></li>
+<li><p>Can read and dump crystal structure information from a number of formats,
+such as LAMMPS data and dump files, and POSCAR.</p></li>
+<li><p>Built-in unit conversions.</p></li>
+</ol>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h2>
+<p>The atomman package is Python 3.7+ compatible.</p>
+<p>The latest release can be installed using pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">atomman</span>
+</pre></div>
+</div>
+<p>or, alternatively using conda and conda-forge:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">atomman</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+</pre></div>
+</div>
+<p>For Windows users, it is recommended to use an Anaconda distribution and use
+conda to install numpy, scipy, matplotlib, pandas and cython prior to
+installing atomman.</p>
+<p>Alternatively, all code and documentation can be downloaded from GitHub.</p>
+<ul class="simple">
+<li><p>The stable releases are available at
+<a class="reference external" href="https://github.com/usnistgov/atomman">https://github.com/usnistgov/atomman</a>.</p></li>
+<li><p>The working development versions are at
+<a class="reference external" href="https://github.com/lmhale99/atomman">https://github.com/lmhale99/atomman</a>.</p></li>
+</ul>
+</section>
+<section id="tutorials">
+<h2>Tutorials<a class="headerlink" href="#tutorials" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/0._Unit_conversions.html">0. Unit conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1._Defining_atomic_systems.html">1. Defining atomic systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.1._Box_class.html">1.1. Box class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.2._Atoms_class.html">1.2. Atoms class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.3._System_class.html">1.3. System class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4._Load_and_dump_conversions.html">1.4. Load and dump conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.1._system_model_conversions.html">1.4.1. system_model conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.2._POSCAR_conversions.html">1.4.2. POSCAR conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.3._CIF_conversions.html">1.4.3. CIF conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.4._table_conversions.html">1.4.4. table conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.5._LAMMPS_data_file_conversions.html">1.4.5. LAMMPS data file conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.6._LAMMPS_dump_file_conversions.html">1.4.6. LAMMPS dump file conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.7._ase_and_phonopy_conversions.html">1.4.7. ase and phonopy conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.8._pymatgen_conversions.html">1.4.8. pymatgen conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.9._spglib_conversions.html">1.4.9. spglib conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.10._prototype_loading.html">1.4.10. prototype loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.11._crystal_loading.html">1.4.11. crystal loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.12._DFT_reference_crystal_loading.html">1.4.12. DFT reference crystal loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.13._primitive_cell_dumping.html">1.4.13. primitive cell dumping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.14._Conventional_and_primitive_cell_conversion_dumping.html">1.4.14. Conventional and primitive cell conversion dumping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.15._pdb_dumping.html">1.4.15. pdb dumping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.16._LAMMPS_NEB_replica_dumping-Copy1.html">1.4.16. LAMMPS NEB replica dumping-Copy1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.4.16._LAMMPS_NEB_replica_dumping.html">1.4.16. LAMMPS NEB replica dumping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/1.5._Settings_and_databases.html">1.5. Settings and databases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/2._LAMMPS_functionality.html">2. LAMMPS functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/2.1._Potential_class.html">2.1. Potential class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/2.2._Running_LAMMPS_and_the_Log_class.html">2.2. Running LAMMPS and the Log class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3._Basic_support_and_analysis_tools.html">3. Basic support and analysis tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3.1._ElasticConstants_class.html">3.1. ElasticConstants class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3.2._NeighborList_class.html">3.2. NeighborList class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3.3._Region_selectors.html">3.3. Region selectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3.4._Minimum_energy_paths.html">3.4. Minimum energy paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/3.5._Cluster_generators.html">3.5. Cluster generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4._Defect_creation_and_analysis.html">4. Defect creation and analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4.1._Point_defect_generation.html">4.1. Point defect generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4.2._Free_surface_generator.html">4.2. Free surface generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4.3._Stacking_fault_generator.html">4.3. Stacking fault generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4.4._Volterra_dislocation_solutions.html">4.4. Volterra dislocation solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4.5._Gamma_surface_plotting.html">4.5. Gamma surface plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4.6._Dislocation_analysis_tools.html">4.6. Dislocation analysis tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4.7._Semidiscrete_variational_Peierls-Nabarro_model.html">4.7. Semidiscrete variational Peierls-Nabarro model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4.8._Strain_class.html">4.8. Strain class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4.9._Dislocation_configurations_generator.html">4.9. Dislocation configurations generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/4.10_Differential_Displacement_Maps.html">4.10 Differential Displacement Maps</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="code-documentation">
+<h2>Code Documentation<a class="headerlink" href="#code-documentation" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="atomman.html">atomman package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="atomman.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atomman.unitconvert.html">unitconvert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.tools.html">tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.region.html">region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.cluster.html">cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.mep.html">mep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.lammps.html">lammps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.library.html">library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.defect.html">defect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.plot.html">plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="atomman.html#classes">Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atomman.Atoms.html">Atoms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.Box.html">Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.System.html">System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.ElasticConstants.html">ElasticConstants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.NeighborList.html">NeighborList</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="atomman.html#module-atomman">Functions and attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="atomman.html#atomman.build_lammps_potential"><code class="docutils literal notranslate"><span class="pre">build_lammps_potential()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.html#atomman.displacement"><code class="docutils literal notranslate"><span class="pre">displacement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.html#atomman.dmag"><code class="docutils literal notranslate"><span class="pre">dmag()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.html#atomman.dump"><code class="docutils literal notranslate"><span class="pre">dump()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.html#atomman.dvect"><code class="docutils literal notranslate"><span class="pre">dvect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.html#atomman.load"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomman.html#atomman.nlist"><code class="docutils literal notranslate"><span class="pre">nlist()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="#">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">atomman: Atomistic Manipulation Toolkit</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#tutorials">Tutorials</a></li>
+<li><a class="reference internal" href="#code-documentation">Code Documentation</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="tutorial/index.html"
+                          title="next chapter">Tutorials</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tutorial/index.html" title="Tutorials"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">atomman 1.4.11 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">atomman: Atomistic Manipulation Toolkit</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
+    </div>
+  </body>
+</html>

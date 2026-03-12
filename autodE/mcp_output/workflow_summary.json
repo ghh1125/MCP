@@ -1,0 +1,214 @@
+{
+  "repository": {
+    "name": "autodE",
+    "url": "https://github.com/duartegroup/autodE",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/autodE",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773265352.071062,
+    "end_time": 1773265564.45187,
+    "duration": 212.38080883026123,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 23,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.autode",
+        "source.autode.bracket",
+        "source.autode.calculations",
+        "source.autode.conformers",
+        "source.autode.ext",
+        "source.autode.log",
+        "source.autode.neb",
+        "source.autode.opt",
+        "source.autode.path",
+        "source.autode.pes",
+        "source.autode.reactions",
+        "source.autode.smiles",
+        "source.autode.solvent",
+        "source.autode.species",
+        "source.autode.thermochemistry",
+        "source.autode.transition_states",
+        "source.autode.wrappers",
+        "source.tests",
+        "source.tests.test_bracket",
+        "source.tests.test_opt",
+        "source.tests.test_pes",
+        "source.tests.test_ts",
+        "source.tests.test_wrappers"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/duartegroup/autodE",
+      "repo_name": "autodE",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/autodE/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add and publish an MCP test suite in CI (smoke + contract tests for all exposed endpoints)",
+    "pin and align packaging metadata (single source of truth in `pyproject.toml`",
+    "minimize `setup.py` duplication)",
+    "define typed request/response schemas for each endpoint with explicit validation/error codes",
+    "add graceful dependency and executable checks (ORCA/XTB/Gaussian/etc.) with actionable diagnostics",
+    "split large core modules (e.g.",
+    "`species.py`",
+    "`reaction.py`",
+    "`solvents.py`) into smaller maintainable units",
+    "introduce benchmark/performance CI gates for hot paths (NEB/TS search/conformer generation)",
+    "strengthen docs with an MCP quickstart and per-endpoint examples mapped to existing tutorials",
+    "add observability hooks (structured logging",
+    "timing",
+    "and failure telemetry around external calculations)",
+    "improve reliability with deterministic test fixtures and optional-matrix tests for optional deps (rdkit/matplotlib/cclib)",
+    "harden plugin startup/runtime config (env var schema",
+    "defaults",
+    "and fail-fast checks)",
+    "expand security posture for subprocess/external-wrapper execution (input sanitization",
+    "path handling",
+    "timeout/resource limits)",
+    "add versioned API compatibility policy for MCP endpoints and changelog automation"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow execution completed"
+    ],
+    "failure_reasons": [],
+    "overall_assessment": "good"
+  },
+  "technical_quality": {
+    "code_quality_score": 80,
+    "architecture_score": 75,
+    "performance_score": 70,
+    "maintainability_score": 75
+  }
+}

@@ -1,0 +1,245 @@
+{
+  "repository": {
+    "name": "pymc",
+    "url": "https://github.com/pymc-devs/pymc",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pymc",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773289365.708917,
+    "end_time": 1773289642.134273,
+    "duration": 276.42535614967346,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 32,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.benchmarks.benchmarks",
+        "source.pymc",
+        "source.pymc.backends",
+        "source.pymc.dims",
+        "source.pymc.distributions",
+        "source.pymc.gp",
+        "source.pymc.logprob",
+        "source.pymc.model",
+        "source.pymc.ode",
+        "source.pymc.plots",
+        "source.pymc.progress_bar",
+        "source.pymc.sampling",
+        "source.pymc.smc",
+        "source.pymc.stats",
+        "source.pymc.step_methods",
+        "source.pymc.tuning",
+        "source.pymc.variational",
+        "source.tests",
+        "source.tests.backends",
+        "source.tests.dims",
+        "source.tests.distributions",
+        "source.tests.gp",
+        "source.tests.logprob",
+        "source.tests.model",
+        "source.tests.ode",
+        "source.tests.progress_bar",
+        "source.tests.sampling",
+        "source.tests.smc",
+        "source.tests.stats",
+        "source.tests.step_methods",
+        "source.tests.tuning",
+        "source.tests.variational"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.89,
+      "intrusiveness_risk": "low",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/pymc-devs/pymc",
+      "repo_name": "pymc",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pymc/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "stabilize and version the MCP surface with explicit endpoint contracts (inputs/outputs/errors) plus deprecation policy",
+    "add a focused MCP test suite under `mcp_output/tests_mcp` that smoke-tests each exported endpoint (`sample`",
+    "`fit`",
+    "`to_inference_data`",
+    "etc.) on tiny deterministic models",
+    "introduce CI for the plugin (lint + mypy + pytest + import smoke test) to prevent drift from upstream PyMC changes",
+    "pin and document compatibility matrix across Python/PyMC/PyTensor/JAX versions in `mcp_output/README_MCP.md`",
+    "add defensive runtime guards in `adapter.py` for optional dependencies (JAX/Zarr/Graphviz) with clear actionable error messages",
+    "implement timeout/resource limits and cancellation support for long-running sampling endpoints to avoid hanging MCP clients",
+    "return structured error payloads (typed error codes + remediation hints) instead of raw exceptions from wrapped PyMC calls",
+    "cache compiled graphs/model context where safe to reduce repeated `compile_fn`/sampling overhead for iterative MCP usage",
+    "add golden examples in README (minimal model",
+    "prior predictive",
+    "posterior sampling",
+    "VI fit) with expected response schema snippets",
+    "expand observability with per-endpoint logging/latency metrics and a debug mode toggle",
+    "harden security by validating/sanitizing user-provided arguments and restricting arbitrary object execution paths",
+    "reduce maintenance risk by auto-generating endpoint docs from code annotations and enforcing via CI doc checks",
+    "add regression benchmarks for core exposed workflows (NUTS warmup",
+    "posterior predictive",
+    "ADVI) to detect performance cliffs",
+    "align dependency declarations (`pyproject.toml`/requirements) to avoid duplication and ensure reproducible plugin installs",
+    "add fallback behavior when DeepWiki/aux analysis fails so suggestion generation remains fully deterministic and traceable"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy was appropriate for a mature Python library with high import feasibility (0.89) and low intrusiveness risk.",
+      "Repository structure and core API surfaces were correctly identified (sampling, variational, predictive, ArviZ conversion), enabling meaningful endpoint generation.",
+      "Generated MCP service started healthy over stdio, indicating baseline runtime viability of the plugin scaffold."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality-validation gap: original project tests show passed=false with empty details and execution_time=0, indicating tests were not actually exercised in this run.",
+      "DeepWiki augmentation failed, reducing analysis depth and traceability for recommendation provenance.",
+      "Generated artifact telemetry appears incomplete (total_lines_of_code=0, tool_endpoints=0) and conflicts with discovered endpoints list, suggesting reporting instrumentation inconsistency."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Repository ingestion succeeded via zip fallback; likely efficient for this run but less reproducible than git-clone with pinned commit.",
+      "analysis_time": "Static/package analysis covered large codebase (~316 files) and identified core modules effectively; moderate complexity handled within total 276s runtime.",
+      "generation_time": "Generation completed quickly with full plugin scaffold files; however endpoint/tool count metadata mismatch indicates post-generation accounting issues.",
+      "test_time": "MCP plugin health check passed, but substantive endpoint tests were not executed; practical test depth is currently low."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Not measurable from provided metrics (reported as 0); likely acceptable for scaffold generation, unknown for heavy inference calls.",
+      "cpu_efficiency": "Not measurable from provided metrics (reported as 0); total duration suggests no severe CPU contention during workflow.",
+      "disk_usage": "Low-to-moderate incremental footprint (few generated files); no disk pressure indicators."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 76,
+    "architecture_score": 81,
+    "performance_score": 68,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

@@ -1,0 +1,584 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/geopandas/geopandas",
+    "summary": "Imported via zip fallback, file count: 127",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 933
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 212
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 925
+      },
+      ".github/dependabot.yml": {
+        "size": 218
+      },
+      ".github/workflows/release.yml": {
+        "size": 1778
+      },
+      ".github/workflows/tests.yaml": {
+        "size": 3542
+      },
+      ".pre-commit-config.yaml": {
+        "size": 334
+      },
+      "CHANGELOG.md": {
+        "size": 68604
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 1696
+      },
+      "CONTRIBUTING.md": {
+        "size": 2985
+      },
+      "LICENSE.txt": {
+        "size": 1498
+      },
+      "README.md": {
+        "size": 7194
+      },
+      "asv.conf.json": {
+        "size": 6167
+      },
+      "benchmarks/__init__.py": {
+        "size": 1
+      },
+      "benchmarks/clip.py": {
+        "size": 733
+      },
+      "benchmarks/geom_methods.py": {
+        "size": 4220
+      },
+      "benchmarks/io.py": {
+        "size": 3191
+      },
+      "benchmarks/overlay.py": {
+        "size": 2236
+      },
+      "benchmarks/plotting.py": {
+        "size": 2361
+      },
+      "benchmarks/sindex.py": {
+        "size": 3449
+      },
+      "benchmarks/sjoin.py": {
+        "size": 962
+      },
+      "benchmarks/transform.py": {
+        "size": 793
+      },
+      "ci/envs/311-latest.yaml": {
+        "size": 647
+      },
+      "ci/envs/311-minimal.yaml": {
+        "size": 406
+      },
+      "ci/envs/311-pd22.yaml": {
+        "size": 642
+      },
+      "ci/envs/312-latest.yaml": {
+        "size": 597
+      },
+      "ci/envs/313-dev.yaml": {
+        "size": 1038
+      },
+      "ci/envs/313-latest-no-pyogrio.yaml": {
+        "size": 484
+      },
+      "ci/envs/313-latest-no-pyproj.yaml": {
+        "size": 462
+      },
+      "ci/envs/313-latest.yaml": {
+        "size": 597
+      },
+      "ci/envs/313-no-optional-deps.yaml": {
+        "size": 202
+      },
+      "ci/envs/314-latest.yaml": {
+        "size": 620
+      },
+      "codecov.yml": {
+        "size": 163
+      },
+      "doc/environment.yml": {
+        "size": 784
+      },
+      "doc/nyc_boros.py": {
+        "size": 2381
+      },
+      "doc/source/_static/code/buffer.py": {
+        "size": 1172
+      },
+      "doc/source/about.md": {
+        "size": 2814
+      },
+      "doc/source/about/citing.md": {
+        "size": 1884
+      },
+      "doc/source/about/logo.md": {
+        "size": 1893
+      },
+      "doc/source/about/roadmap.md": {
+        "size": 2378
+      },
+      "doc/source/about/team.md": {
+        "size": 737
+      },
+      "doc/source/community/code_of_conduct.md": {
+        "size": 1696
+      },
+      "doc/source/community/ecosystem.md": {
+        "size": 17087
+      },
+      "doc/source/conf.py": {
+        "size": 16247
+      },
+      "doc/source/docs/changelog.md": {
+        "size": 40
+      },
+      "doc/source/getting_started.md": {
+        "size": 2556
+      },
+      "environment-dev.yml": {
+        "size": 767
+      },
+      "environment.yml": {
+        "size": 235
+      },
+      "examples/README.md": {
+        "size": 255
+      },
+      "geopandas/__init__.py": {
+        "size": 864
+      },
+      "geopandas/_compat.py": {
+        "size": 2406
+      },
+      "geopandas/_config.py": {
+        "size": 3639
+      },
+      "geopandas/_decorator.py": {
+        "size": 2019
+      },
+      "geopandas/accessors.py": {
+        "size": 750
+      },
+      "geopandas/array.py": {
+        "size": 66898
+      },
+      "geopandas/base.py": {
+        "size": 235498
+      },
+      "geopandas/conftest.py": {
+        "size": 1374
+      },
+      "geopandas/datasets/__init__.py": {
+        "size": 1012
+      },
+      "geopandas/explore.py": {
+        "size": 37175
+      },
+      "geopandas/geodataframe.py": {
+        "size": 114550
+      },
+      "geopandas/geoseries.py": {
+        "size": 54584
+      },
+      "geopandas/io/__init__.py": {
+        "size": 0
+      },
+      "geopandas/io/_geoarrow.py": {
+        "size": 20696
+      },
+      "geopandas/io/arrow.py": {
+        "size": 33492
+      },
+      "geopandas/io/file.py": {
+        "size": 32926
+      },
+      "geopandas/io/sql.py": {
+        "size": 15592
+      },
+      "geopandas/io/tests/__init__.py": {
+        "size": 0
+      },
+      "geopandas/io/tests/data/arrow/geoparquet/README.md": {
+        "size": 118
+      },
+      "geopandas/io/tests/data/geoarrow/README.md": {
+        "size": 140
+      },
+      "geopandas/io/tests/generate_legacy_storage_files.py": {
+        "size": 2722
+      },
+      "geopandas/io/tests/test_arrow.py": {
+        "size": 48697
+      },
+      "geopandas/io/tests/test_file.py": {
+        "size": 57643
+      },
+      "geopandas/io/tests/test_file_geom_types_drivers.py": {
+        "size": 9166
+      },
+      "geopandas/io/tests/test_geoarrow.py": {
+        "size": 19679
+      },
+      "geopandas/io/tests/test_infer_schema.py": {
+        "size": 8501
+      },
+      "geopandas/io/tests/test_pickle.py": {
+        "size": 1399
+      },
+      "geopandas/io/tests/test_sql.py": {
+        "size": 41977
+      },
+      "geopandas/io/util.py": {
+        "size": 2965
+      },
+      "geopandas/plotting.py": {
+        "size": 48009
+      },
+      "geopandas/sindex.py": {
+        "size": 21899
+      },
+      "geopandas/testing.py": {
+        "size": 11072
+      },
+      "geopandas/tests/__init__.py": {
+        "size": 0
+      },
+      "geopandas/tests/data/README.md": {
+        "size": 1645
+      },
+      "geopandas/tests/data/naturalearth_cities/naturalearth_cities.VERSION.txt": {
+        "size": 5
+      },
+      "geopandas/tests/test_api.py": {
+        "size": 1123
+      },
+      "geopandas/tests/test_array.py": {
+        "size": 30722
+      },
+      "geopandas/tests/test_compat.py": {
+        "size": 923
+      },
+      "geopandas/tests/test_config.py": {
+        "size": 1182
+      },
+      "geopandas/tests/test_crs.py": {
+        "size": 26185
+      },
+      "geopandas/tests/test_datasets.py": {
+        "size": 455
+      },
+      "geopandas/tests/test_decorator.py": {
+        "size": 1474
+      },
+      "geopandas/tests/test_dissolve.py": {
+        "size": 11758
+      },
+      "geopandas/tests/test_explore.py": {
+        "size": 38809
+      },
+      "geopandas/tests/test_extension_array.py": {
+        "size": 18734
+      },
+      "geopandas/tests/test_geocode.py": {
+        "size": 5039
+      },
+      "geopandas/tests/test_geodataframe.py": {
+        "size": 64379
+      },
+      "geopandas/tests/test_geom_methods.py": {
+        "size": 97024
+      },
+      "geopandas/tests/test_geoseries.py": {
+        "size": 29563
+      },
+      "geopandas/tests/test_merge.py": {
+        "size": 9663
+      },
+      "geopandas/tests/test_op_output_types.py": {
+        "size": 15152
+      },
+      "geopandas/tests/test_overlay.py": {
+        "size": 31953
+      },
+      "geopandas/tests/test_pandas_accessor.py": {
+        "size": 1688
+      },
+      "geopandas/tests/test_pandas_methods.py": {
+        "size": 28587
+      },
+      "geopandas/tests/test_plotting.py": {
+        "size": 100316
+      },
+      "geopandas/tests/test_show_versions.py": {
+        "size": 1174
+      },
+      "geopandas/tests/test_sindex.py": {
+        "size": 36032
+      },
+      "geopandas/tests/test_testing.py": {
+        "size": 5707
+      },
+      "geopandas/tests/test_types.py": {
+        "size": 2504
+      },
+      "geopandas/tests/util.py": {
+        "size": 4484
+      },
+      "geopandas/tools/__init__.py": {
+        "size": 295
+      },
+      "geopandas/tools/_random.py": {
+        "size": 2621
+      },
+      "geopandas/tools/_show_versions.py": {
+        "size": 3795
+      },
+      "geopandas/tools/clip.py": {
+        "size": 9738
+      },
+      "geopandas/tools/geocoding.py": {
+        "size": 5646
+      },
+      "geopandas/tools/hilbert_curve.py": {
+        "size": 4759
+      },
+      "geopandas/tools/overlay.py": {
+        "size": 16947
+      },
+      "geopandas/tools/sjoin.py": {
+        "size": 26703
+      },
+      "geopandas/tools/tests/__init__.py": {
+        "size": 0
+      },
+      "geopandas/tools/tests/test_clip.py": {
+        "size": 18229
+      },
+      "geopandas/tools/tests/test_hilbert_curve.py": {
+        "size": 2087
+      },
+      "geopandas/tools/tests/test_random.py": {
+        "size": 2501
+      },
+      "geopandas/tools/tests/test_sjoin.py": {
+        "size": 50942
+      },
+      "geopandas/tools/tests/test_tools.py": {
+        "size": 1483
+      },
+      "geopandas/tools/util.py": {
+        "size": 1452
+      },
+      "pyproject.toml": {
+        "size": 6076
+      },
+      "readthedocs.yml": {
+        "size": 434
+      },
+      "requirements-dev.txt": {
+        "size": 476
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "geopandas",
+        "module": "__init__.py",
+        "functions": [
+          "read_file",
+          "read_parquet",
+          "read_feather",
+          "read_postgis",
+          "sjoin",
+          "overlay",
+          "clip",
+          "show_versions"
+        ],
+        "classes": [
+          "GeoDataFrame",
+          "GeoSeries"
+        ],
+        "description": "Top-level public API surface for loading, spatial operations, and core geospatial dataframe/series types."
+      },
+      {
+        "package": "geopandas",
+        "module": "geodataframe.py",
+        "functions": [
+          "from_features",
+          "from_postgis"
+        ],
+        "classes": [
+          "GeoDataFrame"
+        ],
+        "description": "Primary tabular geospatial container built on pandas.DataFrame with geometry column semantics and CRS-aware operations."
+      },
+      {
+        "package": "geopandas",
+        "module": "geoseries.py",
+        "functions": [],
+        "classes": [
+          "GeoSeries"
+        ],
+        "description": "Vectorized geospatial series type built on pandas.Series, exposing geometry methods and predicates."
+      },
+      {
+        "package": "geopandas",
+        "module": "array.py",
+        "functions": [
+          "from_shapely",
+          "from_wkb",
+          "from_wkt",
+          "points_from_xy"
+        ],
+        "classes": [
+          "GeometryArray"
+        ],
+        "description": "Geometry extension array implementation and low-level constructors used by GeoSeries/GeoDataFrame."
+      },
+      {
+        "package": "geopandas",
+        "module": "io/file.py",
+        "functions": [
+          "read_file",
+          "to_file",
+          "list_layers"
+        ],
+        "classes": [],
+        "description": "File I/O integration layer (Fiona/Pyogrio-style backends) for reading/writing vector geospatial files."
+      },
+      {
+        "package": "geopandas",
+        "module": "io/arrow.py",
+        "functions": [
+          "read_parquet",
+          "to_parquet",
+          "read_feather",
+          "to_feather"
+        ],
+        "classes": [],
+        "description": "Arrow-based interchange and GeoParquet/Feather serialization."
+      },
+      {
+        "package": "geopandas",
+        "module": "io/sql.py",
+        "functions": [
+          "read_postgis",
+          "to_postgis"
+        ],
+        "classes": [],
+        "description": "Database I/O for PostGIS-backed workflows."
+      },
+      {
+        "package": "geopandas",
+        "module": "tools/sjoin.py",
+        "functions": [
+          "sjoin",
+          "sjoin_nearest"
+        ],
+        "classes": [],
+        "description": "Spatial join utilities based on predicates and nearest-neighbor matching."
+      },
+      {
+        "package": "geopandas",
+        "module": "tools/overlay.py",
+        "functions": [
+          "overlay"
+        ],
+        "classes": [],
+        "description": "Set-theoretic overlay operations between geospatial layers."
+      },
+      {
+        "package": "geopandas",
+        "module": "tools/clip.py",
+        "functions": [
+          "clip"
+        ],
+        "classes": [],
+        "description": "Geometry clipping operations against masks/bounds."
+      },
+      {
+        "package": "geopandas",
+        "module": "sindex.py",
+        "functions": [],
+        "classes": [
+          "SpatialIndex"
+        ],
+        "description": "Spatial indexing abstraction used by spatial joins and predicate acceleration."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python",
+        "numpy",
+        "pandas",
+        "shapely",
+        "pyproj"
+      ],
+      "optional": [
+        "fiona",
+        "pyogrio",
+        "pyarrow",
+        "sqlalchemy",
+        "geoalchemy2",
+        "psycopg/psycopg2",
+        "rtree",
+        "scipy",
+        "matplotlib",
+        "mapclassify",
+        "folium"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/geopandas/geopandas",
+    "repo_name": "geopandas",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.91,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

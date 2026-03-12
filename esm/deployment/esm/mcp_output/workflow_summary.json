@@ -1,0 +1,219 @@
+{
+  "repository": {
+    "name": "esm",
+    "url": "https://github.com/facebookresearch/esm",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/esm",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773291752.14225,
+    "end_time": 1773292024.877974,
+    "duration": 272.73572397232056,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 6,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.esm",
+        "source.esm.inverse_folding",
+        "source.esm.model",
+        "source.examples.lm-design",
+        "source.examples.variant-prediction",
+        "source.scripts"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": true,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.87,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/facebookresearch/esm",
+      "repo_name": "esm",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/esm/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke-test suite for the generated MCP plugin (import",
+    "model loader call",
+    "FASTA parse",
+    "fold/extract CLI fallback) and run it in CI",
+    "deduplicate/rename MCP endpoints to avoid collisions (e.g.",
+    "create_parser/main repeated; class/function name normalization)",
+    "add strict input/output schemas with Pydantic models for sequence/alignment/structure requests plus clear error codes",
+    "implement lazy loading and model instance caching (with device selection and eviction) to reduce startup/latency costs",
+    "add robust dependency gating for optional stacks (esmfold/openfold/fairscale/deepspeed) with actionable install hints",
+    "pin and unify packaging metadata across pyproject/setup.py/environment.yml and generate a lockfile for reproducible installs",
+    "add typed public adapter interfaces and docstrings for all exposed tools to improve discoverability and safety",
+    "introduce structured logging/metrics (request latency",
+    "model load time",
+    "GPU memory",
+    "failure rates) and health/readiness endpoints",
+    "harden long-running inference with timeouts/cancellation and safe resource limits (max sequence length/batch size)",
+    "add batching support and async execution paths for high-throughput embedding/folding requests",
+    "improve security validation (FASTA sanitization",
+    "path traversal guards for local checkpoint loading",
+    "restricted subprocess args)",
+    "expand README_MCP with end-to-end examples for each endpoint and expected payloads/responses",
+    "create compatibility tests across key torch/python versions and CPU-only mode",
+    "add golden-output regression tests for representative esm2/inverse-folding/esmfold workflows",
+    "add fallback strategy tests to verify import-mode to CLI-mode behavior under missing optional dependencies"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed all planned nodes (download, analysis, env, generate, run, review, finalize) with overall status=success",
+      "Low-intrusiveness import-first strategy with CLI fallback was identified as feasible (confidence ~0.89)",
+      "Repository structure and core modules were correctly discovered (model loading, FASTA parsing, inverse folding, fold/extract scripts)",
+      "Generated MCP plugin started healthy over stdio and passed plugin-level health checks"
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred",
+      "Quality gaps remain: original project tests did not run/pass in this execution, DeepWiki analysis failed, and generated endpoint set contains naming collisions/duplication",
+      "Observability/performance metrics are effectively missing (reported as zeros), limiting runtime diagnostics confidence"
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; timing not broken out, but overall duration suggests download was not the dominant bottleneck.",
+      "analysis_time": "Analysis succeeded on a large tree (~428 files) and produced useful module/CLI mapping; likely moderate share of runtime.",
+      "generation_time": "Generation completed and produced expected scaffold files, but output metadata (LOC/size/tools count=0) indicates incomplete instrumentation or post-generation accounting.",
+      "test_time": "Plugin health test passed quickly; original project tests were not effectively executed (execution_time=0), so validation depth is limited."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB), cannot validate true memory behavior.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%), cannot validate compute efficiency.",
+      "disk_usage": "Likely moderate due to repository size and generated artifacts; however generated size metadata is zero, indicating reporting gaps."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}

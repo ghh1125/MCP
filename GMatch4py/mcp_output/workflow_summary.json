@@ -1,0 +1,223 @@
+{
+  "repository": {
+    "name": "GMatch4py",
+    "url": "https://github.com/Jacobe2169/GMatch4py",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/GMatch4py",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773286984.0154939,
+    "end_time": 1773287160.033365,
+    "duration": 176.01787114143372,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 5,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.gmatch4py",
+        "source.gmatch4py.embedding",
+        "source.gmatch4py.ged",
+        "source.gmatch4py.helpers",
+        "source.gmatch4py.kernels"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/Jacobe2169/GMatch4py",
+      "repo_name": "GMatch4py",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/GMatch4py/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "Add and run a complete automated test suite (unit + integration) since test status is empty",
+    "expose actual library modules/functions in the MCP adapter instead of only setup.py helpers (`makeExtension`",
+    "`scandir`)",
+    "migrate packaging to `pyproject.toml` (PEP 517/518/621) and keep `setup.py` minimal for compatibility",
+    "pin and separate dependencies into runtime/dev/test requirements (or extras) with reproducible lock files",
+    "add CI workflows (GitHub Actions) for multi-version Python testing",
+    "linting",
+    "and build checks",
+    "improve project structure clarity by documenting package APIs in `gmatch4py/*/__init__.py` and adding module-level docstrings",
+    "strengthen README with quickstart examples",
+    "supported Python versions",
+    "algorithm coverage",
+    "and benchmark guidance",
+    "add type hints and static analysis (mypy/pyright) for public APIs",
+    "implement code quality tooling (ruff/flake8",
+    "black",
+    "isort",
+    "pre-commit) and enforce via CI",
+    "add performance benchmarks and regression tracking for graph matching workloads",
+    "create robust error handling and input validation for graph/kernel interfaces",
+    "add security and maintenance hygiene (dependency updates",
+    "vulnerability scanning",
+    "LICENSE verification)",
+    "expand release process with semantic versioning",
+    "changelog",
+    "and automated package publishing",
+    "add MCP plugin tests and contract tests for endpoint correctness and import fallback behavior",
+    "improve observability in MCP service with structured logging and clear startup/health diagnostics"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status `success` and executed all expected nodes: download, analysis, env, generate, run, review, finalize.",
+      "Repository import succeeded via zip fallback, allowing analysis and plugin generation to proceed despite non-standard ingestion path.",
+      "Low intrusiveness risk and high import feasibility (0.86) enabled adapter generation in import mode.",
+      "Generated MCP service started healthy over stdio transport, indicating baseline runtime viability."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred; however, functional outcome is partially limited because generated endpoints target setup helpers (`makeExtension`, `scandir`) rather than core graph-matching APIs.",
+      "Validation depth is weak: original project tests were not effectively executed (`passed: false`, empty details, 0 execution time), and MCP endpoint contract coverage is absent.",
+      "Analysis enrichment failed from DeepWiki (`success: false`), reducing semantic discovery quality for tool generation.",
+      "Observability/metrics fields are mostly zero or unknown (resource and performance telemetry incomplete), masking real bottlenecks."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Completed successfully; exact per-node timing not provided. Zip fallback import indicates resilient acquisition but likely added overhead and reduced metadata fidelity.",
+      "analysis_time": "Completed with medium complexity classification and dependency/risk extraction; however, semantic extraction was shallow (setup.py-focused), suggesting analysis quality bottleneck rather than runtime bottleneck.",
+      "generation_time": "Generation completed quickly enough within total 176.02s and produced 7 files; output appears scaffold-heavy with low business-function exposure.",
+      "test_time": "MCP health check passed, but effective test execution is near-zero for original project and plugin contracts; this is the primary validation gap."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Undetermined due to missing metrics (reported 0 MB). No evidence of memory pressure, but instrumentation is insufficient.",
+      "cpu_efficiency": "Undetermined due to missing metrics (reported 0%). Workflow duration is modest, suggesting no obvious CPU saturation.",
+      "disk_usage": "Low absolute footprint (small repo, few generated files), but generated file size/LOC telemetry shows zeros, indicating reporting defects."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 62,
+    "architecture_score": 68,
+    "performance_score": 55,
+    "maintainability_score": 64,
+    "security_score": 85,
+    "scalability_score": 58
+  }
+}

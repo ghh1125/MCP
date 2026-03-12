@@ -1,0 +1,235 @@
+{
+  "repository": {
+    "name": "qlib",
+    "url": "https://github.com/microsoft/qlib",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/qlib",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773248822.386944,
+    "end_time": 1773249011.207237,
+    "duration": 188.82029390335083,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 11,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.qlib",
+        "source.qlib.backtest",
+        "source.qlib.cli",
+        "source.qlib.contrib",
+        "source.qlib.data",
+        "source.qlib.model",
+        "source.qlib.rl",
+        "source.qlib.strategy",
+        "source.qlib.tests",
+        "source.qlib.utils",
+        "source.qlib.workflow"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.87,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/microsoft/qlib",
+      "repo_name": "qlib",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/qlib/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal but meaningful MCP smoke-test suite (server startup",
+    "tool discovery",
+    "and one call per high-value endpoint) and wire it into CI",
+    "de-duplicate/conflict-proof exported endpoint names (e.g.",
+    "`init` appears from multiple modules) by introducing clear namespacing like `qlib.init`/`workflow.init`",
+    "replace broad class-level endpoint exposure with curated task-oriented tools (train",
+    "backtest",
+    "fetch_data",
+    "run_rolling) backed by pydantic request/response schemas",
+    "add robust dependency gating and graceful error messages for optional stacks (torch/tensorflow/lightgbm/mlflow) with preflight checks in adapter startup",
+    "create a root `requirements.txt` (or lockfile) and split extras (`core`",
+    "`ml`",
+    "`rl`",
+    "`data_collectors`",
+    "`mcp`) to improve reproducibility across setup.py/pyproject usage",
+    "fix release hygiene by populating `CHANGELOG.md` and automating release notes validation in CI",
+    "strengthen static quality gates by enabling mypy on `mcp_output` and tightening pre-commit (ruff/black/isort + docstring checks)",
+    "add contract tests for MCP schemas to prevent breaking changes in tool signatures",
+    "improve observability in `mcp_service.py` with structured logging",
+    "request IDs",
+    "latency/error metrics",
+    "and optional OpenTelemetry hooks",
+    "add timeout/retry/circuit-breaker guards around long-running operations (training/backtest/data access) to protect MCP responsiveness",
+    "introduce caching controls and explicit resource limits (memory/process/thread caps) for expensive data/model calls",
+    "document a production-ready MCP runbook in `README_MCP.md` (env vars",
+    "optional deps",
+    "troubleshooting",
+    "security posture)",
+    "add security hardening (input validation limits",
+    "path whitelisting",
+    "secrets handling for MLflow/remote URIs",
+    "dependency/license scanning in CI)",
+    "create example MCP client scripts for the top 3 workflows to accelerate adoption",
+    "and add benchmark/regression baselines for key flows (Alpha158 + LightGBM training/backtest) so plugin changes can be validated for correctness and runtime drift"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow reached finalize with status=success and no runtime errors/warnings.",
+      "Import-based adapter strategy matched repo characteristics (high import feasibility: 0.87) and enabled healthy MCP startup.",
+      "Core module discovery identified practical Qlib entry points (init, workflow, trainer, backtest, model/strategy classes).",
+      "Generated MCP scaffold included standard operational files (entrypoint, adapter, service, requirements, README)."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality gap: original project tests were not passed/executed meaningfully despite reported 100% coverage metadata inconsistency.",
+      "DeepWiki augmentation failed, reducing external contextual analysis depth.",
+      "Generated service appears shallow (tool_endpoints=0 in generation metrics vs discovered endpoint list), indicating instrumentation/metadata mismatch."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; acceptable for a large repository (519 files).",
+      "analysis_time": "Completed successfully with medium complexity outputs and dependency/risk profiling; likely major share of total runtime.",
+      "generation_time": "Completed quickly with minimal scaffold creation (7 files), but generated LOC/size metrics are zero indicating weak measurement or thin implementation.",
+      "test_time": "MCP health check passed (stdio healthy), but original-project validation is insufficient; test phase quality is limited."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/unevaluable due to missing telemetry (reported 0 MB).",
+      "cpu_efficiency": "Unknown/unevaluable due to missing telemetry (reported 0%).",
+      "disk_usage": "Low recorded plugin artifact footprint, but size metrics are likely not captured correctly."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 74,
+    "performance_score": 58,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 66
+  }
+}

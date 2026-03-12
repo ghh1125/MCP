@@ -1,0 +1,221 @@
+{
+  "repository": {
+    "name": "qutip",
+    "url": "https://github.com/qutip/qutip",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/qutip",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773255086.843315,
+    "end_time": 1773255445.791252,
+    "duration": 358.94793701171875,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/qutip/qutip",
+      "repo_name": "qutip",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/qutip/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/qutip/temp_clone'...\nfatal: unable to access 'https://github.com/qutip/qutip/': Recv failure: Connection reset by peer\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/qutip/temp_clone'...\nfatal: unable to access 'https://github.com/qutip/qutip/': Recv failure: Connection reset by peer\n"
+  ],
+  "recommendations": [
+    "add a minimal smoke-test suite for the generated MCP plugin (startup",
+    "each endpoint import/call",
+    "and graceful failure paths) and wire it into CI",
+    "fix project metadata detection in the analysis pipeline (it missed existing `pyproject.toml`",
+    "`setup.py`",
+    "and `requirements.txt`) to avoid incorrect dependency/reporting outputs",
+    "introduce endpoint-level input/output schemas with validation and clearer error messages (especially for `Qobj` serialization/deserialization and solver options)",
+    "add timeout/resource guards for heavy solvers (`mesolve`",
+    "`mcsolve`",
+    "`steadystate`) exposed via MCP to prevent runaway jobs",
+    "create compatibility tests across optional backends (MKL/OpenMP/mpi4py absent vs present) so plugin behavior is deterministic",
+    "add version pinning and a lockfile for `mcp_output` plus reproducible install instructions in `README_MCP.md`",
+    "expand docs with practical MCP usage examples (state prep → evolve → expect/visualize) and known limitations for plotting endpoints in headless environments",
+    "add structured logging and basic observability (request id",
+    "endpoint latency",
+    "failure class) in `mcp_service.py` for easier debugging",
+    "split very large core modules behind thinner MCP-facing wrappers to reduce import cost and improve error isolation",
+    "add a small benchmark gate (cold start time",
+    "median endpoint latency) to catch regressions in plugin performance",
+    "implement contract tests to ensure exposed endpoint names/signatures stay stable across QuTiP upgrades",
+    "add security hardening for plugin execution (input size limits",
+    "safe temp-file handling",
+    "and restricted eval/code-path checks for coefficient-like user inputs)"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow orchestration completed all planned nodes (download, analysis, env, generate, run, review, finalize) with final status marked success.",
+      "Resilience mechanism worked: after git clone failure, pipeline continued via zip fallback and still analyzed 236 files.",
+      "MCP plugin scaffold was generated with runnable entrypoint, adapter, service module, requirements, and README.",
+      "Generated MCP service passed basic health/startup check over stdio transport."
+    ],
+    "failure_reasons": [
+      "Primary repository acquisition failed due to transient network/TLS transport error during git clone (connection reset by peer).",
+      "Metadata extraction pipeline produced false negatives (missed existing pyproject.toml, setup.py, requirements.txt), indicating analysis/parsing defect.",
+      "Observability data quality issues: total_files_processed=0, llm_calls=0, endpoint count mismatch in summary vs service details, and zeroed performance metrics reduce confidence in reported telemetry.",
+      "Original project test status marked failed with empty details and 0s runtime, suggesting tests were not actually executed rather than functionally failing."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Likely elevated due to failed git clone and fallback path; functionally recovered but added latency/risk.",
+      "analysis_time": "Substantial static analysis appears to have run (236 files indexed), but recorded counters are inconsistent, indicating instrumentation gaps.",
+      "generation_time": "Efficient scaffold generation (7 files) with broad endpoint coverage; quality limited by missing code metrics (LOC/size=0).",
+      "test_time": "Minimal/insufficient; MCP health check only. No meaningful functional or regression test execution captured."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB); cannot validate. Recommend fixing metrics collection before judging efficiency.",
+      "cpu_efficiency": "Unknown from telemetry (reported 0%); likely under-measured rather than truly idle.",
+      "disk_usage": "Low for generated artifact footprint, but actual repository and analysis footprint not reflected due to metric inconsistencies."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 61,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 69
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "repository": {
+    "name": "sktime",
+    "url": "https://github.com/sktime/sktime",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/sktime",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773285768.281337,
+    "end_time": 1773286029.735924,
+    "duration": 261.45458698272705,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/sktime/sktime",
+      "repo_name": "sktime",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/sktime/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/sktime/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Operation timed out\nerror: 12 bytes of body are still expected\nfatal: expected flush after ref listing\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/sktime/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Operation timed out\nerror: 12 bytes of body are still expected\nfatal: expected flush after ref listing\n"
+  ],
+  "recommendations": [
+    "deduplicate and namespace MCP endpoints to avoid collisions (e.g.",
+    "`forecasting.fit`",
+    "`transform.fit`",
+    "`classification.fit`)",
+    "add a generated endpoint manifest with signatures/docstrings and stability tags",
+    "implement strict Pydantic request/response schemas for each endpoint (including forecast horizon and index types)",
+    "add contract tests for every exposed endpoint (happy path",
+    "bad input",
+    "optional dependency missing",
+    "serialization round-trip)",
+    "create a minimal CI workflow for `mcp_output` (lint",
+    "type-check",
+    "smoke import",
+    "endpoint tests)",
+    "pin and align plugin dependencies with core sktime compatibility matrix (Python/scikit-learn/pandas ranges)",
+    "add graceful optional-dependency guards with actionable install hints for torch/tensorflow/prophet/etc.",
+    "introduce endpoint-level timeout/retry/error normalization in `mcp_service.py`",
+    "cache `all_estimators` and dataset metadata lookups to reduce cold-start latency",
+    "add structured logging and request tracing (endpoint",
+    "duration",
+    "error class)",
+    "provide a small set of high-value composite endpoints (`train_forecaster`",
+    "`evaluate_forecaster`",
+    "`load_split_fit_predict`) to reduce multi-call orchestration burden",
+    "validate and sanitize dynamic import targets to reduce import-mode security risk",
+    "add versioned API prefixing and backward-compat deprecation policy for MCP methods",
+    "include reproducibility controls (global random_state propagation and deterministic mode docs)",
+    "expand `README_MCP.md` with concrete end-to-end examples for forecasting/classification/detection",
+    "add performance smoke benchmarks (fit/predict latency and memory on `load_airline`/`load_gunpoint`) and track regressions",
+    "create fallback black-box execution path tests even when import mode is primary",
+    "expose health/readiness endpoints that verify critical optional backends availability",
+    "enforce response size limits/pagination for large outputs (e.g.",
+    "estimator registry)",
+    "add mypy/ruff/pre-commit configuration inside `mcp_output` to keep generated plugin maintainable",
+    "add golden tests for endpoint names to prevent accidental breaking renames"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Resilience mechanism worked: clone failure was recovered via zip fallback, enabling repository analysis (1612 files) and plugin generation.",
+      "Generated MCP service booted healthy over stdio and passed plugin-level health checks.",
+      "Low intrusiveness import-mode adapter selected with high import feasibility (0.9), appropriate for sktime’s API-heavy architecture."
+    ],
+    "failure_reasons": [
+      "Primary git clone failed due to network/RPC timeout (curl 56, expected flush after ref listing).",
+      "DeepWiki analysis failed, reducing external semantic enrichment.",
+      "Execution telemetry quality issues: total_files_processed=0 and many zeroed metrics despite successful zip-based analysis/generation.",
+      "Original project tests were not actually validated (passed=false with empty details, execution_time=0), so upstream compatibility is unproven."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Download node partially failed (git RPC timeout) but fallback succeeded; likely dominant source of instability and delay.",
+      "analysis_time": "Completed with substantial static scan (1612 files) and useful module extraction; runtime appears reasonable for repo size.",
+      "generation_time": "Generation succeeded quickly with standard scaffold files, but quality signals are limited (LOC/file size reported as 0).",
+      "test_time": "Only MCP health/smoke checks effectively passed; no meaningful original-project or endpoint contract test timing captured."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient data (reported 0 MB likely telemetry gap).",
+      "cpu_efficiency": "Unknown/insufficient data (reported 0% likely telemetry gap).",
+      "disk_usage": "Moderate expected: large repo processed plus generated MCP artifacts; actual measured size unavailable due to metric gaps."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 68,
+    "architecture_score": 74,
+    "performance_score": 55,
+    "maintainability_score": 63,
+    "security_score": 85,
+    "scalability_score": 60
+  }
+}

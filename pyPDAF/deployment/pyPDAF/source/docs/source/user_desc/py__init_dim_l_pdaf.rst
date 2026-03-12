@@ -1,0 +1,22 @@
+py__init_dim_l_pdaf
+===================
+
+.. py:function:: py__init_dim_l_pdaf(step: int, domain_p: int, dim_l: int) -> int
+
+    Initialise local analysis domain state vector dimension.
+
+    When PDAFlocal is used, one should call :func:`pyPDAF.PDAFlocal.set_indices` here.
+
+    Parameters
+    ----------
+    step: int
+        Current step
+    domain_p: int
+        Current local domain index
+    dim_l: int
+        Local analysis domain state vector dimension.
+
+    Returns
+    -------
+    dim_l: int
+        Local analysis domain state vector dimension.

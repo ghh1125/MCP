@@ -1,0 +1,234 @@
+{
+  "repository": {
+    "name": "pymatgen",
+    "url": "https://github.com/materialsproject/pymatgen",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pymatgen",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773254619.5355918,
+    "end_time": 1773254908.952401,
+    "duration": 289.41680908203125,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/materialsproject/pymatgen",
+      "repo_name": "pymatgen",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pymatgen/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/pymatgen/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75001 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/pymatgen/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75001 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n"
+  ],
+  "recommendations": [
+    "Add a minimal smoke test suite for all generated MCP endpoints (import + basic call + serialization)",
+    "pin and verify runtime dependencies by syncing `mcp_output/requirements.txt` with `pyproject.toml`/`requirements.txt` and adding a lockfile",
+    "fix repository metadata detection in the analyzer (`has_requirements_txt`/`pyproject` are incorrectly false) to improve generation reliability",
+    "add schema-validated request/response models per endpoint (especially for `Structure`/`Vasprun`-heavy objects) with clear error messages",
+    "implement endpoint-level timeouts and input size guards for large files/objects to prevent runaway jobs",
+    "add structured logging and tracing (endpoint name",
+    "latency",
+    "exception type",
+    "payload size) plus a debug flag in `start_mcp.py`",
+    "create a CI workflow for the MCP plugin (lint",
+    "type-check",
+    "smoke tests",
+    "package check) independent from upstream pymatgen CI",
+    "add contract tests for network-backed endpoints (`MPRester`",
+    "`OptimadeRester`) with mocked and live-optional modes",
+    "introduce caching for expensive/repeated computations (phase diagram construction",
+    "neighbor finding) with configurable TTL",
+    "expose only stable high-value methods first and mark risky/complex classes as experimental to reduce maintenance burden",
+    "improve `README_MCP.md` with concrete example payloads",
+    "failure cases",
+    "and per-endpoint performance notes",
+    "add version compatibility checks at startup (pymatgen/API major versions) and emit actionable upgrade guidance",
+    "harden adapter import fallback paths and add graceful degradation when optional deps (`mp-api`",
+    "`vtk`",
+    "`openbabel`",
+    "etc.) are missing",
+    "enforce consistent naming conventions for endpoints (`phase_diagram` vs `phasediagram`) and include alias mapping for backward compatibility",
+    "add payload normalization utilities for common crystallographic formats (CIF/POSCAR/JSON) to reduce client-side friction",
+    "include benchmark tests on representative large fixtures from `test-files` to set baseline latency/memory budgets",
+    "add security safeguards for file/path inputs (path traversal checks",
+    "allowed extensions",
+    "max bytes)",
+    "generate and publish an OpenAPI/JSON-schema-style capability manifest for MCP clients",
+    "split very large adapter/service modules into domain-focused submodules for maintainability",
+    "add deprecation policy and changelog specifically for MCP plugin releases"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state with all planned nodes executed (download, analysis, env, generate, run, review, finalize)",
+      "Resilience mechanism worked: clone failure was mitigated by zip fallback import (504 files discovered)",
+      "MCP plugin scaffolding was generated with valid entrypoints and package structure",
+      "Generated MCP service passed health/startup checks (stdio transport healthy)",
+      "Import-mode adapter strategy matched repository characteristics (high import feasibility 0.91)"
+    ],
+    "failure_reasons": [
+      "Primary Git clone failed due to network timeout to github.com:443 (curl 28)",
+      "Analyzer metadata extraction appears inconsistent (requirements/pyproject falsely detected as absent despite presence in file tree)",
+      "Quality signals are partially non-informative (0 LLM calls, 0 files processed, 0 LOC metrics), reducing confidence in measurement fidelity",
+      "Original project tests were not actually executed despite reporting fields (passed=false, execution_time=0, empty test files)"
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Dominant latency contributor likely in download stage due to 75s clone timeout before fallback; recovery succeeded but increased end-to-end duration.",
+      "analysis_time": "Analysis completed functionally (core modules, dependencies, endpoints identified), but structured analyzer outputs were partially incorrect.",
+      "generation_time": "Generation succeeded quickly enough to complete full workflow in ~289s; produced expected MCP file set and endpoint list.",
+      "test_time": "Plugin smoke/health checks passed, but comprehensive functional tests were effectively absent (no endpoint-level invocation evidence)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB). Add real process-level measurement.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%). Instrument per-node CPU stats.",
+      "disk_usage": "Moderate footprint expected (504-file source snapshot + generated plugin), but reported generated size=0 indicates metrics pipeline issue."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 61,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 69
+  }
+}

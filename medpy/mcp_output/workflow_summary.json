@@ -1,0 +1,228 @@
+{
+  "repository": {
+    "name": "medpy",
+    "url": "https://github.com/loli/medpy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/medpy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773273130.3687282,
+    "end_time": 1773273284.771353,
+    "duration": 154.40262484550476,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 16,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.medpy",
+        "source.medpy.core",
+        "source.medpy.features",
+        "source.medpy.filter",
+        "source.medpy.graphcut",
+        "source.medpy.io",
+        "source.medpy.iterators",
+        "source.medpy.metric",
+        "source.medpy.neighbours",
+        "source.medpy.utilities",
+        "source.tests",
+        "source.tests.features_",
+        "source.tests.filter_",
+        "source.tests.graphcut_",
+        "source.tests.io_",
+        "source.tests.metric_"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.84,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/loli/medpy",
+      "repo_name": "medpy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/medpy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "Migrate packaging from legacy `setup.py` to `pyproject.toml` (PEP 517/621) with explicit core/optional dependencies",
+    "add `requirements.txt`/`requirements-dev.txt` (or lockfile) for reproducible environments",
+    "define proper console entry points for all `bin/medpy_*` scripts instead of script-style discovery",
+    "introduce a CI test matrix across Python versions and OSes with coverage reporting and required status checks",
+    "expand tests for currently risky/complex areas (graphcut",
+    "IO metadata roundtrips",
+    "CLI argument validation) and add regression fixtures",
+    "add static quality gates (ruff/flake8",
+    "black",
+    "isort",
+    "mypy) integrated with pre-commit and CI",
+    "modernize docs with a clear API/CLI reference and per-command examples plus dependency-specific install notes (SimpleITK/pydicom/nibabel/maxflow)",
+    "normalize naming/typos and API consistency (e.g.",
+    "`insertation` typo",
+    "generated `xxx_todo_changeme*` signatures) to improve MCP endpoint quality",
+    "add robust error taxonomy and user-facing messages for optional dependency fallbacks",
+    "split monolithic modules (e.g.",
+    "large metric/features files) into smaller maintainable units with internal benchmarks",
+    "add performance benchmarks for hot paths (distance metrics",
+    "patch iterators",
+    "resampling) and optional vectorization/numba paths",
+    "harden release process with automated versioning/changelog validation and wheel/sdist verification in CI",
+    "improve plugin output hygiene by deduplicating MCP endpoints and filtering low-value/internal symbols before export"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow completed with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Low intrusiveness risk and high import feasibility (0.84) enabled adapter_mode=import without requiring invasive code changes.",
+      "Generated MCP service started healthy over stdio transport, indicating viable runtime wiring and base protocol compatibility.",
+      "Repository structure was fully discoverable (zip fallback succeeded; 124 files scanned), enabling broad symbol extraction."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred; however, quality gaps exist: original_project tests reported passed=false with empty details and execution_time=0, indicating tests were not meaningfully executed/validated.",
+      "DeepWiki analysis failed, reducing external contextual enrichment and potentially impacting endpoint curation quality.",
+      "Generated metadata is inconsistent (tool_endpoints=0 while service lists many endpoints; total_lines_of_code=0), suggesting reporting/instrumentation defects rather than generation failure."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; exact per-node timing unavailable. Repository ingestion via zip fallback was effective and likely low-to-moderate latency.",
+      "analysis_time": "Completed successfully with extensive AST extraction; likely the dominant portion due to large module/function inventory.",
+      "generation_time": "Completed successfully; plugin artifacts were produced, but generation telemetry (LOC/size/endpoints) appears inaccurate.",
+      "test_time": "MCP plugin health test passed quickly; original project testing appears skipped or non-executed despite nominal 100% coverage metadata."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Undetermined from metrics (reported as 0), but runtime stability suggests no obvious memory pressure during generation/run.",
+      "cpu_efficiency": "Undetermined from metrics (reported as 0); AST-heavy analysis likely CPU-bound but completed within ~154s total.",
+      "disk_usage": "Low-to-moderate expected footprint; generated files are minimal, though reported generated_files_size=0 indicates missing measurement."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 68,
+    "architecture_score": 72,
+    "performance_score": 61,
+    "maintainability_score": 66,
+    "security_score": 85,
+    "scalability_score": 63
+  }
+}

@@ -1,0 +1,238 @@
+{
+  "repository": {
+    "name": "networkx",
+    "url": "https://github.com/networkx/networkx",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/networkx",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773239491.0598521,
+    "end_time": 1773239716.97679,
+    "duration": 225.91693902015686,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 10,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.benchmarks.benchmarks",
+        "source.networkx",
+        "source.networkx.algorithms",
+        "source.networkx.classes",
+        "source.networkx.drawing",
+        "source.networkx.generators",
+        "source.networkx.linalg",
+        "source.networkx.readwrite",
+        "source.networkx.tests",
+        "source.networkx.utils"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.97,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/networkx/networkx",
+      "repo_name": "networkx",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/networkx/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke test suite for all exposed MCP endpoints (graph creation",
+    "shortest paths",
+    "I/O",
+    "conversion) since test status is empty",
+    "pin and align `mcp_output/requirements.txt` with upstream `pyproject.toml` compatibility ranges (especially Python 3.11+ and optional deps)",
+    "add structured input validation/error mapping in `adapter.py` (invalid graph types",
+    "missing nodes",
+    "unsupported formats) with consistent MCP-friendly error codes",
+    "introduce timeout/guardrails for heavy algorithms (`all_pairs_dijkstra`",
+    "`floyd_warshall`",
+    "betweenness",
+    "louvain) to prevent runaway requests on large graphs",
+    "add observability in `mcp_service.py` (per-endpoint latency",
+    "error rate",
+    "payload size",
+    "optional debug logs)",
+    "expand endpoint coverage beyond current subset (e.g.",
+    "BFS/DFS traversal",
+    "MST",
+    "PageRank",
+    "strongly connected components) based on common NetworkX usage",
+    "create contract tests for serialization round-trips (`node_link_data`↔`node_link_graph`",
+    "GraphML/GEXF read-write fidelity)",
+    "add versioned API naming and capability discovery endpoint to reduce client breakage as tools evolve",
+    "harden optional dependency handling with graceful degradation messages when `numpy/scipy/matplotlib/pydot/pygraphviz/lxml` are absent",
+    "add benchmark scenarios in `tests_mcp` for representative small/medium/large graphs and track regression thresholds in CI",
+    "wire CI for plugin folder specifically (lint",
+    "mypy",
+    "pytest",
+    "basic integration run of `start_mcp.py`)",
+    "improve `README_MCP.md` with concrete request/response examples and limits (max nodes/edges",
+    "expected complexity)",
+    "add security checks for file-based endpoints (`read_graphml`",
+    "`read_gexf`) including path allowlists and size limits",
+    "implement caching for deterministic expensive calls (keyed by graph hash + params) with opt-out for memory-sensitive deployments",
+    "add reproducibility controls (seed plumbing) for stochastic generators and community detection endpoints",
+    "include backward-compat shims/tests if endpoint names mirror NetworkX aliases that may change across versions"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow status is success with all expected nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy is appropriate for NetworkX and backed by high import feasibility (0.97).",
+      "Generated service started healthy over stdio and exposed a broad, meaningful endpoint set (34 endpoints).",
+      "Low intrusiveness risk and medium complexity repository profile reduced integration friction.",
+      "No runtime errors or warnings were reported during workflow execution."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Validation gap: original project test status is marked not passed/empty despite reported 100% coverage metadata, indicating test instrumentation inconsistency.",
+      "Observability gap: node-level timings and resource metrics are missing, limiting precise performance diagnosis.",
+      "DeepWiki analysis failed, reducing depth of automated architectural context."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully as part of total 225.9s; repository imported via zip fallback (740 files), which is generally slower than native clone but acceptable.",
+      "analysis_time": "Completed successfully; structural/dependency/risk analysis produced coherent module map and endpoint candidates.",
+      "generation_time": "Completed successfully; 7 plugin artifacts generated with import-mode architecture and functional endpoint inventory.",
+      "test_time": "Plugin runtime health passed; however, endpoint-level functional tests were not executed or not recorded, so confidence is operational rather than behavioral."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB likely placeholder).",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0% likely placeholder).",
+      "disk_usage": "Low-to-moderate inferred footprint (few generated files), but generated LOC/size fields are zero, so exact usage is not measurable."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 82,
+    "performance_score": 68,
+    "maintainability_score": 74,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

@@ -1,0 +1,15 @@
+{# Filename: .templates/layout.html #}
+{% extends '!layout.html' %}
+
+{%- block relbar1 %}
+  {%- if current_page_name != "index" %}
+    <img class="alone-logo" src="_static/pyephem-logo-full.png"/>
+    {{ relbar() }}
+  {%- endif %}
+{% endblock %}
+
+{%- block relbar2 %}
+  {%- if current_page_name != "index" %}
+    {{ relbar() }}
+  {%- endif %}
+{% endblock %}

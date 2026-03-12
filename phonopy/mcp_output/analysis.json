@@ -1,0 +1,1153 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/phonopy/phonopy",
+    "summary": "Imported via zip fallback, file count: 315",
+    "file_tree": {
+      ".github/workflows/phonopy-pytest-conda.yml": {
+        "size": 1257
+      },
+      ".github/workflows/phonopy-pytest-pip-windows-macos.yml": {
+        "size": 962
+      },
+      ".github/workflows/publish-gh-pages.yml": {
+        "size": 1145
+      },
+      ".github/workflows/publish-to-test-pypi.yml": {
+        "size": 1135
+      },
+      ".github/workflows/wheels.yml": {
+        "size": 2913
+      },
+      ".pre-commit-config.yaml": {
+        "size": 640
+      },
+      "CMakeLists.txt": {
+        "size": 4139
+      },
+      "README.md": {
+        "size": 2421
+      },
+      "cmake-format.py": {
+        "size": 81
+      },
+      "dev-requirements.txt": {
+        "size": 6
+      },
+      "doc/README.md": {
+        "size": 798
+      },
+      "doc/animation.md": {
+        "size": 1359
+      },
+      "doc/auxiliary-tools.md": {
+        "size": 2420
+      },
+      "doc/changelog.md": {
+        "size": 50706
+      },
+      "doc/citation.md": {
+        "size": 3797
+      },
+      "doc/command-options.md": {
+        "size": 15498
+      },
+      "doc/conf.py": {
+        "size": 9301
+      },
+      "doc/documentation.md": {
+        "size": 292
+      },
+      "doc/dynamic-structure-factor.md": {
+        "size": 8729
+      },
+      "doc/examples.md": {
+        "size": 16429
+      },
+      "doc/external-tools.md": {
+        "size": 2378
+      },
+      "doc/formulation.md": {
+        "size": 21886
+      },
+      "doc/gruneisen.md": {
+        "size": 4671
+      },
+      "doc/index.md": {
+        "size": 3354
+      },
+      "doc/input-files.md": {
+        "size": 18032
+      },
+      "doc/install.md": {
+        "size": 6604
+      },
+      "doc/interfaces.md": {
+        "size": 4756
+      },
+      "doc/lammps.md": {
+        "size": 7422
+      },
+      "doc/mlp-sscha.md": {
+        "size": 22878
+      },
+      "doc/output-files.md": {
+        "size": 8411
+      },
+      "doc/phonopy-load.md": {
+        "size": 2601
+      },
+      "doc/phonopy-module.md": {
+        "size": 25291
+      },
+      "doc/phonopy-yaml.md": {
+        "size": 1363
+      },
+      "doc/qe.md": {
+        "size": 14243
+      },
+      "doc/qha.md": {
+        "size": 10044
+      },
+      "doc/qlm.md": {
+        "size": 2047
+      },
+      "doc/random-displacements.md": {
+        "size": 8990
+      },
+      "doc/reference.md": {
+        "size": 7384
+      },
+      "doc/setting-tags.md": {
+        "size": 50129
+      },
+      "doc/symmetry.md": {
+        "size": 2389
+      },
+      "doc/vasp-dfpt.md": {
+        "size": 4022
+      },
+      "doc/vasp.md": {
+        "size": 5280
+      },
+      "doc/workflow.md": {
+        "size": 1017
+      },
+      "example/Al-ABACUS/abacus-lcao/band.yaml": {
+        "size": 63428
+      },
+      "example/Al-ABACUS/abacus-lcao/mesh.yaml": {
+        "size": 14819
+      },
+      "example/Al-ABACUS/abacus-lcao/phonopy.yaml": {
+        "size": 8206
+      },
+      "example/Al-ABACUS/abacus-lcao/phonopy_disp.yaml": {
+        "size": 8425
+      },
+      "example/Al-ABACUS/abacus-pw/band.yaml": {
+        "size": 63428
+      },
+      "example/Al-ABACUS/abacus-pw/mesh.yaml": {
+        "size": 14819
+      },
+      "example/Al-ABACUS/abacus-pw/phonopy.yaml": {
+        "size": 8206
+      },
+      "example/Al-ABACUS/abacus-pw/phonopy_disp.yaml": {
+        "size": 8425
+      },
+      "example/Al-Fleur/phonopy_disp.yaml": {
+        "size": 3028
+      },
+      "example/Al-QHA/Al-QHA.py": {
+        "size": 1366
+      },
+      "example/Al2O3/Al2O3.py": {
+        "size": 1374
+      },
+      "example/Al2O3/README.md": {
+        "size": 634
+      },
+      "example/Al2O3/phonopy_disp.yaml": {
+        "size": 26770
+      },
+      "example/CaTiO3/phonopy_disp.yaml": {
+        "size": 8808
+      },
+      "example/Cr/README.md": {
+        "size": 1049
+      },
+      "example/Cr/phonopy_disp.yaml": {
+        "size": 5130
+      },
+      "example/KCl-SSCHA/README.md": {
+        "size": 3227
+      },
+      "example/KCl-SSCHA/embed_sscha_fc.py": {
+        "size": 1069
+      },
+      "example/LiF-nosym/README.md": {
+        "size": 561
+      },
+      "example/MgB2/MgB2.py": {
+        "size": 593
+      },
+      "example/MgB2/README.md": {
+        "size": 393
+      },
+      "example/MgB2/phonopy_disp.yaml": {
+        "size": 9982
+      },
+      "example/MgO/README.md": {
+        "size": 311
+      },
+      "example/MgO/phonopy_disp.yaml": {
+        "size": 12692
+      },
+      "example/NaCl-CP2K/README.md": {
+        "size": 989
+      },
+      "example/NaCl-CP2K/phonopy_disp.yaml": {
+        "size": 12733
+      },
+      "example/NaCl-QE-q2r/make_born_q2r.py": {
+        "size": 723
+      },
+      "example/NaCl-QE-q2r/make_fc_q2r.py": {
+        "size": 308
+      },
+      "example/NaCl-QE/README.md": {
+        "size": 1335
+      },
+      "example/NaCl-QE/phonopy_disp.yaml": {
+        "size": 12219
+      },
+      "example/NaCl-VASPdfpt/README.md": {
+        "size": 580
+      },
+      "example/NaCl-abinit/disp.yaml": {
+        "size": 6433
+      },
+      "example/NaCl-rd/README.md": {
+        "size": 733
+      },
+      "example/NaCl-rd/phonopy_disp.yaml": {
+        "size": 73476
+      },
+      "example/NaCl-wien2k-P1/README.md": {
+        "size": 602
+      },
+      "example/NaCl-wien2k-P1/phonopy_disp.yaml": {
+        "size": 12207
+      },
+      "example/NaCl-wien2k/README.md": {
+        "size": 519
+      },
+      "example/NaCl-wien2k/phonopy_disp.yaml": {
+        "size": 12207
+      },
+      "example/NaCl/NaCl-band-gv.py": {
+        "size": 1132
+      },
+      "example/NaCl/NaCl-band.py": {
+        "size": 586
+      },
+      "example/NaCl/NaCl-dynmat.py": {
+        "size": 1100
+      },
+      "example/NaCl/NaCl-gv.py": {
+        "size": 814
+      },
+      "example/NaCl/NaCl-read_write_fc.py": {
+        "size": 670
+      },
+      "example/NaCl/NaCl-yaml.py": {
+        "size": 502
+      },
+      "example/NaCl/NaCl.py": {
+        "size": 4078
+      },
+      "example/NaCl/README.md": {
+        "size": 872
+      },
+      "example/NaCl/phonopy_disp.yaml": {
+        "size": 12203
+      },
+      "example/Si-CP2K/README.md": {
+        "size": 833
+      },
+      "example/Si-PWmat/README.md": {
+        "size": 900
+      },
+      "example/Si-PWmat/mesh.yaml": {
+        "size": 291996
+      },
+      "example/Si-QE/README.md": {
+        "size": 773
+      },
+      "example/Si-QE/phonopy_disp.yaml": {
+        "size": 12097
+      },
+      "example/Si-QHA/Si.py": {
+        "size": 2003
+      },
+      "example/Si-QHA/disp.yaml": {
+        "size": 211
+      },
+      "example/Si-abinit/disp.yaml": {
+        "size": 6249
+      },
+      "example/Si-elk/disp.yaml": {
+        "size": 6249
+      },
+      "example/Si-gruneisen/Si-gruneisen.py": {
+        "size": 1980
+      },
+      "example/Si-gruneisen/minus/disp.yaml": {
+        "size": 6249
+      },
+      "example/Si-gruneisen/orig/disp.yaml": {
+        "size": 6249
+      },
+      "example/Si-gruneisen/plus/disp.yaml": {
+        "size": 6249
+      },
+      "example/Si-lammps/README.md": {
+        "size": 2510
+      },
+      "example/Si-lammps/generate_displacements.py": {
+        "size": 551
+      },
+      "example/Si-lammps/phonopy_disp.yaml": {
+        "size": 4427
+      },
+      "example/Si-lammps/phonopy_unitcell.yaml": {
+        "size": 432
+      },
+      "example/Si-nosym/disp.yaml": {
+        "size": 4301
+      },
+      "example/Si/README.md": {
+        "size": 529
+      },
+      "example/Si/phonopy_disp.yaml": {
+        "size": 4592
+      },
+      "example/SiO2-CP2K-xyz/README.md": {
+        "size": 1472
+      },
+      "example/SiO2-CP2K-xyz/gen_supercell_xyz.py": {
+        "size": 6490
+      },
+      "example/SiO2-CP2K-xyz/get_born_cp2k.py": {
+        "size": 8020
+      },
+      "example/SiO2-HP/README.md": {
+        "size": 730
+      },
+      "example/SiO2-HP/phonopy_disp.yaml": {
+        "size": 10059
+      },
+      "example/SnO2/README.md": {
+        "size": 1036
+      },
+      "example/SnO2/phonopy_disp.yaml": {
+        "size": 13427
+      },
+      "example/Ti-lammps/README.md": {
+        "size": 2715
+      },
+      "example/Ti-lammps/phonopy_disp.yaml": {
+        "size": 15528
+      },
+      "example/TiO2-anatase/README.md": {
+        "size": 293
+      },
+      "example/TiO2-anatase/phonopy_disp.yaml": {
+        "size": 31890
+      },
+      "example/ZnO/README.md": {
+        "size": 224
+      },
+      "example/ZnO/phonopy_disp.yaml": {
+        "size": 7641
+      },
+      "example/diamond-FHI-aims/README.md": {
+        "size": 818
+      },
+      "phonopy/__init__.py": {
+        "size": 1907
+      },
+      "phonopy/api_gruneisen.py": {
+        "size": 7884
+      },
+      "phonopy/api_phonopy.py": {
+        "size": 134178
+      },
+      "phonopy/api_qha.py": {
+        "size": 16625
+      },
+      "phonopy/cui/collect_cell_info.py": {
+        "size": 20559
+      },
+      "phonopy/cui/create_force_sets.py": {
+        "size": 10795
+      },
+      "phonopy/cui/load.py": {
+        "size": 14356
+      },
+      "phonopy/cui/load_helper.py": {
+        "size": 19079
+      },
+      "phonopy/cui/phonopy_argparse.py": {
+        "size": 28727
+      },
+      "phonopy/cui/phonopy_bandplot_script.py": {
+        "size": 20323
+      },
+      "phonopy/cui/phonopy_gruneisen_script.py": {
+        "size": 14439
+      },
+      "phonopy/cui/phonopy_qe_born_script.py": {
+        "size": 6789
+      },
+      "phonopy/cui/phonopy_qha_script.py": {
+        "size": 12066
+      },
+      "phonopy/cui/phonopy_script.py": {
+        "size": 81157
+      },
+      "phonopy/cui/phonopy_vasp_efe_script.py": {
+        "size": 5780
+      },
+      "phonopy/cui/settings.py": {
+        "size": 82834
+      },
+      "phonopy/cui/show_symmetry.py": {
+        "size": 8492
+      },
+      "phonopy/exception.py": {
+        "size": 2814
+      },
+      "phonopy/file_IO.py": {
+        "size": 30979
+      },
+      "phonopy/gruneisen/band_structure.py": {
+        "size": 13028
+      },
+      "phonopy/gruneisen/core.py": {
+        "size": 6418
+      },
+      "phonopy/gruneisen/mesh.py": {
+        "size": 9447
+      },
+      "phonopy/harmonic/derivative_dynmat.py": {
+        "size": 12781
+      },
+      "phonopy/harmonic/displacement.py": {
+        "size": 11529
+      },
+      "phonopy/harmonic/dynamical_matrix.py": {
+        "size": 42102
+      },
+      "phonopy/harmonic/dynmat_to_fc.py": {
+        "size": 18863
+      },
+      "phonopy/harmonic/force_constants.py": {
+        "size": 31561
+      },
+      "phonopy/interface/abacus.py": {
+        "size": 13420
+      },
+      "phonopy/interface/abinit.py": {
+        "size": 9872
+      },
+      "phonopy/interface/aims.py": {
+        "size": 7935
+      },
+      "phonopy/interface/alm.py": {
+        "size": 13943
+      },
+      "phonopy/interface/calculator.py": {
+        "size": 43741
+      },
+      "phonopy/interface/castep.py": {
+        "size": 9449
+      },
+      "phonopy/interface/cif.py": {
+        "size": 3820
+      },
+      "phonopy/interface/cp2k.py": {
+        "size": 14542
+      },
+      "phonopy/interface/crystal.py": {
+        "size": 14085
+      },
+      "phonopy/interface/dftbp.py": {
+        "size": 6674
+      },
+      "phonopy/interface/elk.py": {
+        "size": 7653
+      },
+      "phonopy/interface/fc_calculator.py": {
+        "size": 12689
+      },
+      "phonopy/interface/fleur.py": {
+        "size": 12416
+      },
+      "phonopy/interface/lammps.py": {
+        "size": 13908
+      },
+      "phonopy/interface/mlp.py": {
+        "size": 3421
+      },
+      "phonopy/interface/phonopy_yaml.py": {
+        "size": 44047
+      },
+      "phonopy/interface/pwmat.py": {
+        "size": 5894
+      },
+      "phonopy/interface/pypolymlp.py": {
+        "size": 15197
+      },
+      "phonopy/interface/qe.py": {
+        "size": 24378
+      },
+      "phonopy/interface/qlm.py": {
+        "size": 6960
+      },
+      "phonopy/interface/siesta.py": {
+        "size": 9549
+      },
+      "phonopy/interface/symfc.py": {
+        "size": 16920
+      },
+      "phonopy/interface/turbomole.py": {
+        "size": 8835
+      },
+      "phonopy/interface/vasp.py": {
+        "size": 57694
+      },
+      "phonopy/interface/wien2k.py": {
+        "size": 14256
+      },
+      "phonopy/phonon/animation.py": {
+        "size": 12257
+      },
+      "phonopy/phonon/band_structure.py": {
+        "size": 36609
+      },
+      "phonopy/phonon/character_table.py": {
+        "size": 42462
+      },
+      "phonopy/phonon/degeneracy.py": {
+        "size": 5702
+      },
+      "phonopy/phonon/dos.py": {
+        "size": 20838
+      },
+      "phonopy/phonon/group_velocity.py": {
+        "size": 11224
+      },
+      "phonopy/phonon/irreps.py": {
+        "size": 26033
+      },
+      "phonopy/phonon/mesh.py": {
+        "size": 16047
+      },
+      "phonopy/phonon/modulation.py": {
+        "size": 12783
+      },
+      "phonopy/phonon/moment.py": {
+        "size": 4214
+      },
+      "phonopy/phonon/qpoints.py": {
+        "size": 10579
+      },
+      "phonopy/phonon/random_displacements.py": {
+        "size": 21609
+      },
+      "phonopy/phonon/tetrahedron_mesh.py": {
+        "size": 11322
+      },
+      "phonopy/phonon/thermal_displacement.py": {
+        "size": 19102
+      },
+      "phonopy/phonon/thermal_properties.py": {
+        "size": 24663
+      },
+      "phonopy/physical_units.py": {
+        "size": 19646
+      },
+      "phonopy/qha/core.py": {
+        "size": 45894
+      },
+      "phonopy/qha/electron.py": {
+        "size": 7371
+      },
+      "phonopy/qha/eos.py": {
+        "size": 5426
+      },
+      "phonopy/scripts/phonopy.py": {
+        "size": 1765
+      },
+      "phonopy/scripts/phonopy_bandplot.py": {
+        "size": 1695
+      },
+      "phonopy/scripts/phonopy_calc_convert.py": {
+        "size": 8279
+      },
+      "phonopy/scripts/phonopy_crystal_born.py": {
+        "size": 5781
+      },
+      "phonopy/scripts/phonopy_gruneisen.py": {
+        "size": 1697
+      },
+      "phonopy/scripts/phonopy_gruneisenplot.py": {
+        "size": 9210
+      },
+      "phonopy/scripts/phonopy_load.py": {
+        "size": 1792
+      },
+      "phonopy/scripts/phonopy_pdosplot.py": {
+        "size": 6975
+      },
+      "phonopy/scripts/phonopy_propplot.py": {
+        "size": 7263
+      },
+      "phonopy/scripts/phonopy_qe_born.py": {
+        "size": 1694
+      },
+      "phonopy/scripts/phonopy_qha.py": {
+        "size": 1685
+      },
+      "phonopy/scripts/phonopy_tdplot.py": {
+        "size": 7327
+      },
+      "phonopy/scripts/phonopy_vasp_born.py": {
+        "size": 5986
+      },
+      "phonopy/scripts/phonopy_vasp_efe.py": {
+        "size": 1696
+      },
+      "phonopy/spectrum/dynamic_structure_factor.py": {
+        "size": 11697
+      },
+      "phonopy/spectrum/velocity.py": {
+        "size": 8668
+      },
+      "phonopy/sscha/core.py": {
+        "size": 8404
+      },
+      "phonopy/structure/atomic_data.py": {
+        "size": 27306
+      },
+      "phonopy/structure/atoms.py": {
+        "size": 25221
+      },
+      "phonopy/structure/brillouin_zone.py": {
+        "size": 5857
+      },
+      "phonopy/structure/cells.py": {
+        "size": 66427
+      },
+      "phonopy/structure/dataset.py": {
+        "size": 3848
+      },
+      "phonopy/structure/grid_points.py": {
+        "size": 24135
+      },
+      "phonopy/structure/snf.py": {
+        "size": 11481
+      },
+      "phonopy/structure/symmetry.py": {
+        "size": 23572
+      },
+      "phonopy/structure/tetrahedron_method.py": {
+        "size": 24535
+      },
+      "phonopy/unfolding/core.py": {
+        "size": 13760
+      },
+      "phonopy/units.py": {
+        "size": 3783
+      },
+      "phonopy/utils.py": {
+        "size": 2503
+      },
+      "phonopy/version.py": {
+        "size": 1640
+      },
+      "pyproject.toml": {
+        "size": 2495
+      },
+      "requirements.txt": {
+        "size": 76
+      },
+      "test/api/test_api_phonopy.py": {
+        "size": 14759
+      },
+      "test/conftest.py": {
+        "size": 17038
+      },
+      "test/cui/phonopy_command/test_phonopy_script.py": {
+        "size": 28229
+      },
+      "test/cui/phonopy_gruneisen/test_phonopy_gruneisen_script.py": {
+        "size": 3395
+      },
+      "test/cui/phonopy_qe_born/test_phonopy_qe_born_script.py": {
+        "size": 2195
+      },
+      "test/cui/phonopy_qha/test_phonopy_qha_script.py": {
+        "size": 4923
+      },
+      "test/cui/phonopy_vasp_efe/test_phonopy_vasp_efe_script.py": {
+        "size": 1707
+      },
+      "test/gruneisen/test_gruneisen.py": {
+        "size": 5051
+      },
+      "test/harmonic/test_derivative_dynmat.py": {
+        "size": 3866
+      },
+      "test/harmonic/test_displacements.py": {
+        "size": 9356
+      },
+      "test/harmonic/test_dynamical_matrix.py": {
+        "size": 26441
+      },
+      "test/harmonic/test_dynmat_to_fc.py": {
+        "size": 5222
+      },
+      "test/harmonic/test_force_constants.py": {
+        "size": 4757
+      },
+      "test/interface/BaGa2-wien2k.yaml": {
+        "size": 591
+      },
+      "test/interface/NaCl-abacus-mag-noncolin.yaml": {
+        "size": 17712
+      },
+      "test/interface/NaCl-abacus-mag.yaml": {
+        "size": 15189
+      },
+      "test/interface/NaCl-abinit-pwscf.yaml": {
+        "size": 1155
+      },
+      "test/interface/NaCl-castep.yaml": {
+        "size": 1152
+      },
+      "test/interface/NaCl-vasp.yaml": {
+        "size": 1155
+      },
+      "test/interface/Si-CP2K.yaml": {
+        "size": 1155
+      },
+      "test/interface/Si-CRYSTAL.yaml": {
+        "size": 477
+      },
+      "test/interface/Si-TURBOMOLE.yaml": {
+        "size": 1155
+      },
+      "test/interface/Si-pwmat.yaml": {
+        "size": 14460
+      },
+      "test/interface/nac.yaml": {
+        "size": 780
+      },
+      "test/interface/phonopy.yaml": {
+        "size": 12534
+      },
+      "test/interface/phonopy_symcells_NaCl.yaml": {
+        "size": 1739
+      },
+      "test/interface/test_CP2K.py": {
+        "size": 968
+      },
+      "test/interface/test_CRYSTAL.py": {
+        "size": 770
+      },
+      "test/interface/test_TURBOMOLE.py": {
+        "size": 774
+      },
+      "test/interface/test_abacus.py": {
+        "size": 3247
+      },
+      "test/interface/test_abinit.py": {
+        "size": 1004
+      },
+      "test/interface/test_castep.py": {
+        "size": 757
+      },
+      "test/interface/test_conversion.py": {
+        "size": 4209
+      },
+      "test/interface/test_lammps.py": {
+        "size": 3567
+      },
+      "test/interface/test_phonopy_yaml.py": {
+        "size": 7596
+      },
+      "test/interface/test_pwmat.py": {
+        "size": 1143
+      },
+      "test/interface/test_pypolymlp.py": {
+        "size": 14419
+      },
+      "test/interface/test_qe.py": {
+        "size": 3427
+      },
+      "test/interface/test_qlm.py": {
+        "size": 2388
+      },
+      "test/interface/test_symfc.py": {
+        "size": 2916
+      },
+      "test/interface/test_vasp.py": {
+        "size": 7703
+      },
+      "test/interface/test_wien2k.py": {
+        "size": 813
+      },
+      "test/phonon/eigvecs_ii_TiPN3.txt": {
+        "size": 22923
+      },
+      "test/phonon/eigvecs_ij_TiPN3.txt": {
+        "size": 73570
+      },
+      "test/phonon/test_band_structure.py": {
+        "size": 7145
+      },
+      "test/phonon/test_dos.py": {
+        "size": 4028
+      },
+      "test/phonon/test_group_velocity.py": {
+        "size": 2563
+      },
+      "test/phonon/test_irreps.py": {
+        "size": 63607
+      },
+      "test/phonon/test_mesh.py": {
+        "size": 6271
+      },
+      "test/phonon/test_modulation.py": {
+        "size": 1621
+      },
+      "test/phonon/test_moment.py": {
+        "size": 1831
+      },
+      "test/phonon/test_qpoints.py": {
+        "size": 3955
+      },
+      "test/phonon/test_random_displacements.py": {
+        "size": 19456
+      },
+      "test/phonon/test_tetrahedron_mesh.py": {
+        "size": 2896
+      },
+      "test/phonon/test_thermal_displacement.py": {
+        "size": 6109
+      },
+      "test/phonon/test_thermal_properties.py": {
+        "size": 1775
+      },
+      "test/phonon/test_thermal_properties_classical.py": {
+        "size": 1832
+      },
+      "test/phonopy_KCl.yaml": {
+        "size": 12596
+      },
+      "test/phonopy_NaCl_unitcell1.yaml": {
+        "size": 1184
+      },
+      "test/phonopy_NaCl_unitcell2.yaml": {
+        "size": 1152
+      },
+      "test/phonopy_disp_NaCl.yaml": {
+        "size": 12203
+      },
+      "test/phonopy_disp_SnO2.yaml": {
+        "size": 13647
+      },
+      "test/phonopy_disp_TiO2.yaml": {
+        "size": 19499
+      },
+      "test/phonopy_load/test_phonopy_load.py": {
+        "size": 1011
+      },
+      "test/phonopy_params_Si.yaml": {
+        "size": 5187
+      },
+      "test/phonopy_params_Zr3N4.yaml": {
+        "size": 22776
+      },
+      "test/polymlp_KCL-120.yaml": {
+        "size": 195626
+      },
+      "test/qha/test_QHA.py": {
+        "size": 8235
+      },
+      "test/qha/test_QHA_efe.py": {
+        "size": 8662
+      },
+      "test/qha/test_electron.py": {
+        "size": 10737
+      },
+      "test/spectrum/test_dynamic_structure_factor.py": {
+        "size": 9502
+      },
+      "test/spectrum/test_velocity.py": {
+        "size": 770
+      },
+      "test/sscha/test_core.py": {
+        "size": 805
+      },
+      "test/structure/Si-conv.yaml": {
+        "size": 1155
+      },
+      "test/structure/SiO2-123.yaml": {
+        "size": 4346
+      },
+      "test/structure/test_atomic_data.py": {
+        "size": 1426
+      },
+      "test/structure/test_atoms.py": {
+        "size": 12335
+      },
+      "test/structure/test_brillouin_zone.py": {
+        "size": 2088
+      },
+      "test/structure/test_cells.py": {
+        "size": 15823
+      },
+      "test/structure/test_grid_points.py": {
+        "size": 16983
+      },
+      "test/structure/test_symmetry.py": {
+        "size": 11280
+      },
+      "test/structure/test_tetrahedron_method.py": {
+        "size": 11232
+      },
+      "test/structure/tio2_qpoints.yaml": {
+        "size": 2469
+      },
+      "test/test_exception.py": {
+        "size": 395
+      },
+      "test/test_file_IO.py": {
+        "size": 2315
+      },
+      "test/unfolding/plot_band.py": {
+        "size": 379
+      },
+      "test/unfolding/test_unfolding.py": {
+        "size": 4763
+      },
+      "tools/typehint_progress.py": {
+        "size": 6040
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "phonopy",
+        "module": "phonopy.api_phonopy",
+        "functions": [],
+        "classes": [
+          "Phonopy"
+        ],
+        "description": "Primary high-level API for phonon workflows (structure setup, displacements, force constants, band/mesh/DOS/thermal properties). Best core integration target."
+      },
+      {
+        "package": "phonopy",
+        "module": "phonopy.api_qha",
+        "functions": [],
+        "classes": [
+          "PhonopyQHA"
+        ],
+        "description": "Quasi-harmonic approximation API for EOS and thermodynamic properties vs volume/temperature."
+      },
+      {
+        "package": "phonopy",
+        "module": "phonopy.api_gruneisen",
+        "functions": [],
+        "classes": [
+          "PhonopyGruneisen"
+        ],
+        "description": "Gruneisen-parameter focused API for anharmonic indicators from harmonic force constants."
+      },
+      {
+        "package": "phonopy",
+        "module": "phonopy.cui.load",
+        "functions": [
+          "load"
+        ],
+        "classes": [],
+        "description": "Convenience loader used to initialize Phonopy objects from YAML/input files; useful for low-intrusion MCP wrappers."
+      },
+      {
+        "package": "phonopy",
+        "module": "phonopy.interface.calculator",
+        "functions": [
+          "get_default_physical_units",
+          "get_default_displacement_distance",
+          "read_crystal_structure",
+          "write_crystal_structure"
+        ],
+        "classes": [],
+        "description": "Calculator abstraction layer and I/O bridge for multiple DFT/MD ecosystems."
+      },
+      {
+        "package": "phonopy",
+        "module": "phonopy.interface.phonopy_yaml",
+        "functions": [],
+        "classes": [
+          "PhonopyYaml"
+        ],
+        "description": "YAML serialization/deserialization support for phonopy data exchange."
+      },
+      {
+        "package": "phonopy",
+        "module": "phonopy.file_IO",
+        "functions": [
+          "parse_BORN",
+          "parse_FORCE_SETS",
+          "parse_FORCE_CONSTANTS",
+          "write_FORCE_SETS",
+          "write_FORCE_CONSTANTS"
+        ],
+        "classes": [],
+        "description": "Core file parsers/writers for standard phonopy artifacts."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "phonopy",
+        "module": "phonopy.scripts.phonopy",
+        "description": "Main CLI entry for end-to-end phonon calculations and data generation."
+      },
+      {
+        "name": "phonopy-load",
+        "module": "phonopy.scripts.phonopy_load",
+        "description": "CLI helper to load phonopy.yaml/params and run post-processing workflows."
+      },
+      {
+        "name": "phonopy-bandplot",
+        "module": "phonopy.scripts.phonopy_bandplot",
+        "description": "Band structure plotting utility."
+      },
+      {
+        "name": "phonopy-gruneisen",
+        "module": "phonopy.scripts.phonopy_gruneisen",
+        "description": "Compute Gruneisen-related outputs."
+      },
+      {
+        "name": "phonopy-gruneisenplot",
+        "module": "phonopy.scripts.phonopy_gruneisenplot",
+        "description": "Plot Gruneisen results."
+      },
+      {
+        "name": "phonopy-qha",
+        "module": "phonopy.scripts.phonopy_qha",
+        "description": "QHA workflow CLI."
+      },
+      {
+        "name": "phonopy-qe-born",
+        "module": "phonopy.scripts.phonopy_qe_born",
+        "description": "Generate/convert QE Born effective charge related data."
+      },
+      {
+        "name": "phonopy-vasp-born",
+        "module": "phonopy.scripts.phonopy_vasp_born",
+        "description": "Generate/convert VASP Born effective charge related data."
+      },
+      {
+        "name": "phonopy-vasp-efe",
+        "module": "phonopy.scripts.phonopy_vasp_efe",
+        "description": "VASP electronic free-energy related helper."
+      },
+      {
+        "name": "phonopy-calc-convert",
+        "module": "phonopy.scripts.phonopy_calc_convert",
+        "description": "Converter between calculator formats."
+      },
+      {
+        "name": "phonopy-pdosplot",
+        "module": "phonopy.scripts.phonopy_pdosplot",
+        "description": "Projected DOS plotting tool."
+      },
+      {
+        "name": "phonopy-propplot",
+        "module": "phonopy.scripts.phonopy_propplot",
+        "description": "General property plotting tool."
+      },
+      {
+        "name": "phonopy-tdplot",
+        "module": "phonopy.scripts.phonopy_tdplot",
+        "description": "Thermal displacement plotting tool."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.x",
+        "numpy",
+        "PyYAML",
+        "matplotlib"
+      ],
+      "optional": [
+        "h5py",
+        "spglib",
+        "symfc",
+        "pypolymlp",
+        "calculator-specific external tools (VASP/QE/CP2K/ABINIT/LAMMPS/etc.)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/phonopy/phonopy",
+    "repo_name": "phonopy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

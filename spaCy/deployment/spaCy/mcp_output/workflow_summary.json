@@ -1,0 +1,227 @@
+{
+  "repository": {
+    "name": "spaCy",
+    "url": "https://github.com/explosion/spaCy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/spaCy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773284621.985773,
+    "end_time": 1773284844.160605,
+    "duration": 222.17483186721802,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 11,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.spacy",
+        "source.spacy.cli",
+        "source.spacy.displacy",
+        "source.spacy.kb",
+        "source.spacy.lang",
+        "source.spacy.matcher",
+        "source.spacy.ml",
+        "source.spacy.pipeline",
+        "source.spacy.tests",
+        "source.spacy.tokens",
+        "source.spacy.training"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/explosion/spaCy",
+      "repo_name": "spaCy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/spaCy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "Add a smoke-test suite for the generated MCP plugin (import + endpoint invocation for a few representative endpoints like `load`",
+    "`blank`",
+    "`train`",
+    "`debug_data`)",
+    "deduplicate endpoint names in the plugin manifest (e.g.",
+    "`info` appears multiple times) and enforce unique command IDs",
+    "introduce structured error mapping in `adapter.py`/`mcp_service.py` (convert spaCy exceptions to stable MCP error codes/messages)",
+    "add strict request/response Pydantic schemas per endpoint (especially for complex args like config paths and training options)",
+    "implement timeout and cancellation guards for long-running CLI-backed operations (`train`",
+    "`evaluate`",
+    "`convert`",
+    "`package`)",
+    "add async job handling with progress reporting for heavy commands instead of blocking calls",
+    "pin and validate plugin dependency compatibility (`fastmcp`",
+    "`pydantic`) against spaCy’s supported Python matrix in CI",
+    "create contract tests that compare MCP endpoint behavior against direct spaCy API calls for parity",
+    "add golden tests for multilingual/tokenizer-sensitive behavior across a small language matrix (en/de/ja/zh/ar)",
+    "improve observability with structured logging + per-endpoint latency/error metrics",
+    "add input sanitization for filesystem/network parameters (paths",
+    "model names",
+    "URLs) to reduce misuse risk",
+    "split large adapter dispatch logic into per-domain modules (core API / matcher / pipeline / CLI) to improve maintainability",
+    "add versioned endpoint namespaceing to avoid future breaking changes",
+    "document endpoint capability levels (stable/experimental/long-running) in `README_MCP.md`",
+    "add fallback behavior tests for environments without optional deps (GPU/CuPy/transformers/jieba/etc.)",
+    "and include a minimal benchmark to track MCP overhead vs direct spaCy calls for core operations"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow status is success with all expected nodes executed (download → analysis → env → generate → run → review → finalize).",
+      "Import-based adapter strategy is appropriate for spaCy (high import feasibility: 0.9; confidence: 0.93).",
+      "Generated MCP plugin starts and health check passes (service_health=healthy, mcp_plugin tests passed=true, stdio transport validated).",
+      "Low intrusiveness risk and medium complexity profile made automatic wrapping feasible."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality gap: original project tests were not executed/passed in this run context (passed=false with empty details), reducing confidence in parity.",
+      "DeepWiki enrichment failed, limiting repository-intelligence depth for generation decisions.",
+      "Generated metadata appears incomplete/inconsistent (e.g., total_lines_of_code=0, tool_endpoints=0 despite non-empty endpoint list)."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Repository imported via zip fallback; completed successfully. Given total runtime (~222s) and large repo size (~1353 files), download/ingest likely non-trivial but acceptable.",
+      "analysis_time": "Static analysis completed with meaningful module/CLI mapping and risk assessment; moderate expected time due to large multilingual codebase.",
+      "generation_time": "Plugin scaffolding completed quickly (7 files generated), but output depth appears shallow (basic tooling, missing strict schemas/metrics instrumentation).",
+      "test_time": "Plugin runtime validation passed (health/startup), but test depth is minimal (no robust contract/smoke/performance suite reported)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB). Real usage likely moderate-high for spaCy import paths; add actual instrumentation.",
+      "cpu_efficiency": "Unknown from telemetry (reported 0%). Total wall time is reasonable, but CPU profile is unavailable.",
+      "disk_usage": "Input repo is large; generated output is small. Reported generated_files_size=0 indicates missing measurement rather than true zero."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 76,
+    "performance_score": 61,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}

@@ -1,0 +1,948 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/rasterio/rasterio",
+    "summary": "Imported via zip fallback, file count: 209",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 2521
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 161
+      },
+      ".github/dependabot.yml": {
+        "size": 218
+      },
+      ".github/workflows/build-wheels.yaml": {
+        "size": 9946
+      },
+      ".github/workflows/test_gdal_build.yaml": {
+        "size": 2768
+      },
+      ".github/workflows/test_gdal_dispatch.yaml": {
+        "size": 677
+      },
+      ".github/workflows/test_gdal_latest.yaml": {
+        "size": 643
+      },
+      ".github/workflows/test_gdal_tags.yaml": {
+        "size": 3135
+      },
+      ".github/workflows/tests.yaml": {
+        "size": 4138
+      },
+      ".pre-commit-config.yaml": {
+        "size": 184
+      },
+      ".readthedocs.yaml": {
+        "size": 252
+      },
+      "AUTHORS.txt": {
+        "size": 2495
+      },
+      "CHANGES.txt": {
+        "size": 102893
+      },
+      "CITATION.txt": {
+        "size": 326
+      },
+      "CODE_OF_CONDUCT.txt": {
+        "size": 1984
+      },
+      "LICENSE.txt": {
+        "size": 1457
+      },
+      "SECURITY.md": {
+        "size": 1427
+      },
+      "benchmarks/ndarray.py": {
+        "size": 1264
+      },
+      "ci/get-new-tags.py": {
+        "size": 683
+      },
+      "ci/vcpkg.json": {
+        "size": 267
+      },
+      "docs/conf.py": {
+        "size": 12087
+      },
+      "docs/environment.yml": {
+        "size": 148
+      },
+      "examples/async-rasterio.py": {
+        "size": 3160
+      },
+      "examples/decimate.py": {
+        "size": 709
+      },
+      "examples/polygonize.py": {
+        "size": 216
+      },
+      "examples/rasterio_polygonize.py": {
+        "size": 1796
+      },
+      "examples/rasterize_geometry.py": {
+        "size": 778
+      },
+      "examples/reproject.py": {
+        "size": 1779
+      },
+      "examples/sieve.py": {
+        "size": 1148
+      },
+      "examples/thread_pool_executor.py": {
+        "size": 2740
+      },
+      "examples/total.py": {
+        "size": 1287
+      },
+      "governance.md": {
+        "size": 17441
+      },
+      "pyproject.toml": {
+        "size": 3878
+      },
+      "rasterio/__init__.py": {
+        "size": 17043
+      },
+      "rasterio/_path.py": {
+        "size": 5592
+      },
+      "rasterio/_show_versions.py": {
+        "size": 2147
+      },
+      "rasterio/_vendor/__init__.py": {
+        "size": 24
+      },
+      "rasterio/_vendor/click_plugins.py": {
+        "size": 7482
+      },
+      "rasterio/_vendor/snuggs.py": {
+        "size": 8203
+      },
+      "rasterio/abc.py": {
+        "size": 123
+      },
+      "rasterio/control.py": {
+        "size": 2172
+      },
+      "rasterio/coords.py": {
+        "size": 1606
+      },
+      "rasterio/drivers.py": {
+        "size": 1842
+      },
+      "rasterio/dtypes.py": {
+        "size": 6266
+      },
+      "rasterio/enums.py": {
+        "size": 5956
+      },
+      "rasterio/env.py": {
+        "size": 23696
+      },
+      "rasterio/errors.py": {
+        "size": 4822
+      },
+      "rasterio/features.py": {
+        "size": 25752
+      },
+      "rasterio/fill.py": {
+        "size": 3014
+      },
+      "rasterio/io.py": {
+        "size": 9319
+      },
+      "rasterio/mask.py": {
+        "size": 7691
+      },
+      "rasterio/merge.py": {
+        "size": 19066
+      },
+      "rasterio/path.py": {
+        "size": 520
+      },
+      "rasterio/plot.py": {
+        "size": 12732
+      },
+      "rasterio/profiles.py": {
+        "size": 1344
+      },
+      "rasterio/rio/__init__.py": {
+        "size": 50
+      },
+      "rasterio/rio/blocks.py": {
+        "size": 4793
+      },
+      "rasterio/rio/bounds.py": {
+        "size": 3788
+      },
+      "rasterio/rio/calc.py": {
+        "size": 7193
+      },
+      "rasterio/rio/clip.py": {
+        "size": 7876
+      },
+      "rasterio/rio/convert.py": {
+        "size": 3885
+      },
+      "rasterio/rio/create.py": {
+        "size": 5315
+      },
+      "rasterio/rio/edit_info.py": {
+        "size": 8850
+      },
+      "rasterio/rio/env.py": {
+        "size": 1398
+      },
+      "rasterio/rio/gcps.py": {
+        "size": 3753
+      },
+      "rasterio/rio/helpers.py": {
+        "size": 3712
+      },
+      "rasterio/rio/info.py": {
+        "size": 5497
+      },
+      "rasterio/rio/insp.py": {
+        "size": 2713
+      },
+      "rasterio/rio/main.py": {
+        "size": 3379
+      },
+      "rasterio/rio/mask.py": {
+        "size": 4501
+      },
+      "rasterio/rio/merge.py": {
+        "size": 3496
+      },
+      "rasterio/rio/options.py": {
+        "size": 13881
+      },
+      "rasterio/rio/overview.py": {
+        "size": 4837
+      },
+      "rasterio/rio/rasterize.py": {
+        "size": 10233
+      },
+      "rasterio/rio/rm.py": {
+        "size": 955
+      },
+      "rasterio/rio/sample.py": {
+        "size": 2472
+      },
+      "rasterio/rio/shapes.py": {
+        "size": 4286
+      },
+      "rasterio/rio/stack.py": {
+        "size": 4165
+      },
+      "rasterio/rio/transform.py": {
+        "size": 2111
+      },
+      "rasterio/rio/warp.py": {
+        "size": 14904
+      },
+      "rasterio/rpc.py": {
+        "size": 4182
+      },
+      "rasterio/sample.py": {
+        "size": 2801
+      },
+      "rasterio/serde.py": {
+        "size": 181
+      },
+      "rasterio/session.py": {
+        "size": 21907
+      },
+      "rasterio/stack.py": {
+        "size": 13195
+      },
+      "rasterio/tools.py": {
+        "size": 2320
+      },
+      "rasterio/transform.py": {
+        "size": 19117
+      },
+      "rasterio/vrt.py": {
+        "size": 11244
+      },
+      "rasterio/warp.py": {
+        "size": 21215
+      },
+      "rasterio/windows.py": {
+        "size": 23581
+      },
+      "requirements-dev.txt": {
+        "size": 268
+      },
+      "requirements.txt": {
+        "size": 307
+      },
+      "setup.py": {
+        "size": 14995
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/conftest.py": {
+        "size": 17085
+      },
+      "tests/rangehttpserver.py": {
+        "size": 3672
+      },
+      "tests/test__env.py": {
+        "size": 4475
+      },
+      "tests/test__version.py": {
+        "size": 755
+      },
+      "tests/test_band.py": {
+        "size": 333
+      },
+      "tests/test_band_masks.py": {
+        "size": 5412
+      },
+      "tests/test_blocks.py": {
+        "size": 8076
+      },
+      "tests/test_boundless_read.py": {
+        "size": 8137
+      },
+      "tests/test_buffered_write.py": {
+        "size": 740
+      },
+      "tests/test_cache.py": {
+        "size": 288
+      },
+      "tests/test_checksum.py": {
+        "size": 1771
+      },
+      "tests/test_cli_main.py": {
+        "size": 583
+      },
+      "tests/test_colorinterp.py": {
+        "size": 3264
+      },
+      "tests/test_colormap.py": {
+        "size": 837
+      },
+      "tests/test_complex_dtypes.py": {
+        "size": 2895
+      },
+      "tests/test_coords.py": {
+        "size": 1375
+      },
+      "tests/test_creation_options.py": {
+        "size": 783
+      },
+      "tests/test_crs.py": {
+        "size": 24590
+      },
+      "tests/test_data_paths.py": {
+        "size": 346
+      },
+      "tests/test_dataset.py": {
+        "size": 5457
+      },
+      "tests/test_dataset_mask.py": {
+        "size": 6149
+      },
+      "tests/test_dataset_rw.py": {
+        "size": 2044
+      },
+      "tests/test_deprecated.py": {
+        "size": 430
+      },
+      "tests/test_descriptions.py": {
+        "size": 1030
+      },
+      "tests/test_driver_management.py": {
+        "size": 1413
+      },
+      "tests/test_driver_policy.py": {
+        "size": 291
+      },
+      "tests/test_dtypes.py": {
+        "size": 4583
+      },
+      "tests/test_enums.py": {
+        "size": 507
+      },
+      "tests/test_env.py": {
+        "size": 37785
+      },
+      "tests/test_err.py": {
+        "size": 2011
+      },
+      "tests/test_features.py": {
+        "size": 39607
+      },
+      "tests/test_filepath.py": {
+        "size": 9171
+      },
+      "tests/test_fillnodata.py": {
+        "size": 1111
+      },
+      "tests/test_gcps.py": {
+        "size": 4942
+      },
+      "tests/test_gdal_raster_io.py": {
+        "size": 3569
+      },
+      "tests/test_image_structure.py": {
+        "size": 2111
+      },
+      "tests/test_indexing.py": {
+        "size": 9569
+      },
+      "tests/test_int8.py": {
+        "size": 1392
+      },
+      "tests/test_io.py": {
+        "size": 1004
+      },
+      "tests/test_io_mixins.py": {
+        "size": 3390
+      },
+      "tests/test_mask.py": {
+        "size": 10805
+      },
+      "tests/test_mask_creation.py": {
+        "size": 3462
+      },
+      "tests/test_memoryfile.py": {
+        "size": 17905
+      },
+      "tests/test_merge.py": {
+        "size": 10478
+      },
+      "tests/test_meta.py": {
+        "size": 833
+      },
+      "tests/test_no_georef.py": {
+        "size": 914
+      },
+      "tests/test_nodata.py": {
+        "size": 3147
+      },
+      "tests/test_open.py": {
+        "size": 1076
+      },
+      "tests/test_open_options.py": {
+        "size": 1607
+      },
+      "tests/test_open_overview_level.py": {
+        "size": 627
+      },
+      "tests/test_open_sharing.py": {
+        "size": 1437
+      },
+      "tests/test_options.py": {
+        "size": 506
+      },
+      "tests/test_overviews.py": {
+        "size": 5543
+      },
+      "tests/test_pad.py": {
+        "size": 305
+      },
+      "tests/test_path.py": {
+        "size": 8605
+      },
+      "tests/test_plot.py": {
+        "size": 9023
+      },
+      "tests/test_png.py": {
+        "size": 636
+      },
+      "tests/test_process_pool_executor.py": {
+        "size": 796
+      },
+      "tests/test_profile.py": {
+        "size": 3536
+      },
+      "tests/test_pyopener.py": {
+        "size": 11677
+      },
+      "tests/test_read.py": {
+        "size": 15174
+      },
+      "tests/test_read_boundless.py": {
+        "size": 6023
+      },
+      "tests/test_read_dtype.py": {
+        "size": 1187
+      },
+      "tests/test_read_resample.py": {
+        "size": 4082
+      },
+      "tests/test_reshape_image.py": {
+        "size": 724
+      },
+      "tests/test_revolvingdoor.py": {
+        "size": 810
+      },
+      "tests/test_rio_blocks.py": {
+        "size": 4543
+      },
+      "tests/test_rio_bounds.py": {
+        "size": 1161
+      },
+      "tests/test_rio_calc.py": {
+        "size": 7307
+      },
+      "tests/test_rio_clip.py": {
+        "size": 6515
+      },
+      "tests/test_rio_convert.py": {
+        "size": 6995
+      },
+      "tests/test_rio_create.py": {
+        "size": 11510
+      },
+      "tests/test_rio_edit_info.py": {
+        "size": 14954
+      },
+      "tests/test_rio_env.py": {
+        "size": 753
+      },
+      "tests/test_rio_gcp.py": {
+        "size": 2634
+      },
+      "tests/test_rio_helpers.py": {
+        "size": 2134
+      },
+      "tests/test_rio_info.py": {
+        "size": 12380
+      },
+      "tests/test_rio_insp.py": {
+        "size": 974
+      },
+      "tests/test_rio_main.py": {
+        "size": 781
+      },
+      "tests/test_rio_mask.py": {
+        "size": 6041
+      },
+      "tests/test_rio_merge.py": {
+        "size": 23423
+      },
+      "tests/test_rio_options.py": {
+        "size": 6406
+      },
+      "tests/test_rio_overview.py": {
+        "size": 3339
+      },
+      "tests/test_rio_rasterize.py": {
+        "size": 11435
+      },
+      "tests/test_rio_rm.py": {
+        "size": 1254
+      },
+      "tests/test_rio_sample.py": {
+        "size": 2093
+      },
+      "tests/test_rio_shapes.py": {
+        "size": 6827
+      },
+      "tests/test_rio_stack.py": {
+        "size": 3023
+      },
+      "tests/test_rio_transform.py": {
+        "size": 326
+      },
+      "tests/test_rio_warp.py": {
+        "size": 24154
+      },
+      "tests/test_rpcs.py": {
+        "size": 10489
+      },
+      "tests/test_sampling.py": {
+        "size": 2901
+      },
+      "tests/test_scale_offset.py": {
+        "size": 1551
+      },
+      "tests/test_session.py": {
+        "size": 17781
+      },
+      "tests/test_show_versions.py": {
+        "size": 1090
+      },
+      "tests/test_shutil.py": {
+        "size": 5123
+      },
+      "tests/test_statistics.py": {
+        "size": 3238
+      },
+      "tests/test_subdatasets.py": {
+        "size": 1451
+      },
+      "tests/test_tag_item.py": {
+        "size": 997
+      },
+      "tests/test_tag_ns.py": {
+        "size": 468
+      },
+      "tests/test_tags.py": {
+        "size": 2315
+      },
+      "tests/test_thread_pool_executor.py": {
+        "size": 806
+      },
+      "tests/test_threading.py": {
+        "size": 2148
+      },
+      "tests/test_tools.py": {
+        "size": 806
+      },
+      "tests/test_transform.py": {
+        "size": 18677
+      },
+      "tests/test_units.py": {
+        "size": 853
+      },
+      "tests/test_update.py": {
+        "size": 2786
+      },
+      "tests/test_vrt.py": {
+        "size": 1227
+      },
+      "tests/test_warnings.py": {
+        "size": 1488
+      },
+      "tests/test_warp.py": {
+        "size": 77368
+      },
+      "tests/test_warp_transform.py": {
+        "size": 10604
+      },
+      "tests/test_warpedvrt.py": {
+        "size": 26149
+      },
+      "tests/test_windows.py": {
+        "size": 23090
+      },
+      "tests/test_windows_mixins.py": {
+        "size": 4083
+      },
+      "tests/test_write.py": {
+        "size": 20575
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "rasterio",
+        "module": "rasterio/__init__.py",
+        "functions": [
+          "open",
+          "band",
+          "bool_",
+          "ubyte",
+          "sbyte",
+          "uint16",
+          "int16",
+          "uint32",
+          "int32",
+          "uint64",
+          "int64",
+          "float32",
+          "float64"
+        ],
+        "classes": [],
+        "description": "Top-level API surface for dataset opening and dtype aliases; primary import entry for library users."
+      },
+      {
+        "package": "rasterio",
+        "module": "rasterio/io.py",
+        "functions": [],
+        "classes": [
+          "MemoryFile",
+          "FilePath",
+          "DatasetReader",
+          "DatasetWriter"
+        ],
+        "description": "Core raster I/O abstractions and in-memory/file-backed dataset handling."
+      },
+      {
+        "package": "rasterio",
+        "module": "rasterio/env.py",
+        "functions": [
+          "defenv",
+          "setenv",
+          "getenv",
+          "delenv"
+        ],
+        "classes": [
+          "Env"
+        ],
+        "description": "GDAL/PROJ runtime environment management; critical for safe configuration and session scoping."
+      },
+      {
+        "package": "rasterio",
+        "module": "rasterio/features.py",
+        "functions": [
+          "shapes",
+          "rasterize",
+          "geometry_mask",
+          "sieve",
+          "bounds",
+          "is_valid_geom"
+        ],
+        "classes": [],
+        "description": "Vector/raster feature conversion and masking operations frequently exposed in workflows."
+      },
+      {
+        "package": "rasterio",
+        "module": "rasterio/warp.py",
+        "functions": [
+          "reproject",
+          "calculate_default_transform",
+          "transform_bounds",
+          "transform_geom",
+          "aligned_target"
+        ],
+        "classes": [
+          "Resampling"
+        ],
+        "description": "Reprojection and coordinate transformation primitives for geospatial processing."
+      },
+      {
+        "package": "rasterio",
+        "module": "rasterio/windows.py",
+        "functions": [
+          "from_bounds",
+          "bounds",
+          "transform",
+          "intersection",
+          "intersect"
+        ],
+        "classes": [
+          "Window"
+        ],
+        "description": "Windowed read/write math for chunked and tiled raster access."
+      },
+      {
+        "package": "rasterio",
+        "module": "rasterio/transform.py",
+        "functions": [
+          "from_origin",
+          "from_bounds",
+          "xy",
+          "rowcol",
+          "array_bounds"
+        ],
+        "classes": [
+          "AffineTransformer",
+          "GCPTransformer",
+          "RPCTransformer"
+        ],
+        "description": "Pixel-to-world/world-to-pixel coordinate transform helpers."
+      },
+      {
+        "package": "rasterio",
+        "module": "rasterio/mask.py",
+        "functions": [
+          "mask",
+          "raster_geometry_mask"
+        ],
+        "classes": [],
+        "description": "Geometry-driven masking and crop behavior for raster datasets."
+      },
+      {
+        "package": "rasterio",
+        "module": "rasterio/merge.py",
+        "functions": [
+          "merge"
+        ],
+        "classes": [],
+        "description": "Raster mosaic/merge operation across multiple sources."
+      },
+      {
+        "package": "rasterio",
+        "module": "rasterio/rio/main.py",
+        "functions": [
+          "main"
+        ],
+        "classes": [],
+        "description": "CLI root for the `rio` command group and command registration."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "rio",
+        "module": "rasterio/rio/main.py",
+        "description": "Primary CLI entrypoint for rasterio command suite."
+      },
+      {
+        "name": "rio blocks",
+        "module": "rasterio/rio/blocks.py",
+        "description": "Inspect internal block structure of raster datasets."
+      },
+      {
+        "name": "rio bounds",
+        "module": "rasterio/rio/bounds.py",
+        "description": "Report dataset bounds."
+      },
+      {
+        "name": "rio calc",
+        "module": "rasterio/rio/calc.py",
+        "description": "Raster calculator-style expression evaluation."
+      },
+      {
+        "name": "rio clip",
+        "module": "rasterio/rio/clip.py",
+        "description": "Clip rasters with bounds/geometry."
+      },
+      {
+        "name": "rio convert",
+        "module": "rasterio/rio/convert.py",
+        "description": "Translate raster formats and options."
+      },
+      {
+        "name": "rio create",
+        "module": "rasterio/rio/create.py",
+        "description": "Create new raster datasets from parameters."
+      },
+      {
+        "name": "rio edit-info",
+        "module": "rasterio/rio/edit_info.py",
+        "description": "Edit metadata/CRS/transform-like dataset info."
+      },
+      {
+        "name": "rio env",
+        "module": "rasterio/rio/env.py",
+        "description": "Inspect runtime environment and GDAL config."
+      },
+      {
+        "name": "rio gcps",
+        "module": "rasterio/rio/gcps.py",
+        "description": "Inspect/manage ground control points."
+      },
+      {
+        "name": "rio info",
+        "module": "rasterio/rio/info.py",
+        "description": "Output dataset metadata summary."
+      },
+      {
+        "name": "rio insp",
+        "module": "rasterio/rio/insp.py",
+        "description": "Interactive inspection helpers."
+      },
+      {
+        "name": "rio mask",
+        "module": "rasterio/rio/mask.py",
+        "description": "Mask raster data by vector geometries."
+      },
+      {
+        "name": "rio merge",
+        "module": "rasterio/rio/merge.py",
+        "description": "Merge multiple rasters into one mosaic."
+      },
+      {
+        "name": "rio overview",
+        "module": "rasterio/rio/overview.py",
+        "description": "Build/manage raster overviews."
+      },
+      {
+        "name": "rio rasterize",
+        "module": "rasterio/rio/rasterize.py",
+        "description": "Rasterize vector features."
+      },
+      {
+        "name": "rio rm",
+        "module": "rasterio/rio/rm.py",
+        "description": "Remove dataset artifacts/paths (driver-dependent behavior)."
+      },
+      {
+        "name": "rio sample",
+        "module": "rasterio/rio/sample.py",
+        "description": "Sample raster values at coordinates."
+      },
+      {
+        "name": "rio shapes",
+        "module": "rasterio/rio/shapes.py",
+        "description": "Extract vector shapes from raster regions."
+      },
+      {
+        "name": "rio stack",
+        "module": "rasterio/rio/stack.py",
+        "description": "Stack bands from multiple rasters."
+      },
+      {
+        "name": "rio transform",
+        "module": "rasterio/rio/transform.py",
+        "description": "Coordinate and affine transform utilities."
+      },
+      {
+        "name": "rio warp",
+        "module": "rasterio/rio/warp.py",
+        "description": "Reproject/warp rasters."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "affine",
+        "attrs",
+        "click",
+        "cligj",
+        "snuggs",
+        "click-plugins",
+        "setuptools",
+        "GDAL (native shared library/runtime)"
+      ],
+      "optional": [
+        "matplotlib (plotting paths)",
+        "pytest (tests only)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/rasterio/rasterio",
+    "repo_name": "rasterio",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.72,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

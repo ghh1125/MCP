@@ -1,0 +1,843 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/FEniCS/ufl",
+    "summary": "Imported via zip fallback, file count: 217",
+    "file_tree": {
+      ".github/FUNDING.yml": {
+        "size": 140
+      },
+      ".github/dependabot.yml": {
+        "size": 695
+      },
+      ".github/workflows/all.yml": {
+        "size": 1140
+      },
+      ".github/workflows/build-wheels.yml": {
+        "size": 2404
+      },
+      ".github/workflows/docs.yml": {
+        "size": 2160
+      },
+      ".github/workflows/fenicsx-tests.yml": {
+        "size": 2769
+      },
+      ".github/workflows/lint.yml": {
+        "size": 626
+      },
+      ".github/workflows/spack.yml": {
+        "size": 1862
+      },
+      ".github/workflows/test.yml": {
+        "size": 2036
+      },
+      ".github/workflows/tsfc-tests.yml": {
+        "size": 1095
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 3748
+      },
+      "ChangeLog.md": {
+        "size": 15942
+      },
+      "README.md": {
+        "size": 1578
+      },
+      "demo/Constant.py": {
+        "size": 1326
+      },
+      "demo/ConvectionJacobi.py": {
+        "size": 492
+      },
+      "demo/ConvectionJacobi2.py": {
+        "size": 451
+      },
+      "demo/ConvectionVector.py": {
+        "size": 393
+      },
+      "demo/Elasticity.py": {
+        "size": 506
+      },
+      "demo/EnergyNorm.py": {
+        "size": 1133
+      },
+      "demo/Equation.py": {
+        "size": 1852
+      },
+      "demo/ExplicitConvection.py": {
+        "size": 474
+      },
+      "demo/FunctionOperators.py": {
+        "size": 1287
+      },
+      "demo/H1norm.py": {
+        "size": 357
+      },
+      "demo/HarmonicMap.py": {
+        "size": 606
+      },
+      "demo/HarmonicMap2.py": {
+        "size": 606
+      },
+      "demo/Heat.py": {
+        "size": 1506
+      },
+      "demo/HornSchunck.py": {
+        "size": 982
+      },
+      "demo/HyperElasticity.py": {
+        "size": 2433
+      },
+      "demo/HyperElasticity1D.py": {
+        "size": 551
+      },
+      "demo/L2norm.py": {
+        "size": 319
+      },
+      "demo/Mass.py": {
+        "size": 1117
+      },
+      "demo/MassAD.py": {
+        "size": 417
+      },
+      "demo/MixedElasticity.py": {
+        "size": 1909
+      },
+      "demo/MixedMixedElement.py": {
+        "size": 884
+      },
+      "demo/MixedPoisson.py": {
+        "size": 1760
+      },
+      "demo/MixedPoisson2.py": {
+        "size": 894
+      },
+      "demo/NavierStokes.py": {
+        "size": 1314
+      },
+      "demo/NeumannProblem.py": {
+        "size": 1300
+      },
+      "demo/NonlinearPoisson.py": {
+        "size": 553
+      },
+      "demo/P5tet.py": {
+        "size": 862
+      },
+      "demo/P5tri.py": {
+        "size": 853
+      },
+      "demo/Poisson.py": {
+        "size": 1294
+      },
+      "demo/PoissonDG.py": {
+        "size": 1911
+      },
+      "demo/PoissonSystem.py": {
+        "size": 1335
+      },
+      "demo/PowAD.py": {
+        "size": 471
+      },
+      "demo/ProjectionSystem.py": {
+        "size": 359
+      },
+      "demo/QuadratureElement.py": {
+        "size": 1869
+      },
+      "demo/Stiffness.py": {
+        "size": 389
+      },
+      "demo/StiffnessAD.py": {
+        "size": 699
+      },
+      "demo/Stokes.py": {
+        "size": 1500
+      },
+      "demo/StokesEquation.py": {
+        "size": 1616
+      },
+      "demo/SubDomain.py": {
+        "size": 1173
+      },
+      "demo/SubDomains.py": {
+        "size": 1327
+      },
+      "demo/TensorWeightedPoisson.py": {
+        "size": 1428
+      },
+      "demo/VectorLaplaceGradCurl.py": {
+        "size": 1848
+      },
+      "doc/source/conf.py": {
+        "size": 10043
+      },
+      "pyproject.toml": {
+        "size": 2217
+      },
+      "test/conftest.py": {
+        "size": 1743
+      },
+      "test/mockobjects.py": {
+        "size": 1180
+      },
+      "test/test_algorithms.py": {
+        "size": 4864
+      },
+      "test/test_analyse_demos.py": {
+        "size": 522
+      },
+      "test/test_apply_algebra_lowering.py": {
+        "size": 3576
+      },
+      "test/test_apply_coefficent_split.py": {
+        "size": 2856
+      },
+      "test/test_apply_function_pullbacks.py": {
+        "size": 15690
+      },
+      "test/test_apply_restrictions.py": {
+        "size": 2826
+      },
+      "test/test_arithmetic.py": {
+        "size": 3235
+      },
+      "test/test_automatic_differentiation.py": {
+        "size": 21417
+      },
+      "test/test_cell.py": {
+        "size": 2190
+      },
+      "test/test_change_to_local.py": {
+        "size": 2612
+      },
+      "test/test_change_to_reference_frame.py": {
+        "size": 6119
+      },
+      "test/test_check_arities.py": {
+        "size": 3217
+      },
+      "test/test_classcoverage.py": {
+        "size": 17752
+      },
+      "test/test_complex.py": {
+        "size": 6034
+      },
+      "test/test_conditionals.py": {
+        "size": 4326
+      },
+      "test/test_degree_estimation.py": {
+        "size": 4722
+      },
+      "test/test_derivative.py": {
+        "size": 24731
+      },
+      "test/test_diff.py": {
+        "size": 3632
+      },
+      "test/test_domains.py": {
+        "size": 11693
+      },
+      "test/test_duals.py": {
+        "size": 9552
+      },
+      "test/test_equals.py": {
+        "size": 3385
+      },
+      "test/test_evaluate.py": {
+        "size": 10123
+      },
+      "test/test_expand_indices.py": {
+        "size": 9876
+      },
+      "test/test_external_operator.py": {
+        "size": 17790
+      },
+      "test/test_extract_blocks.py": {
+        "size": 5437
+      },
+      "test/test_ffcforms.py": {
+        "size": 11908
+      },
+      "test/test_form.py": {
+        "size": 5272
+      },
+      "test/test_illegal.py": {
+        "size": 1634
+      },
+      "test/test_indexing.py": {
+        "size": 1668
+      },
+      "test/test_indices.py": {
+        "size": 9144
+      },
+      "test/test_interpolate.py": {
+        "size": 16476
+      },
+      "test/test_lhs_rhs.py": {
+        "size": 2108
+      },
+      "test/test_literals.py": {
+        "size": 4078
+      },
+      "test/test_measures.py": {
+        "size": 6515
+      },
+      "test/test_mixed_function_space.py": {
+        "size": 6772
+      },
+      "test/test_mixed_function_space_with_mesh_sequence.py": {
+        "size": 13884
+      },
+      "test/test_new_ad.py": {
+        "size": 6808
+      },
+      "test/test_pickle.py": {
+        "size": 16427
+      },
+      "test/test_piecewise_checks.py": {
+        "size": 10321
+      },
+      "test/test_reference_shapes.py": {
+        "size": 1841
+      },
+      "test/test_scratch.py": {
+        "size": 15809
+      },
+      "test/test_signature.py": {
+        "size": 20401
+      },
+      "test/test_simplify.py": {
+        "size": 8217
+      },
+      "test/test_sobolevspace.py": {
+        "size": 5228
+      },
+      "test/test_split.py": {
+        "size": 3641
+      },
+      "test/test_str.py": {
+        "size": 3627
+      },
+      "test/test_strip_forms.py": {
+        "size": 3547
+      },
+      "test/test_tensoralgebra.py": {
+        "size": 5011
+      },
+      "test/test_utilities.py": {
+        "size": 4824
+      },
+      "test/utils.py": {
+        "size": 8623
+      },
+      "ufl/__init__.py": {
+        "size": 11409
+      },
+      "ufl/action.py": {
+        "size": 9981
+      },
+      "ufl/adjoint.py": {
+        "size": 4408
+      },
+      "ufl/algebra.py": {
+        "size": 14338
+      },
+      "ufl/algorithms/__init__.py": {
+        "size": 2938
+      },
+      "ufl/algorithms/ad.py": {
+        "size": 1071
+      },
+      "ufl/algorithms/analysis.py": {
+        "size": 11501
+      },
+      "ufl/algorithms/apply_algebra_lowering.py": {
+        "size": 4442
+      },
+      "ufl/algorithms/apply_coefficient_split.py": {
+        "size": 8685
+      },
+      "ufl/algorithms/apply_derivatives.py": {
+        "size": 83035
+      },
+      "ufl/algorithms/apply_function_pullbacks.py": {
+        "size": 1843
+      },
+      "ufl/algorithms/apply_geometry_lowering.py": {
+        "size": 18611
+      },
+      "ufl/algorithms/apply_integral_scaling.py": {
+        "size": 5351
+      },
+      "ufl/algorithms/apply_restrictions.py": {
+        "size": 11820
+      },
+      "ufl/algorithms/balancing.py": {
+        "size": 2247
+      },
+      "ufl/algorithms/change_to_reference.py": {
+        "size": 8399
+      },
+      "ufl/algorithms/check_arities.py": {
+        "size": 7552
+      },
+      "ufl/algorithms/check_restrictions.py": {
+        "size": 2033
+      },
+      "ufl/algorithms/checks.py": {
+        "size": 4018
+      },
+      "ufl/algorithms/comparison_checker.py": {
+        "size": 4531
+      },
+      "ufl/algorithms/compute_form_data.py": {
+        "size": 8380
+      },
+      "ufl/algorithms/coordinate_derivative_helpers.py": {
+        "size": 3275
+      },
+      "ufl/algorithms/domain_analysis.py": {
+        "size": 18539
+      },
+      "ufl/algorithms/estimate_degrees.py": {
+        "size": 12213
+      },
+      "ufl/algorithms/expand_indices.py": {
+        "size": 7513
+      },
+      "ufl/algorithms/formdata.py": {
+        "size": 20047
+      },
+      "ufl/algorithms/formfiles.py": {
+        "size": 6739
+      },
+      "ufl/algorithms/formsplitter.py": {
+        "size": 8769
+      },
+      "ufl/algorithms/formtransformations.py": {
+        "size": 19886
+      },
+      "ufl/algorithms/map_integrands.py": {
+        "size": 3579
+      },
+      "ufl/algorithms/remove_complex_nodes.py": {
+        "size": 1192
+      },
+      "ufl/algorithms/remove_component_tensors.py": {
+        "size": 3197
+      },
+      "ufl/algorithms/renumbering.py": {
+        "size": 1934
+      },
+      "ufl/algorithms/replace.py": {
+        "size": 3404
+      },
+      "ufl/algorithms/replace_derivative_nodes.py": {
+        "size": 2769
+      },
+      "ufl/algorithms/signature.py": {
+        "size": 6107
+      },
+      "ufl/algorithms/strip_terminal_data.py": {
+        "size": 5019
+      },
+      "ufl/algorithms/transformer.py": {
+        "size": 7932
+      },
+      "ufl/algorithms/traversal.py": {
+        "size": 1333
+      },
+      "ufl/argument.py": {
+        "size": 10162
+      },
+      "ufl/averaging.py": {
+        "size": 2097
+      },
+      "ufl/cell.py": {
+        "size": 20092
+      },
+      "ufl/checks.py": {
+        "size": 2173
+      },
+      "ufl/classes.py": {
+        "size": 9811
+      },
+      "ufl/coefficient.py": {
+        "size": 7221
+      },
+      "ufl/compound_expressions.py": {
+        "size": 17096
+      },
+      "ufl/conditional.py": {
+        "size": 12099
+      },
+      "ufl/constant.py": {
+        "size": 2523
+      },
+      "ufl/constantvalue.py": {
+        "size": 14808
+      },
+      "ufl/core/__init__.py": {
+        "size": 16
+      },
+      "ufl/core/base_form_operator.py": {
+        "size": 8760
+      },
+      "ufl/core/compute_expr_hash.py": {
+        "size": 1116
+      },
+      "ufl/core/expr.py": {
+        "size": 16793
+      },
+      "ufl/core/external_operator.py": {
+        "size": 4972
+      },
+      "ufl/core/interpolate.py": {
+        "size": 4273
+      },
+      "ufl/core/multiindex.py": {
+        "size": 7280
+      },
+      "ufl/core/operator.py": {
+        "size": 1600
+      },
+      "ufl/core/terminal.py": {
+        "size": 3088
+      },
+      "ufl/core/ufl_id.py": {
+        "size": 1563
+      },
+      "ufl/core/ufl_type.py": {
+        "size": 16192
+      },
+      "ufl/corealg/__init__.py": {
+        "size": 23
+      },
+      "ufl/corealg/dag_traverser.py": {
+        "size": 4750
+      },
+      "ufl/corealg/map_dag.py": {
+        "size": 4854
+      },
+      "ufl/corealg/multifunction.py": {
+        "size": 4380
+      },
+      "ufl/corealg/traversal.py": {
+        "size": 4018
+      },
+      "ufl/differentiation.py": {
+        "size": 20361
+      },
+      "ufl/domain.py": {
+        "size": 16205
+      },
+      "ufl/duals.py": {
+        "size": 796
+      },
+      "ufl/equation.py": {
+        "size": 1885
+      },
+      "ufl/exprcontainers.py": {
+        "size": 3923
+      },
+      "ufl/exprequals.py": {
+        "size": 1886
+      },
+      "ufl/exproperators.py": {
+        "size": 11861
+      },
+      "ufl/finiteelement.py": {
+        "size": 4972
+      },
+      "ufl/form.py": {
+        "size": 33964
+      },
+      "ufl/formatting/__init__.py": {
+        "size": 18
+      },
+      "ufl/formatting/ufl2unicode.py": {
+        "size": 22671
+      },
+      "ufl/formoperators.py": {
+        "size": 20295
+      },
+      "ufl/functionspace.py": {
+        "size": 11359
+      },
+      "ufl/geometry.py": {
+        "size": 33490
+      },
+      "ufl/index_combination_utils.py": {
+        "size": 6809
+      },
+      "ufl/indexed.py": {
+        "size": 4432
+      },
+      "ufl/indexsum.py": {
+        "size": 3464
+      },
+      "ufl/integral.py": {
+        "size": 7833
+      },
+      "ufl/integral_domain.py": {
+        "size": 2388
+      },
+      "ufl/mathfunctions.py": {
+        "size": 13981
+      },
+      "ufl/matrix.py": {
+        "size": 3188
+      },
+      "ufl/measure.py": {
+        "size": 21816
+      },
+      "ufl/objects.py": {
+        "size": 1424
+      },
+      "ufl/operators.py": {
+        "size": 17831
+      },
+      "ufl/permutation.py": {
+        "size": 1552
+      },
+      "ufl/precedence.py": {
+        "size": 3519
+      },
+      "ufl/protocols.py": {
+        "size": 619
+      },
+      "ufl/pullback.py": {
+        "size": 22840
+      },
+      "ufl/referencevalue.py": {
+        "size": 1226
+      },
+      "ufl/restriction.py": {
+        "size": 1571
+      },
+      "ufl/sobolevspace.py": {
+        "size": 6318
+      },
+      "ufl/sorting.py": {
+        "size": 5935
+      },
+      "ufl/split_functions.py": {
+        "size": 4495
+      },
+      "ufl/tensoralgebra.py": {
+        "size": 16656
+      },
+      "ufl/tensors.py": {
+        "size": 18367
+      },
+      "ufl/utils/__init__.py": {
+        "size": 17
+      },
+      "ufl/utils/counted.py": {
+        "size": 1286
+      },
+      "ufl/utils/formatting.py": {
+        "size": 3999
+      },
+      "ufl/utils/indexflattening.py": {
+        "size": 923
+      },
+      "ufl/utils/sequences.py": {
+        "size": 820
+      },
+      "ufl/utils/sorting.py": {
+        "size": 3096
+      },
+      "ufl/utils/stacks.py": {
+        "size": 1266
+      },
+      "ufl/variable.py": {
+        "size": 3730
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "ufl",
+        "module": "__init__",
+        "functions": [
+          "as_ufl",
+          "replace",
+          "lhs",
+          "rhs",
+          "system",
+          "functional",
+          "action",
+          "adjoint",
+          "derivative",
+          "diff",
+          "grad",
+          "div",
+          "curl",
+          "rot",
+          "inner",
+          "dot",
+          "outer",
+          "cross",
+          "det",
+          "inv",
+          "tr",
+          "sym",
+          "skew",
+          "dev",
+          "diag",
+          "diag_vector",
+          "jump",
+          "avg",
+          "cell_avg",
+          "facet_avg",
+          "variable",
+          "conditional",
+          "min_value",
+          "max_value",
+          "And",
+          "Or",
+          "Not",
+          "sin",
+          "cos",
+          "tan",
+          "exp",
+          "ln",
+          "sqrt"
+        ],
+        "classes": [
+          "Expr",
+          "Form",
+          "Integral",
+          "FiniteElement",
+          "AbstractFiniteElement",
+          "FunctionSpace",
+          "MixedFunctionSpace",
+          "Argument",
+          "TestFunction",
+          "TrialFunction",
+          "Coefficient",
+          "Constant",
+          "Cell",
+          "Mesh",
+          "Measure"
+        ],
+        "description": "Top-level symbolic DSL API surface for building, transforming, and analyzing finite-element variational forms."
+      },
+      {
+        "package": "ufl.algorithms",
+        "module": "apply_derivatives",
+        "functions": [
+          "apply_derivatives",
+          "apply_coordinate_derivatives"
+        ],
+        "classes": [
+          "DerivativeRuleDispatcher",
+          "GenericDerivativeRuleset",
+          "GradRuleset",
+          "ReferenceGradRuleset"
+        ],
+        "description": "Core symbolic differentiation engine over UFL expression DAGs; central for AD and Jacobian generation workflows."
+      },
+      {
+        "package": "ufl.algorithms",
+        "module": "compute_form_data",
+        "functions": [
+          "compute_form_data"
+        ],
+        "classes": [
+          "FormData"
+        ],
+        "description": "Computes normalized/compiled metadata and transformed integrands for forms, widely used by downstream compilers/backends."
+      },
+      {
+        "package": "ufl.algorithms",
+        "module": "analysis",
+        "functions": [
+          "extract_arguments",
+          "extract_coefficients",
+          "extract_constants",
+          "extract_type",
+          "has_type"
+        ],
+        "classes": [],
+        "description": "Static analysis helpers for expression and form DAG inspection."
+      },
+      {
+        "package": "ufl.core",
+        "module": "expr",
+        "functions": [],
+        "classes": [
+          "Expr"
+        ],
+        "description": "Base symbolic expression node abstraction and common behavior."
+      },
+      {
+        "package": "ufl.form",
+        "module": "form",
+        "functions": [],
+        "classes": [
+          "Form",
+          "BaseForm"
+        ],
+        "description": "Form object model, integral grouping, hashing/signature interfaces, and algebraic composition semantics."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.9",
+        "numpy"
+      ],
+      "optional": [
+        "pytest (test only)",
+        "sympy (ecosystem-side, not core runtime for ufl package)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.95,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/FEniCS/ufl",
+    "repo_name": "ufl",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.95,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

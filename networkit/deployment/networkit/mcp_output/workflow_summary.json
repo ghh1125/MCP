@@ -1,0 +1,217 @@
+{
+  "repository": {
+    "name": "networkit",
+    "url": "https://github.com/networkit/networkit",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/networkit",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773239079.537448,
+    "end_time": 1773239296.275302,
+    "duration": 216.73785495758057,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 4,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.networkit",
+        "source.networkit.gephi",
+        "source.networkit.profiling",
+        "source.networkit.test"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/networkit/networkit",
+      "repo_name": "networkit",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/networkit/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add CI smoke tests for the generated MCP plugin (import",
+    "startup",
+    "and one call per exposed endpoint group)",
+    "pin and verify build/runtime dependency matrices across pyproject.toml/setup.py/requirements.txt to prevent drift",
+    "reduce MCP surface area by excluding package metadata dunder symbols from endpoints and grouping/aliasing API names consistently (snake_case)",
+    "add runtime capability checks with clear errors for optional backends (scipy/matplotlib/networkx/igraph/graph-tool/gephi)",
+    "introduce contract tests comparing MCP outputs to direct NetworKit calls for representative algorithms",
+    "add type hints plus pydantic request/response models for every MCP tool to improve validation and schema quality",
+    "implement timeout/retry/circuit-breaker behavior for Gephi/network-bound tools",
+    "add benchmark regression gates in CI for key algorithms (centrality/distance/community) with threshold-based alerts",
+    "strengthen packaging by adding wheel build verification for major OS/Python combos and testing compiled extension import in fresh venvs",
+    "improve observability with structured logging",
+    "per-endpoint latency/error metrics",
+    "and optional tracing hooks",
+    "create a compatibility policy and tests for Python/NumPy/SciPy version ranges",
+    "add notebook tests to CI with deterministic seeds and artifact capture",
+    "enforce lint/format/static analysis (ruff/black/mypy + C++ clang-format hooks) as required checks",
+    "document endpoint stability levels (stable/experimental) and deprecation workflow in README_MCP.md",
+    "add security hardening (input size limits",
+    "path sanitization",
+    "safe serialization",
+    "dependency vulnerability scan) for MCP-facing interfaces"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow status is success with all expected nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Import-mode adapter was feasible for this repo (import feasibility 0.72), enabling direct API exposure without black-box wrapping.",
+      "Generated MCP plugin started successfully with healthy service status over stdio transport.",
+      "Repository structure/dependency discovery was sufficient (requirements.txt, pyproject.toml, setup.py detected), reducing generation ambiguity.",
+      "No runtime errors or warnings were reported in pipeline logs."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality gap: original project tests were not passed/executed (reported passed=false, execution_time=0), so functional parity is unverified.",
+      "DeepWiki analysis failed, reducing depth of automated semantic understanding.",
+      "Generated artifact telemetry appears incomplete (0 LOC, 0 file size, 0 tool_endpoints in one section despite endpoint list elsewhere), indicating metrics/reporting inconsistency."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; likely fast and resilient, but per-node timing unavailable.",
+      "analysis_time": "Successful structural and LLM-direct analysis completed; moderate complexity repo (Python + C++ extension surface) handled within total 216.74s.",
+      "generation_time": "Plugin scaffold generation succeeded with 7 files created; endpoint mapping produced broad API surface.",
+      "test_time": "MCP smoke/startup appears successful (healthy), but original test suite did not run; validation depth is limited."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Not measurable from provided metrics (reported 0 MB); no evidence of memory pressure.",
+      "cpu_efficiency": "Not measurable from provided metrics (reported 0%); total runtime suggests acceptable efficiency for this workflow size.",
+      "disk_usage": "Minimal generated footprint (small scaffold); however, reported 0 size indicates instrumentation likely missing."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 61,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}

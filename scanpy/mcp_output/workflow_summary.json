@@ -1,0 +1,232 @@
+{
+  "repository": {
+    "name": "scanpy",
+    "url": "https://github.com/scverse/scanpy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/scanpy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773294818.893743,
+    "end_time": 1773295117.356999,
+    "duration": 298.4632558822632,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/scverse/scanpy",
+      "repo_name": "scanpy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/scanpy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/scanpy/temp_clone'...\nerror: RPC failed; curl 16 Error in the HTTP2 framing layer\nfatal: expected flush after ref listing\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/scanpy/temp_clone'...\nerror: RPC failed; curl 16 Error in the HTTP2 framing layer\nfatal: expected flush after ref listing\n"
+  ],
+  "recommendations": [
+    "Deduplicate endpoint names in the MCP adapter (e.g.",
+    "`neighbors` and `umap` appear twice)",
+    "Add schema-first input validation for all tool arguments (AnnData paths",
+    "layer names",
+    "keys",
+    "numeric ranges) with clear error messages",
+    "Introduce lightweight smoke tests for every exposed endpoint in `tests_mcp` (import + minimal call + expected output shape/type)",
+    "Add integration tests for optional dependency paths (`leidenalg`",
+    "`igraph`",
+    "`umap-learn`",
+    "`harmonypy`",
+    "etc.) with graceful-skip behavior",
+    "Pin and verify project dependencies in MCP packaging (prefer syncing from Scanpy `pyproject.toml` instead of minimal MCP-only requirements)",
+    "Expose endpoint metadata (stability level",
+    "required/optional deps",
+    "mutates `adata` or returns copy) in README and runtime introspection",
+    "Add timeout and memory guardrails for heavy operations (`neighbors`",
+    "`umap`",
+    "`rank_genes_groups`) to prevent runaway MCP jobs",
+    "Improve adapter resilience by adding structured exception mapping from Scanpy errors to MCP-friendly error codes",
+    "Validate import-mode startup on clean environments in CI (matrix across Python and key optional dependency sets)",
+    "Add benchmark-backed regression checks for core endpoints using existing `benchmarks/` assets",
+    "Normalize naming consistency between Scanpy API and MCP tools (document aliases",
+    "avoid ambiguity between plotting vs tool `umap`)",
+    "Add deterministic-mode options (seed propagation) across stochastic endpoints and test for reproducibility",
+    "Expand README_MCP with end-to-end workflows (read → preprocess → pca → neighbors → umap → leiden → rank_genes_groups)",
+    "Add file/IO safety checks (path existence",
+    "extension validation",
+    "overwrite policy) for `read`/`write`",
+    "Add observability hooks (structured logs",
+    "per-endpoint latency",
+    "failure counts) for MCP service operations",
+    "Ensure backward-compatible handling for deprecated Scanpy functions with explicit warnings surfaced through MCP",
+    "Add contract tests for return serialization (NumPy/pandas/AnnData-derived objects) to guarantee MCP transport compatibility",
+    "Create a minimal “healthcheck + version + dependency diagnostics” endpoint for faster deployment troubleshooting"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Resilience mechanism worked: clone failure was bypassed via zip fallback/imported archive, enabling downstream analysis and generation.",
+      "Import-mode adapter strategy was appropriate for a Python library like Scanpy (high import feasibility: 0.9).",
+      "MCP plugin boot/health validation passed (service_health=healthy, stdio transport)."
+    ],
+    "failure_reasons": [
+      "Primary git clone failed due to network/protocol issue (HTTP2 framing error, expected flush after ref listing).",
+      "Repository metadata extraction appears inconsistent (e.g., dependencies/pyproject not detected in summary despite pyproject.toml present in analyzed tree), indicating parser reliability gaps.",
+      "Quality signals are incomplete: zero recorded LLM/deepwiki calls, zero processed files in execution summary, and empty code review object reduce confidence in diagnostics fidelity."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Download step was degraded by clone failure; fallback path succeeded. This likely dominated latency and introduced instability risk.",
+      "analysis_time": "Analysis completed with meaningful module mapping, but metadata extraction inconsistencies suggest partial/fragile analysis pipeline behavior.",
+      "generation_time": "Generation succeeded quickly enough within total runtime, producing expected MCP scaffold and endpoint inventory.",
+      "test_time": "MCP runtime health test passed; original project tests were not actually validated despite a nominal 100% coverage field (likely placeholder)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Undetermined from telemetry (reported 0 MB). Instrumentation appears missing rather than true zero usage.",
+      "cpu_efficiency": "Undetermined from telemetry (reported 0%). Add real CPU sampling during node execution.",
+      "disk_usage": "Low-to-moderate; generated plugin artifacts are small, but repository footprint is significant (~332 files)."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 60,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}

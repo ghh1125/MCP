@@ -1,0 +1,218 @@
+{
+  "repository": {
+    "name": "TextBlob",
+    "url": "https://github.com/sloria/TextBlob",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/TextBlob",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773283369.4975638,
+    "end_time": 1773283638.150363,
+    "duration": 268.6528000831604,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.93,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/sloria/TextBlob",
+      "repo_name": "TextBlob",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/TextBlob/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/TextBlob/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75002 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/TextBlob/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75002 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n"
+  ],
+  "recommendations": [
+    "Add a CI test matrix (Python versions + OS) with coverage gates",
+    "migrate packaging metadata to `pyproject.toml` while keeping `setup.py` compatibility",
+    "add a minimal `requirements.txt` and pinned dev/test lock file for reproducible environments",
+    "create focused tests for network-dependent translation and corpus-download paths using mocks",
+    "add contract tests for generated MCP endpoints to ensure adapter/API parity with TextBlob classes and functions",
+    "introduce structured error handling and timeout/retry configuration for `textblob.translate` and download utilities",
+    "add type hints to public APIs and run mypy/pyright in CI",
+    "enforce lint/format tooling (ruff + black/isort) via pre-commit hooks",
+    "split large modules (`textblob/_text.py`",
+    "`textblob/blob.py`) into smaller internal units to improve maintainability",
+    "document optional dependency behavior (`pattern`/`pattern3`) and feature degradation clearly in README/docs",
+    "add smoke tests for `python -m textblob.download_corpora` CLI and MCP `start_mcp.py` startup",
+    "define semantic versioning and changelog automation (e.g.",
+    "towncrier/release-drafter)",
+    "add benchmarking for tokenization/tagging/sentiment hot paths to catch regressions",
+    "improve plugin README with endpoint examples and authentication/deployment guidance",
+    "add observability in MCP service (structured logs",
+    "request IDs",
+    "basic health check)",
+    "include security/dependency scanning in CI (pip-audit/safety",
+    "GitHub Dependabot)"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status `success` and executed all planned nodes: download, analysis, env, generate, run, review, finalize.",
+      "Resilience mechanism worked: after git clone network failure, pipeline continued via fallback import path (zip fallback) and still produced MCP artifacts.",
+      "MCP plugin startup/health check passed (`service_health: healthy`, `mcp_plugin.passed: true`, stdio transport), indicating runnable generated service.",
+      "Low intrusiveness import-adapter strategy (confidence ~0.9–0.93) fit TextBlob’s module-oriented API and enabled broad endpoint coverage."
+    ],
+    "failure_reasons": [
+      "Primary source acquisition failed due to external network connectivity issue to github.com:443 (`curl 28 timeout`, `expected flush after ref listing`).",
+      "Observability/data quality gap: execution metadata reports `total_files_processed: 0`, `llm_calls: 0`, while detailed state shows 55 files processed via fallback; this inconsistency reduces trust in metrics.",
+      "Validation depth was limited: original project tests did not pass/run meaningfully (`passed: false`, empty details), so functional parity risk remains despite healthy MCP startup."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Dominant delay source was download/network stage (~75s timeout visible in clone error). This likely consumed a significant part of total 268.65s.",
+      "analysis_time": "Analysis completed successfully after fallback and identified core modules/endpoints; likely moderate duration relative to total runtime.",
+      "generation_time": "Generation completed and produced expected scaffold files quickly; no generation-time errors reported.",
+      "test_time": "MCP smoke/health checks were successful and fast; original project test execution appears skipped or non-executed despite 100% coverage placeholder."
+    },
+    "resource_usage": {
+      "memory_efficiency": "No reliable telemetry captured (reported 0 MB). Given successful lightweight generation, practical memory usage was likely low-to-moderate.",
+      "cpu_efficiency": "No reliable telemetry captured (reported 0%). Workload profile suggests mostly I/O-bound (network timeout + file analysis) with modest CPU demand.",
+      "disk_usage": "Generated output footprint appears small (scaffold + README + requirements), but reported 0-byte metrics indicate instrumentation gaps."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 81,
+    "performance_score": 66,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

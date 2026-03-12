@@ -1,0 +1,272 @@
+{
+  "repository": {
+    "name": "MONAI",
+    "url": "https://github.com/Project-MONAI/MONAI",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/MONAI",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773272768.3678038,
+    "end_time": 1773272945.960119,
+    "duration": 177.59231615066528,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 35,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.monai",
+        "source.monai._extensions",
+        "source.monai.apps",
+        "source.monai.auto3dseg",
+        "source.monai.bundle",
+        "source.monai.config",
+        "source.monai.data",
+        "source.monai.engines",
+        "source.monai.fl",
+        "source.monai.handlers",
+        "source.monai.inferers",
+        "source.monai.losses",
+        "source.monai.metrics",
+        "source.monai.networks",
+        "source.monai.optimizers",
+        "source.monai.transforms",
+        "source.monai.utils",
+        "source.monai.visualize",
+        "source.tests",
+        "source.tests.apps",
+        "source.tests.bundle",
+        "source.tests.config",
+        "source.tests.engines",
+        "source.tests.fl",
+        "source.tests.handlers",
+        "source.tests.inferers",
+        "source.tests.integration",
+        "source.tests.losses",
+        "source.tests.metrics",
+        "source.tests.networks",
+        "source.tests.optimizers",
+        "source.tests.profile_subclass",
+        "source.tests.transforms",
+        "source.tests.utils",
+        "source.tests.visualize"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/Project-MONAI/MONAI",
+      "repo_name": "MONAI",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/MONAI/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "define a minimal “core-safe” MCP surface (e.g.",
+    "bundle/config_parser/sliding_window_inference) and move heavyweight endpoints (AutoRunner",
+    "trainers",
+    "large nets) behind optional feature flags",
+    "add strict input/output schemas per endpoint with pydantic validation (paths",
+    "tensor shapes",
+    "dtypes",
+    "device) to prevent runtime misuse",
+    "implement endpoint-level smoke tests in `mcp_output/tests_mcp` for every exported tool plus at least one integration test per CLI (`python -m monai.bundle`",
+    "`auto3dseg`",
+    "`nnunet`)",
+    "introduce dependency-aware routing that returns actionable install hints when optional MONAI deps are missing (itk",
+    "nibabel",
+    "cucim",
+    "mlflow",
+    "etc.)",
+    "pin and lock MCP plugin dependencies (`fastmcp`",
+    "`pydantic`) and add a reproducible constraints file to reduce breakage",
+    "add startup health checks (import torch/monai",
+    "CUDA visibility",
+    "optional package matrix) and expose a `/health` capability endpoint",
+    "reduce API sprawl by namespacing and alias cleanup (e.g.",
+    "class constructors vs function tools) to avoid ambiguous endpoints like `configparser` vs `parse`",
+    "add structured error taxonomy (validation/import/runtime) with consistent messages and remediation steps in responses",
+    "add lightweight performance guards (timeouts",
+    "max input size",
+    "sliding-window parameter caps) for inference endpoints to avoid OOM and long hangs",
+    "cache expensive imports/lazy-load heavy modules inside adapter methods to improve cold-start latency",
+    "generate and publish an endpoint compatibility matrix in `README_MCP.md` (CPU/GPU",
+    "required extras",
+    "expected input contracts",
+    "examples)",
+    "add CI workflow for MCP output (lint",
+    "type-check",
+    "smoke test",
+    "minimal integration) independent of MONAI’s main CI to catch plugin regressions early",
+    "add observability hooks (request id",
+    "latency",
+    "endpoint success/failure counters) and optional debug logging toggles",
+    "harden file/path handling for bundle operations (`download`",
+    "`load`",
+    "`init_bundle`) with allowlisted directories and path traversal checks",
+    "create versioned API contracts for MCP endpoints so MONAI upstream updates don’t silently break clients",
+    "include golden test fixtures for representative workflows (bundle verify",
+    "config parse",
+    "sliding window inference) to detect behavioral drift",
+    "document fallback behavior clearly (import vs CLI) and add automatic fallback only for endpoints proven equivalent by tests"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-first adapter strategy is appropriate for MONAI (import feasibility ~0.9, low intrusiveness risk).",
+      "Core MONAI surfaces were correctly identified (bundle scripts/config parser/inferers), enabling practical MCP wrapping.",
+      "Generated MCP service started healthy over stdio and passed plugin-level health checks."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality gap: original project tests are marked failed/not executed despite reported 100% coverage metadata inconsistency.",
+      "Observability gap: per-node timing, LOC, file-size, and runtime resource metrics were not captured (reported as 0/unknown).",
+      "DeepWiki analysis failed, reducing external contextual validation."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository imported via zip fallback (suggests network/API fallback worked). Exact node duration not recorded.",
+      "analysis_time": "Completed successfully on a large codebase (~1357 files); package/dependency/core-module extraction worked. Exact duration not recorded.",
+      "generation_time": "Completed successfully; 7 MCP output files generated with broad endpoint list. Reported LOC/size = 0 indicates missing instrumentation rather than zero output.",
+      "test_time": "MCP plugin health passed; original project test stage flagged failed/empty. Test execution timing not recorded."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to missing telemetry (0 MB reported). Add runtime profiling hooks.",
+      "cpu_efficiency": "Unknown due to missing telemetry (0% reported). Capture per-node CPU utilization.",
+      "disk_usage": "Moderate-to-high expected for MONAI-scale repo; generated artifact size telemetry missing."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 82,
+    "performance_score": 66,
+    "maintainability_score": 74,
+    "security_score": 85,
+    "scalability_score": 72
+  }
+}

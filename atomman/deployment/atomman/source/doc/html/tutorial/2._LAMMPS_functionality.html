@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to atomman: LAMMPS functionality &#8212; atomman 1.4.11 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=eeb27264" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=651a37ba"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to atomman: LAMMPS Potentials" href="2.1._Potential_class.html" />
+    <link rel="prev" title="Introduction to atomman: Settings and Library" href="1.5._Settings_and_databases.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="2.1._Potential_class.html" title="Introduction to atomman: LAMMPS Potentials"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="1.5._Settings_and_databases.html" title="Introduction to atomman: Settings and Library"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">atomman 1.4.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction to atomman: LAMMPS functionality</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="Introduction-to-atomman:-LAMMPS-functionality">
+<h1>Introduction to atomman: LAMMPS functionality<a class="headerlink" href="#Introduction-to-atomman:-LAMMPS-functionality" title="Link to this heading">¶</a></h1>
+<p><strong>Lucas M. Hale</strong>, <a class="reference external" href="mailto:lucas&#46;hale&#37;&#52;&#48;nist&#46;gov?Subject=ipr-demo">lucas<span>&#46;</span>hale<span>&#64;</span>nist<span>&#46;</span>gov</a>, <em>Materials Science and Engineering Division, NIST</em>.</p>
+<p><a class="reference external" href="http://www.nist.gov/public_affairs/disclaimer.cfm">Disclaimers</a></p>
+<section id="1.-Introduction">
+<h2>1. Introduction<a class="headerlink" href="#1.-Introduction" title="Link to this heading">¶</a></h2>
+<p>This Notebook provides an introduction to interacting with LAMMPS using atomman by working through a demonstration simulation.</p>
+<p><strong>Library Imports</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard libraries</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># http://www.numpy.org/</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># http://matplotlib.org/</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># https://github.com/usnistgov/atomman</span>
+<span class="kn">import</span> <span class="nn">atomman</span> <span class="k">as</span> <span class="nn">am</span>
+<span class="kn">import</span> <span class="nn">atomman.lammps</span> <span class="k">as</span> <span class="nn">lmp</span>
+<span class="kn">import</span> <span class="nn">atomman.unitconvert</span> <span class="k">as</span> <span class="nn">uc</span>
+
+<span class="c1"># Show atomman version</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;atomman version =&#39;</span><span class="p">,</span> <span class="n">am</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="c1"># Show date of Notebook execution</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Notebook executed on&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+atomman version = 1.4.11
+Notebook executed on 2024-04-29
+</pre></div></div>
+</div>
+</section>
+<section id="2.-Interatomic-Potential-Control">
+<h2>2. Interatomic Potential Control<a class="headerlink" href="#2.-Interatomic-Potential-Control" title="Link to this heading">¶</a></h2>
+<p>LAMMPS is capable of using a wide array of interatomic potential styles, which are defined through a combination of LAMMPS commands and potential parameter files. In atomman, the LAMMPS commands can be automatically generated using the Potentials class and structured data model files.</p>
+<section id="2.1.-Load-potential-from-database">
+<h3>2.1. Load potential from database<a class="headerlink" href="#2.1.-Load-potential-from-database" title="Link to this heading">¶</a></h3>
+<p>Any LAMMPS-compatible potential in the NIST Interatomic Potentials Repository can be loaded/downloaded using load_lammps_potential().</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load potential based on its unique ID</span>
+<span class="n">pot_id</span> <span class="o">=</span> <span class="s1">&#39;2015--Pascuet-M-I--Al--LAMMPS--ipr1&#39;</span>
+<span class="n">potential</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">load_lammps_potential</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">pot_id</span><span class="p">,</span> <span class="n">getfiles</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="2.2.-Potential-parameter-files">
+<h3>2.2. Potential parameter files<a class="headerlink" href="#2.2.-Potential-parameter-files" title="Link to this heading">¶</a></h3>
+<p>Setting getfiles=True will copy/download the potential parameter files from the local/remote library database to the current working directory in a subfolder matching the potential’s id.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">pot_id</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="2.3.-lammps.Potential-Class">
+<h3>2.3. lammps.Potential Class<a class="headerlink" href="#2.3.-lammps.Potential-Class" title="Link to this heading">¶</a></h3>
+<p>The load_lammps_potential() function returns a Potential object that can be used to explore properties of the potential and generate LAMMPS input commands.</p>
+<p>Basic properties can be directly obtained.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show that basic properties can be directly obtained</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;str(potential) -&gt;       &#39;</span><span class="p">,</span> <span class="n">potential</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;potential.units -&gt;      &#39;</span><span class="p">,</span> <span class="n">potential</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;potential.atom_style -&gt; &#39;</span><span class="p">,</span> <span class="n">potential</span><span class="o">.</span><span class="n">atom_style</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;potential.pair_style -&gt; &#39;</span><span class="p">,</span> <span class="n">potential</span><span class="o">.</span><span class="n">pair_style</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;potential.symbols -&gt;    &#39;</span><span class="p">,</span> <span class="n">potential</span><span class="o">.</span><span class="n">symbols</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;potential.elements() -&gt; &#39;</span><span class="p">,</span> <span class="n">potential</span><span class="o">.</span><span class="n">elements</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;potential.masses() -&gt;   &#39;</span><span class="p">,</span> <span class="n">potential</span><span class="o">.</span><span class="n">masses</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+str(potential) -&gt;        potential_LAMMPS record named 2015--Pascuet-M-I--Al--LAMMPS--ipr1
+potential.units -&gt;       metal
+potential.atom_style -&gt;  atomic
+potential.pair_style -&gt;  meam
+potential.symbols -&gt;     [&#39;Al&#39;]
+potential.elements() -&gt;  [&#39;Al&#39;]
+potential.masses() -&gt;    [26.9815]
+</pre></div></div>
+</div>
+<p>The LAMMPS command lines for the potential are auto-generated based on a list of symbols corresponding to LAMMPS atom types. This fully works for all LAMMPS pair_styles, with only the hybrid and hybrid/overlay styles having limitations.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;potential.pair_info() -&gt;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">potential</span><span class="o">.</span><span class="n">pair_info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+potential.pair_info() -&gt;
+print &#34;Potential 2015--Pascuet-M-I--Al--LAMMPS--ipr1 listed in the NIST Interatomic Potentials Repository:&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/entry/2015--Pascuet-M-I-Fernandez-J-R--Al/2015--Pascuet-M-I--Al--LAMMPS--ipr1.html&#34;
+print &#34;Publication(s) related to the potential:&#34;
+print &#34;https://doi.org/10.1016/j.jnucmat.2015.09.030&#34;
+print &#34;Parameter file(s) can be downloaded at:&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/Al.meam&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/library-Al.meam&#34;
+pair_style meam
+pair_coeff * * library-Al.meam Al Al.meam Al
+mass 1 26.9815
+
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;potential.pair_info([&#39;Al&#39;, &#39;Al&#39;, &#39;Al&#39;]) -&gt;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">potential</span><span class="o">.</span><span class="n">pair_info</span><span class="p">([</span><span class="s1">&#39;Al&#39;</span><span class="p">,</span> <span class="s1">&#39;Al&#39;</span><span class="p">,</span> <span class="s1">&#39;Al&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+potential.pair_info([&#39;Al&#39;, &#39;Al&#39;, &#39;Al&#39;]) -&gt;
+print &#34;Potential 2015--Pascuet-M-I--Al--LAMMPS--ipr1 listed in the NIST Interatomic Potentials Repository:&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/entry/2015--Pascuet-M-I-Fernandez-J-R--Al/2015--Pascuet-M-I--Al--LAMMPS--ipr1.html&#34;
+print &#34;Publication(s) related to the potential:&#34;
+print &#34;https://doi.org/10.1016/j.jnucmat.2015.09.030&#34;
+print &#34;Parameter file(s) can be downloaded at:&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/Al.meam&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/library-Al.meam&#34;
+pair_style meam
+pair_coeff * * library-Al.meam Al Al.meam Al Al Al
+mass 1 26.9815
+mass 2 26.9815
+mass 3 26.9815
+
+
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="3.-Generate-initial-system">
+<h2>3. Generate initial system<a class="headerlink" href="#3.-Generate-initial-system" title="Link to this heading">¶</a></h2>
+<section id="3.1.-Load-relaxed-crystal">
+<h3>3.1. Load relaxed crystal<a class="headerlink" href="#3.1.-Load-relaxed-crystal" title="Link to this heading">¶</a></h3>
+<p>A crystalline system can be easily generated using a unit cell system either defined in atomman, imported from another format, or accessed from the potentials database. For simplicity, here we will get the relaxed fcc structure for the potential.</p>
+<p>Load fcc prototype with Al lattice constant</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">system</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;crystal&#39;</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;A1--Cu--fcc&#39;</span><span class="p">,</span> <span class="n">potential</span><span class="o">=</span><span class="n">potential</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 4.050,  0.000,  0.000]
+bvect =  [ 0.000,  4.050,  0.000]
+cvect =  [ 0.000,  0.000,  4.050]
+origin = [ 0.000,  0.000,  0.000]
+natoms = 4
+natypes = 1
+symbols = (&#39;Al&#39;,)
+pbc = [ True  True  True]
+per-atom properties = [&#39;atype&#39;, &#39;pos&#39;]
+     id |   atype |  pos[0] |  pos[1] |  pos[2]
+      0 |       1 |   0.000 |   0.000 |   0.000
+      1 |       1 |   0.000 |   2.025 |   2.025
+      2 |       1 |   2.025 |   0.000 |   2.025
+      3 |       1 |   2.025 |   2.025 |   0.000
+</pre></div></div>
+</div>
+</section>
+<section id="3.2.-Manipulate-system">
+<h3>3.2. Manipulate system<a class="headerlink" href="#3.2.-Manipulate-system" title="Link to this heading">¶</a></h3>
+<p>More complicated atomic configurations can then be generated by manipulating the seed system and the atoms contained within. Here, we’ll limit the manipulations to making the system a 3x3x3 supercell of itself.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">system</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">supersize</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Supercell has&#39;</span><span class="p">,</span> <span class="n">system</span><span class="o">.</span><span class="n">natoms</span><span class="p">,</span> <span class="s1">&#39;atoms&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Supercell has 108 atoms
+</pre></div></div>
+</div>
+</section>
+<section id="3.3.-Save-to-atom-data-file">
+<h3>3.3. Save to atom data file<a class="headerlink" href="#3.3.-Save-to-atom-data-file" title="Link to this heading">¶</a></h3>
+<p>System.dump(‘atom_data’) outputs the system to a LAMMPS atom data file. Quick notes on the parameters used here</p>
+<ul class="simple">
+<li><p>Giving potential allows for the appropriate units and atom_style settings to be used.</p></li>
+<li><p>The float_format value used here is a small precision to enhance clarity of print statements below. Typically, the precision should be large (default value is ‘%.13f’).</p></li>
+<li><p>Setting return_pair_info=True will return the LAMMPS commands for both the system and the potential together. This is the preferred method as it ensures compatibility with all potential pair styles currently in the database.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save System to &#39;atom.dat&#39; atom data file</span>
+<span class="n">system_pair_info</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s1">&#39;atom_data&#39;</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="s1">&#39;atom.dat&#39;</span><span class="p">,</span>
+                          <span class="n">potential</span><span class="o">=</span><span class="n">potential</span><span class="p">,</span>
+                          <span class="n">float_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.4f</span><span class="s1">&#39;</span><span class="p">,</span>    <span class="c1"># Remove or make larger precision for real runs!</span>
+                          <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Show the returned LAMMPS command lines</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">system_pair_info</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+units metal
+atom_style atomic
+
+boundary p p p
+read_data atom.dat
+
+print &#34;Potential 2015--Pascuet-M-I--Al--LAMMPS--ipr1 listed in the NIST Interatomic Potentials Repository:&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/entry/2015--Pascuet-M-I-Fernandez-J-R--Al/2015--Pascuet-M-I--Al--LAMMPS--ipr1.html&#34;
+print &#34;Publication(s) related to the potential:&#34;
+print &#34;https://doi.org/10.1016/j.jnucmat.2015.09.030&#34;
+print &#34;Parameter file(s) can be downloaded at:&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/Al.meam&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/library-Al.meam&#34;
+pair_style meam
+pair_coeff * * library-Al.meam Al Al.meam Al
+mass 1 26.9815
+
+
+</pre></div></div>
+</div>
+<p>Show the contents of the data file</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;atom.dat&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+108 atoms
+1 atom types
+0.0000 12.1500 xlo xhi
+0.0000 12.1500 ylo yhi
+0.0000 12.1500 zlo zhi
+
+Atoms # atomic
+
+1 1 0.0000 0.0000 0.0000
+2 1 0.0000 2.0250 2.0250
+3 1 2.0250 0.0000 2.0250
+4 1 2.0250 2.0250 0.0000
+5 1 4.0500 0.0000 0.0000
+6 1 4.0500 2.0250 2.0250
+7 1 6.0750 0.0000 2.0250
+8 1 6.0750 2.0250 0.0000
+9 1 8.1000 0.0000 0.0000
+10 1 8.1000 2.0250 2.0250
+11 1 10.1250 0.0000 2.0250
+12 1 10.1250 2.0250 0.0000
+13 1 0.0000 4.0500 0.0000
+14 1 0.0000 6.0750 2.0250
+15 1 2.0250 4.0500 2.0250
+16 1 2.0250 6.0750 0.0000
+17 1 4.0500 4.0500 0.0000
+18 1 4.0500 6.0750 2.0250
+19 1 6.0750 4.0500 2.0250
+20 1 6.0750 6.0750 0.0000
+21 1 8.1000 4.0500 0.0000
+22 1 8.1000 6.0750 2.0250
+23 1 10.1250 4.0500 2.0250
+24 1 10.1250 6.0750 0.0000
+25 1 0.0000 8.1000 0.0000
+26 1 0.0000 10.1250 2.0250
+27 1 2.0250 8.1000 2.0250
+28 1 2.0250 10.1250 0.0000
+29 1 4.0500 8.1000 0.0000
+30 1 4.0500 10.1250 2.0250
+31 1 6.0750 8.1000 2.0250
+32 1 6.0750 10.1250 0.0000
+33 1 8.1000 8.1000 0.0000
+34 1 8.1000 10.1250 2.0250
+35 1 10.1250 8.1000 2.0250
+36 1 10.1250 10.1250 0.0000
+37 1 0.0000 0.0000 4.0500
+38 1 0.0000 2.0250 6.0750
+39 1 2.0250 0.0000 6.0750
+40 1 2.0250 2.0250 4.0500
+41 1 4.0500 0.0000 4.0500
+42 1 4.0500 2.0250 6.0750
+43 1 6.0750 0.0000 6.0750
+44 1 6.0750 2.0250 4.0500
+45 1 8.1000 0.0000 4.0500
+46 1 8.1000 2.0250 6.0750
+47 1 10.1250 0.0000 6.0750
+48 1 10.1250 2.0250 4.0500
+49 1 0.0000 4.0500 4.0500
+50 1 0.0000 6.0750 6.0750
+51 1 2.0250 4.0500 6.0750
+52 1 2.0250 6.0750 4.0500
+53 1 4.0500 4.0500 4.0500
+54 1 4.0500 6.0750 6.0750
+55 1 6.0750 4.0500 6.0750
+56 1 6.0750 6.0750 4.0500
+57 1 8.1000 4.0500 4.0500
+58 1 8.1000 6.0750 6.0750
+59 1 10.1250 4.0500 6.0750
+60 1 10.1250 6.0750 4.0500
+61 1 0.0000 8.1000 4.0500
+62 1 0.0000 10.1250 6.0750
+63 1 2.0250 8.1000 6.0750
+64 1 2.0250 10.1250 4.0500
+65 1 4.0500 8.1000 4.0500
+66 1 4.0500 10.1250 6.0750
+67 1 6.0750 8.1000 6.0750
+68 1 6.0750 10.1250 4.0500
+69 1 8.1000 8.1000 4.0500
+70 1 8.1000 10.1250 6.0750
+71 1 10.1250 8.1000 6.0750
+72 1 10.1250 10.1250 4.0500
+73 1 0.0000 0.0000 8.1000
+74 1 0.0000 2.0250 10.1250
+75 1 2.0250 0.0000 10.1250
+76 1 2.0250 2.0250 8.1000
+77 1 4.0500 0.0000 8.1000
+78 1 4.0500 2.0250 10.1250
+79 1 6.0750 0.0000 10.1250
+80 1 6.0750 2.0250 8.1000
+81 1 8.1000 0.0000 8.1000
+82 1 8.1000 2.0250 10.1250
+83 1 10.1250 0.0000 10.1250
+84 1 10.1250 2.0250 8.1000
+85 1 0.0000 4.0500 8.1000
+86 1 0.0000 6.0750 10.1250
+87 1 2.0250 4.0500 10.1250
+88 1 2.0250 6.0750 8.1000
+89 1 4.0500 4.0500 8.1000
+90 1 4.0500 6.0750 10.1250
+91 1 6.0750 4.0500 10.1250
+92 1 6.0750 6.0750 8.1000
+93 1 8.1000 4.0500 8.1000
+94 1 8.1000 6.0750 10.1250
+95 1 10.1250 4.0500 10.1250
+96 1 10.1250 6.0750 8.1000
+97 1 0.0000 8.1000 8.1000
+98 1 0.0000 10.1250 10.1250
+99 1 2.0250 8.1000 10.1250
+100 1 2.0250 10.1250 8.1000
+101 1 4.0500 8.1000 8.1000
+102 1 4.0500 10.1250 10.1250
+103 1 6.0750 8.1000 10.1250
+104 1 6.0750 10.1250 8.1000
+105 1 8.1000 8.1000 8.1000
+106 1 8.1000 10.1250 10.1250
+107 1 10.1250 8.1000 10.1250
+108 1 10.1250 10.1250 8.1000
+
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="4.-Converting-to/from-LAMMPS-units">
+<h2>4. Converting to/from LAMMPS units<a class="headerlink" href="#4.-Converting-to/from-LAMMPS-units" title="Link to this heading">¶</a></h2>
+<p>LAMMPS performs its calculations with values in one of multiple sets of pre-defined units. The atomman.lammps.style submodule has some useful functions when working with different units options.</p>
+<p><strong>atomman.lammps.style.timestep()</strong></p>
+<p>The lammps.style.timestep() function returns the default timestep value for a given LAMMPS units option.</p>
+<p>Parameters</p>
+<ul class="simple">
+<li><p><strong>units</strong> (<em>str</em>) the LAMMPS units option being used.</p></li>
+</ul>
+<p><strong>atomman.lammps.style.unit()</strong></p>
+<p>The lammps.style.unit() function returns a dictionary giving the units associated with physical quantities as used by LAMMPS with a given units option.</p>
+<p>Parameters</p>
+<ul class="simple">
+<li><p><strong>units</strong> (<em>str</em>) the LAMMPS units option being used.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">timestep</span> <span class="o">=</span> <span class="n">lmp</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">timestep</span><span class="p">(</span><span class="n">potential</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">timestep</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.001
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lammps_unit</span> <span class="o">=</span> <span class="n">lmp</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">unit</span><span class="p">(</span><span class="n">potential</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lammps_unit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OrderedDict([(&#39;mass&#39;, &#39;g/mol&#39;), (&#39;length&#39;, &#39;angstrom&#39;), (&#39;time&#39;, &#39;ps&#39;), (&#39;energy&#39;, &#39;eV&#39;), (&#39;velocity&#39;, &#39;angstrom/ps&#39;), (&#39;force&#39;, &#39;eV/angstrom&#39;), (&#39;torque&#39;, &#39;eV&#39;), (&#39;temperature&#39;, &#39;K&#39;), (&#39;pressure&#39;, &#39;bar&#39;), (&#39;dynamic viscosity&#39;, &#39;Pa*s/10&#39;), (&#39;charge&#39;, &#39;e&#39;), (&#39;dipole&#39;, &#39;e*angstrom&#39;), (&#39;electric field&#39;, &#39;V/angstrom&#39;), (&#39;density&#39;, &#39;g/cm^3&#39;), (&#39;ang-mom&#39;, &#39;angstrom*angstrom/ps*g/mol&#39;), (&#39;ang-vel&#39;, &#39;1/ps&#39;)])
+</pre></div></div>
+</div>
+</section>
+<section id="5.-Composing-LAMMPS-Input-Scripts">
+<h2>5. Composing LAMMPS Input Scripts<a class="headerlink" href="#5.-Composing-LAMMPS-Input-Scripts" title="Link to this heading">¶</a></h2>
+<p>LAMMPS scripts can easily be constructed by combining the system_info generated from System.dump(‘atom_data’), the pair_info from Potential.pair_info(), and any user-defined input lines. This allows for specific simulation actions to easily be perfored across different potentials or initial configurations.</p>
+<section id="5.1.-Show-content-generated-in-previous-sections">
+<h3>5.1. Show content generated in previous sections<a class="headerlink" href="#5.1.-Show-content-generated-in-previous-sections" title="Link to this heading">¶</a></h3>
+<p>Show system_pair_info generated in Section 3.3.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">system_pair_info</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+units metal
+atom_style atomic
+
+boundary p p p
+read_data atom.dat
+
+print &#34;Potential 2015--Pascuet-M-I--Al--LAMMPS--ipr1 listed in the NIST Interatomic Potentials Repository:&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/entry/2015--Pascuet-M-I-Fernandez-J-R--Al/2015--Pascuet-M-I--Al--LAMMPS--ipr1.html&#34;
+print &#34;Publication(s) related to the potential:&#34;
+print &#34;https://doi.org/10.1016/j.jnucmat.2015.09.030&#34;
+print &#34;Parameter file(s) can be downloaded at:&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/Al.meam&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/library-Al.meam&#34;
+pair_style meam
+pair_coeff * * library-Al.meam Al Al.meam Al
+mass 1 26.9815
+
+
+</pre></div></div>
+</div>
+</section>
+<section id="5.2.-Write-LAMMPS-input-script-template">
+<h3>5.2. Write LAMMPS input script template<a class="headerlink" href="#5.2.-Write-LAMMPS-input-script-template" title="Link to this heading">¶</a></h3>
+<p>LAMMPS scripts can be dynamically generated using Python functions or templates that take the above info lines and other values as parameters. Here, we demonstrate a LAMMPS input template script where all fields to be filled in in Python are delimited with &lt;&gt; brackets.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">template</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;system_pair_info&gt;</span>
+
+<span class="s2"># Define temperature and dependent variables</span>
+<span class="s2">variable T equal &lt;temperature&gt;</span>
+<span class="s2">variable twoT equal 2*$T</span>
+
+<span class="s2"># Define equilibrium pressure</span>
+<span class="s2">variable P equal &lt;pressure&gt;</span>
+
+<span class="s2"># Define timestep and dependent variables</span>
+<span class="s2">variable deltat equal &lt;timestep&gt;</span>
+<span class="s2">variable Trelax equal 100*$</span><span class="si">{deltat}</span>
+<span class="s2">variable Prelax equal 1000*$</span><span class="si">{deltat}</span>
+
+<span class="s2"># Initialize atomic velocities with twoT</span>
+<span class="s2">velocity all create $</span><span class="si">{twoT}</span><span class="s2"> 124352</span>
+
+<span class="s2"># Define thermo steps and properties</span>
+<span class="s2">thermo 100</span>
+<span class="s2">thermo_style custom step temp press lx ly lz</span>
+
+<span class="s2"># Define dump</span>
+<span class="s2">dump mydump all atom 100000 *.dump</span>
+
+<span class="s2"># Specify timestep</span>
+<span class="s2">timestep $</span><span class="si">{deltat}</span>
+
+<span class="s2"># Apply npt conditions</span>
+<span class="s2">fix 1 all npt temp $T $T $</span><span class="si">{Trelax}</span><span class="s2"> iso $P $P $</span><span class="si">{Prelax}</span>
+
+<span class="s2"># Run simulation</span>
+<span class="s2">run 100000</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="5.3.-Fill-in-the-template-with-atomman.tools.filltemplate()">
+<h3>5.3. Fill in the template with atomman.tools.filltemplate()<a class="headerlink" href="#5.3.-Fill-in-the-template-with-atomman.tools.filltemplate()" title="Link to this heading">¶</a></h3>
+<p>The template can then be easily filled in with the atomman.tools.filltemplate() function.</p>
+<p>Parameters</p>
+<ul class="simple">
+<li><p><strong>template</strong> (<em>str or file-like object</em>) is the template to fill in.</p></li>
+<li><p><strong>variable</strong> (<em>dict</em>) gives the delimited keys and corresponding values to insert into the template.</p></li>
+<li><p><strong>s_delimiter</strong> (<em>str</em>) the starting delimiter for identifying variable names.</p></li>
+<li><p><strong>e_delimiter</strong> (<em>str</em>) the ending delimiter for identifying variable names.</p></li>
+</ul>
+<p>Build dictionary of template variables</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lammps_variable</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># Generated above</span>
+<span class="n">lammps_variable</span><span class="p">[</span><span class="s1">&#39;system_pair_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">system_pair_info</span>
+
+<span class="c1"># Set timestep to default value for LAMMPS units</span>
+<span class="n">lammps_variable</span><span class="p">[</span><span class="s1">&#39;timestep&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lmp</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">timestep</span><span class="p">(</span><span class="n">units</span><span class="o">=</span><span class="n">potential</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+
+<span class="c1"># Specify temperature to equilibriate at (always in Kelvin)</span>
+<span class="n">lammps_variable</span><span class="p">[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Specify pressure to equilibriate at</span>
+<span class="n">pressure</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">set_in_units</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;MPa&#39;</span><span class="p">)</span>
+<span class="n">lammps_variable</span><span class="p">[</span><span class="s1">&#39;pressure&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">get_in_units</span><span class="p">(</span><span class="n">pressure</span><span class="p">,</span> <span class="n">lammps_unit</span><span class="p">[</span><span class="s1">&#39;pressure&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">lammps_variable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;system_pair_info&#39;: &#39;units metal\natom_style atomic\n\nboundary p p p\nread_data atom.dat\n\nprint &#34;Potential 2015--Pascuet-M-I--Al--LAMMPS--ipr1 listed in the NIST Interatomic Potentials Repository:&#34;\nprint &#34;https://www.ctcms.nist.gov/potentials/entry/2015--Pascuet-M-I-Fernandez-J-R--Al/2015--Pascuet-M-I--Al--LAMMPS--ipr1.html&#34;\nprint &#34;Publication(s) related to the potential:&#34;\nprint &#34;https://doi.org/10.1016/j.jnucmat.2015.09.030&#34;\nprint &#34;Parameter file(s) can be downloaded at:&#34;\nprint &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/Al.meam&#34;\nprint &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/library-Al.meam&#34;\npair_style meam\npair_coeff * * library-Al.meam Al Al.meam Al\nmass 1 26.9815\n\n&#39;, &#39;timestep&#39;: 0.001, &#39;temperature&#39;: 100, &#39;pressure&#39;: 0.0}
+</pre></div></div>
+</div>
+<p>Fill in template</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate script from template and lammps_variable</span>
+<span class="n">script</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">tools</span><span class="o">.</span><span class="n">filltemplate</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">lammps_variable</span><span class="p">,</span> <span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save script to &#39;nvt.in&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;nvt.in&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">script</span><span class="p">)</span>
+
+<span class="c1"># Show contents of &#39;nvt.in&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;nvt.in&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+units metal
+atom_style atomic
+
+boundary p p p
+read_data atom.dat
+
+print &#34;Potential 2015--Pascuet-M-I--Al--LAMMPS--ipr1 listed in the NIST Interatomic Potentials Repository:&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/entry/2015--Pascuet-M-I-Fernandez-J-R--Al/2015--Pascuet-M-I--Al--LAMMPS--ipr1.html&#34;
+print &#34;Publication(s) related to the potential:&#34;
+print &#34;https://doi.org/10.1016/j.jnucmat.2015.09.030&#34;
+print &#34;Parameter file(s) can be downloaded at:&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/Al.meam&#34;
+print &#34;https://www.ctcms.nist.gov/potentials/Download/2015--Pascuet-M-I-Fernandez-J-R--Al/1/library-Al.meam&#34;
+pair_style meam
+pair_coeff * * library-Al.meam Al Al.meam Al
+mass 1 26.9815
+
+
+
+# Define temperature and dependent variables
+variable T equal 100
+variable twoT equal 2*$T
+
+# Define equilibrium pressure
+variable P equal 0.0
+
+# Define timestep and dependent variables
+variable deltat equal 0.001
+variable Trelax equal 100*${deltat}
+variable Prelax equal 1000*${deltat}
+
+# Initialize atomic velocities with twoT
+velocity all create ${twoT} 124352
+
+# Define thermo steps and properties
+thermo 100
+thermo_style custom step temp press lx ly lz
+
+# Define dump
+dump mydump all atom 100000 *.dump
+
+# Specify timestep
+timestep ${deltat}
+
+# Apply npt conditions
+fix 1 all npt temp $T $T ${Trelax} iso $P $P ${Prelax}
+
+# Run simulation
+run 100000
+
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="6.-Run-LAMMPS">
+<h2>6. Run LAMMPS<a class="headerlink" href="#6.-Run-LAMMPS" title="Link to this heading">¶</a></h2>
+<p>The LAMMPS simulation can be ran from within Python using the run() function.</p>
+<p>Specify your lammps executable</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lammps_exe</span> <span class="o">=</span> <span class="s1">&#39;/home/lmh1/LAMMPS/2022-06-23/src/lmp_mpi&#39;</span>
+</pre></div>
+</div>
+</div>
+<p>Run the simulation</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">lmp</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">lammps_exe</span><span class="p">,</span> <span class="s1">&#39;nvt.in&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The resulting simulation data is returned as a Log object, which containes the thermo data from the log.lammps files.</p>
+</section>
+<section id="7.-Analyzing-Thermo-Results">
+<h2>7. Analyzing Thermo Results<a class="headerlink" href="#7.-Analyzing-Thermo-Results" title="Link to this heading">¶</a></h2>
+<p>Data for each simulation run/minimization is stored in the returned Log object. Each Simulation has a thermo property that is a pandas.DataFrame of the LAMMPS thermo data.</p>
+<p><em>Updated version 1.3.7</em>: Each simulation is now represented using a Simulation class rather than a dictionary.</p>
+<p>Show thermo data column names for the first (and only) simulation run.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">simulations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Step&#39;, &#39;Temp&#39;, &#39;Press&#39;, &#39;Lx&#39;, &#39;Ly&#39;, &#39;Lz&#39;]
+</pre></div></div>
+</div>
+<p>For backwards compatibility, the thermo can also be accessed as if the simulation was still a dictionary.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">simulations</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;thermo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Step&#39;, &#39;Temp&#39;, &#39;Press&#39;, &#39;Lx&#39;, &#39;Ly&#39;, &#39;Lz&#39;]
+</pre></div></div>
+</div>
+<p>Plot temperature vs. run step</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pull out data</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">simulations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">Step</span>
+<span class="n">temps</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">simulations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">Temp</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="n">temps</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Step&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (K)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_2._LAMMPS_functionality_53_0.png" src="../_images/tutorial_2._LAMMPS_functionality_53_0.png" />
+</div>
+</div>
+<p>Plot pressure vs. run step (note unit conversions)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert steps to time in atomman working units</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">simulations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">Step</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">set_in_units</span><span class="p">(</span><span class="n">timestep</span><span class="p">,</span> <span class="n">lammps_unit</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="n">steps</span>
+
+<span class="c1"># Convert press to atomman working units</span>
+<span class="n">press</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">set_in_units</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">simulations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">Press</span><span class="p">,</span> <span class="n">lammps_unit</span><span class="p">[</span><span class="s1">&#39;pressure&#39;</span><span class="p">])</span>
+
+<span class="c1"># Plot in ps and GPa</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">uc</span><span class="o">.</span><span class="n">get_in_units</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="s1">&#39;ps&#39;</span><span class="p">),</span> <span class="n">uc</span><span class="o">.</span><span class="n">get_in_units</span><span class="p">(</span><span class="n">press</span><span class="p">,</span> <span class="s1">&#39;GPa&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (ps)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Pressure (GPa)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_2._LAMMPS_functionality_55_0.png" src="../_images/tutorial_2._LAMMPS_functionality_55_0.png" />
+</div>
+</div>
+</section>
+<section id="8-Reading-in-dump-files">
+<h2>8 Reading in dump files<a class="headerlink" href="#8-Reading-in-dump-files" title="Link to this heading">¶</a></h2>
+<p>Finally, any dump files generated by the LAMMPS simulation can be loaded into atomman as Systems.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">system</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;atom_dump&#39;</span><span class="p">,</span> <span class="s1">&#39;100000.dump&#39;</span><span class="p">,</span> <span class="n">symbols</span><span class="o">=</span><span class="s1">&#39;Al&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">box</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">atoms_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [12.184,  0.000,  0.000]
+bvect =  [ 0.000, 12.184,  0.000]
+cvect =  [ 0.000,  0.000, 12.184]
+origin = [-0.017, -0.017, -0.017]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>atype</th>
+      <th>pos[0]</th>
+      <th>pos[1]</th>
+      <th>pos[2]</th>
+      <th>atom_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>-0.065207</td>
+      <td>0.005483</td>
+      <td>-0.067225</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.015215</td>
+      <td>1.971269</td>
+      <td>2.016629</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1.960085</td>
+      <td>-0.049912</td>
+      <td>1.947913</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2.036744</td>
+      <td>2.018590</td>
+      <td>0.026100</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>4.021746</td>
+      <td>-0.062975</td>
+      <td>0.013582</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>1</td>
+      <td>6.007576</td>
+      <td>10.140925</td>
+      <td>8.201928</td>
+      <td>104</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>1</td>
+      <td>8.188295</td>
+      <td>8.184810</td>
+      <td>8.220727</td>
+      <td>105</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>1</td>
+      <td>8.018944</td>
+      <td>10.181569</td>
+      <td>10.211785</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>1</td>
+      <td>10.180948</td>
+      <td>8.081238</td>
+      <td>10.182349</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>1</td>
+      <td>10.151513</td>
+      <td>10.160260</td>
+      <td>8.191060</td>
+      <td>108</td>
+    </tr>
+  </tbody>
+</table>
+<p>108 rows × 5 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">am</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">py3Dmol</span><span class="o">.</span><span class="n">view_3d</span><span class="p">(</span><span class="n">system</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div id="3dmolviewer_1714421502699783"  style="position: relative; width: 800px; height: 800px">
+        <p id="3dmolwarning_1714421502699783" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+        <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.1/3Dmol-min.js');
+}
+
+var viewer_1714421502699783 = null;
+var warn = document.getElementById("3dmolwarning_1714421502699783");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1714421502699783 = $3Dmol.createViewer(document.getElementById("3dmolviewer_1714421502699783"),{backgroundColor:"white"});
+viewer_1714421502699783.zoomTo();
+    viewer_1714421502699783.addModel("CRYST1   12.184   12.184   12.184  90.00  90.00  90.00 P 1\nMODEL     1\nHETATM    1 UNX  MOL     1      -0.048   0.022  -0.050  1.00  0.00          X1.0\nHETATM    2 UNX  MOL     1       0.032   1.988   2.033  1.00  0.00          X1.0\nHETATM    3 UNX  MOL     1       1.977  -0.033   1.965  1.00  0.00          X1.0\nHETATM    4 UNX  MOL     1       2.054   2.035   0.043  1.00  0.00          X1.0\nHETATM    5 UNX  MOL     1       4.039  -0.046   0.030  1.00  0.00          X1.0\nHETATM    6 UNX  MOL     1       4.002   2.002   1.969  1.00  0.00          X1.0\nHETATM    7 UNX  MOL     1       6.095   0.059   1.969  1.00  0.00          X1.0\nHETATM    8 UNX  MOL     1       6.049   2.059  -0.039  1.00  0.00          X1.0\nHETATM    9 UNX  MOL     1       8.149   0.075   0.029  1.00  0.00          X1.0\nHETATM   10 UNX  MOL     1       8.072   2.094   2.060  1.00  0.00          X1.0\nHETATM   11 UNX  MOL     1      10.143  -0.041   2.008  1.00  0.00          X1.0\nHETATM   12 UNX  MOL     1      10.217   2.068  -0.014  1.00  0.00          X1.0\nHETATM   13 UNX  MOL     1      -0.032   4.043   0.018  1.00  0.00          X1.0\nHETATM   14 UNX  MOL     1       0.049   6.117   2.072  1.00  0.00          X1.0\nHETATM   15 UNX  MOL     1       2.016   4.065   2.081  1.00  0.00          X1.0\nHETATM   16 UNX  MOL     1       2.043   6.076   0.028  1.00  0.00          X1.0\nHETATM   17 UNX  MOL     1       4.082   4.093  -0.018  1.00  0.00          X1.0\nHETATM   18 UNX  MOL     1       4.106   6.064   2.017  1.00  0.00          X1.0\nHETATM   19 UNX  MOL     1       6.095   4.117   1.967  1.00  0.00          X1.0\nHETATM   20 UNX  MOL     1       6.142   6.155  -0.033  1.00  0.00          X1.0\nHETATM   21 UNX  MOL     1       8.120   4.083   0.026  1.00  0.00          X1.0\nHETATM   22 UNX  MOL     1       8.183   6.048   2.054  1.00  0.00          X1.0\nHETATM   23 UNX  MOL     1      10.192   4.029   2.052  1.00  0.00          X1.0\nHETATM   24 UNX  MOL     1      10.236   6.024   0.033  1.00  0.00          X1.0\nHETATM   25 UNX  MOL     1       0.036   8.090   0.020  1.00  0.00          X1.0\nHETATM   26 UNX  MOL     1       0.027  10.147   2.086  1.00  0.00          X1.0\nHETATM   27 UNX  MOL     1       2.062   8.097   1.982  1.00  0.00          X1.0\nHETATM   28 UNX  MOL     1       1.973  10.171   0.061  1.00  0.00          X1.0\nHETATM   29 UNX  MOL     1       4.101   8.161   0.002  1.00  0.00          X1.0\nHETATM   30 UNX  MOL     1       4.093  10.164   2.018  1.00  0.00          X1.0\nHETATM   31 UNX  MOL     1       6.084   8.122   2.026  1.00  0.00          X1.0\nHETATM   32 UNX  MOL     1       6.105  10.155  -0.049  1.00  0.00          X1.0\nHETATM   33 UNX  MOL     1       8.261   8.059   0.019  1.00  0.00          X1.0\nHETATM   34 UNX  MOL     1       8.131  10.111   1.879  1.00  0.00          X1.0\nHETATM   35 UNX  MOL     1      10.143   8.163   2.025  1.00  0.00          X1.0\nHETATM   36 UNX  MOL     1      10.185  10.164  -0.025  1.00  0.00          X1.0\nHETATM   37 UNX  MOL     1      -0.028   0.047   4.027  1.00  0.00          X1.0\nHETATM   38 UNX  MOL     1       0.061   2.052   6.063  1.00  0.00          X1.0\nHETATM   39 UNX  MOL     1       1.996  -0.037   6.088  1.00  0.00          X1.0\nHETATM   40 UNX  MOL     1       2.029   2.042   4.023  1.00  0.00          X1.0\nHETATM   41 UNX  MOL     1       4.026   0.012   4.044  1.00  0.00          X1.0\nHETATM   42 UNX  MOL     1       4.003   2.039   6.102  1.00  0.00          X1.0\nHETATM   43 UNX  MOL     1       6.121  -0.034   5.970  1.00  0.00          X1.0\nHETATM   44 UNX  MOL     1       5.988   2.076   4.015  1.00  0.00          X1.0\nHETATM   45 UNX  MOL     1       8.094  -0.093   3.995  1.00  0.00          X1.0\nHETATM   46 UNX  MOL     1       8.130   1.988   6.115  1.00  0.00          X1.0\nHETATM   47 UNX  MOL     1      10.151  -0.066   6.181  1.00  0.00          X1.0\nHETATM   48 UNX  MOL     1      10.191   2.000   4.131  1.00  0.00          X1.0\nHETATM   49 UNX  MOL     1      -0.048   4.048   4.068  1.00  0.00          X1.0\nHETATM   50 UNX  MOL     1      -0.064   5.996   6.054  1.00  0.00          X1.0\nHETATM   51 UNX  MOL     1       2.066   4.095   6.083  1.00  0.00          X1.0\nHETATM   52 UNX  MOL     1       2.050   6.149   4.051  1.00  0.00          X1.0\nHETATM   53 UNX  MOL     1       4.104   3.995   4.014  1.00  0.00          X1.0\nHETATM   54 UNX  MOL     1       4.084   6.138   6.046  1.00  0.00          X1.0\nHETATM   55 UNX  MOL     1       6.025   4.085   6.144  1.00  0.00          X1.0\nHETATM   56 UNX  MOL     1       6.063   6.128   4.040  1.00  0.00          X1.0\nHETATM   57 UNX  MOL     1       8.027   4.080   4.041  1.00  0.00          X1.0\nHETATM   58 UNX  MOL     1       8.079   6.102   6.020  1.00  0.00          X1.0\nHETATM   59 UNX  MOL     1      10.097   4.041   6.132  1.00  0.00          X1.0\nHETATM   60 UNX  MOL     1      10.157   6.078   4.120  1.00  0.00          X1.0\nHETATM   61 UNX  MOL     1      -0.044   8.155   4.087  1.00  0.00          X1.0\nHETATM   62 UNX  MOL     1      -0.014  10.140   6.107  1.00  0.00          X1.0\nHETATM   63 UNX  MOL     1       2.033   8.070   6.078  1.00  0.00          X1.0\nHETATM   64 UNX  MOL     1       1.982  10.162   4.041  1.00  0.00          X1.0\nHETATM   65 UNX  MOL     1       4.096   8.132   4.058  1.00  0.00          X1.0\nHETATM   66 UNX  MOL     1       4.023  10.148   6.090  1.00  0.00          X1.0\nHETATM   67 UNX  MOL     1       6.126   8.148   6.092  1.00  0.00          X1.0\nHETATM   68 UNX  MOL     1       6.065  10.197   3.975  1.00  0.00          X1.0\nHETATM   69 UNX  MOL     1       8.122   8.136   4.057  1.00  0.00          X1.0\nHETATM   70 UNX  MOL     1       8.052  10.095   6.155  1.00  0.00          X1.0\nHETATM   71 UNX  MOL     1      10.179   8.142   6.179  1.00  0.00          X1.0\nHETATM   72 UNX  MOL     1      10.090  10.169   4.092  1.00  0.00          X1.0\nHETATM   73 UNX  MOL     1      -0.053   0.021   8.099  1.00  0.00          X1.0\nHETATM   74 UNX  MOL     1       0.035   2.033  10.067  1.00  0.00          X1.0\nHETATM   75 UNX  MOL     1       1.937   0.001  10.107  1.00  0.00          X1.0\nHETATM   76 UNX  MOL     1       2.063   2.108   8.101  1.00  0.00          X1.0\nHETATM   77 UNX  MOL     1       4.144   0.009   8.075  1.00  0.00          X1.0\nHETATM   78 UNX  MOL     1       4.021   1.984  10.184  1.00  0.00          X1.0\nHETATM   79 UNX  MOL     1       6.127   0.050  10.231  1.00  0.00          X1.0\nHETATM   80 UNX  MOL     1       6.056   1.980   8.106  1.00  0.00          X1.0\nHETATM   81 UNX  MOL     1       8.039  -0.040   8.137  1.00  0.00          X1.0\nHETATM   82 UNX  MOL     1       8.170   2.010  10.118  1.00  0.00          X1.0\nHETATM   83 UNX  MOL     1      10.131  -0.024  10.174  1.00  0.00          X1.0\nHETATM   84 UNX  MOL     1      10.146   2.054   8.071  1.00  0.00          X1.0\nHETATM   85 UNX  MOL     1      -0.026   4.079   8.129  1.00  0.00          X1.0\nHETATM   86 UNX  MOL     1       0.045   6.138  10.159  1.00  0.00          X1.0\nHETATM   87 UNX  MOL     1       2.039   4.046  10.245  1.00  0.00          X1.0\nHETATM   88 UNX  MOL     1       1.999   6.119   8.077  1.00  0.00          X1.0\nHETATM   89 UNX  MOL     1       4.012   4.146   8.166  1.00  0.00          X1.0\nHETATM   90 UNX  MOL     1       4.103   6.076  10.126  1.00  0.00          X1.0\nHETATM   91 UNX  MOL     1       6.112   4.020  10.103  1.00  0.00          X1.0\nHETATM   92 UNX  MOL     1       6.155   6.148   8.119  1.00  0.00          X1.0\nHETATM   93 UNX  MOL     1       8.067   4.024   8.090  1.00  0.00          X1.0\nHETATM   94 UNX  MOL     1       8.191   6.003  10.182  1.00  0.00          X1.0\nHETATM   95 UNX  MOL     1      10.242   4.067  10.138  1.00  0.00          X1.0\nHETATM   96 UNX  MOL     1      10.128   6.099   8.124  1.00  0.00          X1.0\nHETATM   97 UNX  MOL     1       0.033   8.045   8.099  1.00  0.00          X1.0\nHETATM   98 UNX  MOL     1       0.025  10.088  10.163  1.00  0.00          X1.0\nHETATM   99 UNX  MOL     1       2.078   8.069  10.169  1.00  0.00          X1.0\nHETATM  100 UNX  MOL     1       2.072  10.202   8.181  1.00  0.00          X1.0\nHETATM  101 UNX  MOL     1       4.090   8.128   8.181  1.00  0.00          X1.0\nHETATM  102 UNX  MOL     1       3.963  10.162  10.197  1.00  0.00          X1.0\nHETATM  103 UNX  MOL     1       6.163   8.125  10.126  1.00  0.00          X1.0\nHETATM  104 UNX  MOL     1       6.024  10.158   8.219  1.00  0.00          X1.0\nHETATM  105 UNX  MOL     1       8.205   8.202   8.237  1.00  0.00          X1.0\nHETATM  106 UNX  MOL     1       8.036  10.198  10.229  1.00  0.00          X1.0\nHETATM  107 UNX  MOL     1      10.198   8.098  10.199  1.00  0.00          X1.0\nHETATM  108 UNX  MOL     1      10.168  10.177   8.208  1.00  0.00          X1.0\nENDMDL\n","pdb");
+    viewer_1714421502699783.addUnitCell();
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 1},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 2},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 3},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 4},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 5},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 6},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 7},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 8},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 9},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 10},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 11},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 12},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 13},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 14},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 15},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 16},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 17},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 18},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 19},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 20},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 21},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 22},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 23},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 24},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 25},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 26},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 27},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 28},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 29},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 30},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 31},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 32},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 33},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 34},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 35},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 36},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 37},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 38},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 39},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 40},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 41},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 42},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 43},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 44},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 45},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 46},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 47},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 48},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 49},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 50},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 51},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 52},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 53},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 54},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 55},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 56},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 57},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 58},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 59},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 60},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 61},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 62},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 63},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 64},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 65},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 66},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 67},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 68},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 69},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 70},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 71},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 72},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 73},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 74},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 75},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 76},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 77},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 78},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 79},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 80},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 81},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 82},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 83},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 84},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 85},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 86},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 87},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 88},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 89},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 90},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 91},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 92},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 93},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 94},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 95},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 96},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 97},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 98},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 99},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 100},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 101},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 102},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 103},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 104},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 105},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 106},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 107},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.setStyle({"model": -1, "serial": 108},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_1714421502699783.zoomTo();
+viewer_1714421502699783.render();
+});
+</script></div>
+</div>
+<p><strong>File Cleanup</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="n">pot_id</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">):</span>
+    <span class="n">fname</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+<span class="n">Path</span><span class="p">(</span><span class="s1">&#39;Al.meam&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+<span class="n">Path</span><span class="p">(</span><span class="s1">&#39;library-Al.meam&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+<span class="n">Path</span><span class="p">(</span><span class="s1">&#39;atom.dat&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+<span class="n">Path</span><span class="p">(</span><span class="s1">&#39;nvt.in&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+<span class="n">Path</span><span class="p">(</span><span class="s1">&#39;log.lammps&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.dump&#39;</span><span class="p">):</span>
+    <span class="n">fname</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Introduction to atomman: LAMMPS functionality</a><ul>
+<li><a class="reference internal" href="#1.-Introduction">1. Introduction</a></li>
+<li><a class="reference internal" href="#2.-Interatomic-Potential-Control">2. Interatomic Potential Control</a><ul>
+<li><a class="reference internal" href="#2.1.-Load-potential-from-database">2.1. Load potential from database</a></li>
+<li><a class="reference internal" href="#2.2.-Potential-parameter-files">2.2. Potential parameter files</a></li>
+<li><a class="reference internal" href="#2.3.-lammps.Potential-Class">2.3. lammps.Potential Class</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#3.-Generate-initial-system">3. Generate initial system</a><ul>
+<li><a class="reference internal" href="#3.1.-Load-relaxed-crystal">3.1. Load relaxed crystal</a></li>
+<li><a class="reference internal" href="#3.2.-Manipulate-system">3.2. Manipulate system</a></li>
+<li><a class="reference internal" href="#3.3.-Save-to-atom-data-file">3.3. Save to atom data file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#4.-Converting-to/from-LAMMPS-units">4. Converting to/from LAMMPS units</a></li>
+<li><a class="reference internal" href="#5.-Composing-LAMMPS-Input-Scripts">5. Composing LAMMPS Input Scripts</a><ul>
+<li><a class="reference internal" href="#5.1.-Show-content-generated-in-previous-sections">5.1. Show content generated in previous sections</a></li>
+<li><a class="reference internal" href="#5.2.-Write-LAMMPS-input-script-template">5.2. Write LAMMPS input script template</a></li>
+<li><a class="reference internal" href="#5.3.-Fill-in-the-template-with-atomman.tools.filltemplate()">5.3. Fill in the template with atomman.tools.filltemplate()</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#6.-Run-LAMMPS">6. Run LAMMPS</a></li>
+<li><a class="reference internal" href="#7.-Analyzing-Thermo-Results">7. Analyzing Thermo Results</a></li>
+<li><a class="reference internal" href="#8-Reading-in-dump-files">8 Reading in dump files</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="1.5._Settings_and_databases.html"
+                          title="previous chapter">Introduction to atomman: Settings and Library</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="2.1._Potential_class.html"
+                          title="next chapter">Introduction to atomman: LAMMPS Potentials</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="2.1._Potential_class.html" title="Introduction to atomman: LAMMPS Potentials"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="1.5._Settings_and_databases.html" title="Introduction to atomman: Settings and Library"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">atomman 1.4.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction to atomman: LAMMPS functionality</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
+    </div>
+  </body>
+</html>

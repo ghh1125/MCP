@@ -1,0 +1,453 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/tencent-quantum-lab/TenCirChem",
+    "summary": "Imported via zip fallback, file count: 76",
+    "file_tree": {
+      ".github/workflows/ci.yml": {
+        "size": 1425
+      },
+      ".github/workflows/publish_pypi.yml": {
+        "size": 599
+      },
+      "README.md": {
+        "size": 4440
+      },
+      "README_CN.md": {
+        "size": 2965
+      },
+      "apt.txt": {
+        "size": 195
+      },
+      "conftest.py": {
+        "size": 124
+      },
+      "docs/source/conf.py": {
+        "size": 6161
+      },
+      "docs/source/tutorial_jupyter/mpl_config.py": {
+        "size": 358
+      },
+      "example/README.md": {
+        "size": 1748
+      },
+      "example/custom_excitation.py": {
+        "size": 486
+      },
+      "example/hea_beh2.py": {
+        "size": 674
+      },
+      "example/hea_force.py": {
+        "size": 610
+      },
+      "example/hea_geom_opt.py": {
+        "size": 810
+      },
+      "example/hea_lih.py": {
+        "size": 654
+      },
+      "example/hea_symm.py": {
+        "size": 1484
+      },
+      "example/mr_uccsd.py": {
+        "size": 1658
+      },
+      "example/noisy_circuit.py": {
+        "size": 515
+      },
+      "example/print_circuit.py": {
+        "size": 388
+      },
+      "example/pyrazine_spectra.py": {
+        "size": 2182
+      },
+      "example/pyscf_compatibility.py": {
+        "size": 511
+      },
+      "example/sbm_dynamics.py": {
+        "size": 558
+      },
+      "example/simple_kupccgsd.py": {
+        "size": 402
+      },
+      "example/simple_uccsd.py": {
+        "size": 277
+      },
+      "example/switch_backend.py": {
+        "size": 308
+      },
+      "example/ucc_classes.py": {
+        "size": 475
+      },
+      "example/vbe_td.py": {
+        "size": 5914
+      },
+      "example/vbe_ti.py": {
+        "size": 5728
+      },
+      "example/water_pes.py": {
+        "size": 1285
+      },
+      "pyproject.toml": {
+        "size": 1043
+      },
+      "requirements-dev.txt": {
+        "size": 131
+      },
+      "requirements.txt": {
+        "size": 205
+      },
+      "setup.py": {
+        "size": 1025
+      },
+      "tencirchem/__init__.py": {
+        "size": 1706
+      },
+      "tencirchem/applications/__init__.py": {
+        "size": 194
+      },
+      "tencirchem/applications/vbe_lib.py": {
+        "size": 2814
+      },
+      "tencirchem/constants.py": {
+        "size": 538
+      },
+      "tencirchem/dynamic/__init__.py": {
+        "size": 520
+      },
+      "tencirchem/dynamic/model/__init__.py": {
+        "size": 194
+      },
+      "tencirchem/dynamic/model/pyrazine.py": {
+        "size": 4643
+      },
+      "tencirchem/dynamic/model/sbm.py": {
+        "size": 1001
+      },
+      "tencirchem/dynamic/time_derivative.py": {
+        "size": 6297
+      },
+      "tencirchem/dynamic/time_evolution.py": {
+        "size": 8366
+      },
+      "tencirchem/dynamic/transform.py": {
+        "size": 12066
+      },
+      "tencirchem/molecule.py": {
+        "size": 4544
+      },
+      "tencirchem/static/__init__.py": {
+        "size": 194
+      },
+      "tencirchem/static/ci_utils.py": {
+        "size": 2978
+      },
+      "tencirchem/static/engine_hea.py": {
+        "size": 5854
+      },
+      "tencirchem/static/engine_ucc.py": {
+        "size": 6782
+      },
+      "tencirchem/static/evolve_civector.py": {
+        "size": 12317
+      },
+      "tencirchem/static/evolve_pyscf.py": {
+        "size": 5091
+      },
+      "tencirchem/static/evolve_statevector.py": {
+        "size": 3354
+      },
+      "tencirchem/static/evolve_tensornetwork.py": {
+        "size": 6944
+      },
+      "tencirchem/static/hamiltonian.py": {
+        "size": 9022
+      },
+      "tencirchem/static/hea.py": {
+        "size": 38563
+      },
+      "tencirchem/static/kupccgsd.py": {
+        "size": 9477
+      },
+      "tencirchem/static/puccd.py": {
+        "size": 8469
+      },
+      "tencirchem/static/ucc.py": {
+        "size": 50739
+      },
+      "tencirchem/static/uccsd.py": {
+        "size": 7120
+      },
+      "tencirchem/utils/__init__.py": {
+        "size": 245
+      },
+      "tencirchem/utils/backend.py": {
+        "size": 3223
+      },
+      "tencirchem/utils/circuit.py": {
+        "size": 3121
+      },
+      "tencirchem/utils/misc.py": {
+        "size": 4547
+      },
+      "tencirchem/utils/optimizer.py": {
+        "size": 4096
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/dynamics/__init__.py": {
+        "size": 0
+      },
+      "tests/dynamics/test_dynamics.py": {
+        "size": 1398
+      },
+      "tests/dynamics/test_hamiltonian.py": {
+        "size": 2914
+      },
+      "tests/static/__init__.py": {
+        "size": 0
+      },
+      "tests/static/test_engine.py": {
+        "size": 3466
+      },
+      "tests/static/test_hamiltonian.py": {
+        "size": 2446
+      },
+      "tests/static/test_hea.py": {
+        "size": 2282
+      },
+      "tests/static/test_molecule.py": {
+        "size": 1335
+      },
+      "tests/static/test_optimizer.py": {
+        "size": 532
+      },
+      "tests/static/test_puccd.py": {
+        "size": 1840
+      },
+      "tests/static/test_static.py": {
+        "size": 3878
+      },
+      "tests/test_misc.py": {
+        "size": 402
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.tencirchem",
+      "source.tencirchem.applications",
+      "source.tencirchem.dynamic",
+      "source.tencirchem.static",
+      "source.tencirchem.utils",
+      "source.tests",
+      "source.tests.dynamics",
+      "source.tests.static"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.tencirchem",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level public API re-export hub for chemistry simulation workflows; likely exposes key static/dynamic components for user imports."
+      },
+      {
+        "package": "source.tencirchem",
+        "module": "molecule",
+        "functions": [],
+        "classes": [
+          "Molecule"
+        ],
+        "description": "Core molecular system construction and metadata handling used by static quantum chemistry engines."
+      },
+      {
+        "package": "source.tencirchem.static",
+        "module": "ucc",
+        "functions": [],
+        "classes": [
+          "UCC"
+        ],
+        "description": "Main Unitary Coupled Cluster implementation; central variational ansatz engine for static electronic structure calculations."
+      },
+      {
+        "package": "source.tencirchem.static",
+        "module": "hea",
+        "functions": [],
+        "classes": [
+          "HEA"
+        ],
+        "description": "Hardware-efficient ansatz implementation and optimization flow for variational quantum eigensolver-style tasks."
+      },
+      {
+        "package": "source.tencirchem.static",
+        "module": "uccsd",
+        "functions": [],
+        "classes": [
+          "UCCSD"
+        ],
+        "description": "Specialized UCC singles/doubles ansatz wrapper built on top of generic UCC machinery."
+      },
+      {
+        "package": "source.tencirchem.static",
+        "module": "kupccgsd",
+        "functions": [],
+        "classes": [
+          "KUPCCGSD"
+        ],
+        "description": "k-UpCCGSD ansatz implementation for reduced-parameter coupled-cluster variants."
+      },
+      {
+        "package": "source.tencirchem.static",
+        "module": "puccd",
+        "functions": [],
+        "classes": [
+          "PUCCD"
+        ],
+        "description": "Pair-UCCD ansatz implementation for constrained coupled-cluster workflows."
+      },
+      {
+        "package": "source.tencirchem.static",
+        "module": "hamiltonian",
+        "functions": [
+          "get_h_from_integral",
+          "get_hop_from_integral"
+        ],
+        "classes": [],
+        "description": "Hamiltonian construction and conversion utilities bridging molecular integrals and qubit/operator forms."
+      },
+      {
+        "package": "source.tencirchem.static",
+        "module": "engine_ucc",
+        "functions": [],
+        "classes": [],
+        "description": "Backend engine helpers for UCC optimization/evaluation pipeline."
+      },
+      {
+        "package": "source.tencirchem.static",
+        "module": "engine_hea",
+        "functions": [],
+        "classes": [],
+        "description": "Backend engine helpers for HEA optimization/evaluation pipeline."
+      },
+      {
+        "package": "source.tencirchem.dynamic",
+        "module": "time_evolution",
+        "functions": [],
+        "classes": [],
+        "description": "Time propagation routines for quantum dynamics simulations."
+      },
+      {
+        "package": "source.tencirchem.dynamic",
+        "module": "time_derivative",
+        "functions": [],
+        "classes": [],
+        "description": "Derivative evaluation kernels supporting variational and explicit dynamic evolution."
+      },
+      {
+        "package": "source.tencirchem.dynamic",
+        "module": "transform",
+        "functions": [],
+        "classes": [],
+        "description": "Model/basis transformation logic for dynamics and vibronic-style simulations."
+      },
+      {
+        "package": "source.tencirchem.dynamic.model",
+        "module": "pyrazine",
+        "functions": [],
+        "classes": [],
+        "description": "Predefined pyrazine model builders/constants for dynamics benchmarks."
+      },
+      {
+        "package": "source.tencirchem.dynamic.model",
+        "module": "sbm",
+        "functions": [],
+        "classes": [],
+        "description": "Spin-boson model setup utilities for open-system style dynamics examples."
+      },
+      {
+        "package": "source.tencirchem.utils",
+        "module": "backend",
+        "functions": [
+          "set_backend",
+          "get_backend"
+        ],
+        "classes": [],
+        "description": "Numerical backend selection/dispatch (e.g., JAX/NumPy-compatible execution settings)."
+      },
+      {
+        "package": "source.tencirchem.utils",
+        "module": "optimizer",
+        "functions": [],
+        "classes": [],
+        "description": "Optimization wrappers and objective minimization helpers used across static solvers."
+      },
+      {
+        "package": "source.tencirchem.utils",
+        "module": "circuit",
+        "functions": [],
+        "classes": [],
+        "description": "Circuit construction/transformation helpers bridging tensorcircuit and ansatz implementations."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "tensorcircuit",
+        "pyscf",
+        "openfermion"
+      ],
+      "optional": [
+        "jax",
+        "optax",
+        "pytest",
+        "sphinx"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.88,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/tencent-quantum-lab/TenCirChem",
+    "repo_name": "TenCirChem",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.88,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

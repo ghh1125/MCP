@@ -1,0 +1,28 @@
+
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v6.0.0
+  hooks:
+  - id: check-added-large-files
+    args: ['--maxkb=1000']
+  - id: mixed-line-ending
+  - id: trailing-whitespace
+  - id: check-merge-conflict
+  - id: check-case-conflict
+  - id: check-symlinks
+  - id: check-yaml
+  - id: requirements-txt-fixer
+  - id: debug-statements
+  - id: end-of-file-fixer
+
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.15.5
+  hooks:
+  - id: ruff-format
+
+- repo: https://github.com/henryiii/check-sdist
+  rev: "v1.4.0"
+  hooks:
+  - id: check-sdist
+    args: [--inject-junk]
+    additional_dependencies: [setuptools]

@@ -1,0 +1,210 @@
+{
+  "repository": {
+    "name": "pyproj",
+    "url": "https://github.com/pyproj4/pyproj",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pyproj",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773257512.572629,
+    "end_time": 1773257795.492256,
+    "duration": 282.91962695121765,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 3,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.pyproj",
+        "source.pyproj.crs",
+        "source.test"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.93,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/pyproj4/pyproj",
+      "repo_name": "pyproj",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pyproj/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add automated MCP plugin tests in CI (smoke + endpoint contract tests) since current test status is empty",
+    "deduplicate and normalize MCP endpoints (e.g.",
+    "repeated transformer/transformergroup/get_data_dir entries) to avoid ambiguous tool exposure",
+    "add strict input/output schemas for each MCP endpoint with Pydantic models and clear error mapping from pyproj exceptions",
+    "pin and document PROJ runtime compatibility matrix (Python/Cython/PROJ versions) and validate it in a CI build matrix",
+    "add offline/online network-behavior tests for `network` and `sync` flows to ensure deterministic behavior when grids are unavailable",
+    "improve packaging consistency by consolidating metadata toward `pyproject.toml` (or clearly documenting `setup.py` role)",
+    "add performance benchmarks for high-traffic paths (`Transformer`",
+    "`CRS` parsing",
+    "`Geod`) and track regressions in CI",
+    "harden plugin startup with dependency/environment preflight checks (PROJ data dir",
+    "sqlite/proj.db presence",
+    "certifi/network settings)",
+    "expand README_MCP with concrete usage examples for core geospatial workflows and expected outputs",
+    "add structured logging/telemetry hooks in MCP service for endpoint latency and failure diagnostics",
+    "include security guardrails for path/config mutation endpoints (`set_data_dir`",
+    "`append_data_dir`) and document safe-operation constraints"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed all planned nodes (download, analysis, env, generate, run, review, finalize) with overall status=success and no runtime errors/warnings.",
+      "Import-based adapter strategy was appropriate for pyproj (import feasibility 0.93), enabling rapid MCP wrapping without invasive code changes.",
+      "Generated MCP service started healthy over stdio, indicating baseline operability of scaffold and entrypoint wiring.",
+      "Repository structure and key modules were correctly identified (CRS/Transformer/Geod/datadir/network/sync), supporting meaningful endpoint exposure."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality/data gaps remain: original project tests were not executed (passed=false, execution_time=0), MCP tests are effectively empty, and key metrics (LOC, file size, CPU/memory/perf) are zero/unknown.",
+      "DeepWiki integration failed, reducing architecture-context depth for generation/review.",
+      "Endpoint list contains duplicates and potential ambiguity (e.g., transformer/transformergroup/get_data_dir repeated)."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository imported via zip fallback (73 files). Exact node timing not provided, but no download instability indicated.",
+      "analysis_time": "Successful static analysis with medium complexity and low intrusiveness risk; entry-point detection appears incomplete despite known CLI module.",
+      "generation_time": "Generation completed quickly enough within total 282.92s, producing 7 files; however generated LOC/size telemetry reported as 0, limiting quantitative assessment.",
+      "test_time": "Run node produced healthy MCP startup, but substantive automated tests were not executed (project tests empty; MCP contract coverage absent)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Undetermined due to missing telemetry (reported 0 MB). Instrument runtime memory profiling in CI.",
+      "cpu_efficiency": "Undetermined due to missing telemetry (reported 0%). Add per-node CPU sampling.",
+      "disk_usage": "Low apparent footprint (7 generated files), but exact size reported as 0; fix artifact-size accounting."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 81,
+    "performance_score": 62,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 72
+  }
+}

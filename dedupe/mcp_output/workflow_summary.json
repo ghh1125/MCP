@@ -1,0 +1,221 @@
+{
+  "repository": {
+    "name": "dedupe",
+    "url": "https://github.com/dedupeio/dedupe",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/dedupe",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773282254.317882,
+    "end_time": 1773282457.150005,
+    "duration": 202.83212304115295,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 3,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.benchmarks.benchmarks",
+        "source.dedupe",
+        "source.dedupe.variables"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.94,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/dedupeio/dedupe",
+      "repo_name": "dedupe",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/dedupe/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal but high-value MCP test suite (smoke import",
+    "one call per endpoint",
+    "and serializer round-trip) since test status is empty",
+    "prioritize endpoint curation by exposing task-oriented tools (train",
+    "match",
+    "cluster",
+    "link) instead of raw class mirrors to reduce misuse risk",
+    "add strict Pydantic request/response schemas for records/fields/settings to improve validation and MCP contract clarity",
+    "implement structured error mapping (ValueError/KeyError/IOError -> stable MCP error codes/messages) for better client UX",
+    "pin and CI-test against the dedupe dependency matrix (including compiled deps like BTrees/zope.index/Levenshtein search) across supported Python versions",
+    "add deterministic fixture-based integration tests for Dedupe/RecordLink/Gazetteer workflows with tiny sample datasets",
+    "introduce performance guardrails with lightweight benchmarks for blocking+clustering paths and regression thresholds in CI",
+    "document endpoint semantics and required input shapes in README_MCP with copy-paste examples per workflow",
+    "add observability hooks (timing",
+    "endpoint success/failure counters",
+    "optional debug logs with PII-safe redaction)",
+    "harden file I/O endpoints (read/write_settings/training) with path allowlists and safe overwrite controls",
+    "provide an async/concurrency safety note or locking strategy for model training/state mutation endpoints",
+    "split adapter.py if growing (API wrappers vs schema translation vs error handling) to keep maintainability high",
+    "add versioned MCP API namespace (e.g.",
+    "v1) to preserve backward compatibility as endpoints evolve",
+    "improve packaging consistency by aligning pyproject/setup metadata and declaring optional extras for docs/tests/benchmarks",
+    "add a fallback “blackbox/subprocess” adapter mode toggle for environments where native imports fail",
+    "create an end-to-end example client script that trains then dedupes sample records through MCP",
+    "and enable CI workflows for the generated mcp_output directory (lint",
+    "type-check",
+    "tests",
+    "basic startup check)"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow status is success end-to-end, with all expected nodes executed: download → analysis → env → generate → run → review → finalize.",
+      "Import-based adapter strategy was appropriate for dedupe (import feasibility 0.94, low intrusiveness risk).",
+      "Generated MCP service started healthy over stdio and passed plugin-level run validation.",
+      "Repository structure and core integration targets (dedupe.api classes, serializer, convenience utilities) were correctly identified."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Validation depth is limited: original project tests show passed=false with empty details and execution_time=0, indicating tests were likely not executed.",
+      "Quality telemetry is incomplete (0 LOC/size/endpoints in generation metrics, empty performance metrics), reducing confidence in measured quality.",
+      "DeepWiki analysis failed, reducing external architectural/context enrichment."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; no node-level timing provided, but download+prep appears stable.",
+      "analysis_time": "Analysis completed with medium complexity classification and useful module mapping; timing unavailable per node.",
+      "generation_time": "Generation succeeded with expected MCP file set and import adapter; no per-node duration reported.",
+      "test_time": "Plugin health checks passed, but test rigor is low due to absent/empty test execution artifacts."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient data (reported 0 MB likely means uncollected telemetry).",
+      "cpu_efficiency": "Unknown/insufficient data (reported 0% likely means uncollected telemetry).",
+      "disk_usage": "Low absolute footprint implied by limited generated files, but generated size metrics are missing/inaccurate."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

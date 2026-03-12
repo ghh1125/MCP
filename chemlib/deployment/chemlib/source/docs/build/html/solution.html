@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aqueous Solutions &mdash; chemlib v1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Electrochemistry" href="electrochemistry.html" />
+    <link rel="prev" title="Chemical Reactions" href="reactions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> chemlib
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compounds.html">Chemical Compounds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulae.html">Empirical Formulae</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reactions.html">Chemical Reactions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Aqueous Solutions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#acidity-calculation-ph-poh">Acidity Calculation (pH, pOH)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-a-solution">Making a Solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dilutions">Dilutions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="electrochemistry.html">Electrochemistry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantum.html">Quantum Mechanics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">chemlib</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Aqueous Solutions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/solution.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="aqueous-solutions">
+<h1>Aqueous Solutions<a class="headerlink" href="#aqueous-solutions" title="Permalink to this headline"></a></h1>
+<section id="acidity-calculation-ph-poh">
+<h2>Acidity Calculation (pH, pOH)<a class="headerlink" href="#acidity-calculation-ph-poh" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="chemlib.chemistry.pH">
+<span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.</span></span><span class="sig-name descname"><span class="pre">pH</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemlib.chemistry.pH" title="Permalink to this definition"></a></dt>
+<dd><p>For any inputted pH, pOH, [H+], or [OH-], finds the corresponding values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – The value of the chosen input (pH=, pOH=, H=, or OH=)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>What is the pH, pOH and [OH-] given a [H+] of 1.07x10^-6 M?</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">chemlib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chemlib</span><span class="o">.</span><span class="n">pH</span><span class="p">(</span><span class="n">H</span><span class="o">=</span><span class="mf">1.07e-6</span><span class="p">)</span>
+<span class="go">{&#39;H&#39;: 1.07e-06, &#39;pOH&#39;: 8.029, &#39;pH&#39;: 5.971, &#39;OH&#39;: 9.354e-09, &#39;acidity&#39;: &#39;acidic&#39;}</span>
+</pre></div>
+</div>
+<p>What is the pH, pOH, and [H+] given a [OH-] of 2.06x10^-3 M?</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chemlib</span><span class="o">.</span><span class="n">pH</span><span class="p">(</span><span class="n">OH</span><span class="o">=</span><span class="mf">2.06e-3</span><span class="p">)</span>
+<span class="go">{&#39;OH&#39;: 0.002, &#39;H&#39;: 5e-12, &#39;pOH&#39;: 2.699, &#39;pH&#39;: 11.301, &#39;acidity&#39;: &#39;basic&#39;}</span>
+</pre></div>
+</div>
+<p>What is the pOH, [H+], and [OH-] given a pH of 5.2?</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">chemlib</span><span class="o">.</span><span class="n">pH</span><span class="p">(</span><span class="n">pH</span> <span class="o">=</span> <span class="mf">5.2</span><span class="p">)</span>
+<span class="go">{&#39;pH&#39;: 5.2, &#39;OH&#39;: 1.585e-09, &#39;H&#39;: 6.309e-06, &#39;pOH&#39;: 8.8, &#39;acidity&#39;: &#39;acidic&#39;}</span>
+</pre></div>
+</div>
+</section>
+<section id="making-a-solution">
+<h2>Making a Solution<a class="headerlink" href="#making-a-solution" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="chemlib.chemistry.Solution">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.</span></span><span class="sig-name descname"><span class="pre">Solution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solute</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">molarity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemlib.chemistry.Solution" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p>Instantiate a <code class="docutils literal notranslate"><span class="pre">chemlib.Solution</span></code> object with the formula of the solute, and the molarity in mol/L.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param solute (str)</dt>
+<dd class="field-odd"><p>The formula of the solute without using subscripts OR a <code class="docutils literal notranslate"><span class="pre">chemlib.chemistry.Compound</span></code> object.</p>
+</dd>
+<dt class="field-even">param molarity (float)</dt>
+<dd class="field-even"><p>How many moles of solute per liter of solution</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">chemlib</span> <span class="kn">import</span> <span class="n">Solution</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Solution</span><span class="p">(</span><span class="s1">&#39;AgCl&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">&lt;chemlib.chemistry.Solution object at 0x03F46370&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">(</span><span class="s1">&#39;AgCl&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">molarity</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="chemlib.chemistry.Solution.by_grams_per_liters">
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.Solution.</span></span><span class="sig-name descname"><span class="pre">by_grams_per_liters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solute</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grams</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chemlib.chemistry.Solution.by_grams_per_liters" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p>OR you can make a Solution with the solute, and grams per liter.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param str solute</dt>
+<dd class="field-odd"><p>The formula of the solute without using subscripts OR a <code class="docutils literal notranslate"><span class="pre">chemlib.chemistry.Compound</span></code> object.</p>
+</dd>
+<dt class="field-even">param float grams</dt>
+<dd class="field-even"><p>How many grams of solute</p>
+</dd>
+<dt class="field-odd">param float liters</dt>
+<dd class="field-odd"><p>How many liters of solution</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">chemlib</span> <span class="kn">import</span> <span class="n">Solution</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">Solution</span><span class="o">.</span><span class="n">by_grams_per_liters</span><span class="p">(</span><span class="s2">&quot;NaCl&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">molarity</span>
+<span class="go">0.1711</span>
+</pre></div>
+</div>
+</section>
+<section id="dilutions">
+<h2>Dilutions<a class="headerlink" href="#dilutions" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="chemlib.chemistry.Solution.dilute">
+<span class="sig-prename descclassname"><span class="pre">chemlib.chemistry.Solution.</span></span><span class="sig-name descname"><span class="pre">dilute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">M2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">V2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#chemlib.chemistry.Solution.dilute" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p>Using formula M1*V1 = M2*V2</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param float V1</dt>
+<dd class="field-odd"><p>The starting volume of the solution. [Must be specified]</p>
+</dd>
+<dt class="field-even">param float M2</dt>
+<dd class="field-even"><p>The ending molarity after dilution.</p>
+</dd>
+<dt class="field-odd">param float V2</dt>
+<dd class="field-odd"><p>The ending volume after dilution</p>
+</dd>
+<dt class="field-even">param bool inplace</dt>
+<dd class="field-even"><p>You can set to true if the old molarity is to be replaced by the new molarity</p>
+</dd>
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>The new volume and the new molarity.</p>
+</dd>
+<dt class="field-even">rtype</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">raises TypeError</dt>
+<dd class="field-odd"><p>if a starting volume is not specified</p>
+</dd>
+<dt class="field-even">raises TypeError</dt>
+<dd class="field-even"><p>if both M2 and V2 are specified</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>To find the dilution of 2.5 L of 0.25M NaCl to a 0.125M NaCl solution:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">chemlib</span> <span class="kn">import</span> <span class="n">Solution</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">(</span><span class="s2">&quot;NaCl&quot;</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">dilute</span><span class="p">(</span><span class="n">V1</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">M2</span> <span class="o">=</span> <span class="mf">0.125</span><span class="p">)</span>
+<span class="go">{&#39;Solute&#39;: &#39;Na₁Cl₁&#39;, &#39;Molarity&#39;: 0.125, &#39;Volume&#39;: 5.0}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="reactions.html" class="btn btn-neutral float-left" title="Chemical Reactions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="electrochemistry.html" class="btn btn-neutral float-right" title="Electrochemistry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, Hari Ambethkar.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

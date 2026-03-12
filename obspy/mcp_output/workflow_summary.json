@@ -1,0 +1,220 @@
+{
+  "repository": {
+    "name": "obspy",
+    "url": "https://github.com/obspy/obspy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/obspy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773274328.921563,
+    "end_time": 1773274722.657734,
+    "duration": 393.7361719608307,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.93,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/obspy/obspy",
+      "repo_name": "obspy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/obspy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/obspy/temp_clone'...\nerror: RPC failed; curl 28 Recv failure: Operation timed out\nfatal: expected flush after ref listing\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/obspy/temp_clone'...\nerror: RPC failed; curl 28 Recv failure: Operation timed out\nfatal: expected flush after ref listing\n"
+  ],
+  "recommendations": [
+    "add a minimal smoke-test suite for all generated MCP endpoints (import + one happy-path call per endpoint)",
+    "pin and validate packaging metadata detection (currently inconsistent with visible `setup.py`/`pyproject.toml`)",
+    "introduce contract tests for adapter_mode=`import` to catch signature/return-type drift in wrapped ObsPy APIs",
+    "add timeout/retry/circuit-breaker handling for network-backed tools (`Client`",
+    "`MassDownloader`) to prevent hanging MCP calls",
+    "implement structured error mapping (ObsPy/library exceptions → stable MCP error codes/messages)",
+    "enforce input validation schemas for large/complex parameters (time ranges",
+    "channel selectors",
+    "file paths) with Pydantic models",
+    "add deterministic fixture-based tests for MiniSEED/StationXML/QuakeML read/write roundtrips",
+    "create optional-dependency capability flags (cartopy/pyproj/geographiclib/numba/pyshp) and expose them in a health endpoint",
+    "add CI matrix for Python/OS plus minimum-dependency environment mirroring upstream workflows",
+    "add performance benchmarks for high-volume waveform operations (Stream/Trace filtering + mseed I/O) and track regressions",
+    "reduce endpoint surface risk by preferring public APIs over private-style functions where possible (or clearly version-gate them)",
+    "generate endpoint-level docs with concrete request/response examples and failure modes in `README_MCP.md`",
+    "add logging/telemetry hooks (latency",
+    "error rate",
+    "endpoint usage) with configurable verbosity",
+    "include security hardening for file I/O endpoints (path allowlists",
+    "size limits",
+    "safe temp dirs)",
+    "add a compatibility test against a few pinned ObsPy versions to ensure MCP plugin stability across upstream releases"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status `success` and executed all planned nodes (`download`, `analysis`, `env`, `generate`, `run`, `review`, `finalize`).",
+      "Resilience mechanism worked: clone failure was mitigated via zip fallback (`processed_by: zip_fallback`, 813 files discovered).",
+      "MCP plugin boot/run validation passed (`service_health: healthy`, `transport_mode: stdio`).",
+      "Low-intrusiveness import strategy with high feasibility (0.93) enabled generation despite source acquisition instability."
+    ],
+    "failure_reasons": [
+      "Primary git clone failed due to network timeout (`curl 28 Recv failure: Operation timed out`, `expected flush after ref listing`).",
+      "Metadata extraction pipeline reported inconsistent dependency detection (`setup.py`/`pyproject.toml` exist in file tree, but dependency flags are false).",
+      "Quality evidence is limited: original project tests did not pass and generated endpoint test depth is minimal.",
+      "DeepWiki analysis failed, reducing external architectural/contextual enrichment."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Download path was degraded by clone timeout, then recovered via zip fallback; this is likely the main contributor to total duration.",
+      "analysis_time": "Analysis completed functionally (core modules, CLI, risks identified), but some structured extractors returned empty/inconsistent fields.",
+      "generation_time": "Generation succeeded with expected scaffold files and import-mode adapter; endpoint list indicates meaningful coverage of key ObsPy surfaces.",
+      "test_time": "MCP runtime health test passed, but no substantive functional/performance test timing captured (mostly zeros)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB). Instrumentation appears missing rather than truly zero use.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%). Add runtime profiling hooks per node.",
+      "disk_usage": "Generated artifact footprint reported as 0 despite multiple files; metrics collection for file size/LOC is likely broken."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 71,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}

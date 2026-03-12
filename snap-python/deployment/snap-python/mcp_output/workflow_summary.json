@@ -1,0 +1,209 @@
+{
+  "repository": {
+    "name": "snap-python",
+    "url": "https://github.com/snap-stanford/snap-python",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/snap-python",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773242722.183267,
+    "end_time": 1773243206.42227,
+    "duration": 484.23900389671326,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 2,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.snapx.snapx",
+        "source.swig.snap"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.82,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/snap-stanford/snap-python",
+      "repo_name": "snap-python",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/snap-python/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal CI pipeline (GitHub Actions) to build/install the SWIG extension and run both `test/` and `snapx/snapx/classes/tests/`",
+    "consolidate packaging into a single modern `pyproject.toml` (keep one `setup.py` path only) and define optional extras (e.g. `dev`",
+    "`docs`",
+    "`interop`)",
+    "add a top-level `requirements.txt` or lockfile for reproducible local/dev installs",
+    "deduplicate legacy `dev/` vs main `examples/` and `test/` trees to reduce maintenance drift",
+    "split the huge generated `setup/snap.py` into generated+checked artifacts with clear regeneration scripts and version pinning",
+    "standardize naming/style (many legacy test filenames and mixed conventions) and enforce with `ruff`/`black`/`isort`",
+    "introduce test markers for slow/integration/SWIG-dependent tests and publish baseline coverage",
+    "add smoke tests for key MCP endpoints and auto-generate endpoint docs from adapter metadata",
+    "improve README with a clear “pure Python snapx vs compiled SNAP/SWIG” architecture/install matrix",
+    "add typed public APIs for `snapx` (at least core graph/algorithms) and run `mypy` in CI",
+    "add benchmark automation comparing key algorithms across representative graph sizes and track regressions",
+    "add dependency/security scanning (Dependabot + pip-audit) and binary build checks across Python versions/platforms",
+    "add contributor docs for build toolchain prerequisites (SWIG/compiler) and a troubleshooting decision tree",
+    "remove or gate large test/example data files from source distribution where possible and fetch on demand",
+    "create a release checklist that validates wheel/sdist contents and MCP plugin compatibility before tagging"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy was feasible (import_feasibility=0.82), enabling plugin startup without invasive code changes.",
+      "MCP plugin runtime checks passed (service_health=healthy, transport=stdio), confirming baseline service operability.",
+      "Low assessed intrusiveness risk reduced integration friction with legacy mixed codebase (snapx + SWIG layers)."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality signal gap: original project tests were not executed successfully (passed=false with empty details), so behavioral equivalence is unverified.",
+      "DeepWiki enrichment failed, reducing external architectural/context confidence.",
+      "Telemetry incompleteness (0/unknown metrics for LOC, file size, CPU, memory, response time) limits objective performance validation."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Repository ingest succeeded via zip fallback; effective for reliability, but likely slower/less metadata-rich than native clone.",
+      "analysis_time": "AST/module discovery covered a large surface (hundreds of functions/classes), indicating substantial analysis effort and likely primary time contributor.",
+      "generation_time": "Generation completed quickly enough to produce full plugin scaffold (entrypoint, adapter, service, docs, requirements) with no generation errors.",
+      "test_time": "MCP smoke/health checks passed, but project-level test execution was effectively absent; test stage is functionally incomplete for regression assurance."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to missing metrics; no OOM/failure signs, so operationally acceptable but not measurable.",
+      "cpu_efficiency": "Unknown due to missing CPU telemetry; long total runtime (~484s) suggests analysis/reflection overhead on large API surface.",
+      "disk_usage": "Generated artifact size reported as 0 (likely instrumentation issue); repository includes large files, so packaging/disk controls should be tightened."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 68,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/daler/pybedtools",
+    "summary": "Imported via zip fallback, file count: 57",
+    "file_tree": {
+      ".github/workflows/main.yml": {
+        "size": 5440
+      },
+      "LICENSE.txt": {
+        "size": 1116
+      },
+      "dev-requirements.txt": {
+        "size": 54
+      },
+      "docs/source/conf.py": {
+        "size": 7662
+      },
+      "ez_setup.py": {
+        "size": 11434
+      },
+      "optional-requirements.txt": {
+        "size": 95
+      },
+      "pybedtools/__init__.py": {
+        "size": 3921
+      },
+      "pybedtools/bedtool.py": {
+        "size": 139170
+      },
+      "pybedtools/contrib/__init__.py": {
+        "size": 156
+      },
+      "pybedtools/contrib/bigbed.py": {
+        "size": 2249
+      },
+      "pybedtools/contrib/bigwig.py": {
+        "size": 6128
+      },
+      "pybedtools/contrib/intersection_matrix.py": {
+        "size": 7563
+      },
+      "pybedtools/contrib/long_range_interaction.py": {
+        "size": 16547
+      },
+      "pybedtools/contrib/plotting.py": {
+        "size": 19765
+      },
+      "pybedtools/contrib/venn_maker.py": {
+        "size": 7611
+      },
+      "pybedtools/filenames.py": {
+        "size": 1291
+      },
+      "pybedtools/genome_registry.py": {
+        "size": 112873
+      },
+      "pybedtools/helpers.py": {
+        "size": 26279
+      },
+      "pybedtools/logger.py": {
+        "size": 325
+      },
+      "pybedtools/parallel.py": {
+        "size": 7803
+      },
+      "pybedtools/paths.py": {
+        "size": 569
+      },
+      "pybedtools/scripts/annotate.py": {
+        "size": 4800
+      },
+      "pybedtools/scripts/examples/pbt_plotting_example.py": {
+        "size": 3215
+      },
+      "pybedtools/scripts/intersection_matrix.py": {
+        "size": 5025
+      },
+      "pybedtools/scripts/intron_exon_reads.py": {
+        "size": 3605
+      },
+      "pybedtools/scripts/peak_pie.py": {
+        "size": 5411
+      },
+      "pybedtools/scripts/py_ms_example.py": {
+        "size": 722
+      },
+      "pybedtools/scripts/venn_gchart.py": {
+        "size": 4309
+      },
+      "pybedtools/scripts/venn_mpl.py": {
+        "size": 5556
+      },
+      "pybedtools/settings.py": {
+        "size": 2394
+      },
+      "pybedtools/stats.py": {
+        "size": 818
+      },
+      "pybedtools/test/__init__.py": {
+        "size": 417
+      },
+      "pybedtools/test/data/__init__.py": {
+        "size": 0
+      },
+      "pybedtools/test/data/democonfig.yaml": {
+        "size": 1398
+      },
+      "pybedtools/test/genomepy_integration.py": {
+        "size": 1525
+      },
+      "pybedtools/test/regression_tests.py": {
+        "size": 997
+      },
+      "pybedtools/test/test_1.py": {
+        "size": 54763
+      },
+      "pybedtools/test/test_cases.yaml": {
+        "size": 20408
+      },
+      "pybedtools/test/test_cbedtools.py": {
+        "size": 12668
+      },
+      "pybedtools/test/test_contrib.py": {
+        "size": 6055
+      },
+      "pybedtools/test/test_gzip_support.py": {
+        "size": 3729
+      },
+      "pybedtools/test/test_helpers.py": {
+        "size": 5992
+      },
+      "pybedtools/test/test_issues.py": {
+        "size": 28719
+      },
+      "pybedtools/test/test_iter.py": {
+        "size": 7316
+      },
+      "pybedtools/test/test_len_leak.py": {
+        "size": 1422
+      },
+      "pybedtools/test/test_merge215.yaml": {
+        "size": 623
+      },
+      "pybedtools/test/test_merge227.yaml": {
+        "size": 584
+      },
+      "pybedtools/test/test_pathlib.py": {
+        "size": 1201
+      },
+      "pybedtools/test/test_shuffle215.yaml": {
+        "size": 19015
+      },
+      "pybedtools/test/test_shuffle227.yaml": {
+        "size": 711
+      },
+      "pybedtools/test/tfuncs.py": {
+        "size": 183
+      },
+      "pybedtools/version.py": {
+        "size": 80
+      },
+      "pyproject.toml": {
+        "size": 399
+      },
+      "requirements.txt": {
+        "size": 19
+      },
+      "setup.cfg": {
+        "size": 76
+      },
+      "setup.py": {
+        "size": 9710
+      },
+      "test-requirements.txt": {
+        "size": 45
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.pybedtools",
+      "source.pybedtools.contrib",
+      "source.pybedtools.test"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
+    "setup_cfg": true,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.pybedtools",
+        "module": "__init__",
+        "functions": [
+          "example_bedtool",
+          "example_filename",
+          "set_tempdir",
+          "cleanup",
+          "find_tagged"
+        ],
+        "classes": [],
+        "description": "Top-level API surface exposing convenience helpers and BedTool-related utilities."
+      },
+      {
+        "package": "source.pybedtools",
+        "module": "bedtool",
+        "functions": [
+          "create_interval_from_list",
+          "create_interval_from_string"
+        ],
+        "classes": [
+          "BedTool",
+          "Interval",
+          "IntervalIterator"
+        ],
+        "description": "Primary functional core. BedTool wraps BEDTools operations, file-backed/stream-backed interval manipulation, and method-dispatched genomic set algebra."
+      },
+      {
+        "package": "source.pybedtools",
+        "module": "helpers",
+        "functions": [
+          "get_bedtools_path",
+          "set_bedtools_path",
+          "call_bedtools",
+          "isBAM",
+          "isGZIP",
+          "n_open_fds"
+        ],
+        "classes": [],
+        "description": "Runtime integration layer for external BEDTools binaries, process execution, path detection, and utility helpers."
+      },
+      {
+        "package": "source.pybedtools",
+        "module": "parallel",
+        "functions": [
+          "parallel_apply"
+        ],
+        "classes": [],
+        "description": "Parallel execution helper for applying BedTool operations over collections."
+      },
+      {
+        "package": "source.pybedtools",
+        "module": "genome_registry",
+        "functions": [],
+        "classes": [],
+        "description": "Genome/chromosome size registry data and lookup helpers used by shuffle/complement/slop-style operations."
+      },
+      {
+        "package": "source.pybedtools.contrib",
+        "module": "intersection_matrix",
+        "functions": [
+          "intersection_matrix"
+        ],
+        "classes": [],
+        "description": "Contrib utility for generating pairwise overlap/intersection summaries."
+      },
+      {
+        "package": "source.pybedtools.contrib",
+        "module": "venn_maker",
+        "functions": [
+          "venn_maker"
+        ],
+        "classes": [],
+        "description": "Contrib plotting-oriented wrapper for overlap visualization workflows."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "annotate",
+        "module": "source.pybedtools.scripts.annotate",
+        "description": "Script-style CLI for feature annotation workflows."
+      },
+      {
+        "name": "intersection_matrix",
+        "module": "source.pybedtools.scripts.intersection_matrix",
+        "description": "CLI utility for computing overlap matrices among interval files."
+      },
+      {
+        "name": "intron_exon_reads",
+        "module": "source.pybedtools.scripts.intron_exon_reads",
+        "description": "CLI workflow script for intron/exon read accounting."
+      },
+      {
+        "name": "peak_pie",
+        "module": "source.pybedtools.scripts.peak_pie",
+        "description": "CLI plotting/report script for peak annotation proportions."
+      },
+      {
+        "name": "venn_gchart",
+        "module": "source.pybedtools.scripts.venn_gchart",
+        "description": "CLI script for Venn-style overlap chart generation."
+      },
+      {
+        "name": "venn_mpl",
+        "module": "source.pybedtools.scripts.venn_mpl",
+        "description": "CLI script for matplotlib-based Venn plotting."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.91
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.8",
+        "numpy",
+        "pysam",
+        "BEDTools (external binary on PATH)"
+      ],
+      "optional": [
+        "matplotlib",
+        "pyBigWig",
+        "bx-python",
+        "genomepy"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.87,
+      "intrusiveness_risk": "medium",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/daler/pybedtools",
+    "repo_name": "pybedtools",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.87,
+    "intrusiveness_risk": "medium",
+    "complexity": "medium"
+  }
+}

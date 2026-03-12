@@ -1,0 +1,31 @@
+[MAIN]
+ignore-patterns=.*\.pyi$
+
+[MASTER]
+extension-pkg-whitelist=pyproj._crs,
+                        pyproj._transformer,
+                        pyproj._sync,
+                        pyproj._network,
+                        pyproj._geod,
+                        pyproj._context,
+                        pyproj._compat,
+                        pyproj._version,
+                        pyproj.database,
+                        pyproj.list
+
+
+[MESSAGES CONTROL]
+disable=cyclic-import,
+        duplicate-code,
+        line-too-long,
+        logging-fstring-interpolation,
+        protected-access,
+        too-few-public-methods,
+        too-many-arguments,
+        too-many-locals,
+        too-many-positional-arguments,
+        too-many-public-methods
+
+
+[FORMAT]
+max-module-lines=1500

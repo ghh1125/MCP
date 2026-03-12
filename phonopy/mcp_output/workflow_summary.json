@@ -1,0 +1,221 @@
+{
+  "repository": {
+    "name": "phonopy",
+    "url": "https://github.com/phonopy/phonopy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/phonopy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773260638.180077,
+    "end_time": 1773261109.8735201,
+    "duration": 471.69344305992126,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/phonopy/phonopy",
+      "repo_name": "phonopy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/phonopy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/phonopy/temp_clone'...\nfatal: unable to access 'https://github.com/phonopy/phonopy/': SSL connection timeout\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/phonopy/temp_clone'...\nfatal: unable to access 'https://github.com/phonopy/phonopy/': SSL connection timeout\n"
+  ],
+  "recommendations": [
+    "add a minimal smoke-test suite for the MCP plugin (server startup",
+    "each endpoint callable",
+    "import-mode failures surfaced clearly)",
+    "wire MCP tests into GitHub Actions with a small OS/Python matrix",
+    "fix dependency detection in your analysis pipeline (it missed existing pyproject.toml and requirements.txt)",
+    "pin and validate MCP runtime deps (fastmcp/pydantic) with upper/lower bounds and a lock/constraints file",
+    "add structured error mapping in adapter.py so phonopy exceptions become stable MCP error codes/messages",
+    "introduce pydantic request/response schemas per endpoint (especially file I/O endpoints) to enforce input validation",
+    "add timeout and resource guards for heavy workflows (mesh/DOS/QHA) to prevent long-running MCP calls",
+    "implement endpoint-level logging/trace IDs and optional debug mode for reproducible support",
+    "add golden integration tests using small fixtures from test/ and example/ (e.g.",
+    "NaCl/Si) to verify numerical output shapes and key invariants",
+    "improve README_MCP.md with concrete per-endpoint examples and expected artifacts",
+    "add version compatibility checks at MCP startup (phonopy",
+    "numpy",
+    "spglib) with actionable warnings",
+    "split very large adapter surface into domain modules (api/interface/io) to reduce maintenance risk",
+    "add mypy/ruff/pre-commit config to mcp_output for static quality gates",
+    "define semantic versioning and changelog for the MCP plugin independently from upstream phonopy",
+    "add security hardening for file-path inputs (normalize paths",
+    "deny traversal",
+    "optional sandbox root)",
+    "expose a lightweight health endpoint reporting plugin version/import status/dependency availability"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status 'success' and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Robust source acquisition fallback (zip import) mitigated git clone SSL timeout and enabled analysis of ~315 files.",
+      "Import-mode adapter strategy matched repository characteristics (high import feasibility 0.9, low intrusiveness risk).",
+      "Generated MCP scaffold and service startup/health checks passed (stdio transport healthy)."
+    ],
+    "failure_reasons": [
+      "Primary repository clone failed due to network/SSL timeout to GitHub.",
+      "Static dependency/entry-point detection produced false negatives (reported missing pyproject/requirements despite presence).",
+      "Quality metrics are partially non-observable (0 files processed, 0 LOC, empty code review, no performance telemetry), reducing confidence.",
+      "Original project test execution did not pass/run meaningfully (passed=false with empty details and 0s timing), so integration correctness is not fully validated."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Degraded by clone failure, but recovered via zip fallback; resilience good, network robustness needs improvement.",
+      "analysis_time": "Substantial repository scan completed (large tree, medium complexity) but metadata extraction quality inconsistent.",
+      "generation_time": "Efficient MCP scaffold generation (7 files) with practical endpoint surface inferred from core APIs.",
+      "test_time": "Plugin smoke validation passed, but original project and endpoint-level behavioral tests are insufficient for confidence."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB likely placeholder); cannot assess accurately.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0% likely placeholder); profiling instrumentation needed.",
+      "disk_usage": "Moderate and likely efficient for scaffold output, but generated size metrics are missing/zeroed."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 81,
+    "performance_score": 62,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 72
+  }
+}

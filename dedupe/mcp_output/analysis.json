@@ -1,0 +1,386 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/dedupeio/dedupe",
+    "summary": "Imported via zip fallback, file count: 73",
+    "file_tree": {
+      ".github/dependabot.yml": {
+        "size": 759
+      },
+      ".github/scripts/asv_markdown.py": {
+        "size": 1604
+      },
+      ".github/workflows/benchmark-bot.yml": {
+        "size": 3332
+      },
+      ".github/workflows/codeql-analysis.yml": {
+        "size": 2323
+      },
+      ".github/workflows/lock.yml": {
+        "size": 346
+      },
+      ".github/workflows/pythonpackage.yml": {
+        "size": 3716
+      },
+      ".pre-commit-config.yaml": {
+        "size": 327
+      },
+      ".readthedocs.yml": {
+        "size": 647
+      },
+      "CHANGELOG.md": {
+        "size": 7333
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 3213
+      },
+      "CONTRIBUTING.md": {
+        "size": 368
+      },
+      "CONTRIBUTORS.md": {
+        "size": 57
+      },
+      "README.md": {
+        "size": 5435
+      },
+      "THANKS.md": {
+        "size": 383
+      },
+      "benchmarks/asv.conf.json": {
+        "size": 8119
+      },
+      "benchmarks/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "benchmarks/benchmarks/canonical.py": {
+        "size": 2587
+      },
+      "benchmarks/benchmarks/canonical_gazetteer.py": {
+        "size": 2155
+      },
+      "benchmarks/benchmarks/canonical_matching.py": {
+        "size": 3077
+      },
+      "benchmarks/benchmarks/common.py": {
+        "size": 2099
+      },
+      "benchmarks/setup.py": {
+        "size": 445
+      },
+      "dedupe/__init__.py": {
+        "size": 624
+      },
+      "dedupe/_typing.py": {
+        "size": 3754
+      },
+      "dedupe/api.py": {
+        "size": 55112
+      },
+      "dedupe/backport.py": {
+        "size": 435
+      },
+      "dedupe/blocking.py": {
+        "size": 7406
+      },
+      "dedupe/branch_and_bound.py": {
+        "size": 2544
+      },
+      "dedupe/canonical.py": {
+        "size": 2485
+      },
+      "dedupe/canopy_index.py": {
+        "size": 2603
+      },
+      "dedupe/clustering.py": {
+        "size": 12865
+      },
+      "dedupe/convenience.py": {
+        "size": 11643
+      },
+      "dedupe/core.py": {
+        "size": 9088
+      },
+      "dedupe/datamodel.py": {
+        "size": 7097
+      },
+      "dedupe/index.py": {
+        "size": 746
+      },
+      "dedupe/labeler.py": {
+        "size": 17068
+      },
+      "dedupe/levenshtein.py": {
+        "size": 1249
+      },
+      "dedupe/predicate_functions.py": {
+        "size": 6898
+      },
+      "dedupe/predicates.py": {
+        "size": 10864
+      },
+      "dedupe/serializer.py": {
+        "size": 2463
+      },
+      "dedupe/tfidf.py": {
+        "size": 1117
+      },
+      "dedupe/training.py": {
+        "size": 11209
+      },
+      "dedupe/variables/__init__.py": {
+        "size": 656
+      },
+      "dedupe/variables/base.py": {
+        "size": 3119
+      },
+      "dedupe/variables/categorical_type.py": {
+        "size": 902
+      },
+      "dedupe/variables/exact.py": {
+        "size": 368
+      },
+      "dedupe/variables/exists.py": {
+        "size": 1194
+      },
+      "dedupe/variables/interaction.py": {
+        "size": 2584
+      },
+      "dedupe/variables/latlong.py": {
+        "size": 414
+      },
+      "dedupe/variables/price.py": {
+        "size": 598
+      },
+      "dedupe/variables/set.py": {
+        "size": 1027
+      },
+      "dedupe/variables/string.py": {
+        "size": 3205
+      },
+      "docs/_static/js/bootstrap.min.js": {
+        "size": 37045
+      },
+      "docs/_static/js/jquery.min.js": {
+        "size": 86659
+      },
+      "docs/conf.py": {
+        "size": 8720
+      },
+      "docs/requirements.txt": {
+        "size": 137
+      },
+      "pyproject.toml": {
+        "size": 2291
+      },
+      "requirements.txt": {
+        "size": 98
+      },
+      "setup.py": {
+        "size": 378
+      },
+      "tests/duplicateCluster_memory_case.py": {
+        "size": 1154
+      },
+      "tests/test_api.py": {
+        "size": 3790
+      },
+      "tests/test_blocking.py": {
+        "size": 4774
+      },
+      "tests/test_canonical.py": {
+        "size": 2295
+      },
+      "tests/test_core.py": {
+        "size": 5270
+      },
+      "tests/test_cpredicates.py": {
+        "size": 4740
+      },
+      "tests/test_dedupe.py": {
+        "size": 7276
+      },
+      "tests/test_exists.py": {
+        "size": 639
+      },
+      "tests/test_labeler.py": {
+        "size": 2342
+      },
+      "tests/test_predicate_functions.py": {
+        "size": 13799
+      },
+      "tests/test_predicates.py": {
+        "size": 4854
+      },
+      "tests/test_price.py": {
+        "size": 227
+      },
+      "tests/test_serializer.py": {
+        "size": 1765
+      },
+      "tests/test_tfidf.py": {
+        "size": 888
+      },
+      "tests/test_training.py": {
+        "size": 3276
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.benchmarks.benchmarks",
+      "source.dedupe",
+      "source.dedupe.variables"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.dedupe",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level package export surface for the dedupe library; likely re-exports primary API classes from source.dedupe.api for ergonomic imports."
+      },
+      {
+        "package": "source.dedupe",
+        "module": "api",
+        "functions": [],
+        "classes": [
+          "Dedupe",
+          "StaticDedupe",
+          "RecordLink",
+          "StaticRecordLink",
+          "Gazetteer",
+          "StaticGazetteer"
+        ],
+        "description": "Primary high-level API module for training, loading, matching, clustering, and record linkage workflows. This is the most suitable integration target for an MCP plugin."
+      },
+      {
+        "package": "source.dedupe",
+        "module": "convenience",
+        "functions": [
+          "console_label",
+          "training_data_dedupe",
+          "training_data_link"
+        ],
+        "classes": [],
+        "description": "Helper utilities for generating training data and interactive labeling; useful for optional MCP tools but not required for minimal integration."
+      },
+      {
+        "package": "source.dedupe",
+        "module": "serializer",
+        "functions": [
+          "read_training",
+          "write_training",
+          "read_settings",
+          "write_settings"
+        ],
+        "classes": [],
+        "description": "Persistence helpers for model settings and training artifacts; important for low-intrusion MCP state management."
+      },
+      {
+        "package": "source.dedupe",
+        "module": "variables",
+        "functions": [],
+        "classes": [
+          "String",
+          "Exact",
+          "Exists",
+          "Set",
+          "Price",
+          "LatLong",
+          "Categorical",
+          "Interaction"
+        ],
+        "description": "Field/variable type declarations used to construct dedupe data models for training and scoring."
+      },
+      {
+        "package": "source.dedupe",
+        "module": "training",
+        "functions": [],
+        "classes": [],
+        "description": "Internal model training logic; useful indirectly via API classes, generally not a direct MCP boundary."
+      },
+      {
+        "package": "source.dedupe",
+        "module": "blocking",
+        "functions": [],
+        "classes": [],
+        "description": "Blocking/indexing internals for scalability; should be consumed through high-level API to reduce coupling."
+      },
+      {
+        "package": "source.benchmarks.benchmarks",
+        "module": "canonical|canonical_gazetteer|canonical_matching|common",
+        "functions": [],
+        "classes": [],
+        "description": "Benchmark-only modules; not core runtime integration targets for MCP."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "none_detected",
+        "module": "N/A",
+        "description": "No explicit CLI entry points detected in scanned paths (no console_scripts, __main__.py, argparse/click-style dedicated CLI module identified)."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.93
+    },
+    "dependencies": {
+      "required": [
+        "affinegap",
+        "categorical-distance",
+        "doublemetaphone",
+        "highered",
+        "numpy",
+        "simplecosine",
+        "haversine",
+        "BTrees",
+        "zope.index",
+        "dedupe-Levenshtein-search"
+      ],
+      "optional": [
+        "pytest",
+        "sphinx",
+        "benchmark tooling (asv)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.94,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/dedupeio/dedupe",
+    "repo_name": "dedupe",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.94,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

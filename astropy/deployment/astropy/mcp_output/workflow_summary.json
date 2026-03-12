@@ -1,0 +1,241 @@
+{
+  "repository": {
+    "name": "astropy",
+    "url": "https://github.com/astropy/astropy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/astropy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773276141.617381,
+    "end_time": 1773276347.5847092,
+    "duration": 205.96732807159424,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 21,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.astropy",
+        "source.astropy.config",
+        "source.astropy.constants",
+        "source.astropy.convolution",
+        "source.astropy.coordinates",
+        "source.astropy.cosmology",
+        "source.astropy.extern",
+        "source.astropy.io",
+        "source.astropy.modeling",
+        "source.astropy.nddata",
+        "source.astropy.samp",
+        "source.astropy.stats",
+        "source.astropy.table",
+        "source.astropy.tests",
+        "source.astropy.time",
+        "source.astropy.timeseries",
+        "source.astropy.uncertainty",
+        "source.astropy.units",
+        "source.astropy.utils",
+        "source.astropy.visualization",
+        "source.astropy.wcs"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/astropy/astropy",
+      "repo_name": "astropy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/astropy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add and run a focused MCP test suite (smoke + contract + error-path) for all exposed endpoints since current test status is empty",
+    "add CI workflows in `mcp_output` (lint/type/test on PR and nightly integration against upstream astropy main)",
+    "pin and constrain dependencies in `mcp_output/requirements.txt` (including astropy/numpy compatibility ranges) and add a reproducible lock file",
+    "harden import-time behavior in `adapter.py` with lazy imports and clear fallback/error messages for optional deps (scipy/matplotlib/pandas/pyarrow/h5py/fsspec/dask)",
+    "introduce strict input/output Pydantic schemas per endpoint (units",
+    "coordinates",
+    "FITS args) with consistent error normalization",
+    "add security guardrails for file-based endpoints (`open/getdata/getheader/writeto/append/update`) such as path allowlists",
+    "size limits",
+    "and overwrite controls",
+    "add performance benchmarks and caching for expensive operations (WCS transforms",
+    "large FITS I/O",
+    "sigma clipping) plus regression thresholds in CI",
+    "improve observability with structured logging",
+    "request IDs",
+    "and endpoint-level timing/failure metrics",
+    "document endpoint coverage and limitations in `README_MCP.md` (supported Astropy versions",
+    "optional feature flags",
+    "known edge cases)",
+    "add backward-compatibility/versioning policy for MCP endpoint names and payloads",
+    "expand resilience tests for large/invalid/corrupt FITS and malformed coordinate/unit strings",
+    "reduce intrusiveness by wrapping high-level stable APIs only and avoiding private `_src` cosmology paths where possible",
+    "add example client scripts and golden-response fixtures for key workflows (FITS inspect",
+    "SkyCoord transform",
+    "Table I/O",
+    "WCS pixel↔world)",
+    "enable static quality gates in plugin code (`ruff`",
+    "`mypy`/`pyright`",
+    "`bandit`) aligned with upstream standards",
+    "add graceful degradation matrix tests for environments with missing optional dependencies to verify predictable endpoint availability"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow status is successful end-to-end with all planned nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy is appropriate for Astropy and aligns with high import feasibility (0.9).",
+      "Generated MCP service started healthy over stdio and exposed a broad endpoint set (22 endpoints in service info).",
+      "Repository analysis was comprehensive (large codebase recognized, 1060 files discovered; 21 processed in generation workflow scope).",
+      "No runtime errors or warnings were recorded during workflow execution."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality validation is incomplete: original project tests are marked failed/empty and MCP test details are effectively absent, so functional correctness is not yet proven.",
+      "DeepWiki analysis failed, reducing external contextual confidence for architecture/documentation enrichment."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository ingestion used zip fallback, which is resilient but may be slower and less metadata-rich than git-native checkout.",
+      "analysis_time": "Completed successfully with deep structural scan and module identification; good coverage for endpoint candidate discovery.",
+      "generation_time": "Completed successfully and produced all expected scaffold files, adapter, service entrypoint, and README.",
+      "test_time": "Service health check passed, but substantive endpoint contract/smoke/error-path testing is missing; this is the main execution-quality gap."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Not measurable from provided metrics (reported as 0); efficiency cannot be validated.",
+      "cpu_efficiency": "Not measurable from provided metrics (reported as 0); CPU profile is unknown.",
+      "disk_usage": "Generated artifact footprint appears very small/unknown (size metrics 0), suggesting missing telemetry rather than truly zero usage."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

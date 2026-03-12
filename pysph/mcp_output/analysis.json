@@ -1,0 +1,1128 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/pypr/pysph",
+    "summary": "Imported via zip fallback, file count: 308",
+    "file_tree": {
+      ".github/workflows/tests.yml": {
+        "size": 3132
+      },
+      ".github/workflows/zoltan-tests.yml": {
+        "size": 2248
+      },
+      ".readthedocs.yaml": {
+        "size": 1066
+      },
+      "LICENSE.txt": {
+        "size": 1609
+      },
+      "docker/README.md": {
+        "size": 807
+      },
+      "docs/requirements.txt": {
+        "size": 23
+      },
+      "docs/source/conf.py": {
+        "size": 8491
+      },
+      "docs/tutorial/solutions/ed.py": {
+        "size": 1001
+      },
+      "docs/tutorial/solutions/ed0.py": {
+        "size": 614
+      },
+      "docs/tutorial/solutions/ed_no_scheme.py": {
+        "size": 1955
+      },
+      "docs/tutorial/solutions/particles_in_disk.py": {
+        "size": 233
+      },
+      "docs/tutorial/solutions/plot_pa.py": {
+        "size": 162
+      },
+      "pyproject.toml": {
+        "size": 193
+      },
+      "pysph/__init__.py": {
+        "size": 2387
+      },
+      "pysph/base/__init__.py": {
+        "size": 0
+      },
+      "pysph/base/device_helper.py": {
+        "size": 24591
+      },
+      "pysph/base/gpu_domain_manager.py": {
+        "size": 13937
+      },
+      "pysph/base/gpu_helper_kernels.py": {
+        "size": 3276
+      },
+      "pysph/base/gpu_nnps.py": {
+        "size": 313
+      },
+      "pysph/base/gpu_nnps_helper.py": {
+        "size": 2928
+      },
+      "pysph/base/kernels.py": {
+        "size": 33635
+      },
+      "pysph/base/nnps.py": {
+        "size": 785
+      },
+      "pysph/base/reduce_array.py": {
+        "size": 1962
+      },
+      "pysph/base/tests/__init__.py": {
+        "size": 0
+      },
+      "pysph/base/tests/test_device_helper.py": {
+        "size": 12929
+      },
+      "pysph/base/tests/test_domain_manager.py": {
+        "size": 10177
+      },
+      "pysph/base/tests/test_kernel.py": {
+        "size": 18718
+      },
+      "pysph/base/tests/test_linalg3.py": {
+        "size": 4683
+      },
+      "pysph/base/tests/test_neighbor_cache.py": {
+        "size": 4105
+      },
+      "pysph/base/tests/test_nnps.py": {
+        "size": 49957
+      },
+      "pysph/base/tests/test_octree.py": {
+        "size": 19102
+      },
+      "pysph/base/tests/test_particle_array.py": {
+        "size": 40414
+      },
+      "pysph/base/tests/test_periodic_nnps.py": {
+        "size": 10005
+      },
+      "pysph/base/tests/test_reduce_array.py": {
+        "size": 1357
+      },
+      "pysph/base/tests/test_utils.py": {
+        "size": 869
+      },
+      "pysph/base/tree/__init__.py": {
+        "size": 0
+      },
+      "pysph/base/tree/helpers.py": {
+        "size": 4192
+      },
+      "pysph/base/tree/point_tree.py": {
+        "size": 25733
+      },
+      "pysph/base/tree/tests/test_point_tree.py": {
+        "size": 9388
+      },
+      "pysph/base/tree/tree.py": {
+        "size": 26424
+      },
+      "pysph/base/utils.py": {
+        "size": 16793
+      },
+      "pysph/base/z_order_gpu_nnps_kernels.py": {
+        "size": 6146
+      },
+      "pysph/examples/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/_db_geometry.py": {
+        "size": 13057
+      },
+      "pysph/examples/cavity.py": {
+        "size": 7669
+      },
+      "pysph/examples/couette.py": {
+        "size": 4640
+      },
+      "pysph/examples/cube.py": {
+        "size": 2558
+      },
+      "pysph/examples/dam_break/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/dam_break/dam_break_3d_lobovsky.py": {
+        "size": 5788
+      },
+      "pysph/examples/dam_break/db_2d_buchner.py": {
+        "size": 4647
+      },
+      "pysph/examples/dam_break/db_3d_yeh.py": {
+        "size": 5469
+      },
+      "pysph/examples/dam_break_2d.py": {
+        "size": 11151
+      },
+      "pysph/examples/dam_break_3d.py": {
+        "size": 5056
+      },
+      "pysph/examples/db_exp_data.py": {
+        "size": 16187
+      },
+      "pysph/examples/elliptical_drop.py": {
+        "size": 6943
+      },
+      "pysph/examples/elliptical_drop_no_scheme.py": {
+        "size": 3382
+      },
+      "pysph/examples/elliptical_drop_simple.py": {
+        "size": 1912
+      },
+      "pysph/examples/flow_past_cylinder_2d.py": {
+        "size": 17296
+      },
+      "pysph/examples/fpc_with_packed_cylinder.py": {
+        "size": 3097
+      },
+      "pysph/examples/gas_dynamics/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/gas_dynamics/accuracy_test_2d.py": {
+        "size": 5526
+      },
+      "pysph/examples/gas_dynamics/acoustic_wave.py": {
+        "size": 6798
+      },
+      "pysph/examples/gas_dynamics/blastwave.py": {
+        "size": 3432
+      },
+      "pysph/examples/gas_dynamics/cheng_shu_1d.py": {
+        "size": 3627
+      },
+      "pysph/examples/gas_dynamics/hydrostatic_box.py": {
+        "size": 4745
+      },
+      "pysph/examples/gas_dynamics/kelvin_helmholtz_instability.py": {
+        "size": 5646
+      },
+      "pysph/examples/gas_dynamics/noh.py": {
+        "size": 6614
+      },
+      "pysph/examples/gas_dynamics/riemann_2d.py": {
+        "size": 10948
+      },
+      "pysph/examples/gas_dynamics/riemann_2d_config.py": {
+        "size": 4557
+      },
+      "pysph/examples/gas_dynamics/riemann_solver.py": {
+        "size": 10128
+      },
+      "pysph/examples/gas_dynamics/robert.py": {
+        "size": 4384
+      },
+      "pysph/examples/gas_dynamics/sedov.py": {
+        "size": 2858
+      },
+      "pysph/examples/gas_dynamics/shocktube.py": {
+        "size": 9415
+      },
+      "pysph/examples/gas_dynamics/shocktube_setup.py": {
+        "size": 6553
+      },
+      "pysph/examples/gas_dynamics/sjogreen.py": {
+        "size": 3899
+      },
+      "pysph/examples/gas_dynamics/sod_shocktube.py": {
+        "size": 4671
+      },
+      "pysph/examples/gas_dynamics/wallshock.py": {
+        "size": 3649
+      },
+      "pysph/examples/gas_dynamics/wc_blastwave.py": {
+        "size": 7280
+      },
+      "pysph/examples/ghia_cavity_data.py": {
+        "size": 3655
+      },
+      "pysph/examples/hydrostatic_tank.py": {
+        "size": 14287
+      },
+      "pysph/examples/lattice_cylinders.py": {
+        "size": 5003
+      },
+      "pysph/examples/periodic_cylinders.py": {
+        "size": 7175
+      },
+      "pysph/examples/poiseuille.py": {
+        "size": 6164
+      },
+      "pysph/examples/rayleigh_taylor.py": {
+        "size": 4396
+      },
+      "pysph/examples/rigid_body/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/rigid_body/bouncing_cube.py": {
+        "size": 2973
+      },
+      "pysph/examples/rigid_body/bouncing_cubes.py": {
+        "size": 3998
+      },
+      "pysph/examples/rigid_body/cubes_colliding_in_tank.py": {
+        "size": 8555
+      },
+      "pysph/examples/rigid_body/dam_break3D_sph.py": {
+        "size": 5117
+      },
+      "pysph/examples/rigid_body/simple.py": {
+        "size": 1720
+      },
+      "pysph/examples/rigid_body/solid_body_floating_in_tank.py": {
+        "size": 6872
+      },
+      "pysph/examples/rigid_body/sphere_in_vessel_akinci.py": {
+        "size": 6384
+      },
+      "pysph/examples/rigid_body/ten_spheres_in_vessel_2d.py": {
+        "size": 11033
+      },
+      "pysph/examples/rigid_body/three_cubes_in_vessel_3d.py": {
+        "size": 8427
+      },
+      "pysph/examples/rigid_body/three_spheres_in_fluid.py": {
+        "size": 7259
+      },
+      "pysph/examples/run.py": {
+        "size": 6269
+      },
+      "pysph/examples/shallow_water/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/shallow_water/cylindrical_dambreak.py": {
+        "size": 8978
+      },
+      "pysph/examples/shallow_water/cylindrical_dambreak_closed_boundary.py": {
+        "size": 10380
+      },
+      "pysph/examples/shallow_water/cylindrical_dambreak_particle_split.py": {
+        "size": 10086
+      },
+      "pysph/examples/shallow_water/cylindrical_dambreak_sloping_bed.py": {
+        "size": 8275
+      },
+      "pysph/examples/shallow_water/files_for_output_comparison/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/shallow_water/okushiri_tsunami.py": {
+        "size": 19590
+      },
+      "pysph/examples/shallow_water/okushiri_tsunami_input_files/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/shallow_water/okushiri_tsunami_input_files/tsunami_obc.txt": {
+        "size": 7467
+      },
+      "pysph/examples/shallow_water/particle_split_in_a_square_domain.py": {
+        "size": 5545
+      },
+      "pysph/examples/shallow_water/rectangular_channel_flow.py": {
+        "size": 15613
+      },
+      "pysph/examples/shallow_water/rectangular_dambreak.py": {
+        "size": 9533
+      },
+      "pysph/examples/shallow_water/rectangular_dambreak_particle_split.py": {
+        "size": 10314
+      },
+      "pysph/examples/shallow_water/rectangular_dambreak_particle_split_and_merge.py": {
+        "size": 13128
+      },
+      "pysph/examples/shallow_water/rectangular_dambreak_sloping_bed.py": {
+        "size": 11090
+      },
+      "pysph/examples/shallow_water/rectangular_dambreak_wetbed_1d.py": {
+        "size": 10243
+      },
+      "pysph/examples/shallow_water/still_water_over_a_hump_1d.py": {
+        "size": 10743
+      },
+      "pysph/examples/shallow_water/still_water_over_a_parabolic_surface_1d.py": {
+        "size": 9414
+      },
+      "pysph/examples/shallow_water/still_water_over_a_step_1d.py": {
+        "size": 10784
+      },
+      "pysph/examples/shallow_water/thacker_basin.py": {
+        "size": 13118
+      },
+      "pysph/examples/sloshing/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/sloshing/sloshing_tank_pitch.py": {
+        "size": 10205
+      },
+      "pysph/examples/sloshing/st_bouscasse.py": {
+        "size": 5793
+      },
+      "pysph/examples/sloshing_tank_horizontal.py": {
+        "size": 5944
+      },
+      "pysph/examples/solid_mech/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/solid_mech/impact.py": {
+        "size": 10527
+      },
+      "pysph/examples/solid_mech/impact3d.py": {
+        "size": 10637
+      },
+      "pysph/examples/solid_mech/oscillating_plate.py": {
+        "size": 5574
+      },
+      "pysph/examples/solid_mech/rings.py": {
+        "size": 2465
+      },
+      "pysph/examples/solid_mech/taylor_bar.py": {
+        "size": 6069
+      },
+      "pysph/examples/spheric/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/spheric/moving_square.py": {
+        "size": 11158
+      },
+      "pysph/examples/sphysics/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/sphysics/beach_geometry.py": {
+        "size": 1798
+      },
+      "pysph/examples/sphysics/case1.py": {
+        "size": 3674
+      },
+      "pysph/examples/sphysics/case2.py": {
+        "size": 4152
+      },
+      "pysph/examples/sphysics/case3.py": {
+        "size": 4747
+      },
+      "pysph/examples/sphysics/case4.py": {
+        "size": 5888
+      },
+      "pysph/examples/sphysics/case5.py": {
+        "size": 4132
+      },
+      "pysph/examples/sphysics/case6.py": {
+        "size": 6999
+      },
+      "pysph/examples/sphysics/case7.py": {
+        "size": 5406
+      },
+      "pysph/examples/sphysics/case8.py": {
+        "size": 6879
+      },
+      "pysph/examples/sphysics/dam_break.py": {
+        "size": 3502
+      },
+      "pysph/examples/sphysics/dambreak_sphysics.py": {
+        "size": 3532
+      },
+      "pysph/examples/sphysics/periodic_rigidbody.py": {
+        "size": 1697
+      },
+      "pysph/examples/st_exp_data.py": {
+        "size": 6392
+      },
+      "pysph/examples/surface_tension/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/surface_tension/capillary_wave.py": {
+        "size": 9841
+      },
+      "pysph/examples/surface_tension/circular_droplet.py": {
+        "size": 9541
+      },
+      "pysph/examples/surface_tension/equilibrium_rod.py": {
+        "size": 5216
+      },
+      "pysph/examples/surface_tension/equilibrium_rod_hex.py": {
+        "size": 5246
+      },
+      "pysph/examples/surface_tension/interface_instability.py": {
+        "size": 4722
+      },
+      "pysph/examples/surface_tension/khi_sy11.py": {
+        "size": 5980
+      },
+      "pysph/examples/surface_tension/khi_tvf.py": {
+        "size": 11121
+      },
+      "pysph/examples/surface_tension/oscillating_rod.py": {
+        "size": 7374
+      },
+      "pysph/examples/surface_tension/square_droplet.py": {
+        "size": 6235
+      },
+      "pysph/examples/taylor_green.py": {
+        "size": 18421
+      },
+      "pysph/examples/tests/__init__.py": {
+        "size": 0
+      },
+      "pysph/examples/tests/test_examples.py": {
+        "size": 2102
+      },
+      "pysph/examples/tests/test_riemann_solver.py": {
+        "size": 9298
+      },
+      "pysph/examples/tg_with_packed_particles.py": {
+        "size": 1560
+      },
+      "pysph/examples/trivial_inlet_outlet.py": {
+        "size": 5294
+      },
+      "pysph/examples/two_blocks.py": {
+        "size": 1347
+      },
+      "pysph/parallel/__init__.py": {
+        "size": 0
+      },
+      "pysph/parallel/tests/__init__.py": {
+        "size": 0
+      },
+      "pysph/parallel/tests/cavity.py": {
+        "size": 190
+      },
+      "pysph/parallel/tests/check_dump_load.py": {
+        "size": 1355
+      },
+      "pysph/parallel/tests/elliptical_drop.py": {
+        "size": 197
+      },
+      "pysph/parallel/tests/example_test_case.py": {
+        "size": 5549
+      },
+      "pysph/parallel/tests/lb_exchange.py": {
+        "size": 5483
+      },
+      "pysph/parallel/tests/reduce_array.py": {
+        "size": 771
+      },
+      "pysph/parallel/tests/remote_exchange.py": {
+        "size": 4972
+      },
+      "pysph/parallel/tests/simple_reduction.py": {
+        "size": 1899
+      },
+      "pysph/parallel/tests/summation_density.py": {
+        "size": 8708
+      },
+      "pysph/parallel/tests/test_openmp.py": {
+        "size": 2017
+      },
+      "pysph/parallel/tests/test_parallel.py": {
+        "size": 2949
+      },
+      "pysph/parallel/tests/test_parallel_run.py": {
+        "size": 2436
+      },
+      "pysph/solver/__init__.py": {
+        "size": 0
+      },
+      "pysph/solver/application.py": {
+        "size": 60600
+      },
+      "pysph/solver/controller.py": {
+        "size": 16020
+      },
+      "pysph/solver/output.py": {
+        "size": 11603
+      },
+      "pysph/solver/solver.py": {
+        "size": 25409
+      },
+      "pysph/solver/solver_interfaces.py": {
+        "size": 7452
+      },
+      "pysph/solver/tests/__init__.py": {
+        "size": 0
+      },
+      "pysph/solver/tests/test_application.py": {
+        "size": 4381
+      },
+      "pysph/solver/tests/test_solver.py": {
+        "size": 5062
+      },
+      "pysph/solver/tests/test_solver_utils.py": {
+        "size": 7528
+      },
+      "pysph/solver/tools.py": {
+        "size": 7429
+      },
+      "pysph/solver/utils.py": {
+        "size": 11991
+      },
+      "pysph/solver/vtk_output.py": {
+        "size": 6186
+      },
+      "pysph/sph/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/acceleration_eval.py": {
+        "size": 9183
+      },
+      "pysph/sph/acceleration_eval_cython_helper.py": {
+        "size": 12074
+      },
+      "pysph/sph/acceleration_eval_gpu_helper.py": {
+        "size": 40115
+      },
+      "pysph/sph/acceleration_nnps_helper.py": {
+        "size": 4551
+      },
+      "pysph/sph/basic_equations.py": {
+        "size": 9603
+      },
+      "pysph/sph/bc/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/bc/characteristic/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/bc/characteristic/inlet.py": {
+        "size": 114
+      },
+      "pysph/sph/bc/characteristic/outlet.py": {
+        "size": 118
+      },
+      "pysph/sph/bc/characteristic/simple_inlet_outlet.py": {
+        "size": 7380
+      },
+      "pysph/sph/bc/donothing/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/bc/donothing/inlet.py": {
+        "size": 114
+      },
+      "pysph/sph/bc/donothing/outlet.py": {
+        "size": 118
+      },
+      "pysph/sph/bc/donothing/simple_inlet_outlet.py": {
+        "size": 4290
+      },
+      "pysph/sph/bc/hybrid/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/bc/hybrid/inlet.py": {
+        "size": 1286
+      },
+      "pysph/sph/bc/hybrid/outlet.py": {
+        "size": 119
+      },
+      "pysph/sph/bc/hybrid/simple_inlet_outlet.py": {
+        "size": 9368
+      },
+      "pysph/sph/bc/inlet_outlet_manager.py": {
+        "size": 24084
+      },
+      "pysph/sph/bc/interpolate.py": {
+        "size": 11403
+      },
+      "pysph/sph/bc/mirror/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/bc/mirror/inlet.py": {
+        "size": 114
+      },
+      "pysph/sph/bc/mirror/outlet.py": {
+        "size": 1976
+      },
+      "pysph/sph/bc/mirror/simple_inlet_outlet.py": {
+        "size": 5270
+      },
+      "pysph/sph/bc/mod_donothing/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/bc/mod_donothing/inlet.py": {
+        "size": 114
+      },
+      "pysph/sph/bc/mod_donothing/outlet.py": {
+        "size": 118
+      },
+      "pysph/sph/bc/mod_donothing/simple_inlet_outlet.py": {
+        "size": 5299
+      },
+      "pysph/sph/bc/tests/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/bc/tests/test_simple_inlet_outlet.py": {
+        "size": 8474
+      },
+      "pysph/sph/boundary_equations.py": {
+        "size": 2706
+      },
+      "pysph/sph/equation.py": {
+        "size": 34207
+      },
+      "pysph/sph/gas_dynamics/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/gas_dynamics/basic.py": {
+        "size": 16859
+      },
+      "pysph/sph/gas_dynamics/boundary_equations.py": {
+        "size": 1805
+      },
+      "pysph/sph/gas_dynamics/gsph.py": {
+        "size": 18006
+      },
+      "pysph/sph/gas_dynamics/magma2.py": {
+        "size": 67605
+      },
+      "pysph/sph/gas_dynamics/psph.py": {
+        "size": 35428
+      },
+      "pysph/sph/gas_dynamics/riemann_solver.py": {
+        "size": 28192
+      },
+      "pysph/sph/gas_dynamics/tsph.py": {
+        "size": 27191
+      },
+      "pysph/sph/iisph.py": {
+        "size": 23061
+      },
+      "pysph/sph/integrator.py": {
+        "size": 16060
+      },
+      "pysph/sph/integrator_cython_helper.py": {
+        "size": 8362
+      },
+      "pysph/sph/integrator_gpu_helper.py": {
+        "size": 11032
+      },
+      "pysph/sph/integrator_step.py": {
+        "size": 30876
+      },
+      "pysph/sph/isph/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/isph/isph.py": {
+        "size": 15005
+      },
+      "pysph/sph/isph/sisph.py": {
+        "size": 25407
+      },
+      "pysph/sph/isph/wall_normal.py": {
+        "size": 3950
+      },
+      "pysph/sph/misc/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/misc/advection.py": {
+        "size": 622
+      },
+      "pysph/sph/rigid_body.py": {
+        "size": 26710
+      },
+      "pysph/sph/scheme.py": {
+        "size": 58703
+      },
+      "pysph/sph/solid_mech/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/solid_mech/basic.py": {
+        "size": 20170
+      },
+      "pysph/sph/solid_mech/hvi.py": {
+        "size": 2853
+      },
+      "pysph/sph/sph_compiler.py": {
+        "size": 3763
+      },
+      "pysph/sph/surface_tension.py": {
+        "size": 42347
+      },
+      "pysph/sph/swe/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/swe/basic.py": {
+        "size": 69043
+      },
+      "pysph/sph/tests/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/tests/test_acceleration_eval.py": {
+        "size": 40856
+      },
+      "pysph/sph/tests/test_acceleration_eval_cython_helper.py": {
+        "size": 3855
+      },
+      "pysph/sph/tests/test_equations.py": {
+        "size": 8790
+      },
+      "pysph/sph/tests/test_integrator.py": {
+        "size": 18459
+      },
+      "pysph/sph/tests/test_integrator_cython_helper.py": {
+        "size": 1179
+      },
+      "pysph/sph/tests/test_integrator_step.py": {
+        "size": 3859
+      },
+      "pysph/sph/tests/test_kernel_corrections.py": {
+        "size": 9008
+      },
+      "pysph/sph/tests/test_linalg.py": {
+        "size": 6641
+      },
+      "pysph/sph/tests/test_multi_group_integrator.py": {
+        "size": 3172
+      },
+      "pysph/sph/tests/test_riemann_solver.py": {
+        "size": 2498
+      },
+      "pysph/sph/tests/test_scheme.py": {
+        "size": 932
+      },
+      "pysph/sph/wc/__init__.py": {
+        "size": 0
+      },
+      "pysph/sph/wc/basic.py": {
+        "size": 15244
+      },
+      "pysph/sph/wc/crksph.py": {
+        "size": 38434
+      },
+      "pysph/sph/wc/density_correction.py": {
+        "size": 6666
+      },
+      "pysph/sph/wc/edac.py": {
+        "size": 33750
+      },
+      "pysph/sph/wc/gtvf.py": {
+        "size": 21610
+      },
+      "pysph/sph/wc/kernel_correction.py": {
+        "size": 7778
+      },
+      "pysph/sph/wc/linalg.py": {
+        "size": 4852
+      },
+      "pysph/sph/wc/parshikov.py": {
+        "size": 2372
+      },
+      "pysph/sph/wc/pcisph.py": {
+        "size": 11964
+      },
+      "pysph/sph/wc/shift.py": {
+        "size": 9695
+      },
+      "pysph/sph/wc/transport_velocity.py": {
+        "size": 21120
+      },
+      "pysph/sph/wc/viscosity.py": {
+        "size": 4581
+      },
+      "pysph/sph/wc/zhanghuadams.py": {
+        "size": 3261
+      },
+      "pysph/tools/__init__.py": {
+        "size": 0
+      },
+      "pysph/tools/binder.py": {
+        "size": 6507
+      },
+      "pysph/tools/cli.py": {
+        "size": 2993
+      },
+      "pysph/tools/cull.py": {
+        "size": 2142
+      },
+      "pysph/tools/dump_xdmf.py": {
+        "size": 8358
+      },
+      "pysph/tools/fortranfile.py": {
+        "size": 9089
+      },
+      "pysph/tools/geometry.py": {
+        "size": 39312
+      },
+      "pysph/tools/geometry_utils.py": {
+        "size": 2863
+      },
+      "pysph/tools/gmsh.py": {
+        "size": 13830
+      },
+      "pysph/tools/interpolator.py": {
+        "size": 18567
+      },
+      "pysph/tools/ipy_viewer.py": {
+        "size": 97520
+      },
+      "pysph/tools/manage_cache.py": {
+        "size": 1874
+      },
+      "pysph/tools/mayavi_viewer.py": {
+        "size": 52517
+      },
+      "pysph/tools/ndspmhd.py": {
+        "size": 2903
+      },
+      "pysph/tools/packer.py": {
+        "size": 8188
+      },
+      "pysph/tools/particle_packing.py": {
+        "size": 58629
+      },
+      "pysph/tools/pprocess.py": {
+        "size": 5265
+      },
+      "pysph/tools/pysph_to_vtk.py": {
+        "size": 10615
+      },
+      "pysph/tools/read_mesh.py": {
+        "size": 2462
+      },
+      "pysph/tools/run_parallel_script.py": {
+        "size": 1743
+      },
+      "pysph/tools/sph_evaluator.py": {
+        "size": 3016
+      },
+      "pysph/tools/sphysics.py": {
+        "size": 2651
+      },
+      "pysph/tools/tests/__init__.py": {
+        "size": 0
+      },
+      "pysph/tools/tests/test_dump_xdmf.py": {
+        "size": 2692
+      },
+      "pysph/tools/tests/test_geometry.py": {
+        "size": 11650
+      },
+      "pysph/tools/tests/test_interpolator.py": {
+        "size": 11648
+      },
+      "pysph/tools/tests/test_mesh_tools.py": {
+        "size": 6441
+      },
+      "pysph/tools/tests/test_sph_evaluator.py": {
+        "size": 2124
+      },
+      "pysph/tools/uniform_distribution.py": {
+        "size": 2899
+      },
+      "requirements-test.txt": {
+        "size": 31
+      },
+      "requirements.txt": {
+        "size": 79
+      },
+      "setup.cfg": {
+        "size": 147
+      },
+      "setup.py": {
+        "size": 25825
+      },
+      "starcluster/sc_pysph.py": {
+        "size": 2782
+      },
+      "tox.ini": {
+        "size": 755
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.pysph",
+      "source.pysph.base",
+      "source.pysph.examples",
+      "source.pysph.parallel",
+      "source.pysph.solver",
+      "source.pysph.sph",
+      "source.pysph.tools"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
+    "setup_cfg": true,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.pysph.solver",
+        "module": "application",
+        "functions": [],
+        "classes": [
+          "Application"
+        ],
+        "description": "Primary orchestration layer for PySPH simulations: argument handling, setup lifecycle, run control, and integration with solver/scheme objects."
+      },
+      {
+        "package": "source.pysph.solver",
+        "module": "solver",
+        "functions": [],
+        "classes": [
+          "Solver"
+        ],
+        "description": "Core time-integration engine coordinating integrators, acceleration evaluation, stepping, and output scheduling."
+      },
+      {
+        "package": "source.pysph.sph",
+        "module": "scheme",
+        "functions": [],
+        "classes": [
+          "Scheme",
+          "SchemeChooser"
+        ],
+        "description": "High-level SPH scheme abstraction and selection utilities used by examples and applications."
+      },
+      {
+        "package": "source.pysph.sph",
+        "module": "equation",
+        "functions": [],
+        "classes": [
+          "Equation",
+          "Group",
+          "MultiStageEquations"
+        ],
+        "description": "Equation system definition layer used to construct SPH interaction operators and grouped execution."
+      },
+      {
+        "package": "source.pysph.sph",
+        "module": "integrator",
+        "functions": [],
+        "classes": [
+          "Integrator"
+        ],
+        "description": "Time integration abstraction for particle updates; used with integrator steps and solver."
+      },
+      {
+        "package": "source.pysph.sph",
+        "module": "integrator_step",
+        "functions": [],
+        "classes": [
+          "IntegratorStep"
+        ],
+        "description": "Concrete stepping primitives for integrators (predictor-corrector and related update stages)."
+      },
+      {
+        "package": "source.pysph.sph",
+        "module": "acceleration_eval",
+        "functions": [],
+        "classes": [
+          "AccelerationEval"
+        ],
+        "description": "Runtime evaluator that applies equation groups to particle arrays, central to simulation kernels."
+      },
+      {
+        "package": "source.pysph.base",
+        "module": "utils",
+        "functions": [
+          "get_particle_array"
+        ],
+        "classes": [],
+        "description": "Particle-array construction and utility helpers used across most examples and schemes."
+      },
+      {
+        "package": "source.pysph.base",
+        "module": "kernels",
+        "functions": [],
+        "classes": [
+          "CubicSpline",
+          "QuinticSpline",
+          "Gaussian",
+          "WendlandQuintic"
+        ],
+        "description": "SPH kernel implementations for interpolation and force computations."
+      },
+      {
+        "package": "source.pysph.tools",
+        "module": "sph_evaluator",
+        "functions": [],
+        "classes": [
+          "SPHEvaluator"
+        ],
+        "description": "Programmatic evaluator utility for applying equations on particle data outside full solver runs."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python -m pysph.examples.run",
+        "module": "source.pysph.examples.run",
+        "description": "Runner utility to discover and execute bundled PySPH example problems."
+      },
+      {
+        "name": "python -m pysph.tools.cli",
+        "module": "source.pysph.tools.cli",
+        "description": "General utility CLI entry module for tool-oriented operations."
+      },
+      {
+        "name": "python -m pysph.tools.dump_xdmf",
+        "module": "source.pysph.tools.dump_xdmf",
+        "description": "Converts/exports PySPH output into XDMF-compatible formats."
+      },
+      {
+        "name": "python -m pysph.tools.pysph_to_vtk",
+        "module": "source.pysph.tools.pysph_to_vtk",
+        "description": "Post-processing conversion utility for VTK output."
+      },
+      {
+        "name": "python -m pysph.tools.manage_cache",
+        "module": "source.pysph.tools.manage_cache",
+        "description": "Cache management utility for generated/compiled artifacts."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.86
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "cython",
+        "mako",
+        "pyzoltan"
+      ],
+      "optional": [
+        "mpi4py",
+        "compyle",
+        "h5py",
+        "vtk",
+        "mayavi",
+        "jupyter/ipywidgets",
+        "gmsh"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/pypr/pysph",
+    "repo_name": "pysph",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.72,
+    "intrusiveness_risk": "medium",
+    "complexity": "complex"
+  }
+}

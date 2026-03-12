@@ -1,0 +1,222 @@
+{
+  "repository": {
+    "name": "osmnx",
+    "url": "https://github.com/gboeing/osmnx",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/osmnx",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773246162.8213298,
+    "end_time": 1773246405.732262,
+    "duration": 242.9109320640564,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 1,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.osmnx"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.95,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/gboeing/osmnx",
+      "repo_name": "osmnx",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/osmnx/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add end-to-end tests for generated MCP endpoints (happy path",
+    "invalid inputs",
+    "and error translation)",
+    "add contract/schema tests to verify FastMCP/Pydantic request-response models stay aligned with OSMnx function signatures",
+    "introduce lightweight smoke tests that avoid live network calls by mocking Overpass/Nominatim HTTP layers",
+    "add CI jobs for the MCP plugin (lint",
+    "type-check",
+    "unit tests) and publish test artifacts",
+    "pin and constrain MCP plugin dependency versions (fastmcp/pydantic) with a lock file for reproducible builds",
+    "implement structured error mapping in the adapter (OSMnx exceptions to stable MCP error codes/messages)",
+    "add timeout/retry/circuit-breaker controls around network-backed endpoints exposed via MCP",
+    "provide per-endpoint input validation guards (bbox ordering",
+    "CRS assumptions",
+    "geometry types) before calling OSMnx",
+    "document endpoint-specific performance and payload limits (max area",
+    "max graph size",
+    "pagination/chunking guidance)",
+    "add response-size safeguards and optional simplification/compression for large GeoDataFrame/graph outputs",
+    "cache geocoding and Overpass results at plugin level with configurable TTL to reduce latency and rate-limit risk",
+    "add observability (structured logs",
+    "request IDs",
+    "latency/error metrics) in mcp_service for operations monitoring",
+    "create security hardening checks (path sanitization for save/load endpoints",
+    "allowlisted output directories)",
+    "add compatibility tests across minimum and latest dependency sets mirroring upstream OSMnx workflows",
+    "generate richer MCP README examples with reproducible sample calls for each endpoint group",
+    "add regression tests for serialization/deserialization of graph and geometry objects across supported formats",
+    "enforce static analysis (ruff/mypy or pyright) on generated plugin code to catch adapter drift early",
+    "add version handshake metadata endpoint (plugin version",
+    "osmnx version",
+    "supported endpoints) for client compatibility management"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy was appropriate for OSMnx (high import feasibility 0.95), reducing integration intrusiveness.",
+      "Generated MCP service started healthy over stdio and exposed a broad endpoint surface aligned with core OSMnx modules.",
+      "Repository structure and pyproject metadata were sufficient for static analysis and plugin scaffolding despite missing requirements.txt/environment.yml."
+    ],
+    "failure_reasons": [
+      "No hard execution failure occurred.",
+      "DeepWiki analysis failed (non-blocking) and reduced external contextual enrichment.",
+      "Original project test status reports passed=false with no details, indicating validation gap rather than runtime crash.",
+      "Quality evidence is limited by absent/empty metrics (LOC, file sizes, resource counters, endpoint test artifacts)."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; exact per-node timing unavailable. Zip fallback import worked and processed repository tree reliably.",
+      "analysis_time": "Completed successfully with medium complexity findings and rich module/endpoint mapping; DeepWiki sub-step failed but pipeline continued.",
+      "generation_time": "Completed successfully; plugin files and 43 functional endpoints were generated via import adapter.",
+      "test_time": "MCP plugin health check passed; however, comprehensive endpoint/unit/integration tests were not evidenced, so functional confidence is moderate."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB). Instrument runtime metrics collection before drawing efficiency conclusions.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%). Add per-node CPU sampling in workflow executor.",
+      "disk_usage": "Low-to-moderate expected (few generated files), but recorded generated size=0 indicates missing measurement instrumentation."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 84,
+    "performance_score": 68,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 72
+  }
+}

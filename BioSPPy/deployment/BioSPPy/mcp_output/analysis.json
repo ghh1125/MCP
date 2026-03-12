@@ -1,0 +1,437 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/scientisst/BioSPPy",
+    "summary": "Imported via zip fallback, file count: 64",
+    "file_tree": {
+      ".github/workflows/publish-to-pypi.yml": {
+        "size": 2335
+      },
+      ".readthedocs.yaml": {
+        "size": 787
+      },
+      "AUTHORS.md": {
+        "size": 1273
+      },
+      "CONTRIBUTING.md": {
+        "size": 4273
+      },
+      "README.md": {
+        "size": 4455
+      },
+      "biosppy/__init__.py": {
+        "size": 595
+      },
+      "biosppy/__version__.py": {
+        "size": 259
+      },
+      "biosppy/biometrics.py": {
+        "size": 63201
+      },
+      "biosppy/clustering.py": {
+        "size": 28595
+      },
+      "biosppy/features/__init__.py": {
+        "size": 526
+      },
+      "biosppy/features/cepstral.py": {
+        "size": 5948
+      },
+      "biosppy/features/frequency.py": {
+        "size": 8647
+      },
+      "biosppy/features/phase_space.py": {
+        "size": 10986
+      },
+      "biosppy/features/time.py": {
+        "size": 5389
+      },
+      "biosppy/features/time_freq.py": {
+        "size": 2670
+      },
+      "biosppy/inter_plotting/__init__.py": {
+        "size": 444
+      },
+      "biosppy/inter_plotting/acc.py": {
+        "size": 17678
+      },
+      "biosppy/inter_plotting/ecg.py": {
+        "size": 4644
+      },
+      "biosppy/metrics.py": {
+        "size": 5342
+      },
+      "biosppy/plotting.py": {
+        "size": 78189
+      },
+      "biosppy/quality.py": {
+        "size": 11233
+      },
+      "biosppy/signals/__init__.py": {
+        "size": 612
+      },
+      "biosppy/signals/abp.py": {
+        "size": 6049
+      },
+      "biosppy/signals/acc.py": {
+        "size": 8079
+      },
+      "biosppy/signals/bvp.py": {
+        "size": 2987
+      },
+      "biosppy/signals/ecg.py": {
+        "size": 103319
+      },
+      "biosppy/signals/eda.py": {
+        "size": 23763
+      },
+      "biosppy/signals/eeg.py": {
+        "size": 12123
+      },
+      "biosppy/signals/egm.py": {
+        "size": 33527
+      },
+      "biosppy/signals/emg.py": {
+        "size": 41770
+      },
+      "biosppy/signals/hrv.py": {
+        "size": 30658
+      },
+      "biosppy/signals/pcg.py": {
+        "size": 15840
+      },
+      "biosppy/signals/ppg.py": {
+        "size": 18036
+      },
+      "biosppy/signals/resp.py": {
+        "size": 3404
+      },
+      "biosppy/signals/tools.py": {
+        "size": 59506
+      },
+      "biosppy/spatial/eam.py": {
+        "size": 8818
+      },
+      "biosppy/stats.py": {
+        "size": 9686
+      },
+      "biosppy/storage.py": {
+        "size": 46243
+      },
+      "biosppy/synthesizers/__init__.py": {
+        "size": 443
+      },
+      "biosppy/synthesizers/ecg.py": {
+        "size": 20030
+      },
+      "biosppy/synthesizers/emg.py": {
+        "size": 29266
+      },
+      "biosppy/timing.py": {
+        "size": 1601
+      },
+      "biosppy/utils.py": {
+        "size": 13475
+      },
+      "docs/conf.py": {
+        "size": 10845
+      },
+      "docs/requirements.txt": {
+        "size": 107
+      },
+      "example.py": {
+        "size": 827
+      },
+      "examples/acc.txt": {
+        "size": 49404
+      },
+      "examples/bcg.txt": {
+        "size": 105085
+      },
+      "examples/ecg.txt": {
+        "size": 105085
+      },
+      "examples/eda.txt": {
+        "size": 524313
+      },
+      "examples/eeg_ec.txt": {
+        "size": 418565
+      },
+      "examples/eeg_eo.txt": {
+        "size": 330261
+      },
+      "examples/egm_bipolar_af.txt": {
+        "size": 23687
+      },
+      "examples/egm_bipolar_sinus.txt": {
+        "size": 23107
+      },
+      "examples/emg.txt": {
+        "size": 524313
+      },
+      "examples/emg_1.txt": {
+        "size": 319485
+      },
+      "examples/pcg.txt": {
+        "size": 239669
+      },
+      "examples/pcg_ecg.txt": {
+        "size": 160104
+      },
+      "examples/ppg.txt": {
+        "size": 140085
+      },
+      "examples/resp.txt": {
+        "size": 419644
+      },
+      "examples/rri.txt": {
+        "size": 3960
+      },
+      "requirements.txt": {
+        "size": 177
+      },
+      "setup.cfg": {
+        "size": 60
+      },
+      "setup.py": {
+        "size": 4364
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "biosppy",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level package initializer; likely re-exports version and selected submodules."
+      },
+      {
+        "package": "biosppy.signals",
+        "module": "ecg",
+        "functions": [
+          "ecg"
+        ],
+        "classes": [],
+        "description": "ECG processing pipeline and helper routines (filtering, peak detection, heart-rate estimation)."
+      },
+      {
+        "package": "biosppy.signals",
+        "module": "eda",
+        "functions": [
+          "eda"
+        ],
+        "classes": [],
+        "description": "EDA processing pipeline (preprocessing, decomposition/features, event-related metrics)."
+      },
+      {
+        "package": "biosppy.signals",
+        "module": "emg",
+        "functions": [
+          "emg"
+        ],
+        "classes": [],
+        "description": "EMG processing pipeline and onset-related analysis."
+      },
+      {
+        "package": "biosppy.signals",
+        "module": "ppg",
+        "functions": [
+          "ppg"
+        ],
+        "classes": [],
+        "description": "PPG processing pipeline including pulse-related fiducials/features."
+      },
+      {
+        "package": "biosppy.signals",
+        "module": "resp",
+        "functions": [
+          "resp"
+        ],
+        "classes": [],
+        "description": "Respiration signal processing and breathing-rate related outputs."
+      },
+      {
+        "package": "biosppy.signals",
+        "module": "eeg",
+        "functions": [
+          "eeg"
+        ],
+        "classes": [],
+        "description": "EEG processing utilities and spectral/feature extraction routines."
+      },
+      {
+        "package": "biosppy.signals",
+        "module": "hrv",
+        "functions": [
+          "hrv"
+        ],
+        "classes": [],
+        "description": "Heart-rate variability processing from RR interval series."
+      },
+      {
+        "package": "biosppy.signals",
+        "module": "tools",
+        "functions": [
+          "filter_signal",
+          "smoother",
+          "normalize"
+        ],
+        "classes": [],
+        "description": "Shared low-level DSP helpers reused across signal-specific modules."
+      },
+      {
+        "package": "biosppy.features",
+        "module": "time",
+        "functions": [],
+        "classes": [],
+        "description": "Time-domain feature extraction helpers."
+      },
+      {
+        "package": "biosppy.features",
+        "module": "frequency",
+        "functions": [],
+        "classes": [],
+        "description": "Frequency-domain feature extraction helpers."
+      },
+      {
+        "package": "biosppy.features",
+        "module": "time_freq",
+        "functions": [],
+        "classes": [],
+        "description": "Time-frequency feature extraction helpers."
+      },
+      {
+        "package": "biosppy.features",
+        "module": "cepstral",
+        "functions": [],
+        "classes": [],
+        "description": "Cepstral feature extraction helpers."
+      },
+      {
+        "package": "biosppy.features",
+        "module": "phase_space",
+        "functions": [],
+        "classes": [],
+        "description": "Phase-space based feature extraction."
+      },
+      {
+        "package": "biosppy",
+        "module": "plotting",
+        "functions": [],
+        "classes": [],
+        "description": "Static plotting functions for multiple biosignal workflows."
+      },
+      {
+        "package": "biosppy",
+        "module": "inter_plotting",
+        "functions": [],
+        "classes": [],
+        "description": "Interactive plotting support modules."
+      },
+      {
+        "package": "biosppy",
+        "module": "quality",
+        "functions": [],
+        "classes": [],
+        "description": "Signal quality metrics and quality assessment routines."
+      },
+      {
+        "package": "biosppy",
+        "module": "storage",
+        "functions": [],
+        "classes": [],
+        "description": "Read/write and serialization utilities for processed data."
+      },
+      {
+        "package": "biosppy.synthesizers",
+        "module": "ecg",
+        "functions": [],
+        "classes": [],
+        "description": "Synthetic ECG generation utilities."
+      },
+      {
+        "package": "biosppy.synthesizers",
+        "module": "emg",
+        "functions": [],
+        "classes": [],
+        "description": "Synthetic EMG generation utilities."
+      },
+      {
+        "package": "biosppy",
+        "module": "biometrics",
+        "functions": [],
+        "classes": [
+          "BaseClassifier",
+          "KNN",
+          "SVM",
+          "RandomForest",
+          "Combination"
+        ],
+        "description": "Biometric classification/identification workflows and model wrappers."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "matplotlib",
+        "scikit-learn",
+        "h5py",
+        "bidict",
+        "shortuuid",
+        "joblib"
+      ],
+      "optional": [
+        "pandas",
+        "peakutils",
+        "statsmodels"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/scientisst/BioSPPy",
+    "repo_name": "BioSPPy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

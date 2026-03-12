@@ -1,0 +1,768 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/zilliztech/deep-searcher",
+    "summary": "Imported via zip fallback, file count: 188",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 857
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 644
+      },
+      ".github/mergify.yml": {
+        "size": 937
+      },
+      ".github/workflows/cd-docs.yml": {
+        "size": 365
+      },
+      ".github/workflows/ci-docs.yml": {
+        "size": 535
+      },
+      ".github/workflows/docs.yml": {
+        "size": 710
+      },
+      ".github/workflows/release.yml": {
+        "size": 715
+      },
+      ".github/workflows/ruff.yml": {
+        "size": 506
+      },
+      ".vscode/settings.json": {
+        "size": 214
+      },
+      "CONTRIBUTING.md": {
+        "size": 5317
+      },
+      "README.md": {
+        "size": 32661
+      },
+      "deepsearcher/__init__.py": {
+        "size": 248
+      },
+      "deepsearcher/agent/__init__.py": {
+        "size": 243
+      },
+      "deepsearcher/agent/base.py": {
+        "size": 2671
+      },
+      "deepsearcher/agent/chain_of_rag.py": {
+        "size": 14095
+      },
+      "deepsearcher/agent/collection_router.py": {
+        "size": 4252
+      },
+      "deepsearcher/agent/deep_search.py": {
+        "size": 13732
+      },
+      "deepsearcher/agent/naive_rag.py": {
+        "size": 5234
+      },
+      "deepsearcher/agent/rag_router.py": {
+        "size": 3836
+      },
+      "deepsearcher/cli.py": {
+        "size": 4188
+      },
+      "deepsearcher/config.yaml": {
+        "size": 5081
+      },
+      "deepsearcher/configuration.py": {
+        "size": 7956
+      },
+      "deepsearcher/embedding/__init__.py": {
+        "size": 1122
+      },
+      "deepsearcher/embedding/base.py": {
+        "size": 2346
+      },
+      "deepsearcher/embedding/bedrock_embedding.py": {
+        "size": 4133
+      },
+      "deepsearcher/embedding/fastembed_embdding.py": {
+        "size": 2483
+      },
+      "deepsearcher/embedding/gemini_embedding.py": {
+        "size": 3774
+      },
+      "deepsearcher/embedding/glm_embedding.py": {
+        "size": 1475
+      },
+      "deepsearcher/embedding/jiekouai_embedding.py": {
+        "size": 4590
+      },
+      "deepsearcher/embedding/milvus_embedding.py": {
+        "size": 3880
+      },
+      "deepsearcher/embedding/novita_embedding.py": {
+        "size": 4503
+      },
+      "deepsearcher/embedding/ollama_embedding.py": {
+        "size": 4478
+      },
+      "deepsearcher/embedding/openai_embedding.py": {
+        "size": 5572
+      },
+      "deepsearcher/embedding/ppio_embedding.py": {
+        "size": 4439
+      },
+      "deepsearcher/embedding/sentence_transformer_embedding.py": {
+        "size": 3922
+      },
+      "deepsearcher/embedding/siliconflow_embedding.py": {
+        "size": 4739
+      },
+      "deepsearcher/embedding/volcengine_embedding.py": {
+        "size": 4702
+      },
+      "deepsearcher/embedding/voyage_embedding.py": {
+        "size": 2853
+      },
+      "deepsearcher/embedding/watsonx_embedding.py": {
+        "size": 13017
+      },
+      "deepsearcher/llm/__init__.py": {
+        "size": 779
+      },
+      "deepsearcher/llm/aliyun.py": {
+        "size": 2355
+      },
+      "deepsearcher/llm/anthropic_llm.py": {
+        "size": 2479
+      },
+      "deepsearcher/llm/azure_openai.py": {
+        "size": 2222
+      },
+      "deepsearcher/llm/base.py": {
+        "size": 4078
+      },
+      "deepsearcher/llm/bedrock.py": {
+        "size": 3553
+      },
+      "deepsearcher/llm/deepseek.py": {
+        "size": 2434
+      },
+      "deepsearcher/llm/gemini.py": {
+        "size": 2016
+      },
+      "deepsearcher/llm/glm.py": {
+        "size": 1049
+      },
+      "deepsearcher/llm/jiekouai.py": {
+        "size": 2276
+      },
+      "deepsearcher/llm/novita.py": {
+        "size": 1001
+      },
+      "deepsearcher/llm/ollama.py": {
+        "size": 1821
+      },
+      "deepsearcher/llm/openai_llm.py": {
+        "size": 2163
+      },
+      "deepsearcher/llm/ppio.py": {
+        "size": 2247
+      },
+      "deepsearcher/llm/siliconflow.py": {
+        "size": 2358
+      },
+      "deepsearcher/llm/together_ai.py": {
+        "size": 2013
+      },
+      "deepsearcher/llm/volcengine.py": {
+        "size": 2363
+      },
+      "deepsearcher/llm/watsonx.py": {
+        "size": 5980
+      },
+      "deepsearcher/llm/xai.py": {
+        "size": 2247
+      },
+      "deepsearcher/loader/__init__.py": {
+        "size": 0
+      },
+      "deepsearcher/loader/file_loader/__init__.py": {
+        "size": 455
+      },
+      "deepsearcher/loader/file_loader/base.py": {
+        "size": 2223
+      },
+      "deepsearcher/loader/file_loader/docling_loader.py": {
+        "size": 3876
+      },
+      "deepsearcher/loader/file_loader/json_loader.py": {
+        "size": 2961
+      },
+      "deepsearcher/loader/file_loader/pdf_loader.py": {
+        "size": 1740
+      },
+      "deepsearcher/loader/file_loader/text_loader.py": {
+        "size": 1188
+      },
+      "deepsearcher/loader/file_loader/unstructured_loader.py": {
+        "size": 6287
+      },
+      "deepsearcher/loader/splitter.py": {
+        "size": 3751
+      },
+      "deepsearcher/loader/web_crawler/__init__.py": {
+        "size": 403
+      },
+      "deepsearcher/loader/web_crawler/base.py": {
+        "size": 1703
+      },
+      "deepsearcher/loader/web_crawler/crawl4ai_crawler.py": {
+        "size": 4786
+      },
+      "deepsearcher/loader/web_crawler/docling_crawler.py": {
+        "size": 3061
+      },
+      "deepsearcher/loader/web_crawler/firecrawl_crawler.py": {
+        "size": 3273
+      },
+      "deepsearcher/loader/web_crawler/jina_crawler.py": {
+        "size": 1827
+      },
+      "deepsearcher/offline_loading.py": {
+        "size": 4636
+      },
+      "deepsearcher/online_query.py": {
+        "size": 3600
+      },
+      "deepsearcher/utils/__init__.py": {
+        "size": 0
+      },
+      "deepsearcher/utils/log.py": {
+        "size": 3765
+      },
+      "deepsearcher/vector_db/__init__.py": {
+        "size": 216
+      },
+      "deepsearcher/vector_db/azure_search.py": {
+        "size": 10508
+      },
+      "deepsearcher/vector_db/base.py": {
+        "size": 6320
+      },
+      "deepsearcher/vector_db/milvus.py": {
+        "size": 11956
+      },
+      "deepsearcher/vector_db/oracle.py": {
+        "size": 19786
+      },
+      "deepsearcher/vector_db/qdrant.py": {
+        "size": 10439
+      },
+      "docs/README.md": {
+        "size": 786
+      },
+      "docs/configuration/embedding.md": {
+        "size": 4518
+      },
+      "docs/configuration/file_loader.md": {
+        "size": 2273
+      },
+      "docs/configuration/index.md": {
+        "size": 1270
+      },
+      "docs/configuration/llm.md": {
+        "size": 7023
+      },
+      "docs/configuration/vector_db.md": {
+        "size": 2092
+      },
+      "docs/configuration/web_crawler.md": {
+        "size": 2886
+      },
+      "docs/contributing/index.md": {
+        "size": 5318
+      },
+      "docs/examples/basic_example.md": {
+        "size": 2389
+      },
+      "docs/examples/docling.md": {
+        "size": 3376
+      },
+      "docs/examples/firecrawl.md": {
+        "size": 3040
+      },
+      "docs/examples/index.md": {
+        "size": 892
+      },
+      "docs/examples/oracle.md": {
+        "size": 2376
+      },
+      "docs/examples/unstructured.md": {
+        "size": 2892
+      },
+      "docs/faq/index.md": {
+        "size": 2164
+      },
+      "docs/future_plans.md": {
+        "size": 288
+      },
+      "docs/index.md": {
+        "size": 1907
+      },
+      "docs/installation/development.md": {
+        "size": 1577
+      },
+      "docs/installation/index.md": {
+        "size": 864
+      },
+      "docs/installation/pip.md": {
+        "size": 1115
+      },
+      "docs/integrations/index.md": {
+        "size": 5197
+      },
+      "docs/usage/cli.md": {
+        "size": 1249
+      },
+      "docs/usage/deployment.md": {
+        "size": 2254
+      },
+      "docs/usage/index.md": {
+        "size": 564
+      },
+      "docs/usage/quick_start.md": {
+        "size": 1358
+      },
+      "evaluation/README.md": {
+        "size": 3802
+      },
+      "evaluation/eval_config.yaml": {
+        "size": 3348
+      },
+      "evaluation/evaluate.py": {
+        "size": 11878
+      },
+      "examples/basic_example.py": {
+        "size": 1524
+      },
+      "examples/basic_example_azuresearch.py": {
+        "size": 2290
+      },
+      "examples/basic_example_oracle.py": {
+        "size": 1365
+      },
+      "examples/basic_watsonx_example.py": {
+        "size": 4475
+      },
+      "examples/data/2wikimultihopqa.json": {
+        "size": 524313
+      },
+      "examples/data/2wikimultihopqa_corpus.json": {
+        "size": 524313
+      },
+      "examples/load_and_crawl_using_docling.py": {
+        "size": 2393
+      },
+      "examples/load_local_file_using_unstructured.py": {
+        "size": 1420
+      },
+      "examples/load_website_using_firecrawl.py": {
+        "size": 1685
+      },
+      "main.py": {
+        "size": 6423
+      },
+      "mkdocs.yml": {
+        "size": 3019
+      },
+      "pyproject.toml": {
+        "size": 4148
+      },
+      "tests/__init__.py": {
+        "size": 37
+      },
+      "tests/agent/__init__.py": {
+        "size": 29
+      },
+      "tests/agent/test_base.py": {
+        "size": 5133
+      },
+      "tests/agent/test_chain_of_rag.py": {
+        "size": 10244
+      },
+      "tests/agent/test_collection_router.py": {
+        "size": 6435
+      },
+      "tests/agent/test_deep_search.py": {
+        "size": 9386
+      },
+      "tests/agent/test_naive_rag.py": {
+        "size": 4866
+      },
+      "tests/agent/test_rag_router.py": {
+        "size": 6657
+      },
+      "tests/embedding/__init__.py": {
+        "size": 47
+      },
+      "tests/embedding/test_base.py": {
+        "size": 3717
+      },
+      "tests/embedding/test_bedrock_embedding.py": {
+        "size": 5201
+      },
+      "tests/embedding/test_fastembed_embedding.py": {
+        "size": 5162
+      },
+      "tests/embedding/test_gemini_embedding.py": {
+        "size": 10394
+      },
+      "tests/embedding/test_glm_embedding.py": {
+        "size": 5034
+      },
+      "tests/embedding/test_jiekouai_embedding.py": {
+        "size": 6679
+      },
+      "tests/embedding/test_milvus_embedding.py": {
+        "size": 5348
+      },
+      "tests/embedding/test_novita_embedding.py": {
+        "size": 6757
+      },
+      "tests/embedding/test_ollama_embedding.py": {
+        "size": 8821
+      },
+      "tests/embedding/test_openai_embedding.py": {
+        "size": 10587
+      },
+      "tests/embedding/test_ppio_embedding.py": {
+        "size": 6637
+      },
+      "tests/embedding/test_sentence_transformer_embedding.py": {
+        "size": 8337
+      },
+      "tests/embedding/test_siliconflow_embedding.py": {
+        "size": 7288
+      },
+      "tests/embedding/test_volcengine_embedding.py": {
+        "size": 7401
+      },
+      "tests/embedding/test_voyage_embedding.py": {
+        "size": 5111
+      },
+      "tests/embedding/test_watsonx_embedding.py": {
+        "size": 11584
+      },
+      "tests/llm/__init__.py": {
+        "size": 41
+      },
+      "tests/llm/test_aliyun.py": {
+        "size": 6331
+      },
+      "tests/llm/test_anthropic.py": {
+        "size": 6463
+      },
+      "tests/llm/test_azure_openai.py": {
+        "size": 6398
+      },
+      "tests/llm/test_base.py": {
+        "size": 5435
+      },
+      "tests/llm/test_bedrock.py": {
+        "size": 7730
+      },
+      "tests/llm/test_deepseek.py": {
+        "size": 6322
+      },
+      "tests/llm/test_gemini.py": {
+        "size": 5265
+      },
+      "tests/llm/test_glm.py": {
+        "size": 6170
+      },
+      "tests/llm/test_jiekouai.py": {
+        "size": 6189
+      },
+      "tests/llm/test_novita.py": {
+        "size": 6199
+      },
+      "tests/llm/test_ollama.py": {
+        "size": 4672
+      },
+      "tests/llm/test_openai.py": {
+        "size": 6058
+      },
+      "tests/llm/test_ppio.py": {
+        "size": 6223
+      },
+      "tests/llm/test_siliconflow.py": {
+        "size": 6327
+      },
+      "tests/llm/test_together_ai.py": {
+        "size": 5721
+      },
+      "tests/llm/test_volcengine.py": {
+        "size": 6322
+      },
+      "tests/llm/test_watsonx.py": {
+        "size": 17648
+      },
+      "tests/llm/test_xai.py": {
+        "size": 6104
+      },
+      "tests/loader/__init__.py": {
+        "size": 44
+      },
+      "tests/loader/file_loader/__init__.py": {
+        "size": 56
+      },
+      "tests/loader/file_loader/test_base.py": {
+        "size": 2770
+      },
+      "tests/loader/file_loader/test_docling_loader.py": {
+        "size": 7638
+      },
+      "tests/loader/file_loader/test_json_loader.py": {
+        "size": 5294
+      },
+      "tests/loader/file_loader/test_pdf_loader.py": {
+        "size": 4956
+      },
+      "tests/loader/file_loader/test_text_loader.py": {
+        "size": 2980
+      },
+      "tests/loader/file_loader/test_unstructured_loader.py": {
+        "size": 8416
+      },
+      "tests/loader/test_splitter.py": {
+        "size": 4148
+      },
+      "tests/loader/web_crawler/__init__.py": {
+        "size": 56
+      },
+      "tests/loader/web_crawler/test_base.py": {
+        "size": 1823
+      },
+      "tests/loader/web_crawler/test_crawl4ai_crawler.py": {
+        "size": 5840
+      },
+      "tests/loader/web_crawler/test_docling_crawler.py": {
+        "size": 5964
+      },
+      "tests/loader/web_crawler/test_firecrawl_crawler.py": {
+        "size": 5301
+      },
+      "tests/loader/web_crawler/test_jina_crawler.py": {
+        "size": 4140
+      },
+      "tests/utils/test_log.py": {
+        "size": 6313
+      },
+      "tests/vector_db/test_azure_search.py": {
+        "size": 8193
+      },
+      "tests/vector_db/test_base.py": {
+        "size": 5427
+      },
+      "tests/vector_db/test_milvus.py": {
+        "size": 4518
+      },
+      "tests/vector_db/test_oracle.py": {
+        "size": 8707
+      },
+      "tests/vector_db/test_qdrant.py": {
+        "size": 6181
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.deepsearcher",
+      "source.deepsearcher.agent",
+      "source.deepsearcher.embedding",
+      "source.deepsearcher.llm",
+      "source.deepsearcher.loader",
+      "source.deepsearcher.utils",
+      "source.deepsearcher.vector_db",
+      "source.tests",
+      "source.tests.agent",
+      "source.tests.embedding",
+      "source.tests.llm",
+      "source.tests.loader"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.deepsearcher.agent",
+        "module": "base",
+        "functions": [],
+        "classes": [
+          "BaseAgent"
+        ],
+        "description": "Defines the common agent abstraction used by retrieval/generation workflows."
+      },
+      {
+        "package": "source.deepsearcher.agent",
+        "module": "deep_search",
+        "functions": [],
+        "classes": [
+          "DeepSearch"
+        ],
+        "description": "Primary multi-step deep search/RAG orchestration agent; highest-value MCP integration target."
+      },
+      {
+        "package": "source.deepsearcher.agent",
+        "module": "chain_of_rag",
+        "functions": [],
+        "classes": [
+          "ChainOfRAG"
+        ],
+        "description": "Chain-style RAG execution module for iterative reasoning over retrieved context."
+      },
+      {
+        "package": "source.deepsearcher.agent",
+        "module": "naive_rag",
+        "functions": [],
+        "classes": [
+          "NaiveRAG"
+        ],
+        "description": "Simpler RAG baseline agent, suitable as low-complexity fallback path."
+      },
+      {
+        "package": "source.deepsearcher.configuration",
+        "module": "configuration",
+        "functions": [],
+        "classes": [
+          "Configuration"
+        ],
+        "description": "Central config loading/validation module (YAML-driven), critical for non-intrusive plugin wiring."
+      },
+      {
+        "package": "source.deepsearcher.embedding",
+        "module": "base",
+        "functions": [],
+        "classes": [
+          "BaseEmbedding"
+        ],
+        "description": "Embedding provider interface layer; adapters exist for multiple external APIs."
+      },
+      {
+        "package": "source.deepsearcher.llm",
+        "module": "base",
+        "functions": [],
+        "classes": [
+          "BaseLLM"
+        ],
+        "description": "LLM provider abstraction used by agent modules; ideal MCP boundary for model-call tools."
+      },
+      {
+        "package": "source.deepsearcher.vector_db",
+        "module": "base",
+        "functions": [],
+        "classes": [
+          "BaseVectorDB"
+        ],
+        "description": "Vector database abstraction for indexing and retrieval; core backend integration point."
+      },
+      {
+        "package": "source.deepsearcher.loader",
+        "module": "splitter",
+        "functions": [],
+        "classes": [
+          "Splitter"
+        ],
+        "description": "Document chunking logic used before embedding/indexing; useful in ingestion MCP tools."
+      },
+      {
+        "package": "source.deepsearcher",
+        "module": "offline_loading",
+        "functions": [
+          "offline_load"
+        ],
+        "classes": [],
+        "description": "Offline ingestion pipeline for local/file/web-loaded data into vector store."
+      },
+      {
+        "package": "source.deepsearcher",
+        "module": "online_query",
+        "functions": [
+          "online_query"
+        ],
+        "classes": [],
+        "description": "Runtime query pipeline entry for retrieval + generation."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "deepsearcher (expected console script)",
+        "module": "source.deepsearcher.cli",
+        "description": "Project CLI wrapper likely exposing ingestion/query flows via config."
+      },
+      {
+        "name": "python main.py",
+        "module": "main",
+        "description": "Top-level runnable script for end-to-end usage/demo execution."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.88
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.10 (inferred from modern typing/ecosystem usage)",
+        "pyyaml (config parsing)",
+        "core deepsearcher package modules"
+      ],
+      "optional": [
+        "openai",
+        "anthropic",
+        "google-generativeai / gemini SDK",
+        "boto3 (bedrock)",
+        "ollama",
+        "qdrant-client",
+        "pymilvus",
+        "azure-search-documents",
+        "oracle vector stack",
+        "unstructured",
+        "docling",
+        "firecrawl/crawl4ai/jina related crawler SDKs",
+        "sentence-transformers",
+        "fastembed",
+        "watsonx SDKs"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/zilliztech/deep-searcher",
+    "repo_name": "deep-searcher",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

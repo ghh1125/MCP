@@ -1,0 +1,917 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/qutip/qutip",
+    "summary": "Imported via zip fallback, file count: 236",
+    "file_tree": {
+      ".codeclimate.yml": {
+        "size": 726
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.yaml": {
+        "size": 2283
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.yaml": {
+        "size": 1323
+      },
+      ".github/ISSUE_TEMPLATE/others.yaml": {
+        "size": 486
+      },
+      ".github/pull_request_template.md": {
+        "size": 1573
+      },
+      ".github/workflows/build.yml": {
+        "size": 7493
+      },
+      ".github/workflows/build_documentation.yml": {
+        "size": 2270
+      },
+      ".github/workflows/tests.yml": {
+        "size": 12872
+      },
+      ".github/workflows/tests_env.yml": {
+        "size": 1910
+      },
+      ".readthedocs.yaml": {
+        "size": 335
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 2036
+      },
+      "CONTRIBUTING.md": {
+        "size": 725
+      },
+      "LICENSE.txt": {
+        "size": 1538
+      },
+      "README.md": {
+        "size": 6047
+      },
+      "doc/LICENSE_cc-by-3.0.txt": {
+        "size": 18414
+      },
+      "doc/README.md": {
+        "size": 3420
+      },
+      "doc/conf.py": {
+        "size": 12172
+      },
+      "doc/guide/scripts/bloch_ex1.py": {
+        "size": 250
+      },
+      "doc/guide/scripts/correlation_ex1.py": {
+        "size": 542
+      },
+      "doc/guide/scripts/correlation_ex2.py": {
+        "size": 423
+      },
+      "doc/guide/scripts/correlation_ex3.py": {
+        "size": 980
+      },
+      "doc/guide/scripts/correlation_ex4.py": {
+        "size": 1102
+      },
+      "doc/guide/scripts/ex_bloch_animation.py": {
+        "size": 1267
+      },
+      "doc/guide/scripts/ex_steady.py": {
+        "size": 1417
+      },
+      "doc/guide/scripts/floquet_ex1.py": {
+        "size": 1320
+      },
+      "doc/guide/scripts/floquet_ex2.py": {
+        "size": 1335
+      },
+      "doc/guide/scripts/floquet_ex3.py": {
+        "size": 1600
+      },
+      "doc/guide/scripts/spectrum_ex1.py": {
+        "size": 1759
+      },
+      "doc/requirements.txt": {
+        "size": 1403
+      },
+      "doc/rtd-environment.yml": {
+        "size": 1658
+      },
+      "pyproject.toml": {
+        "size": 2796
+      },
+      "qutip/__init__.py": {
+        "size": 1555
+      },
+      "qutip/_mkl/__init__.py": {
+        "size": 1
+      },
+      "qutip/_mkl/spmv.py": {
+        "size": 1196
+      },
+      "qutip/_mkl/spsolve.py": {
+        "size": 12861
+      },
+      "qutip/about.py": {
+        "size": 3176
+      },
+      "qutip/animation.py": {
+        "size": 21100
+      },
+      "qutip/bloch.py": {
+        "size": 39562
+      },
+      "qutip/cite.py": {
+        "size": 1376
+      },
+      "qutip/continuous_variables.py": {
+        "size": 8524
+      },
+      "qutip/control.py": {
+        "size": 431
+      },
+      "qutip/core/__init__.py": {
+        "size": 477
+      },
+      "qutip/core/blochredfield.py": {
+        "size": 15144
+      },
+      "qutip/core/coefficient.py": {
+        "size": 28200
+      },
+      "qutip/core/cy/__init__.py": {
+        "size": 0
+      },
+      "qutip/core/cy/openmp/__init__.py": {
+        "size": 0
+      },
+      "qutip/core/cy/openmp/bench_openmp.py": {
+        "size": 4640
+      },
+      "qutip/core/cy/openmp/utilities.py": {
+        "size": 1164
+      },
+      "qutip/core/data/__init__.py": {
+        "size": 1870
+      },
+      "qutip/core/data/_creator_utils.py": {
+        "size": 755
+      },
+      "qutip/core/data/constant.py": {
+        "size": 3807
+      },
+      "qutip/core/data/eigen.py": {
+        "size": 15513
+      },
+      "qutip/core/data/expm.py": {
+        "size": 5439
+      },
+      "qutip/core/data/extract.py": {
+        "size": 3274
+      },
+      "qutip/core/data/linalg.py": {
+        "size": 1556
+      },
+      "qutip/core/data/make.py": {
+        "size": 4361
+      },
+      "qutip/core/data/solve.py": {
+        "size": 6767
+      },
+      "qutip/core/dimensions.py": {
+        "size": 37149
+      },
+      "qutip/core/energy_restricted.py": {
+        "size": 19006
+      },
+      "qutip/core/environment.py": {
+        "size": 102386
+      },
+      "qutip/core/expect.py": {
+        "size": 3537
+      },
+      "qutip/core/gates.py": {
+        "size": 21723
+      },
+      "qutip/core/metrics.py": {
+        "size": 20631
+      },
+      "qutip/core/numpy_backend.py": {
+        "size": 934
+      },
+      "qutip/core/operators.py": {
+        "size": 35054
+      },
+      "qutip/core/options.py": {
+        "size": 8723
+      },
+      "qutip/core/properties.py": {
+        "size": 966
+      },
+      "qutip/core/qobj.py": {
+        "size": 71271
+      },
+      "qutip/core/semidefinite.py": {
+        "size": 4912
+      },
+      "qutip/core/states.py": {
+        "size": 40005
+      },
+      "qutip/core/subsystem_apply.py": {
+        "size": 7680
+      },
+      "qutip/core/superop_reps.py": {
+        "size": 18595
+      },
+      "qutip/core/superoperator.py": {
+        "size": 17803
+      },
+      "qutip/core/tensor.py": {
+        "size": 16968
+      },
+      "qutip/distributions.py": {
+        "size": 18209
+      },
+      "qutip/entropy.py": {
+        "size": 11103
+      },
+      "qutip/fileio.py": {
+        "size": 7410
+      },
+      "qutip/ipynbtools.py": {
+        "size": 10471
+      },
+      "qutip/legacy/__init__.py": {
+        "size": 131
+      },
+      "qutip/legacy/nonmarkov/__init__.py": {
+        "size": 0
+      },
+      "qutip/legacy/nonmarkov/memorycascade.py": {
+        "size": 12934
+      },
+      "qutip/legacy/rcsolve.py": {
+        "size": 3707
+      },
+      "qutip/matplotlib_utilities.py": {
+        "size": 5583
+      },
+      "qutip/measurement.py": {
+        "size": 14593
+      },
+      "qutip/partial_transpose.py": {
+        "size": 3623
+      },
+      "qutip/piqs/__init__.py": {
+        "size": 0
+      },
+      "qutip/piqs/piqs.py": {
+        "size": 53066
+      },
+      "qutip/qip.py": {
+        "size": 416
+      },
+      "qutip/random_objects.py": {
+        "size": 31926
+      },
+      "qutip/settings.py": {
+        "size": 10554
+      },
+      "qutip/simdiag.py": {
+        "size": 4334
+      },
+      "qutip/solver/__init__.py": {
+        "size": 603
+      },
+      "qutip/solver/_feedback.py": {
+        "size": 4542
+      },
+      "qutip/solver/brmesolve.py": {
+        "size": 17035
+      },
+      "qutip/solver/correlation.py": {
+        "size": 23204
+      },
+      "qutip/solver/countstat.py": {
+        "size": 11300
+      },
+      "qutip/solver/cy/__init__.py": {
+        "size": 0
+      },
+      "qutip/solver/dysolve_propagator.py": {
+        "size": 10952
+      },
+      "qutip/solver/floquet.py": {
+        "size": 35322
+      },
+      "qutip/solver/floquet_bwcomp.py": {
+        "size": 7660
+      },
+      "qutip/solver/heom/__init__.py": {
+        "size": 1314
+      },
+      "qutip/solver/heom/bofin_baths.py": {
+        "size": 29123
+      },
+      "qutip/solver/heom/bofin_solvers.py": {
+        "size": 51661
+      },
+      "qutip/solver/integrator/__init__.py": {
+        "size": 112
+      },
+      "qutip/solver/integrator/integrator.py": {
+        "size": 7438
+      },
+      "qutip/solver/integrator/krylov.py": {
+        "size": 8880
+      },
+      "qutip/solver/integrator/qutip_integrator.py": {
+        "size": 7586
+      },
+      "qutip/solver/integrator/scipy_integrator.py": {
+        "size": 18188
+      },
+      "qutip/solver/integrator/tsit5.py": {
+        "size": 2239
+      },
+      "qutip/solver/integrator/verner7efficient.py": {
+        "size": 11985
+      },
+      "qutip/solver/integrator/verner9efficient.py": {
+        "size": 24555
+      },
+      "qutip/solver/krylovsolve.py": {
+        "size": 4995
+      },
+      "qutip/solver/mcsolve.py": {
+        "size": 38509
+      },
+      "qutip/solver/mesolve.py": {
+        "size": 12014
+      },
+      "qutip/solver/multitraj.py": {
+        "size": 20118
+      },
+      "qutip/solver/multitrajresult.py": {
+        "size": 51610
+      },
+      "qutip/solver/nm_mcsolve.py": {
+        "size": 27492
+      },
+      "qutip/solver/nonmarkov/__init__.py": {
+        "size": 0
+      },
+      "qutip/solver/nonmarkov/transfertensor.py": {
+        "size": 5444
+      },
+      "qutip/solver/options.py": {
+        "size": 3123
+      },
+      "qutip/solver/parallel.py": {
+        "size": 21226
+      },
+      "qutip/solver/propagator.py": {
+        "size": 14545
+      },
+      "qutip/solver/result.py": {
+        "size": 12320
+      },
+      "qutip/solver/scattering.py": {
+        "size": 11346
+      },
+      "qutip/solver/sesolve.py": {
+        "size": 9077
+      },
+      "qutip/solver/sode/__init__.py": {
+        "size": 91
+      },
+      "qutip/solver/sode/_noise.py": {
+        "size": 4447
+      },
+      "qutip/solver/sode/itotaylor.py": {
+        "size": 5193
+      },
+      "qutip/solver/sode/rouchon.py": {
+        "size": 5458
+      },
+      "qutip/solver/sode/sode.py": {
+        "size": 9303
+      },
+      "qutip/solver/solver_base.py": {
+        "size": 21111
+      },
+      "qutip/solver/spectrum.py": {
+        "size": 6193
+      },
+      "qutip/solver/steadystate.py": {
+        "size": 21055
+      },
+      "qutip/solver/stochastic.py": {
+        "size": 41009
+      },
+      "qutip/testing.py": {
+        "size": 1016
+      },
+      "qutip/tests/Hadamard_params.ini": {
+        "size": 233
+      },
+      "qutip/tests/__init__.py": {
+        "size": 0
+      },
+      "qutip/tests/conftest.py": {
+        "size": 1935
+      },
+      "qutip/tests/core/__init__.py": {
+        "size": 0
+      },
+      "qutip/tests/core/data/__init__.py": {
+        "size": 0
+      },
+      "qutip/tests/core/data/conftest.py": {
+        "size": 4645
+      },
+      "qutip/tests/core/data/test_block_operations.py": {
+        "size": 9641
+      },
+      "qutip/tests/core/data/test_convert.py": {
+        "size": 4874
+      },
+      "qutip/tests/core/data/test_csr.py": {
+        "size": 17015
+      },
+      "qutip/tests/core/data/test_dense.py": {
+        "size": 13437
+      },
+      "qutip/tests/core/data/test_dia.py": {
+        "size": 14613
+      },
+      "qutip/tests/core/data/test_dispatch.py": {
+        "size": 6802
+      },
+      "qutip/tests/core/data/test_expect.py": {
+        "size": 2616
+      },
+      "qutip/tests/core/data/test_linalg.py": {
+        "size": 5238
+      },
+      "qutip/tests/core/data/test_mathematics.py": {
+        "size": 45538
+      },
+      "qutip/tests/core/data/test_mean.py": {
+        "size": 2632
+      },
+      "qutip/tests/core/data/test_norm.py": {
+        "size": 2402
+      },
+      "qutip/tests/core/data/test_operators.py": {
+        "size": 2640
+      },
+      "qutip/tests/core/data/test_properties.py": {
+        "size": 10244
+      },
+      "qutip/tests/core/data/test_ptrace.py": {
+        "size": 3571
+      },
+      "qutip/tests/core/data/test_reshape.py": {
+        "size": 4694
+      },
+      "qutip/tests/core/test_brtools.py": {
+        "size": 14166
+      },
+      "qutip/tests/core/test_coefficient.py": {
+        "size": 16087
+      },
+      "qutip/tests/core/test_dimensions.py": {
+        "size": 19481
+      },
+      "qutip/tests/core/test_eigen.py": {
+        "size": 4433
+      },
+      "qutip/tests/core/test_eigenstates.py": {
+        "size": 4411
+      },
+      "qutip/tests/core/test_energy_restricted.py": {
+        "size": 13753
+      },
+      "qutip/tests/core/test_environment.py": {
+        "size": 56637
+      },
+      "qutip/tests/core/test_expect.py": {
+        "size": 7547
+      },
+      "qutip/tests/core/test_gates.py": {
+        "size": 9006
+      },
+      "qutip/tests/core/test_metrics.py": {
+        "size": 21320
+      },
+      "qutip/tests/core/test_operators.py": {
+        "size": 14537
+      },
+      "qutip/tests/core/test_options.py": {
+        "size": 3193
+      },
+      "qutip/tests/core/test_ptrace.py": {
+        "size": 5216
+      },
+      "qutip/tests/core/test_qobj.py": {
+        "size": 42112
+      },
+      "qutip/tests/core/test_qobjevo.py": {
+        "size": 23148
+      },
+      "qutip/tests/core/test_states.py": {
+        "size": 11618
+      },
+      "qutip/tests/core/test_superop_reps.py": {
+        "size": 11761
+      },
+      "qutip/tests/core/test_superoper.py": {
+        "size": 9014
+      },
+      "qutip/tests/core/test_tensor.py": {
+        "size": 10738
+      },
+      "qutip/tests/piqs/__init__.py": {
+        "size": 0
+      },
+      "qutip/tests/piqs/test_piqs.py": {
+        "size": 50203
+      },
+      "qutip/tests/pytest.ini": {
+        "size": 305
+      },
+      "qutip/tests/solver/__init__.py": {
+        "size": 0
+      },
+      "qutip/tests/solver/cy/test_nm_mcsolve.py": {
+        "size": 4827
+      },
+      "qutip/tests/solver/heom/__init__.py": {
+        "size": 0
+      },
+      "qutip/tests/solver/heom/test_bofin_baths.py": {
+        "size": 15913
+      },
+      "qutip/tests/solver/heom/test_bofin_solvers.py": {
+        "size": 67292
+      },
+      "qutip/tests/solver/heom/test_heom.py": {
+        "size": 1006
+      },
+      "qutip/tests/solver/test_brmesolve.py": {
+        "size": 13398
+      },
+      "qutip/tests/solver/test_correlation.py": {
+        "size": 18060
+      },
+      "qutip/tests/solver/test_countstat.py": {
+        "size": 4576
+      },
+      "qutip/tests/solver/test_dysolve_propagator.py": {
+        "size": 9881
+      },
+      "qutip/tests/solver/test_floquet.py": {
+        "size": 11999
+      },
+      "qutip/tests/solver/test_integrator.py": {
+        "size": 7655
+      },
+      "qutip/tests/solver/test_lindblad_matrix_form.py": {
+        "size": 4310
+      },
+      "qutip/tests/solver/test_mcsolve.py": {
+        "size": 27009
+      },
+      "qutip/tests/solver/test_mesolve.py": {
+        "size": 35000
+      },
+      "qutip/tests/solver/test_nm_mcsolve.py": {
+        "size": 29732
+      },
+      "qutip/tests/solver/test_options.py": {
+        "size": 3965
+      },
+      "qutip/tests/solver/test_parallel.py": {
+        "size": 4528
+      },
+      "qutip/tests/solver/test_propagator.py": {
+        "size": 10172
+      },
+      "qutip/tests/solver/test_qubit_evolution.py": {
+        "size": 3608
+      },
+      "qutip/tests/solver/test_results.py": {
+        "size": 20325
+      },
+      "qutip/tests/solver/test_scattering.py": {
+        "size": 3435
+      },
+      "qutip/tests/solver/test_sesolve.py": {
+        "size": 13126
+      },
+      "qutip/tests/solver/test_sode_method.py": {
+        "size": 7060
+      },
+      "qutip/tests/solver/test_steadystate.py": {
+        "size": 12279
+      },
+      "qutip/tests/solver/test_stochastic.py": {
+        "size": 18097
+      },
+      "qutip/tests/solver/test_stochastic_system.py": {
+        "size": 5657
+      },
+      "qutip/tests/solver/test_transfertensor.py": {
+        "size": 1998
+      },
+      "qutip/tests/test_about.py": {
+        "size": 557
+      },
+      "qutip/tests/test_animation.py": {
+        "size": 3863
+      },
+      "qutip/tests/test_basis_transformation.py": {
+        "size": 2076
+      },
+      "qutip/tests/test_bloch.py": {
+        "size": 29318
+      },
+      "qutip/tests/test_distributions.py": {
+        "size": 6849
+      },
+      "qutip/tests/test_entropy.py": {
+        "size": 9189
+      },
+      "qutip/tests/test_fileio.py": {
+        "size": 2337
+      },
+      "qutip/tests/test_ipynbtools.py": {
+        "size": 906
+      },
+      "qutip/tests/test_measurement.py": {
+        "size": 14459
+      },
+      "qutip/tests/test_mkl.py": {
+        "size": 3624
+      },
+      "qutip/tests/test_openmp.py": {
+        "size": 3882
+      },
+      "qutip/tests/test_partial_transpose.py": {
+        "size": 2523
+      },
+      "qutip/tests/test_progressbar.py": {
+        "size": 1505
+      },
+      "qutip/tests/test_qip.py": {
+        "size": 1373
+      },
+      "qutip/tests/test_qpt.py": {
+        "size": 1350
+      },
+      "qutip/tests/test_random.py": {
+        "size": 10151
+      },
+      "qutip/tests/test_simdiag.py": {
+        "size": 3800
+      },
+      "qutip/tests/test_subsys_apply.py": {
+        "size": 4569
+      },
+      "qutip/tests/test_utilities.py": {
+        "size": 8292
+      },
+      "qutip/tests/test_visualization.py": {
+        "size": 19618
+      },
+      "qutip/tests/test_wigner.py": {
+        "size": 25206
+      },
+      "qutip/tomography.py": {
+        "size": 5314
+      },
+      "qutip/typing.py": {
+        "size": 1050
+      },
+      "qutip/ui/__init__.py": {
+        "size": 35
+      },
+      "qutip/ui/progressbar.py": {
+        "size": 6275
+      },
+      "qutip/utilities.py": {
+        "size": 29994
+      },
+      "qutip/visualization.py": {
+        "size": 64824
+      },
+      "qutip/wigner.py": {
+        "size": 35294
+      },
+      "requirements.txt": {
+        "size": 49
+      },
+      "setup.py": {
+        "size": 11710
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "qutip/core/qobj.py",
+        "module": "qutip.core.qobj",
+        "functions": [],
+        "classes": [
+          "Qobj"
+        ],
+        "description": "Core quantum object abstraction used across nearly all QuTiP operations (states, operators, superoperators, algebra, metadata such as dimensions)."
+      },
+      {
+        "package": "qutip/core/operators.py",
+        "module": "qutip.core.operators",
+        "functions": [
+          "destroy",
+          "create",
+          "qeye",
+          "sigmax",
+          "sigmay",
+          "sigmaz",
+          "num"
+        ],
+        "classes": [],
+        "description": "Factory functions for common quantum operators and identities used to build Hamiltonians and collapse operators."
+      },
+      {
+        "package": "qutip/core/states.py",
+        "module": "qutip.core.states",
+        "functions": [
+          "basis",
+          "coherent",
+          "fock",
+          "ket2dm"
+        ],
+        "classes": [],
+        "description": "State-construction utilities for pure and mixed states in finite/infinite-dimensional Hilbert spaces."
+      },
+      {
+        "package": "qutip/core/tensor.py",
+        "module": "qutip.core.tensor",
+        "functions": [
+          "tensor"
+        ],
+        "classes": [],
+        "description": "Tensor-product construction and subsystem composition utilities."
+      },
+      {
+        "package": "qutip/core/expect.py",
+        "module": "qutip.core.expect",
+        "functions": [
+          "expect"
+        ],
+        "classes": [],
+        "description": "Expectation value routines for operators on states and density matrices."
+      },
+      {
+        "package": "qutip/solver/mesolve.py",
+        "module": "qutip.solver.mesolve",
+        "functions": [
+          "mesolve"
+        ],
+        "classes": [],
+        "description": "Master-equation time evolution solver for open quantum systems."
+      },
+      {
+        "package": "qutip/solver/sesolve.py",
+        "module": "qutip.solver.sesolve",
+        "functions": [
+          "sesolve"
+        ],
+        "classes": [],
+        "description": "Schrödinger-equation time evolution solver for closed systems."
+      },
+      {
+        "package": "qutip/solver/mcsolve.py",
+        "module": "qutip.solver.mcsolve",
+        "functions": [
+          "mcsolve"
+        ],
+        "classes": [],
+        "description": "Monte-Carlo trajectory solver for stochastic unravelings of open-system dynamics."
+      },
+      {
+        "package": "qutip/solver/steadystate.py",
+        "module": "qutip.solver.steadystate",
+        "functions": [
+          "steadystate"
+        ],
+        "classes": [],
+        "description": "Steady-state solvers for Lindbladian systems."
+      },
+      {
+        "package": "qutip/solver/propagator.py",
+        "module": "qutip.solver.propagator",
+        "functions": [
+          "propagator"
+        ],
+        "classes": [],
+        "description": "Propagator construction for time evolution operators/channels."
+      },
+      {
+        "package": "qutip/solver/result.py",
+        "module": "qutip.solver.result",
+        "functions": [],
+        "classes": [
+          "Result"
+        ],
+        "description": "Container for simulation outputs (states, expectation values, metadata)."
+      },
+      {
+        "package": "qutip/visualization.py",
+        "module": "qutip.visualization",
+        "functions": [
+          "hinton",
+          "matrix_histogram",
+          "plot_wigner"
+        ],
+        "classes": [],
+        "description": "Visualization utilities for states/operators and phase-space plots."
+      },
+      {
+        "package": "qutip/bloch.py",
+        "module": "qutip.bloch",
+        "functions": [],
+        "classes": [
+          "Bloch"
+        ],
+        "description": "Bloch-sphere plotting and animation support for qubit states."
+      },
+      {
+        "package": "qutip/wigner.py",
+        "module": "qutip.wigner",
+        "functions": [
+          "wigner",
+          "qfunc"
+        ],
+        "classes": [],
+        "description": "Phase-space quasiprobability distribution calculations."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "packaging"
+      ],
+      "optional": [
+        "matplotlib",
+        "cython",
+        "pytest",
+        "mpi4py",
+        "MKL-related acceleration stack"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/qutip/qutip",
+    "repo_name": "qutip",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.91,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

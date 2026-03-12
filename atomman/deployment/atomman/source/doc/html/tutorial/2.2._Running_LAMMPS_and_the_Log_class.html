@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to atomman: Running LAMMPS and the Log class &#8212; atomman 1.4.11 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=eeb27264" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=651a37ba"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to atomman: Basic support and analysis tools" href="3._Basic_support_and_analysis_tools.html" />
+    <link rel="prev" title="Introduction to atomman: LAMMPS Potentials" href="2.1._Potential_class.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="3._Basic_support_and_analysis_tools.html" title="Introduction to atomman: Basic support and analysis tools"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="2.1._Potential_class.html" title="Introduction to atomman: LAMMPS Potentials"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">atomman 1.4.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction to atomman: Running LAMMPS and the Log class</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="Introduction-to-atomman:-Running-LAMMPS-and-the-Log-class">
+<h1>Introduction to atomman: Running LAMMPS and the Log class<a class="headerlink" href="#Introduction-to-atomman:-Running-LAMMPS-and-the-Log-class" title="Link to this heading">¶</a></h1>
+<p><strong>Lucas M. Hale</strong>, <a class="reference external" href="mailto:lucas&#46;hale&#37;&#52;&#48;nist&#46;gov?Subject=ipr-demo">lucas<span>&#46;</span>hale<span>&#64;</span>nist<span>&#46;</span>gov</a>, <em>Materials Science and Engineering Division, NIST</em>.</p>
+<p><a class="reference external" href="http://www.nist.gov/public_affairs/disclaimer.cfm">Disclaimers</a></p>
+<section id="1.-Introduction">
+<h2>1. Introduction<a class="headerlink" href="#1.-Introduction" title="Link to this heading">¶</a></h2>
+<p>This Notebook outlines the options of the atomman.lammps.Log class and the atomman.lammps.run() function.</p>
+<p><strong>Library Imports</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard libraries</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># http://matplotlib.org/</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># https://github.com/usnistgov/atomman</span>
+<span class="kn">import</span> <span class="nn">atomman</span> <span class="k">as</span> <span class="nn">am</span>
+<span class="kn">import</span> <span class="nn">atomman.lammps</span> <span class="k">as</span> <span class="nn">lmp</span>
+<span class="kn">import</span> <span class="nn">atomman.unitconvert</span> <span class="k">as</span> <span class="nn">uc</span>
+
+<span class="c1"># Show atomman version</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;atomman version =&#39;</span><span class="p">,</span> <span class="n">am</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="c1"># Show date of Notebook execution</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Notebook executed on&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+atomman version = 1.4.11
+Notebook executed on 2024-04-29
+</pre></div></div>
+</div>
+</section>
+<section id="2.-Running-LAMMPS">
+<h2>2. Running LAMMPS<a class="headerlink" href="#2.-Running-LAMMPS" title="Link to this heading">¶</a></h2>
+<p><em>Updated version 1.4.0:</em> Parameters updated to provide more running options and remove obsolete Log class-based parameters.</p>
+<p>The LAMMPS simulation can be ran from within Python using the run() function. This runs LAMMPS as a subprocess, meaning that it can use any installed LAMMPS and MPI executables.</p>
+<p>Parameters</p>
+<ul class="simple">
+<li><p><strong>lammps_command</strong> <em>(str</em>) The LAMMPS inline run command (sans -in script_name).</p></li>
+<li><p><strong>script_name</strong> <em>(str, optional</em>) Path of the LAMMPS input script file to use. Either script_name or script must be given.</p></li>
+<li><p><strong>script</strong> <em>(str, optional</em>) The LAMMPS input script command lines to use. Either script_name or script must be given.</p></li>
+<li><p><strong>mpi_command</strong> <em>(str or None, optional</em>) The MPI inline command to run LAMMPS in parallel. Default value is None (run serially).</p></li>
+<li><p><strong>restart_script_name</strong> <em>(str or None, optional</em>) Path to an alternate LAMMPS input script file to use for restart runs. If given, the restart script will be used if the specified logfile already exists. Requires logfile to not be None.</p></li>
+<li><p><strong>restart_script</strong> (<em>str, optional</em>) Alternate LAMMPS script command lines to use for restart runs. If given, the restart script will be used if the specified logfile already exists. Requires logfile to not be None.</p></li>
+<li><p><strong>logfile</strong> <em>(str or None, optional</em>) Specifies the path to the logfile to write to. Default value is ‘log.lammps’. If set to None, then no logfile will be created.</p></li>
+<li><p><strong>screen</strong> <em>(bool, optional</em>) If True (default), then the resulting Log object is built from the LAMMPS screen output. If False, then LAMMPS outputs no screen info and the Log object will be built by reading logfile.</p></li>
+<li><p><strong>suffix</strong> <em>(str, optional</em>) Allows for the LAMMPS suffix option to be specified to use any of the accelerated versions of pair styles if available.</p></li>
+</ul>
+<p>Returns</p>
+<ul class="simple">
+<li><p>(<em>atomman.lammps.Log</em>) An object representation of the log.lammps file.</p></li>
+</ul>
+<p>Create a simple demonstration LAMMPS input script</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">#Simple demonstration LAMMPS script</span>
+
+<span class="s2">units metal</span>
+<span class="s2">atom_style atomic</span>
+<span class="s2">boundary p p p</span>
+
+<span class="s2">lattice fcc 3.52 origin 0.100000 0.100000 0.100000</span>
+
+<span class="s2">region box block 0 15 0 15 0 15</span>
+<span class="s2">create_box 1 box</span>
+<span class="s2">create_atoms 1 box</span>
+
+<span class="s2">mass 1 58.71</span>
+
+<span class="s2">pair_style lj/cut 6</span>
+<span class="s2">pair_coeff 1 1 0.5408 2.272</span>
+
+<span class="s2">velocity all create 100 2987532</span>
+
+<span class="s2">thermo 100</span>
+<span class="s2">thermo_style custom step pe temp press lx ly lz</span>
+
+<span class="s2">restart 10000 *.restart</span>
+
+<span class="s2">timestep 0.01</span>
+
+<span class="s2">fix 1 all npt temp 100 100 1.0 aniso 0.0 0.0 10.0</span>
+<span class="s2">run 10000</span>
+
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>Run in serial</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define lammps command to use (unique to your computer!)</span>
+<span class="n">lammps_command</span> <span class="o">=</span> <span class="s1">&#39;/home/lmh1/LAMMPS/2022-06-23/src/lmp_serial&#39;</span>
+
+<span class="c1"># Run and measure execution time</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">lmp</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">lammps_command</span><span class="p">,</span> <span class="n">script</span><span class="o">=</span><span class="n">script</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">run_time</span> <span class="o">=</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Serial simulation took </span><span class="si">{</span><span class="n">run_time</span><span class="si">}</span><span class="s2"> seconds.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Serial simulation took 49.72886657714844 seconds.
+</pre></div></div>
+</div>
+<p>Run in parallel on 4 processors</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define lammps command to use (unique to your computer!)</span>
+<span class="n">lammps_command</span> <span class="o">=</span> <span class="s1">&#39;/home/lmh1/LAMMPS/2022-06-23/src/lmp_mpi&#39;</span>
+
+<span class="c1"># Define mpi command to use (unique to your computer!)</span>
+<span class="n">mpi_command</span> <span class="o">=</span> <span class="s1">&#39;mpiexec -n 4&#39;</span>
+
+<span class="c1"># Run and measure execution time</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">lmp</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">lammps_command</span><span class="p">,</span> <span class="n">script</span><span class="o">=</span><span class="n">script</span><span class="p">,</span> <span class="n">mpi_command</span><span class="o">=</span><span class="n">mpi_command</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">run_time</span> <span class="o">=</span> <span class="n">end</span><span class="o">-</span><span class="n">start</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parallel simulation took </span><span class="si">{</span><span class="n">run_time</span><span class="si">}</span><span class="s2"> seconds.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Parallel simulation took 15.683485269546509 seconds.
+</pre></div></div>
+</div>
+</section>
+<section id="3.-Accessing-results-with-Log-class">
+<h2>3. Accessing results with Log class<a class="headerlink" href="#3.-Accessing-results-with-Log-class" title="Link to this heading">¶</a></h2>
+<p><em>Updated version 1.3.7</em>: now captures performance output. A Simulation class is added to better represent each run/simulation. The flatten method is updated to return a new Simulation rather than overwriting the current data. New ‘all’ style added to flatten that will merge all runs without filtering out duplicate timesteps.</p>
+<p>Information from the log.lammps file(s) is automatically parsed by the run() function and returned as an atomman.lammps.Log object. Currently, the Log class stores the following information:</p>
+<ul class="simple">
+<li><p><strong>lammps_version</strong> (<em>str</em>) The LAMMPS version used.</p></li>
+<li><p><strong>lammps_date</strong> (<em>datetime.date</em>) The date associated with the LAMMPS version.</p></li>
+<li><p><strong>simulations</strong> (<em>list</em>) information for each simulation (run, minimize …) that was executed.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;results.lammps_version -&gt;&quot;</span><span class="p">,</span> <span class="n">results</span><span class="o">.</span><span class="n">lammps_version</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;results.lammps_date -&gt;&quot;</span><span class="p">,</span> <span class="n">results</span><span class="o">.</span><span class="n">lammps_date</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+results.lammps_version -&gt; 23 Jun 2022
+results.lammps_date -&gt; 2022-06-23
+</pre></div></div>
+</div>
+<p>Each simulation captures the associated thermo data lines and the computational performance data in separate pandas.DataFrames.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">simulations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Index([&#39;Step&#39;, &#39;PotEng&#39;, &#39;Temp&#39;, &#39;Press&#39;, &#39;Lx&#39;, &#39;Ly&#39;, &#39;Lz&#39;], dtype=&#39;object&#39;)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">.</span><span class="n">simulations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">performance</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>min time</th>
+      <th>avg time</th>
+      <th>max time</th>
+      <th>%varavg</th>
+      <th>%total</th>
+    </tr>
+    <tr>
+      <th>Section</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Pair</th>
+      <td>13.442000</td>
+      <td>13.628000</td>
+      <td>13.798000</td>
+      <td>4.0</td>
+      <td>88.97</td>
+    </tr>
+    <tr>
+      <th>Neigh</th>
+      <td>0.003886</td>
+      <td>0.004039</td>
+      <td>0.004118</td>
+      <td>0.1</td>
+      <td>0.03</td>
+    </tr>
+    <tr>
+      <th>Comm</th>
+      <td>0.644020</td>
+      <td>0.810270</td>
+      <td>0.991860</td>
+      <td>15.9</td>
+      <td>5.29</td>
+    </tr>
+    <tr>
+      <th>Output</th>
+      <td>0.016905</td>
+      <td>0.017356</td>
+      <td>0.018680</td>
+      <td>0.6</td>
+      <td>0.11</td>
+    </tr>
+    <tr>
+      <th>Modify</th>
+      <td>0.727360</td>
+      <td>0.731770</td>
+      <td>0.735390</td>
+      <td>0.4</td>
+      <td>4.78</td>
+    </tr>
+    <tr>
+      <th>Other</th>
+      <td>0.000000</td>
+      <td>0.126700</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.83</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>This makes it very easy to plot the simulation thermo data</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">simulation</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">simulations</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">simulation</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">Step</span><span class="p">,</span> <span class="n">simulation</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">PotEng</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_2.2._Running_LAMMPS_and_the_Log_class_17_0.png" src="../_images/tutorial_2.2._Running_LAMMPS_and_the_Log_class_17_0.png" />
+</div>
+</div>
+</section>
+<section id="4.-Restarting-and-flattening">
+<h2>4. Restarting and flattening<a class="headerlink" href="#4.-Restarting-and-flattening" title="Link to this heading">¶</a></h2>
+<p>There is also some built-in functionality for conveniently handling simulations containing multiple runs and/or multiple sequential simulation executions of the same overall run (i.e. restarts).</p>
+<section id="4.1.-Running-with-restart-script-included">
+<h3>4.1. Running with restart script included<a class="headerlink" href="#4.1.-Running-with-restart-script-included" title="Link to this heading">¶</a></h3>
+<p>Create a new demonstration LAMMPS input script that restarts the previous simulation and runs for an additional 10000 steps.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">restart_script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">#Simple demonstration LAMMPS restart script</span>
+
+<span class="s2">read_restart *.restart</span>
+
+<span class="s2">mass 1 58.71</span>
+
+<span class="s2">pair_style lj/cut 6</span>
+<span class="s2">pair_coeff 1 1 0.5408 2.272</span>
+
+<span class="s2">thermo 100</span>
+<span class="s2">thermo_style custom step pe temp press lx ly lz</span>
+
+<span class="s2">restart 10000 *.restart</span>
+
+<span class="s2">fix 1 all npt temp 100 100 1.0 aniso 0.0 0.0 10.0</span>
+<span class="s2">run 10000</span>
+
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>Now, if we call run() with either restart_script_name or restart_script set, a number of cool things happen:</p>
+<ul class="simple">
+<li><p>If logfile (default log.lammps) does not exist in the working directory then the regular script is passed to LAMMPS.</p></li>
+<li><p>If logfile does exist then it is moved from NAME.EXT to NAME-{i}.EXT, where {i} is the smallest integer not already there, and the restart script is passed to LAMMPS.</p></li>
+<li><p>Upon completion, the data in NAME.EXT logfile and all NAME-{i}.EXT logfiles are automatically read in by the Log object.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">lmp</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">lammps_command</span><span class="p">,</span> <span class="n">script</span><span class="o">=</span><span class="n">script</span><span class="p">,</span> <span class="n">mpi_command</span><span class="o">=</span><span class="n">mpi_command</span><span class="p">,</span> <span class="n">restart_script</span><span class="o">=</span><span class="n">restart_script</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Show all log files in the run directory</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">logfile</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">iglob</span><span class="p">(</span><span class="s1">&#39;*.lammps&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">logfile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+log-1.lammps
+log-2.lammps
+log-3.lammps
+log.lammps
+</pre></div></div>
+</div>
+<p>Show that results now has two simulations, one for steps 0 to 10000 and one for steps 10000 to 20000 (the restart)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">simulation</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">simulations</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">simulation</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">Step</span><span class="p">,</span> <span class="n">simulation</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">PotEng</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_2.2._Running_LAMMPS_and_the_Log_class_26_0.png" src="../_images/tutorial_2.2._Running_LAMMPS_and_the_Log_class_26_0.png" />
+</div>
+</div>
+</section>
+<section id="4.2.-Flattening-data-from-multiple-simulations-together">
+<h3>4.2. Flattening data from multiple simulations together<a class="headerlink" href="#4.2.-Flattening-data-from-multiple-simulations-together" title="Link to this heading">¶</a></h3>
+<p>The Log.flatten() method creates a new Simulation object that combines the thermo data from multiple simulations. The flatten() method works best for simulations that output the same thermo terms.</p>
+<ul class="simple">
+<li><p><strong>style</strong> (<em>str, optional</em>) Specifies how duplicate time step values are handled, i.e which values to keep:</p>
+<ul>
+<li><p>‘last’ uses the values from the latest simulation (default). This is useful for MD restart runs where thermo data from eariler runs may be incomplete if externally stopped.</p></li>
+<li><p>‘first’ uses the values from the earliest simulation. This is useful for quasistatic simulations where minimizations are performed under different conditions and only the final relaxed state of each condition is important.</p></li>
+<li><p>‘all’ uses all reported lines including ones with duplicate time steps. This is useful for “run 0” simulations of different conditions, or if the timestep is reset.</p></li>
+</ul>
+</li>
+<li><p><strong>firstindex</strong> (<em>int or None, optional</em>) The leading list range index to limit which simulations are included in the merge, i.e. simulations[firstindex:lastindex]. If not given, then the merged simulations will start with the first simulation.</p></li>
+<li><p><strong>lastindex</strong> (<em>int or None, optional</em>) The trailing list range index to limit which simulations are included in the merge, i.e. simulations[firstindex:lastindex]. If not given, then the merged simulations will ekd with the last simulation.</p></li>
+</ul>
+<p><em>Updated version 1.4.10</em> firstindex and lastindex parameters added. <em>Changed version 1.3.7</em> flatten now returns a new Simulation rather than overwriting the current content.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">allsims</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="s1">&#39;last&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">allsims</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">Step</span><span class="p">,</span> <span class="n">allsims</span><span class="o">.</span><span class="n">thermo</span><span class="o">.</span><span class="n">PotEng</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_2.2._Running_LAMMPS_and_the_Log_class_28_0.png" src="../_images/tutorial_2.2._Running_LAMMPS_and_the_Log_class_28_0.png" />
+</div>
+</div>
+<p>Note that only thermo data is included in the merged simulation and not the performance data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">repr</span><span class="p">(</span><span class="n">allsims</span><span class="o">.</span><span class="n">performance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;None&#39;
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="5.-Error-messages">
+<h2>5. Error messages<a class="headerlink" href="#5.-Error-messages" title="Link to this heading">¶</a></h2>
+<p><em>LAMMPSError added and error handling improved version 1.3.2</em></p>
+<p>To assist in running LAMMPS simulations, a LAMMPSError error type is defined which does its best to extract the error message that LAMMPS issues as a Python error.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a demo script with an error: missing a value in the fix npt line</span>
+<span class="n">bad_script</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">#Simple demonstration LAMMPS script</span>
+
+<span class="s2">units metal</span>
+<span class="s2">atom_style atomic</span>
+<span class="s2">boundary p p p</span>
+
+<span class="s2">lattice fcc 3.52 origin 0.100000 0.100000 0.100000</span>
+
+<span class="s2">region box block 0 15 0 15 0 15</span>
+<span class="s2">create_box 1 box</span>
+<span class="s2">create_atoms 1 box</span>
+
+<span class="s2">mass 1 58.71</span>
+
+<span class="s2">pair_style lj/cut 6</span>
+<span class="s2">pair_coeff 1 1 0.5408 2.272</span>
+
+<span class="s2">velocity all create 100 2987532</span>
+
+<span class="s2">thermo 100</span>
+<span class="s2">thermo_style custom step pe temp press lx ly lz</span>
+
+<span class="s2">restart 10000 *.restart</span>
+
+<span class="s2">timestep 0.01</span>
+
+<span class="s2">fix 1 all npt temp 100 100 1.0 aniso 0.0 0.0</span>
+<span class="s2">run 10000</span>
+
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">lmp</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">lammps_command</span><span class="p">,</span> <span class="n">script</span><span class="o">=</span><span class="n">bad_script</span><span class="p">,</span> <span class="n">mpi_command</span><span class="o">=</span><span class="n">mpi_command</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">&#39;raised with message&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+LammpsError raised with message
+Illegal fix nvt/npt/nph command (../fix_nh.cpp:158)
+Last command: fix 1 all npt temp 100 100 1.0 aniso 0.0 0.0
+
+</pre></div></div>
+</div>
+<p><strong>File Cleanup</strong></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;log.lammps&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">restart</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">iglob</span><span class="p">(</span><span class="s1">&#39;*.restart&#39;</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">restart</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">restart</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">iglob</span><span class="p">(</span><span class="s1">&#39;log-*.lammps&#39;</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">restart</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Introduction to atomman: Running LAMMPS and the Log class</a><ul>
+<li><a class="reference internal" href="#1.-Introduction">1. Introduction</a></li>
+<li><a class="reference internal" href="#2.-Running-LAMMPS">2. Running LAMMPS</a></li>
+<li><a class="reference internal" href="#3.-Accessing-results-with-Log-class">3. Accessing results with Log class</a></li>
+<li><a class="reference internal" href="#4.-Restarting-and-flattening">4. Restarting and flattening</a><ul>
+<li><a class="reference internal" href="#4.1.-Running-with-restart-script-included">4.1. Running with restart script included</a></li>
+<li><a class="reference internal" href="#4.2.-Flattening-data-from-multiple-simulations-together">4.2. Flattening data from multiple simulations together</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#5.-Error-messages">5. Error messages</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="2.1._Potential_class.html"
+                          title="previous chapter">Introduction to atomman: LAMMPS Potentials</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="3._Basic_support_and_analysis_tools.html"
+                          title="next chapter">Introduction to atomman: Basic support and analysis tools</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="3._Basic_support_and_analysis_tools.html" title="Introduction to atomman: Basic support and analysis tools"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="2.1._Potential_class.html" title="Introduction to atomman: LAMMPS Potentials"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">atomman 1.4.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction to atomman: Running LAMMPS and the Log class</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
+    </div>
+  </body>
+</html>

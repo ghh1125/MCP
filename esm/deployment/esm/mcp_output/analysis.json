@@ -1,0 +1,1478 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/facebookresearch/esm",
+    "summary": "Imported via zip fallback, file count: 428",
+    "file_tree": {
+      ".github/ISSUE_TEMPLATE/bug.md": {
+        "size": 770
+      },
+      "CONTRIBUTING.md": {
+        "size": 1253
+      },
+      "README.md": {
+        "size": 46312
+      },
+      "environment.yml": {
+        "size": 888
+      },
+      "esm/__init__.py": {
+        "size": 479
+      },
+      "esm/axial_attention.py": {
+        "size": 8529
+      },
+      "esm/constants.py": {
+        "size": 371
+      },
+      "esm/data.py": {
+        "size": 17245
+      },
+      "esm/esmfold/v1/__init__.py": {
+        "size": 0
+      },
+      "esm/esmfold/v1/categorical_mixture.py": {
+        "size": 1298
+      },
+      "esm/esmfold/v1/esmfold.py": {
+        "size": 13948
+      },
+      "esm/esmfold/v1/misc.py": {
+        "size": 10194
+      },
+      "esm/esmfold/v1/pretrained.py": {
+        "size": 6574
+      },
+      "esm/esmfold/v1/tri_self_attn_block.py": {
+        "size": 6203
+      },
+      "esm/esmfold/v1/trunk.py": {
+        "size": 8392
+      },
+      "esm/inverse_folding/__init__.py": {
+        "size": 257
+      },
+      "esm/inverse_folding/features.py": {
+        "size": 14819
+      },
+      "esm/inverse_folding/gvp_encoder.py": {
+        "size": 1875
+      },
+      "esm/inverse_folding/gvp_modules.py": {
+        "size": 18604
+      },
+      "esm/inverse_folding/gvp_transformer.py": {
+        "size": 5132
+      },
+      "esm/inverse_folding/gvp_transformer_encoder.py": {
+        "size": 7146
+      },
+      "esm/inverse_folding/gvp_utils.py": {
+        "size": 2967
+      },
+      "esm/inverse_folding/multichain_util.py": {
+        "size": 5997
+      },
+      "esm/inverse_folding/transformer_decoder.py": {
+        "size": 7586
+      },
+      "esm/inverse_folding/transformer_layer.py": {
+        "size": 10669
+      },
+      "esm/inverse_folding/util.py": {
+        "size": 11754
+      },
+      "esm/model/__init__.py": {
+        "size": 1
+      },
+      "esm/model/esm1.py": {
+        "size": 7338
+      },
+      "esm/model/esm2.py": {
+        "size": 5115
+      },
+      "esm/model/msa_transformer.py": {
+        "size": 8206
+      },
+      "esm/modules.py": {
+        "size": 13902
+      },
+      "esm/multihead_attention.py": {
+        "size": 20332
+      },
+      "esm/pretrained.py": {
+        "size": 20138
+      },
+      "esm/rotary_embedding.py": {
+        "size": 2721
+      },
+      "esm/version.py": {
+        "size": 198
+      },
+      "examples/README.md": {
+        "size": 1122
+      },
+      "examples/esm2_infer_fairscale_fsdp_cpu_offloading.py": {
+        "size": 2002
+      },
+      "examples/inverse_folding/README.md": {
+        "size": 11179
+      },
+      "examples/inverse_folding/data/example.json": {
+        "size": 359299
+      },
+      "examples/inverse_folding/sample_sequences.py": {
+        "size": 4505
+      },
+      "examples/inverse_folding/score_log_likelihoods.py": {
+        "size": 4661
+      },
+      "examples/lm-design/README.md": {
+        "size": 1451
+      },
+      "examples/lm-design/__init__.py": {
+        "size": 0
+      },
+      "examples/lm-design/additional_requirements.txt": {
+        "size": 19
+      },
+      "examples/lm-design/conf/__init__.py": {
+        "size": 0
+      },
+      "examples/lm-design/conf/config.yaml": {
+        "size": 1413
+      },
+      "examples/lm-design/lm_design.py": {
+        "size": 17399
+      },
+      "examples/lm-design/paper-data/README.md": {
+        "size": 5049
+      },
+      "examples/lm-design/paper-data/artificial_sequence_purge_ids.txt": {
+        "size": 13403
+      },
+      "examples/lm-design/paper-data/uniref90_jackhmmer_purge_ids.txt": {
+        "size": 524313
+      },
+      "examples/lm-design/utils/__init__.py": {
+        "size": 0
+      },
+      "examples/lm-design/utils/constants.py": {
+        "size": 485
+      },
+      "examples/lm-design/utils/fixedbb.py": {
+        "size": 2113
+      },
+      "examples/lm-design/utils/free_generation.py": {
+        "size": 3538
+      },
+      "examples/lm-design/utils/linear_projection.py": {
+        "size": 4026
+      },
+      "examples/lm-design/utils/lm.py": {
+        "size": 3510
+      },
+      "examples/lm-design/utils/loss.py": {
+        "size": 1008
+      },
+      "examples/lm-design/utils/masking.py": {
+        "size": 3070
+      },
+      "examples/lm-design/utils/misc.py": {
+        "size": 1301
+      },
+      "examples/lm-design/utils/ngram.py": {
+        "size": 2301
+      },
+      "examples/lm-design/utils/pdb_loader.py": {
+        "size": 11470
+      },
+      "examples/lm-design/utils/sampling.py": {
+        "size": 7710
+      },
+      "examples/lm-design/utils/scheduler.py": {
+        "size": 2116
+      },
+      "examples/lm-design/utils/struct_models.py": {
+        "size": 4166
+      },
+      "examples/lm-design/utils/tensor.py": {
+        "size": 2369
+      },
+      "examples/protein-programming-language/README.md": {
+        "size": 2028
+      },
+      "examples/protein-programming-language/language/__init__.py": {
+        "size": 689
+      },
+      "examples/protein-programming-language/language/energy.py": {
+        "size": 10805
+      },
+      "examples/protein-programming-language/language/folding_callbacks.py": {
+        "size": 2243
+      },
+      "examples/protein-programming-language/language/optimize.py": {
+        "size": 5478
+      },
+      "examples/protein-programming-language/language/program.py": {
+        "size": 4604
+      },
+      "examples/protein-programming-language/language/sequence.py": {
+        "size": 5798
+      },
+      "examples/protein-programming-language/language/utilities.py": {
+        "size": 631
+      },
+      "examples/protein-programming-language/programs/__init__.py": {
+        "size": 62
+      },
+      "examples/protein-programming-language/programs/fixed_backbone.py": {
+        "size": 1130
+      },
+      "examples/protein-programming-language/programs/free_hallucination.py": {
+        "size": 651
+      },
+      "examples/protein-programming-language/programs/functional_site_scaffolding.py": {
+        "size": 1912
+      },
+      "examples/protein-programming-language/programs/secondary_structure.py": {
+        "size": 1338
+      },
+      "examples/protein-programming-language/programs/symmetric_binding.py": {
+        "size": 2171
+      },
+      "examples/protein-programming-language/programs/symmetric_monomer.py": {
+        "size": 997
+      },
+      "examples/protein-programming-language/programs/symmetric_two_level_multimer.py": {
+        "size": 1922
+      },
+      "examples/variant-prediction/README.md": {
+        "size": 3120
+      },
+      "examples/variant-prediction/__init__.py": {
+        "size": 0
+      },
+      "examples/variant-prediction/predict.py": {
+        "size": 8484
+      },
+      "hubconf.py": {
+        "size": 1271
+      },
+      "pyproject.toml": {
+        "size": 132
+      },
+      "scripts/__init__.py": {
+        "size": 1
+      },
+      "scripts/atlas/README.md": {
+        "size": 7230
+      },
+      "scripts/atlas/v0/full/bins.txt": {
+        "size": 2126
+      },
+      "scripts/atlas/v0/full/esm2_embeddings.txt": {
+        "size": 58611
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.40_.50_plddt_.40_.50.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.40_.50_plddt_.50_.60.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.40_.50_plddt_.60_.70.txt": {
+        "size": 96
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.40_.50_plddt_0_.40.txt": {
+        "size": 95
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.50_.60_plddt_.40_.50.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.50_.60_plddt_.50_.60.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.50_.60_plddt_.60_.70.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.50_.60_plddt_.70_.80.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.50_.60_plddt_0_.40.txt": {
+        "size": 95
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.60_.70_plddt_.40_.50.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.60_.70_plddt_.50_.60.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.60_.70_plddt_.60_.70.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.60_.70_plddt_.70_.80.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.60_.70_plddt_.80_.90.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.70_.80_plddt_.50_.60.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.70_.80_plddt_.60_.70.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.70_.80_plddt_.70_.80.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.70_.80_plddt_.80_.90.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.70_.80_plddt_.90_1.txt": {
+        "size": 95
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.80_.90_plddt_.60_.70.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.80_.90_plddt_.70_.80.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.80_.90_plddt_.80_.90.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.80_.90_plddt_.90_1.txt": {
+        "size": 95
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.90_1_plddt_.70_.80.txt": {
+        "size": 95
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.90_1_plddt_.80_.90.txt": {
+        "size": 95
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_.90_1_plddt_.90_1.txt": {
+        "size": 93
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_0_.40_plddt_.40_.50.txt": {
+        "size": 95
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_0_.40_plddt_.50_.60.txt": {
+        "size": 95
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/backfill_v0_tm_0_.40_plddt_0_.40.txt": {
+        "size": 93
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.40_.50_plddt_.40_.50.txt": {
+        "size": 264
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.40_.50_plddt_.50_.60.txt": {
+        "size": 1232
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.40_.50_plddt_.60_.70.txt": {
+        "size": 1936
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.40_.50_plddt_.70_.80.txt": {
+        "size": 1672
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.40_.50_plddt_.80_.90.txt": {
+        "size": 528
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.40_.50_plddt_.90_1.txt": {
+        "size": 86
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.40_.50_plddt_0_.40.txt": {
+        "size": 86
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.50_.60_plddt_.40_.50.txt": {
+        "size": 88
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.50_.60_plddt_.50_.60.txt": {
+        "size": 528
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.50_.60_plddt_.60_.70.txt": {
+        "size": 1584
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.50_.60_plddt_.70_.80.txt": {
+        "size": 2288
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.50_.60_plddt_.80_.90.txt": {
+        "size": 1408
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.50_.60_plddt_.90_1.txt": {
+        "size": 172
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.50_.60_plddt_0_.40.txt": {
+        "size": 86
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.60_.70_plddt_.40_.50.txt": {
+        "size": 88
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.60_.70_plddt_.50_.60.txt": {
+        "size": 88
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.60_.70_plddt_.60_.70.txt": {
+        "size": 968
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.60_.70_plddt_.70_.80.txt": {
+        "size": 2376
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.60_.70_plddt_.80_.90.txt": {
+        "size": 2552
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.60_.70_plddt_.90_1.txt": {
+        "size": 516
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.60_.70_plddt_0_.40.txt": {
+        "size": 86
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.70_.80_plddt_.40_.50.txt": {
+        "size": 88
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.70_.80_plddt_.50_.60.txt": {
+        "size": 88
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.70_.80_plddt_.60_.70.txt": {
+        "size": 176
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.70_.80_plddt_.70_.80.txt": {
+        "size": 1936
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.70_.80_plddt_.80_.90.txt": {
+        "size": 3872
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.70_.80_plddt_.90_1.txt": {
+        "size": 1204
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.70_.80_plddt_0_.40.txt": {
+        "size": 86
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.80_.90_plddt_.50_.60.txt": {
+        "size": 88
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.80_.90_plddt_.60_.70.txt": {
+        "size": 88
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.80_.90_plddt_.70_.80.txt": {
+        "size": 352
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.80_.90_plddt_.80_.90.txt": {
+        "size": 4048
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.80_.90_plddt_.90_1.txt": {
+        "size": 3182
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.90_1_plddt_.70_.80.txt": {
+        "size": 86
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.90_1_plddt_.80_.90.txt": {
+        "size": 430
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_.90_1_plddt_.90_1.txt": {
+        "size": 4704
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_0_.40_plddt_.40_.50.txt": {
+        "size": 4558
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_0_.40_plddt_.50_.60.txt": {
+        "size": 4042
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_0_.40_plddt_.60_.70.txt": {
+        "size": 2924
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_0_.40_plddt_.70_.80.txt": {
+        "size": 1118
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_0_.40_plddt_.80_.90.txt": {
+        "size": 172
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_0_.40_plddt_.90_1.txt": {
+        "size": 84
+      },
+      "scripts/atlas/v0/full/esm2_embeddings/tm_0_.40_plddt_0_.40.txt": {
+        "size": 3864
+      },
+      "scripts/atlas/v0/full/foldseekdb.txt": {
+        "size": 98096
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.40_.50_plddt_.40_.50.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.40_.50_plddt_.50_.60.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.40_.50_plddt_.60_.70.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.40_.50_plddt_0_.40.txt": {
+        "size": 1448
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.50_.60_plddt_.40_.50.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.50_.60_plddt_.50_.60.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.50_.60_plddt_.60_.70.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.50_.60_plddt_.70_.80.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.50_.60_plddt_0_.40.txt": {
+        "size": 1448
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.60_.70_plddt_.40_.50.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.60_.70_plddt_.50_.60.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.60_.70_plddt_.60_.70.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.60_.70_plddt_.70_.80.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.60_.70_plddt_.80_.90.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.70_.80_plddt_.50_.60.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.70_.80_plddt_.60_.70.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.70_.80_plddt_.70_.80.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.70_.80_plddt_.80_.90.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.70_.80_plddt_.90_1.txt": {
+        "size": 1448
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.80_.90_plddt_.60_.70.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.80_.90_plddt_.70_.80.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.80_.90_plddt_.80_.90.txt": {
+        "size": 1476
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.80_.90_plddt_.90_1.txt": {
+        "size": 1448
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.90_1_plddt_.70_.80.txt": {
+        "size": 1448
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.90_1_plddt_.80_.90.txt": {
+        "size": 1448
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_.90_1_plddt_.90_1.txt": {
+        "size": 1420
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_0_.40_plddt_.40_.50.txt": {
+        "size": 1448
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_0_.40_plddt_.50_.60.txt": {
+        "size": 1448
+      },
+      "scripts/atlas/v0/full/foldseekdb/backfill_v0_tm_0_.40_plddt_0_.40.txt": {
+        "size": 1420
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.40_.50_plddt_.40_.50.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.40_.50_plddt_.50_.60.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.40_.50_plddt_.60_.70.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.40_.50_plddt_.70_.80.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.40_.50_plddt_.80_.90.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.40_.50_plddt_.90_1.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.40_.50_plddt_0_.40.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.50_.60_plddt_.40_.50.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.50_.60_plddt_.50_.60.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.50_.60_plddt_.60_.70.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.50_.60_plddt_.70_.80.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.50_.60_plddt_.80_.90.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.50_.60_plddt_.90_1.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.50_.60_plddt_0_.40.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.60_.70_plddt_.40_.50.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.60_.70_plddt_.50_.60.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.60_.70_plddt_.60_.70.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.60_.70_plddt_.70_.80.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.60_.70_plddt_.80_.90.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.60_.70_plddt_.90_1.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.60_.70_plddt_0_.40.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.70_.80_plddt_.40_.50.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.70_.80_plddt_.50_.60.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.70_.80_plddt_.60_.70.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.70_.80_plddt_.70_.80.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.70_.80_plddt_.80_.90.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.70_.80_plddt_.90_1.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.70_.80_plddt_0_.40.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.80_.90_plddt_.50_.60.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.80_.90_plddt_.60_.70.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.80_.90_plddt_.70_.80.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.80_.90_plddt_.80_.90.txt": {
+        "size": 1308
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.80_.90_plddt_.90_1.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.90_1_plddt_.70_.80.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.90_1_plddt_.80_.90.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_.90_1_plddt_.90_1.txt": {
+        "size": 1252
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_0_.40_plddt_.40_.50.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_0_.40_plddt_.50_.60.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_0_.40_plddt_.60_.70.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_0_.40_plddt_.70_.80.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_0_.40_plddt_.80_.90.txt": {
+        "size": 1280
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_0_.40_plddt_.90_1.txt": {
+        "size": 1252
+      },
+      "scripts/atlas/v0/full/foldseekdb/tm_0_.40_plddt_0_.40.txt": {
+        "size": 1252
+      },
+      "scripts/atlas/v0/full/tarballs.txt": {
+        "size": 61303
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.40_.50_plddt_.40_.50.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.40_.50_plddt_.50_.60.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.40_.50_plddt_.60_.70.txt": {
+        "size": 100
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.40_.50_plddt_0_.40.txt": {
+        "size": 99
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.50_.60_plddt_.40_.50.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.50_.60_plddt_.50_.60.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.50_.60_plddt_.60_.70.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.50_.60_plddt_.70_.80.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.50_.60_plddt_0_.40.txt": {
+        "size": 99
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.60_.70_plddt_.40_.50.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.60_.70_plddt_.50_.60.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.60_.70_plddt_.60_.70.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.60_.70_plddt_.70_.80.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.60_.70_plddt_.80_.90.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.70_.80_plddt_.50_.60.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.70_.80_plddt_.60_.70.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.70_.80_plddt_.70_.80.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.70_.80_plddt_.80_.90.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.70_.80_plddt_.90_1.txt": {
+        "size": 99
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.80_.90_plddt_.60_.70.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.80_.90_plddt_.70_.80.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.80_.90_plddt_.80_.90.txt": {
+        "size": 101
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.80_.90_plddt_.90_1.txt": {
+        "size": 99
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.90_1_plddt_.70_.80.txt": {
+        "size": 99
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.90_1_plddt_.80_.90.txt": {
+        "size": 99
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_.90_1_plddt_.90_1.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_0_.40_plddt_.40_.50.txt": {
+        "size": 99
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_0_.40_plddt_.50_.60.txt": {
+        "size": 99
+      },
+      "scripts/atlas/v0/full/tarballs/backfill_v0_tm_0_.40_plddt_0_.40.txt": {
+        "size": 97
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.40_.50_plddt_.40_.50.txt": {
+        "size": 276
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.40_.50_plddt_.50_.60.txt": {
+        "size": 1288
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.40_.50_plddt_.60_.70.txt": {
+        "size": 2024
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.40_.50_plddt_.70_.80.txt": {
+        "size": 1748
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.40_.50_plddt_.80_.90.txt": {
+        "size": 552
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.40_.50_plddt_.90_1.txt": {
+        "size": 90
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.40_.50_plddt_0_.40.txt": {
+        "size": 90
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.50_.60_plddt_.40_.50.txt": {
+        "size": 92
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.50_.60_plddt_.50_.60.txt": {
+        "size": 552
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.50_.60_plddt_.60_.70.txt": {
+        "size": 1656
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.50_.60_plddt_.70_.80.txt": {
+        "size": 2392
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.50_.60_plddt_.80_.90.txt": {
+        "size": 1472
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.50_.60_plddt_.90_1.txt": {
+        "size": 180
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.50_.60_plddt_0_.40.txt": {
+        "size": 90
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.60_.70_plddt_.40_.50.txt": {
+        "size": 92
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.60_.70_plddt_.50_.60.txt": {
+        "size": 92
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.60_.70_plddt_.60_.70.txt": {
+        "size": 1012
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.60_.70_plddt_.70_.80.txt": {
+        "size": 2484
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.60_.70_plddt_.80_.90.txt": {
+        "size": 2668
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.60_.70_plddt_.90_1.txt": {
+        "size": 540
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.60_.70_plddt_0_.40.txt": {
+        "size": 90
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.70_.80_plddt_.40_.50.txt": {
+        "size": 92
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.70_.80_plddt_.50_.60.txt": {
+        "size": 92
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.70_.80_plddt_.60_.70.txt": {
+        "size": 184
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.70_.80_plddt_.70_.80.txt": {
+        "size": 2024
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.70_.80_plddt_.80_.90.txt": {
+        "size": 4048
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.70_.80_plddt_.90_1.txt": {
+        "size": 1260
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.70_.80_plddt_0_.40.txt": {
+        "size": 90
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.80_.90_plddt_.50_.60.txt": {
+        "size": 92
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.80_.90_plddt_.60_.70.txt": {
+        "size": 92
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.80_.90_plddt_.70_.80.txt": {
+        "size": 368
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.80_.90_plddt_.80_.90.txt": {
+        "size": 4232
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.80_.90_plddt_.90_1.txt": {
+        "size": 3330
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.90_1_plddt_.70_.80.txt": {
+        "size": 90
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.90_1_plddt_.80_.90.txt": {
+        "size": 450
+      },
+      "scripts/atlas/v0/full/tarballs/tm_.90_1_plddt_.90_1.txt": {
+        "size": 4928
+      },
+      "scripts/atlas/v0/full/tarballs/tm_0_.40_plddt_.40_.50.txt": {
+        "size": 4770
+      },
+      "scripts/atlas/v0/full/tarballs/tm_0_.40_plddt_.50_.60.txt": {
+        "size": 4230
+      },
+      "scripts/atlas/v0/full/tarballs/tm_0_.40_plddt_.60_.70.txt": {
+        "size": 3060
+      },
+      "scripts/atlas/v0/full/tarballs/tm_0_.40_plddt_.70_.80.txt": {
+        "size": 1170
+      },
+      "scripts/atlas/v0/full/tarballs/tm_0_.40_plddt_.80_.90.txt": {
+        "size": 180
+      },
+      "scripts/atlas/v0/full/tarballs/tm_0_.40_plddt_.90_1.txt": {
+        "size": 88
+      },
+      "scripts/atlas/v0/full/tarballs/tm_0_.40_plddt_0_.40.txt": {
+        "size": 4048
+      },
+      "scripts/atlas/v0/highquality_clust30/foldseekdb.txt": {
+        "size": 1406
+      },
+      "scripts/atlas/v0/highquality_clust30/tarballs.txt": {
+        "size": 3774
+      },
+      "scripts/atlas/v2023_02/full/bins.txt": {
+        "size": 843
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings.txt": {
+        "size": 13774
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.40_.50_plddt_.40_.50.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.40_.50_plddt_.50_.60.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.40_.50_plddt_.60_.70.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.40_.50_plddt_.70_.80.txt": {
+        "size": 94
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.40_.50_plddt_0_.40.txt": {
+        "size": 184
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.50_.60_plddt_.40_.50.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.50_.60_plddt_.50_.60.txt": {
+        "size": 282
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.50_.60_plddt_.60_.70.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.50_.60_plddt_.70_.80.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.50_.60_plddt_0_.40.txt": {
+        "size": 184
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.60_.70_plddt_.40_.50.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.60_.70_plddt_.50_.60.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.60_.70_plddt_.60_.70.txt": {
+        "size": 564
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.60_.70_plddt_.70_.80.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.60_.70_plddt_.80_.90.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.60_.70_plddt_0_.40.txt": {
+        "size": 92
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.70_.80_plddt_.40_.50.txt": {
+        "size": 94
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.70_.80_plddt_.50_.60.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.70_.80_plddt_.60_.70.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.70_.80_plddt_.70_.80.txt": {
+        "size": 1222
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.70_.80_plddt_.80_.90.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.70_.80_plddt_.90_1.txt": {
+        "size": 184
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.70_.80_plddt_0_.40.txt": {
+        "size": 92
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.80_.90_plddt_.60_.70.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.80_.90_plddt_.70_.80.txt": {
+        "size": 188
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.80_.90_plddt_.80_.90.txt": {
+        "size": 2350
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.80_.90_plddt_.90_1.txt": {
+        "size": 368
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.90_1_plddt_.70_.80.txt": {
+        "size": 184
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.90_1_plddt_.80_.90.txt": {
+        "size": 368
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_.90_1_plddt_.90_1.txt": {
+        "size": 1530
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_0_.40_plddt_.40_.50.txt": {
+        "size": 184
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_0_.40_plddt_.50_.60.txt": {
+        "size": 184
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_0_.40_plddt_.60_.70.txt": {
+        "size": 92
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_0_.40_plddt_.70_.80.txt": {
+        "size": 92
+      },
+      "scripts/atlas/v2023_02/full/esm2_embeddings/tm_0_.40_plddt_0_.40.txt": {
+        "size": 2610
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb.txt": {
+        "size": 210418
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.40_.50_plddt_.40_.50.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.40_.50_plddt_.50_.60.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.40_.50_plddt_.60_.70.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.40_.50_plddt_.70_.80.txt": {
+        "size": 1434
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.40_.50_plddt_0_.40.txt": {
+        "size": 2812
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.50_.60_plddt_.40_.50.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.50_.60_plddt_.50_.60.txt": {
+        "size": 5736
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.50_.60_plddt_.60_.70.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.50_.60_plddt_.70_.80.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.50_.60_plddt_0_.40.txt": {
+        "size": 2812
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.60_.70_plddt_.40_.50.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.60_.70_plddt_.50_.60.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.60_.70_plddt_.60_.70.txt": {
+        "size": 8604
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.60_.70_plddt_.70_.80.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.60_.70_plddt_.80_.90.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.60_.70_plddt_0_.40.txt": {
+        "size": 1406
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.70_.80_plddt_.40_50.txt": {
+        "size": 1434
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.70_.80_plddt_.50_.60.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.70_.80_plddt_.60_.70.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.70_.80_plddt_.70_.80.txt": {
+        "size": 18642
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.70_.80_plddt_.80_.90.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.70_.80_plddt_.90_1.txt": {
+        "size": 1406
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.70_.80_plddt_0_.40.txt": {
+        "size": 1406
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.80_.90_plddt_.60_.70.txt": {
+        "size": 1434
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.80_.90_plddt_.70_.80.txt": {
+        "size": 2868
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.80_.90_plddt_.80_.90.txt": {
+        "size": 35850
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.80_.90_plddt_.90_1.txt": {
+        "size": 5624
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.90_1_plddt_.70_.80.txt": {
+        "size": 2812
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.90_1_plddt_.80_.90.txt": {
+        "size": 7030
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_.90_1_plddt_.90_1.txt": {
+        "size": 23426
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_0_.40_plddt_.40_.50.txt": {
+        "size": 2812
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_0_.40_plddt_.50_.60.txt": {
+        "size": 2812
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_0_.40_plddt_.60_.70.txt": {
+        "size": 1406
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_0_.40_plddt_.70_.80.txt": {
+        "size": 1406
+      },
+      "scripts/atlas/v2023_02/full/foldseekdb/tm_0_.40_plddt_0_.40.txt": {
+        "size": 39962
+      },
+      "scripts/atlas/v2023_02/full/tarballs.txt": {
+        "size": 14370
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.40_.50_plddt_.40_.50.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.40_.50_plddt_.50_.60.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.40_.50_plddt_.60_.70.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.40_.50_plddt_.70_.80.txt": {
+        "size": 98
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.40_.50_plddt_0_.40.txt": {
+        "size": 192
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.50_.60_plddt_.40_.50.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.50_.60_plddt_.50_.60.txt": {
+        "size": 294
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.50_.60_plddt_.60_.70.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.50_.60_plddt_.70_.80.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.50_.60_plddt_0_.40.txt": {
+        "size": 192
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.60_.70_plddt_.40_.50.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.60_.70_plddt_.50_.60.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.60_.70_plddt_.60_.70.txt": {
+        "size": 588
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.60_.70_plddt_.70_.80.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.60_.70_plddt_.80_.90.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.60_.70_plddt_0_.40.txt": {
+        "size": 96
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.70_.80_plddt_.40_.50.txt": {
+        "size": 98
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.70_.80_plddt_.50_.60.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.70_.80_plddt_.60_.70.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.70_.80_plddt_.70_.80.txt": {
+        "size": 1274
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.70_.80_plddt_.80_.90.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.70_.80_plddt_.90_1.txt": {
+        "size": 192
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.70_.80_plddt_0_.40.txt": {
+        "size": 96
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.80_.90_plddt_.60_.70.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.80_.90_plddt_.70_.80.txt": {
+        "size": 196
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.80_.90_plddt_.80_.90.txt": {
+        "size": 2450
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.80_.90_plddt_.90_1.txt": {
+        "size": 384
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.90_1_plddt_.70_.80.txt": {
+        "size": 192
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.90_1_plddt_.80_.90.txt": {
+        "size": 384
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_.90_1_plddt_.90_1.txt": {
+        "size": 1598
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_0_.40_plddt_.40_.50.txt": {
+        "size": 192
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_0_.40_plddt_.50_.60.txt": {
+        "size": 192
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_0_.40_plddt_.60_.70.txt": {
+        "size": 96
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_0_.40_plddt_.70_.80.txt": {
+        "size": 96
+      },
+      "scripts/atlas/v2023_02/full/tarballs/tm_0_.40_plddt_0_.40.txt": {
+        "size": 2726
+      },
+      "scripts/extract.py": {
+        "size": 5161
+      },
+      "scripts/fold.py": {
+        "size": 6754
+      },
+      "setup.py": {
+        "size": 1514
+      },
+      "tests/inverse_folding_test_example.json": {
+        "size": 359299
+      },
+      "tests/test_alphabet.py": {
+        "size": 2367
+      },
+      "tests/test_inverse_folding.py": {
+        "size": 2716
+      },
+      "tests/test_load_all.py": {
+        "size": 1835
+      },
+      "tests/test_notebooks.py": {
+        "size": 1973
+      },
+      "tests/test_readme.py": {
+        "size": 7311
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.esm",
+      "source.esm.inverse_folding",
+      "source.esm.model",
+      "source.examples.lm-design",
+      "source.examples.variant-prediction",
+      "source.scripts"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": true,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.esm",
+        "module": "pretrained",
+        "functions": [
+          "load_model_and_alphabet",
+          "load_model_and_alphabet_hub",
+          "load_model_and_alphabet_local",
+          "has_emb_layer_norm_before"
+        ],
+        "classes": [],
+        "description": "Primary model-loading surface for ESM checkpoints and alphabets; best integration point for inference MCP tools."
+      },
+      {
+        "package": "source.esm",
+        "module": "data",
+        "functions": [
+          "read_fasta",
+          "read_alignment_lines",
+          "parse_fasta",
+          "BatchConverter"
+        ],
+        "classes": [
+          "Alphabet",
+          "FastaBatchedDataset",
+          "BatchConverter",
+          "MSABatchConverter"
+        ],
+        "description": "Sequence/alignment parsing and tokenization utilities; essential for building stable request preprocessing."
+      },
+      {
+        "package": "source.esm.model",
+        "module": "esm2",
+        "functions": [],
+        "classes": [
+          "ESM2"
+        ],
+        "description": "Core transformer LM architecture used by modern ESM models; useful for direct programmatic inference."
+      },
+      {
+        "package": "source.esm.model",
+        "module": "esm1",
+        "functions": [],
+        "classes": [
+          "ProteinBertModel"
+        ],
+        "description": "Legacy ESM-1 family model definitions; relevant for backward-compatible model support."
+      },
+      {
+        "package": "source.esm.model",
+        "module": "msa_transformer",
+        "functions": [],
+        "classes": [
+          "MSATransformer"
+        ],
+        "description": "MSA Transformer architecture for alignment-based inference tasks."
+      },
+      {
+        "package": "source.esm.inverse_folding",
+        "module": "util",
+        "functions": [
+          "load_structure",
+          "extract_coords_from_structure",
+          "score_sequence",
+          "sample_sequence_in_complex"
+        ],
+        "classes": [],
+        "description": "Inverse-folding utility layer for structure-conditioned scoring/sampling."
+      },
+      {
+        "package": "source.esm",
+        "module": "esmfold.v1.pretrained",
+        "functions": [
+          "esmfold_v1"
+        ],
+        "classes": [],
+        "description": "Loader entrypoint for ESMFold model; suitable for structure prediction MCP capability."
+      },
+      {
+        "package": "source.scripts",
+        "module": "extract",
+        "functions": [
+          "create_parser",
+          "main"
+        ],
+        "classes": [],
+        "description": "Embedding extraction CLI script; practical non-intrusive fallback via subprocess."
+      },
+      {
+        "package": "source.scripts",
+        "module": "fold",
+        "functions": [
+          "create_parser",
+          "main"
+        ],
+        "classes": [],
+        "description": "Structure folding CLI script built around ESMFold; useful as black-box execution path."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python -m source.scripts.extract",
+        "module": "source.scripts.extract",
+        "description": "Extract per-sequence/per-token embeddings from ESM models for FASTA inputs."
+      },
+      {
+        "name": "python -m source.scripts.fold",
+        "module": "source.scripts.fold",
+        "description": "Run ESMFold structure prediction for input sequences."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.89
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.7",
+        "torch",
+        "numpy",
+        "biopython",
+        "scipy",
+        "pandas",
+        "requests",
+        "tqdm"
+      ],
+      "optional": [
+        "fairscale",
+        "omegaconf",
+        "hydra-core",
+        "pytorch-lightning",
+        "dllogger",
+        "deepspeed",
+        "openfold (or openfold-compatible components for esmfold paths)",
+        "nvcc/cuda runtime for performant esmfold inference"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.87,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/facebookresearch/esm",
+    "repo_name": "esm",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.87,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "repository": {
+    "name": "statsmodels",
+    "url": "https://github.com/statsmodels/statsmodels",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/statsmodels",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773243770.07306,
+    "end_time": 1773244566.140846,
+    "duration": 796.0677859783173,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/statsmodels/statsmodels",
+      "repo_name": "statsmodels",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/statsmodels/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Command '['git', 'clone', 'https://github.com/statsmodels/statsmodels', '/Users/ghh/Documents/Code/Code2MCP-private/workspace/statsmodels/temp_clone']' timed out after 600 seconds",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Command '['git', 'clone', 'https://github.com/statsmodels/statsmodels', '/Users/ghh/Documents/Code/Code2MCP-private/workspace/statsmodels/temp_clone']' timed out after 600 seconds"
+  ],
+  "recommendations": [
+    "Add a minimal smoke test suite for all generated MCP endpoints (import + one no-op call per endpoint)",
+    "prioritize function-based endpoints over raw result/wrapper classes (e.g.",
+    "expose fit/predict workflows for OLS/GLM/Logit/ARIMA/SARIMAX instead of `*Results*` constructors)",
+    "implement strict Pydantic request/response schemas with numpy/pandas serialization guards",
+    "add robust error mapping (ValueError/LinAlgError/ConvergenceWarning) to structured MCP error codes",
+    "pin and validate runtime dependencies in `mcp_output/requirements.txt` against statsmodels’ real build requirements",
+    "add CI workflow to run plugin tests on Linux/macOS with multiple Python versions",
+    "introduce endpoint-level timeouts and resource limits for heavy models (especially statespace/time-series fits)",
+    "add deterministic fixture datasets (via `statsmodels.datasets`) for reproducible MCP tests",
+    "expand README_MCP with per-endpoint examples and expected input shapes",
+    "add logging/telemetry hooks (request id",
+    "endpoint",
+    "duration",
+    "failure class) for observability",
+    "create a compatibility matrix documenting supported statsmodels/numpy/scipy/pandas versions",
+    "add contract tests to detect upstream API drift in statsmodels class signatures",
+    "implement graceful fallback for optional dependencies/features (e.g.",
+    "x13-related paths)",
+    "include security hardening checks (input size caps",
+    "forbidden object deserialization",
+    "path safety)",
+    "and add a small benchmark suite tracking latency and memory per endpoint over time"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status `success` and executed all planned nodes (`download`, `analysis`, `env`, `generate`, `run`, `review`, `finalize`).",
+      "Resilience mechanism worked: after git clone timeout, pipeline continued via zip fallback and still analyzed ~1441 files.",
+      "MCP plugin startup/health check passed (`service_health: healthy`, `transport_mode: stdio`).",
+      "Low intrusiveness import-based adapter strategy (confidence 0.9) fit statsmodels’ API-oriented structure."
+    ],
+    "failure_reasons": [
+      "Primary repository acquisition path failed: `git clone` timed out after 600s (DownloadNode CloneFailed).",
+      "Observability/metrics quality is poor: many fields show zeros/unknowns (LLM calls, file counters, performance metrics), reducing diagnostic confidence.",
+      "Generated artifact metadata is internally inconsistent (e.g., `tool_endpoints: 0` while service info lists 24 endpoints).",
+      "Original project tests were not validated (`passed: false`, no test files/details), so compatibility with real statsmodels runtime is unproven."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Slow and unstable. Download node consumed most risk budget and hit 600s timeout on git clone; fallback succeeded.",
+      "analysis_time": "Functionally successful via fallback path; large monorepo-scale analysis (1441 files) completed but timing granularity missing.",
+      "generation_time": "Completed and produced expected skeleton files; endpoint generation appears partial/metadata-misaligned.",
+      "test_time": "Only plugin health smoke appears executed; no substantive endpoint contract/performance testing observed."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to missing telemetry (reported 0 MB is non-credible).",
+      "cpu_efficiency": "Unknown due to missing telemetry (reported 0% is non-credible).",
+      "disk_usage": "Likely moderate-high because full repo fallback import occurred; generated plugin footprint appears small."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 68,
+    "architecture_score": 74,
+    "performance_score": 52,
+    "maintainability_score": 66,
+    "security_score": 85,
+    "scalability_score": 61
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "repository": {
+    "name": "pysph",
+    "url": "https://github.com/pypr/pysph",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pysph",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773255619.026871,
+    "end_time": 1773255800.204584,
+    "duration": 181.17771291732788,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 7,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.pysph",
+        "source.pysph.base",
+        "source.pysph.examples",
+        "source.pysph.parallel",
+        "source.pysph.solver",
+        "source.pysph.sph",
+        "source.pysph.tools"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/pypr/pysph",
+      "repo_name": "pysph",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pysph/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "stabilize CI by adding a minimal smoke-test matrix for core imports and CLI commands (especially since test status is empty)",
+    "reduce packaging ambiguity by choosing one primary build path (PEP 517 via pyproject) and keeping setup.py/setup.cfg only as thin compatibility shims",
+    "add explicit optional dependency extras (mpi/gpu/viz/docs) and validate each in CI to prevent environment drift",
+    "introduce endpoint contract tests for generated MCP plugin tools (application/solver/scheme/equation/etc.) including argument/schema validation",
+    "add a lightweight “import-risk” preflight in the MCP adapter that degrades gracefully when heavy deps (pyzoltan/mpi4py/mayavi/vtk) are missing",
+    "improve observability with structured logging and timing around solver/application/acceleration_eval execution paths",
+    "create a small curated regression suite from representative examples (dam_break_2d",
+    "taylor_green",
+    "shocktube) with short runtimes for PR gating",
+    "add performance baselines for hot modules (neighbor search",
+    "acceleration_eval",
+    "integrator_step) and fail CI on major regressions",
+    "strengthen docs by adding a “quickstart by profile” (CPU-only",
+    "MPI",
+    "GPU",
+    "post-processing) plus MCP usage examples",
+    "add static quality gates (ruff/black/mypy or pyright for public interfaces) to catch API and typing issues early",
+    "define semantic versioning and API stability notes for exposed MCP endpoints to reduce breaking changes",
+    "add cache/artifact management policies (compiled kernels/output cache cleanup) and test them via pysph.tools.manage_cache workflows"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Repository ingestion succeeded via zip fallback, enabling analysis despite non-standard retrieval path.",
+      "Import-first adapter strategy was feasible (import feasibility 0.72) and produced a healthy MCP service on stdio transport.",
+      "Generated plugin structure was complete (entrypoint, adapter, service, main, requirements, README), indicating pipeline stability.",
+      "No runtime errors or warnings were recorded during orchestration."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki enrichment failed, reducing architectural/context confidence for automated reasoning.",
+      "Original project test result is effectively non-validated (passed=false with empty details and zero execution time), creating verification gaps.",
+      "Observed metric inconsistencies (tool_endpoints=0 in generation summary vs populated endpoint list in service info) indicate reporting quality issues."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; exact per-node timing unavailable. Zip fallback likely added overhead but remained acceptable within total 181s.",
+      "analysis_time": "Completed with broad structural and dependency extraction over ~308 files; moderate time expected due to repository complexity.",
+      "generation_time": "Completed successfully and created 7 files; generation appears fast but reported LOC/size=0 suggests telemetry gaps rather than true zero output.",
+      "test_time": "MCP plugin health check passed quickly (startup_time=0 reported). Original project tests were not meaningfully executed (0s, empty details)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB). No signs of memory pressure, but observability is insufficient.",
+      "cpu_efficiency": "Unknown from telemetry (reported 0%). End-to-end duration suggests acceptable CPU usage for this workload class.",
+      "disk_usage": "Low-to-moderate; only 7 MCP output files generated, but disk metrics are missing and generated size is incorrectly reported as 0."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 81,
+    "performance_score": 70,
+    "maintainability_score": 74,
+    "security_score": 85,
+    "scalability_score": 73
+  }
+}

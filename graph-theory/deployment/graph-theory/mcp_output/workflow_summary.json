@@ -1,0 +1,218 @@
+{
+  "repository": {
+    "name": "graph-theory",
+    "url": "https://github.com/root-11/graph-theory",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/graph-theory",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773287347.6250072,
+    "end_time": 1773287510.379982,
+    "duration": 162.75497603416443,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 3,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.examples",
+        "source.graph",
+        "source.tests"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.95,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/root-11/graph-theory",
+      "repo_name": "graph-theory",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/graph-theory/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "migrate packaging to `pyproject.toml` and keep `setup.py` only as fallback",
+    "populate `requirements.txt` (currently empty) and split runtime vs dev dependencies",
+    "add a CI matrix for multiple Python versions with lint/type/test stages",
+    "enable and enforce coverage thresholds in CI (especially for large modules like `tests/test_graph.py`-driven core behaviors)",
+    "break up oversized modules (`graph/core.py`",
+    "`graph/base.py`",
+    "`graph/shortest_path.py`",
+    "`graph/traffic_scheduling_problem.py`) into submodules for maintainability",
+    "add consistent type hints across public APIs and run `mypy`/`pyright`",
+    "standardize naming and remove duplication/confusion (`max_flow_min_cut.py` vs `maximum_flow_min_cut.py`)",
+    "add explicit API export surface in `graph/__init__.py` and versioning policy",
+    "strengthen input validation and error taxonomy for solver functions (flow/TSP/transshipment/scheduling)",
+    "add property-based tests (Hypothesis) for graph invariants and algorithm correctness",
+    "add benchmark suite (e.g.",
+    "`pytest-benchmark`) for shortest path/flow/TSP regressions",
+    "improve docs with algorithm complexity + expected graph constraints + failure modes per function",
+    "add example notebooks/scripts for key workflows and MCP usage",
+    "harden MCP adapter by filtering exposed endpoints to stable public functions only (avoid exposing internal classes/threads unless intentional)",
+    "add contract tests for MCP endpoints (schema",
+    "error handling",
+    "determinism)",
+    "pin optional visualization dependencies and guard imports gracefully (`matplotlib`)",
+    "configure pre-commit (ruff/black/isort) and conventional formatting across repo",
+    "add security/dependency scanning in GitHub Actions (pip-audit/dependabot)",
+    "include reproducibility metadata (seed handling in random graph utilities and tests)",
+    "and add changelog + semantic release workflow for safer publishing"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow completed with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter mode had high feasibility (0.95), matching the repository’s Python package structure.",
+      "Service-level validation passed (MCP plugin healthy over stdio), indicating generated bootstrap and runtime wiring are functional.",
+      "Low intrusiveness risk and medium complexity made automatic wrapping practical."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki enrichment failed (non-blocking), reducing external contextual analysis depth.",
+      "Original project test result marked as not passed despite reported 100% coverage metadata, indicating inconsistent/insufficient source test execution reporting."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; repository import was resilient despite non-primary fetch path.",
+      "analysis_time": "Completed successfully with AST-discovered modules/functions/classes and risk scoring; good coverage of callable surface.",
+      "generation_time": "Completed successfully; 7 MCP output files generated and service entrypoint created.",
+      "test_time": "MCP plugin health checks passed; however, original project test execution telemetry appears incomplete/inconsistent."
+    },
+    "resource_usage": {
+      "memory_efficiency": "No reliable metrics captured (reported as 0), so efficiency cannot be validated.",
+      "cpu_efficiency": "No reliable metrics captured (reported as 0), so CPU behavior is unknown.",
+      "disk_usage": "Generated artifact set is small (7 files), but recorded size/LOC as 0 indicates missing instrumentation rather than true zero usage."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 80,
+    "performance_score": 68,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "repository": {
+    "name": "dateutil",
+    "url": "https://github.com/dateutil/dateutil",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/dateutil",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773282634.34904,
+    "end_time": 1773282842.182678,
+    "duration": 207.83363795280457,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 2,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.src.dateutil",
+        "source.tests"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.96,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/dateutil/dateutil",
+      "repo_name": "dateutil",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/dateutil/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add CI test execution and coverage gating (test status is empty)",
+    "add MCP smoke/integration tests for every exposed endpoint and deduplicate duplicated endpoints (tzwin/tzwinlocal appear twice)",
+    "define a stable public MCP API surface that excludes private/internal symbols (_timelex/_resultbase/_tzparser/_rrulestr)",
+    "add input/output schema validation and consistent error mapping (e.g.",
+    "ParserError/UnknownTimezoneWarning) in the adapter layer",
+    "introduce performance benchmarks for hot paths (parse/isoparser/rrule/tz) with regression thresholds",
+    "split or refactor very large modules (parser._parser",
+    "rrule",
+    "tz.tz) to improve maintainability",
+    "add type hints and enforce static analysis (mypy/pyright) for plugin and high-churn modules",
+    "strengthen packaging consistency by consolidating pyproject/setup.cfg/setup.py roles and documenting dependency policy",
+    "improve docs with MCP usage examples and endpoint compatibility guarantees",
+    "add release automation checks for zoneinfo metadata freshness and cross-platform timezone behavior",
+    "add security/robustness checks (fuzz/property tests expansion",
+    "malformed input hardening",
+    "dependency pin/audit)",
+    "add observability in the MCP service (structured logs",
+    "latency/error metrics",
+    "per-endpoint tracing)"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow status is success with all planned nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy had high feasibility confidence (0.95–0.96) and low intrusiveness risk.",
+      "Repository ingestion succeeded via zip fallback with complete file discovery (55 files), enabling core-module mapping.",
+      "MCP plugin boot/health checks passed (service_health=healthy, transport=stdio), confirming runnable service scaffold.",
+      "Generated artifact set is structurally complete (entrypoint, adapter, service, main module, requirements, README)."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki enrichment failed, reducing external context quality for analysis and endpoint curation.",
+      "Original project tests were not actually validated despite reported 100% coverage placeholder; this is a data-quality gap, not a pipeline crash.",
+      "Generated metadata appears inconsistent (tool_endpoints=0 while endpoint list exists; LOC/size reported as 0), indicating reporting/instrumentation defects."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository fetched via zip fallback. Exact per-node timing not provided, but no download bottleneck observed.",
+      "analysis_time": "Completed with medium-complexity codebase profiling and dependency/risk extraction; DeepWiki sub-step failed but core analysis succeeded.",
+      "generation_time": "Completed and produced expected MCP scaffold files. Endpoint exposure appears broad but over-inclusive.",
+      "test_time": "MCP plugin runtime health test passed quickly; original project test execution absent/empty, so validation depth is insufficient."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown (reported as 0 MB, likely uninstrumented). Cannot assess accurately.",
+      "cpu_efficiency": "Unknown (reported as 0%, likely uninstrumented). Cannot assess accurately.",
+      "disk_usage": "Low-to-moderate expected from 55-source-file repo plus generated MCP scaffold; reported generated size 0 suggests telemetry gap."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 61,
+    "maintainability_score": 68,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

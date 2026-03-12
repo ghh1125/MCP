@@ -1,0 +1,222 @@
+{
+  "repository": {
+    "name": "tsfresh",
+    "url": "https://github.com/blue-yonder/tsfresh",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/tsfresh",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773283014.5604658,
+    "end_time": 1773283190.2891881,
+    "duration": 175.72872233390808,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 11,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.tests",
+        "source.tests.integrations",
+        "source.tests.units",
+        "source.tsfresh",
+        "source.tsfresh.convenience",
+        "source.tsfresh.examples",
+        "source.tsfresh.feature_extraction",
+        "source.tsfresh.feature_selection",
+        "source.tsfresh.scripts",
+        "source.tsfresh.transformers",
+        "source.tsfresh.utilities"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.93,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/blue-yonder/tsfresh",
+      "repo_name": "tsfresh",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/tsfresh/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke-test suite for generated MCP endpoints (import + 2–3 representative calls) since test status is empty",
+    "create a `pyproject.toml` (or modernize `setup.py` usage) and centralize dependency metadata to improve packaging consistency",
+    "add explicit CLI entry points in packaging config for `run_tsfresh`/timing scripts and verify via CI install-step tests",
+    "introduce CI matrix coverage for supported Python versions and optional extras (`dask`",
+    "notebook stack) to catch integration drift",
+    "split or parametrize very large test files (e.g.",
+    "`test_feature_calculations.py`",
+    "`test_dataframe_functions.py`) to improve maintainability and test runtime diagnostics",
+    "add performance regression benchmarks in CI (at least nightly) around `extract_features` and heavy calculators to detect slowdowns early",
+    "define and publish a stable API surface for MCP exposure (whitelist + versioning) instead of exporting nearly every discovered symbol",
+    "add input/schema validation in MCP adapter layer (array-like types",
+    "required params",
+    "bounds) with clear error messages",
+    "implement endpoint naming normalization policy (snake_case vs lowercase class names) to avoid confusing mixed endpoint styles",
+    "add structured logging and tracing in `mcp_service.py`/adapter for endpoint latency and failure visibility",
+    "harden optional dependency handling with graceful degradation and actionable install hints at runtime",
+    "add contract tests for distributed execution modes (multiprocessing/dask/spark chunk functions) to verify consistent outputs",
+    "expand docs with a concise “MCP quickstart + examples” and endpoint grouping by module/use case",
+    "add pre-commit hooks for import sorting/type checks and gradually introduce typing for high-traffic adapter/service code paths",
+    "define compatibility/version policy between upstream tsfresh and generated MCP plugin and enforce with automated checks",
+    "add security/reliability guardrails for expensive calculators (timeouts/resource limits) when exposed as remote endpoints"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy was appropriate for tsfresh (import feasibility 0.93, low intrusiveness risk).",
+      "Generated MCP service started successfully and health checks passed (service_health=healthy, transport=stdio).",
+      "Repository structure was analyzable via zip fallback and AST discovery, enabling broad endpoint generation."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure recorded.",
+      "Quality gaps: original project tests were not executed successfully (passed=false with empty details), and MCP test evidence is minimal/empty.",
+      "Observability gaps: performance/resource metrics are zeros, so runtime efficiency cannot be validated.",
+      "Metadata inconsistency: plugin_generation reports tool_endpoints=0 while service info lists many endpoints, indicating reporting mismatch."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository imported via zip fallback. Exact node timing not provided, but no blocking issues observed.",
+      "analysis_time": "Successful static/AST analysis with large API discovery; DeepWiki failed but was non-blocking due to LLM-direct fallback.",
+      "generation_time": "Successful file generation (entrypoint, adapter, service, README, requirements); endpoint surface appears broad.",
+      "test_time": "MCP runtime health passed, but functional endpoint tests are effectively missing; original test status indicates unvalidated baseline."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown in practice; reported memory_usage_mb=0 indicates metrics collection not wired.",
+      "cpu_efficiency": "Unknown in practice; reported cpu_usage_percent=0 indicates telemetry gap.",
+      "disk_usage": "Low-to-moderate expected footprint; generated_files_size=0 is likely a reporting defect rather than true zero output."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 72
+  }
+}

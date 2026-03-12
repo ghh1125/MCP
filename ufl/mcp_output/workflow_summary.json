@@ -1,0 +1,222 @@
+{
+  "repository": {
+    "name": "ufl",
+    "url": "https://github.com/FEniCS/ufl",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/ufl",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773252997.851743,
+    "end_time": 1773253238.9952252,
+    "duration": 241.14348220825195,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.95,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/FEniCS/ufl",
+      "repo_name": "ufl",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/ufl/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/ufl/temp_clone'...\nfatal: unable to access 'https://github.com/FEniCS/ufl/': Error in the HTTP2 framing layer\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/ufl/temp_clone'...\nfatal: unable to access 'https://github.com/FEniCS/ufl/': Error in the HTTP2 framing layer\n"
+  ],
+  "recommendations": [
+    "add a minimal CI smoke test for the generated MCP plugin (import plugin",
+    "start server",
+    "call 2–3 core endpoints)",
+    "populate `test status`/`code review`/`performance metrics` in the pipeline output and fail on missing sections to avoid blind spots",
+    "fix dependency detection so `pyproject.toml` is recognized (it currently reports `pyproject: False` despite file presence)",
+    "deduplicate/normalize exported endpoints in MCP generation (e.g.",
+    "repeated `expr`/`form`) and enforce naming conventions",
+    "add contract tests that compare MCP endpoint behavior to direct `ufl` API results for key symbolic ops (`grad`",
+    "`div`",
+    "`derivative`",
+    "`replace`)",
+    "introduce type-validation/error-shape tests for MCP inputs using Pydantic schemas",
+    "create a small benchmark suite for hot paths (`apply_derivatives`",
+    "`compute_form_data`",
+    "form hashing/signature) with regression thresholds in CI",
+    "split very large algorithm modules (notably `ufl/algorithms/apply_derivatives.py`) into focused submodules to reduce maintenance risk",
+    "add property-based tests (Hypothesis) for expression DAG transformations and algebraic invariants",
+    "strengthen docs by mapping each exposed MCP endpoint to its UFL module/class and including canonical request/response examples",
+    "add compatibility matrix testing across supported Python versions and NumPy ranges (plus optional SymPy-present environment)",
+    "improve release hygiene with automated changelog checks and wheel/sdist verification before publish",
+    "add observability in MCP service (structured logs",
+    "latency/error counters per endpoint)",
+    "include security/dependency scanning (pip-audit/Safety + GitHub Dependabot policy enforcement) in CI",
+    "add golden tests for signature/stability-sensitive outputs to catch subtle symbolic canonicalization regressions"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status `success` and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Robust fallback behavior: after git clone failure, pipeline continued via zip/import fallback and still analyzed ~217 files.",
+      "Import-mode adapter generation succeeded and MCP service health check passed (`healthy`, stdio transport).",
+      "Low intrusiveness risk and high import feasibility (0.95) supported non-invasive wrapping strategy."
+    ],
+    "failure_reasons": [
+      "Primary source acquisition failed in DownloadNode due to network/protocol error (`HTTP2 framing layer`) when cloning from GitHub.",
+      "Pipeline observability gaps: zeroed/empty metrics (`llm_calls`, `total_files_processed`, performance metrics, code review) reduce confidence in reported success quality.",
+      "Dependency detection inconsistency: `pyproject.toml` exists but reported as `pyproject: False`, indicating analyzer defect.",
+      "Test signal quality is weak: original project tests marked not passed despite `100%` coverage and zero execution time, indicating reporting inconsistency."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Download encountered hard failure in git clone; recovery occurred through fallback path. Time likely dominated by retry/failure latency.",
+      "analysis_time": "Analysis appears effective despite fallback (file inventory, core module extraction, risk/security summaries), but metadata counters are inconsistent.",
+      "generation_time": "Generation completed quickly enough within total 241s and produced expected scaffold files; however endpoint/tool count reporting is contradictory.",
+      "test_time": "MCP plugin health test passed, but project test execution data is effectively missing (0s runtime, empty details), limiting reliability."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB). Instrumentation required before concluding efficiency.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%). No actionable CPU profile available.",
+      "disk_usage": "Low-to-moderate; repository analyzed and plugin scaffold generated, but generated LOC/size reported as 0 suggests accounting bug."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 60,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}

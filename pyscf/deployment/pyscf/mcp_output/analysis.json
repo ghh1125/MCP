@@ -1,0 +1,5066 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/pyscf/pyscf",
+    "summary": "Imported via zip fallback, file count: 1593",
+    "file_tree": {
+      ".codecov.yml": {
+        "size": 561
+      },
+      ".github/FUNDING.yml": {
+        "size": 733
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 1604
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 1438
+      },
+      ".github/ISSUE_TEMPLATE/unexpected-behavior.md": {
+        "size": 1698
+      },
+      ".github/workflows/ci.yml": {
+        "size": 3334
+      },
+      ".github/workflows/ci_conda.yml": {
+        "size": 609
+      },
+      ".github/workflows/lint.yml": {
+        "size": 1392
+      },
+      ".github/workflows/publish.yml": {
+        "size": 6607
+      },
+      ".github/workflows/release_tag.yml": {
+        "size": 789
+      },
+      ".ruff.toml": {
+        "size": 726
+      },
+      "CONTRIBUTING.md": {
+        "size": 119
+      },
+      "README.md": {
+        "size": 3606
+      },
+      "conda/conda_build_config.yaml": {
+        "size": 60
+      },
+      "conda/meta.yaml": {
+        "size": 634
+      },
+      "doc_legacy/source/conf.py": {
+        "size": 8628
+      },
+      "doc_legacy/source/features.txt": {
+        "size": 14
+      },
+      "doc_legacy/source/nao/examples/calc_polarizability.py": {
+        "size": 2468
+      },
+      "doc_legacy/source/nao/examples/script_pyscf_ase.py": {
+        "size": 1571
+      },
+      "doc_legacy/source/nao/examples/script_raman_pyscf.py": {
+        "size": 1463
+      },
+      "doc_legacy/source/nao/examples/submit_jobs.py": {
+        "size": 2393
+      },
+      "doc_legacy/source/nao/examples/xyz2fdf.py": {
+        "size": 1687
+      },
+      "docker/conda-env/README.md": {
+        "size": 141
+      },
+      "docker/pypa-env/README.md": {
+        "size": 167
+      },
+      "examples/0-readme.py": {
+        "size": 1154
+      },
+      "examples/1-advanced/001-remove_linear_dep.py": {
+        "size": 30
+      },
+      "examples/1-advanced/002-input_script.py": {
+        "size": 3014
+      },
+      "examples/1-advanced/018-dmet_cas_for_feporph.py": {
+        "size": 54
+      },
+      "examples/1-advanced/018-dmrg_casscf_for_feporph.py": {
+        "size": 7307
+      },
+      "examples/1-advanced/030-transition_dipole.py": {
+        "size": 2639
+      },
+      "examples/1-advanced/031-MEP.py": {
+        "size": 2902
+      },
+      "examples/1-advanced/031-density.py": {
+        "size": 832
+      },
+      "examples/1-advanced/032-virial-ratio.py": {
+        "size": 950
+      },
+      "examples/1-advanced/033-constrained_dft.py": {
+        "size": 19117
+      },
+      "examples/1-advanced/034-energy_tansfer_coupling_matrix.py": {
+        "size": 46
+      },
+      "examples/1-advanced/40-mole_api_and_numba_jit.py": {
+        "size": 6720
+      },
+      "examples/2-benchmark/atomic_configuration/atom_ecp.py": {
+        "size": 1116
+      },
+      "examples/2-benchmark/benchmarking_utils.py": {
+        "size": 534
+      },
+      "examples/2-benchmark/bz.py": {
+        "size": 1638
+      },
+      "examples/2-benchmark/c60.py": {
+        "size": 543
+      },
+      "examples/2-benchmark/ccsd_iteration.py": {
+        "size": 467
+      },
+      "examples/2-benchmark/fci_iteration.py": {
+        "size": 849
+      },
+      "examples/2-benchmark/fock_multigrid.py": {
+        "size": 9908
+      },
+      "examples/2-benchmark/n2.py": {
+        "size": 920
+      },
+      "examples/adc/01-closed_shell.py": {
+        "size": 945
+      },
+      "examples/adc/02-open_shell.py": {
+        "size": 1033
+      },
+      "examples/adc/03-closed_shell_different_setup.py": {
+        "size": 904
+      },
+      "examples/adc/04-open_shell_different_setup.py": {
+        "size": 1037
+      },
+      "examples/adc/05-outcore.py": {
+        "size": 715
+      },
+      "examples/adc/06-dfadc.py": {
+        "size": 1352
+      },
+      "examples/adc/07-closed_shell_1RDMS.py": {
+        "size": 3366
+      },
+      "examples/adc/08-open_shell_spin_square.py": {
+        "size": 1832
+      },
+      "examples/adc/09-cvs_adc.py": {
+        "size": 1199
+      },
+      "examples/adc/10-frozen_core.py": {
+        "size": 2999
+      },
+      "examples/adc/11-open_shell_1RDMS.py": {
+        "size": 3159
+      },
+      "examples/agf2/00-simple_agf2.py": {
+        "size": 1021
+      },
+      "examples/agf2/01-simple_uagf2.py": {
+        "size": 803
+      },
+      "examples/agf2/02-dfagf2.py": {
+        "size": 1546
+      },
+      "examples/agf2/03-photoemission_spectra.py": {
+        "size": 1438
+      },
+      "examples/agf2/04-restart.py": {
+        "size": 1027
+      },
+      "examples/agf2/05-agf2_moments.py": {
+        "size": 1750
+      },
+      "examples/agf2/06-adc2_solver.py": {
+        "size": 2398
+      },
+      "examples/agf2/07-scs_agf2.py": {
+        "size": 722
+      },
+      "examples/agf2/08-frozen_core.py": {
+        "size": 1196
+      },
+      "examples/agf2/09-mpi_dfragf2.py": {
+        "size": 1251
+      },
+      "examples/agf2/10-dyson_orbitals.py": {
+        "size": 934
+      },
+      "examples/ao2mo/00-mo_integrals.py": {
+        "size": 769
+      },
+      "examples/ao2mo/01-outcore.py": {
+        "size": 743
+      },
+      "examples/ao2mo/04-dirac_hf_mo_integrals.py": {
+        "size": 722
+      },
+      "examples/ao2mo/10-diff_orbs_for_ijkl.py": {
+        "size": 2084
+      },
+      "examples/ao2mo/11-ump2.py": {
+        "size": 1221
+      },
+      "examples/ao2mo/20-eri_grad_hess.py": {
+        "size": 2223
+      },
+      "examples/ao2mo/21-spin_orbit_coupling.py": {
+        "size": 1114
+      },
+      "examples/ao2mo/22-rkb_no_pair_ints.py": {
+        "size": 2964
+      },
+      "examples/cc/00-simple_ccsd.py": {
+        "size": 299
+      },
+      "examples/cc/00-simple_ccsd_t.py": {
+        "size": 460
+      },
+      "examples/cc/01-density_matrix.py": {
+        "size": 1517
+      },
+      "examples/cc/01-lambda.py": {
+        "size": 645
+      },
+      "examples/cc/02-bccd.py": {
+        "size": 931
+      },
+      "examples/cc/055-drccd.py": {
+        "size": 3488
+      },
+      "examples/cc/10-ao_direct_ccsd.py": {
+        "size": 483
+      },
+      "examples/cc/11-frozen_core.py": {
+        "size": 1984
+      },
+      "examples/cc/12-reuse_integrals.py": {
+        "size": 893
+      },
+      "examples/cc/13-standalone_ccsd_t.py": {
+        "size": 1019
+      },
+      "examples/cc/14-ccsd_diis.py": {
+        "size": 695
+      },
+      "examples/cc/15-incore_mo_ccsd_t.py": {
+        "size": 1601
+      },
+      "examples/cc/20-ip_ea_eom_ccsd.py": {
+        "size": 940
+      },
+      "examples/cc/21-dfccsd.py": {
+        "size": 1566
+      },
+      "examples/cc/22-fnoccsd.py": {
+        "size": 1251
+      },
+      "examples/cc/24-tailored-ccsd.py": {
+        "size": 3063
+      },
+      "examples/cc/25-renormalized-ccsd_t.py": {
+        "size": 8573
+      },
+      "examples/cc/31-remove_linear_dep.py": {
+        "size": 591
+      },
+      "examples/cc/32-restart.py": {
+        "size": 2058
+      },
+      "examples/cc/40-ccsd_custom_hamiltonian.py": {
+        "size": 1166
+      },
+      "examples/cc/41-ccsd_custom_hamiltonian_noscf.py": {
+        "size": 989
+      },
+      "examples/cc/42-as_casci_fcisolver.py": {
+        "size": 1920
+      },
+      "examples/cc/43-ccd.py": {
+        "size": 500
+      },
+      "examples/cc/50-simple_momgfccsd.py": {
+        "size": 1890
+      },
+      "examples/cc/51-momgfccsd_hermiticity.py": {
+        "size": 1609
+      },
+      "examples/cc/52-momgfccsd_moment_input.py": {
+        "size": 2326
+      },
+      "examples/cc/53-momgfccsd_weight_threshold.py": {
+        "size": 1486
+      },
+      "examples/cc/54-momgfccsd_self_energy.py": {
+        "size": 3136
+      },
+      "examples/cc/60-rccsdt.py": {
+        "size": 5394
+      },
+      "examples/cc/61-rccsdtq.py": {
+        "size": 5573
+      },
+      "examples/cc/62-uccsdt.py": {
+        "size": 5590
+      },
+      "examples/cc/63-check_rccsdt_uccsdt_consistency.py": {
+        "size": 3493
+      },
+      "examples/cc/64-chained_rccsd_rccsdt_rccsdtq.py": {
+        "size": 4771
+      },
+      "examples/cc/65-chained_uccsd_uccsdt.py": {
+        "size": 3917
+      },
+      "examples/ci/00-simple_cisd.py": {
+        "size": 390
+      },
+      "examples/ci/01-density_matrix.py": {
+        "size": 1329
+      },
+      "examples/ci/20-from_fci.py": {
+        "size": 2949
+      },
+      "examples/ci/32-wfn_overlap.py": {
+        "size": 1591
+      },
+      "examples/df/00-with_df.py": {
+        "size": 1457
+      },
+      "examples/df/01-auxbasis.py": {
+        "size": 2382
+      },
+      "examples/df/10-access_df_integrals.py": {
+        "size": 1545
+      },
+      "examples/df/11-access_df_tensor.py": {
+        "size": 2606
+      },
+      "examples/df/11-get_j_io_free.py": {
+        "size": 1467
+      },
+      "examples/df/40-custom_df_hamiltonian.py": {
+        "size": 42
+      },
+      "examples/df/40-precompute_df_integrals.py": {
+        "size": 2608
+      },
+      "examples/df/41-df_integrals_gradients.py": {
+        "size": 2307
+      },
+      "examples/df/42-overwrite_get_jk.py": {
+        "size": 1376
+      },
+      "examples/dft/00-simple_dft.py": {
+        "size": 767
+      },
+      "examples/dft/02-gks.py": {
+        "size": 610
+      },
+      "examples/dft/10-glycine.py": {
+        "size": 20
+      },
+      "examples/dft/11-grid_scheme.py": {
+        "size": 3272
+      },
+      "examples/dft/12-camb3lyp.py": {
+        "size": 1055
+      },
+      "examples/dft/13-rsh_dft.py": {
+        "size": 1319
+      },
+      "examples/dft/14-collinear_dks.py": {
+        "size": 340
+      },
+      "examples/dft/14-non_collinear_gks.py": {
+        "size": 636
+      },
+      "examples/dft/15-nlc_functionals.py": {
+        "size": 1001
+      },
+      "examples/dft/16-dft_d3.py": {
+        "size": 5550
+      },
+      "examples/dft/17-dft+u.py": {
+        "size": 736
+      },
+      "examples/dft/20-density_fitting.py": {
+        "size": 28
+      },
+      "examples/dft/21-x2c.py": {
+        "size": 16
+      },
+      "examples/dft/22-dft+u_linear_response_u.py": {
+        "size": 763
+      },
+      "examples/dft/22-newton.py": {
+        "size": 19
+      },
+      "examples/dft/23-decorate_scf.py": {
+        "size": 25
+      },
+      "examples/dft/24-custom_xc_functional.py": {
+        "size": 5084
+      },
+      "examples/dft/24-define_xc_functional.py": {
+        "size": 3189
+      },
+      "examples/dft/30-ao_value_on_grid.py": {
+        "size": 851
+      },
+      "examples/dft/31-xc_value_on_grid.py": {
+        "size": 2993
+      },
+      "examples/dft/32-broken_symmetry_dft.py": {
+        "size": 1357
+      },
+      "examples/dft/32-xcfun_as_default.py": {
+        "size": 720
+      },
+      "examples/eph/00-simple_eph.py": {
+        "size": 1115
+      },
+      "examples/eph/01-finite_difference_eph.py": {
+        "size": 566
+      },
+      "examples/fci/00-simple_fci.py": {
+        "size": 998
+      },
+      "examples/fci/01-given_h1e_h2e.py": {
+        "size": 1241
+      },
+      "examples/fci/02-selected_ci.py": {
+        "size": 1139
+      },
+      "examples/fci/02-selected_ci_mol.py": {
+        "size": 999
+      },
+      "examples/fci/03-cylindrical_symmetry.py": {
+        "size": 1035
+      },
+      "examples/fci/03-given_complex_h1e_h2e.py": {
+        "size": 1042
+      },
+      "examples/fci/10-spin.py": {
+        "size": 3582
+      },
+      "examples/fci/11-large_ci.py": {
+        "size": 983
+      },
+      "examples/fci/12-multiple_roots.py": {
+        "size": 565
+      },
+      "examples/fci/13-wfn_symmetry.py": {
+        "size": 4303
+      },
+      "examples/fci/14-density_matrix.py": {
+        "size": 6298
+      },
+      "examples/fci/15-FCI_hamiltonian.py": {
+        "size": 1301
+      },
+      "examples/fci/30-h6_scan.py": {
+        "size": 1083
+      },
+      "examples/fci/31-apply_2nd_quantized_op.py": {
+        "size": 2959
+      },
+      "examples/fci/32-wfn_overlap.py": {
+        "size": 1366
+      },
+      "examples/fci/33-rotate_wfn.py": {
+        "size": 3745
+      },
+      "examples/fci/34-wavefunction_value_in_real_space.py": {
+        "size": 846
+      },
+      "examples/fci/35-transition_density_matrix.py": {
+        "size": 2810
+      },
+      "examples/fci/36-determinants_basis_matrix.py": {
+        "size": 2246
+      },
+      "examples/geomopt/01-ase.py": {
+        "size": 399
+      },
+      "examples/geomopt/01-geomeTRIC.py": {
+        "size": 1972
+      },
+      "examples/geomopt/01-pyberny.py": {
+        "size": 1119
+      },
+      "examples/geomopt/02-as_pyscf_method.py": {
+        "size": 1248
+      },
+      "examples/geomopt/10-with_qmmm.py": {
+        "size": 970
+      },
+      "examples/geomopt/11-with_ghost_atom.py": {
+        "size": 401
+      },
+      "examples/geomopt/12-excited_states.py": {
+        "size": 959
+      },
+      "examples/geomopt/12-mcscf_excited_states.py": {
+        "size": 2294
+      },
+      "examples/geomopt/13-ccsd_t.py": {
+        "size": 1254
+      },
+      "examples/geomopt/14-with_solvent.py": {
+        "size": 570
+      },
+      "examples/geomopt/15-tddft_with_solvent.py": {
+        "size": 30
+      },
+      "examples/geomopt/16-apply_soscf.py": {
+        "size": 1022
+      },
+      "examples/geomopt/20-callback.py": {
+        "size": 881
+      },
+      "examples/grad/01-scf_grad.py": {
+        "size": 916
+      },
+      "examples/grad/02-dft_grad.py": {
+        "size": 1854
+      },
+      "examples/grad/03-mp2_grad.py": {
+        "size": 676
+      },
+      "examples/grad/04-cisd_grad.py": {
+        "size": 679
+      },
+      "examples/grad/05-ccsd_grad.py": {
+        "size": 685
+      },
+      "examples/grad/06-tddft_gradients.py": {
+        "size": 948
+      },
+      "examples/grad/10-excited_state_cisd_grad.py": {
+        "size": 1556
+      },
+      "examples/grad/11-excited_state_casci_grad.py": {
+        "size": 1569
+      },
+      "examples/grad/12-excited_state_casscf_grad.py": {
+        "size": 3533
+      },
+      "examples/grad/13-state_average_casci_grad.py": {
+        "size": 615
+      },
+      "examples/grad/14-state_average_casscf_grad.py": {
+        "size": 619
+      },
+      "examples/grad/16-scan_force.py": {
+        "size": 1722
+      },
+      "examples/grad/17-casscf_mcpdft_grad.py": {
+        "size": 363
+      },
+      "examples/grad/18-excited_state_mcpdft_grad.py": {
+        "size": 3690
+      },
+      "examples/grad/19-multi_state_mcpdft_grad.py": {
+        "size": 981
+      },
+      "examples/gto/00-input_mole.py": {
+        "size": 2678
+      },
+      "examples/gto/01-input_geometry.py": {
+        "size": 3294
+      },
+      "examples/gto/02-dump_input.py": {
+        "size": 608
+      },
+      "examples/gto/03-ghost_atom.py": {
+        "size": 2521
+      },
+      "examples/gto/04-input_basis.py": {
+        "size": 9497
+      },
+      "examples/gto/05-input_ecp.py": {
+        "size": 3421
+      },
+      "examples/gto/06-load_mol_from_chkfile.py": {
+        "size": 759
+      },
+      "examples/gto/07-nucmod.py": {
+        "size": 1077
+      },
+      "examples/gto/09-apply_scf.py": {
+        "size": 630
+      },
+      "examples/gto/10-atom_info.py": {
+        "size": 857
+      },
+      "examples/gto/11-basis_info.py": {
+        "size": 1423
+      },
+      "examples/gto/12-serialization.py": {
+        "size": 876
+      },
+      "examples/gto/13-symmetry.py": {
+        "size": 1264
+      },
+      "examples/gto/20-ao_integrals.py": {
+        "size": 6241
+      },
+      "examples/gto/20-ao_integrals_sph_to_spinor.py": {
+        "size": 5042
+      },
+      "examples/gto/20-soc_ao_integrals.py": {
+        "size": 1440
+      },
+      "examples/gto/20-soc_ecp.py": {
+        "size": 1166
+      },
+      "examples/gto/21-concatenate_molecules.py": {
+        "size": 3094
+      },
+      "examples/gto/22-range_separated_coulomb.py": {
+        "size": 349
+      },
+      "examples/gto/23-orbitals_cart2sph.py": {
+        "size": 947
+      },
+      "examples/gto/24-ao_value_on_grid.py": {
+        "size": 1597
+      },
+      "examples/gto/25-multipole-integrals.py": {
+        "size": 806
+      },
+      "examples/gto/30-read_molpro_orb.py": {
+        "size": 1518
+      },
+      "examples/gto/31-basis_set_exchange.py": {
+        "size": 3624
+      },
+      "examples/gw/00-simple_gw.py": {
+        "size": 407
+      },
+      "examples/gw/01-gw_cd.py": {
+        "size": 328
+      },
+      "examples/gw/02-gw_exact.py": {
+        "size": 315
+      },
+      "examples/gw/03-drpa.py": {
+        "size": 868
+      },
+      "examples/gw/10-custom_screening.py": {
+        "size": 494
+      },
+      "examples/gw/31-pbc_slow.py": {
+        "size": 696
+      },
+      "examples/h2o.py": {
+        "size": 13
+      },
+      "examples/hessian/01-scf_hessian.py": {
+        "size": 676
+      },
+      "examples/hessian/10-thermochemistry.py": {
+        "size": 1084
+      },
+      "examples/local_orb/01-pop_with_meta_lowdin.py": {
+        "size": 1039
+      },
+      "examples/local_orb/01-pop_with_nao.py": {
+        "size": 997
+      },
+      "examples/local_orb/02-pop_with_iao.py": {
+        "size": 897
+      },
+      "examples/local_orb/03-split_localization.py": {
+        "size": 1340
+      },
+      "examples/local_orb/04-ibo_benzene_cubegen.py": {
+        "size": 2223
+      },
+      "examples/local_orb/05-ibo_periodic_diamond_cubegen.py": {
+        "size": 1566
+      },
+      "examples/local_orb/06-vvo_livvo_water_cubegen.py": {
+        "size": 1585
+      },
+      "examples/local_orb/07-pipek_mezey.py": {
+        "size": 1010
+      },
+      "examples/local_orb/08-cholesky.py": {
+        "size": 2060
+      },
+      "examples/local_orb/10-modify_valence_space_for_meta_lowdin.py": {
+        "size": 1516
+      },
+      "examples/local_orb/40-hubbard_model_PM_localization.py": {
+        "size": 1106
+      },
+      "examples/mcpdft/00-simple_mcpdft.py": {
+        "size": 1024
+      },
+      "examples/mcpdft/01-different_functionals.py": {
+        "size": 1265
+      },
+      "examples/mcpdft/02-hybrid_functionals.py": {
+        "size": 1065
+      },
+      "examples/mcpdft/03-metaGGA_functionals.py": {
+        "size": 779
+      },
+      "examples/mcpdft/11-grid_scheme.py": {
+        "size": 1238
+      },
+      "examples/mcpdft/15-state_average.py": {
+        "size": 715
+      },
+      "examples/mcpdft/16-multi_state.py": {
+        "size": 1373
+      },
+      "examples/mcpdft/41-state_average.py": {
+        "size": 2039
+      },
+      "examples/mcpdft/42-linearized-pdft.py": {
+        "size": 1226
+      },
+      "examples/mcpdft/43-multi_state_mix.py": {
+        "size": 1939
+      },
+      "examples/mcscf/00-simple_casci.py": {
+        "size": 3014
+      },
+      "examples/mcscf/00-simple_casscf.py": {
+        "size": 633
+      },
+      "examples/mcscf/01-for_expensive_fci.py": {
+        "size": 1177
+      },
+      "examples/mcscf/02-cas_space_spin.py": {
+        "size": 1046
+      },
+      "examples/mcscf/03-natural_orbital.py": {
+        "size": 1286
+      },
+      "examples/mcscf/04-density_matrix.py": {
+        "size": 534
+      },
+      "examples/mcscf/10-define_cas_space.py": {
+        "size": 719
+      },
+      "examples/mcscf/11-casscf_with_uhf_uks.py": {
+        "size": 809
+      },
+      "examples/mcscf/12-c2_triplet_from_singlet_hf.py": {
+        "size": 590
+      },
+      "examples/mcscf/13-load_chkfile.py": {
+        "size": 1148
+      },
+      "examples/mcscf/13-restart.py": {
+        "size": 1310
+      },
+      "examples/mcscf/14-project_init_guess.py": {
+        "size": 2130
+      },
+      "examples/mcscf/15-state_average.py": {
+        "size": 1554
+      },
+      "examples/mcscf/15-state_specific.py": {
+        "size": 910
+      },
+      "examples/mcscf/15-transition_dm.py": {
+        "size": 1005
+      },
+      "examples/mcscf/16-density_fitting.py": {
+        "size": 1552
+      },
+      "examples/mcscf/17-approx_orbital_hessian.py": {
+        "size": 1088
+      },
+      "examples/mcscf/18-o2_spatial_spin_symmetry.py": {
+        "size": 1957
+      },
+      "examples/mcscf/18-spatial_spin_symmetry.py": {
+        "size": 1718
+      },
+      "examples/mcscf/19-frozen_orbital.py": {
+        "size": 859
+      },
+      "examples/mcscf/20-change_symmetry.py": {
+        "size": 1051
+      },
+      "examples/mcscf/21-active_space_symmetry.py": {
+        "size": 1929
+      },
+      "examples/mcscf/21-nosymhf_then_symcasscf.py": {
+        "size": 788
+      },
+      "examples/mcscf/22-x2c.py": {
+        "size": 759
+      },
+      "examples/mcscf/23-local_spin.py": {
+        "size": 5232
+      },
+      "examples/mcscf/24-callback.py": {
+        "size": 943
+      },
+      "examples/mcscf/30-hf_scan/hf-scan-ref.txt": {
+        "size": 2120
+      },
+      "examples/mcscf/30-hf_scan/hf-scan-triplet-ref.txt": {
+        "size": 2098
+      },
+      "examples/mcscf/30-hf_scan/hf-scan-triplet.py": {
+        "size": 1482
+      },
+      "examples/mcscf/30-hf_scan/hf-scan.py": {
+        "size": 1906
+      },
+      "examples/mcscf/31-cr2_scan/cr2-scan-ref.txt": {
+        "size": 1152
+      },
+      "examples/mcscf/31-cr2_scan/cr2-scan.py": {
+        "size": 2329
+      },
+      "examples/mcscf/32-beh2_scan/BeH2-scan.py": {
+        "size": 1127
+      },
+      "examples/mcscf/32-beh2_scan/BeH2-scan_ref.txt": {
+        "size": 1953
+      },
+      "examples/mcscf/33-make_init_guess/18-dmet_cas_for_feporph.py": {
+        "size": 8129
+      },
+      "examples/mcscf/33-make_init_guess/34-init_guess_localization.py": {
+        "size": 32
+      },
+      "examples/mcscf/33-make_init_guess/43-avas.py": {
+        "size": 13
+      },
+      "examples/mcscf/33-make_init_guess/43-dmet_cas.py": {
+        "size": 17
+      },
+      "examples/mcscf/34-init_guess_localization.py": {
+        "size": 3120
+      },
+      "examples/mcscf/40-customizing_hamiltonian.py": {
+        "size": 997
+      },
+      "examples/mcscf/41-mcscf_custom_df_hamiltonian.py": {
+        "size": 1454
+      },
+      "examples/mcscf/41-state_average.py": {
+        "size": 1969
+      },
+      "examples/mcscf/41-state_average_custom_fci.py": {
+        "size": 1963
+      },
+      "examples/mcscf/42-compare_cas_space.py": {
+        "size": 1288
+      },
+      "examples/mcscf/43-PiOS-C8H10.py": {
+        "size": 3112
+      },
+      "examples/mcscf/43-avas.py": {
+        "size": 2392
+      },
+      "examples/mcscf/43-dmet_cas.py": {
+        "size": 3756
+      },
+      "examples/mcscf/44-mcscf_active_space_hamiltonian.py": {
+        "size": 773
+      },
+      "examples/mcscf/50-casscf_then_dmrgscf.py": {
+        "size": 1211
+      },
+      "examples/mcscf/50-casscf_with_selected_ci.py": {
+        "size": 449
+      },
+      "examples/mcscf/50-cornell_shci_casscf.py": {
+        "size": 995
+      },
+      "examples/mcscf/50-dmrgscf_with_block.py": {
+        "size": 956
+      },
+      "examples/mcscf/51-o2_triplet_by_various_fci.py": {
+        "size": 1050
+      },
+      "examples/mcscf/60-uhf_based_ucasscf.py": {
+        "size": 867
+      },
+      "examples/mcscf/61-rcas_vs_ucas/o2-scan.py": {
+        "size": 2483
+      },
+      "examples/mcscf/61-rcas_vs_ucas/o2-scan_ref.txt": {
+        "size": 2106
+      },
+      "examples/mcscf/70-casscf_optimize_scheduler.py": {
+        "size": 1311
+      },
+      "examples/mcscf/80-apc.py": {
+        "size": 1845
+      },
+      "examples/md/00-simple_nve.py": {
+        "size": 980
+      },
+      "examples/md/01-set_init_veloc.py": {
+        "size": 1265
+      },
+      "examples/md/02-use_callback.py": {
+        "size": 765
+      },
+      "examples/md/03-mb_initial_veloc.py": {
+        "size": 1438
+      },
+      "examples/md/04-mb_nvt_berendson.py": {
+        "size": 974
+      },
+      "examples/misc/02-chkfile.py": {
+        "size": 1392
+      },
+      "examples/misc/30-macro_call_in_background.py": {
+        "size": 671
+      },
+      "examples/mp/00-simple_mp2.py": {
+        "size": 243
+      },
+      "examples/mp/01-non_canonical_mp2.py": {
+        "size": 363
+      },
+      "examples/mp/10-dfgmp2.py": {
+        "size": 754
+      },
+      "examples/mp/10-dfmp2.py": {
+        "size": 1419
+      },
+      "examples/mp/10-dfump2.py": {
+        "size": 1353
+      },
+      "examples/mp/11-dfmp2-density.py": {
+        "size": 1384
+      },
+      "examples/mp/12-dfump2-natorbs.py": {
+        "size": 793
+      },
+      "examples/mp/42-omp2.py": {
+        "size": 1457
+      },
+      "examples/mpi/00-pbc_df.py": {
+        "size": 1155
+      },
+      "examples/mrpt/02-cr2_nevpt2/cr2-scan-ref.txt": {
+        "size": 844
+      },
+      "examples/mrpt/02-cr2_nevpt2/cr2-scan.py": {
+        "size": 1194
+      },
+      "examples/mrpt/03-df-nevpt2.py": {
+        "size": 907
+      },
+      "examples/mrpt/41-for_state_average.py": {
+        "size": 1253
+      },
+      "examples/nac/01-sacasscf_nac.py": {
+        "size": 3567
+      },
+      "examples/nmr/crco6-nr-msc.py": {
+        "size": 1203
+      },
+      "examples/pbc/00-input_cell.py": {
+        "size": 2025
+      },
+      "examples/pbc/01-input_output_geometry.py": {
+        "size": 1463
+      },
+      "examples/pbc/04-input_basis.py": {
+        "size": 1286
+      },
+      "examples/pbc/05-input_pp.py": {
+        "size": 1918
+      },
+      "examples/pbc/06-input_ke_cutoff.py": {
+        "size": 1018
+      },
+      "examples/pbc/09-ase_geometry_optimization.py": {
+        "size": 1504
+      },
+      "examples/pbc/09-band_ase.py": {
+        "size": 1067
+      },
+      "examples/pbc/09-init_from_ase.py": {
+        "size": 592
+      },
+      "examples/pbc/09-talk_to_ase.py": {
+        "size": 1780
+      },
+      "examples/pbc/10-gamma_point_scf.py": {
+        "size": 1378
+      },
+      "examples/pbc/11-gamma_point_all_electron_scf.py": {
+        "size": 1858
+      },
+      "examples/pbc/12-gamma_point_post_hf.py": {
+        "size": 882
+      },
+      "examples/pbc/13-geometry_optimization.py": {
+        "size": 733
+      },
+      "examples/pbc/20-k_points_scf.py": {
+        "size": 2063
+      },
+      "examples/pbc/20-k_points_scf_ksymm.py": {
+        "size": 2366
+      },
+      "examples/pbc/21-k_points_all_electron_scf.py": {
+        "size": 2174
+      },
+      "examples/pbc/21-k_points_all_electron_x2c1e_scf.py": {
+        "size": 1056
+      },
+      "examples/pbc/22-dft+u.py": {
+        "size": 1049
+      },
+      "examples/pbc/22-k_points_ccsd.py": {
+        "size": 3567
+      },
+      "examples/pbc/22-k_points_gw.py": {
+        "size": 885
+      },
+      "examples/pbc/22-k_points_mp2.py": {
+        "size": 3519
+      },
+      "examples/pbc/22-k_points_mp2_ksymm.py": {
+        "size": 849
+      },
+      "examples/pbc/22-k_points_mp2_stagger.py": {
+        "size": 3807
+      },
+      "examples/pbc/22-k_points_tddft.py": {
+        "size": 2868
+      },
+      "examples/pbc/23-smearing.py": {
+        "size": 925
+      },
+      "examples/pbc/24-k_points_vs_gamma.py": {
+        "size": 2014
+      },
+      "examples/pbc/25-k_points_mpi_ccsd.py": {
+        "size": 1455
+      },
+      "examples/pbc/26-linear_dep.py": {
+        "size": 727
+      },
+      "examples/pbc/27-multigrid.py": {
+        "size": 1754
+      },
+      "examples/pbc/27-multigrid2.py": {
+        "size": 10623
+      },
+      "examples/pbc/28-charged_system.py": {
+        "size": 281
+      },
+      "examples/pbc/29-eom_ccsd_Ta.py": {
+        "size": 2023
+      },
+      "examples/pbc/30-ao_integrals.py": {
+        "size": 4637
+      },
+      "examples/pbc/30-ao_value_on_grid.py": {
+        "size": 2162
+      },
+      "examples/pbc/30-mo_integrals.py": {
+        "size": 1370
+      },
+      "examples/pbc/30-overlap_periodic_cell.py": {
+        "size": 1055
+      },
+      "examples/pbc/31-low_dimensional_pbc.py": {
+        "size": 4260
+      },
+      "examples/pbc/31-pbc_0D_as_mol.py": {
+        "size": 2017
+      },
+      "examples/pbc/32-graphene.py": {
+        "size": 2972
+      },
+      "examples/pbc/33-soc_ecp.py": {
+        "size": 908
+      },
+      "examples/pbc/33-soc_integrals.py": {
+        "size": 1232
+      },
+      "examples/pbc/34-pm_localization.py": {
+        "size": 818
+      },
+      "examples/pbc/35-gaussian_density_fit.py": {
+        "size": 3586
+      },
+      "examples/pbc/35-range_separated_density_fit.py": {
+        "size": 3261
+      },
+      "examples/pbc/36-ccsd_level_shift.py": {
+        "size": 2593
+      },
+      "examples/pbc/40-custom_gdf.py": {
+        "size": 1296
+      },
+      "examples/pbc/40-customize_kpts_hamiltonian.py": {
+        "size": 3124
+      },
+      "examples/pbc/41-pbc1d_real_space_sum.py": {
+        "size": 4523
+      },
+      "examples/pbc/42-k2gamma.py": {
+        "size": 1630
+      },
+      "examples/pbc/43-k_point_ccsd_ksymm.py": {
+        "size": 1240
+      },
+      "examples/pbc/44-k_point_eom_ccsd_ghf.py": {
+        "size": 2537
+      },
+      "examples/pbc/46-k_point_eom_ccsd_rhf.py": {
+        "size": 2634
+      },
+      "examples/pbc/47-pywannier90.py": {
+        "size": 2773
+      },
+      "examples/pbc/48-k_point_adc.py": {
+        "size": 2120
+      },
+      "examples/qmmm/00-hf.py": {
+        "size": 719
+      },
+      "examples/qmmm/01-dft.py": {
+        "size": 729
+      },
+      "examples/qmmm/02-mcscf.py": {
+        "size": 1352
+      },
+      "examples/qmmm/03-ccsd.py": {
+        "size": 814
+      },
+      "examples/qmmm/04-cisd.py": {
+        "size": 815
+      },
+      "examples/qmmm/05-mp2.py": {
+        "size": 813
+      },
+      "examples/qmmm/06-tddft.py": {
+        "size": 850
+      },
+      "examples/qmmm/10-x2c.py": {
+        "size": 1492
+      },
+      "examples/qmmm/11-newton.py": {
+        "size": 711
+      },
+      "examples/qmmm/11-soscf.py": {
+        "size": 1193
+      },
+      "examples/qmmm/20-grad.py": {
+        "size": 1213
+      },
+      "examples/qmmm/21-geom_opt.py": {
+        "size": 26
+      },
+      "examples/qmmm/22-with_solvent.py": {
+        "size": 1222
+      },
+      "examples/qmmm/30-force_on_mm_particles.py": {
+        "size": 6522
+      },
+      "examples/qmmm/31-gaussian_charge.py": {
+        "size": 1102
+      },
+      "examples/scf/00-simple_hf.py": {
+        "size": 696
+      },
+      "examples/scf/01-h2o.py": {
+        "size": 1157
+      },
+      "examples/scf/02-ghf.py": {
+        "size": 463
+      },
+      "examples/scf/02-rohf_uhf.py": {
+        "size": 975
+      },
+      "examples/scf/03-level_shift.py": {
+        "size": 663
+      },
+      "examples/scf/04-dirac_hf.py": {
+        "size": 555
+      },
+      "examples/scf/05-breit_gaunt.py": {
+        "size": 674
+      },
+      "examples/scf/10-glycine.py": {
+        "size": 439
+      },
+      "examples/scf/11-linear_dep.py": {
+        "size": 1038
+      },
+      "examples/scf/12-fast_newton.py": {
+        "size": 2306
+      },
+      "examples/scf/13-symmetry.py": {
+        "size": 1609
+      },
+      "examples/scf/14-restart.py": {
+        "size": 2405
+      },
+      "examples/scf/15-initial_guess.py": {
+        "size": 3751
+      },
+      "examples/scf/16-h2_scan.py": {
+        "size": 509
+      },
+      "examples/scf/17-stability.py": {
+        "size": 3232
+      },
+      "examples/scf/20-density_fitting.py": {
+        "size": 1784
+      },
+      "examples/scf/21-x2c.py": {
+        "size": 1277
+      },
+      "examples/scf/22-newton.py": {
+        "size": 2261
+      },
+      "examples/scf/23-decorate_scf.py": {
+        "size": 4087
+      },
+      "examples/scf/24-callback.py": {
+        "size": 872
+      },
+      "examples/scf/24-tune_diis.py": {
+        "size": 1705
+      },
+      "examples/scf/25-pickle_dumps.py": {
+        "size": 524
+      },
+      "examples/scf/30-scan_pes.py": {
+        "size": 1329
+      },
+      "examples/scf/31-cr_atom_rohf_tune_init_guess.py": {
+        "size": 2962
+      },
+      "examples/scf/31-v_atom_rohf.py": {
+        "size": 2592
+      },
+      "examples/scf/32-break_spin_symm.py": {
+        "size": 969
+      },
+      "examples/scf/33-convert_to_dft.py": {
+        "size": 597
+      },
+      "examples/scf/40-apply_electric_field.py": {
+        "size": 2698
+      },
+      "examples/scf/40-customizing_hamiltonian.py": {
+        "size": 2017
+      },
+      "examples/scf/41-hf_with_given_densityfit_ints.py": {
+        "size": 1690
+      },
+      "examples/scf/42-remove_linear_dep.py": {
+        "size": 4446
+      },
+      "examples/scf/43-custom_get_jk.py": {
+        "size": 1361
+      },
+      "examples/scf/44-soc_ecp.py": {
+        "size": 1049
+      },
+      "examples/scf/50-mom-deltaSCF.py": {
+        "size": 3850
+      },
+      "examples/scf/51-elecoup_mom.py": {
+        "size": 3629
+      },
+      "examples/scf/52-dynamically_control_level_shift.py": {
+        "size": 1744
+      },
+      "examples/scf/53-dynamic_sz.py": {
+        "size": 277
+      },
+      "examples/scf/54-fractional_occupancy.py": {
+        "size": 1181
+      },
+      "examples/scf/55-overload_convergence_criteria.py": {
+        "size": 1202
+      },
+      "examples/scf/56-h2_symm_breaking.py": {
+        "size": 2681
+      },
+      "examples/scf/70-background_and_hot_tuning.py": {
+        "size": 1094
+      },
+      "examples/scf/71-patch_scf_kernel.py": {
+        "size": 1014
+      },
+      "examples/scf/72-hubbard_finite_temp.py": {
+        "size": 854
+      },
+      "examples/sgx/00-simple_sgx.py": {
+        "size": 1310
+      },
+      "examples/sgx/01-pscreen_large_mol.py": {
+        "size": 1054
+      },
+      "examples/solvent/00-scf_with_ddcosmo.py": {
+        "size": 889
+      },
+      "examples/solvent/01-casscf_with_ddcosmo.py": {
+        "size": 1256
+      },
+      "examples/solvent/02-casci_with_ddcosmo.py": {
+        "size": 1202
+      },
+      "examples/solvent/03-ccsd_with_ddcosmo.py": {
+        "size": 1201
+      },
+      "examples/solvent/04-pe_potfile_from_pyframe.py": {
+        "size": 1154
+      },
+      "examples/solvent/04-scf_with_pe.py": {
+        "size": 949
+      },
+      "examples/solvent/05-pcm.py": {
+        "size": 1994
+      },
+      "examples/solvent/06-smd.py": {
+        "size": 1409
+      },
+      "examples/solvent/07-cosmors.py": {
+        "size": 2835
+      },
+      "examples/solvent/20-state_specific_casci.py": {
+        "size": 1424
+      },
+      "examples/solvent/21-tddft_equilibrium_solvation.py": {
+        "size": 952
+      },
+      "examples/solvent/21-tddft_geomopt.py": {
+        "size": 513
+      },
+      "examples/solvent/22-with_qmmm.py": {
+        "size": 26
+      },
+      "examples/solvent/30-custom_solvent_cavity.py": {
+        "size": 1924
+      },
+      "examples/symm/30-guess_symmetry.py": {
+        "size": 1978
+      },
+      "examples/symm/31-symmetrize_space.py": {
+        "size": 1552
+      },
+      "examples/symm/32-symmetrize_natural_orbital.py": {
+        "size": 1366
+      },
+      "examples/symm/33-lz_adaption.py": {
+        "size": 1417
+      },
+      "examples/symm/34-msym.py": {
+        "size": 775
+      },
+      "examples/tddft/00-simple_tddft.py": {
+        "size": 594
+      },
+      "examples/tddft/01-nto_analysis.py": {
+        "size": 574
+      },
+      "examples/tddft/02-tddft_for_camb3lyp.py": {
+        "size": 736
+      },
+      "examples/tddft/03-tddft_dks.py": {
+        "size": 344
+      },
+      "examples/tddft/04-tddft_missing_roots.py": {
+        "size": 1763
+      },
+      "examples/tddft/05-tddft_with_nlc.py": {
+        "size": 607
+      },
+      "examples/tddft/06-frozen.py": {
+        "size": 830
+      },
+      "examples/tddft/21-matrix_A_B.py": {
+        "size": 3738
+      },
+      "examples/tddft/22-density.py": {
+        "size": 1614
+      },
+      "examples/tddft/30-change_xc_grids.py": {
+        "size": 1470
+      },
+      "examples/tddft/31-energy_transfer_coupling_matrix.py": {
+        "size": 8922
+      },
+      "examples/tools/01-fcidump.py": {
+        "size": 2806
+      },
+      "examples/tools/02-molden.py": {
+        "size": 1649
+      },
+      "examples/tools/03-print_mo_and_dm.py": {
+        "size": 811
+      },
+      "examples/tools/04-analyze_local_orbitals.py": {
+        "size": 1932
+      },
+      "examples/tools/05-cubegen.py": {
+        "size": 942
+      },
+      "examples/tools/06-chgcar.py": {
+        "size": 819
+      },
+      "examples/tools/07-finite_difference.py": {
+        "size": 1123
+      },
+      "examples/tools/08-ase_calculator.py": {
+        "size": 868
+      },
+      "examples/tools/11-davidson_eigh.py": {
+        "size": 537
+      },
+      "examples/tools/12-einsum.py": {
+        "size": 923
+      },
+      "examples/x2c/01-spin_free_x2c.py": {
+        "size": 16
+      },
+      "examples/x2c/01-x2c1e.py": {
+        "size": 990
+      },
+      "examples/x2c/02-basis_for_x.py": {
+        "size": 1764
+      },
+      "examples/x2c/03-x2c_ghf.py": {
+        "size": 1334
+      },
+      "examples/x2c/10-picture_change.py": {
+        "size": 1680
+      },
+      "pyproject.toml": {
+        "size": 2157
+      },
+      "pyscf/__all__.py": {
+        "size": 799
+      },
+      "pyscf/__config__.py": {
+        "size": 1011
+      },
+      "pyscf/__init__.py": {
+        "size": 4626
+      },
+      "pyscf/adc/__init__.py": {
+        "size": 2149
+      },
+      "pyscf/adc/dfadc.py": {
+        "size": 4419
+      },
+      "pyscf/adc/radc.py": {
+        "size": 25707
+      },
+      "pyscf/adc/radc_amplitudes.py": {
+        "size": 29769
+      },
+      "pyscf/adc/radc_ao2mo.py": {
+        "size": 12304
+      },
+      "pyscf/adc/radc_ea.py": {
+        "size": 76959
+      },
+      "pyscf/adc/radc_ee.py": {
+        "size": 141445
+      },
+      "pyscf/adc/radc_ip.py": {
+        "size": 70855
+      },
+      "pyscf/adc/radc_ip_cvs.py": {
+        "size": 63815
+      },
+      "pyscf/adc/test/test_radc/test_approx_trans_mom_H2O.py": {
+        "size": 4591
+      },
+      "pyscf/adc/test/test_radc/test_ea_H2O.py": {
+        "size": 8501
+      },
+      "pyscf/adc/test/test_radc/test_ea_N2.py": {
+        "size": 6465
+      },
+      "pyscf/adc/test/test_radc/test_ea_outcore_H2O.py": {
+        "size": 4745
+      },
+      "pyscf/adc/test/test_radc/test_ee_H2O.py": {
+        "size": 7676
+      },
+      "pyscf/adc/test/test_radc/test_ee_N2.py": {
+        "size": 5915
+      },
+      "pyscf/adc/test/test_radc/test_ee_df_H2O.py": {
+        "size": 6718
+      },
+      "pyscf/adc/test/test_radc/test_ee_df_N2.py": {
+        "size": 6705
+      },
+      "pyscf/adc/test/test_radc/test_ee_outcore_H2O.py": {
+        "size": 4992
+      },
+      "pyscf/adc/test/test_radc/test_ip_H2O.py": {
+        "size": 6410
+      },
+      "pyscf/adc/test/test_radc/test_ip_N2.py": {
+        "size": 6080
+      },
+      "pyscf/adc/test/test_radc/test_ip_cvs_H2O.py": {
+        "size": 4306
+      },
+      "pyscf/adc/test/test_radc/test_ip_cvs_N2.py": {
+        "size": 4182
+      },
+      "pyscf/adc/test/test_radc/test_ip_ea_df_N2.py": {
+        "size": 4801
+      },
+      "pyscf/adc/test/test_radc/test_ip_outcore_H2O.py": {
+        "size": 4581
+      },
+      "pyscf/adc/test/test_uadc/test_approx_trans_moments_CN.py": {
+        "size": 8973
+      },
+      "pyscf/adc/test/test_uadc/test_ea_N2.py": {
+        "size": 5025
+      },
+      "pyscf/adc/test/test_uadc/test_ea_OH.py": {
+        "size": 6065
+      },
+      "pyscf/adc/test/test_uadc/test_ea_P.py": {
+        "size": 4614
+      },
+      "pyscf/adc/test/test_uadc/test_ea_outcore_OH.py": {
+        "size": 4381
+      },
+      "pyscf/adc/test/test_uadc/test_ee_CN.py": {
+        "size": 8194
+      },
+      "pyscf/adc/test/test_uadc/test_ee_F2.py": {
+        "size": 4649
+      },
+      "pyscf/adc/test/test_uadc/test_ee_H2O.py": {
+        "size": 3452
+      },
+      "pyscf/adc/test/test_uadc/test_ee_O2.py": {
+        "size": 3948
+      },
+      "pyscf/adc/test/test_uadc/test_ee_OH.py": {
+        "size": 6868
+      },
+      "pyscf/adc/test/test_uadc/test_ee_df_CN.py": {
+        "size": 6982
+      },
+      "pyscf/adc/test/test_uadc/test_ee_df_F2.py": {
+        "size": 5728
+      },
+      "pyscf/adc/test/test_uadc/test_ee_df_H2O.py": {
+        "size": 4046
+      },
+      "pyscf/adc/test/test_uadc/test_ee_df_O2.py": {
+        "size": 4795
+      },
+      "pyscf/adc/test/test_uadc/test_ee_df_OH.py": {
+        "size": 5724
+      },
+      "pyscf/adc/test/test_uadc/test_ee_df_rohf_CN_high_cost.py": {
+        "size": 7335
+      },
+      "pyscf/adc/test/test_uadc/test_ee_df_rohf_O2.py": {
+        "size": 3980
+      },
+      "pyscf/adc/test/test_uadc/test_ee_df_rohf_OH.py": {
+        "size": 5707
+      },
+      "pyscf/adc/test/test_uadc/test_ee_outcore_CN_high_cost.py": {
+        "size": 7202
+      },
+      "pyscf/adc/test/test_uadc/test_ee_outcore_F2.py": {
+        "size": 3562
+      },
+      "pyscf/adc/test/test_uadc/test_ee_outcore_H2O.py": {
+        "size": 3657
+      },
+      "pyscf/adc/test/test_uadc/test_ee_outcore_O2.py": {
+        "size": 4162
+      },
+      "pyscf/adc/test/test_uadc/test_ee_outcore_OH.py": {
+        "size": 4283
+      },
+      "pyscf/adc/test/test_uadc/test_ee_outcore_rohf_CN_high_cost.py": {
+        "size": 7565
+      },
+      "pyscf/adc/test/test_uadc/test_ee_outcore_rohf_O2_high_cost.py": {
+        "size": 4163
+      },
+      "pyscf/adc/test/test_uadc/test_ee_outcore_rohf_OH.py": {
+        "size": 4258
+      },
+      "pyscf/adc/test/test_uadc/test_ee_rohf_CN.py": {
+        "size": 7275
+      },
+      "pyscf/adc/test/test_uadc/test_ee_rohf_O2.py": {
+        "size": 3949
+      },
+      "pyscf/adc/test/test_uadc/test_ee_rohf_OH.py": {
+        "size": 5614
+      },
+      "pyscf/adc/test/test_uadc/test_ip_N2.py": {
+        "size": 4733
+      },
+      "pyscf/adc/test/test_uadc/test_ip_OH.py": {
+        "size": 6078
+      },
+      "pyscf/adc/test/test_uadc/test_ip_P.py": {
+        "size": 4608
+      },
+      "pyscf/adc/test/test_uadc/test_ip_cvs_N2.py": {
+        "size": 5043
+      },
+      "pyscf/adc/test/test_uadc/test_ip_cvs_OH.py": {
+        "size": 6311
+      },
+      "pyscf/adc/test/test_uadc/test_ip_cvs_P.py": {
+        "size": 6426
+      },
+      "pyscf/adc/test/test_uadc/test_ip_ea_df_OH.py": {
+        "size": 4201
+      },
+      "pyscf/adc/test/test_uadc/test_ip_outcore_OH.py": {
+        "size": 4405
+      },
+      "pyscf/adc/uadc.py": {
+        "size": 43170
+      },
+      "pyscf/adc/uadc_amplitudes.py": {
+        "size": 50050
+      },
+      "pyscf/adc/uadc_ao2mo.py": {
+        "size": 23693
+      },
+      "pyscf/adc/uadc_ea.py": {
+        "size": 127834
+      },
+      "pyscf/adc/uadc_ee.py": {
+        "size": 524313
+      },
+      "pyscf/adc/uadc_ip.py": {
+        "size": 108950
+      },
+      "pyscf/adc/uadc_ip_cvs.py": {
+        "size": 171655
+      },
+      "pyscf/agf2/__init__.py": {
+        "size": 6001
+      },
+      "pyscf/agf2/_agf2.py": {
+        "size": 18199
+      },
+      "pyscf/agf2/aux_space.py": {
+        "size": 22819
+      },
+      "pyscf/agf2/chempot.py": {
+        "size": 5091
+      },
+      "pyscf/agf2/chkfile.py": {
+        "size": 5838
+      },
+      "pyscf/agf2/dfragf2.py": {
+        "size": 12944
+      },
+      "pyscf/agf2/dfuagf2.py": {
+        "size": 13711
+      },
+      "pyscf/agf2/mpi_helper.py": {
+        "size": 4361
+      },
+      "pyscf/agf2/ragf2.py": {
+        "size": 36377
+      },
+      "pyscf/agf2/ragf2_slow.py": {
+        "size": 8696
+      },
+      "pyscf/agf2/test/test_c_agf2.py": {
+        "size": 4397
+      },
+      "pyscf/agf2/test/test_dfragf2_h2o.py": {
+        "size": 2969
+      },
+      "pyscf/agf2/test/test_dfuagf2_beh.py": {
+        "size": 2964
+      },
+      "pyscf/agf2/test/test_ragf2_h2o.py": {
+        "size": 7458
+      },
+      "pyscf/agf2/test/test_ragf2_slow_h2o.py": {
+        "size": 4732
+      },
+      "pyscf/agf2/test/test_uagf2_beh.py": {
+        "size": 6499
+      },
+      "pyscf/agf2/test/test_uagf2_slow_beh.py": {
+        "size": 3084
+      },
+      "pyscf/agf2/uagf2.py": {
+        "size": 36449
+      },
+      "pyscf/agf2/uagf2_slow.py": {
+        "size": 10447
+      },
+      "pyscf/ao2mo/__init__.py": {
+        "size": 21307
+      },
+      "pyscf/ao2mo/_ao2mo.py": {
+        "size": 11540
+      },
+      "pyscf/ao2mo/addons.py": {
+        "size": 7708
+      },
+      "pyscf/ao2mo/incore.py": {
+        "size": 9900
+      },
+      "pyscf/ao2mo/nrr_outcore.py": {
+        "size": 15414
+      },
+      "pyscf/ao2mo/outcore.py": {
+        "size": 34395
+      },
+      "pyscf/ao2mo/r_outcore.py": {
+        "size": 12250
+      },
+      "pyscf/ao2mo/semi_incore.py": {
+        "size": 13168
+      },
+      "pyscf/ao2mo/test/bz_nr.py": {
+        "size": 2517
+      },
+      "pyscf/ao2mo/test/test_addons.py": {
+        "size": 5811
+      },
+      "pyscf/ao2mo/test/test_incore.py": {
+        "size": 3485
+      },
+      "pyscf/ao2mo/test/test_init.py": {
+        "size": 3463
+      },
+      "pyscf/ao2mo/test/test_nrr_outcore.py": {
+        "size": 2634
+      },
+      "pyscf/ao2mo/test/test_outcore.py": {
+        "size": 4819
+      },
+      "pyscf/ao2mo/test/test_r_outcore.py": {
+        "size": 5727
+      },
+      "pyscf/ao2mo/test/test_semi_incore.py": {
+        "size": 2968
+      },
+      "pyscf/cc/__init__.py": {
+        "size": 12570
+      },
+      "pyscf/cc/_ccsd.py": {
+        "size": 948
+      },
+      "pyscf/cc/addons.py": {
+        "size": 5992
+      },
+      "pyscf/cc/bccd.py": {
+        "size": 11027
+      },
+      "pyscf/cc/ccd.py": {
+        "size": 2918
+      },
+      "pyscf/cc/ccsd.py": {
+        "size": 69464
+      },
+      "pyscf/cc/ccsd_lambda.py": {
+        "size": 17716
+      },
+      "pyscf/cc/ccsd_rdm.py": {
+        "size": 21455
+      },
+      "pyscf/cc/ccsd_rdm_slow.py": {
+        "size": 9115
+      },
+      "pyscf/cc/ccsd_t.py": {
+        "size": 11081
+      },
+      "pyscf/cc/ccsd_t_lambda.py": {
+        "size": 8387
+      },
+      "pyscf/cc/ccsd_t_lambda_slow.py": {
+        "size": 4356
+      },
+      "pyscf/cc/ccsd_t_rdm.py": {
+        "size": 17419
+      },
+      "pyscf/cc/ccsd_t_rdm_slow.py": {
+        "size": 5008
+      },
+      "pyscf/cc/ccsd_t_slow.py": {
+        "size": 6645
+      },
+      "pyscf/cc/dfccsd.py": {
+        "size": 9598
+      },
+      "pyscf/cc/dfuccsd.py": {
+        "size": 13581
+      },
+      "pyscf/cc/eom_gccsd.py": {
+        "size": 25619
+      },
+      "pyscf/cc/eom_rccsd.py": {
+        "size": 81554
+      },
+      "pyscf/cc/eom_uccsd.py": {
+        "size": 117956
+      },
+      "pyscf/cc/gccsd.py": {
+        "size": 22377
+      },
+      "pyscf/cc/gccsd_lambda.py": {
+        "size": 8214
+      },
+      "pyscf/cc/gccsd_rdm.py": {
+        "size": 10804
+      },
+      "pyscf/cc/gccsd_t.py": {
+        "size": 3291
+      },
+      "pyscf/cc/gccsd_t_lambda.py": {
+        "size": 3058
+      },
+      "pyscf/cc/gccsd_t_rdm.py": {
+        "size": 8761
+      },
+      "pyscf/cc/gccsd_t_slow.py": {
+        "size": 2830
+      },
+      "pyscf/cc/gintermediates.py": {
+        "size": 9609
+      },
+      "pyscf/cc/momgfccsd.py": {
+        "size": 28323
+      },
+      "pyscf/cc/qcisd.py": {
+        "size": 14466
+      },
+      "pyscf/cc/qcisd_slow.py": {
+        "size": 7530
+      },
+      "pyscf/cc/qcisd_t.py": {
+        "size": 5528
+      },
+      "pyscf/cc/qcisd_t_slow.py": {
+        "size": 5395
+      },
+      "pyscf/cc/rccsd.py": {
+        "size": 16392
+      },
+      "pyscf/cc/rccsd_lambda.py": {
+        "size": 9741
+      },
+      "pyscf/cc/rccsd_slow.py": {
+        "size": 44682
+      },
+      "pyscf/cc/rccsdt.py": {
+        "size": 72641
+      },
+      "pyscf/cc/rccsdt_highm.py": {
+        "size": 9944
+      },
+      "pyscf/cc/rccsdtq.py": {
+        "size": 66453
+      },
+      "pyscf/cc/rccsdtq_highm.py": {
+        "size": 15764
+      },
+      "pyscf/cc/rintermediates.py": {
+        "size": 12025
+      },
+      "pyscf/cc/test/test_2e.py": {
+        "size": 2116
+      },
+      "pyscf/cc/test/test_addons.py": {
+        "size": 3493
+      },
+      "pyscf/cc/test/test_bz.py": {
+        "size": 2243
+      },
+      "pyscf/cc/test/test_ccd.py": {
+        "size": 1844
+      },
+      "pyscf/cc/test/test_ccsd_lambda.py": {
+        "size": 5736
+      },
+      "pyscf/cc/test/test_ccsd_t.py": {
+        "size": 9166
+      },
+      "pyscf/cc/test/test_dfccsd.py": {
+        "size": 10805
+      },
+      "pyscf/cc/test/test_dfuccsd.py": {
+        "size": 11171
+      },
+      "pyscf/cc/test/test_eom_gccsd.py": {
+        "size": 13929
+      },
+      "pyscf/cc/test/test_eom_rccsd.py": {
+        "size": 42007
+      },
+      "pyscf/cc/test/test_eom_uccsd.py": {
+        "size": 17696
+      },
+      "pyscf/cc/test/test_fno.py": {
+        "size": 5541
+      },
+      "pyscf/cc/test/test_fno_uhf.py": {
+        "size": 3182
+      },
+      "pyscf/cc/test/test_gccsd.py": {
+        "size": 20681
+      },
+      "pyscf/cc/test/test_gccsd_lambda.py": {
+        "size": 16803
+      },
+      "pyscf/cc/test/test_gccsd_t.py": {
+        "size": 4075
+      },
+      "pyscf/cc/test/test_h2o.py": {
+        "size": 8554
+      },
+      "pyscf/cc/test/test_momgfccsd.py": {
+        "size": 8246
+      },
+      "pyscf/cc/test/test_qcisd.py": {
+        "size": 2432
+      },
+      "pyscf/cc/test/test_rccsd.py": {
+        "size": 17321
+      },
+      "pyscf/cc/test/test_rccsd_lambda.py": {
+        "size": 12954
+      },
+      "pyscf/cc/test/test_rccsd_t_lambda.py": {
+        "size": 8520
+      },
+      "pyscf/cc/test/test_rccsdt.py": {
+        "size": 8805
+      },
+      "pyscf/cc/test/test_rccsdt_highm.py": {
+        "size": 6647
+      },
+      "pyscf/cc/test/test_rccsdtq.py": {
+        "size": 8352
+      },
+      "pyscf/cc/test/test_rccsdtq_highm.py": {
+        "size": 6767
+      },
+      "pyscf/cc/test/test_uccsd.py": {
+        "size": 35113
+      },
+      "pyscf/cc/test/test_uccsd_lambda.py": {
+        "size": 10603
+      },
+      "pyscf/cc/test/test_uccsd_t.py": {
+        "size": 9653
+      },
+      "pyscf/cc/test/test_uccsdt.py": {
+        "size": 18328
+      },
+      "pyscf/cc/test/test_uccsdt_highm.py": {
+        "size": 14173
+      },
+      "pyscf/cc/uccsd.py": {
+        "size": 58816
+      },
+      "pyscf/cc/uccsd_lambda.py": {
+        "size": 23359
+      },
+      "pyscf/cc/uccsd_rdm.py": {
+        "size": 27641
+      },
+      "pyscf/cc/uccsd_slow.py": {
+        "size": 29028
+      },
+      "pyscf/cc/uccsd_t.py": {
+        "size": 18576
+      },
+      "pyscf/cc/uccsd_t_lambda.py": {
+        "size": 9775
+      },
+      "pyscf/cc/uccsd_t_rdm.py": {
+        "size": 13684
+      },
+      "pyscf/cc/uccsd_t_slow.py": {
+        "size": 9259
+      },
+      "pyscf/cc/uccsdt.py": {
+        "size": 175979
+      },
+      "pyscf/cc/uccsdt_highm.py": {
+        "size": 19734
+      },
+      "pyscf/cc/uintermediates.py": {
+        "size": 38860
+      },
+      "pyscf/cc/uintermediates_slow.py": {
+        "size": 7310
+      },
+      "pyscf/ci/__init__.py": {
+        "size": 3761
+      },
+      "pyscf/ci/addons.py": {
+        "size": 1273
+      },
+      "pyscf/ci/cisd.py": {
+        "size": 44276
+      },
+      "pyscf/ci/gcisd.py": {
+        "size": 18130
+      },
+      "pyscf/ci/test/test_cisd.py": {
+        "size": 20229
+      },
+      "pyscf/ci/test/test_gcisd.py": {
+        "size": 26921
+      },
+      "pyscf/ci/test/test_ucisd.py": {
+        "size": 16218
+      },
+      "pyscf/ci/ucisd.py": {
+        "size": 38964
+      },
+      "pyscf/data/__init__.py": {
+        "size": 661
+      },
+      "pyscf/data/elements.py": {
+        "size": 37853
+      },
+      "pyscf/data/gyro.py": {
+        "size": 788
+      },
+      "pyscf/data/nist.py": {
+        "size": 2644
+      },
+      "pyscf/data/nucprop.py": {
+        "size": 8817
+      },
+      "pyscf/data/quadrupole_moment.txt": {
+        "size": 105789
+      },
+      "pyscf/data/radii.py": {
+        "size": 13797
+      },
+      "pyscf/df/__init__.py": {
+        "size": 1580
+      },
+      "pyscf/df/addons.py": {
+        "size": 14631
+      },
+      "pyscf/df/autoaux.py": {
+        "size": 7251
+      },
+      "pyscf/df/df.py": {
+        "size": 15638
+      },
+      "pyscf/df/df_jk.py": {
+        "size": 25177
+      },
+      "pyscf/df/grad/__init__.py": {
+        "size": 114
+      },
+      "pyscf/df/grad/casdm2_util.py": {
+        "size": 25950
+      },
+      "pyscf/df/grad/casscf.py": {
+        "size": 8382
+      },
+      "pyscf/df/grad/lpdft.py": {
+        "size": 1842
+      },
+      "pyscf/df/grad/mcpdft.py": {
+        "size": 1772
+      },
+      "pyscf/df/grad/mspdft.py": {
+        "size": 2313
+      },
+      "pyscf/df/grad/rhf.py": {
+        "size": 22529
+      },
+      "pyscf/df/grad/rks.py": {
+        "size": 4296
+      },
+      "pyscf/df/grad/rohf.py": {
+        "size": 199
+      },
+      "pyscf/df/grad/roks.py": {
+        "size": 199
+      },
+      "pyscf/df/grad/sacasscf.py": {
+        "size": 17477
+      },
+      "pyscf/df/grad/uhf.py": {
+        "size": 2017
+      },
+      "pyscf/df/grad/uks.py": {
+        "size": 4361
+      },
+      "pyscf/df/hessian/__init__.py": {
+        "size": 106
+      },
+      "pyscf/df/hessian/rhf.py": {
+        "size": 22508
+      },
+      "pyscf/df/hessian/rks.py": {
+        "size": 5294
+      },
+      "pyscf/df/hessian/uhf.py": {
+        "size": 25216
+      },
+      "pyscf/df/hessian/uks.py": {
+        "size": 5712
+      },
+      "pyscf/df/incore.py": {
+        "size": 12580
+      },
+      "pyscf/df/outcore.py": {
+        "size": 12948
+      },
+      "pyscf/df/r_incore.py": {
+        "size": 3646
+      },
+      "pyscf/df/test/test_addons.py": {
+        "size": 6452
+      },
+      "pyscf/df/test/test_df.py": {
+        "size": 6694
+      },
+      "pyscf/df/test/test_df_grad.py": {
+        "size": 6981
+      },
+      "pyscf/df/test/test_df_hessian.py": {
+        "size": 3142
+      },
+      "pyscf/df/test/test_df_jk.py": {
+        "size": 7405
+      },
+      "pyscf/df/test/test_incore.py": {
+        "size": 7148
+      },
+      "pyscf/df/test/test_outcore.py": {
+        "size": 4641
+      },
+      "pyscf/dft/LebedevGrid.py": {
+        "size": 164350
+      },
+      "pyscf/dft/__init__.py": {
+        "size": 3619
+      },
+      "pyscf/dft/dft_parser.py": {
+        "size": 858
+      },
+      "pyscf/dft/dks.py": {
+        "size": 5058
+      },
+      "pyscf/dft/gen_grid.py": {
+        "size": 27938
+      },
+      "pyscf/dft/gks.py": {
+        "size": 6563
+      },
+      "pyscf/dft/gks_symm.py": {
+        "size": 2610
+      },
+      "pyscf/dft/libxc.py": {
+        "size": 63090
+      },
+      "pyscf/dft/libxc_funcs.txt": {
+        "size": 90722
+      },
+      "pyscf/dft/numint.py": {
+        "size": 124127
+      },
+      "pyscf/dft/numint2c.py": {
+        "size": 30327
+      },
+      "pyscf/dft/r_numint.py": {
+        "size": 29777
+      },
+      "pyscf/dft/radi.py": {
+        "size": 7643
+      },
+      "pyscf/dft/rks.py": {
+        "size": 20187
+      },
+      "pyscf/dft/rks_symm.py": {
+        "size": 2496
+      },
+      "pyscf/dft/rkspu.py": {
+        "size": 12515
+      },
+      "pyscf/dft/roks.py": {
+        "size": 2882
+      },
+      "pyscf/dft/sap.py": {
+        "size": 4870
+      },
+      "pyscf/dft/sap_data.py": {
+        "size": 524313
+      },
+      "pyscf/dft/test/test_dftu.py": {
+        "size": 1536
+      },
+      "pyscf/dft/test/test_dks.py": {
+        "size": 7378
+      },
+      "pyscf/dft/test/test_gks.py": {
+        "size": 9419
+      },
+      "pyscf/dft/test/test_grids.py": {
+        "size": 8363
+      },
+      "pyscf/dft/test/test_h2o.py": {
+        "size": 30991
+      },
+      "pyscf/dft/test/test_he.py": {
+        "size": 9142
+      },
+      "pyscf/dft/test/test_libxc.py": {
+        "size": 26489
+      },
+      "pyscf/dft/test/test_numint.py": {
+        "size": 34098
+      },
+      "pyscf/dft/test/test_numint2c.py": {
+        "size": 4205
+      },
+      "pyscf/dft/test/test_r_numint.py": {
+        "size": 7236
+      },
+      "pyscf/dft/test/test_xc_deriv.py": {
+        "size": 24630
+      },
+      "pyscf/dft/test/test_xcfun.py": {
+        "size": 25924
+      },
+      "pyscf/dft/uks.py": {
+        "size": 7241
+      },
+      "pyscf/dft/uks_symm.py": {
+        "size": 1841
+      },
+      "pyscf/dft/ukspu.py": {
+        "size": 9210
+      },
+      "pyscf/dft/xc/__init__.py": {
+        "size": 0
+      },
+      "pyscf/dft/xc/utils.py": {
+        "size": 1635
+      },
+      "pyscf/dft/xc_deriv.py": {
+        "size": 23137
+      },
+      "pyscf/dft/xcfun.py": {
+        "size": 40894
+      },
+      "pyscf/dft/xcfun_funcs.txt": {
+        "size": 4620
+      },
+      "pyscf/eph/__init__.py": {
+        "size": 878
+      },
+      "pyscf/eph/eph_fd.py": {
+        "size": 5890
+      },
+      "pyscf/eph/rhf.py": {
+        "size": 7528
+      },
+      "pyscf/eph/rks.py": {
+        "size": 7978
+      },
+      "pyscf/eph/test/test_rhf.py": {
+        "size": 2537
+      },
+      "pyscf/eph/test/test_rks.py": {
+        "size": 2547
+      },
+      "pyscf/eph/test/test_uhf.py": {
+        "size": 2568
+      },
+      "pyscf/eph/test/test_uks.py": {
+        "size": 2581
+      },
+      "pyscf/eph/uhf.py": {
+        "size": 6011
+      },
+      "pyscf/eph/uks.py": {
+        "size": 10620
+      },
+      "pyscf/fci/__init__.py": {
+        "size": 8987
+      },
+      "pyscf/fci/addons.py": {
+        "size": 31866
+      },
+      "pyscf/fci/cistring.py": {
+        "size": 16833
+      },
+      "pyscf/fci/direct_ep.py": {
+        "size": 15408
+      },
+      "pyscf/fci/direct_nosym.py": {
+        "size": 9782
+      },
+      "pyscf/fci/direct_spin0.py": {
+        "size": 18088
+      },
+      "pyscf/fci/direct_spin0_symm.py": {
+        "size": 7120
+      },
+      "pyscf/fci/direct_spin1.py": {
+        "size": 47776
+      },
+      "pyscf/fci/direct_spin1_cyl_sym.py": {
+        "size": 24755
+      },
+      "pyscf/fci/direct_spin1_symm.py": {
+        "size": 34599
+      },
+      "pyscf/fci/direct_uhf.py": {
+        "size": 12154
+      },
+      "pyscf/fci/fci_dhf_slow.py": {
+        "size": 10971
+      },
+      "pyscf/fci/fci_slow.py": {
+        "size": 9233
+      },
+      "pyscf/fci/rdm.py": {
+        "size": 15210
+      },
+      "pyscf/fci/selected_ci.py": {
+        "size": 42388
+      },
+      "pyscf/fci/selected_ci_slow.py": {
+        "size": 16283
+      },
+      "pyscf/fci/selected_ci_spin0.py": {
+        "size": 7532
+      },
+      "pyscf/fci/selected_ci_spin0_symm.py": {
+        "size": 6310
+      },
+      "pyscf/fci/selected_ci_symm.py": {
+        "size": 13363
+      },
+      "pyscf/fci/spin_op.py": {
+        "size": 11591
+      },
+      "pyscf/fci/test/test_addons.py": {
+        "size": 19932
+      },
+      "pyscf/fci/test/test_cistring.py": {
+        "size": 11018
+      },
+      "pyscf/fci/test/test_dhf_slow.py": {
+        "size": 3636
+      },
+      "pyscf/fci/test/test_direct_nosym.py": {
+        "size": 3496
+      },
+      "pyscf/fci/test/test_ep.py": {
+        "size": 3273
+      },
+      "pyscf/fci/test/test_rdm.py": {
+        "size": 19292
+      },
+      "pyscf/fci/test/test_selected_ci.py": {
+        "size": 30435
+      },
+      "pyscf/fci/test/test_spin0.py": {
+        "size": 7427
+      },
+      "pyscf/fci/test/test_spin0_symm.py": {
+        "size": 5519
+      },
+      "pyscf/fci/test/test_spin1.py": {
+        "size": 9337
+      },
+      "pyscf/fci/test/test_spin1_cyl_sym.py": {
+        "size": 9494
+      },
+      "pyscf/fci/test/test_spin1_symm.py": {
+        "size": 9842
+      },
+      "pyscf/fci/test/test_spin_op.py": {
+        "size": 6494
+      },
+      "pyscf/fci/test/test_symm_init_guess.py": {
+        "size": 2301
+      },
+      "pyscf/fci/test/test_uhf.py": {
+        "size": 8701
+      },
+      "pyscf/geomopt/__init__.py": {
+        "size": 971
+      },
+      "pyscf/geomopt/addons.py": {
+        "size": 3007
+      },
+      "pyscf/geomopt/ase_solver.py": {
+        "size": 5396
+      },
+      "pyscf/geomopt/berny_solver.py": {
+        "size": 8619
+      },
+      "pyscf/geomopt/geometric_solver.py": {
+        "size": 9941
+      },
+      "pyscf/geomopt/log.ini": {
+        "size": 288
+      },
+      "pyscf/geomopt/test/test_addons.py": {
+        "size": 1178
+      },
+      "pyscf/geomopt/test/test_berny_solver.py": {
+        "size": 1896
+      },
+      "pyscf/geomopt/test/test_geometric_solver.py": {
+        "size": 3202
+      },
+      "pyscf/geomopt/test/test_pbc_geomopt_ase.py": {
+        "size": 2139
+      },
+      "pyscf/grad/__init__.py": {
+        "size": 1790
+      },
+      "pyscf/grad/casci.py": {
+        "size": 14023
+      },
+      "pyscf/grad/casscf.py": {
+        "size": 8723
+      },
+      "pyscf/grad/ccsd.py": {
+        "size": 17752
+      },
+      "pyscf/grad/ccsd_slow.py": {
+        "size": 13075
+      },
+      "pyscf/grad/ccsd_t.py": {
+        "size": 5039
+      },
+      "pyscf/grad/ccsd_t_slow.py": {
+        "size": 5049
+      },
+      "pyscf/grad/cisd.py": {
+        "size": 7441
+      },
+      "pyscf/grad/cmspdft.py": {
+        "size": 15745
+      },
+      "pyscf/grad/dhf.py": {
+        "size": 10839
+      },
+      "pyscf/grad/dispersion.py": {
+        "size": 2419
+      },
+      "pyscf/grad/lagrange.py": {
+        "size": 9142
+      },
+      "pyscf/grad/lpdft.py": {
+        "size": 24225
+      },
+      "pyscf/grad/mcpdft.py": {
+        "size": 27828
+      },
+      "pyscf/grad/mp2.py": {
+        "size": 12651
+      },
+      "pyscf/grad/mspdft.py": {
+        "size": 29799
+      },
+      "pyscf/grad/rhf.py": {
+        "size": 16747
+      },
+      "pyscf/grad/rks.py": {
+        "size": 23803
+      },
+      "pyscf/grad/rkspu.py": {
+        "size": 4754
+      },
+      "pyscf/grad/rohf.py": {
+        "size": 2124
+      },
+      "pyscf/grad/roks.py": {
+        "size": 1311
+      },
+      "pyscf/grad/sacasscf.py": {
+        "size": 41937
+      },
+      "pyscf/grad/tdrhf.py": {
+        "size": 12509
+      },
+      "pyscf/grad/tdrks.py": {
+        "size": 15294
+      },
+      "pyscf/grad/tduhf.py": {
+        "size": 10622
+      },
+      "pyscf/grad/tduks.py": {
+        "size": 17206
+      },
+      "pyscf/grad/test/test_casci.py": {
+        "size": 19588
+      },
+      "pyscf/grad/test/test_casscf.py": {
+        "size": 14066
+      },
+      "pyscf/grad/test/test_ccsd.py": {
+        "size": 6922
+      },
+      "pyscf/grad/test/test_ccsd_t.py": {
+        "size": 3651
+      },
+      "pyscf/grad/test/test_cisd.py": {
+        "size": 3917
+      },
+      "pyscf/grad/test/test_cmspdft.py": {
+        "size": 5757
+      },
+      "pyscf/grad/test/test_dhf.py": {
+        "size": 2951
+      },
+      "pyscf/grad/test/test_h2o.py": {
+        "size": 5441
+      },
+      "pyscf/grad/test/test_hf.py": {
+        "size": 3558
+      },
+      "pyscf/grad/test/test_lpdft.py": {
+        "size": 11423
+      },
+      "pyscf/grad/test/test_mcpdft.py": {
+        "size": 8068
+      },
+      "pyscf/grad/test/test_metagga_mcpdft.py": {
+        "size": 5215
+      },
+      "pyscf/grad/test/test_mp2.py": {
+        "size": 6610
+      },
+      "pyscf/grad/test/test_mspdft.py": {
+        "size": 8630
+      },
+      "pyscf/grad/test/test_pdft_diatomic_gradients.py": {
+        "size": 9437
+      },
+      "pyscf/grad/test/test_pdft_h2co.py": {
+        "size": 4169
+      },
+      "pyscf/grad/test/test_pdft_h2co_slow.py": {
+        "size": 3837
+      },
+      "pyscf/grad/test/test_rhf.py": {
+        "size": 10721
+      },
+      "pyscf/grad/test/test_rks.py": {
+        "size": 25097
+      },
+      "pyscf/grad/test/test_rkspu.py": {
+        "size": 3026
+      },
+      "pyscf/grad/test/test_rohf.py": {
+        "size": 7766
+      },
+      "pyscf/grad/test/test_roks.py": {
+        "size": 5981
+      },
+      "pyscf/grad/test/test_tdrhf_grad.py": {
+        "size": 7931
+      },
+      "pyscf/grad/test/test_tdrks_grad.py": {
+        "size": 6544
+      },
+      "pyscf/grad/test/test_tduhf_grad.py": {
+        "size": 2400
+      },
+      "pyscf/grad/test/test_tduks_grad.py": {
+        "size": 6205
+      },
+      "pyscf/grad/test/test_ucisd.py": {
+        "size": 3049
+      },
+      "pyscf/grad/test/test_uhf.py": {
+        "size": 10382
+      },
+      "pyscf/grad/test/test_uks.py": {
+        "size": 13340
+      },
+      "pyscf/grad/test/test_ukspu.py": {
+        "size": 2243
+      },
+      "pyscf/grad/test/test_ump2.py": {
+        "size": 3211
+      },
+      "pyscf/grad/uccsd.py": {
+        "size": 21496
+      },
+      "pyscf/grad/uccsd_t.py": {
+        "size": 5040
+      },
+      "pyscf/grad/ucisd.py": {
+        "size": 2493
+      },
+      "pyscf/grad/uhf.py": {
+        "size": 3787
+      },
+      "pyscf/grad/uks.py": {
+        "size": 10992
+      },
+      "pyscf/grad/ukspu.py": {
+        "size": 2855
+      },
+      "pyscf/grad/ump2.py": {
+        "size": 12543
+      },
+      "pyscf/gto/__init__.py": {
+        "size": 984
+      },
+      "pyscf/gto/basis/__init__.py": {
+        "size": 35097
+      },
+      "pyscf/gto/basis/bse.py": {
+        "size": 7153
+      },
+      "pyscf/gto/basis/bse_meta.json": {
+        "size": 43155
+      },
+      "pyscf/gto/basis/dyall-basis/__init__.py": {
+        "size": 0
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_2zp.py": {
+        "size": 236072
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_3zp.py": {
+        "size": 304648
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_4zp.py": {
+        "size": 367759
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_aae2z.py": {
+        "size": 65806
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_aae3z.py": {
+        "size": 91775
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_aae4z.py": {
+        "size": 122459
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_acv2z.py": {
+        "size": 64689
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_acv3z.py": {
+        "size": 87888
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_acv4z.py": {
+        "size": 112577
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_ae2z.py": {
+        "size": 240857
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_ae3z.py": {
+        "size": 329981
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_ae4z.py": {
+        "size": 433954
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_av2z.py": {
+        "size": 62913
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_av3z.py": {
+        "size": 84225
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_av4z.py": {
+        "size": 105917
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_cv2z.py": {
+        "size": 238444
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_cv3z.py": {
+        "size": 320181
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_cv4z.py": {
+        "size": 406350
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_v2z.py": {
+        "size": 235262
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_v3z.py": {
+        "size": 311745
+      },
+      "pyscf/gto/basis/dyall-basis/dyall_v4z.py": {
+        "size": 390070
+      },
+      "pyscf/gto/basis/dyall_dz.py": {
+        "size": 9397
+      },
+      "pyscf/gto/basis/dyall_qz.py": {
+        "size": 8871
+      },
+      "pyscf/gto/basis/dyall_tz.py": {
+        "size": 13052
+      },
+      "pyscf/gto/basis/dzp_dunning.py": {
+        "size": 8909
+      },
+      "pyscf/gto/basis/faegre_dz.py": {
+        "size": 2440
+      },
+      "pyscf/gto/basis/iglo3.py": {
+        "size": 1838
+      },
+      "pyscf/gto/basis/minao.py": {
+        "size": 117876
+      },
+      "pyscf/gto/basis/parse_bfd_pp.py": {
+        "size": 5495
+      },
+      "pyscf/gto/basis/parse_cp2k.py": {
+        "size": 7017
+      },
+      "pyscf/gto/basis/parse_cp2k_pp.py": {
+        "size": 5621
+      },
+      "pyscf/gto/basis/parse_gaussian.py": {
+        "size": 4103
+      },
+      "pyscf/gto/basis/parse_molpro.py": {
+        "size": 6434
+      },
+      "pyscf/gto/basis/parse_nwchem.py": {
+        "size": 10944
+      },
+      "pyscf/gto/basis/parse_nwchem_ecp.py": {
+        "size": 5265
+      },
+      "pyscf/gto/cmd_args.py": {
+        "size": 1829
+      },
+      "pyscf/gto/ecp.py": {
+        "size": 6691
+      },
+      "pyscf/gto/eval_gto.py": {
+        "size": 9641
+      },
+      "pyscf/gto/ft_ao.py": {
+        "size": 7367
+      },
+      "pyscf/gto/mole.py": {
+        "size": 157269
+      },
+      "pyscf/gto/moleintor.py": {
+        "size": 39539
+      },
+      "pyscf/gto/pp_int.py": {
+        "size": 2726
+      },
+      "pyscf/gto/ppnl_velgauge.py": {
+        "size": 7554
+      },
+      "pyscf/gto/test/test_basis_parser.py": {
+        "size": 25917
+      },
+      "pyscf/gto/test/test_ecp.py": {
+        "size": 15622
+      },
+      "pyscf/gto/test/test_eval_gto.py": {
+        "size": 5172
+      },
+      "pyscf/gto/test/test_ft_ao.py": {
+        "size": 6806
+      },
+      "pyscf/gto/test/test_mole.py": {
+        "size": 47015
+      },
+      "pyscf/gto/test/test_moleintor.py": {
+        "size": 12474
+      },
+      "pyscf/gto/test/test_pp_int.py": {
+        "size": 1525
+      },
+      "pyscf/gto/test/test_ppnl_velgauge.py": {
+        "size": 7011
+      },
+      "pyscf/gto/test/test_tao.py": {
+        "size": 3140
+      },
+      "pyscf/gw/__init__.py": {
+        "size": 1733
+      },
+      "pyscf/gw/gw_ac.py": {
+        "size": 43793
+      },
+      "pyscf/gw/gw_cd.py": {
+        "size": 12056
+      },
+      "pyscf/gw/gw_exact.py": {
+        "size": 14559
+      },
+      "pyscf/gw/gw_slow.py": {
+        "size": 11000
+      },
+      "pyscf/gw/rpa.py": {
+        "size": 9929
+      },
+      "pyscf/gw/test/test_gw.py": {
+        "size": 2574
+      },
+      "pyscf/gw/test/test_gw_ac.py": {
+        "size": 2662
+      },
+      "pyscf/gw/test/test_ugw.py": {
+        "size": 1440
+      },
+      "pyscf/gw/test/test_ugw_ac.py": {
+        "size": 795
+      },
+      "pyscf/gw/ugw_ac.py": {
+        "size": 40814
+      },
+      "pyscf/gw/urpa.py": {
+        "size": 5683
+      },
+      "pyscf/gw/utils/__init__.py": {
+        "size": 0
+      },
+      "pyscf/gw/utils/ac_grid.py": {
+        "size": 21072
+      },
+      "pyscf/gw/utils/gw_np_helper.py": {
+        "size": 3935
+      },
+      "pyscf/hessian/__init__.py": {
+        "size": 990
+      },
+      "pyscf/hessian/dispersion.py": {
+        "size": 3846
+      },
+      "pyscf/hessian/rhf.py": {
+        "size": 22875
+      },
+      "pyscf/hessian/rks.py": {
+        "size": 96532
+      },
+      "pyscf/hessian/test/test_rhf.py": {
+        "size": 9508
+      },
+      "pyscf/hessian/test/test_rks.py": {
+        "size": 10584
+      },
+      "pyscf/hessian/test/test_thermo.py": {
+        "size": 3378
+      },
+      "pyscf/hessian/test/test_uhf.py": {
+        "size": 6230
+      },
+      "pyscf/hessian/test/test_uks.py": {
+        "size": 10221
+      },
+      "pyscf/hessian/test/test_vv10_hessian.py": {
+        "size": 32183
+      },
+      "pyscf/hessian/thermo.py": {
+        "size": 14839
+      },
+      "pyscf/hessian/uhf.py": {
+        "size": 17069
+      },
+      "pyscf/hessian/uks.py": {
+        "size": 35394
+      },
+      "pyscf/lib/CMakeLists.txt": {
+        "size": 11455
+      },
+      "pyscf/lib/__init__.py": {
+        "size": 1155
+      },
+      "pyscf/lib/agf2/CMakeLists.txt": {
+        "size": 847
+      },
+      "pyscf/lib/ao2mo/CMakeLists.txt": {
+        "size": 909
+      },
+      "pyscf/lib/ao2mo/test/test_ao2mo.py": {
+        "size": 6614
+      },
+      "pyscf/lib/cc/CMakeLists.txt": {
+        "size": 910
+      },
+      "pyscf/lib/ccsdt/CMakeLists.txt": {
+        "size": 806
+      },
+      "pyscf/lib/chkfile.py": {
+        "size": 5820
+      },
+      "pyscf/lib/dft/CMakeLists.txt": {
+        "size": 1655
+      },
+      "pyscf/lib/dft/test/test_libdft.py": {
+        "size": 1572
+      },
+      "pyscf/lib/dft/test/test_sparse_dot.py": {
+        "size": 13033
+      },
+      "pyscf/lib/diis.py": {
+        "size": 12075
+      },
+      "pyscf/lib/exceptions.py": {
+        "size": 912
+      },
+      "pyscf/lib/gto/CMakeLists.txt": {
+        "size": 1077
+      },
+      "pyscf/lib/gto/test/test_ecp.py": {
+        "size": 28321
+      },
+      "pyscf/lib/gto/test/test_gridao.py": {
+        "size": 12867
+      },
+      "pyscf/lib/linalg_helper.py": {
+        "size": 58547
+      },
+      "pyscf/lib/logger.py": {
+        "size": 6344
+      },
+      "pyscf/lib/mcscf/CMakeLists.txt": {
+        "size": 1236
+      },
+      "pyscf/lib/misc.py": {
+        "size": 53597
+      },
+      "pyscf/lib/mp/CMakeLists.txt": {
+        "size": 839
+      },
+      "pyscf/lib/np_helper/CMakeLists.txt": {
+        "size": 908
+      },
+      "pyscf/lib/numpy_helper.py": {
+        "size": 56493
+      },
+      "pyscf/lib/parameters.py": {
+        "size": 2815
+      },
+      "pyscf/lib/pbc/CMakeLists.txt": {
+        "size": 1336
+      },
+      "pyscf/lib/pdft/CMakeLists.txt": {
+        "size": 278
+      },
+      "pyscf/lib/ri/CMakeLists.txt": {
+        "size": 825
+      },
+      "pyscf/lib/scipy_helper.py": {
+        "size": 3631
+      },
+      "pyscf/lib/solvent/CMakeLists.txt": {
+        "size": 1446
+      },
+      "pyscf/lib/test/test_chkfile.py": {
+        "size": 2611
+      },
+      "pyscf/lib/test/test_diis.py": {
+        "size": 3251
+      },
+      "pyscf/lib/test/test_einsum.py": {
+        "size": 10473
+      },
+      "pyscf/lib/test/test_linalg_helper.py": {
+        "size": 9587
+      },
+      "pyscf/lib/test/test_misc.py": {
+        "size": 3342
+      },
+      "pyscf/lib/test/test_numint_uniform_grid.py": {
+        "size": 16746
+      },
+      "pyscf/lib/test/test_numpy_helper.py": {
+        "size": 13831
+      },
+      "pyscf/lib/test/test_scipy_helper.py": {
+        "size": 5861
+      },
+      "pyscf/lib/vhf/CMakeLists.txt": {
+        "size": 1060
+      },
+      "pyscf/lib/vhf/test/test_nr_direct.py": {
+        "size": 13505
+      },
+      "pyscf/lo/__init__.py": {
+        "size": 1026
+      },
+      "pyscf/lo/boys.py": {
+        "size": 15123
+      },
+      "pyscf/lo/cholesky.py": {
+        "size": 3210
+      },
+      "pyscf/lo/edmiston.py": {
+        "size": 2697
+      },
+      "pyscf/lo/iao.py": {
+        "size": 6562
+      },
+      "pyscf/lo/ibo.py": {
+        "size": 16585
+      },
+      "pyscf/lo/nao.py": {
+        "size": 10180
+      },
+      "pyscf/lo/orth.py": {
+        "size": 12771
+      },
+      "pyscf/lo/pipek.py": {
+        "size": 11901
+      },
+      "pyscf/lo/pipek_jacobi.py": {
+        "size": 5830
+      },
+      "pyscf/lo/test/test_cholesky.py": {
+        "size": 3373
+      },
+      "pyscf/lo/test/test_iao.py": {
+        "size": 1681
+      },
+      "pyscf/lo/test/test_ibo.py": {
+        "size": 2509
+      },
+      "pyscf/lo/test/test_localizer.py": {
+        "size": 4897
+      },
+      "pyscf/lo/test/test_nao.py": {
+        "size": 3162
+      },
+      "pyscf/lo/test/test_orth.py": {
+        "size": 4483
+      },
+      "pyscf/lo/test/test_pipek.py": {
+        "size": 4154
+      },
+      "pyscf/lo/test/test_vvo.py": {
+        "size": 3097
+      },
+      "pyscf/lo/vvo.py": {
+        "size": 4718
+      },
+      "pyscf/mcpdft/__init__.py": {
+        "size": 4005
+      },
+      "pyscf/mcpdft/_dms.py": {
+        "size": 9343
+      },
+      "pyscf/mcpdft/_libxc.py": {
+        "size": 4542
+      },
+      "pyscf/mcpdft/chkfile.py": {
+        "size": 3311
+      },
+      "pyscf/mcpdft/cmspdft.py": {
+        "size": 7290
+      },
+      "pyscf/mcpdft/lpdft.py": {
+        "size": 23893
+      },
+      "pyscf/mcpdft/mcpdft.py": {
+        "size": 34645
+      },
+      "pyscf/mcpdft/mspdft.py": {
+        "size": 27593
+      },
+      "pyscf/mcpdft/otfnal.py": {
+        "size": 50808
+      },
+      "pyscf/mcpdft/otpd.py": {
+        "size": 12933
+      },
+      "pyscf/mcpdft/pdft_eff.py": {
+        "size": 18308
+      },
+      "pyscf/mcpdft/pdft_feff.py": {
+        "size": 18268
+      },
+      "pyscf/mcpdft/pdft_veff.py": {
+        "size": 17123
+      },
+      "pyscf/mcpdft/test/test_cmspdft.py": {
+        "size": 6355
+      },
+      "pyscf/mcpdft/test/test_diatomic_energies.py": {
+        "size": 8302
+      },
+      "pyscf/mcpdft/test/test_lpdft.py": {
+        "size": 10527
+      },
+      "pyscf/mcpdft/test/test_mcpdft.py": {
+        "size": 32780
+      },
+      "pyscf/mcpdft/test/test_mgga.py": {
+        "size": 11027
+      },
+      "pyscf/mcpdft/test/test_mspdft.py": {
+        "size": 4591
+      },
+      "pyscf/mcpdft/test/test_otfnal.py": {
+        "size": 3864
+      },
+      "pyscf/mcpdft/test/test_otpd.py": {
+        "size": 11190
+      },
+      "pyscf/mcpdft/test/test_pdft_feff.py": {
+        "size": 11822
+      },
+      "pyscf/mcpdft/test/test_pdft_veff.py": {
+        "size": 6027
+      },
+      "pyscf/mcpdft/test/test_spingaps_atoms.py": {
+        "size": 7602
+      },
+      "pyscf/mcpdft/test/test_xmspdft.py": {
+        "size": 5479
+      },
+      "pyscf/mcpdft/tfnal_derivs.py": {
+        "size": 28630
+      },
+      "pyscf/mcpdft/xmspdft.py": {
+        "size": 6478
+      },
+      "pyscf/mcscf/PiOS.py": {
+        "size": 20800
+      },
+      "pyscf/mcscf/__init__.py": {
+        "size": 11576
+      },
+      "pyscf/mcscf/addons.py": {
+        "size": 63569
+      },
+      "pyscf/mcscf/apc.py": {
+        "size": 19113
+      },
+      "pyscf/mcscf/avas.py": {
+        "size": 10115
+      },
+      "pyscf/mcscf/casci.py": {
+        "size": 50066
+      },
+      "pyscf/mcscf/casci_symm.py": {
+        "size": 8101
+      },
+      "pyscf/mcscf/chkfile.py": {
+        "size": 2667
+      },
+      "pyscf/mcscf/df.py": {
+        "size": 16662
+      },
+      "pyscf/mcscf/dmet_cas.py": {
+        "size": 9727
+      },
+      "pyscf/mcscf/mc1step.py": {
+        "size": 60869
+      },
+      "pyscf/mcscf/mc1step_symm.py": {
+        "size": 6641
+      },
+      "pyscf/mcscf/mc2step.py": {
+        "size": 7967
+      },
+      "pyscf/mcscf/mc_ao2mo.py": {
+        "size": 14909
+      },
+      "pyscf/mcscf/newton_casscf.py": {
+        "size": 39340
+      },
+      "pyscf/mcscf/newton_casscf_symm.py": {
+        "size": 5106
+      },
+      "pyscf/mcscf/test/test_addons.py": {
+        "size": 22517
+      },
+      "pyscf/mcscf/test/test_apc.py": {
+        "size": 4392
+      },
+      "pyscf/mcscf/test/test_avas.py": {
+        "size": 1713
+      },
+      "pyscf/mcscf/test/test_bz.py": {
+        "size": 3021
+      },
+      "pyscf/mcscf/test/test_bz_df.py": {
+        "size": 4078
+      },
+      "pyscf/mcscf/test/test_c2h4.py": {
+        "size": 2942
+      },
+      "pyscf/mcscf/test/test_casci.py": {
+        "size": 9392
+      },
+      "pyscf/mcscf/test/test_h2o.py": {
+        "size": 8540
+      },
+      "pyscf/mcscf/test/test_mc1step.py": {
+        "size": 12395
+      },
+      "pyscf/mcscf/test/test_mcao2mo.py": {
+        "size": 8902
+      },
+      "pyscf/mcscf/test/test_n2.py": {
+        "size": 6495
+      },
+      "pyscf/mcscf/test/test_n2_df.py": {
+        "size": 10969
+      },
+      "pyscf/mcscf/test/test_newton_casscf.py": {
+        "size": 5056
+      },
+      "pyscf/mcscf/test/test_ucasci.py": {
+        "size": 5259
+      },
+      "pyscf/mcscf/test/test_umc1step.py": {
+        "size": 5590
+      },
+      "pyscf/mcscf/ucasci.py": {
+        "size": 20212
+      },
+      "pyscf/mcscf/umc1step.py": {
+        "size": 38799
+      },
+      "pyscf/mcscf/umc2step.py": {
+        "size": 5935
+      },
+      "pyscf/mcscf/umc_ao2mo.py": {
+        "size": 15937
+      },
+      "pyscf/md/__init__.py": {
+        "size": 1457
+      },
+      "pyscf/md/distributions.py": {
+        "size": 1682
+      },
+      "pyscf/md/integrators.py": {
+        "size": 21000
+      },
+      "pyscf/md/test/test_NVTBerendson.py": {
+        "size": 2625
+      },
+      "pyscf/md/test/test_distributions.py": {
+        "size": 1680
+      },
+      "pyscf/md/test/test_prop.py": {
+        "size": 3509
+      },
+      "pyscf/md/test/test_velocverlet.py": {
+        "size": 4822
+      },
+      "pyscf/mp/__init__.py": {
+        "size": 2491
+      },
+      "pyscf/mp/dfgmp2.py": {
+        "size": 6963
+      },
+      "pyscf/mp/dfmp2.py": {
+        "size": 21754
+      },
+      "pyscf/mp/dfmp2_native.py": {
+        "size": 30449
+      },
+      "pyscf/mp/dfmp2_slow.py": {
+        "size": 3747
+      },
+      "pyscf/mp/dfump2.py": {
+        "size": 24513
+      },
+      "pyscf/mp/dfump2_native.py": {
+        "size": 26148
+      },
+      "pyscf/mp/dfump2_slow.py": {
+        "size": 4981
+      },
+      "pyscf/mp/gmp2.py": {
+        "size": 13867
+      },
+      "pyscf/mp/mp2.py": {
+        "size": 32943
+      },
+      "pyscf/mp/mp2f12_slow.py": {
+        "size": 7280
+      },
+      "pyscf/mp/test/test_dfmp2.py": {
+        "size": 4363
+      },
+      "pyscf/mp/test/test_dfmp2_native.py": {
+        "size": 12889
+      },
+      "pyscf/mp/test/test_dfump2.py": {
+        "size": 4554
+      },
+      "pyscf/mp/test/test_dfump2_native.py": {
+        "size": 12948
+      },
+      "pyscf/mp/test/test_f12.py": {
+        "size": 2206
+      },
+      "pyscf/mp/test/test_gmp2.py": {
+        "size": 8288
+      },
+      "pyscf/mp/test/test_mp2.py": {
+        "size": 12145
+      },
+      "pyscf/mp/test/test_ump2.py": {
+        "size": 11276
+      },
+      "pyscf/mp/ump2.py": {
+        "size": 32201
+      },
+      "pyscf/mrpt/__init__.py": {
+        "size": 802
+      },
+      "pyscf/mrpt/dfnevpt2.py": {
+        "size": 8602
+      },
+      "pyscf/mrpt/nevpt2.py": {
+        "size": 44235
+      },
+      "pyscf/mrpt/test/test_dfnevpt2.py": {
+        "size": 2928
+      },
+      "pyscf/mrpt/test/test_nevpt2.py": {
+        "size": 6748
+      },
+      "pyscf/nac/__init__.py": {
+        "size": 1116
+      },
+      "pyscf/nac/mspdft.py": {
+        "size": 8303
+      },
+      "pyscf/nac/sacasscf.py": {
+        "size": 13593
+      },
+      "pyscf/nac/test/test_cmspdft.py": {
+        "size": 8174
+      },
+      "pyscf/nac/test/test_sacasscf.py": {
+        "size": 6465
+      },
+      "pyscf/pbc/__all__.py": {
+        "size": 442
+      },
+      "pyscf/pbc/__init__.py": {
+        "size": 943
+      },
+      "pyscf/pbc/adc/__init__.py": {
+        "size": 949
+      },
+      "pyscf/pbc/adc/dfadc.py": {
+        "size": 1954
+      },
+      "pyscf/pbc/adc/kadc_ao2mo.py": {
+        "size": 13136
+      },
+      "pyscf/pbc/adc/kadc_rhf.py": {
+        "size": 11412
+      },
+      "pyscf/pbc/adc/kadc_rhf_amplitudes.py": {
+        "size": 14133
+      },
+      "pyscf/pbc/adc/kadc_rhf_ea.py": {
+        "size": 62323
+      },
+      "pyscf/pbc/adc/kadc_rhf_ip.py": {
+        "size": 46652
+      },
+      "pyscf/pbc/adc/test/test_ground_state_energy.py": {
+        "size": 2819
+      },
+      "pyscf/pbc/adc/test/test_k_ea.py": {
+        "size": 3302
+      },
+      "pyscf/pbc/adc/test/test_k_ip.py": {
+        "size": 3326
+      },
+      "pyscf/pbc/adc/test/test_k_vs_supercell_ea.py": {
+        "size": 3483
+      },
+      "pyscf/pbc/adc/test/test_k_vs_supercell_ea_highcost.py": {
+        "size": 3026
+      },
+      "pyscf/pbc/adc/test/test_k_vs_supercell_ip.py": {
+        "size": 3480
+      },
+      "pyscf/pbc/adc/test/test_k_vs_supercell_ip_highcost.py": {
+        "size": 3142
+      },
+      "pyscf/pbc/adc/test/test_kadc.py": {
+        "size": 1877
+      },
+      "pyscf/pbc/ao2mo/__init__.py": {
+        "size": 632
+      },
+      "pyscf/pbc/ao2mo/eris.py": {
+        "size": 8706
+      },
+      "pyscf/pbc/cc/__init__.py": {
+        "size": 2024
+      },
+      "pyscf/pbc/cc/ccsd.py": {
+        "size": 6727
+      },
+      "pyscf/pbc/cc/eom_kccsd_ghf.py": {
+        "size": 82519
+      },
+      "pyscf/pbc/cc/eom_kccsd_rhf.py": {
+        "size": 68243
+      },
+      "pyscf/pbc/cc/eom_kccsd_rhf_ea.py": {
+        "size": 2448
+      },
+      "pyscf/pbc/cc/eom_kccsd_rhf_ip.py": {
+        "size": 2429
+      },
+      "pyscf/pbc/cc/eom_kccsd_uhf.py": {
+        "size": 57977
+      },
+      "pyscf/pbc/cc/kccsd.py": {
+        "size": 35096
+      },
+      "pyscf/pbc/cc/kccsd_rhf.py": {
+        "size": 50353
+      },
+      "pyscf/pbc/cc/kccsd_rhf_ksymm.py": {
+        "size": 31972
+      },
+      "pyscf/pbc/cc/kccsd_t.py": {
+        "size": 15664
+      },
+      "pyscf/pbc/cc/kccsd_t_rhf.py": {
+        "size": 28808
+      },
+      "pyscf/pbc/cc/kccsd_t_rhf_slow.py": {
+        "size": 11709
+      },
+      "pyscf/pbc/cc/kccsd_uhf.py": {
+        "size": 48978
+      },
+      "pyscf/pbc/cc/kintermediates.py": {
+        "size": 22273
+      },
+      "pyscf/pbc/cc/kintermediates_rhf.py": {
+        "size": 42214
+      },
+      "pyscf/pbc/cc/kintermediates_rhf_ksymm.py": {
+        "size": 10075
+      },
+      "pyscf/pbc/cc/kintermediates_uhf.py": {
+        "size": 60666
+      },
+      "pyscf/pbc/cc/kuccsd_rdm.py": {
+        "size": 5937
+      },
+      "pyscf/pbc/cc/test/test_eom_kgccsd.py": {
+        "size": 8727
+      },
+      "pyscf/pbc/cc/test/test_eom_kgccsd_diag.py": {
+        "size": 4360
+      },
+      "pyscf/pbc/cc/test/test_eom_krccsd.py": {
+        "size": 25342
+      },
+      "pyscf/pbc/cc/test/test_eom_kuccsd.py": {
+        "size": 8570
+      },
+      "pyscf/pbc/cc/test/test_eom_kuccsd_diag.py": {
+        "size": 4657
+      },
+      "pyscf/pbc/cc/test/test_h_2x2x1.py": {
+        "size": 1747
+      },
+      "pyscf/pbc/cc/test/test_h_3x3x1.py": {
+        "size": 1749
+      },
+      "pyscf/pbc/cc/test/test_kccsd_ksymm.py": {
+        "size": 2025
+      },
+      "pyscf/pbc/cc/test/test_kgccsd.py": {
+        "size": 31005
+      },
+      "pyscf/pbc/cc/test/test_krccsd.py": {
+        "size": 42907
+      },
+      "pyscf/pbc/cc/test/test_krccsd_gamma.py": {
+        "size": 3044
+      },
+      "pyscf/pbc/cc/test/test_kuccsd.py": {
+        "size": 22470
+      },
+      "pyscf/pbc/cc/test/test_kuccsd_openshell.py": {
+        "size": 1704
+      },
+      "pyscf/pbc/cc/test/test_kuccsd_supercell_vs_kpts.py": {
+        "size": 1507
+      },
+      "pyscf/pbc/cc/test/test_rccsd_t_shift.py": {
+        "size": 2024
+      },
+      "pyscf/pbc/ci/__init__.py": {
+        "size": 1226
+      },
+      "pyscf/pbc/ci/cisd.py": {
+        "size": 4714
+      },
+      "pyscf/pbc/ci/kcis_rhf.py": {
+        "size": 26419
+      },
+      "pyscf/pbc/ci/test/test_ci.py": {
+        "size": 4765
+      },
+      "pyscf/pbc/ci/test/test_cisd.py": {
+        "size": 1157
+      },
+      "pyscf/pbc/df/__init__.py": {
+        "size": 970
+      },
+      "pyscf/pbc/df/aft.py": {
+        "size": 30728
+      },
+      "pyscf/pbc/df/aft_ao2mo.py": {
+        "size": 17683
+      },
+      "pyscf/pbc/df/aft_jk.py": {
+        "size": 31585
+      },
+      "pyscf/pbc/df/df.py": {
+        "size": 39977
+      },
+      "pyscf/pbc/df/df_ao2mo.py": {
+        "size": 13852
+      },
+      "pyscf/pbc/df/df_jk.py": {
+        "size": 70185
+      },
+      "pyscf/pbc/df/fft.py": {
+        "size": 15900
+      },
+      "pyscf/pbc/df/fft_ao2mo.py": {
+        "size": 18614
+      },
+      "pyscf/pbc/df/fft_jk.py": {
+        "size": 19103
+      },
+      "pyscf/pbc/df/ft_ao.py": {
+        "size": 32533
+      },
+      "pyscf/pbc/df/gdf_builder.py": {
+        "size": 45605
+      },
+      "pyscf/pbc/df/incore.py": {
+        "size": 28410
+      },
+      "pyscf/pbc/df/mdf.py": {
+        "size": 20162
+      },
+      "pyscf/pbc/df/mdf_ao2mo.py": {
+        "size": 6817
+      },
+      "pyscf/pbc/df/mdf_jk.py": {
+        "size": 5161
+      },
+      "pyscf/pbc/df/outcore.py": {
+        "size": 9116
+      },
+      "pyscf/pbc/df/rsdf.py": {
+        "size": 29506
+      },
+      "pyscf/pbc/df/rsdf_builder.py": {
+        "size": 70158
+      },
+      "pyscf/pbc/df/rsdf_helper.py": {
+        "size": 53180
+      },
+      "pyscf/pbc/df/rsdf_jk.py": {
+        "size": 1745
+      },
+      "pyscf/pbc/df/test/test_aft.py": {
+        "size": 21775
+      },
+      "pyscf/pbc/df/test/test_aft_ao2mo.py": {
+        "size": 4814
+      },
+      "pyscf/pbc/df/test/test_aft_jk.py": {
+        "size": 14646
+      },
+      "pyscf/pbc/df/test/test_band.py": {
+        "size": 4592
+      },
+      "pyscf/pbc/df/test/test_df.py": {
+        "size": 13122
+      },
+      "pyscf/pbc/df/test/test_df_ao2mo.py": {
+        "size": 7778
+      },
+      "pyscf/pbc/df/test/test_df_jk.py": {
+        "size": 13962
+      },
+      "pyscf/pbc/df/test/test_fft.py": {
+        "size": 32685
+      },
+      "pyscf/pbc/df/test/test_ft_ao.py": {
+        "size": 15455
+      },
+      "pyscf/pbc/df/test/test_gdf_builder.py": {
+        "size": 21623
+      },
+      "pyscf/pbc/df/test/test_incore.py": {
+        "size": 4935
+      },
+      "pyscf/pbc/df/test/test_mdf.py": {
+        "size": 8913
+      },
+      "pyscf/pbc/df/test/test_mdf_ao2mo.py": {
+        "size": 5083
+      },
+      "pyscf/pbc/df/test/test_mdf_builder.py": {
+        "size": 28172
+      },
+      "pyscf/pbc/df/test/test_mdf_jk.py": {
+        "size": 15269
+      },
+      "pyscf/pbc/df/test/test_outcore.py": {
+        "size": 2176
+      },
+      "pyscf/pbc/df/test/test_rsdf.py": {
+        "size": 6277
+      },
+      "pyscf/pbc/df/test/test_rsdf_1.py": {
+        "size": 6014
+      },
+      "pyscf/pbc/df/test/test_rsdf_ao2mo.py": {
+        "size": 7620
+      },
+      "pyscf/pbc/df/test/test_rsdf_builder.py": {
+        "size": 20970
+      },
+      "pyscf/pbc/df/test/test_rsdf_jk.py": {
+        "size": 13008
+      },
+      "pyscf/pbc/df/test/test_rsdf_scf.py": {
+        "size": 2667
+      },
+      "pyscf/pbc/dft/__init__.py": {
+        "size": 4031
+      },
+      "pyscf/pbc/dft/cdft.py": {
+        "size": 4781
+      },
+      "pyscf/pbc/dft/gen_grid.py": {
+        "size": 10183
+      },
+      "pyscf/pbc/dft/gks.py": {
+        "size": 5324
+      },
+      "pyscf/pbc/dft/kgks.py": {
+        "size": 5974
+      },
+      "pyscf/pbc/dft/krks.py": {
+        "size": 10444
+      },
+      "pyscf/pbc/dft/krks_ksymm.py": {
+        "size": 5513
+      },
+      "pyscf/pbc/dft/krkspu.py": {
+        "size": 12199
+      },
+      "pyscf/pbc/dft/krkspu_ksymm.py": {
+        "size": 2666
+      },
+      "pyscf/pbc/dft/kroks.py": {
+        "size": 2687
+      },
+      "pyscf/pbc/dft/kuks.py": {
+        "size": 6640
+      },
+      "pyscf/pbc/dft/kuks_ksymm.py": {
+        "size": 5572
+      },
+      "pyscf/pbc/dft/kukspu.py": {
+        "size": 11757
+      },
+      "pyscf/pbc/dft/kukspu_ksymm.py": {
+        "size": 2297
+      },
+      "pyscf/pbc/dft/multigrid/__init__.py": {
+        "size": 739
+      },
+      "pyscf/pbc/dft/multigrid/_backend_c.py": {
+        "size": 18770
+      },
+      "pyscf/pbc/dft/multigrid/multigrid.py": {
+        "size": 77703
+      },
+      "pyscf/pbc/dft/multigrid/multigrid_pair.py": {
+        "size": 42994
+      },
+      "pyscf/pbc/dft/multigrid/pp.py": {
+        "size": 7748
+      },
+      "pyscf/pbc/dft/multigrid/utils.py": {
+        "size": 2466
+      },
+      "pyscf/pbc/dft/numint.py": {
+        "size": 53898
+      },
+      "pyscf/pbc/dft/numint2c.py": {
+        "size": 27037
+      },
+      "pyscf/pbc/dft/rks.py": {
+        "size": 16440
+      },
+      "pyscf/pbc/dft/roks.py": {
+        "size": 2358
+      },
+      "pyscf/pbc/dft/test/test_gamma_vs_ks.py": {
+        "size": 1772
+      },
+      "pyscf/pbc/dft/test/test_gen_grid.py": {
+        "size": 5643
+      },
+      "pyscf/pbc/dft/test/test_gks.py": {
+        "size": 2593
+      },
+      "pyscf/pbc/dft/test/test_kgks.py": {
+        "size": 7774
+      },
+      "pyscf/pbc/dft/test/test_krks.py": {
+        "size": 9239
+      },
+      "pyscf/pbc/dft/test/test_krks_ksym.py": {
+        "size": 13375
+      },
+      "pyscf/pbc/dft/test/test_krkspu.py": {
+        "size": 4043
+      },
+      "pyscf/pbc/dft/test/test_kuks.py": {
+        "size": 4345
+      },
+      "pyscf/pbc/dft/test/test_kukspu.py": {
+        "size": 4045
+      },
+      "pyscf/pbc/dft/test/test_multigrid.py": {
+        "size": 23338
+      },
+      "pyscf/pbc/dft/test/test_multigrid2.py": {
+        "size": 19357
+      },
+      "pyscf/pbc/dft/test/test_numint.py": {
+        "size": 17402
+      },
+      "pyscf/pbc/dft/test/test_rks.py": {
+        "size": 7535
+      },
+      "pyscf/pbc/dft/test/test_sampling.py": {
+        "size": 2751
+      },
+      "pyscf/pbc/dft/test/test_uks.py": {
+        "size": 2573
+      },
+      "pyscf/pbc/dft/uks.py": {
+        "size": 5853
+      },
+      "pyscf/pbc/eph/__init__.py": {
+        "size": 0
+      },
+      "pyscf/pbc/eph/eph_fd.py": {
+        "size": 6591
+      },
+      "pyscf/pbc/geomopt/__init__.py": {
+        "size": 871
+      },
+      "pyscf/pbc/geomopt/geometric_solver.py": {
+        "size": 9219
+      },
+      "pyscf/pbc/geomopt/log.ini": {
+        "size": 288
+      },
+      "pyscf/pbc/grad/__init__.py": {
+        "size": 1205
+      },
+      "pyscf/pbc/grad/krhf.py": {
+        "size": 14885
+      },
+      "pyscf/pbc/grad/krks.py": {
+        "size": 4828
+      },
+      "pyscf/pbc/grad/krks_stress.py": {
+        "size": 15580
+      },
+      "pyscf/pbc/grad/krkspu.py": {
+        "size": 5463
+      },
+      "pyscf/pbc/grad/kuhf.py": {
+        "size": 4256
+      },
+      "pyscf/pbc/grad/kuks.py": {
+        "size": 4915
+      },
+      "pyscf/pbc/grad/kuks_stress.py": {
+        "size": 12722
+      },
+      "pyscf/pbc/grad/kukspu.py": {
+        "size": 3273
+      },
+      "pyscf/pbc/grad/rhf.py": {
+        "size": 6350
+      },
+      "pyscf/pbc/grad/rks.py": {
+        "size": 954
+      },
+      "pyscf/pbc/grad/rks_stress.py": {
+        "size": 17025
+      },
+      "pyscf/pbc/grad/test/test_krhf.py": {
+        "size": 2491
+      },
+      "pyscf/pbc/grad/test/test_krks.py": {
+        "size": 3316
+      },
+      "pyscf/pbc/grad/test/test_krks_stress.py": {
+        "size": 19504
+      },
+      "pyscf/pbc/grad/test/test_krkspu.py": {
+        "size": 3766
+      },
+      "pyscf/pbc/grad/test/test_kuhf.py": {
+        "size": 2028
+      },
+      "pyscf/pbc/grad/test/test_kuks.py": {
+        "size": 3316
+      },
+      "pyscf/pbc/grad/test/test_kuks_stress.py": {
+        "size": 10501
+      },
+      "pyscf/pbc/grad/test/test_kukspu.py": {
+        "size": 2864
+      },
+      "pyscf/pbc/grad/test/test_rks_stress.py": {
+        "size": 19544
+      },
+      "pyscf/pbc/grad/test/test_uks_stress.py": {
+        "size": 7639
+      },
+      "pyscf/pbc/grad/uhf.py": {
+        "size": 3773
+      },
+      "pyscf/pbc/grad/uks.py": {
+        "size": 956
+      },
+      "pyscf/pbc/grad/uks_stress.py": {
+        "size": 9856
+      },
+      "pyscf/pbc/gto/__init__.py": {
+        "size": 1038
+      },
+      "pyscf/pbc/gto/_pbcintor.py": {
+        "size": 2634
+      },
+      "pyscf/pbc/gto/basis/__init__.py": {
+        "size": 844
+      },
+      "pyscf/pbc/gto/basis/split_BASIS_MOLOPT.py": {
+        "size": 1667
+      },
+      "pyscf/pbc/gto/basis/split_GTH_BASIS_SETS.py": {
+        "size": 1567
+      },
+      "pyscf/pbc/gto/basis/split_HFX_BASIS.py": {
+        "size": 1626
+      },
+      "pyscf/pbc/gto/cell.py": {
+        "size": 81972
+      },
+      "pyscf/pbc/gto/ecp.py": {
+        "size": 3027
+      },
+      "pyscf/pbc/gto/eval_gto.py": {
+        "size": 9641
+      },
+      "pyscf/pbc/gto/ewald_methods.py": {
+        "size": 10613
+      },
+      "pyscf/pbc/gto/neighborlist.py": {
+        "size": 6981
+      },
+      "pyscf/pbc/gto/pseudo/__init__.py": {
+        "size": 956
+      },
+      "pyscf/pbc/gto/pseudo/pp.py": {
+        "size": 9328
+      },
+      "pyscf/pbc/gto/pseudo/pp_int.py": {
+        "size": 25635
+      },
+      "pyscf/pbc/gto/pseudo/ppnl_velgauge.py": {
+        "size": 11152
+      },
+      "pyscf/pbc/gto/pseudo/split_GTH_POTENTIALS.py": {
+        "size": 2215
+      },
+      "pyscf/pbc/gto/pseudo/test/ppnl_refvals1.txt": {
+        "size": 13934
+      },
+      "pyscf/pbc/gto/pseudo/test/ppnl_refvals2.txt": {
+        "size": 13946
+      },
+      "pyscf/pbc/gto/pseudo/test/ppnl_refvals3.txt": {
+        "size": 1362
+      },
+      "pyscf/pbc/gto/pseudo/test/test_pp.py": {
+        "size": 10071
+      },
+      "pyscf/pbc/gto/pseudo/test/test_pp_velgauge.py": {
+        "size": 3265
+      },
+      "pyscf/pbc/gto/test/test_cell.py": {
+        "size": 29137
+      },
+      "pyscf/pbc/gto/test/test_rcut.py": {
+        "size": 3041
+      },
+      "pyscf/pbc/gw/__init__.py": {
+        "size": 1590
+      },
+      "pyscf/pbc/gw/gw_slow.py": {
+        "size": 991
+      },
+      "pyscf/pbc/gw/kgw_slow.py": {
+        "size": 5977
+      },
+      "pyscf/pbc/gw/kgw_slow_supercell.py": {
+        "size": 4205
+      },
+      "pyscf/pbc/gw/krgw_ac.py": {
+        "size": 23936
+      },
+      "pyscf/pbc/gw/krgw_cd.py": {
+        "size": 26680
+      },
+      "pyscf/pbc/gw/kugw_ac.py": {
+        "size": 31707
+      },
+      "pyscf/pbc/gw/test/test_krgw.py": {
+        "size": 4658
+      },
+      "pyscf/pbc/gw/test/test_kugw.py": {
+        "size": 2619
+      },
+      "pyscf/pbc/lib/__init__.py": {
+        "size": 637
+      },
+      "pyscf/pbc/lib/arnoldi.py": {
+        "size": 10549
+      },
+      "pyscf/pbc/lib/chkfile.py": {
+        "size": 1697
+      },
+      "pyscf/pbc/lib/kpts.py": {
+        "size": 43665
+      },
+      "pyscf/pbc/lib/kpts_helper.py": {
+        "size": 23481
+      },
+      "pyscf/pbc/lib/ktensor.py": {
+        "size": 12221
+      },
+      "pyscf/pbc/lib/linalg_helper.py": {
+        "size": 29307
+      },
+      "pyscf/pbc/lib/test/test_kpts.py": {
+        "size": 3923
+      },
+      "pyscf/pbc/lib/test/test_kpts_ksymm.py": {
+        "size": 6112
+      },
+      "pyscf/pbc/mp/__init__.py": {
+        "size": 1434
+      },
+      "pyscf/pbc/mp/kmp2.py": {
+        "size": 30977
+      },
+      "pyscf/pbc/mp/kmp2_ksymm.py": {
+        "size": 10444
+      },
+      "pyscf/pbc/mp/kmp2_stagger.py": {
+        "size": 16727
+      },
+      "pyscf/pbc/mp/kump2.py": {
+        "size": 17429
+      },
+      "pyscf/pbc/mp/mp2.py": {
+        "size": 3538
+      },
+      "pyscf/pbc/mp/test/test_dm.py": {
+        "size": 2726
+      },
+      "pyscf/pbc/mp/test/test_kpoint.py": {
+        "size": 6543
+      },
+      "pyscf/pbc/mp/test/test_kpoint_stagger.py": {
+        "size": 6373
+      },
+      "pyscf/pbc/mp/test/test_ksym.py": {
+        "size": 2138
+      },
+      "pyscf/pbc/mp/test/test_mask.py": {
+        "size": 3995
+      },
+      "pyscf/pbc/mp/test/test_mask_uhf.py": {
+        "size": 7842
+      },
+      "pyscf/pbc/mp/test/test_padding.py": {
+        "size": 2904
+      },
+      "pyscf/pbc/mp/test/test_scs.py": {
+        "size": 3642
+      },
+      "pyscf/pbc/mpicc/__init__.py": {
+        "size": 933
+      },
+      "pyscf/pbc/mpicc/kccsd_rhf.py": {
+        "size": 160396
+      },
+      "pyscf/pbc/mpicc/kintermediates_rhf.py": {
+        "size": 70264
+      },
+      "pyscf/pbc/mpicc/mpi_kpoint_helper.py": {
+        "size": 4737
+      },
+      "pyscf/pbc/mpitools/__init__.py": {
+        "size": 611
+      },
+      "pyscf/pbc/mpitools/mpi.py": {
+        "size": 10737
+      },
+      "pyscf/pbc/mpitools/mpi_blksize.py": {
+        "size": 3276
+      },
+      "pyscf/pbc/mpitools/mpi_helper.py": {
+        "size": 3158
+      },
+      "pyscf/pbc/mpitools/mpi_load_balancer.py": {
+        "size": 6684
+      },
+      "pyscf/pbc/mpitools/mpi_pool.py": {
+        "size": 5667
+      },
+      "pyscf/pbc/scf/__init__.py": {
+        "size": 4336
+      },
+      "pyscf/pbc/scf/_response_functions.py": {
+        "size": 2115
+      },
+      "pyscf/pbc/scf/addons.py": {
+        "size": 21281
+      },
+      "pyscf/pbc/scf/chkfile.py": {
+        "size": 964
+      },
+      "pyscf/pbc/scf/cphf.py": {
+        "size": 5924
+      },
+      "pyscf/pbc/scf/ghf.py": {
+        "size": 6184
+      },
+      "pyscf/pbc/scf/hf.py": {
+        "size": 37159
+      },
+      "pyscf/pbc/scf/kghf.py": {
+        "size": 11649
+      },
+      "pyscf/pbc/scf/kghf_ksymm.py": {
+        "size": 7418
+      },
+      "pyscf/pbc/scf/khf.py": {
+        "size": 32131
+      },
+      "pyscf/pbc/scf/khf_ksymm.py": {
+        "size": 16283
+      },
+      "pyscf/pbc/scf/krohf.py": {
+        "size": 15428
+      },
+      "pyscf/pbc/scf/kuhf.py": {
+        "size": 25316
+      },
+      "pyscf/pbc/scf/kuhf_ksymm.py": {
+        "size": 9288
+      },
+      "pyscf/pbc/scf/newton_ah.py": {
+        "size": 10985
+      },
+      "pyscf/pbc/scf/rohf.py": {
+        "size": 5004
+      },
+      "pyscf/pbc/scf/rsjk.py": {
+        "size": 61748
+      },
+      "pyscf/pbc/scf/scfint.py": {
+        "size": 2297
+      },
+      "pyscf/pbc/scf/stability.py": {
+        "size": 12219
+      },
+      "pyscf/pbc/scf/test/test_addons.py": {
+        "size": 20483
+      },
+      "pyscf/pbc/scf/test/test_band.py": {
+        "size": 2507
+      },
+      "pyscf/pbc/scf/test/test_hf.py": {
+        "size": 23451
+      },
+      "pyscf/pbc/scf/test/test_khf.py": {
+        "size": 10556
+      },
+      "pyscf/pbc/scf/test/test_khf_ksym.py": {
+        "size": 12535
+      },
+      "pyscf/pbc/scf/test/test_mulliken_meta.py": {
+        "size": 3976
+      },
+      "pyscf/pbc/scf/test/test_newton.py": {
+        "size": 6954
+      },
+      "pyscf/pbc/scf/test/test_rohf.py": {
+        "size": 4770
+      },
+      "pyscf/pbc/scf/test/test_rsjk.py": {
+        "size": 13800
+      },
+      "pyscf/pbc/scf/test/test_scfint.py": {
+        "size": 3384
+      },
+      "pyscf/pbc/scf/test/test_stability.py": {
+        "size": 3801
+      },
+      "pyscf/pbc/scf/test/test_uhf.py": {
+        "size": 4700
+      },
+      "pyscf/pbc/scf/uhf.py": {
+        "size": 10387
+      },
+      "pyscf/pbc/symm/__init__.py": {
+        "size": 696
+      },
+      "pyscf/pbc/symm/basis.py": {
+        "size": 5620
+      },
+      "pyscf/pbc/symm/geom.py": {
+        "size": 8227
+      },
+      "pyscf/pbc/symm/group.py": {
+        "size": 14934
+      },
+      "pyscf/pbc/symm/pyscf_spglib.py": {
+        "size": 1769
+      },
+      "pyscf/pbc/symm/space_group.py": {
+        "size": 12557
+      },
+      "pyscf/pbc/symm/symmetry.py": {
+        "size": 11595
+      },
+      "pyscf/pbc/symm/tables.py": {
+        "size": 3240
+      },
+      "pyscf/pbc/symm/test/test_basis.py": {
+        "size": 6499
+      },
+      "pyscf/pbc/symm/test/test_spg.py": {
+        "size": 8277
+      },
+      "pyscf/pbc/tddft/__init__.py": {
+        "size": 746
+      },
+      "pyscf/pbc/tdscf/__init__.py": {
+        "size": 2640
+      },
+      "pyscf/pbc/tdscf/krhf.py": {
+        "size": 21140
+      },
+      "pyscf/pbc/tdscf/krks.py": {
+        "size": 1988
+      },
+      "pyscf/pbc/tdscf/kuhf.py": {
+        "size": 22954
+      },
+      "pyscf/pbc/tdscf/kuks.py": {
+        "size": 1204
+      },
+      "pyscf/pbc/tdscf/rhf.py": {
+        "size": 9232
+      },
+      "pyscf/pbc/tdscf/rks.py": {
+        "size": 1712
+      },
+      "pyscf/pbc/tdscf/test/test_krhf.py": {
+        "size": 7256
+      },
+      "pyscf/pbc/tdscf/test/test_krks.py": {
+        "size": 6209
+      },
+      "pyscf/pbc/tdscf/test/test_kuhf.py": {
+        "size": 6706
+      },
+      "pyscf/pbc/tdscf/test/test_kuks.py": {
+        "size": 4557
+      },
+      "pyscf/pbc/tdscf/test/test_rhf.py": {
+        "size": 9164
+      },
+      "pyscf/pbc/tdscf/test/test_rks.py": {
+        "size": 12516
+      },
+      "pyscf/pbc/tdscf/test/test_uhf.py": {
+        "size": 4172
+      },
+      "pyscf/pbc/tdscf/test/test_uks.py": {
+        "size": 10014
+      },
+      "pyscf/pbc/tdscf/uhf.py": {
+        "size": 11579
+      },
+      "pyscf/pbc/tdscf/uks.py": {
+        "size": 1633
+      },
+      "pyscf/pbc/tools/__init__.py": {
+        "size": 688
+      },
+      "pyscf/pbc/tools/k2gamma.py": {
+        "size": 12256
+      },
+      "pyscf/pbc/tools/lattice.py": {
+        "size": 6634
+      },
+      "pyscf/pbc/tools/make_test_cell.py": {
+        "size": 4158
+      },
+      "pyscf/pbc/tools/pbc.py": {
+        "size": 32725
+      },
+      "pyscf/pbc/tools/print_funcs.py": {
+        "size": 2295
+      },
+      "pyscf/pbc/tools/pyscf_ase.py": {
+        "size": 9738
+      },
+      "pyscf/pbc/tools/pywannier90.py": {
+        "size": 52879
+      },
+      "pyscf/pbc/tools/test/test_k2gamma.py": {
+        "size": 5166
+      },
+      "pyscf/pbc/tools/test/test_pbc.py": {
+        "size": 11079
+      },
+      "pyscf/pbc/tools/tril.py": {
+        "size": 1990
+      },
+      "pyscf/pbc/x2c/__init__.py": {
+        "size": 611
+      },
+      "pyscf/pbc/x2c/sfx2c1e.py": {
+        "size": 12638
+      },
+      "pyscf/pbc/x2c/test/test_x2c.py": {
+        "size": 8257
+      },
+      "pyscf/pbc/x2c/x2c1e.py": {
+        "size": 10028
+      },
+      "pyscf/post_scf.py": {
+        "size": 256
+      },
+      "pyscf/qmmm/__init__.py": {
+        "size": 791
+      },
+      "pyscf/qmmm/itrf.py": {
+        "size": 15871
+      },
+      "pyscf/qmmm/mm_mole.py": {
+        "size": 4319
+      },
+      "pyscf/qmmm/pbc/__init__.py": {
+        "size": 692
+      },
+      "pyscf/qmmm/pbc/itrf.py": {
+        "size": 48180
+      },
+      "pyscf/qmmm/pbc/mm_mole.py": {
+        "size": 17299
+      },
+      "pyscf/qmmm/pbc/test/test_qmmm.py": {
+        "size": 2398
+      },
+      "pyscf/qmmm/test/test_grad_mm.py": {
+        "size": 5768
+      },
+      "pyscf/qmmm/test/test_itrf.py": {
+        "size": 8338
+      },
+      "pyscf/scf/__init__.py": {
+        "size": 7130
+      },
+      "pyscf/scf/_response_functions.py": {
+        "size": 14328
+      },
+      "pyscf/scf/_vhf.py": {
+        "size": 30219
+      },
+      "pyscf/scf/addons.py": {
+        "size": 50310
+      },
+      "pyscf/scf/atom_hf.py": {
+        "size": 7413
+      },
+      "pyscf/scf/atom_hf_pp.py": {
+        "size": 5564
+      },
+      "pyscf/scf/atom_ks.py": {
+        "size": 3366
+      },
+      "pyscf/scf/chkfile.py": {
+        "size": 1490
+      },
+      "pyscf/scf/cphf.py": {
+        "size": 4900
+      },
+      "pyscf/scf/dhf.py": {
+        "size": 41115
+      },
+      "pyscf/scf/diis.py": {
+        "size": 8586
+      },
+      "pyscf/scf/dispersion.py": {
+        "size": 5666
+      },
+      "pyscf/scf/ghf.py": {
+        "size": 21240
+      },
+      "pyscf/scf/ghf_symm.py": {
+        "size": 12846
+      },
+      "pyscf/scf/hf.py": {
+        "size": 91677
+      },
+      "pyscf/scf/hf_symm.py": {
+        "size": 39141
+      },
+      "pyscf/scf/jk.py": {
+        "size": 11428
+      },
+      "pyscf/scf/rohf.py": {
+        "size": 21531
+      },
+      "pyscf/scf/stability.py": {
+        "size": 25461
+      },
+      "pyscf/scf/stability_slow.py": {
+        "size": 12950
+      },
+      "pyscf/scf/test/test_addons.py": {
+        "size": 25527
+      },
+      "pyscf/scf/test/test_bz.py": {
+        "size": 1948
+      },
+      "pyscf/scf/test/test_dhf.py": {
+        "size": 13827
+      },
+      "pyscf/scf/test/test_diis.py": {
+        "size": 3482
+      },
+      "pyscf/scf/test/test_ghf.py": {
+        "size": 15388
+      },
+      "pyscf/scf/test/test_h2o.py": {
+        "size": 17413
+      },
+      "pyscf/scf/test/test_h2o_vdz.py": {
+        "size": 5058
+      },
+      "pyscf/scf/test/test_he.py": {
+        "size": 2892
+      },
+      "pyscf/scf/test/test_jk.py": {
+        "size": 14253
+      },
+      "pyscf/scf/test/test_response_function.py": {
+        "size": 1726
+      },
+      "pyscf/scf/test/test_rhf.py": {
+        "size": 39319
+      },
+      "pyscf/scf/test/test_stability.py": {
+        "size": 9821
+      },
+      "pyscf/scf/test/test_uhf.py": {
+        "size": 18913
+      },
+      "pyscf/scf/test/test_vhf.py": {
+        "size": 10206
+      },
+      "pyscf/scf/ucphf.py": {
+        "size": 6213
+      },
+      "pyscf/scf/uhf.py": {
+        "size": 44792
+      },
+      "pyscf/scf/uhf_symm.py": {
+        "size": 23390
+      },
+      "pyscf/sgx/__init__.py": {
+        "size": 30
+      },
+      "pyscf/sgx/sgx.py": {
+        "size": 13885
+      },
+      "pyscf/sgx/sgx_jk.py": {
+        "size": 13133
+      },
+      "pyscf/sgx/test/test_sgx.py": {
+        "size": 2438
+      },
+      "pyscf/sgx/test/test_sgx_jk.py": {
+        "size": 5256
+      },
+      "pyscf/solvent/__init__.py": {
+        "size": 6495
+      },
+      "pyscf/solvent/_attach_solvent.py": {
+        "size": 32797
+      },
+      "pyscf/solvent/cosmors.py": {
+        "size": 13054
+      },
+      "pyscf/solvent/ddcosmo.py": {
+        "size": 36163
+      },
+      "pyscf/solvent/ddpcm.py": {
+        "size": 13167
+      },
+      "pyscf/solvent/grad/__init__.py": {
+        "size": 680
+      },
+      "pyscf/solvent/grad/ddcosmo_grad.py": {
+        "size": 11781
+      },
+      "pyscf/solvent/grad/ddcosmo_tdscf_grad.py": {
+        "size": 56718
+      },
+      "pyscf/solvent/grad/pcm.py": {
+        "size": 17581
+      },
+      "pyscf/solvent/grad/smd.py": {
+        "size": 4133
+      },
+      "pyscf/solvent/grad/smd_experiment.py": {
+        "size": 9092
+      },
+      "pyscf/solvent/hessian/__init__.py": {
+        "size": 0
+      },
+      "pyscf/solvent/hessian/pcm.py": {
+        "size": 48424
+      },
+      "pyscf/solvent/hessian/smd.py": {
+        "size": 2068
+      },
+      "pyscf/solvent/hessian/smd_experiment.py": {
+        "size": 8931
+      },
+      "pyscf/solvent/pcm.py": {
+        "size": 19585
+      },
+      "pyscf/solvent/pol_embed.py": {
+        "size": 19887
+      },
+      "pyscf/solvent/smd.py": {
+        "size": 26863
+      },
+      "pyscf/solvent/smd_experiment.py": {
+        "size": 9102
+      },
+      "pyscf/solvent/test/test_cosmors.py": {
+        "size": 3323
+      },
+      "pyscf/solvent/test/test_ddcosmo.py": {
+        "size": 20125
+      },
+      "pyscf/solvent/test/test_ddcosmo_grad.py": {
+        "size": 43372
+      },
+      "pyscf/solvent/test/test_ddcosmo_tdscf_grad.py": {
+        "size": 6650
+      },
+      "pyscf/solvent/test/test_ddpcm.py": {
+        "size": 2271
+      },
+      "pyscf/solvent/test/test_pcm.py": {
+        "size": 8685
+      },
+      "pyscf/solvent/test/test_pcm_grad.py": {
+        "size": 9813
+      },
+      "pyscf/solvent/test/test_pcm_hessian.py": {
+        "size": 8855
+      },
+      "pyscf/solvent/test/test_pcm_tdscf.py": {
+        "size": 9388
+      },
+      "pyscf/solvent/test/test_pol_embed.py": {
+        "size": 12004
+      },
+      "pyscf/solvent/test/test_smd.py": {
+        "size": 6558
+      },
+      "pyscf/solvent/test/test_smd_grad.py": {
+        "size": 6816
+      },
+      "pyscf/solvent/test/test_smd_hessian.py": {
+        "size": 8375
+      },
+      "pyscf/soscf/__init__.py": {
+        "size": 611
+      },
+      "pyscf/soscf/ciah.py": {
+        "size": 12631
+      },
+      "pyscf/soscf/newton_ah.py": {
+        "size": 42192
+      },
+      "pyscf/soscf/test/test_newton_ah.py": {
+        "size": 11501
+      },
+      "pyscf/symm/Dmatrix.py": {
+        "size": 6909
+      },
+      "pyscf/symm/__init__.py": {
+        "size": 1106
+      },
+      "pyscf/symm/addons.py": {
+        "size": 24617
+      },
+      "pyscf/symm/basis.py": {
+        "size": 25106
+      },
+      "pyscf/symm/cg.py": {
+        "size": 1474
+      },
+      "pyscf/symm/geom.py": {
+        "size": 36380
+      },
+      "pyscf/symm/msym.py": {
+        "size": 9794
+      },
+      "pyscf/symm/param.py": {
+        "size": 11271
+      },
+      "pyscf/symm/sph.py": {
+        "size": 8243
+      },
+      "pyscf/symm/test/test_Dmatrix.py": {
+        "size": 3898
+      },
+      "pyscf/symm/test/test_addons.py": {
+        "size": 2701
+      },
+      "pyscf/symm/test/test_basis.py": {
+        "size": 8611
+      },
+      "pyscf/symm/test/test_geom.py": {
+        "size": 40982
+      },
+      "pyscf/symm/test/test_sph.py": {
+        "size": 4885
+      },
+      "pyscf/tddft/__init__.py": {
+        "size": 660
+      },
+      "pyscf/tdscf/__init__.py": {
+        "size": 2534
+      },
+      "pyscf/tdscf/_lr_eig.py": {
+        "size": 34236
+      },
+      "pyscf/tdscf/dhf.py": {
+        "size": 27904
+      },
+      "pyscf/tdscf/dks.py": {
+        "size": 1079
+      },
+      "pyscf/tdscf/ghf.py": {
+        "size": 26983
+      },
+      "pyscf/tdscf/gks.py": {
+        "size": 6402
+      },
+      "pyscf/tdscf/rhf.py": {
+        "size": 48904
+      },
+      "pyscf/tdscf/rks.py": {
+        "size": 8179
+      },
+      "pyscf/tdscf/test/test_tddks.py": {
+        "size": 5797
+      },
+      "pyscf/tdscf/test/test_tdgks.py": {
+        "size": 8342
+      },
+      "pyscf/tdscf/test/test_tdrhf.py": {
+        "size": 4284
+      },
+      "pyscf/tdscf/test/test_tdrks.py": {
+        "size": 20183
+      },
+      "pyscf/tdscf/test/test_tdrks_vv10.py": {
+        "size": 11534
+      },
+      "pyscf/tdscf/test/test_tduhf.py": {
+        "size": 4077
+      },
+      "pyscf/tdscf/test/test_tduks.py": {
+        "size": 20340
+      },
+      "pyscf/tdscf/uhf.py": {
+        "size": 40778
+      },
+      "pyscf/tdscf/uks.py": {
+        "size": 9132
+      },
+      "pyscf/tools/__init__.py": {
+        "size": 740
+      },
+      "pyscf/tools/c60struct.py": {
+        "size": 3635
+      },
+      "pyscf/tools/chgcar.py": {
+        "size": 9509
+      },
+      "pyscf/tools/chkfile_util.py": {
+        "size": 2342
+      },
+      "pyscf/tools/cubegen.py": {
+        "size": 14652
+      },
+      "pyscf/tools/dump_mat.py": {
+        "size": 8527
+      },
+      "pyscf/tools/fcidump.py": {
+        "size": 15767
+      },
+      "pyscf/tools/finite_diff.py": {
+        "size": 6011
+      },
+      "pyscf/tools/mo_mapping.py": {
+        "size": 3857
+      },
+      "pyscf/tools/molden.py": {
+        "size": 20092
+      },
+      "pyscf/tools/qcschema.py": {
+        "size": 9361
+      },
+      "pyscf/tools/ring.py": {
+        "size": 909
+      },
+      "pyscf/tools/test/qcschema_result.json": {
+        "size": 17199
+      },
+      "pyscf/tools/test/test_cubegen.py": {
+        "size": 4284
+      },
+      "pyscf/tools/test/test_fcidump.py": {
+        "size": 3460
+      },
+      "pyscf/tools/test/test_finite_diff.py": {
+        "size": 4058
+      },
+      "pyscf/tools/test/test_mo_mapping.py": {
+        "size": 2368
+      },
+      "pyscf/tools/test/test_molden.py": {
+        "size": 4392
+      },
+      "pyscf/tools/test/test_qcschema.py": {
+        "size": 1229
+      },
+      "pyscf/tools/wfn_format.py": {
+        "size": 8281
+      },
+      "pyscf/x2c/__init__.py": {
+        "size": 720
+      },
+      "pyscf/x2c/_response_functions.py": {
+        "size": 1221
+      },
+      "pyscf/x2c/dft.py": {
+        "size": 2062
+      },
+      "pyscf/x2c/newton_ah.py": {
+        "size": 2495
+      },
+      "pyscf/x2c/sfx2c1e.py": {
+        "size": 11025
+      },
+      "pyscf/x2c/sfx2c1e_grad.py": {
+        "size": 10187
+      },
+      "pyscf/x2c/sfx2c1e_hess.py": {
+        "size": 16869
+      },
+      "pyscf/x2c/stability.py": {
+        "size": 1363
+      },
+      "pyscf/x2c/tdscf.py": {
+        "size": 15351
+      },
+      "pyscf/x2c/test/test_dft.py": {
+        "size": 1706
+      },
+      "pyscf/x2c/test/test_tdscf.py": {
+        "size": 6878
+      },
+      "pyscf/x2c/test/test_x2c.py": {
+        "size": 9486
+      },
+      "pyscf/x2c/test/test_x2c_grad.py": {
+        "size": 9389
+      },
+      "pyscf/x2c/test/test_x2c_hess.py": {
+        "size": 25962
+      },
+      "pyscf/x2c/x2c.py": {
+        "size": 39650
+      },
+      "pytest.ini": {
+        "size": 310
+      },
+      "setup.py": {
+        "size": 4954
+      },
+      "tools/verify_examples.py": {
+        "size": 7113
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.pyscf",
+      "source.pyscf.adc",
+      "source.pyscf.agf2",
+      "source.pyscf.ao2mo",
+      "source.pyscf.cc",
+      "source.pyscf.ci",
+      "source.pyscf.data",
+      "source.pyscf.df",
+      "source.pyscf.dft",
+      "source.pyscf.eph",
+      "source.pyscf.fci",
+      "source.pyscf.geomopt",
+      "source.pyscf.grad",
+      "source.pyscf.gto",
+      "source.pyscf.gw",
+      "source.pyscf.hessian",
+      "source.pyscf.lib",
+      "source.pyscf.lo",
+      "source.pyscf.mcpdft",
+      "source.pyscf.mcscf",
+      "source.pyscf.md",
+      "source.pyscf.mp",
+      "source.pyscf.mrpt",
+      "source.pyscf.nac",
+      "source.pyscf.pbc",
+      "source.pyscf.qmmm",
+      "source.pyscf.scf",
+      "source.pyscf.sgx",
+      "source.pyscf.solvent",
+      "source.pyscf.soscf",
+      "source.pyscf.symm",
+      "source.pyscf.tddft",
+      "source.pyscf.tdscf",
+      "source.pyscf.tools",
+      "source.pyscf.x2c"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.pyscf.gto",
+        "module": "source.pyscf.gto.mole",
+        "functions": [
+          "M",
+          "Mole",
+          "conc_mol",
+          "same_mol",
+          "same_basis_set",
+          "loads",
+          "dumps"
+        ],
+        "classes": [
+          "Mole"
+        ],
+        "description": "Core molecular system builder and geometry/basis container; foundational entry for almost all molecular workflows."
+      },
+      {
+        "package": "source.pyscf.scf",
+        "module": "source.pyscf.scf.hf",
+        "functions": [
+          "kernel",
+          "energy_elec",
+          "get_jk",
+          "get_ovlp",
+          "make_rdm1",
+          "analyze"
+        ],
+        "classes": [
+          "SCF",
+          "RHF"
+        ],
+        "description": "Primary Hartree–Fock SCF engine and shared SCF interfaces used by many post-HF modules."
+      },
+      {
+        "package": "source.pyscf.scf",
+        "module": "source.pyscf.scf.uhf",
+        "functions": [
+          "kernel",
+          "make_rdm1",
+          "spin_square",
+          "analyze"
+        ],
+        "classes": [
+          "UHF"
+        ],
+        "description": "Unrestricted HF implementation for open-shell systems and a common branching point for correlated methods."
+      },
+      {
+        "package": "source.pyscf.dft",
+        "module": "source.pyscf.dft.rks",
+        "functions": [
+          "get_veff",
+          "energy_elec",
+          "prune_small_rho_grids_"
+        ],
+        "classes": [
+          "RKS"
+        ],
+        "description": "Restricted Kohn–Sham DFT implementation integrated with SCF stack and XC backends."
+      },
+      {
+        "package": "source.pyscf.dft",
+        "module": "source.pyscf.dft.uks",
+        "functions": [
+          "get_veff",
+          "energy_elec"
+        ],
+        "classes": [
+          "UKS"
+        ],
+        "description": "Unrestricted Kohn–Sham DFT for spin-polarized systems."
+      },
+      {
+        "package": "source.pyscf.mp",
+        "module": "source.pyscf.mp.mp2",
+        "functions": [
+          "kernel",
+          "energy",
+          "make_rdm1",
+          "make_rdm2"
+        ],
+        "classes": [
+          "MP2",
+          "RMP2"
+        ],
+        "description": "Second-order Møller–Plesset perturbation module; typical first post-SCF extension."
+      },
+      {
+        "package": "source.pyscf.cc",
+        "module": "source.pyscf.cc.ccsd",
+        "functions": [
+          "kernel",
+          "update_amps",
+          "energy",
+          "amplitudes_to_vector",
+          "vector_to_amplitudes"
+        ],
+        "classes": [
+          "CCSD"
+        ],
+        "description": "Coupled-cluster singles and doubles implementation; major post-HF production path."
+      },
+      {
+        "package": "source.pyscf.mcscf",
+        "module": "source.pyscf.mcscf.casci",
+        "functions": [
+          "kernel",
+          "analyze",
+          "sort_mo",
+          "cas_natorb"
+        ],
+        "classes": [
+          "CASCI"
+        ],
+        "description": "Multiconfigurational CASCI driver for active-space workflows."
+      },
+      {
+        "package": "source.pyscf.mcscf",
+        "module": "source.pyscf.mcscf.mc1step",
+        "functions": [
+          "kernel",
+          "rotate_orb_cc",
+          "update_jk_in_ah"
+        ],
+        "classes": [
+          "CASSCF"
+        ],
+        "description": "One-step CASSCF optimizer and key active-space optimization engine."
+      },
+      {
+        "package": "source.pyscf.pbc",
+        "module": "source.pyscf.pbc.gto.cell",
+        "functions": [
+          "M",
+          "Cell",
+          "loads",
+          "dumps"
+        ],
+        "classes": [
+          "Cell"
+        ],
+        "description": "Periodic cell definition and lattice/basis setup for solid-state calculations."
+      },
+      {
+        "package": "source.pyscf.pbc",
+        "module": "source.pyscf.pbc.scf.khf",
+        "functions": [
+          "kernel",
+          "get_jk",
+          "get_ovlp",
+          "make_rdm1"
+        ],
+        "classes": [
+          "KSCF",
+          "KRHF"
+        ],
+        "description": "k-point periodic HF SCF stack for crystalline systems."
+      },
+      {
+        "package": "source.pyscf.tools",
+        "module": "source.pyscf.tools.qcschema",
+        "functions": [
+          "load_qcschema_json",
+          "load_qcschema_go_final_json",
+          "load_qcschema_molecule",
+          "recreate_mol_obj"
+        ],
+        "classes": [],
+        "description": "Interoperability utilities for QCSchema import/export and external workflow integration."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "No stable first-class CLI entrypoint detected",
+        "module": "N/A",
+        "description": "Repository appears primarily import-driven; no explicit console_scripts/CLI module identified in provided scan summary."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.95
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "h5py"
+      ],
+      "optional": [
+        "matplotlib",
+        "pytest",
+        "geometric",
+        "pyberny",
+        "ase",
+        "xcfun",
+        "libxc-compatible runtime",
+        "mpi4py"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/pyscf/pyscf",
+    "repo_name": "pyscf",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "complex"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/cjhutto/vaderSentiment",
+    "summary": "Imported via zip fallback, file count: 10",
+    "file_tree": {
+      "LICENSE.txt": {
+        "size": 1076
+      },
+      "__init__.py": {
+        "size": 0
+      },
+      "additional_resources/build_emoji_lexicon.py": {
+        "size": 1448
+      },
+      "additional_resources/emoji-test.txt": {
+        "size": 337881
+      },
+      "setup.cfg": {
+        "size": 1451
+      },
+      "setup.py": {
+        "size": 2119
+      },
+      "vaderSentiment/__init__.py": {
+        "size": 17
+      },
+      "vaderSentiment/emoji_utf8_lexicon.txt": {
+        "size": 94962
+      },
+      "vaderSentiment/vaderSentiment.py": {
+        "size": 33937
+      },
+      "vaderSentiment/vader_lexicon.txt": {
+        "size": 426784
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "vaderSentiment/vaderSentiment.py",
+        "module": "vaderSentiment",
+        "functions": [
+          "negated",
+          "normalize",
+          "allcap_differential",
+          "scalar_inc_dec",
+          "SentiText",
+          "sentiment_valence",
+          "_least_check",
+          "_but_check",
+          "_idioms_check",
+          "_never_check",
+          "_punctuation_emphasis",
+          "_amplify_ep",
+          "_amplify_qm",
+          "_sift_sentiment_scores",
+          "score_valence"
+        ],
+        "classes": [
+          "SentimentIntensityAnalyzer"
+        ],
+        "description": "Primary sentiment analysis implementation. Contains lexicon loading, token-level valence heuristics, punctuation/caps modifiers, idiom handling, and final polarity scoring (pos/neu/neg/compound). This is the core integration target for an MCP plugin."
+      },
+      {
+        "package": "additional_resources/build_emoji_lexicon.py",
+        "module": "build_emoji_lexicon",
+        "functions": [],
+        "classes": [],
+        "description": "Auxiliary resource-generation script for emoji lexicon preparation; not required for runtime sentiment inference."
+      },
+      {
+        "package": "setup.py",
+        "module": "setup",
+        "functions": [],
+        "classes": [],
+        "description": "Packaging metadata/install script; useful for dependency and distribution behavior, not for runtime scoring logic."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "Python standard library (codecs, json, math, os, re, string, itertools)"
+      ],
+      "optional": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.97,
+      "intrusiveness_risk": "low",
+      "complexity": "simple"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/cjhutto/vaderSentiment",
+    "repo_name": "vaderSentiment",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.97,
+    "intrusiveness_risk": "low",
+    "complexity": "simple"
+  }
+}

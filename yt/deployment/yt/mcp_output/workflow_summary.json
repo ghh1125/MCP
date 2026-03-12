@@ -1,0 +1,227 @@
+{
+  "repository": {
+    "name": "yt",
+    "url": "https://github.com/yt-project/yt",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/yt",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773253775.547319,
+    "end_time": 1773254010.5172539,
+    "duration": 234.96993494033813,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 13,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.yt",
+        "source.yt._maintenance",
+        "source.yt.analysis_modules",
+        "source.yt.data_objects",
+        "source.yt.extensions",
+        "source.yt.fields",
+        "source.yt.frontends",
+        "source.yt.geometry",
+        "source.yt.sample_data",
+        "source.yt.tests",
+        "source.yt.units",
+        "source.yt.utilities",
+        "source.yt.visualization"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/yt-project/yt",
+      "repo_name": "yt",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/yt/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke-test suite for the MCP plugin (server startup",
+    "one import-based call",
+    "one CLI-fallback call)",
+    "pin and validate the yt compatibility range in `mcp_output/requirements.txt` (or document tested versions) to reduce breakage from upstream API shifts",
+    "add structured error mapping in `adapter.py` (import errors",
+    "dataset load errors",
+    "field lookup errors) with actionable messages",
+    "implement lazy imports for heavy visualization/volume-rendering endpoints to improve startup latency and memory use",
+    "add endpoint-level timeouts and cancellation guards for long-running loads/renders",
+    "introduce input validation schemas for each endpoint (paths",
+    "field names",
+    "geometry params) to fail fast and safely",
+    "add a capability-discovery endpoint that reports optional dependency availability (matplotlib/scipy/h5py/etc.) and disables unsupported tools dynamically",
+    "create a focused regression test matrix for high-risk core surfaces (`loaders`",
+    "`Dataset`",
+    "selection containers",
+    "plotting classes)",
+    "add observability hooks (structured logs + per-endpoint timing + failure counters) in `mcp_service.py`",
+    "separate “stable” vs “experimental” endpoints in README and metadata to set user expectations",
+    "document frontend-specific caveats and required extras for common dataset types in `README_MCP.md`",
+    "add a lightweight benchmark script for representative calls (load + sliceplot + profileplot) and track baseline in CI",
+    "enforce type checking (mypy/pyright) on the MCP code and tighten pydantic models for request/response payloads",
+    "add safe resource cleanup patterns (closing datasets/files",
+    "temporary artifact cleanup) for long-lived MCP processes",
+    "include a fallback/degradation strategy when DeepWiki or external analysis metadata is unavailable so plugin generation remains deterministic"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state with all planned nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Import-first adapter strategy was appropriate for yt’s API-rich Python architecture (import feasibility 0.86, strategy confidence 0.89).",
+      "Generated MCP service started healthy over stdio and passed plugin-level run validation.",
+      "Core module targeting was sensible (loaders, Dataset, selection containers, plotting, scene), giving broad initial coverage."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Quality gaps remain: original project tests were not executed successfully, DeepWiki analysis failed, and generated artifact metrics (LOC/size/endpoints) appear inconsistent with service info.",
+      "Test validation depth is low (startup health only), so functional correctness risk remains for complex yt operations."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; repository is large (~926 files), so this likely consumed a meaningful portion of the 234.97s total.",
+      "analysis_time": "Static/package analysis completed with useful module mapping and risk scoring; DeepWiki sub-step failed but did not block pipeline progress.",
+      "generation_time": "Code generation completed quickly and produced expected MCP scaffold files plus import adapter and README.",
+      "test_time": "Plugin runtime health check passed, but no substantial endpoint smoke/regression suite was executed; effective test depth is minimal."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB likely placeholder), cannot validate real memory profile.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0% likely placeholder), cannot validate compute efficiency.",
+      "disk_usage": "Artifact footprint metrics reported as 0 are inconsistent with generated files; disk reporting instrumentation is likely incomplete."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 82,
+    "performance_score": 68,
+    "maintainability_score": 74,
+    "security_score": 85,
+    "scalability_score": 72
+  }
+}

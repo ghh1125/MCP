@@ -1,0 +1,225 @@
+{
+  "repository": {
+    "name": "biopython",
+    "url": "https://github.com/biopython/biopython",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/biopython",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773296141.4603221,
+    "end_time": 1773296477.935463,
+    "duration": 336.47514176368713,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.96,
+      "intrusiveness_risk": "low",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/biopython/biopython",
+      "repo_name": "biopython",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/biopython/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/biopython/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75014 ms: Couldn't connect to server\nfatal: expected 'packfile'\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/biopython/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75014 ms: Couldn't connect to server\nfatal: expected 'packfile'\n"
+  ],
+  "recommendations": [
+    "deduplicate MCP endpoint names across modules (e.g.",
+    "multiple parse/read/write collisions) by introducing namespaced tool IDs like `seqio.parse` and `align.parse`",
+    "add a lightweight smoke test suite for generated MCP tools (import + one-call-per-endpoint) since test status is empty",
+    "generate strict Pydantic input/output schemas per endpoint (especially for Seq/Alignment/PDB objects) to avoid ambiguous serialization",
+    "create an automated dependency capability matrix (core vs optional deps like reportlab/matplotlib/networkx/lxml) and gate endpoint registration when extras are missing",
+    "add CI for `mcp_output` (lint",
+    "type-check",
+    "smoke tests) integrated with existing GitHub Actions",
+    "harden import adapter with graceful fallbacks/timeouts for online/network-bound modules (Entrez/KEGG/NCBIWWW) and explicit offline-safe mode",
+    "prioritize performance guards for heavy parsers by adding payload size limits and streaming responses for large files",
+    "improve error taxonomy in MCP service (user input errors vs parser errors vs missing optional dependency) with stable error codes",
+    "add caching for repeated expensive operations (e.g.",
+    "format indexing/read of large sequence/alignment files)",
+    "include golden example requests/responses in `README_MCP.md` for top workflows (Seq transform",
+    "SeqIO convert",
+    "PDB parse)",
+    "add contract tests to ensure MCP wrappers preserve Biopython behavior/signatures for key APIs",
+    "expose version/health endpoints reporting Biopython version and enabled optional backends",
+    "add security checks for file/path inputs (path traversal prevention",
+    "allowed-root policy)",
+    "split very large generated adapter sections into per-domain modules (Seq",
+    "Align",
+    "PDB",
+    "Entrez",
+    "Phylo) for maintainability",
+    "introduce observability hooks (structured logs + per-endpoint latency/error metrics)",
+    "pin and verify plugin runtime requirements in `mcp_output/requirements.txt` with upper bounds and periodic dependency update automation"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status `success` and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Resilience mechanism worked: after git clone failure, pipeline continued via zip fallback and still analyzed ~721 files.",
+      "Plugin scaffold was generated successfully with runnable entrypoint (`start_mcp.py`) and healthy MCP startup over stdio.",
+      "Import-based adapter strategy is appropriate for Biopython’s API-centric architecture and low intrusiveness risk."
+    ],
+    "failure_reasons": [
+      "Primary repository acquisition failed due to network connectivity timeout to github.com:443 (curl 28).",
+      "Telemetry quality issues: several metrics are inconsistent or zeroed (`total_files_processed=0`, `llm_calls=0`, empty env/perf/test details) despite evidence of substantial analysis and generation.",
+      "DeepWiki enrichment failed, reducing external architectural/contextual validation.",
+      "Generated endpoint namespace collisions (multiple parse/read/write tools) indicate incomplete disambiguation and weak contract validation."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Download likely dominated total runtime due to ~75s clone timeout before fallback; node succeeded functionally via `continue_with_empty` + zip fallback.",
+      "analysis_time": "Moderate-to-high for a large codebase (721 files); produced meaningful module mapping despite inconsistent dependency flags.",
+      "generation_time": "Efficient scaffold generation; however quality signals (0 LOC/size, 0 endpoint count in one section) indicate reporting defects.",
+      "test_time": "Insufficient validation depth; MCP health check passed, but original project tests not executed and MCP endpoint smoke/contract tests missing."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Cannot be reliably assessed (reported 0 MB). Instrumentation gap likely, not true zero usage.",
+      "cpu_efficiency": "Cannot be reliably assessed (reported 0%). Add per-node CPU sampling.",
+      "disk_usage": "Actual disk activity occurred (repo extraction + generated files), but reported generated size is 0; disk telemetry is incomplete."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 68,
+    "architecture_score": 74,
+    "performance_score": 61,
+    "maintainability_score": 66,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

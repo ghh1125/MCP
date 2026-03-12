@@ -1,0 +1,337 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/sloria/TextBlob",
+    "summary": "Imported via zip fallback, file count: 55",
+    "file_tree": {
+      ".travis.yml": {
+        "size": 1111
+      },
+      "dev-requirements.txt": {
+        "size": 64
+      },
+      "docs/_themes/flask_theme_support.py": {
+        "size": 4875
+      },
+      "docs/conf.py": {
+        "size": 2936
+      },
+      "docs/requirements.txt": {
+        "size": 49
+      },
+      "run_tests.py": {
+        "size": 1775
+      },
+      "setup.cfg": {
+        "size": 288
+      },
+      "setup.py": {
+        "size": 2115
+      },
+      "tasks.py": {
+        "size": 1005
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/data.json": {
+        "size": 781
+      },
+      "tests/test_blob.py": {
+        "size": 41684
+      },
+      "tests/test_classifiers.py": {
+        "size": 14017
+      },
+      "tests/test_decorators.py": {
+        "size": 520
+      },
+      "tests/test_formats.py": {
+        "size": 3534
+      },
+      "tests/test_inflect.py": {
+        "size": 1177
+      },
+      "tests/test_np_extractor.py": {
+        "size": 1931
+      },
+      "tests/test_parsers.py": {
+        "size": 497
+      },
+      "tests/test_sentiments.py": {
+        "size": 2445
+      },
+      "tests/test_taggers.py": {
+        "size": 1967
+      },
+      "tests/test_tokenizers.py": {
+        "size": 2670
+      },
+      "tests/test_utils.py": {
+        "size": 912
+      },
+      "textblob/__init__.py": {
+        "size": 292
+      },
+      "textblob/_text.py": {
+        "size": 61498
+      },
+      "textblob/base.py": {
+        "size": 2967
+      },
+      "textblob/blob.py": {
+        "size": 30866
+      },
+      "textblob/classifiers.py": {
+        "size": 19716
+      },
+      "textblob/compat.py": {
+        "size": 1485
+      },
+      "textblob/decorators.py": {
+        "size": 1085
+      },
+      "textblob/download_corpora.py": {
+        "size": 1028
+      },
+      "textblob/en/__init__.py": {
+        "size": 4370
+      },
+      "textblob/en/en-context.txt": {
+        "size": 6578
+      },
+      "textblob/en/en-entities.txt": {
+        "size": 10329
+      },
+      "textblob/en/en-lexicon.txt": {
+        "size": 524313
+      },
+      "textblob/en/en-morphology.txt": {
+        "size": 3274
+      },
+      "textblob/en/en-spelling.txt": {
+        "size": 321210
+      },
+      "textblob/en/inflect.py": {
+        "size": 19937
+      },
+      "textblob/en/np_extractors.py": {
+        "size": 6734
+      },
+      "textblob/en/parsers.py": {
+        "size": 480
+      },
+      "textblob/en/sentiments.py": {
+        "size": 3813
+      },
+      "textblob/en/taggers.py": {
+        "size": 1061
+      },
+      "textblob/exceptions.py": {
+        "size": 1470
+      },
+      "textblob/formats.py": {
+        "size": 4427
+      },
+      "textblob/inflect.py": {
+        "size": 416
+      },
+      "textblob/mixins.py": {
+        "size": 6387
+      },
+      "textblob/np_extractors.py": {
+        "size": 506
+      },
+      "textblob/parsers.py": {
+        "size": 405
+      },
+      "textblob/sentiments.py": {
+        "size": 594
+      },
+      "textblob/taggers.py": {
+        "size": 419
+      },
+      "textblob/tokenizers.py": {
+        "size": 2557
+      },
+      "textblob/translate.py": {
+        "size": 4512
+      },
+      "textblob/unicodecsv/__init__.py": {
+        "size": 6565
+      },
+      "textblob/utils.py": {
+        "size": 1526
+      },
+      "textblob/wordnet.py": {
+        "size": 422
+      },
+      "tox.ini": {
+        "size": 114
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "textblob/blob.py",
+        "module": "textblob.blob",
+        "functions": [],
+        "classes": [
+          "BaseBlob",
+          "TextBlob",
+          "Sentence",
+          "Word",
+          "WordList"
+        ],
+        "description": "Primary high-level NLP API: tokenization, tagging, noun phrase extraction, sentiment, parsing, n-grams, and text container abstractions."
+      },
+      {
+        "package": "textblob/classifiers.py",
+        "module": "textblob.classifiers",
+        "functions": [],
+        "classes": [
+          "BaseClassifier",
+          "NLTKClassifier",
+          "NaiveBayesClassifier",
+          "DecisionTreeClassifier",
+          "PositiveNaiveBayesClassifier",
+          "MaxEntClassifier"
+        ],
+        "description": "Training/inference wrappers for NLTK-based text classification workflows."
+      },
+      {
+        "package": "textblob/tokenizers.py",
+        "module": "textblob.tokenizers",
+        "functions": [],
+        "classes": [
+          "BaseTokenizer",
+          "WordTokenizer",
+          "SentenceTokenizer"
+        ],
+        "description": "Tokenization primitives used by TextBlob and related components."
+      },
+      {
+        "package": "textblob/en/sentiments.py",
+        "module": "textblob.en.sentiments",
+        "functions": [],
+        "classes": [
+          "PatternAnalyzer",
+          "NaiveBayesAnalyzer"
+        ],
+        "description": "English sentiment analyzers (pattern-based polarity/subjectivity and Naive Bayes variants)."
+      },
+      {
+        "package": "textblob/en/np_extractors.py",
+        "module": "textblob.en.np_extractors",
+        "functions": [],
+        "classes": [
+          "ConllExtractor",
+          "FastNPExtractor"
+        ],
+        "description": "Noun phrase extraction implementations."
+      },
+      {
+        "package": "textblob/en/taggers.py",
+        "module": "textblob.en.taggers",
+        "functions": [],
+        "classes": [
+          "NLTKTagger"
+        ],
+        "description": "Part-of-speech tagging adapter(s) for English."
+      },
+      {
+        "package": "textblob/formats.py",
+        "module": "textblob.formats",
+        "functions": [],
+        "classes": [
+          "BaseFormat",
+          "DelimitedFormat",
+          "CSV",
+          "JSON",
+          "TSV"
+        ],
+        "description": "Dataset I/O format abstractions used by classifier training and corpus ingestion."
+      },
+      {
+        "package": "textblob/translate.py",
+        "module": "textblob.translate",
+        "functions": [],
+        "classes": [
+          "Translator"
+        ],
+        "description": "Translation/detection utility class (network-dependent)."
+      },
+      {
+        "package": "textblob/download_corpora.py",
+        "module": "textblob.download_corpora",
+        "functions": [
+          "download_lite",
+          "download_all"
+        ],
+        "classes": [],
+        "description": "Bootstrap helpers to download required NLTK corpora resources."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "python -m textblob.download_corpora",
+        "module": "textblob.download_corpora",
+        "description": "Module-style command to download corpora needed by TextBlob/NLTK-backed features."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "nltk"
+      ],
+      "optional": [
+        "pattern (or pattern3-compatible runtime for PatternAnalyzer behavior, depending on environment)",
+        "pyyaml (only if external integrations use it; not core)",
+        "internet access for textblob.translate and corpora download operations"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.93,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/sloria/TextBlob",
+    "repo_name": "TextBlob",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.93,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

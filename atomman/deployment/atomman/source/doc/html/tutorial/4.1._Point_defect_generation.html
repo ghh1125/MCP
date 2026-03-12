@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to atomman: Point defect generation &#8212; atomman 1.4.11 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=eeb27264" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/documentation_options.js?v=651a37ba"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to atomman: Free surface generator" href="4.2._Free_surface_generator.html" />
+    <link rel="prev" title="Introduction to atomman: Defect creation and analysis" href="4._Defect_creation_and_analysis.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="4.2._Free_surface_generator.html" title="Introduction to atomman: Free surface generator"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="4._Defect_creation_and_analysis.html" title="Introduction to atomman: Defect creation and analysis"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">atomman 1.4.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction to atomman: Point defect generation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="Introduction-to-atomman:-Point-defect-generation">
+<h1>Introduction to atomman: Point defect generation<a class="headerlink" href="#Introduction-to-atomman:-Point-defect-generation" title="Link to this heading">¶</a></h1>
+<p><strong>Lucas M. Hale</strong>, <a class="reference external" href="mailto:lucas&#46;hale&#37;&#52;&#48;nist&#46;gov?Subject=ipr-demo">lucas<span>&#46;</span>hale<span>&#64;</span>nist<span>&#46;</span>gov</a>, <em>Materials Science and Engineering Division, NIST</em>.</p>
+<p><a class="reference external" href="http://www.nist.gov/public_affairs/disclaimer.cfm">Disclaimers</a></p>
+<section id="1.-Introduction">
+<h2>1. Introduction<a class="headerlink" href="#1.-Introduction" title="Link to this heading">¶</a></h2>
+<p>This Notebook provides an introduction to tools in atomman for generating point defects.</p>
+<p><strong>Library Imports</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard libraries</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># http://www.numpy.org/</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># https://github.com/usnistgov/atomman</span>
+<span class="kn">import</span> <span class="nn">atomman</span> <span class="k">as</span> <span class="nn">am</span>
+<span class="kn">import</span> <span class="nn">atomman.unitconvert</span> <span class="k">as</span> <span class="nn">uc</span>
+
+<span class="c1"># Show atomman version</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;atomman version =&#39;</span><span class="p">,</span> <span class="n">am</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="c1"># Show date of Notebook execution</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Notebook executed on&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+atomman version = 1.4.11
+Notebook executed on 2024-04-29
+</pre></div></div>
+</div>
+<p>Define 2x2x2 CsCl supercell for testing</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">atoms</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">Atoms</span><span class="p">(</span><span class="n">atype</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">pos</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]],</span> <span class="n">charge</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">alat</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">set_in_units</span><span class="p">(</span><span class="mf">4.11</span><span class="p">,</span> <span class="s1">&#39;angstrom&#39;</span><span class="p">)</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">Box</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">alat</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">alat</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">alat</span><span class="p">)</span>
+<span class="n">ucell</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">System</span><span class="p">(</span><span class="n">atoms</span><span class="o">=</span><span class="n">atoms</span><span class="p">,</span> <span class="n">box</span><span class="o">=</span><span class="n">box</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">system</span> <span class="o">=</span> <span class="n">ucell</span><span class="o">.</span><span class="n">supersize</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Print system information</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">system</span><span class="o">.</span><span class="n">box</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natoms =&#39;</span><span class="p">,</span> <span class="n">system</span><span class="o">.</span><span class="n">natoms</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natypes =&#39;</span><span class="p">,</span> <span class="n">system</span><span class="o">.</span><span class="n">natypes</span><span class="p">)</span>
+<span class="n">system</span><span class="o">.</span><span class="n">atoms_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 8.220,  0.000,  0.000]
+bvect =  [ 0.000,  8.220,  0.000]
+cvect =  [ 0.000,  0.000,  8.220]
+origin = [ 0.000,  0.000,  0.000]
+natoms = 16
+natypes = 2
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>atype</th>
+      <th>pos[0]</th>
+      <th>pos[1]</th>
+      <th>pos[2]</th>
+      <th>charge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">am</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">py3Dmol</span><span class="o">.</span><span class="n">view_3d</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div id="3dmolviewer_17144223456579394"  style="position: relative; width: 400px; height: 400px">
+        <p id="3dmolwarning_17144223456579394" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+        <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.1/3Dmol-min.js');
+}
+
+var viewer_17144223456579394 = null;
+var warn = document.getElementById("3dmolwarning_17144223456579394");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_17144223456579394 = $3Dmol.createViewer(document.getElementById("3dmolviewer_17144223456579394"),{backgroundColor:"white"});
+viewer_17144223456579394.zoomTo();
+    viewer_17144223456579394.addModel("CRYST1    8.220    8.220    8.220  90.00  90.00  90.00 P 1\nMODEL     1\nHETATM    1 UNX  MOL     1       0.000   0.000   0.000  1.00  0.00          X1.0\nHETATM    2 UNX  MOL     1       2.055   2.055   2.055  1.00  0.00          X2.0\nHETATM    3 UNX  MOL     1       4.110   0.000   0.000  1.00  0.00          X1.0\nHETATM    4 UNX  MOL     1       6.165   2.055   2.055  1.00  0.00          X2.0\nHETATM    5 UNX  MOL     1       0.000   4.110   0.000  1.00  0.00          X1.0\nHETATM    6 UNX  MOL     1       2.055   6.165   2.055  1.00  0.00          X2.0\nHETATM    7 UNX  MOL     1       4.110   4.110   0.000  1.00  0.00          X1.0\nHETATM    8 UNX  MOL     1       6.165   6.165   2.055  1.00  0.00          X2.0\nHETATM    9 UNX  MOL     1       0.000   0.000   4.110  1.00  0.00          X1.0\nHETATM   10 UNX  MOL     1       2.055   2.055   6.165  1.00  0.00          X2.0\nHETATM   11 UNX  MOL     1       4.110   0.000   4.110  1.00  0.00          X1.0\nHETATM   12 UNX  MOL     1       6.165   2.055   6.165  1.00  0.00          X2.0\nHETATM   13 UNX  MOL     1       0.000   4.110   4.110  1.00  0.00          X1.0\nHETATM   14 UNX  MOL     1       2.055   6.165   6.165  1.00  0.00          X2.0\nHETATM   15 UNX  MOL     1       4.110   4.110   4.110  1.00  0.00          X1.0\nHETATM   16 UNX  MOL     1       6.165   6.165   6.165  1.00  0.00          X2.0\nENDMDL\n","pdb");
+    viewer_17144223456579394.addUnitCell();
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 1},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 2},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 3},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 4},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 5},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 6},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 7},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 8},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 9},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 10},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 11},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 12},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 13},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 14},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 15},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456579394.setStyle({"model": -1, "serial": 16},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456579394.zoomTo();
+viewer_17144223456579394.render();
+});
+</script></div>
+</div>
+</section>
+<section id="2.-atomman.defect.vacancy()">
+<h2>2. atomman.defect.vacancy()<a class="headerlink" href="#2.-atomman.defect.vacancy()" title="Link to this heading">¶</a></h2>
+<p>Generates a new system by adding a vacancy point defect.</p>
+<ol class="arabic simple">
+<li><p>Removes the indicated atom from the system</p></li>
+<li><p>Adds per-atom property old_id if it doesn’t exist corresponding to the atom ids in the original system.</p></li>
+</ol>
+<p>Parameters</p>
+<ul class="simple">
+<li><p><strong>system</strong> (<em>atomman.System</em>) The base System to add the defect to.</p></li>
+<li><p><strong>pos</strong> (<em>array-like object, optional</em>) Position of the atom to be removed. Either pos or ptd_id must be given.</p></li>
+<li><p><strong>ptd_id</strong> (<em>int, optional</em>) Id of the atom to be removed. Either pos or ptd_id must be given.</p></li>
+<li><p><strong>scale</strong> (<em>bool, optional</em>) Indicates if pos is Cartesian (False) or box-relative (True). Default value is False.</p></li>
+<li><p><strong>atol</strong> (<em>float, optional</em>) Absolute tolerance for position-based searching. Default value is 1e-3 angstroms.</p></li>
+</ul>
+<p>Returns</p>
+<ul class="simple">
+<li><p>(<em>atomman.System</em>) A new system with the vacancy added.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a vacancy by deleting atom 5</span>
+<span class="n">d_system</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">defect</span><span class="o">.</span><span class="n">vacancy</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">ptd_id</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Add a second vacancy by deleting atom at position [0.00, 4.110, 4.110]</span>
+<span class="n">d_system</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">defect</span><span class="o">.</span><span class="n">vacancy</span><span class="p">(</span><span class="n">d_system</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">[</span><span class="mf">0.00</span><span class="p">,</span> <span class="mf">4.11</span><span class="p">,</span> <span class="mf">4.11</span><span class="p">])</span>
+
+<span class="c1"># Print system information</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d_system</span><span class="o">.</span><span class="n">box</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natoms =&#39;</span><span class="p">,</span> <span class="n">d_system</span><span class="o">.</span><span class="n">natoms</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natypes =&#39;</span><span class="p">,</span> <span class="n">d_system</span><span class="o">.</span><span class="n">natypes</span><span class="p">)</span>
+<span class="n">d_system</span><span class="o">.</span><span class="n">atoms_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 8.220,  0.000,  0.000]
+bvect =  [ 0.000,  8.220,  0.000]
+cvect =  [ 0.000,  0.000,  8.220]
+origin = [ 0.000,  0.000,  0.000]
+natoms = 14
+natypes = 2
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>atype</th>
+      <th>pos[0]</th>
+      <th>pos[1]</th>
+      <th>pos[2]</th>
+      <th>charge</th>
+      <th>old_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">am</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">py3Dmol</span><span class="o">.</span><span class="n">view_3d</span><span class="p">(</span><span class="n">d_system</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div id="3dmolviewer_17144223456718194"  style="position: relative; width: 400px; height: 400px">
+        <p id="3dmolwarning_17144223456718194" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+        <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.1/3Dmol-min.js');
+}
+
+var viewer_17144223456718194 = null;
+var warn = document.getElementById("3dmolwarning_17144223456718194");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_17144223456718194 = $3Dmol.createViewer(document.getElementById("3dmolviewer_17144223456718194"),{backgroundColor:"white"});
+viewer_17144223456718194.zoomTo();
+    viewer_17144223456718194.addModel("CRYST1    8.220    8.220    8.220  90.00  90.00  90.00 P 1\nMODEL     1\nHETATM    1 UNX  MOL     1       0.000   0.000   0.000  1.00  0.00          X1.0\nHETATM    2 UNX  MOL     1       2.055   2.055   2.055  1.00  0.00          X2.0\nHETATM    3 UNX  MOL     1       4.110   0.000   0.000  1.00  0.00          X1.0\nHETATM    4 UNX  MOL     1       6.165   2.055   2.055  1.00  0.00          X2.0\nHETATM    5 UNX  MOL     1       0.000   4.110   0.000  1.00  0.00          X1.0\nHETATM    6 UNX  MOL     1       4.110   4.110   0.000  1.00  0.00          X1.0\nHETATM    7 UNX  MOL     1       6.165   6.165   2.055  1.00  0.00          X2.0\nHETATM    8 UNX  MOL     1       0.000   0.000   4.110  1.00  0.00          X1.0\nHETATM    9 UNX  MOL     1       2.055   2.055   6.165  1.00  0.00          X2.0\nHETATM   10 UNX  MOL     1       4.110   0.000   4.110  1.00  0.00          X1.0\nHETATM   11 UNX  MOL     1       6.165   2.055   6.165  1.00  0.00          X2.0\nHETATM   12 UNX  MOL     1       2.055   6.165   6.165  1.00  0.00          X2.0\nHETATM   13 UNX  MOL     1       4.110   4.110   4.110  1.00  0.00          X1.0\nHETATM   14 UNX  MOL     1       6.165   6.165   6.165  1.00  0.00          X2.0\nENDMDL\n","pdb");
+    viewer_17144223456718194.addUnitCell();
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 1},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 2},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 3},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 4},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 5},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 6},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 7},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 8},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 9},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 10},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 11},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 12},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 13},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456718194.setStyle({"model": -1, "serial": 14},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456718194.zoomTo();
+viewer_17144223456718194.render();
+});
+</script></div>
+</div>
+</section>
+<section id="3.-atomman.defect.interstitial()">
+<h2>3. atomman.defect.interstitial()<a class="headerlink" href="#3.-atomman.defect.interstitial()" title="Link to this heading">¶</a></h2>
+<p>Generates a new system by adding a vacancy point defect.</p>
+<ol class="arabic simple">
+<li><p>Adds a new atom to the end of the Atoms list.</p></li>
+<li><p>Adds per-atom property old_id if it doesn’t exist corresponding to the atom ids in the original system.</p></li>
+<li><p>Sets any of the new atom’s per-atom properties to values given as kwargs. Any undefined properties are given zero values except atype, which is set to 1.</p></li>
+</ol>
+<p>Parameters</p>
+<ul class="simple">
+<li><p><strong>system</strong> (<em>atomman.System</em>) The base System to add the defect to.</p></li>
+<li><p><strong>pos</strong> (<em>array-like object</em>) Position of the atom being added.</p></li>
+<li><p><strong>scale</strong> (<em>bool, optional</em>) Indicates if pos is Cartesian (False) or box-relative (True). Default value is False.</p></li>
+<li><p><strong>atol</strong> (<em>float, optional</em>) Absolute tolerance for position-based searching. Default value is 1e-3 angstroms.</p></li>
+<li><p><strong>**kwargs</strong> (<em>any, optional</em>) Keyword arguments corresponding to per-atom property values for the new atom. By default, atype==1 and all other properties are set to be all zeros for the property’s shape.</p></li>
+</ul>
+<p>Returns</p>
+<ul class="simple">
+<li><p>(<em>atomman.System</em>) A new system with the interstitial added.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add interstitial at pos = [1.515, 1.515, 0.000] without defining atype, charge</span>
+<span class="n">d_system</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">defect</span><span class="o">.</span><span class="n">interstitial</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">[</span><span class="mf">1.515</span><span class="p">,</span> <span class="mf">1.515</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+
+<span class="c1"># Add second interstitial at pos = [1.515, 4.545, 0.000] with defining atype, charge</span>
+<span class="n">d_system</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">defect</span><span class="o">.</span><span class="n">interstitial</span><span class="p">(</span><span class="n">d_system</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">[</span><span class="mf">1.515</span><span class="p">,</span> <span class="mf">4.545</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="n">atype</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Print system information</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d_system</span><span class="o">.</span><span class="n">box</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natoms =&#39;</span><span class="p">,</span> <span class="n">d_system</span><span class="o">.</span><span class="n">natoms</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natypes =&#39;</span><span class="p">,</span> <span class="n">d_system</span><span class="o">.</span><span class="n">natypes</span><span class="p">)</span>
+<span class="n">d_system</span><span class="o">.</span><span class="n">atoms_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 8.220,  0.000,  0.000]
+bvect =  [ 0.000,  8.220,  0.000]
+cvect =  [ 0.000,  0.000,  8.220]
+origin = [ 0.000,  0.000,  0.000]
+natoms = 18
+natypes = 2
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>atype</th>
+      <th>pos[0]</th>
+      <th>pos[1]</th>
+      <th>pos[2]</th>
+      <th>charge</th>
+      <th>old_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>1</td>
+      <td>1.515</td>
+      <td>1.515</td>
+      <td>0.000</td>
+      <td>0.0</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2</td>
+      <td>1.515</td>
+      <td>4.545</td>
+      <td>0.000</td>
+      <td>1.0</td>
+      <td>17</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">am</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">py3Dmol</span><span class="o">.</span><span class="n">view_3d</span><span class="p">(</span><span class="n">d_system</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div id="3dmolviewer_17144223456903782"  style="position: relative; width: 400px; height: 400px">
+        <p id="3dmolwarning_17144223456903782" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+        <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.1/3Dmol-min.js');
+}
+
+var viewer_17144223456903782 = null;
+var warn = document.getElementById("3dmolwarning_17144223456903782");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_17144223456903782 = $3Dmol.createViewer(document.getElementById("3dmolviewer_17144223456903782"),{backgroundColor:"white"});
+viewer_17144223456903782.zoomTo();
+    viewer_17144223456903782.addModel("CRYST1    8.220    8.220    8.220  90.00  90.00  90.00 P 1\nMODEL     1\nHETATM    1 UNX  MOL     1       0.000   0.000   0.000  1.00  0.00          X1.0\nHETATM    2 UNX  MOL     1       2.055   2.055   2.055  1.00  0.00          X2.0\nHETATM    3 UNX  MOL     1       4.110   0.000   0.000  1.00  0.00          X1.0\nHETATM    4 UNX  MOL     1       6.165   2.055   2.055  1.00  0.00          X2.0\nHETATM    5 UNX  MOL     1       0.000   4.110   0.000  1.00  0.00          X1.0\nHETATM    6 UNX  MOL     1       2.055   6.165   2.055  1.00  0.00          X2.0\nHETATM    7 UNX  MOL     1       4.110   4.110   0.000  1.00  0.00          X1.0\nHETATM    8 UNX  MOL     1       6.165   6.165   2.055  1.00  0.00          X2.0\nHETATM    9 UNX  MOL     1       0.000   0.000   4.110  1.00  0.00          X1.0\nHETATM   10 UNX  MOL     1       2.055   2.055   6.165  1.00  0.00          X2.0\nHETATM   11 UNX  MOL     1       4.110   0.000   4.110  1.00  0.00          X1.0\nHETATM   12 UNX  MOL     1       6.165   2.055   6.165  1.00  0.00          X2.0\nHETATM   13 UNX  MOL     1       0.000   4.110   4.110  1.00  0.00          X1.0\nHETATM   14 UNX  MOL     1       2.055   6.165   6.165  1.00  0.00          X2.0\nHETATM   15 UNX  MOL     1       4.110   4.110   4.110  1.00  0.00          X1.0\nHETATM   16 UNX  MOL     1       6.165   6.165   6.165  1.00  0.00          X2.0\nHETATM   17 UNX  MOL     1       1.515   1.515   0.000  1.00  0.00          X1.0\nHETATM   18 UNX  MOL     1       1.515   4.545   0.000  1.00  0.00          X2.0\nENDMDL\n","pdb");
+    viewer_17144223456903782.addUnitCell();
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 1},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 2},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 3},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 4},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 5},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 6},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 7},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 8},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 9},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 10},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 11},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 12},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 13},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 14},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 15},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 16},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 17},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223456903782.setStyle({"model": -1, "serial": 18},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223456903782.zoomTo();
+viewer_17144223456903782.render();
+});
+</script></div>
+</div>
+</section>
+<section id="4.-atomman.defect.substitutional()">
+<h2>4. atomman.defect.substitutional()<a class="headerlink" href="#4.-atomman.defect.substitutional()" title="Link to this heading">¶</a></h2>
+<p>Generates a new system by adding a substitutional point defect.</p>
+<ol class="arabic simple">
+<li><p>Moves the indicated atom to the end of the list and changes its atype to the value given.</p></li>
+<li><p>Adds per-atom property old_id if it doesn’t exist corresponding to the atom ids in the original system.</p></li>
+<li><p>Sets any of the moved atom’s per-atom properties to values given as kwargs. Any undefined properties are left unchanged.</p></li>
+</ol>
+<p>Parameters</p>
+<ul class="simple">
+<li><p><strong>system</strong> (<em>atomman.System</em>) The base System to add the defect to.</p></li>
+<li><p><strong>pos</strong> (<em>array-like object, optional</em>) Position of the atom being modified. Either pos or ptd_id must be given.</p></li>
+<li><p><strong>ptd_id</strong> (<em>int, optional</em>) Id of the atom to be modified. Either pos or ptd_id must be given.</p></li>
+<li><p><strong>atype</strong> (<em>int, optional</em>) Integer atomic type to change the identified atom to. Must be different than the atom’s current id. Default value is 1.</p></li>
+<li><p><strong>scale</strong> (<em>bool, optional</em>) Indicates if pos is Cartesian (False) or box-relative (True). Default value is False.</p></li>
+<li><p><strong>atol</strong> (<em>float, optional</em>) Absolute tolerance for position-based searching. Default value is 1e-3 angstroms.</p></li>
+<li><p><strong>**kwargs</strong> (<em>any, optional</em>) Keyword arguments corresponding to per-atom property values for the modified atom. By default, all properties (except atype) are left unchanged.</p></li>
+</ul>
+<p>Returns</p>
+<ul class="simple">
+<li><p>(<em>atomman.System</em>) A new system with the substitutional added.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make atom 1 a substitutional without changing charge</span>
+<span class="n">d_system</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">defect</span><span class="o">.</span><span class="n">substitutional</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">ptd_id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">atype</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Add second substitutional at pos = [0.00, 4.11, 4.11] and change charge</span>
+<span class="n">d_system</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">defect</span><span class="o">.</span><span class="n">substitutional</span><span class="p">(</span><span class="n">d_system</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="p">[</span><span class="mf">0.00</span><span class="p">,</span> <span class="mf">4.11</span><span class="p">,</span> <span class="mf">4.11</span><span class="p">],</span> <span class="n">atype</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">charge</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Print system information</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d_system</span><span class="o">.</span><span class="n">box</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natoms =&#39;</span><span class="p">,</span> <span class="n">d_system</span><span class="o">.</span><span class="n">natoms</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natypes =&#39;</span><span class="p">,</span> <span class="n">d_system</span><span class="o">.</span><span class="n">natypes</span><span class="p">)</span>
+<span class="n">d_system</span><span class="o">.</span><span class="n">atoms_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 8.220,  0.000,  0.000]
+bvect =  [ 0.000,  8.220,  0.000]
+cvect =  [ 0.000,  0.000,  8.220]
+origin = [ 0.000,  0.000,  0.000]
+natoms = 16
+natypes = 3
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>atype</th>
+      <th>pos[0]</th>
+      <th>pos[1]</th>
+      <th>pos[2]</th>
+      <th>charge</th>
+      <th>old_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>3</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>1.0</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">am</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">py3Dmol</span><span class="o">.</span><span class="n">view_3d</span><span class="p">(</span><span class="n">d_system</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div id="3dmolviewer_17144223457089818"  style="position: relative; width: 400px; height: 400px">
+        <p id="3dmolwarning_17144223457089818" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+        <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.1/3Dmol-min.js');
+}
+
+var viewer_17144223457089818 = null;
+var warn = document.getElementById("3dmolwarning_17144223457089818");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_17144223457089818 = $3Dmol.createViewer(document.getElementById("3dmolviewer_17144223457089818"),{backgroundColor:"white"});
+viewer_17144223457089818.zoomTo();
+    viewer_17144223457089818.addModel("CRYST1    8.220    8.220    8.220  90.00  90.00  90.00 P 1\nMODEL     1\nHETATM    1 UNX  MOL     1       0.000   0.000   0.000  1.00  0.00          X1.0\nHETATM    2 UNX  MOL     1       4.110   0.000   0.000  1.00  0.00          X1.0\nHETATM    3 UNX  MOL     1       6.165   2.055   2.055  1.00  0.00          X2.0\nHETATM    4 UNX  MOL     1       0.000   4.110   0.000  1.00  0.00          X1.0\nHETATM    5 UNX  MOL     1       2.055   6.165   2.055  1.00  0.00          X2.0\nHETATM    6 UNX  MOL     1       4.110   4.110   0.000  1.00  0.00          X1.0\nHETATM    7 UNX  MOL     1       6.165   6.165   2.055  1.00  0.00          X2.0\nHETATM    8 UNX  MOL     1       0.000   0.000   4.110  1.00  0.00          X1.0\nHETATM    9 UNX  MOL     1       2.055   2.055   6.165  1.00  0.00          X2.0\nHETATM   10 UNX  MOL     1       4.110   0.000   4.110  1.00  0.00          X1.0\nHETATM   11 UNX  MOL     1       6.165   2.055   6.165  1.00  0.00          X2.0\nHETATM   12 UNX  MOL     1       2.055   6.165   6.165  1.00  0.00          X2.0\nHETATM   13 UNX  MOL     1       4.110   4.110   4.110  1.00  0.00          X1.0\nHETATM   14 UNX  MOL     1       6.165   6.165   6.165  1.00  0.00          X2.0\nHETATM   15 UNX  MOL     1       2.055   2.055   2.055  1.00  0.00          X3.0\nHETATM   16 UNX  MOL     1       0.000   4.110   4.110  1.00  0.00          X2.0\nENDMDL\n","pdb");
+    viewer_17144223457089818.addUnitCell();
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 1},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 2},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 3},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 4},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 5},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 6},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 7},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 8},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 9},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 10},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 11},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 12},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 13},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 14},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 15},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457089818.setStyle({"model": -1, "serial": 16},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457089818.zoomTo();
+viewer_17144223457089818.render();
+});
+</script></div>
+</div>
+</section>
+<section id="5.-atomman.defect.dumbbell()">
+<h2>5. atomman.defect.dumbbell()<a class="headerlink" href="#5.-atomman.defect.dumbbell()" title="Link to this heading">¶</a></h2>
+<p>Generates a new system by adding a dumbbell interstitial point defect.</p>
+<ol class="arabic simple">
+<li><p>Copies the indicated atom and moves both the original and copy to the end of the Atoms list.</p></li>
+<li><p>Displaces the dumbbell atoms position’s by +-db_vect.</p></li>
+<li><p>Adds per-atom property old_id if it doesn’t exist corresponding to the atom ids in the original system.</p></li>
+<li><p>Sets any of the new atom’s per-atom properties to values given as kwargs. Any undefined properties are left unchanged.</p></li>
+</ol>
+<p>Parameters</p>
+<ul class="simple">
+<li><p><strong>system</strong> (<em>atomman.System</em>) The base System to add the defect to.</p></li>
+<li><p><strong>pos</strong> (<em>array-like object, optional</em>) Position of the atom being modified. Either pos or ptd_id must be given.</p></li>
+<li><p><strong>ptd_id</strong> (<em>int, optional</em>) Id of the atom to be modified. Either pos or ptd_id must be given.</p></li>
+<li><p><strong>db_vect</strong> (<em>array-like object</em>) Vector shift to apply to the atoms in the dumbbell.</p></li>
+<li><p><strong>scale</strong> (<em>bool, optional</em>) Indicates if pos and db_vect are Cartesian (False) or box-relative (True). Default value is False.</p></li>
+<li><p><strong>atol</strong> (<em>float, optional</em>) Absolute tolerance for position-based searching. Default value is 1e-3 angstroms.</p></li>
+<li><p><strong>**kwargs</strong> (<em>any, optional</em>) Keyword arguments corresponding to per-atom property values for the new atom in the dumbbell. By default, all properties are left unchanged (i.e. same as atom that was copied).</p></li>
+</ul>
+<p>Returns</p>
+<ul class="simple">
+<li><p>(<em>atomman.System</em>) A new system with the dumbbell added.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn atom 5 into a dumbbell</span>
+<span class="n">d_system</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">defect</span><span class="o">.</span><span class="n">dumbbell</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="n">ptd_id</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">db_vect</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+
+<span class="c1"># Print system information</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d_system</span><span class="o">.</span><span class="n">box</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natoms =&#39;</span><span class="p">,</span> <span class="n">d_system</span><span class="o">.</span><span class="n">natoms</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natypes =&#39;</span><span class="p">,</span> <span class="n">d_system</span><span class="o">.</span><span class="n">natypes</span><span class="p">)</span>
+<span class="n">d_system</span><span class="o">.</span><span class="n">atoms_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 8.220,  0.000,  0.000]
+bvect =  [ 0.000,  8.220,  0.000]
+cvect =  [ 0.000,  0.000,  8.220]
+origin = [ 0.000,  0.000,  0.000]
+natoms = 17
+natypes = 2
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>atype</th>
+      <th>pos[0]</th>
+      <th>pos[1]</th>
+      <th>pos[2]</th>
+      <th>charge</th>
+      <th>old_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2</td>
+      <td>1.555</td>
+      <td>5.665</td>
+      <td>1.555</td>
+      <td>1.0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2</td>
+      <td>2.555</td>
+      <td>6.665</td>
+      <td>2.555</td>
+      <td>1.0</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show that dumbbell atoms are separated by 2 * db_vect</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(d_system.atoms.pos[-1] - d_system.atoms.pos[-2]) / 2 -&gt;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">d_system</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">d_system</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(d_system.atoms.pos[-1] - d_system.atoms.pos[-2]) / 2 -&gt; [0.5 0.5 0.5]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">am</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">py3Dmol</span><span class="o">.</span><span class="n">view_3d</span><span class="p">(</span><span class="n">d_system</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div id="3dmolviewer_17144223457383103"  style="position: relative; width: 400px; height: 400px">
+        <p id="3dmolwarning_17144223457383103" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+        <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.1/3Dmol-min.js');
+}
+
+var viewer_17144223457383103 = null;
+var warn = document.getElementById("3dmolwarning_17144223457383103");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_17144223457383103 = $3Dmol.createViewer(document.getElementById("3dmolviewer_17144223457383103"),{backgroundColor:"white"});
+viewer_17144223457383103.zoomTo();
+    viewer_17144223457383103.addModel("CRYST1    8.220    8.220    8.220  90.00  90.00  90.00 P 1\nMODEL     1\nHETATM    1 UNX  MOL     1       0.000   0.000   0.000  1.00  0.00          X1.0\nHETATM    2 UNX  MOL     1       2.055   2.055   2.055  1.00  0.00          X2.0\nHETATM    3 UNX  MOL     1       4.110   0.000   0.000  1.00  0.00          X1.0\nHETATM    4 UNX  MOL     1       6.165   2.055   2.055  1.00  0.00          X2.0\nHETATM    5 UNX  MOL     1       0.000   4.110   0.000  1.00  0.00          X1.0\nHETATM    6 UNX  MOL     1       4.110   4.110   0.000  1.00  0.00          X1.0\nHETATM    7 UNX  MOL     1       6.165   6.165   2.055  1.00  0.00          X2.0\nHETATM    8 UNX  MOL     1       0.000   0.000   4.110  1.00  0.00          X1.0\nHETATM    9 UNX  MOL     1       2.055   2.055   6.165  1.00  0.00          X2.0\nHETATM   10 UNX  MOL     1       4.110   0.000   4.110  1.00  0.00          X1.0\nHETATM   11 UNX  MOL     1       6.165   2.055   6.165  1.00  0.00          X2.0\nHETATM   12 UNX  MOL     1       0.000   4.110   4.110  1.00  0.00          X1.0\nHETATM   13 UNX  MOL     1       2.055   6.165   6.165  1.00  0.00          X2.0\nHETATM   14 UNX  MOL     1       4.110   4.110   4.110  1.00  0.00          X1.0\nHETATM   15 UNX  MOL     1       6.165   6.165   6.165  1.00  0.00          X2.0\nHETATM   16 UNX  MOL     1       1.555   5.665   1.555  1.00  0.00          X2.0\nHETATM   17 UNX  MOL     1       2.555   6.665   2.555  1.00  0.00          X2.0\nENDMDL\n","pdb");
+    viewer_17144223457383103.addUnitCell();
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 1},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 2},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 3},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 4},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 5},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 6},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 7},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 8},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 9},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 10},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 11},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 12},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 13},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 14},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 15},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 16},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457383103.setStyle({"model": -1, "serial": 17},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457383103.zoomTo();
+viewer_17144223457383103.render();
+});
+</script></div>
+</div>
+</section>
+<section id="6.-atomman.defect.point()">
+<h2>6. atomman.defect.point()<a class="headerlink" href="#6.-atomman.defect.point()" title="Link to this heading">¶</a></h2>
+<p>Generates a new System where a point defect has been inserted. Provides a common interface for the vacancy(), interstitial(), substitutional() and dumbbell() functions.</p>
+<p>Parameters</p>
+<ul class="simple">
+<li><p><strong>system</strong> (<em>atomman.System</em>) The base System to add the defect to.</p></li>
+<li><p><strong>ptd_type</strong> (<em>str, optional</em>) Key indicating which type of defect to add. Default value is ‘v’:</p>
+<ul>
+<li><p>‘v’ : vacancy.</p></li>
+<li><p>‘i’ : positional interstitial.</p></li>
+<li><p>‘s’ : substitutional.</p></li>
+<li><p>‘db’ : dumbbell interstitial.</p></li>
+</ul>
+</li>
+<li><p><strong>pos</strong> (<em>array-like object, optional</em>) Position for adding the defect atom (all styles).</p></li>
+<li><p><strong>ptd_id</strong> (<em>int, optional</em>) Atom id where defect is added. Alternative to using pos (‘v’, ‘s’, ‘db’ styles).</p></li>
+<li><p><strong>db_vect</strong> (<em>array-like object, optional</em>) Vector associated with the dumbbell interstitial (‘db’ style).</p></li>
+<li><p><strong>scale</strong> (<em>bool, optional</em>) Indicates if pos and db_vect are Cartesian (False) or box-relative (True). Default value is False.</p></li>
+<li><p><strong>atol</strong> (<em>float, optional</em>) Absolute tolerance for position-based searching. Default value is 1e-3 angstroms.</p></li>
+<li><p><strong>**kwargs</strong> (<em>any, optional</em>) Keyword arguments corresponding to per-atom property values for the new/modified atom (‘i’, ‘s’, ‘db’ styles).</p></li>
+</ul>
+<p>Raises</p>
+<ul class="simple">
+<li><p>(<em>AssertionError</em>) If parameters are given for styles that don’t allow them.</p></li>
+<li><p>(<em>ValueError</em>) If an invalid ptd_type is given.</p></li>
+</ul>
+<p>Returns</p>
+<ul class="simple">
+<li><p>(<em>atomman.System</em>) A new system containing the defect.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use point() to make atom 7 a dumbbell of two atoms of atype 3</span>
+
+<span class="c1"># ptd_type &#39;s&#39; changes atom 7 and moves to last atom</span>
+<span class="n">d_system</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">defect</span><span class="o">.</span><span class="n">point</span><span class="p">(</span><span class="n">system</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">ptd_id</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">atype</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">charge</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># ptd_type &#39;db&#39; turns last atom into dumbbell, copying per-atom properties</span>
+<span class="n">d_system</span> <span class="o">=</span> <span class="n">am</span><span class="o">.</span><span class="n">defect</span><span class="o">.</span><span class="n">point</span><span class="p">(</span><span class="n">d_system</span><span class="p">,</span> <span class="s1">&#39;db&#39;</span><span class="p">,</span> <span class="n">ptd_id</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">db_vect</span><span class="o">=</span><span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span>
+
+<span class="c1"># Print system information</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d_system</span><span class="o">.</span><span class="n">box</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natoms =&#39;</span><span class="p">,</span> <span class="n">d_system</span><span class="o">.</span><span class="n">natoms</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;natypes =&#39;</span><span class="p">,</span> <span class="n">d_system</span><span class="o">.</span><span class="n">natypes</span><span class="p">)</span>
+<span class="n">d_system</span><span class="o">.</span><span class="n">atoms_df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+avect =  [ 8.220,  0.000,  0.000]
+bvect =  [ 0.000,  8.220,  0.000]
+cvect =  [ 0.000,  0.000,  8.220]
+origin = [ 0.000,  0.000,  0.000]
+natoms = 17
+natypes = 3
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>atype</th>
+      <th>pos[0]</th>
+      <th>pos[1]</th>
+      <th>pos[2]</th>
+      <th>charge</th>
+      <th>old_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>1.0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>-1.0</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1</td>
+      <td>0.000</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2</td>
+      <td>2.055</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>1</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>4.110</td>
+      <td>-1.0</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>6.165</td>
+      <td>1.0</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>3</td>
+      <td>5.565</td>
+      <td>6.165</td>
+      <td>1.455</td>
+      <td>-0.5</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>3</td>
+      <td>6.765</td>
+      <td>6.165</td>
+      <td>2.655</td>
+      <td>-0.5</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">am</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">py3Dmol</span><span class="o">.</span><span class="n">view_3d</span><span class="p">(</span><span class="n">d_system</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div id="3dmolviewer_17144223457530994"  style="position: relative; width: 400px; height: 400px">
+        <p id="3dmolwarning_17144223457530994" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+        <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    //this is to ignore the existence of requirejs amd
+    var savedexports, savedmodule;
+    if (typeof exports !== 'undefined') savedexports = exports;
+    else exports = {}
+    if (typeof module !== 'undefined') savedmodule = module;
+    else module = {}
+
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+        exports = savedexports;
+        module = savedmodule;
+        resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.1/3Dmol-min.js');
+}
+
+var viewer_17144223457530994 = null;
+var warn = document.getElementById("3dmolwarning_17144223457530994");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_17144223457530994 = $3Dmol.createViewer(document.getElementById("3dmolviewer_17144223457530994"),{backgroundColor:"white"});
+viewer_17144223457530994.zoomTo();
+    viewer_17144223457530994.addModel("CRYST1    8.220    8.220    8.220  90.00  90.00  90.00 P 1\nMODEL     1\nHETATM    1 UNX  MOL     1       0.000   0.000   0.000  1.00  0.00          X1.0\nHETATM    2 UNX  MOL     1       2.055   2.055   2.055  1.00  0.00          X2.0\nHETATM    3 UNX  MOL     1       4.110   0.000   0.000  1.00  0.00          X1.0\nHETATM    4 UNX  MOL     1       6.165   2.055   2.055  1.00  0.00          X2.0\nHETATM    5 UNX  MOL     1       0.000   4.110   0.000  1.00  0.00          X1.0\nHETATM    6 UNX  MOL     1       2.055   6.165   2.055  1.00  0.00          X2.0\nHETATM    7 UNX  MOL     1       4.110   4.110   0.000  1.00  0.00          X1.0\nHETATM    8 UNX  MOL     1       0.000   0.000   4.110  1.00  0.00          X1.0\nHETATM    9 UNX  MOL     1       2.055   2.055   6.165  1.00  0.00          X2.0\nHETATM   10 UNX  MOL     1       4.110   0.000   4.110  1.00  0.00          X1.0\nHETATM   11 UNX  MOL     1       6.165   2.055   6.165  1.00  0.00          X2.0\nHETATM   12 UNX  MOL     1       0.000   4.110   4.110  1.00  0.00          X1.0\nHETATM   13 UNX  MOL     1       2.055   6.165   6.165  1.00  0.00          X2.0\nHETATM   14 UNX  MOL     1       4.110   4.110   4.110  1.00  0.00          X1.0\nHETATM   15 UNX  MOL     1       6.165   6.165   6.165  1.00  0.00          X2.0\nHETATM   16 UNX  MOL     1       5.565   6.165   1.455  1.00  0.00          X3.0\nHETATM   17 UNX  MOL     1       6.765   6.165   2.655  1.00  0.00          X3.0\nENDMDL\n","pdb");
+    viewer_17144223457530994.addUnitCell();
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 1},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 2},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 3},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 4},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 5},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 6},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 7},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 8},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 9},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 10},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 11},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 12},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 13},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 14},{"sphere": {"radius": 1.0, "color": "#000080"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 15},{"sphere": {"radius": 1.0, "color": "#7dff7a"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 16},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457530994.setStyle({"model": -1, "serial": 17},{"sphere": {"radius": 1.0, "color": "#800000"}});
+    viewer_17144223457530994.zoomTo();
+viewer_17144223457530994.render();
+});
+</script></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Introduction to atomman: Point defect generation</a><ul>
+<li><a class="reference internal" href="#1.-Introduction">1. Introduction</a></li>
+<li><a class="reference internal" href="#2.-atomman.defect.vacancy()">2. atomman.defect.vacancy()</a></li>
+<li><a class="reference internal" href="#3.-atomman.defect.interstitial()">3. atomman.defect.interstitial()</a></li>
+<li><a class="reference internal" href="#4.-atomman.defect.substitutional()">4. atomman.defect.substitutional()</a></li>
+<li><a class="reference internal" href="#5.-atomman.defect.dumbbell()">5. atomman.defect.dumbbell()</a></li>
+<li><a class="reference internal" href="#6.-atomman.defect.point()">6. atomman.defect.point()</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="4._Defect_creation_and_analysis.html"
+                          title="previous chapter">Introduction to atomman: Defect creation and analysis</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="4.2._Free_surface_generator.html"
+                          title="next chapter">Introduction to atomman: Free surface generator</a></p>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="4.2._Free_surface_generator.html" title="Introduction to atomman: Free surface generator"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="4._Defect_creation_and_analysis.html" title="Introduction to atomman: Defect creation and analysis"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">atomman 1.4.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Introduction to atomman: Point defect generation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
+    </div>
+  </body>
+</html>

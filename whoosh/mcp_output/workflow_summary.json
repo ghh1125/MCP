@@ -1,0 +1,225 @@
+{
+  "repository": {
+    "name": "whoosh",
+    "url": "https://github.com/mchaput/whoosh",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/whoosh",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773286574.3103418,
+    "end_time": 1773286809.274598,
+    "duration": 234.96425604820251,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.94,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/mchaput/whoosh",
+      "repo_name": "whoosh",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/whoosh/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/whoosh/temp_clone'...\nfatal: unable to access 'https://github.com/mchaput/whoosh/': Recv failure: Operation timed out\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/whoosh/temp_clone'...\nfatal: unable to access 'https://github.com/mchaput/whoosh/': Recv failure: Operation timed out\n"
+  ],
+  "recommendations": [
+    "add a minimal smoke test suite for the generated MCP plugin (startup",
+    "tool listing",
+    "and one call per high-value endpoint)",
+    "add robust input/output validation and clearer error mapping in `mcp_plugin/adapter.py` (Whoosh exceptions → structured MCP errors)",
+    "create a version/compatibility matrix (Python × Whoosh × fastmcp/pydantic) and enforce it in CI",
+    "modernize packaging metadata detection (current analysis missed `setup.py/setup.cfg`) by adding/validating `pyproject.toml` and explicit dependency declarations",
+    "implement endpoint curation to reduce unsafe/low-value class exposure (favor factory functions and wrapped operations over raw class constructors)",
+    "add timeout and resource guards for expensive operations (wildcard/fuzzy/phrase-heavy queries",
+    "large result windows)",
+    "include deterministic benchmark scenarios (index build/search/highlight/sort) and track regressions with thresholds",
+    "strengthen documentation with task-oriented MCP examples (create index",
+    "add docs",
+    "query",
+    "highlight",
+    "spellcheck) plus failure cases",
+    "add observability hooks (structured logs",
+    "per-endpoint latency",
+    "error counts) in `mcp_service.py`",
+    "improve security posture by validating filesystem paths for `create_in/open_dir` and restricting writable locations",
+    "add concurrency tests for writer/searcher interactions and AsyncWriter edge cases",
+    "add contract tests for serialized response schemas to prevent breaking MCP clients",
+    "provide graceful degradation when optional features fail (e.g.",
+    "highlighting/spelling) with partial-result responses",
+    "reduce API surface naming ambiguity by normalizing endpoint names/casing and documenting aliases",
+    "add release automation (tag→build→publish plugin artifact + changelog generation)",
+    "and include a maintenance checklist for legacy Whoosh compatibility risks and deprecation handling"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Resilient repository acquisition: zip fallback succeeded after git clone timeout, enabling analysis and generation continuity.",
+      "Import-based adapter strategy was feasible (import feasibility 0.94, low intrusiveness risk).",
+      "Generated MCP plugin started healthy over stdio transport.",
+      "Core Whoosh modules were identified and mapped into endpoints, enabling immediate baseline service exposure."
+    ],
+    "failure_reasons": [
+      "Primary download path failed due to network timeout during git clone (Recv failure: Operation timed out).",
+      "Metadata detection inconsistency: analysis reported setup.py/setup.cfg missing despite file tree containing both, indicating parser/detector reliability issue.",
+      "Validation depth was limited: original project tests did not run, plugin tests were minimal/no measurable execution timing.",
+      "DeepWiki analysis failed, reducing external contextual validation."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Primary clone failed; fallback path succeeded. Download reliability is moderate due to network sensitivity and fallback dependence.",
+      "analysis_time": "Completed successfully with substantial file discovery (167 files), but structural/dependency extraction quality was inconsistent.",
+      "generation_time": "Successful and fast enough within total runtime; created expected MCP scaffold and endpoint set.",
+      "test_time": "Insufficiently exercised: plugin health check passed, but original project tests were effectively not executed and timing metrics were zero."
+    },
+    "resource_usage": {
+      "memory_efficiency": "No reliable telemetry captured (reported 0 MB); cannot validate real memory profile.",
+      "cpu_efficiency": "No reliable telemetry captured (reported 0%); CPU efficiency unknown.",
+      "disk_usage": "Low-to-moderate expected footprint from generated files; reported generated size=0 indicates instrumentation gap rather than true zero usage."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 76,
+    "performance_score": 61,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 64
+  }
+}

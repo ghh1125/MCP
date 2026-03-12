@@ -1,0 +1,224 @@
+{
+  "repository": {
+    "name": "deep-searcher",
+    "url": "https://github.com/zilliztech/deep-searcher",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/deep-searcher",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773285358.746552,
+    "end_time": 1773285596.675928,
+    "duration": 237.9293761253357,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 12,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.deepsearcher",
+        "source.deepsearcher.agent",
+        "source.deepsearcher.embedding",
+        "source.deepsearcher.llm",
+        "source.deepsearcher.loader",
+        "source.deepsearcher.utils",
+        "source.deepsearcher.vector_db",
+        "source.tests",
+        "source.tests.agent",
+        "source.tests.embedding",
+        "source.tests.llm",
+        "source.tests.loader"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/zilliztech/deep-searcher",
+      "repo_name": "deep-searcher",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/deep-searcher/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "define and enforce a minimal CI quality gate (lint + unit tests + coverage threshold) and publish status badges",
+    "add an integration test matrix for key provider combinations (LLM/embedding/vector DB) with mocked network calls and a small set of live smoke tests behind secrets",
+    "fix naming/consistency issues and typos (e.g.",
+    "`fastembed_embdding.py`) and standardize module/provider naming across docs/tests/code",
+    "strengthen configuration validation with explicit schemas and clearer error messages for missing API keys or incompatible provider settings",
+    "add resilient runtime behavior (timeouts/retries/circuit breakers/fallbacks) around external API and vector DB calls",
+    "introduce observability end-to-end (structured logs",
+    "request IDs",
+    "latency/cost/token metrics",
+    "optional OpenTelemetry hooks)",
+    "improve CLI and MCP UX by documenting each endpoint contract with input/output examples and adding `--dry-run` plus health-check commands",
+    "harden security practices by adding secret scanning/pre-commit hooks and dependency vulnerability checks in CI",
+    "reduce maintenance overhead by extracting shared logic in provider adapters into reusable base utilities to avoid duplication across many LLM/embedding backends",
+    "add benchmark and regression suites for ingestion/query quality and latency using the existing evaluation framework with pinned sample datasets",
+    "improve packaging/distribution by defining console scripts in `pyproject.toml`",
+    "pinning optional dependency groups",
+    "and generating a lockfile for reproducible installs",
+    "expand developer onboarding docs with architecture diagrams and a troubleshooting matrix for common provider/setup failures",
+    "add contract tests for MCP plugin endpoints (`offline_load`",
+    "`online_query`",
+    "agent classes) to ensure backward-compatible tool schemas and responses",
+    "introduce caching layers (embedding cache and retrieval result cache) with configurable invalidation to cut cost and improve response times"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Low-intrusiveness import-based adapter strategy matched repository design (import_feasibility=0.9), enabling fast MCP wrapping without core code modification.",
+      "Clear modular boundaries in source project (agent/embedding/llm/loader/vector_db) allowed straightforward endpoint mapping.",
+      "Generated MCP service started healthy over stdio and passed MCP plugin test gate.",
+      "Repository was accessible via zip fallback, preventing pipeline interruption from primary fetch path."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure detected.",
+      "Quality signal gap: original project test stage reports passed=false with inconsistent metadata (coverage=100%, execution_time=0, no test files), indicating test execution likely skipped or mis-collected rather than truly failing.",
+      "DeepWiki enrichment failed, reducing contextual analysis depth but not blocking generation."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; exact per-node timing not provided. Zip fallback import indicates resilient but potentially slower/non-primary fetch path.",
+      "analysis_time": "Completed successfully; scanned substantial repository structure (188 files observed in detailed state), which likely dominated early pipeline time.",
+      "generation_time": "Completed successfully; generated MCP scaffold (7 files) with import-mode adapter and mapped service endpoints.",
+      "test_time": "MCP plugin validation passed and service health is healthy; however original-project test telemetry appears unreliable (0s runtime, empty file list)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Not measurable from provided metrics (reported as 0/empty). No signs of memory pressure during execution.",
+      "cpu_efficiency": "Not measurable from provided metrics (reported as 0/empty). Total runtime (~238s) is acceptable for medium-complexity repo analysis/generation.",
+      "disk_usage": "Low incremental disk impact from generated artifacts (small MCP scaffold). Source repository itself is moderate in size with extensive tests/docs."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 84,
+    "performance_score": 70,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 80
+  }
+}

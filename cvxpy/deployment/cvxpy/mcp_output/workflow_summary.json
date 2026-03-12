@@ -1,0 +1,231 @@
+{
+  "repository": {
+    "name": "cvxpy",
+    "url": "https://github.com/cvxpy/cvxpy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/cvxpy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773256480.2270458,
+    "end_time": 1773256941.407734,
+    "duration": 461.1806881427765,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.96,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/cvxpy/cvxpy",
+      "repo_name": "cvxpy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/cvxpy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/cvxpy/temp_clone'...\nfatal: unable to access 'https://github.com/cvxpy/cvxpy/': SSL connection timeout\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/cvxpy/temp_clone'...\nfatal: unable to access 'https://github.com/cvxpy/cvxpy/': SSL connection timeout\n"
+  ],
+  "recommendations": [
+    "add a minimal smoke test suite for the MCP plugin (server startup",
+    "endpoint registration",
+    "and one solve round-trip) since `Test status` is empty",
+    "add contract tests for each exposed endpoint (`problem`",
+    "`variable`",
+    "`parameter`",
+    "objectives",
+    "constraints",
+    "`solvingchain`) to validate input/output schemas and error handling",
+    "implement solver-availability guards with clear fallback messages for optional dependencies (e.g.",
+    "OSQP/SCS/Clarabel not installed)",
+    "introduce structured logging and request IDs in `mcp_service.py`/`adapter.py` for debuggability",
+    "add timeout and resource limits for solve requests to prevent runaway jobs",
+    "document a strict version compatibility matrix (Python/CVXPY/FastMCP/Pydantic) in `README_MCP.md`",
+    "pin and lock plugin dependencies in `mcp_output/requirements.txt` (and ideally add a lockfile) for reproducible deployments",
+    "add CI workflow dedicated to MCP output (`lint + type-check + tests`) separate from core CVXPY CI",
+    "strengthen type safety with mypy/pyright on plugin files and pydantic models for endpoint payloads",
+    "add input sanitization for expression dimensions/shapes to return friendly validation errors before solver invocation",
+    "create golden examples for LP/QP/SOCP/SDP requests to verify canonicalization paths and regression-proof behavior",
+    "add performance benchmarks for cold start and median solve latency across representative problem sizes",
+    "cache immutable model components/compiled chains for repeated parameterized solves to reduce overhead",
+    "expose a health and capabilities endpoint (installed solvers",
+    "supported cones",
+    "version info) for clients",
+    "improve failure diagnostics by mapping CVXPY exceptions to stable MCP error codes/messages",
+    "add security hardening (max payload size",
+    "numeric bounds checks",
+    "and safe deserialization practices)",
+    "include developer docs for extending endpoint coverage beyond current classes (atoms/transforms)",
+    "add packaging metadata for the MCP plugin as an installable module (entry point script instead of ad-hoc launcher)",
+    "add backward-compatibility tests for `cvxpy.utilities.cvxpy_upgrade` interactions where relevant",
+    "and track DeepWiki analysis failure in CI/reporting so missing architecture insights are surfaced early"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status `success` and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Resilience mechanism worked: after git clone SSL timeout, pipeline continued via zip fallback import (reported ~556 files).",
+      "MCP plugin artifacts were generated consistently (launcher, adapter, service, README, requirements).",
+      "Generated service passed basic MCP health/startup check over stdio (`healthy`, plugin tests marked passed).",
+      "Low intrusiveness import strategy (adapter_mode=import, import feasibility 0.96) reduced integration risk."
+    ],
+    "failure_reasons": [
+      "Primary repository acquisition failed due to network/SSL timeout during `git clone`.",
+      "Metadata and telemetry quality issues: multiple fields report zero/unknown values (files processed, LOC, metrics, env type, versions), reducing confidence in measured quality.",
+      "DeepWiki enrichment failed, removing an external architecture validation source.",
+      "Original project test status is inconsistent (`passed: false`, empty details, 0 execution time, yet `100%` coverage), indicating test reporting defects rather than meaningful validation."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Degraded by clone timeout; recovered by fallback path. Reliability acceptable, but latency and network robustness are weak points.",
+      "analysis_time": "Likely moderate-to-heavy due to large codebase (hundreds of files); however per-node timing is unavailable, limiting precise attribution.",
+      "generation_time": "Efficient enough to emit full plugin scaffold and endpoint mapping, but generated LOC/size telemetry is missing.",
+      "test_time": "Nominally near-zero in reported metrics, suggesting shallow or skipped tests; current timing data is not trustworthy for performance conclusions."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Cannot be validated (reported 0 MB). Instrumentation gap.",
+      "cpu_efficiency": "Cannot be validated (reported 0%). Instrumentation gap.",
+      "disk_usage": "Repository and plugin files clearly exist, but reported generated size is 0; disk accounting is incomplete."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 58,
+    "maintainability_score": 74,
+    "security_score": 85,
+    "scalability_score": 67
+  }
+}

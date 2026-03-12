@@ -1,0 +1,848 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/jobovy/galpy",
+    "summary": "Imported via zip fallback, file count: 220",
+    "file_tree": {
+      ".bumpversion.cfg": {
+        "size": 745
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 1236
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 171
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 508
+      },
+      ".github/conda-build-environment-macos-latest.yml": {
+        "size": 185
+      },
+      ".github/conda-build-environment-windows-latest.yml": {
+        "size": 156
+      },
+      ".github/copilot-instructions.md": {
+        "size": 10485
+      },
+      ".github/dependabot.yml": {
+        "size": 163
+      },
+      ".github/workflows/build.yml": {
+        "size": 15601
+      },
+      ".github/workflows/build_pyodide_wheels.yml": {
+        "size": 4120
+      },
+      ".github/workflows/build_windows.yml": {
+        "size": 11850
+      },
+      ".github/workflows/copilot-setup-steps.yml": {
+        "size": 1598
+      },
+      ".github/workflows/stale.yml": {
+        "size": 1013
+      },
+      ".github/workflows/wheels.yml": {
+        "size": 11884
+      },
+      ".pre-commit-config.yaml": {
+        "size": 1057
+      },
+      ".readthedocs.yaml": {
+        "size": 204
+      },
+      "AUTHORS.txt": {
+        "size": 2097
+      },
+      "CONTRIBUTING.md": {
+        "size": 7573
+      },
+      "HISTORY.txt": {
+        "size": 45423
+      },
+      "README.md": {
+        "size": 6099
+      },
+      "RELEASE_CHECKLIST.md": {
+        "size": 2128
+      },
+      "codecov.yml": {
+        "size": 71
+      },
+      "doc/source/_static/clipboard.min.js": {
+        "size": 10917
+      },
+      "doc/source/_static/copycode.js": {
+        "size": 1307
+      },
+      "doc/source/_static/papers-gallery.js": {
+        "size": 3293
+      },
+      "doc/source/_static/try-galpy.js": {
+        "size": 2903
+      },
+      "doc/source/conf.py": {
+        "size": 9183
+      },
+      "doc/source/examples/dierickx-edist.py": {
+        "size": 2898
+      },
+      "doc/source/examples/dierickx_eccentricities.py": {
+        "size": 6583
+      },
+      "doc/source/examples/sellwood-jrjp.py": {
+        "size": 4438
+      },
+      "galpy/__init__.py": {
+        "size": 3517
+      },
+      "galpy/actionAngle/__init__.py": {
+        "size": 1782
+      },
+      "galpy/actionAngle/actionAngle.py": {
+        "size": 11437
+      },
+      "galpy/actionAngle/actionAngleAdiabatic.py": {
+        "size": 18690
+      },
+      "galpy/actionAngle/actionAngleAdiabaticGrid.py": {
+        "size": 19895
+      },
+      "galpy/actionAngle/actionAngleAdiabatic_c.py": {
+        "size": 7323
+      },
+      "galpy/actionAngle/actionAngleHarmonic.py": {
+        "size": 4284
+      },
+      "galpy/actionAngle/actionAngleHarmonicInverse.py": {
+        "size": 3253
+      },
+      "galpy/actionAngle/actionAngleInverse.py": {
+        "size": 3743
+      },
+      "galpy/actionAngle/actionAngleIsochrone.py": {
+        "size": 14670
+      },
+      "galpy/actionAngle/actionAngleIsochroneApprox.py": {
+        "size": 41179
+      },
+      "galpy/actionAngle/actionAngleIsochroneInverse.py": {
+        "size": 8444
+      },
+      "galpy/actionAngle/actionAngleSpherical.py": {
+        "size": 30965
+      },
+      "galpy/actionAngle/actionAngleStaeckel.py": {
+        "size": 55562
+      },
+      "galpy/actionAngle/actionAngleStaeckelGrid.py": {
+        "size": 36059
+      },
+      "galpy/actionAngle/actionAngleStaeckel_c.py": {
+        "size": 22602
+      },
+      "galpy/actionAngle/actionAngleTorus.py": {
+        "size": 11804
+      },
+      "galpy/actionAngle/actionAngleTorus_c.py": {
+        "size": 15116
+      },
+      "galpy/actionAngle/actionAngleVertical.py": {
+        "size": 13017
+      },
+      "galpy/actionAngle/actionAngleVerticalInverse.py": {
+        "size": 55143
+      },
+      "galpy/df/__init__.py": {
+        "size": 2446
+      },
+      "galpy/df/constantbetaHernquistdf.py": {
+        "size": 4395
+      },
+      "galpy/df/constantbetadf.py": {
+        "size": 17070
+      },
+      "galpy/df/df.py": {
+        "size": 2657
+      },
+      "galpy/df/diskdf.py": {
+        "size": 112126
+      },
+      "galpy/df/eddingtondf.py": {
+        "size": 8179
+      },
+      "galpy/df/evolveddiskdf.py": {
+        "size": 131828
+      },
+      "galpy/df/isotropicHernquistdf.py": {
+        "size": 3667
+      },
+      "galpy/df/isotropicNFWdf.py": {
+        "size": 3592
+      },
+      "galpy/df/isotropicPlummerdf.py": {
+        "size": 2446
+      },
+      "galpy/df/jeans.py": {
+        "size": 4917
+      },
+      "galpy/df/kingdf.py": {
+        "size": 7707
+      },
+      "galpy/df/osipkovmerrittHernquistdf.py": {
+        "size": 3607
+      },
+      "galpy/df/osipkovmerrittNFWdf.py": {
+        "size": 3242
+      },
+      "galpy/df/osipkovmerrittdf.py": {
+        "size": 13149
+      },
+      "galpy/df/quasiisothermaldf.py": {
+        "size": 106820
+      },
+      "galpy/df/sphericaldf.py": {
+        "size": 36051
+      },
+      "galpy/df/streamdf.py": {
+        "size": 157963
+      },
+      "galpy/df/streamgapdf.py": {
+        "size": 84414
+      },
+      "galpy/df/streamspraydf.py": {
+        "size": 28155
+      },
+      "galpy/df/surfaceSigmaProfile.py": {
+        "size": 6173
+      },
+      "galpy/orbit/Orbits.py": {
+        "size": 358565
+      },
+      "galpy/orbit/__init__.py": {
+        "size": 82
+      },
+      "galpy/orbit/integrateFullOrbit.py": {
+        "size": 53244
+      },
+      "galpy/orbit/integrateLinearOrbit.py": {
+        "size": 11898
+      },
+      "galpy/orbit/integratePlanarOrbit.py": {
+        "size": 68889
+      },
+      "galpy/orbit/named_objects.json": {
+        "size": 115612
+      },
+      "galpy/potential/AdiabaticContractionWrapperPotential.py": {
+        "size": 7668
+      },
+      "galpy/potential/AnyAxisymmetricRazorThinDiskPotential.py": {
+        "size": 9419
+      },
+      "galpy/potential/AnySphericalPotential.py": {
+        "size": 5277
+      },
+      "galpy/potential/BurkertPotential.py": {
+        "size": 4688
+      },
+      "galpy/potential/Cautun20.py": {
+        "size": 3287
+      },
+      "galpy/potential/ChandrasekharDynamicalFrictionForce.py": {
+        "size": 11915
+      },
+      "galpy/potential/CompositePotential.py": {
+        "size": 14393
+      },
+      "galpy/potential/CorotatingRotationWrapperPotential.py": {
+        "size": 5384
+      },
+      "galpy/potential/CosmphiDiskPotential.py": {
+        "size": 8008
+      },
+      "galpy/potential/CylindricallySeparablePotentialWrapper.py": {
+        "size": 6235
+      },
+      "galpy/potential/DehnenBarPotential.py": {
+        "size": 26508
+      },
+      "galpy/potential/DehnenBinney98.py": {
+        "size": 4826
+      },
+      "galpy/potential/DehnenSmoothWrapperPotential.py": {
+        "size": 3485
+      },
+      "galpy/potential/DiskMultipoleExpansionPotential.py": {
+        "size": 6647
+      },
+      "galpy/potential/DiskSCFPotential.py": {
+        "size": 6982
+      },
+      "galpy/potential/DissipativeForce.py": {
+        "size": 5140
+      },
+      "galpy/potential/DoubleExponentialDiskPotential.py": {
+        "size": 13405
+      },
+      "galpy/potential/EinastoPotential.py": {
+        "size": 5855
+      },
+      "galpy/potential/EllipsoidalPotential.py": {
+        "size": 17776
+      },
+      "galpy/potential/EllipticalDiskPotential.py": {
+        "size": 8432
+      },
+      "galpy/potential/FDMDynamicalFrictionForce.py": {
+        "size": 9189
+      },
+      "galpy/potential/FerrersPotential.py": {
+        "size": 16107
+      },
+      "galpy/potential/FlattenedPowerPotential.py": {
+        "size": 5610
+      },
+      "galpy/potential/Force.py": {
+        "size": 11486
+      },
+      "galpy/potential/GaussianAmplitudeWrapperPotential.py": {
+        "size": 2345
+      },
+      "galpy/potential/HenonHeilesPotential.py": {
+        "size": 1923
+      },
+      "galpy/potential/HomogeneousSpherePotential.py": {
+        "size": 3665
+      },
+      "galpy/potential/Irrgang13.py": {
+        "size": 3553
+      },
+      "galpy/potential/IsochronePotential.py": {
+        "size": 4378
+      },
+      "galpy/potential/IsothermalDiskPotential.py": {
+        "size": 2029
+      },
+      "galpy/potential/KGPotential.py": {
+        "size": 2733
+      },
+      "galpy/potential/KingPotential.py": {
+        "size": 2897
+      },
+      "galpy/potential/KuijkenDubinskiDiskExpansionPotential.py": {
+        "size": 12803
+      },
+      "galpy/potential/KuzminDiskPotential.py": {
+        "size": 3239
+      },
+      "galpy/potential/KuzminKutuzovStaeckelPotential.py": {
+        "size": 8227
+      },
+      "galpy/potential/KuzminLikeWrapperPotential.py": {
+        "size": 5182
+      },
+      "galpy/potential/LogarithmicHaloPotential.py": {
+        "size": 9113
+      },
+      "galpy/potential/MN3ExponentialDiskPotential.py": {
+        "size": 9509
+      },
+      "galpy/potential/McMillan17.py": {
+        "size": 2646
+      },
+      "galpy/potential/MiyamotoNagaiPotential.py": {
+        "size": 5732
+      },
+      "galpy/potential/MovingObjectPotential.py": {
+        "size": 5249
+      },
+      "galpy/potential/MultipoleExpansionPotential.py": {
+        "size": 50467
+      },
+      "galpy/potential/NonInertialFrameForce.py": {
+        "size": 14708
+      },
+      "galpy/potential/NullPotential.py": {
+        "size": 1891
+      },
+      "galpy/potential/NumericalPotentialDerivativesMixin.py": {
+        "size": 6907
+      },
+      "galpy/potential/OblateStaeckelWrapperPotential.py": {
+        "size": 17717
+      },
+      "galpy/potential/PerfectEllipsoidPotential.py": {
+        "size": 3780
+      },
+      "galpy/potential/PlummerPotential.py": {
+        "size": 5227
+      },
+      "galpy/potential/Potential.py": {
+        "size": 140296
+      },
+      "galpy/potential/PowerSphericalPotential.py": {
+        "size": 12268
+      },
+      "galpy/potential/PowerSphericalPotentialwCutoff.py": {
+        "size": 7759
+      },
+      "galpy/potential/PowerTriaxialPotential.py": {
+        "size": 3700
+      },
+      "galpy/potential/PseudoIsothermalPotential.py": {
+        "size": 3981
+      },
+      "galpy/potential/RazorThinExponentialDiskPotential.py": {
+        "size": 8676
+      },
+      "galpy/potential/RingPotential.py": {
+        "size": 5379
+      },
+      "galpy/potential/RotateAndTiltWrapperPotential.py": {
+        "size": 13591
+      },
+      "galpy/potential/SCFPotential.py": {
+        "size": 39501
+      },
+      "galpy/potential/SnapshotRZPotential.py": {
+        "size": 25693
+      },
+      "galpy/potential/SoftenedNeedleBarPotential.py": {
+        "size": 6557
+      },
+      "galpy/potential/SolidBodyRotationWrapperPotential.py": {
+        "size": 2419
+      },
+      "galpy/potential/SphericalHarmonicPotentialMixin.py": {
+        "size": 6690
+      },
+      "galpy/potential/SphericalPotential.py": {
+        "size": 3441
+      },
+      "galpy/potential/SphericalShellPotential.py": {
+        "size": 3375
+      },
+      "galpy/potential/SpiralArmsPotential.py": {
+        "size": 35978
+      },
+      "galpy/potential/SteadyLogSpiralPotential.py": {
+        "size": 6990
+      },
+      "galpy/potential/TimeDependentAmplitudeWrapperPotential.py": {
+        "size": 3313
+      },
+      "galpy/potential/TransientLogSpiralPotential.py": {
+        "size": 3967
+      },
+      "galpy/potential/TriaxialGaussianPotential.py": {
+        "size": 4417
+      },
+      "galpy/potential/TwoPowerSphericalPotential.py": {
+        "size": 38176
+      },
+      "galpy/potential/TwoPowerTriaxialPotential.py": {
+        "size": 19812
+      },
+      "galpy/potential/WrapperPotential.py": {
+        "size": 14240
+      },
+      "galpy/potential/__init__.py": {
+        "size": 11366
+      },
+      "galpy/potential/_repr_utils.py": {
+        "size": 4571
+      },
+      "galpy/potential/amuse.py": {
+        "size": 9101
+      },
+      "galpy/potential/baseCompositePotential.py": {
+        "size": 5372
+      },
+      "galpy/potential/interpRZPotential.py": {
+        "size": 31487
+      },
+      "galpy/potential/interpSphericalPotential.py": {
+        "size": 5872
+      },
+      "galpy/potential/linearCompositePotential.py": {
+        "size": 5607
+      },
+      "galpy/potential/linearPotential.py": {
+        "size": 13201
+      },
+      "galpy/potential/mwpot_helpers.py": {
+        "size": 1438
+      },
+      "galpy/potential/mwpotentials.py": {
+        "size": 5996
+      },
+      "galpy/potential/planarCompositePotential.py": {
+        "size": 9452
+      },
+      "galpy/potential/planarDissipativeForce.py": {
+        "size": 5333
+      },
+      "galpy/potential/planarForce.py": {
+        "size": 7854
+      },
+      "galpy/potential/planarPotential.py": {
+        "size": 41690
+      },
+      "galpy/potential/verticalPotential.py": {
+        "size": 10261
+      },
+      "galpy/snapshot/GadgetSnapshot.py": {
+        "size": 2236
+      },
+      "galpy/snapshot/Snapshot.py": {
+        "size": 14527
+      },
+      "galpy/snapshot/__init__.py": {
+        "size": 149
+      },
+      "galpy/snapshot/directnbody.py": {
+        "size": 5144
+      },
+      "galpy/snapshot/nemo_util.py": {
+        "size": 2096
+      },
+      "galpy/snapshot/snapshotMovies.py": {
+        "size": 4058
+      },
+      "galpy/util/__init__.py": {
+        "size": 5868
+      },
+      "galpy/util/_load_extension_libs.py": {
+        "size": 6917
+      },
+      "galpy/util/_optional_deps.py": {
+        "size": 1721
+      },
+      "galpy/util/ars.py": {
+        "size": 16239
+      },
+      "galpy/util/config.py": {
+        "size": 3932
+      },
+      "galpy/util/conversion.py": {
+        "size": 44326
+      },
+      "galpy/util/coords.py": {
+        "size": 84482
+      },
+      "galpy/util/leung_dop853.py": {
+        "size": 20344
+      },
+      "galpy/util/multi.py": {
+        "size": 8402
+      },
+      "galpy/util/plot.py": {
+        "size": 43230
+      },
+      "galpy/util/quadpack.py": {
+        "size": 7816
+      },
+      "galpy/util/special.py": {
+        "size": 5013
+      },
+      "galpy/util/symplecticode.py": {
+        "size": 5139
+      },
+      "pyproject.toml": {
+        "size": 113
+      },
+      "setup.py": {
+        "size": 18823
+      },
+      "tests/conftest.py": {
+        "size": 10131
+      },
+      "tests/orbitint4sigint.py": {
+        "size": 891
+      },
+      "tests/test_FDMdynamfric.py": {
+        "size": 16570
+      },
+      "tests/test_MultipoleExpansionPotential.py": {
+        "size": 27863
+      },
+      "tests/test_SpiralArmsPotential.py": {
+        "size": 77643
+      },
+      "tests/test_actionAngle.py": {
+        "size": 315805
+      },
+      "tests/test_actionAngleTorus.py": {
+        "size": 33829
+      },
+      "tests/test_amuse.py": {
+        "size": 10237
+      },
+      "tests/test_conversion.py": {
+        "size": 30954
+      },
+      "tests/test_coords.py": {
+        "size": 123280
+      },
+      "tests/test_diskdf.py": {
+        "size": 114431
+      },
+      "tests/test_dynamfric.py": {
+        "size": 17833
+      },
+      "tests/test_evolveddiskdf.py": {
+        "size": 45457
+      },
+      "tests/test_galpypaper.py": {
+        "size": 30761
+      },
+      "tests/test_import.py": {
+        "size": 499
+      },
+      "tests/test_interp_potential.py": {
+        "size": 64754
+      },
+      "tests/test_jeans.py": {
+        "size": 10743
+      },
+      "tests/test_kuzminkutuzov.py": {
+        "size": 28907
+      },
+      "tests/test_nemo.py": {
+        "size": 7004
+      },
+      "tests/test_noninertial.py": {
+        "size": 118582
+      },
+      "tests/test_orbit.py": {
+        "size": 434448
+      },
+      "tests/test_orbits.py": {
+        "size": 391257
+      },
+      "tests/test_potential.py": {
+        "size": 474672
+      },
+      "tests/test_pv2qdf.py": {
+        "size": 19719
+      },
+      "tests/test_qdf.py": {
+        "size": 58695
+      },
+      "tests/test_quantity.py": {
+        "size": 524313
+      },
+      "tests/test_scf.py": {
+        "size": 32311
+      },
+      "tests/test_snapshotpotential.py": {
+        "size": 29064
+      },
+      "tests/test_sphericaldf.py": {
+        "size": 116861
+      },
+      "tests/test_streamdf.py": {
+        "size": 111305
+      },
+      "tests/test_streamgapdf.py": {
+        "size": 49230
+      },
+      "tests/test_streamgapdf_impulse.py": {
+        "size": 22570
+      },
+      "tests/test_streamspraydf.py": {
+        "size": 21787
+      },
+      "tests/test_util.py": {
+        "size": 3526
+      },
+      "tools/inject_git_hash.py": {
+        "size": 3544
+      },
+      "xsf/LICENSES_bundled.txt": {
+        "size": 6112
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.galpy",
+      "source.galpy.actionAngle",
+      "source.galpy.df",
+      "source.galpy.orbit",
+      "source.galpy.potential",
+      "source.galpy.snapshot",
+      "source.galpy.util"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.galpy.potential",
+        "module": "__init__",
+        "functions": [
+          "evaluatePotentials",
+          "evaluateRforces",
+          "evaluatezforces",
+          "evaluatephitorques",
+          "vcirc",
+          "omegac",
+          "epifreq",
+          "verticalfreq",
+          "flattening",
+          "rl",
+          "lindbladR",
+          "vesc",
+          "rtide",
+          "ttensor",
+          "nemo_accname",
+          "nemo_accpars"
+        ],
+        "classes": [
+          "Potential",
+          "Force",
+          "CompositePotential",
+          "MiyamotoNagaiPotential",
+          "NFWPotential",
+          "PlummerPotential",
+          "HernquistPotential",
+          "LogarithmicHaloPotential",
+          "IsochronePotential",
+          "SCFPotential",
+          "KeplerPotential"
+        ],
+        "description": "Primary gravitational potential framework and shared evaluation helpers; best single integration surface for MCP tool exposure."
+      },
+      {
+        "package": "source.galpy.orbit",
+        "module": "Orbits",
+        "functions": [
+          "Orbit.__call__",
+          "Orbit.integrate",
+          "Orbit.getOrbit",
+          "Orbit.E",
+          "Orbit.L",
+          "Orbit.e",
+          "Orbit.rap",
+          "Orbit.rperi",
+          "Orbit.zmax",
+          "Orbit.plot"
+        ],
+        "classes": [
+          "Orbit"
+        ],
+        "description": "Orbit construction, numerical integration, and orbital diagnostics; central user-facing dynamics API."
+      },
+      {
+        "package": "source.galpy.actionAngle",
+        "module": "actionAngle*",
+        "functions": [
+          "actionsFreqs",
+          "actionsFreqsAngles",
+          "EccZmaxRperiRap"
+        ],
+        "classes": [
+          "actionAngle",
+          "actionAngleStaeckel",
+          "actionAngleIsochrone",
+          "actionAngleSpherical",
+          "actionAngleAdiabatic",
+          "actionAngleTorus"
+        ],
+        "description": "Action-angle computation suite; advanced but high-value analytical interface."
+      },
+      {
+        "package": "source.galpy.df",
+        "module": "__init__",
+        "functions": [
+          "sample",
+          "density",
+          "vmomentdensity"
+        ],
+        "classes": [
+          "quasiisothermaldf",
+          "diskdf",
+          "streamdf",
+          "streamgapdf",
+          "sphericaldf",
+          "kingdf",
+          "eddingtondf"
+        ],
+        "description": "Distribution-function models for phase-space density and sampling; useful secondary MCP surface after orbit/potential."
+      },
+      {
+        "package": "source.galpy.util",
+        "module": "conversion/coords",
+        "functions": [
+          "physical_conversion",
+          "get_physical",
+          "galcencyl_to_XYZ",
+          "XYZ_to_galcencyl",
+          "radec_to_lb",
+          "lb_to_radec",
+          "pmrapmdec_to_pmllpmbb",
+          "pmllpmbb_to_pmrapmdec"
+        ],
+        "classes": [],
+        "description": "Unit-conversion and coordinate-transformation utilities; low-risk stateless helpers ideal for MCP tools."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.92
+    },
+    "dependencies": {
+      "required": [
+        "python",
+        "numpy",
+        "scipy"
+      ],
+      "optional": [
+        "matplotlib",
+        "astropy",
+        "pynbody",
+        "amuse",
+        "numexpr"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "complex"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/jobovy/galpy",
+    "repo_name": "galpy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "complex"
+  }
+}

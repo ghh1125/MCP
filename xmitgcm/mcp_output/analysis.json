@@ -1,0 +1,284 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/MITgcm/xmitgcm",
+    "summary": "Imported via zip fallback, file count: 33",
+    "file_tree": {
+      ".bumpversion.cfg": {
+        "size": 133
+      },
+      ".github/workflows/ci.yaml": {
+        "size": 3259
+      },
+      ".github/workflows/pythonpublish.yaml": {
+        "size": 646
+      },
+      ".stickler.yml": {
+        "size": 58
+      },
+      "ci/environment-py3.11.yml": {
+        "size": 208
+      },
+      "ci/environment-py3.12.yml": {
+        "size": 259
+      },
+      "ci/environment-py3.13.yml": {
+        "size": 259
+      },
+      "ci/environment-xarraymaster.yml": {
+        "size": 312
+      },
+      "codecov.yml": {
+        "size": 285
+      },
+      "doc/conf.py": {
+        "size": 9588
+      },
+      "doc/environment.yml": {
+        "size": 153
+      },
+      "pyproject.toml": {
+        "size": 1207
+      },
+      "readthedocs.yml": {
+        "size": 161
+      },
+      "setup.py": {
+        "size": 118
+      },
+      "xmitgcm/__init__.py": {
+        "size": 290
+      },
+      "xmitgcm/default_diagnostics.py": {
+        "size": 30996
+      },
+      "xmitgcm/file_utils.py": {
+        "size": 1179
+      },
+      "xmitgcm/llcreader/__init__.py": {
+        "size": 1084
+      },
+      "xmitgcm/llcreader/duck_array_ops.py": {
+        "size": 992
+      },
+      "xmitgcm/llcreader/known_models.py": {
+        "size": 12265
+      },
+      "xmitgcm/llcreader/llcmodel.py": {
+        "size": 35029
+      },
+      "xmitgcm/llcreader/llcutils.py": {
+        "size": 1475
+      },
+      "xmitgcm/llcreader/shrunk_index.py": {
+        "size": 47974
+      },
+      "xmitgcm/llcreader/stores.py": {
+        "size": 3800
+      },
+      "xmitgcm/mds_store.py": {
+        "size": 42843
+      },
+      "xmitgcm/test/__init__.py": {
+        "size": 0
+      },
+      "xmitgcm/test/test_file_utils.py": {
+        "size": 1228
+      },
+      "xmitgcm/test/test_llcreader.py": {
+        "size": 12282
+      },
+      "xmitgcm/test/test_mds_store.py": {
+        "size": 27342
+      },
+      "xmitgcm/test/test_utils.py": {
+        "size": 55557
+      },
+      "xmitgcm/test/test_xmitgcm_common.py": {
+        "size": 14737
+      },
+      "xmitgcm/utils.py": {
+        "size": 68483
+      },
+      "xmitgcm/variables.py": {
+        "size": 40563
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.xmitgcm",
+      "source.xmitgcm.llcreader",
+      "source.xmitgcm.test"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.xmitgcm",
+        "module": "__init__",
+        "functions": [
+          "open_mdsdataset",
+          "open_mdsdataset_from_mds_store"
+        ],
+        "classes": [],
+        "description": "Top-level public API re-exporting dataset opening helpers for MITgcm MDS outputs."
+      },
+      {
+        "package": "source.xmitgcm",
+        "module": "mds_store",
+        "functions": [
+          "open_mdsdataset",
+          "open_mdsdataset_from_mds_store"
+        ],
+        "classes": [
+          "MDSDataStore"
+        ],
+        "description": "Primary backend for reading MITgcm MDS binary/meta files into xarray datasets; main integration point for programmatic use."
+      },
+      {
+        "package": "source.xmitgcm",
+        "module": "utils",
+        "functions": [
+          "parse_meta_file",
+          "read_mds",
+          "get_extra_metadata",
+          "parse_available_diagnostics",
+          "get_grid_from_input"
+        ],
+        "classes": [],
+        "description": "Low-level parsing and binary I/O utilities used by higher-level store/dataset loaders."
+      },
+      {
+        "package": "source.xmitgcm",
+        "module": "variables",
+        "functions": [
+          "get_variable_metadata",
+          "vertical_coordinates",
+          "extra_grid_variables"
+        ],
+        "classes": [],
+        "description": "Variable catalogs and metadata helpers used to build CF-like xarray coordinates/variables."
+      },
+      {
+        "package": "source.xmitgcm",
+        "module": "default_diagnostics",
+        "functions": [
+          "parse_default_diagnostics"
+        ],
+        "classes": [],
+        "description": "Diagnostics metadata definitions and parsers for MITgcm diagnostics output."
+      },
+      {
+        "package": "source.xmitgcm.llcreader",
+        "module": "llcmodel",
+        "functions": [
+          "get_dataset",
+          "get_var_metadata"
+        ],
+        "classes": [
+          "BaseLLCModel",
+          "LLCModel"
+        ],
+        "description": "LLC grid reader/model abstraction for tiled LLC outputs, including dataset assembly logic."
+      },
+      {
+        "package": "source.xmitgcm.llcreader",
+        "module": "stores",
+        "functions": [],
+        "classes": [
+          "BaseStore",
+          "NestedStore",
+          "HTTPStore"
+        ],
+        "description": "Storage abstraction layer for local/remote LLC access patterns."
+      },
+      {
+        "package": "source.xmitgcm.llcreader",
+        "module": "known_models",
+        "functions": [
+          "get_model"
+        ],
+        "classes": [],
+        "description": "Registry/factory for known preconfigured LLC model setups."
+      },
+      {
+        "package": "source.xmitgcm.llcreader",
+        "module": "shrunk_index",
+        "functions": [
+          "create_index",
+          "materialize_index"
+        ],
+        "classes": [
+          "ShrunkIndex"
+        ],
+        "description": "Index transformation utilities for sparse/shrunk LLC indexing and efficient subsetting."
+      },
+      {
+        "package": "source.xmitgcm",
+        "module": "file_utils",
+        "functions": [
+          "listdir_startsandendswith",
+          "clear_cache"
+        ],
+        "classes": [],
+        "description": "Small filesystem helper functions used by readers."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.95
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "xarray",
+        "dask",
+        "cachetools"
+      ],
+      "optional": [
+        "zarr",
+        "fsspec",
+        "netCDF4",
+        "scipy"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.94,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/MITgcm/xmitgcm",
+    "repo_name": "xmitgcm",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.94,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

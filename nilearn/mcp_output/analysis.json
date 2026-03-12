@@ -1,0 +1,1730 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/nilearn/nilearn",
+    "summary": "Imported via zip fallback, file count: 547",
+    "file_tree": {
+      ".binder/requirements.txt": {
+        "size": 34
+      },
+      ".binder/runtime.txt": {
+        "size": 14
+      },
+      ".circleci/config.yml": {
+        "size": 1149
+      },
+      ".github/ISSUE_TEMPLATE/bug.yml": {
+        "size": 3089
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 355
+      },
+      ".github/ISSUE_TEMPLATE/documentation.yml": {
+        "size": 1109
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.yml": {
+        "size": 1385
+      },
+      ".github/codespell_ignore_words.txt": {
+        "size": 112
+      },
+      ".github/dependabot.yml": {
+        "size": 322
+      },
+      ".github/pull_request_template.md": {
+        "size": 1058
+      },
+      ".github/workflow_failure.md": {
+        "size": 267
+      },
+      ".github/workflows/assign.yml": {
+        "size": 1137
+      },
+      ".github/workflows/auto-comment.yml": {
+        "size": 2480
+      },
+      ".github/workflows/benchmark.yml": {
+        "size": 7533
+      },
+      ".github/workflows/build-docs.yml": {
+        "size": 19488
+      },
+      ".github/workflows/check_gha_workflow.yml": {
+        "size": 2187
+      },
+      ".github/workflows/check_skip_flags.yml": {
+        "size": 914
+      },
+      ".github/workflows/circle_artifacts.yml": {
+        "size": 728
+      },
+      ".github/workflows/linkcheck.yml": {
+        "size": 2438
+      },
+      ".github/workflows/nightly_dependencies.yml": {
+        "size": 3420
+      },
+      ".github/workflows/sourcery.yml": {
+        "size": 2304
+      },
+      ".github/workflows/test_atlases.yml": {
+        "size": 2606
+      },
+      ".github/workflows/test_with_free_threaded_python.yml": {
+        "size": 3539
+      },
+      ".github/workflows/test_with_tox.yml": {
+        "size": 10478
+      },
+      ".github/workflows/testing_install.yml": {
+        "size": 3934
+      },
+      ".github/workflows/testing_minimum.yml": {
+        "size": 4649
+      },
+      ".github/workflows/trigger_hosting_on_pr.yml": {
+        "size": 3686
+      },
+      ".github/workflows/update_authors.yml": {
+        "size": 1512
+      },
+      ".pre-commit-config.yaml": {
+        "size": 3598
+      },
+      ".sourcery.yaml": {
+        "size": 1123
+      },
+      "asv_benchmarks/asv.conf.json": {
+        "size": 6864
+      },
+      "asv_benchmarks/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "asv_benchmarks/benchmarks/image/__init__.py": {
+        "size": 0
+      },
+      "asv_benchmarks/benchmarks/image/image.py": {
+        "size": 3270
+      },
+      "asv_benchmarks/benchmarks/maskers/__init__.py": {
+        "size": 0
+      },
+      "asv_benchmarks/benchmarks/maskers/nifti_masker.py": {
+        "size": 3388
+      },
+      "asv_benchmarks/benchmarks/utils.py": {
+        "size": 7098
+      },
+      "build_tools/github/build_type.py": {
+        "size": 7091
+      },
+      "build_tools/github/restrict_tests_to_run.py": {
+        "size": 9077
+      },
+      "build_tools/github/set_machine_name.py": {
+        "size": 1077
+      },
+      "codecov.yml": {
+        "size": 392
+      },
+      "doc/_additional_doctests.txt": {
+        "size": 75
+      },
+      "doc/binder/requirements.txt": {
+        "size": 255
+      },
+      "doc/conf.py": {
+        "size": 17884
+      },
+      "doc/conftest.py": {
+        "size": 163
+      },
+      "doc/get_ci_workflows_description.py": {
+        "size": 2829
+      },
+      "doc/get_data_examples.py": {
+        "size": 3913
+      },
+      "doc/make_atlas_table.py": {
+        "size": 9693
+      },
+      "doc/modules/deterministic_atlases.md": {
+        "size": 4179
+      },
+      "doc/modules/probabilistic_atlases.md": {
+        "size": 2892
+      },
+      "doc/quickstart.md": {
+        "size": 74
+      },
+      "doc/sphinxext/gh_substitutions.py": {
+        "size": 970
+      },
+      "doc/sphinxext/github_link.py": {
+        "size": 3134
+      },
+      "doc/visual_testing/notebook_reports_glm.py": {
+        "size": 2737
+      },
+      "doc/visual_testing/notebook_reports_maskers.py": {
+        "size": 4225
+      },
+      "doc/visual_testing/reporter_visual_inspection_suite.py": {
+        "size": 19181
+      },
+      "examples/00_tutorials/plot_3d_and_4d_niimg.py": {
+        "size": 3256
+      },
+      "examples/00_tutorials/plot_decoding_tutorial.py": {
+        "size": 12301
+      },
+      "examples/00_tutorials/plot_nilearn_101.py": {
+        "size": 3525
+      },
+      "examples/00_tutorials/plot_python_101.py": {
+        "size": 439
+      },
+      "examples/00_tutorials/plot_single_subject_single_run.py": {
+        "size": 12182
+      },
+      "examples/00_tutorials/plot_surface_101.py": {
+        "size": 6605
+      },
+      "examples/01_plotting/plot_3d_map_to_surface_projection.py": {
+        "size": 9976
+      },
+      "examples/01_plotting/plot_atlas.py": {
+        "size": 2528
+      },
+      "examples/01_plotting/plot_carpet.py": {
+        "size": 2229
+      },
+      "examples/01_plotting/plot_colormaps.py": {
+        "size": 3074
+      },
+      "examples/01_plotting/plot_demo_glass_brain.py": {
+        "size": 1073
+      },
+      "examples/01_plotting/plot_demo_glass_brain_extensive.py": {
+        "size": 10928
+      },
+      "examples/01_plotting/plot_demo_more_plotting.py": {
+        "size": 15370
+      },
+      "examples/01_plotting/plot_demo_plotting.py": {
+        "size": 5793
+      },
+      "examples/01_plotting/plot_dim_plotting.py": {
+        "size": 2100
+      },
+      "examples/01_plotting/plot_haxby_masks.py": {
+        "size": 1719
+      },
+      "examples/01_plotting/plot_multiscale_parcellations.py": {
+        "size": 1696
+      },
+      "examples/01_plotting/plot_overlay.py": {
+        "size": 2526
+      },
+      "examples/01_plotting/plot_prob_atlas.py": {
+        "size": 3650
+      },
+      "examples/01_plotting/plot_surf_atlas.py": {
+        "size": 5165
+      },
+      "examples/01_plotting/plot_surf_stat_map.py": {
+        "size": 7121
+      },
+      "examples/01_plotting/plot_surface_projection_strategies.py": {
+        "size": 3436
+      },
+      "examples/01_plotting/plot_transparency.py": {
+        "size": 10932
+      },
+      "examples/01_plotting/plot_visualization.py": {
+        "size": 1764
+      },
+      "examples/01_plotting/plot_visualize_megatrawls_netmats.py": {
+        "size": 1268
+      },
+      "examples/02_decoding/plot_haxby_anova_svm.py": {
+        "size": 4488
+      },
+      "examples/02_decoding/plot_haxby_different_estimators.py": {
+        "size": 5968
+      },
+      "examples/02_decoding/plot_haxby_frem.py": {
+        "size": 3598
+      },
+      "examples/02_decoding/plot_haxby_full_analysis.py": {
+        "size": 5390
+      },
+      "examples/02_decoding/plot_haxby_glm_decoding.py": {
+        "size": 5167
+      },
+      "examples/02_decoding/plot_haxby_grid_search.py": {
+        "size": 7482
+      },
+      "examples/02_decoding/plot_haxby_multiclass.py": {
+        "size": 3768
+      },
+      "examples/02_decoding/plot_haxby_searchlight.py": {
+        "size": 4185
+      },
+      "examples/02_decoding/plot_haxby_searchlight_surface.py": {
+        "size": 4013
+      },
+      "examples/02_decoding/plot_haxby_stimuli.py": {
+        "size": 997
+      },
+      "examples/02_decoding/plot_haxby_understand_decoder.py": {
+        "size": 16164
+      },
+      "examples/02_decoding/plot_mixed_gambles_frem.py": {
+        "size": 3193
+      },
+      "examples/02_decoding/plot_miyawaki_encoding.py": {
+        "size": 9659
+      },
+      "examples/02_decoding/plot_miyawaki_reconstruction.py": {
+        "size": 8998
+      },
+      "examples/02_decoding/plot_oasis_vbm.py": {
+        "size": 7139
+      },
+      "examples/02_decoding/plot_oasis_vbm_space_net.py": {
+        "size": 3121
+      },
+      "examples/02_decoding/plot_simulated_data.py": {
+        "size": 7888
+      },
+      "examples/03_connectivity/plot_atlas_comparison.py": {
+        "size": 8235
+      },
+      "examples/03_connectivity/plot_compare_decomposition.py": {
+        "size": 6207
+      },
+      "examples/03_connectivity/plot_data_driven_parcellations.py": {
+        "size": 14035
+      },
+      "examples/03_connectivity/plot_extract_regions_dictlearning_maps.py": {
+        "size": 6891
+      },
+      "examples/03_connectivity/plot_group_level_connectivity.py": {
+        "size": 9075
+      },
+      "examples/03_connectivity/plot_inverse_covariance_connectome.py": {
+        "size": 3490
+      },
+      "examples/03_connectivity/plot_multi_subject_connectome.py": {
+        "size": 3535
+      },
+      "examples/03_connectivity/plot_probabilistic_atlas_extraction.py": {
+        "size": 3637
+      },
+      "examples/03_connectivity/plot_seed_to_voxel_correlation.py": {
+        "size": 7419
+      },
+      "examples/03_connectivity/plot_signal_extraction.py": {
+        "size": 9620
+      },
+      "examples/03_connectivity/plot_simulated_connectome.py": {
+        "size": 2597
+      },
+      "examples/03_connectivity/plot_sphere_based_connectome.py": {
+        "size": 11857
+      },
+      "examples/04_glm_first_level/plot_adhd_dmn.py": {
+        "size": 3702
+      },
+      "examples/04_glm_first_level/plot_bids_features.py": {
+        "size": 8768
+      },
+      "examples/04_glm_first_level/plot_design_matrix.py": {
+        "size": 5803
+      },
+      "examples/04_glm_first_level/plot_fir_model.py": {
+        "size": 4722
+      },
+      "examples/04_glm_first_level/plot_first_level_details.py": {
+        "size": 20990
+      },
+      "examples/04_glm_first_level/plot_hrf.py": {
+        "size": 4915
+      },
+      "examples/04_glm_first_level/plot_localizer_surface_analysis.py": {
+        "size": 8089
+      },
+      "examples/04_glm_first_level/plot_predictions_residuals.py": {
+        "size": 6097
+      },
+      "examples/04_glm_first_level/plot_spm_multimodal_faces.py": {
+        "size": 4562
+      },
+      "examples/04_glm_first_level/plot_two_runs_model.py": {
+        "size": 7526
+      },
+      "examples/04_glm_first_level/plot_write_events_file.py": {
+        "size": 4701
+      },
+      "examples/05_glm_second_level/plot_oasis.py": {
+        "size": 4784
+      },
+      "examples/05_glm_second_level/plot_proportion_activated_voxels.py": {
+        "size": 2579
+      },
+      "examples/05_glm_second_level/plot_second_level_association_test.py": {
+        "size": 4964
+      },
+      "examples/05_glm_second_level/plot_second_level_design_matrix.py": {
+        "size": 1760
+      },
+      "examples/05_glm_second_level/plot_second_level_one_sample_test.py": {
+        "size": 7502
+      },
+      "examples/05_glm_second_level/plot_second_level_two_sample_test.py": {
+        "size": 5232
+      },
+      "examples/05_glm_second_level/plot_thresholding.py": {
+        "size": 3972
+      },
+      "examples/06_manipulating_images/plot_affine_transformation.py": {
+        "size": 4804
+      },
+      "examples/06_manipulating_images/plot_compare_mean_image.py": {
+        "size": 1028
+      },
+      "examples/06_manipulating_images/plot_extract_regions_labels_image.py": {
+        "size": 3817
+      },
+      "examples/06_manipulating_images/plot_extract_rois_smith_atlas.py": {
+        "size": 2106
+      },
+      "examples/06_manipulating_images/plot_extract_rois_statistical_maps.py": {
+        "size": 2748
+      },
+      "examples/06_manipulating_images/plot_mask_computation.py": {
+        "size": 7186
+      },
+      "examples/06_manipulating_images/plot_negate_image.py": {
+        "size": 766
+      },
+      "examples/06_manipulating_images/plot_nifti_labels_simple.py": {
+        "size": 2985
+      },
+      "examples/06_manipulating_images/plot_nifti_simple.py": {
+        "size": 3487
+      },
+      "examples/06_manipulating_images/plot_resample_to_template.py": {
+        "size": 2147
+      },
+      "examples/06_manipulating_images/plot_roi_extraction.py": {
+        "size": 15506
+      },
+      "examples/06_manipulating_images/plot_smooth_mean_image.py": {
+        "size": 2060
+      },
+      "examples/06_manipulating_images/plot_threshold_image.py": {
+        "size": 3366
+      },
+      "examples/07_advanced/plot_advanced_decoding_scikit.py": {
+        "size": 9225
+      },
+      "examples/07_advanced/plot_age_group_prediction_cross_val.py": {
+        "size": 4173
+      },
+      "examples/07_advanced/plot_beta_series.py": {
+        "size": 13884
+      },
+      "examples/07_advanced/plot_bids_analysis.py": {
+        "size": 6190
+      },
+      "examples/07_advanced/plot_copy_headers_math_img.py": {
+        "size": 4675
+      },
+      "examples/07_advanced/plot_haxby_mass_univariate.py": {
+        "size": 6114
+      },
+      "examples/07_advanced/plot_ica_neurovault.py": {
+        "size": 4363
+      },
+      "examples/07_advanced/plot_ica_resting_state.py": {
+        "size": 2594
+      },
+      "examples/07_advanced/plot_localizer_mass_univariate_methods.py": {
+        "size": 4651
+      },
+      "examples/07_advanced/plot_localizer_simple_analysis.py": {
+        "size": 2373
+      },
+      "examples/07_advanced/plot_mask_large_fmri.py": {
+        "size": 11918
+      },
+      "examples/07_advanced/plot_neurovault_meta_analysis.py": {
+        "size": 2927
+      },
+      "examples/07_advanced/plot_surface_bids_analysis.py": {
+        "size": 5727
+      },
+      "examples/07_advanced/plot_surface_image_and_maskers.py": {
+        "size": 6248
+      },
+      "examples/README.txt": {
+        "size": 316
+      },
+      "maint_tools/check_atlas.py": {
+        "size": 6777
+      },
+      "maint_tools/check_docstrings.py": {
+        "size": 9640
+      },
+      "maint_tools/check_gha_workflow.py": {
+        "size": 11184
+      },
+      "maint_tools/check_glossary_term.py": {
+        "size": 7593
+      },
+      "maint_tools/check_private.py": {
+        "size": 2517
+      },
+      "maint_tools/citation_cff_maint.py": {
+        "size": 5876
+      },
+      "maint_tools/convert_brain_templates.py": {
+        "size": 2664
+      },
+      "maint_tools/missing_default_in_docstring.py": {
+        "size": 4524
+      },
+      "maint_tools/plot_align_glass_brain_svg.py": {
+        "size": 2247
+      },
+      "maint_tools/plot_test_timing.py": {
+        "size": 1739
+      },
+      "maint_tools/requirements.txt": {
+        "size": 62
+      },
+      "maint_tools/show-python-packages-versions.py": {
+        "size": 928
+      },
+      "maint_tools/svg_to_json_converter.py": {
+        "size": 5150
+      },
+      "maint_tools/utils.py": {
+        "size": 3184
+      },
+      "nilearn/__init__.py": {
+        "size": 2904
+      },
+      "nilearn/_base.py": {
+        "size": 2423
+      },
+      "nilearn/_utils/__init__.py": {
+        "size": 5749
+      },
+      "nilearn/_utils/bids.py": {
+        "size": 7850
+      },
+      "nilearn/_utils/cache_mixin.py": {
+        "size": 8882
+      },
+      "nilearn/_utils/data_gen.py": {
+        "size": 44402
+      },
+      "nilearn/_utils/docs.py": {
+        "size": 65292
+      },
+      "nilearn/_utils/estimator_checks.py": {
+        "size": 140150
+      },
+      "nilearn/_utils/extmath.py": {
+        "size": 1865
+      },
+      "nilearn/_utils/fmriprep_confounds.py": {
+        "size": 842
+      },
+      "nilearn/_utils/glm.py": {
+        "size": 3858
+      },
+      "nilearn/_utils/helpers.py": {
+        "size": 9300
+      },
+      "nilearn/_utils/html_document.py": {
+        "size": 7440
+      },
+      "nilearn/_utils/logger.py": {
+        "size": 5755
+      },
+      "nilearn/_utils/masker_validation.py": {
+        "size": 1816
+      },
+      "nilearn/_utils/ndimage.py": {
+        "size": 5235
+      },
+      "nilearn/_utils/niimg.py": {
+        "size": 9724
+      },
+      "nilearn/_utils/numpy_conversions.py": {
+        "size": 4613
+      },
+      "nilearn/_utils/param_validation.py": {
+        "size": 11008
+      },
+      "nilearn/_utils/path_finding.py": {
+        "size": 603
+      },
+      "nilearn/_utils/plotting.py": {
+        "size": 7019
+      },
+      "nilearn/_utils/segmentation.py": {
+        "size": 13349
+      },
+      "nilearn/_utils/tags.py": {
+        "size": 3237
+      },
+      "nilearn/_utils/testing.py": {
+        "size": 5384
+      },
+      "nilearn/_utils/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/_utils/tests/data/__init__.py": {
+        "size": 0
+      },
+      "nilearn/_utils/tests/test_bids.py": {
+        "size": 2145
+      },
+      "nilearn/_utils/tests/test_cache_mixin.py": {
+        "size": 4343
+      },
+      "nilearn/_utils/tests/test_common.py": {
+        "size": 2027
+      },
+      "nilearn/_utils/tests/test_data_gen.py": {
+        "size": 22367
+      },
+      "nilearn/_utils/tests/test_estimator_checks.py": {
+        "size": 2425
+      },
+      "nilearn/_utils/tests/test_extmath.py": {
+        "size": 1217
+      },
+      "nilearn/_utils/tests/test_glm.py": {
+        "size": 2374
+      },
+      "nilearn/_utils/tests/test_helpers.py": {
+        "size": 8098
+      },
+      "nilearn/_utils/tests/test_html_document.py": {
+        "size": 2920
+      },
+      "nilearn/_utils/tests/test_logger.py": {
+        "size": 3325
+      },
+      "nilearn/_utils/tests/test_ndimage.py": {
+        "size": 2310
+      },
+      "nilearn/_utils/tests/test_niimg.py": {
+        "size": 11554
+      },
+      "nilearn/_utils/tests/test_numpy_conversions.py": {
+        "size": 8356
+      },
+      "nilearn/_utils/tests/test_param_validation.py": {
+        "size": 7146
+      },
+      "nilearn/_utils/tests/test_path_finding.py": {
+        "size": 1359
+      },
+      "nilearn/_utils/tests/test_segmentation.py": {
+        "size": 4239
+      },
+      "nilearn/_utils/tests/test_tags.py": {
+        "size": 1363
+      },
+      "nilearn/_utils/tests/test_testing.py": {
+        "size": 2430
+      },
+      "nilearn/_utils/tests/test_versions.py": {
+        "size": 634
+      },
+      "nilearn/_utils/versions.py": {
+        "size": 2332
+      },
+      "nilearn/conftest.py": {
+        "size": 25436
+      },
+      "nilearn/connectome/__init__.py": {
+        "size": 695
+      },
+      "nilearn/connectome/connectivity_matrices.py": {
+        "size": 27043
+      },
+      "nilearn/connectome/group_sparse_cov.py": {
+        "size": 44812
+      },
+      "nilearn/connectome/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/connectome/tests/test_connectivity_matrices.py": {
+        "size": 32851
+      },
+      "nilearn/connectome/tests/test_group_sparse_cov.py": {
+        "size": 6693
+      },
+      "nilearn/datasets/__init__.py": {
+        "size": 3704
+      },
+      "nilearn/datasets/_utils.py": {
+        "size": 29610
+      },
+      "nilearn/datasets/atlas.py": {
+        "size": 71779
+      },
+      "nilearn/datasets/data/__init__.py": {
+        "size": 0
+      },
+      "nilearn/datasets/data/fsaverage5/__init__.py": {
+        "size": 0
+      },
+      "nilearn/datasets/data/seitzman_2018_ROIs_300inVol_MNI_allInfo.txt": {
+        "size": 10716
+      },
+      "nilearn/datasets/data/seitzman_2018_ROIs_anatomicalLabels.txt": {
+        "size": 696
+      },
+      "nilearn/datasets/data/spm_confounds.txt": {
+        "size": 1940
+      },
+      "nilearn/datasets/description/__init__.py": {
+        "size": 0
+      },
+      "nilearn/datasets/func.py": {
+        "size": 97733
+      },
+      "nilearn/datasets/neurovault.py": {
+        "size": 89949
+      },
+      "nilearn/datasets/struct.py": {
+        "size": 32029
+      },
+      "nilearn/datasets/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/datasets/tests/_testing.py": {
+        "size": 5210
+      },
+      "nilearn/datasets/tests/conftest.py": {
+        "size": 13654
+      },
+      "nilearn/datasets/tests/data/__init__.py": {
+        "size": 0
+      },
+      "nilearn/datasets/tests/data/archive_contents/__init__.py": {
+        "size": 0
+      },
+      "nilearn/datasets/tests/data/archive_contents/allen_2011.txt": {
+        "size": 191
+      },
+      "nilearn/datasets/tests/data/archive_contents/basc_multiscale_asym.txt": {
+        "size": 1013
+      },
+      "nilearn/datasets/tests/data/archive_contents/basc_multiscale_sym.txt": {
+        "size": 994
+      },
+      "nilearn/datasets/tests/data/archive_contents/icbm152_2009.txt": {
+        "size": 720
+      },
+      "nilearn/datasets/tests/data/archive_contents/language_localizer.txt": {
+        "size": 3081
+      },
+      "nilearn/datasets/tests/data/archive_contents/localizer_first_level.txt": {
+        "size": 167
+      },
+      "nilearn/datasets/tests/data/archive_contents/mixed_gambles.txt": {
+        "size": 500
+      },
+      "nilearn/datasets/tests/data/archive_contents/miyawaki2008.txt": {
+        "size": 2972
+      },
+      "nilearn/datasets/tests/data/archive_contents/test_examples/__init__.py": {
+        "size": 0
+      },
+      "nilearn/datasets/tests/data/archive_contents/test_examples/example.txt": {
+        "size": 86
+      },
+      "nilearn/datasets/tests/data/archive_contents/test_examples/example_tar_gz.txt": {
+        "size": 92
+      },
+      "nilearn/datasets/tests/data/archive_contents/test_examples/example_zip.txt": {
+        "size": 87
+      },
+      "nilearn/datasets/tests/data/archive_contents/yeo_atlas.txt": {
+        "size": 686
+      },
+      "nilearn/datasets/tests/data/localizer_index.json": {
+        "size": 12494
+      },
+      "nilearn/datasets/tests/data/spm_confounds.txt": {
+        "size": 1940
+      },
+      "nilearn/datasets/tests/test_atlas.py": {
+        "size": 28498
+      },
+      "nilearn/datasets/tests/test_func.py": {
+        "size": 35395
+      },
+      "nilearn/datasets/tests/test_mocking_autoused.py": {
+        "size": 1890
+      },
+      "nilearn/datasets/tests/test_neurovault.py": {
+        "size": 33669
+      },
+      "nilearn/datasets/tests/test_struct.py": {
+        "size": 6961
+      },
+      "nilearn/datasets/tests/test_testing.py": {
+        "size": 7118
+      },
+      "nilearn/datasets/tests/test_utils.py": {
+        "size": 17585
+      },
+      "nilearn/datasets/utils.py": {
+        "size": 1719
+      },
+      "nilearn/decoding/__init__.py": {
+        "size": 450
+      },
+      "nilearn/decoding/_mixin.py": {
+        "size": 3294
+      },
+      "nilearn/decoding/_objective_functions.py": {
+        "size": 6942
+      },
+      "nilearn/decoding/_proximal_operators.py": {
+        "size": 10602
+      },
+      "nilearn/decoding/_utils.py": {
+        "size": 7392
+      },
+      "nilearn/decoding/decoder.py": {
+        "size": 61887
+      },
+      "nilearn/decoding/fista.py": {
+        "size": 8732
+      },
+      "nilearn/decoding/searchlight.py": {
+        "size": 16554
+      },
+      "nilearn/decoding/space_net.py": {
+        "size": 44920
+      },
+      "nilearn/decoding/space_net_solvers.py": {
+        "size": 17446
+      },
+      "nilearn/decoding/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/decoding/tests/_testing.py": {
+        "size": 1649
+      },
+      "nilearn/decoding/tests/conftest.py": {
+        "size": 560
+      },
+      "nilearn/decoding/tests/test_decoder.py": {
+        "size": 47885
+      },
+      "nilearn/decoding/tests/test_fista.py": {
+        "size": 2602
+      },
+      "nilearn/decoding/tests/test_graph_net.py": {
+        "size": 10099
+      },
+      "nilearn/decoding/tests/test_objective_functions.py": {
+        "size": 2210
+      },
+      "nilearn/decoding/tests/test_operators.py": {
+        "size": 1904
+      },
+      "nilearn/decoding/tests/test_same_api.py": {
+        "size": 8629
+      },
+      "nilearn/decoding/tests/test_searchlight.py": {
+        "size": 8521
+      },
+      "nilearn/decoding/tests/test_sklearn_compatibility.py": {
+        "size": 991
+      },
+      "nilearn/decoding/tests/test_space_net.py": {
+        "size": 18670
+      },
+      "nilearn/decoding/tests/test_tv.py": {
+        "size": 1521
+      },
+      "nilearn/decoding/tests/test_utils.py": {
+        "size": 4131
+      },
+      "nilearn/decomposition/__init__.py": {
+        "size": 237
+      },
+      "nilearn/decomposition/_base.py": {
+        "size": 25245
+      },
+      "nilearn/decomposition/_multi_pca.py": {
+        "size": 5028
+      },
+      "nilearn/decomposition/canica.py": {
+        "size": 8399
+      },
+      "nilearn/decomposition/dict_learning.py": {
+        "size": 9610
+      },
+      "nilearn/decomposition/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/decomposition/tests/conftest.py": {
+        "size": 9863
+      },
+      "nilearn/decomposition/tests/test_base.py": {
+        "size": 5733
+      },
+      "nilearn/decomposition/tests/test_canica.py": {
+        "size": 3712
+      },
+      "nilearn/decomposition/tests/test_decomposition_estimators.py": {
+        "size": 14394
+      },
+      "nilearn/decomposition/tests/test_dict_learning.py": {
+        "size": 4320
+      },
+      "nilearn/decomposition/tests/test_multi_pca.py": {
+        "size": 3249
+      },
+      "nilearn/exceptions.py": {
+        "size": 3224
+      },
+      "nilearn/glm/__init__.py": {
+        "size": 1035
+      },
+      "nilearn/glm/_base.py": {
+        "size": 35836
+      },
+      "nilearn/glm/_reporting_utils.py": {
+        "size": 18364
+      },
+      "nilearn/glm/_utils.py": {
+        "size": 8581
+      },
+      "nilearn/glm/contrasts.py": {
+        "size": 18218
+      },
+      "nilearn/glm/first_level/__init__.py": {
+        "size": 826
+      },
+      "nilearn/glm/first_level/design_matrix.py": {
+        "size": 17105
+      },
+      "nilearn/glm/first_level/experimental_paradigm.py": {
+        "size": 6729
+      },
+      "nilearn/glm/first_level/first_level.py": {
+        "size": 87752
+      },
+      "nilearn/glm/first_level/hemodynamic_models.py": {
+        "size": 21874
+      },
+      "nilearn/glm/io.py": {
+        "size": 19299
+      },
+      "nilearn/glm/model.py": {
+        "size": 13004
+      },
+      "nilearn/glm/regression.py": {
+        "size": 12455
+      },
+      "nilearn/glm/second_level/__init__.py": {
+        "size": 307
+      },
+      "nilearn/glm/second_level/second_level.py": {
+        "size": 40783
+      },
+      "nilearn/glm/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/glm/tests/_testing.py": {
+        "size": 3152
+      },
+      "nilearn/glm/tests/baseline/README.md": {
+        "size": 203
+      },
+      "nilearn/glm/tests/conftest.py": {
+        "size": 1078
+      },
+      "nilearn/glm/tests/test_baseline_comparisons.py": {
+        "size": 3731
+      },
+      "nilearn/glm/tests/test_check_events_file_uses_tab_separators.py": {
+        "size": 3282
+      },
+      "nilearn/glm/tests/test_contrasts.py": {
+        "size": 8740
+      },
+      "nilearn/glm/tests/test_design_matrix.py": {
+        "size": 14603
+      },
+      "nilearn/glm/tests/test_first_level.py": {
+        "size": 58240
+      },
+      "nilearn/glm/tests/test_first_level_from_bids.py": {
+        "size": 33638
+      },
+      "nilearn/glm/tests/test_glm_reporter.py": {
+        "size": 17504
+      },
+      "nilearn/glm/tests/test_hemodynamic_models.py": {
+        "size": 12106
+      },
+      "nilearn/glm/tests/test_io.py": {
+        "size": 20855
+      },
+      "nilearn/glm/tests/test_model.py": {
+        "size": 4433
+      },
+      "nilearn/glm/tests/test_non_parametric_inference.py": {
+        "size": 15509
+      },
+      "nilearn/glm/tests/test_paradigm.py": {
+        "size": 5442
+      },
+      "nilearn/glm/tests/test_regression.py": {
+        "size": 2401
+      },
+      "nilearn/glm/tests/test_second_level.py": {
+        "size": 40858
+      },
+      "nilearn/glm/tests/test_thresholding.py": {
+        "size": 20618
+      },
+      "nilearn/glm/tests/test_utils.py": {
+        "size": 8791
+      },
+      "nilearn/glm/thresholding.py": {
+        "size": 16045
+      },
+      "nilearn/image/__init__.py": {
+        "size": 1145
+      },
+      "nilearn/image/image.py": {
+        "size": 84105
+      },
+      "nilearn/image/resampling.py": {
+        "size": 29692
+      },
+      "nilearn/image/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/image/tests/_testing.py": {
+        "size": 2370
+      },
+      "nilearn/image/tests/conftest.py": {
+        "size": 1587
+      },
+      "nilearn/image/tests/data/__init__.py": {
+        "size": 0
+      },
+      "nilearn/image/tests/test_image.py": {
+        "size": 81882
+      },
+      "nilearn/image/tests/test_resampling.py": {
+        "size": 37222
+      },
+      "nilearn/interfaces/__init__.py": {
+        "size": 136
+      },
+      "nilearn/interfaces/bids/__init__.py": {
+        "size": 283
+      },
+      "nilearn/interfaces/bids/glm.py": {
+        "size": 702
+      },
+      "nilearn/interfaces/bids/query.py": {
+        "size": 10310
+      },
+      "nilearn/interfaces/bids/utils.py": {
+        "size": 2865
+      },
+      "nilearn/interfaces/fmriprep/__init__.py": {
+        "size": 324
+      },
+      "nilearn/interfaces/fmriprep/data/__init__.py": {
+        "size": 74
+      },
+      "nilearn/interfaces/fmriprep/data/test-v21_desc-confounds_timeseries.json": {
+        "size": 3419
+      },
+      "nilearn/interfaces/fmriprep/data/test_desc-confounds_regressors.json": {
+        "size": 104451
+      },
+      "nilearn/interfaces/fmriprep/load_confounds.py": {
+        "size": 20996
+      },
+      "nilearn/interfaces/fmriprep/load_confounds_compcor.py": {
+        "size": 5733
+      },
+      "nilearn/interfaces/fmriprep/load_confounds_components.py": {
+        "size": 11775
+      },
+      "nilearn/interfaces/fmriprep/load_confounds_scrub.py": {
+        "size": 4705
+      },
+      "nilearn/interfaces/fmriprep/load_confounds_strategy.py": {
+        "size": 12136
+      },
+      "nilearn/interfaces/fmriprep/load_confounds_utils.py": {
+        "size": 18838
+      },
+      "nilearn/interfaces/fmriprep/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/interfaces/fmriprep/tests/_testing.py": {
+        "size": 8645
+      },
+      "nilearn/interfaces/fmriprep/tests/test_load_confounds.py": {
+        "size": 28268
+      },
+      "nilearn/interfaces/fmriprep/tests/test_load_confounds_components.py": {
+        "size": 4323
+      },
+      "nilearn/interfaces/fmriprep/tests/test_load_confounds_scrub.py": {
+        "size": 4604
+      },
+      "nilearn/interfaces/fmriprep/tests/test_load_confounds_strategy.py": {
+        "size": 7117
+      },
+      "nilearn/interfaces/fmriprep/tests/test_load_confounds_utils.py": {
+        "size": 4063
+      },
+      "nilearn/interfaces/fsl.py": {
+        "size": 1354
+      },
+      "nilearn/interfaces/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/interfaces/tests/test_fsl.py": {
+        "size": 621
+      },
+      "nilearn/interfaces/tests/test_glm.py": {
+        "size": 1037
+      },
+      "nilearn/interfaces/tests/test_query.py": {
+        "size": 11148
+      },
+      "nilearn/maskers/__init__.py": {
+        "size": 1151
+      },
+      "nilearn/maskers/_mixin.py": {
+        "size": 13921
+      },
+      "nilearn/maskers/_utils.py": {
+        "size": 631
+      },
+      "nilearn/maskers/base_masker.py": {
+        "size": 28498
+      },
+      "nilearn/maskers/masker_validation.py": {
+        "size": 7059
+      },
+      "nilearn/maskers/multi_nifti_labels_masker.py": {
+        "size": 4760
+      },
+      "nilearn/maskers/multi_nifti_maps_masker.py": {
+        "size": 5105
+      },
+      "nilearn/maskers/multi_nifti_masker.py": {
+        "size": 13708
+      },
+      "nilearn/maskers/multi_surface_labels_masker.py": {
+        "size": 6610
+      },
+      "nilearn/maskers/multi_surface_maps_masker.py": {
+        "size": 5412
+      },
+      "nilearn/maskers/multi_surface_masker.py": {
+        "size": 6391
+      },
+      "nilearn/maskers/nifti_labels_masker.py": {
+        "size": 25779
+      },
+      "nilearn/maskers/nifti_maps_masker.py": {
+        "size": 22976
+      },
+      "nilearn/maskers/nifti_masker.py": {
+        "size": 21127
+      },
+      "nilearn/maskers/nifti_spheres_masker.py": {
+        "size": 21704
+      },
+      "nilearn/maskers/surface_labels_masker.py": {
+        "size": 15445
+      },
+      "nilearn/maskers/surface_maps_masker.py": {
+        "size": 17661
+      },
+      "nilearn/maskers/surface_masker.py": {
+        "size": 13364
+      },
+      "nilearn/maskers/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/maskers/tests/baseline/README.md": {
+        "size": 203
+      },
+      "nilearn/maskers/tests/conftest.py": {
+        "size": 923
+      },
+      "nilearn/maskers/tests/test_base_masker.py": {
+        "size": 2700
+      },
+      "nilearn/maskers/tests/test_baseline_comparisons.py": {
+        "size": 7853
+      },
+      "nilearn/maskers/tests/test_html_report.py": {
+        "size": 18382
+      },
+      "nilearn/maskers/tests/test_masker_validation.py": {
+        "size": 6407
+      },
+      "nilearn/maskers/tests/test_mixin.py": {
+        "size": 6377
+      },
+      "nilearn/maskers/tests/test_multi_nifti_labels_masker.py": {
+        "size": 12601
+      },
+      "nilearn/maskers/tests/test_multi_nifti_maps_masker.py": {
+        "size": 11197
+      },
+      "nilearn/maskers/tests/test_multi_nifti_masker.py": {
+        "size": 7263
+      },
+      "nilearn/maskers/tests/test_multi_surface_labels_masker.py": {
+        "size": 1711
+      },
+      "nilearn/maskers/tests/test_multi_surface_maps_masker.py": {
+        "size": 1677
+      },
+      "nilearn/maskers/tests/test_multi_surface_masker.py": {
+        "size": 1609
+      },
+      "nilearn/maskers/tests/test_nifti_labels_masker.py": {
+        "size": 39076
+      },
+      "nilearn/maskers/tests/test_nifti_maps_masker.py": {
+        "size": 14036
+      },
+      "nilearn/maskers/tests/test_nifti_masker.py": {
+        "size": 15244
+      },
+      "nilearn/maskers/tests/test_nifti_spheres_masker.py": {
+        "size": 10177
+      },
+      "nilearn/maskers/tests/test_surface_labels_masker.py": {
+        "size": 21986
+      },
+      "nilearn/maskers/tests/test_surface_maps_masker.py": {
+        "size": 4860
+      },
+      "nilearn/maskers/tests/test_surface_masker.py": {
+        "size": 4206
+      },
+      "nilearn/masking.py": {
+        "size": 31675
+      },
+      "nilearn/mass_univariate/__init__.py": {
+        "size": 171
+      },
+      "nilearn/mass_univariate/_utils.py": {
+        "size": 15511
+      },
+      "nilearn/mass_univariate/permuted_least_squares.py": {
+        "size": 40438
+      },
+      "nilearn/mass_univariate/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/mass_univariate/tests/_testing.py": {
+        "size": 3632
+      },
+      "nilearn/mass_univariate/tests/test_permuted_least_squares.py": {
+        "size": 29145
+      },
+      "nilearn/mass_univariate/tests/test_utils.py": {
+        "size": 9348
+      },
+      "nilearn/plotting/__init__.py": {
+        "size": 1946
+      },
+      "nilearn/plotting/_engine_utils.py": {
+        "size": 5588
+      },
+      "nilearn/plotting/_utils.py": {
+        "size": 9501
+      },
+      "nilearn/plotting/cm.py": {
+        "size": 11502
+      },
+      "nilearn/plotting/conftest.py": {
+        "size": 952
+      },
+      "nilearn/plotting/data/README.txt": {
+        "size": 433
+      },
+      "nilearn/plotting/data/__init__.py": {
+        "size": 0
+      },
+      "nilearn/plotting/data/html/__init__.py": {
+        "size": 0
+      },
+      "nilearn/plotting/data/js/__init__.py": {
+        "size": 0
+      },
+      "nilearn/plotting/data/js/brainsprite.min.js": {
+        "size": 12247
+      },
+      "nilearn/plotting/data/js/jquery.min.js": {
+        "size": 89501
+      },
+      "nilearn/plotting/data/js/plotly-gl3d-latest.min.js": {
+        "size": 524313
+      },
+      "nilearn/plotting/data/js/surface-plot-utils.js": {
+        "size": 4737
+      },
+      "nilearn/plotting/displays/__init__.py": {
+        "size": 1430
+      },
+      "nilearn/plotting/displays/_axes.py": {
+        "size": 21454
+      },
+      "nilearn/plotting/displays/_figures.py": {
+        "size": 21055
+      },
+      "nilearn/plotting/displays/_projectors.py": {
+        "size": 28005
+      },
+      "nilearn/plotting/displays/_slicers.py": {
+        "size": 89431
+      },
+      "nilearn/plotting/displays/_utils.py": {
+        "size": 1326
+      },
+      "nilearn/plotting/displays/edge_detect.py": {
+        "size": 4529
+      },
+      "nilearn/plotting/displays/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/plotting/displays/tests/test_displays.py": {
+        "size": 23210
+      },
+      "nilearn/plotting/displays/tests/test_edge_detect.py": {
+        "size": 434
+      },
+      "nilearn/plotting/displays/tests/test_figures.py": {
+        "size": 1297
+      },
+      "nilearn/plotting/find_cuts.py": {
+        "size": 17378
+      },
+      "nilearn/plotting/glass_brain.py": {
+        "size": 5615
+      },
+      "nilearn/plotting/glass_brain_files/README.md": {
+        "size": 65
+      },
+      "nilearn/plotting/glass_brain_files/__init__.py": {
+        "size": 0
+      },
+      "nilearn/plotting/glass_brain_files/brain_schematics_back.json": {
+        "size": 120130
+      },
+      "nilearn/plotting/glass_brain_files/brain_schematics_front.json": {
+        "size": 135591
+      },
+      "nilearn/plotting/glass_brain_files/brain_schematics_side.json": {
+        "size": 76922
+      },
+      "nilearn/plotting/glass_brain_files/brain_schematics_top.json": {
+        "size": 152498
+      },
+      "nilearn/plotting/html_connectome.py": {
+        "size": 12994
+      },
+      "nilearn/plotting/html_stat_map.py": {
+        "size": 20813
+      },
+      "nilearn/plotting/image/__init__.py": {
+        "size": 459
+      },
+      "nilearn/plotting/image/img_plotting.py": {
+        "size": 58923
+      },
+      "nilearn/plotting/image/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/plotting/image/tests/test_img_plotting.py": {
+        "size": 9165
+      },
+      "nilearn/plotting/image/tests/test_plot_anat.py": {
+        "size": 573
+      },
+      "nilearn/plotting/image/tests/test_plot_carpet.py": {
+        "size": 3503
+      },
+      "nilearn/plotting/image/tests/test_plot_connectome.py": {
+        "size": 9074
+      },
+      "nilearn/plotting/image/tests/test_plot_glass_brain.py": {
+        "size": 4539
+      },
+      "nilearn/plotting/image/tests/test_plot_img.py": {
+        "size": 8392
+      },
+      "nilearn/plotting/image/tests/test_plot_markers.py": {
+        "size": 5666
+      },
+      "nilearn/plotting/image/tests/test_plot_prob_atlas.py": {
+        "size": 1081
+      },
+      "nilearn/plotting/image/tests/test_plot_roi.py": {
+        "size": 4411
+      },
+      "nilearn/plotting/image/tests/test_plot_stat_map.py": {
+        "size": 5906
+      },
+      "nilearn/plotting/image/utils.py": {
+        "size": 6688
+      },
+      "nilearn/plotting/img_comparison.py": {
+        "size": 15144
+      },
+      "nilearn/plotting/js_plotting_utils.py": {
+        "size": 2386
+      },
+      "nilearn/plotting/matrix/__init__.py": {
+        "size": 319
+      },
+      "nilearn/plotting/matrix/_utils.py": {
+        "size": 3922
+      },
+      "nilearn/plotting/matrix/matrix_plotting.py": {
+        "size": 18851
+      },
+      "nilearn/plotting/matrix/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/plotting/matrix/tests/test_matrix_plotting.py": {
+        "size": 11618
+      },
+      "nilearn/plotting/matrix/tests/test_utils.py": {
+        "size": 2205
+      },
+      "nilearn/plotting/surface/__init__.py": {
+        "size": 407
+      },
+      "nilearn/plotting/surface/_matplotlib_backend.py": {
+        "size": 19397
+      },
+      "nilearn/plotting/surface/_plotly_backend.py": {
+        "size": 10060
+      },
+      "nilearn/plotting/surface/_utils.py": {
+        "size": 13126
+      },
+      "nilearn/plotting/surface/html_surface.py": {
+        "size": 15509
+      },
+      "nilearn/plotting/surface/surf_plotting.py": {
+        "size": 30841
+      },
+      "nilearn/plotting/surface/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/plotting/surface/tests/conftest.py": {
+        "size": 2221
+      },
+      "nilearn/plotting/surface/tests/test_html_surface.py": {
+        "size": 7121
+      },
+      "nilearn/plotting/surface/tests/test_matplotlib_backend.py": {
+        "size": 7422
+      },
+      "nilearn/plotting/surface/tests/test_plotly_backend.py": {
+        "size": 6994
+      },
+      "nilearn/plotting/surface/tests/test_plotly_surface_figure.py": {
+        "size": 7575
+      },
+      "nilearn/plotting/surface/tests/test_surf_plotting.py": {
+        "size": 40148
+      },
+      "nilearn/plotting/surface/tests/test_utils.py": {
+        "size": 8826
+      },
+      "nilearn/plotting/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/plotting/tests/baseline/README.md": {
+        "size": 203
+      },
+      "nilearn/plotting/tests/test_baseline_comparisons.py": {
+        "size": 17939
+      },
+      "nilearn/plotting/tests/test_cm.py": {
+        "size": 2533
+      },
+      "nilearn/plotting/tests/test_engine_utils.py": {
+        "size": 6097
+      },
+      "nilearn/plotting/tests/test_find_cuts.py": {
+        "size": 16875
+      },
+      "nilearn/plotting/tests/test_html_connectome.py": {
+        "size": 4508
+      },
+      "nilearn/plotting/tests/test_html_stat_map.py": {
+        "size": 14019
+      },
+      "nilearn/plotting/tests/test_img_comparisons.py": {
+        "size": 8035
+      },
+      "nilearn/plotting/tests/test_js_plotting_utils.py": {
+        "size": 4354
+      },
+      "nilearn/plotting/tests/test_utils.py": {
+        "size": 8782
+      },
+      "nilearn/regions/__init__.py": {
+        "size": 859
+      },
+      "nilearn/regions/hierarchical_kmeans_clustering.py": {
+        "size": 13524
+      },
+      "nilearn/regions/parcellations.py": {
+        "size": 25980
+      },
+      "nilearn/regions/region_extractor.py": {
+        "size": 24491
+      },
+      "nilearn/regions/rena_clustering.py": {
+        "size": 26008
+      },
+      "nilearn/regions/signal_extraction.py": {
+        "size": 21299
+      },
+      "nilearn/regions/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/regions/tests/test_hierarchical_kmeans_clustering.py": {
+        "size": 7736
+      },
+      "nilearn/regions/tests/test_parcellations.py": {
+        "size": 18253
+      },
+      "nilearn/regions/tests/test_region_extractor.py": {
+        "size": 19984
+      },
+      "nilearn/regions/tests/test_rena_clustering.py": {
+        "size": 8108
+      },
+      "nilearn/regions/tests/test_signal_extraction.py": {
+        "size": 25551
+      },
+      "nilearn/reporting/__init__.py": {
+        "size": 427
+      },
+      "nilearn/reporting/_utils.py": {
+        "size": 2060
+      },
+      "nilearn/reporting/data/README.md": {
+        "size": 485
+      },
+      "nilearn/reporting/data/js/carousel.js": {
+        "size": 3913
+      },
+      "nilearn/reporting/get_clusters_table.py": {
+        "size": 23020
+      },
+      "nilearn/reporting/glm_reporter.py": {
+        "size": 2483
+      },
+      "nilearn/reporting/html_report.py": {
+        "size": 10284
+      },
+      "nilearn/reporting/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/reporting/tests/_testing.py": {
+        "size": 5328
+      },
+      "nilearn/reporting/tests/test_get_clusters_table.py": {
+        "size": 16998
+      },
+      "nilearn/reporting/utils.py": {
+        "size": 1656
+      },
+      "nilearn/signal.py": {
+        "size": 40246
+      },
+      "nilearn/surface/__init__.py": {
+        "size": 405
+      },
+      "nilearn/surface/data/README.md": {
+        "size": 828
+      },
+      "nilearn/surface/data/__init__.py": {
+        "size": 0
+      },
+      "nilearn/surface/surface.py": {
+        "size": 74926
+      },
+      "nilearn/surface/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/surface/tests/data/__init__.py": {
+        "size": 0
+      },
+      "nilearn/surface/tests/test_surface.py": {
+        "size": 44422
+      },
+      "nilearn/surface/tests/test_utils.py": {
+        "size": 1352
+      },
+      "nilearn/surface/utils.py": {
+        "size": 2896
+      },
+      "nilearn/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/tests/data/spm_confounds.txt": {
+        "size": 1940
+      },
+      "nilearn/tests/test_exceptions.py": {
+        "size": 354
+      },
+      "nilearn/tests/test_init.py": {
+        "size": 465
+      },
+      "nilearn/tests/test_masking.py": {
+        "size": 30810
+      },
+      "nilearn/tests/test_package_import.py": {
+        "size": 766
+      },
+      "nilearn/tests/test_signal.py": {
+        "size": 50941
+      },
+      "nilearn/typing.py": {
+        "size": 3397
+      },
+      "nilearn/utils/__init__.py": {
+        "size": 179
+      },
+      "nilearn/utils/discovery.py": {
+        "size": 8191
+      },
+      "nilearn/utils/tests/__init__.py": {
+        "size": 0
+      },
+      "nilearn/utils/tests/test_discovery.py": {
+        "size": 1397
+      },
+      "pyproject.toml": {
+        "size": 14983
+      },
+      "tox.ini": {
+        "size": 9022
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.asv_benchmarks.benchmarks",
+      "source.nilearn",
+      "source.nilearn._utils",
+      "source.nilearn.connectome",
+      "source.nilearn.datasets",
+      "source.nilearn.decoding",
+      "source.nilearn.decomposition",
+      "source.nilearn.glm",
+      "source.nilearn.image",
+      "source.nilearn.interfaces",
+      "source.nilearn.maskers",
+      "source.nilearn.mass_univariate",
+      "source.nilearn.plotting",
+      "source.nilearn.regions",
+      "source.nilearn.reporting",
+      "source.nilearn.surface",
+      "source.nilearn.tests",
+      "source.nilearn.utils"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.nilearn",
+        "module": "source.nilearn",
+        "functions": [
+          "main"
+        ],
+        "classes": [],
+        "description": "Main function module"
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.5
+    },
+    "dependencies": {
+      "required": [],
+      "optional": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.5,
+      "intrusiveness_risk": "low",
+      "complexity": "simple"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/nilearn/nilearn",
+    "repo_name": "nilearn",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.5,
+    "intrusiveness_risk": "low",
+    "complexity": "simple"
+  }
+}

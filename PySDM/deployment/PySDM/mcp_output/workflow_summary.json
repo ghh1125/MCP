@@ -1,0 +1,221 @@
+{
+  "repository": {
+    "name": "PySDM",
+    "url": "https://github.com/atmos-cloud-sim-uj/PySDM",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/PySDM",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773278465.785836,
+    "end_time": 1773278662.9295812,
+    "duration": 197.14374613761902,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 16,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.PySDM",
+        "source.PySDM.attributes",
+        "source.PySDM.backends",
+        "source.PySDM.dynamics",
+        "source.PySDM.environments",
+        "source.PySDM.exporters",
+        "source.PySDM.impl",
+        "source.PySDM.initialisation",
+        "source.PySDM.physics",
+        "source.PySDM.products",
+        "source.examples.PySDM_examples",
+        "source.tests",
+        "source.tests.examples_tests",
+        "source.tests.smoke_tests",
+        "source.tests.tutorials_tests",
+        "source.tests.unit_tests"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/atmos-cloud-sim-uj/PySDM",
+      "repo_name": "PySDM",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/PySDM/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal MCP smoke test suite (server startup + one call per endpoint) and wire it into CI",
+    "pin and lock plugin/runtime dependencies (including optional CUDA/ThrustRTC extras) for reproducible installs",
+    "add strict request/response Pydantic schemas for each endpoint with validation/error codes and example payloads",
+    "implement structured logging + tracing (request id",
+    "endpoint",
+    "duration",
+    "backend) and expose a health/readiness endpoint",
+    "introduce timeout/concurrency guards and resource limits around long-running simulations",
+    "add backend-capability negotiation/fallback logic (Numba default",
+    "graceful ThrustRTC unavailable handling)",
+    "create a compact “golden scenarios” regression pack (box/parcel condensation+collision) with numeric tolerance checks across backends",
+    "expand README_MCP with end-to-end usage recipes and troubleshooting matrix for common import/CUDA issues",
+    "add coverage reporting specifically for mcp_output and enforce a quality gate on new plugin code",
+    "refactor adapter endpoint naming consistency (thrustrtc vs ThrustRTC) and provide stable versioned API names",
+    "add input sanitization and safe path/file handling for exporters (netCDF/vtk) to avoid unsafe writes",
+    "set up benchmark jobs for key workloads and track latency/throughput trends per endpoint over time"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed all planned nodes (download, analysis, env, generate, run, review, finalize) with overall status=success.",
+      "Import-based adapter strategy was feasible (import_feasibility=0.91) and aligned with low intrusiveness risk.",
+      "Generated MCP plugin started healthy over stdio and passed plugin-level checks.",
+      "Repository already has strong domain structure and extensive upstream tests, which improved discoverability of stable integration points."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Original project test result is marked failed/unknown despite reported 100% coverage metadata, indicating test-execution telemetry inconsistency rather than confirmed code failure.",
+      "DeepWiki analysis failed, reducing external architectural/context enrichment."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repo imported via zip fallback (900 files). Likely moderate share of total runtime due to large tree traversal.",
+      "analysis_time": "Completed successfully; static/package/dependency analysis succeeded but DeepWiki sub-analysis failed.",
+      "generation_time": "Completed successfully; plugin scaffold and 10 endpoints produced, though generation metrics (LOC/size/tool count) are inconsistent with file list.",
+      "test_time": "Plugin run/health checks passed; original project tests were not reliably executed/recorded (metadata conflict), so end-to-end validation depth is limited."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Not measurable from provided metrics (recorded as 0). Instrumentation gap.",
+      "cpu_efficiency": "Not measurable from provided metrics (recorded as 0). Instrumentation gap.",
+      "disk_usage": "Low-to-moderate expected; generated artifact set is small, but repository scan touched a large codebase."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 82,
+    "performance_score": 68,
+    "maintainability_score": 75,
+    "security_score": 85,
+    "scalability_score": 74
+  }
+}

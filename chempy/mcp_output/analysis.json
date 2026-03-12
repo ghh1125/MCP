@@ -1,0 +1,624 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/bjodah/chempy",
+    "summary": "Imported via zip fallback, file count: 147",
+    "file_tree": {
+      ".devcontainer/devcontainer.json": {
+        "size": 275
+      },
+      ".github/workflows/lint_python.yml": {
+        "size": 1360
+      },
+      ".jupyter/jupyter_notebook_config.py": {
+        "size": 522
+      },
+      ".travis.yml": {
+        "size": 1132
+      },
+      ".woodpecker.yaml": {
+        "size": 2419
+      },
+      "benchmarks/asv.conf.json": {
+        "size": 2963
+      },
+      "benchmarks/benchmarks/__init__.py": {
+        "size": 0
+      },
+      "benchmarks/benchmarks/equilibria.py": {
+        "size": 1079
+      },
+      "chempy/__init__.py": {
+        "size": 707
+      },
+      "chempy/_eqsys.py": {
+        "size": 9477
+      },
+      "chempy/_equilibrium.py": {
+        "size": 2475
+      },
+      "chempy/_release.py": {
+        "size": 31
+      },
+      "chempy/_solution.py": {
+        "size": 6002
+      },
+      "chempy/_url.py": {
+        "size": 45
+      },
+      "chempy/_util.py": {
+        "size": 2437
+      },
+      "chempy/arrhenius.py": {
+        "size": 321
+      },
+      "chempy/chemistry.py": {
+        "size": 53648
+      },
+      "chempy/debye_huckel.py": {
+        "size": 386
+      },
+      "chempy/einstein_smoluchowski.py": {
+        "size": 1091
+      },
+      "chempy/electrochemistry/__init__.py": {
+        "size": 24
+      },
+      "chempy/electrochemistry/nernst.py": {
+        "size": 1379
+      },
+      "chempy/electrochemistry/tests/__init__.py": {
+        "size": 0
+      },
+      "chempy/electrochemistry/tests/test_nernst.py": {
+        "size": 1068
+      },
+      "chempy/electrolytes.py": {
+        "size": 7777
+      },
+      "chempy/equilibria.py": {
+        "size": 16931
+      },
+      "chempy/eyring.py": {
+        "size": 258
+      },
+      "chempy/henry.py": {
+        "size": 3595
+      },
+      "chempy/kinetics/__init__.py": {
+        "size": 199
+      },
+      "chempy/kinetics/_native.py": {
+        "size": 6516
+      },
+      "chempy/kinetics/_rates.py": {
+        "size": 710
+      },
+      "chempy/kinetics/analysis.py": {
+        "size": 4941
+      },
+      "chempy/kinetics/arrhenius.py": {
+        "size": 8362
+      },
+      "chempy/kinetics/eyring.py": {
+        "size": 5966
+      },
+      "chempy/kinetics/integrated.py": {
+        "size": 7550
+      },
+      "chempy/kinetics/ode.py": {
+        "size": 28053
+      },
+      "chempy/kinetics/rates.py": {
+        "size": 11346
+      },
+      "chempy/kinetics/tests/__init__.py": {
+        "size": 0
+      },
+      "chempy/kinetics/tests/test__native.py": {
+        "size": 9361
+      },
+      "chempy/kinetics/tests/test__rates.py": {
+        "size": 10652
+      },
+      "chempy/kinetics/tests/test_arrhenius.py": {
+        "size": 1612
+      },
+      "chempy/kinetics/tests/test_eyring.py": {
+        "size": 1007
+      },
+      "chempy/kinetics/tests/test_integrated.py": {
+        "size": 1549
+      },
+      "chempy/kinetics/tests/test_ode.py": {
+        "size": 41283
+      },
+      "chempy/kinetics/tests/test_rates.py": {
+        "size": 15161
+      },
+      "chempy/printing/__init__.py": {
+        "size": 325
+      },
+      "chempy/printing/js.py": {
+        "size": 3895
+      },
+      "chempy/printing/numbers.py": {
+        "size": 6188
+      },
+      "chempy/printing/pretty.py": {
+        "size": 803
+      },
+      "chempy/printing/printer.py": {
+        "size": 2350
+      },
+      "chempy/printing/string.py": {
+        "size": 3283
+      },
+      "chempy/printing/table.py": {
+        "size": 1272
+      },
+      "chempy/printing/tables.py": {
+        "size": 4306
+      },
+      "chempy/printing/tests/__init__.py": {
+        "size": 0
+      },
+      "chempy/printing/tests/test_numbers.py": {
+        "size": 2187
+      },
+      "chempy/printing/tests/test_str.py": {
+        "size": 432
+      },
+      "chempy/printing/tests/test_table.py": {
+        "size": 610
+      },
+      "chempy/printing/tex.py": {
+        "size": 630
+      },
+      "chempy/printing/web.py": {
+        "size": 2714
+      },
+      "chempy/properties/__init__.py": {
+        "size": 145
+      },
+      "chempy/properties/debye_huckel_radii.py": {
+        "size": 1550
+      },
+      "chempy/properties/gas_sol_electrolytes_schumpe_1993.py": {
+        "size": 3204
+      },
+      "chempy/properties/sulfuric_acid_density_myhre_1998.py": {
+        "size": 5569
+      },
+      "chempy/properties/tests/__init__.py": {
+        "size": 0
+      },
+      "chempy/properties/tests/test_gas_sol_electrolytes_schumpe_1993.py": {
+        "size": 403
+      },
+      "chempy/properties/tests/test_sulfuric_acid_density_myhre_1998.py": {
+        "size": 835
+      },
+      "chempy/properties/tests/test_water_density_tanaka_2001.py": {
+        "size": 1349
+      },
+      "chempy/properties/tests/test_water_diffusivity_holz_2000.py": {
+        "size": 1297
+      },
+      "chempy/properties/tests/test_water_permittivity_bradley_pitzer_1979.py": {
+        "size": 946
+      },
+      "chempy/properties/tests/test_water_viscosity_korson_1969.py": {
+        "size": 1471
+      },
+      "chempy/properties/water_density_tanaka_2001.py": {
+        "size": 2802
+      },
+      "chempy/properties/water_diffusivity_holz_2000.py": {
+        "size": 2775
+      },
+      "chempy/properties/water_permittivity_bradley_pitzer_1979.py": {
+        "size": 3096
+      },
+      "chempy/properties/water_viscosity_korson_1969.py": {
+        "size": 1566
+      },
+      "chempy/reactionsystem.py": {
+        "size": 31994
+      },
+      "chempy/symbolic.py": {
+        "size": 472
+      },
+      "chempy/symmetry/__init__.py": {
+        "size": 47
+      },
+      "chempy/symmetry/representations.py": {
+        "size": 14210
+      },
+      "chempy/symmetry/salcs.py": {
+        "size": 11547
+      },
+      "chempy/symmetry/tables.py": {
+        "size": 42360
+      },
+      "chempy/symmetry/tests/__init__.py": {
+        "size": 47
+      },
+      "chempy/symmetry/tests/test_representations.py": {
+        "size": 5261
+      },
+      "chempy/symmetry/tests/test_salcs.py": {
+        "size": 4136
+      },
+      "chempy/tests/__init__.py": {
+        "size": 0
+      },
+      "chempy/tests/ammonical_cupric_solution.py": {
+        "size": 2487
+      },
+      "chempy/tests/test__equilibrium.py": {
+        "size": 1570
+      },
+      "chempy/tests/test_chemistry.py": {
+        "size": 21730
+      },
+      "chempy/tests/test_core.py": {
+        "size": 84
+      },
+      "chempy/tests/test_einstein_smoluchowski.py": {
+        "size": 1294
+      },
+      "chempy/tests/test_electrolytes.py": {
+        "size": 1531
+      },
+      "chempy/tests/test_equilibria.py": {
+        "size": 4491
+      },
+      "chempy/tests/test_henry.py": {
+        "size": 1206
+      },
+      "chempy/tests/test_reactionsystem.py": {
+        "size": 15617
+      },
+      "chempy/tests/test_solution.py": {
+        "size": 2018
+      },
+      "chempy/tests/test_units.py": {
+        "size": 16050
+      },
+      "chempy/tests/test_util.py": {
+        "size": 430
+      },
+      "chempy/thermodynamics/__init__.py": {
+        "size": 77
+      },
+      "chempy/thermodynamics/expressions.py": {
+        "size": 1814
+      },
+      "chempy/thermodynamics/tests/__init__.py": {
+        "size": 0
+      },
+      "chempy/thermodynamics/tests/test_expressions.py": {
+        "size": 3438
+      },
+      "chempy/units.py": {
+        "size": 22708
+      },
+      "chempy/util/__init__.py": {
+        "size": 147
+      },
+      "chempy/util/_aqueous.py": {
+        "size": 2233
+      },
+      "chempy/util/_dimensionality.py": {
+        "size": 794
+      },
+      "chempy/util/_expr.py": {
+        "size": 27408
+      },
+      "chempy/util/_expr_deprecated.py": {
+        "size": 4153
+      },
+      "chempy/util/_julia.py": {
+        "size": 5910
+      },
+      "chempy/util/_quantities.py": {
+        "size": 2295
+      },
+      "chempy/util/arithmeticdict.py": {
+        "size": 4881
+      },
+      "chempy/util/bkh.py": {
+        "size": 6776
+      },
+      "chempy/util/deprecation.py": {
+        "size": 4940
+      },
+      "chempy/util/graph.py": {
+        "size": 5114
+      },
+      "chempy/util/numutil.py": {
+        "size": 1062
+      },
+      "chempy/util/parsing.py": {
+        "size": 20417
+      },
+      "chempy/util/periodic.py": {
+        "size": 6753
+      },
+      "chempy/util/pyutil.py": {
+        "size": 8881
+      },
+      "chempy/util/regression.py": {
+        "size": 11943
+      },
+      "chempy/util/rendering.py": {
+        "size": 890
+      },
+      "chempy/util/stoich.py": {
+        "size": 2792
+      },
+      "chempy/util/table.py": {
+        "size": 10550
+      },
+      "chempy/util/terminal.py": {
+        "size": 4079
+      },
+      "chempy/util/testing.py": {
+        "size": 2015
+      },
+      "chempy/util/tests/__init__.py": {
+        "size": 0
+      },
+      "chempy/util/tests/test_arithmeticdict.py": {
+        "size": 4058
+      },
+      "chempy/util/tests/test_expr.py": {
+        "size": 18893
+      },
+      "chempy/util/tests/test_graph.py": {
+        "size": 1641
+      },
+      "chempy/util/tests/test_numutil.py": {
+        "size": 462
+      },
+      "chempy/util/tests/test_parsing.py": {
+        "size": 21816
+      },
+      "chempy/util/tests/test_periodic.py": {
+        "size": 2250
+      },
+      "chempy/util/tests/test_pyutil.py": {
+        "size": 1850
+      },
+      "chempy/util/tests/test_regression.py": {
+        "size": 783
+      },
+      "chempy/util/tests/test_rendering.py": {
+        "size": 726
+      },
+      "chempy/util/tests/test_stoich.py": {
+        "size": 2987
+      },
+      "chempy/util/tests/test_table.py": {
+        "size": 1459
+      },
+      "conftest.py": {
+        "size": 624
+      },
+      "examples/_ipynb_progressbar.py": {
+        "size": 1586
+      },
+      "examples/bokeh_interactive.py": {
+        "size": 1087
+      },
+      "examples/bokeh_interactive_arrhenius.py": {
+        "size": 1160
+      },
+      "examples/bokeh_interactive_arrhenius_units.py": {
+        "size": 1401
+      },
+      "examples/bokeh_interactive_robertson.py": {
+        "size": 1367
+      },
+      "examples/bokeh_interactive_units.py": {
+        "size": 1114
+      },
+      "examples/demo_kinetics.py": {
+        "size": 1292
+      },
+      "joss-paper/codemeta.json": {
+        "size": 759
+      },
+      "joss-paper/paper.md": {
+        "size": 3364
+      },
+      "pyproject.toml": {
+        "size": 727
+      },
+      "scripts/coverage_badge.py": {
+        "size": 1810
+      },
+      "setup.cfg": {
+        "size": 1584
+      },
+      "setup.py": {
+        "size": 4837
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.benchmarks.benchmarks",
+      "source.chempy",
+      "source.chempy.electrochemistry",
+      "source.chempy.kinetics",
+      "source.chempy.printing",
+      "source.chempy.properties",
+      "source.chempy.symmetry",
+      "source.chempy.tests",
+      "source.chempy.thermodynamics",
+      "source.chempy.util"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": true,
+    "setup_py": true
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.chempy",
+        "module": "chemistry",
+        "functions": [
+          "balance_stoichiometry",
+          "mass_fractions",
+          "equilibrium_quotient"
+        ],
+        "classes": [
+          "Substance",
+          "Species",
+          "Reaction"
+        ],
+        "description": "Core chemical domain model and stoichiometric/equation utilities; central API surface for reactions and substances."
+      },
+      {
+        "package": "source.chempy",
+        "module": "reactionsystem",
+        "functions": [
+          "concatenate",
+          "upper_conc_bounds"
+        ],
+        "classes": [
+          "ReactionSystem"
+        ],
+        "description": "Multi-reaction system composition, validation, and utilities used by kinetics/equilibria workflows."
+      },
+      {
+        "package": "source.chempy",
+        "module": "equilibria",
+        "functions": [
+          "EqSystem.from_string"
+        ],
+        "classes": [
+          "EqSystem"
+        ],
+        "description": "Equilibrium-system setup and solving helpers; bridge between reactions and nonlinear solution routines."
+      },
+      {
+        "package": "source.chempy",
+        "module": "kinetics.ode",
+        "functions": [
+          "get_odesys",
+          "dCdt_list"
+        ],
+        "classes": [],
+        "description": "ODE construction and rate-expression integration for kinetic simulation."
+      },
+      {
+        "package": "source.chempy",
+        "module": "kinetics.rates",
+        "functions": [],
+        "classes": [
+          "MassAction",
+          "Arrhenius",
+          "Eyring"
+        ],
+        "description": "Rate-law expression objects used in kinetic model definitions."
+      },
+      {
+        "package": "source.chempy",
+        "module": "util.parsing",
+        "functions": [
+          "formula_to_composition",
+          "formula_to_latex",
+          "formula_to_unicode"
+        ],
+        "classes": [],
+        "description": "String/formula parsing and rendering helpers, useful for lightweight MCP tools."
+      },
+      {
+        "package": "source.chempy",
+        "module": "units",
+        "functions": [
+          "to_unitless",
+          "unit_of"
+        ],
+        "classes": [],
+        "description": "Unit-handling interoperability layer; optional depending on whether quantity-aware MCP operations are needed."
+      },
+      {
+        "package": "source.chempy.properties",
+        "module": "water_density_tanaka_2001",
+        "functions": [
+          "water_density"
+        ],
+        "classes": [],
+        "description": "Representative property-correlation module suitable for narrow, deterministic MCP tools."
+      },
+      {
+        "package": "source.chempy.electrochemistry",
+        "module": "nernst",
+        "functions": [
+          "nernst_potential"
+        ],
+        "classes": [],
+        "description": "Electrochemistry utility function with compact, low-risk interface."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.92
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.x",
+        "numpy",
+        "scipy",
+        "sympy"
+      ],
+      "optional": [
+        "pyodesys",
+        "symengine",
+        "quantities",
+        "pint",
+        "matplotlib",
+        "ipywidgets",
+        "bokeh"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/bjodah/chempy",
+    "repo_name": "chempy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.91,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

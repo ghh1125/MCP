@@ -1,0 +1,221 @@
+{
+  "repository": {
+    "name": "deepchem",
+    "url": "https://github.com/deepchem/deepchem",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/deepchem",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773293953.823175,
+    "end_time": 1773294222.6254919,
+    "duration": 268.802316904068,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.86,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/deepchem/deepchem",
+      "repo_name": "deepchem",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/deepchem/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [
+    {
+      "node": "DownloadNode",
+      "type": "CloneFailed",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/deepchem/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75001 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n",
+      "action_taken": "continue_with_empty"
+    }
+  ],
+  "warnings": [
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/deepchem/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75001 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n"
+  ],
+  "recommendations": [
+    "Add a minimal smoke-test suite for the generated MCP plugin (startup",
+    "import-mode adapter wiring",
+    "and one call per high-value endpoint like `TorchModel`",
+    "`KerasModel`",
+    "`CSVLoader`",
+    "`ScaffoldSplitter`)",
+    "Gate optional-backend endpoints with explicit dependency checks and clear error messages (RDKit/Torch/TF/JAX/etc.) to prevent runtime import failures",
+    "Introduce endpoint namespacing and alias normalization (e.g.",
+    "`data.Dataset`",
+    "`models.TorchModel`) to avoid collisions and improve discoverability",
+    "Add schema-first request/response models (Pydantic) for each endpoint with strict validation and example payloads in `README_MCP.md`",
+    "Implement lazy imports in adapter/service layers so heavy modules only load when their endpoint is called",
+    "Create a compatibility matrix test in CI across Python versions and backend combinations matching DeepChem workflows",
+    "Add golden integration tests for `python -m deepchem.molnet.run_benchmark*` invocation through MCP wrappers to verify CLI parity",
+    "Generate an automated endpoint inventory from source introspection during build to prevent stale/missing MCP mappings as DeepChem evolves",
+    "Add structured logging + tracing IDs in `mcp_service.py` for easier debugging of long-running training/featurization calls",
+    "Enforce timeout/cancellation controls for expensive model training and dataset loading operations exposed via MCP",
+    "Improve packaging metadata detection in analysis (it currently reports missing setup/requirements despite present files) to avoid incorrect risk/dependency conclusions",
+    "Add a “core-only mode” startup flag that registers only low-dependency endpoints for lightweight environments",
+    "Add contract tests for dataset object lifecycle operations (`DiskDataset` reload/move/reshard) through MCP boundaries",
+    "Document backend-specific caveats and memory/GPU guidance in `README_MCP.md` with quickstart examples for torch/tensorflow/jax",
+    "Add pre-commit hooks and lint/type checks for `mcp_output/` code to keep generated plugin quality consistent",
+    "Version the MCP API surface and publish a changelog to handle DeepChem upstream class/signature changes safely"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow reached terminal status 'success' and completed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Resilience mechanism worked: after git clone network failure, pipeline continued via zip fallback and still analyzed ~997 files.",
+      "MCP plugin scaffold generation succeeded with valid structure (entrypoint, adapter, service, README, requirements).",
+      "Generated plugin runtime check passed (service_health: healthy, transport: stdio)."
+    ],
+    "failure_reasons": [
+      "Primary repository acquisition failed due to external network connectivity issue to github.com:443 (curl 28 timeout).",
+      "Metadata/analysis inconsistency: dependency detector reported missing setup/requirements files despite repository containing setup.py/setup.cfg and multiple env files.",
+      "Validation depth was limited: original project tests not executed/passing context absent; MCP tests appear minimal (startup-only).",
+      "DeepWiki enrichment failed, reducing cross-source confidence in analysis output."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Most likely dominant delay due to ~75s clone timeout before fallback; root cause is transient/infra network failure, not repo content.",
+      "analysis_time": "Moderate; large monorepo (~997 files) processed successfully via fallback, but produced structural false negatives (packages/dependencies).",
+      "generation_time": "Fast to moderate; scaffold files were generated successfully, but quality metrics show placeholders (0 LOC/size/tools) indicating instrumentation gaps.",
+      "test_time": "Very short/minimal; MCP health check passed but no substantive endpoint or integration tests were executed."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB); cannot validate real memory behavior.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%); likely under-instrumented rather than zero usage.",
+      "disk_usage": "Unknown in metrics, but practical disk impact is non-trivial due to large source snapshot; generated plugin footprint appears small."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 68,
+    "architecture_score": 74,
+    "performance_score": 52,
+    "maintainability_score": 66,
+    "security_score": 85,
+    "scalability_score": 63
+  }
+}

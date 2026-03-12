@@ -1,0 +1,214 @@
+{
+  "repository": {
+    "name": "scikit-hep",
+    "url": "https://github.com/scikit-hep/scikit-hep",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/scikit-hep",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "simple",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773252688.441824,
+    "end_time": 1773252839.1779652,
+    "duration": 150.73614120483398,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 1,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.skhep"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.95,
+      "intrusiveness_risk": "low",
+      "complexity": "simple"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/scikit-hep/scikit-hep",
+      "repo_name": "scikit-hep",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/scikit-hep/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "Add meaningful tests for `show_versions` output structure and failure modes (empty test suite currently)",
+    "Strengthen CI to run lint/type/test across a Python version matrix and on pull requests",
+    "Pin and rationalize dependencies (`requirements.txt` vs `pyproject.toml`) to avoid drift and improve reproducibility",
+    "Add optional dependency groups/extras in `pyproject.toml` (dev",
+    "docs",
+    "test) instead of ad-hoc requirements files",
+    "Improve packaging metadata and release automation checks (version consistency across `__init__`",
+    "`_version.py`",
+    "and tags)",
+    "Add a minimal CLI entry point (e.g.",
+    "`python -m skhep show-versions`) for easier diagnostics",
+    "Expand documentation with a quickstart and explicit scope of this meta-package vs downstream scikit-hep packages",
+    "Add pre-commit hooks for formatting",
+    "linting",
+    "and import sorting enforcement in CI",
+    "Introduce basic observability/error handling in MCP adapter/service (structured logs",
+    "graceful dependency import errors)",
+    "Add MCP plugin tests for endpoint contract (`show_versions`)",
+    "invalid inputs",
+    "and startup health checks",
+    "Include security/dependency scanning (Dependabot config exists; add pip-audit/safety and workflow gating)",
+    "Add a changelog policy (towncrier or keep-a-changelog) to improve release transparency"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Repository is small/simple (14 files, low intrusiveness risk), enabling reliable import-based adapter generation.",
+      "Single clear functional target (`show_versions`) reduced ambiguity and generation complexity.",
+      "MCP plugin health checks passed (service healthy over stdio), indicating runnable generated scaffold.",
+      "No runtime errors or warnings were captured in workflow logs."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki analysis failed (non-blocking) and reduced external contextual enrichment.",
+      "Original project test status is effectively weak/invalid despite reported 100% coverage (empty/near-empty executed suite), limiting confidence in behavioral correctness.",
+      "Telemetry fields (LLM calls, performance/resource metrics, generated LOC/file sizes) are zero/unknown, indicating instrumentation gaps rather than execution failure."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repo fetched via zip fallback. Timing breakdown per node not provided, so only total runtime (150.74s) is known.",
+      "analysis_time": "Successful static analysis and import-feasibility scoring (0.95). DeepWiki sub-step failed but did not block pipeline.",
+      "generation_time": "Generation succeeded with 7 files created and import-mode adapter. Endpoint coverage includes `show_versions` plus health/version tooling.",
+      "test_time": "MCP plugin runtime check passed; original project tests provide low assurance due to minimal/empty effective suite and no meaningful execution timing."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Undetermined from telemetry (reported 0 MB). Likely acceptable given tiny codebase, but metrics collection is missing.",
+      "cpu_efficiency": "Undetermined from telemetry (reported 0%). Runtime suggests low-to-moderate CPU demand, but no hard evidence.",
+      "disk_usage": "Low expected disk footprint (small repo and scaffold), but generated size is reported as 0, indicating measurement not captured."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 82,
+    "performance_score": 70,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 68
+  }
+}
