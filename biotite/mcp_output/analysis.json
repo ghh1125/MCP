@@ -1,0 +1,1607 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/biotite-dev/biotite",
+    "summary": "Imported via zip fallback, file count: 473",
+    "file_tree": {
+      ".github/workflows/multiversion_docs.py": {
+        "size": 2741
+      },
+      ".github/workflows/test_and_deploy.yml": {
+        "size": 12972
+      },
+      "benchmarks/__init__.py": {
+        "size": 0
+      },
+      "benchmarks/conftest.py": {
+        "size": 244
+      },
+      "benchmarks/sequence/__init__.py": {
+        "size": 0
+      },
+      "benchmarks/sequence/align/__init__.py": {
+        "size": 0
+      },
+      "benchmarks/sequence/align/benchmark_kmers.py": {
+        "size": 4348
+      },
+      "benchmarks/sequence/benchmark_fasta.py": {
+        "size": 879
+      },
+      "benchmarks/structure/__init__.py": {
+        "size": 0
+      },
+      "benchmarks/structure/benchmark_alphabet.py": {
+        "size": 624
+      },
+      "benchmarks/structure/benchmark_celllist.py": {
+        "size": 501
+      },
+      "benchmarks/structure/benchmark_compare.py": {
+        "size": 917
+      },
+      "benchmarks/structure/benchmark_pdbx.py": {
+        "size": 3484
+      },
+      "benchmarks/structure/benchmark_superimpose.py": {
+        "size": 701
+      },
+      "doc/apidoc.json": {
+        "size": 12135
+      },
+      "doc/apidoc.py": {
+        "size": 7963
+      },
+      "doc/bibliography.py": {
+        "size": 2779
+      },
+      "doc/conf.py": {
+        "size": 6755
+      },
+      "doc/examples/download/Array_Seq.txt": {
+        "size": 5600
+      },
+      "doc/examples/scripts/sequence/annotation/operon_map.py": {
+        "size": 1294
+      },
+      "doc/examples/scripts/sequence/annotation/plasmid_map.py": {
+        "size": 2217
+      },
+      "doc/examples/scripts/sequence/annotation/plasmid_map_custom.py": {
+        "size": 3256
+      },
+      "doc/examples/scripts/sequence/annotation/region_visualization.py": {
+        "size": 1670
+      },
+      "doc/examples/scripts/sequence/annotation/sigma_domains.py": {
+        "size": 4455
+      },
+      "doc/examples/scripts/sequence/homology/avidin_alignment.py": {
+        "size": 1565
+      },
+      "doc/examples/scripts/sequence/homology/bionigma_alignment.py": {
+        "size": 9714
+      },
+      "doc/examples/scripts/sequence/homology/genome_comparison.py": {
+        "size": 14870
+      },
+      "doc/examples/scripts/sequence/homology/genome_search.py": {
+        "size": 8116
+      },
+      "doc/examples/scripts/sequence/homology/gpcr_evolution.py": {
+        "size": 2846
+      },
+      "doc/examples/scripts/sequence/homology/hcn_hydropathy.py": {
+        "size": 7254
+      },
+      "doc/examples/scripts/sequence/homology/hcn_similarity.py": {
+        "size": 2518
+      },
+      "doc/examples/scripts/sequence/homology/homolog_msa.py": {
+        "size": 2145
+      },
+      "doc/examples/scripts/sequence/homology/lexa_conservation.py": {
+        "size": 5690
+      },
+      "doc/examples/scripts/sequence/homology/luxa_comparison.py": {
+        "size": 1713
+      },
+      "doc/examples/scripts/sequence/homology/pi3k_alignment.py": {
+        "size": 5813
+      },
+      "doc/examples/scripts/sequence/homology/plotepiscan.py": {
+        "size": 16387
+      },
+      "doc/examples/scripts/sequence/homology/residue_coevolution.py": {
+        "size": 7427
+      },
+      "doc/examples/scripts/sequence/homology/thca_synthase_polymorphism.py": {
+        "size": 4515
+      },
+      "doc/examples/scripts/sequence/misc/blosum_dendrogram.py": {
+        "size": 2412
+      },
+      "doc/examples/scripts/sequence/misc/codon_usage.py": {
+        "size": 6801
+      },
+      "doc/examples/scripts/sequence/misc/color_schemes.py": {
+        "size": 2379
+      },
+      "doc/examples/scripts/sequence/misc/color_schemes_protein.py": {
+        "size": 3891
+      },
+      "doc/examples/scripts/sequence/misc/local_alignment_statistics.py": {
+        "size": 14495
+      },
+      "doc/examples/scripts/sequence/misc/orf_identification.py": {
+        "size": 1429
+      },
+      "doc/examples/scripts/sequence/profile/anderson_logo.py": {
+        "size": 2437
+      },
+      "doc/examples/scripts/sequence/profile/rbs_identification.py": {
+        "size": 4070
+      },
+      "doc/examples/scripts/sequence/sequencing/gene_counts.py": {
+        "size": 13219
+      },
+      "doc/examples/scripts/sequence/sequencing/genome_assembly.py": {
+        "size": 29678
+      },
+      "doc/examples/scripts/sequence/sequencing/quality_control.py": {
+        "size": 7514
+      },
+      "doc/examples/scripts/sequence/sequencing/read_quality.py": {
+        "size": 1361
+      },
+      "doc/examples/scripts/structure/alphabet/msa.py": {
+        "size": 3006
+      },
+      "doc/examples/scripts/structure/alphabet/structure_search.py": {
+        "size": 15496
+      },
+      "doc/examples/scripts/structure/contacts/adjacency_matrix.py": {
+        "size": 1364
+      },
+      "doc/examples/scripts/structure/contacts/contact_sites.py": {
+        "size": 3899
+      },
+      "doc/examples/scripts/structure/contacts/disulfide_bonds.py": {
+        "size": 7488
+      },
+      "doc/examples/scripts/structure/contacts/domain_hbonds.py": {
+        "size": 1754
+      },
+      "doc/examples/scripts/structure/contacts/leaflet.py": {
+        "size": 5024
+      },
+      "doc/examples/scripts/structure/misc/biological_assembly.py": {
+        "size": 3651
+      },
+      "doc/examples/scripts/structure/misc/diameter.py": {
+        "size": 1051
+      },
+      "doc/examples/scripts/structure/misc/gap_bars.py": {
+        "size": 3077
+      },
+      "doc/examples/scripts/structure/misc/glycan_visualization.py": {
+        "size": 14158
+      },
+      "doc/examples/scripts/structure/misc/homolog_superimposition.py": {
+        "size": 1476
+      },
+      "doc/examples/scripts/structure/misc/pdb_statistics.py": {
+        "size": 2564
+      },
+      "doc/examples/scripts/structure/modeling/docking.py": {
+        "size": 7049
+      },
+      "doc/examples/scripts/structure/modeling/md_analysis.py": {
+        "size": 5360
+      },
+      "doc/examples/scripts/structure/modeling/mmtf_trajectory.py": {
+        "size": 2810
+      },
+      "doc/examples/scripts/structure/modeling/model_lddt.py": {
+        "size": 4536
+      },
+      "doc/examples/scripts/structure/modeling/normal_modes.py": {
+        "size": 4842
+      },
+      "doc/examples/scripts/structure/modeling/rotamer_library.py": {
+        "size": 5017
+      },
+      "doc/examples/scripts/structure/modeling/solvation_shells.py": {
+        "size": 3312
+      },
+      "doc/examples/scripts/structure/modeling/trajectory_sse.py": {
+        "size": 2091
+      },
+      "doc/examples/scripts/structure/modeling/water_exchange_noexec.py": {
+        "size": 4236
+      },
+      "doc/examples/scripts/structure/molecule/alkane_isomers.py": {
+        "size": 6621
+      },
+      "doc/examples/scripts/structure/molecule/molecular_visualization.py": {
+        "size": 2189
+      },
+      "doc/examples/scripts/structure/molecule/peoe_visualization.py": {
+        "size": 3885
+      },
+      "doc/examples/scripts/structure/nucleotide/base_pairs.py": {
+        "size": 2833
+      },
+      "doc/examples/scripts/structure/nucleotide/leontis_westhof.py": {
+        "size": 3590
+      },
+      "doc/examples/scripts/structure/nucleotide/transfer_rnas.py": {
+        "size": 3700
+      },
+      "doc/examples/scripts/structure/nucleotide/watson_crick.py": {
+        "size": 4038
+      },
+      "doc/examples/scripts/structure/protein/peptide_assembly.py": {
+        "size": 5039
+      },
+      "doc/examples/scripts/structure/protein/ramachandran.py": {
+        "size": 1466
+      },
+      "doc/examples/scripts/structure/protein/residue_chirality.py": {
+        "size": 1944
+      },
+      "doc/examples/scripts/structure/protein/sheet_arrangement.py": {
+        "size": 14960
+      },
+      "doc/examples/scripts/structure/protein/transketolase_sse.py": {
+        "size": 7612
+      },
+      "doc/preamble.py": {
+        "size": 2542
+      },
+      "doc/scraper.py": {
+        "size": 1976
+      },
+      "doc/switcher.py": {
+        "size": 2296
+      },
+      "doc/viewcode.py": {
+        "size": 8764
+      },
+      "environment.yml": {
+        "size": 1767
+      },
+      "pyproject.toml": {
+        "size": 5517
+      },
+      "src/biotite/__init__.py": {
+        "size": 545
+      },
+      "src/biotite/application/__init__.py": {
+        "size": 3077
+      },
+      "src/biotite/application/application.py": {
+        "size": 8096
+      },
+      "src/biotite/application/autodock/__init__.py": {
+        "size": 315
+      },
+      "src/biotite/application/autodock/app.py": {
+        "size": 18689
+      },
+      "src/biotite/application/blast/__init__.py": {
+        "size": 366
+      },
+      "src/biotite/application/blast/alignment.py": {
+        "size": 3117
+      },
+      "src/biotite/application/blast/webapp.py": {
+        "size": 14307
+      },
+      "src/biotite/application/clustalo/__init__.py": {
+        "size": 326
+      },
+      "src/biotite/application/clustalo/app.py": {
+        "size": 7414
+      },
+      "src/biotite/application/dssp/__init__.py": {
+        "size": 323
+      },
+      "src/biotite/application/dssp/app.py": {
+        "size": 7612
+      },
+      "src/biotite/application/localapp.py": {
+        "size": 10257
+      },
+      "src/biotite/application/mafft/__init__.py": {
+        "size": 315
+      },
+      "src/biotite/application/mafft/app.py": {
+        "size": 3281
+      },
+      "src/biotite/application/msaapp.py": {
+        "size": 11974
+      },
+      "src/biotite/application/muscle/__init__.py": {
+        "size": 338
+      },
+      "src/biotite/application/muscle/app3.py": {
+        "size": 7653
+      },
+      "src/biotite/application/muscle/app5.py": {
+        "size": 4474
+      },
+      "src/biotite/application/sra/__init__.py": {
+        "size": 553
+      },
+      "src/biotite/application/sra/app.py": {
+        "size": 15574
+      },
+      "src/biotite/application/tantan/__init__.py": {
+        "size": 328
+      },
+      "src/biotite/application/tantan/app.py": {
+        "size": 7438
+      },
+      "src/biotite/application/util.py": {
+        "size": 2503
+      },
+      "src/biotite/application/viennarna/__init__.py": {
+        "size": 472
+      },
+      "src/biotite/application/viennarna/rnaalifold.py": {
+        "size": 10681
+      },
+      "src/biotite/application/viennarna/rnafold.py": {
+        "size": 7908
+      },
+      "src/biotite/application/viennarna/rnaplot.py": {
+        "size": 6363
+      },
+      "src/biotite/application/viennarna/util.py": {
+        "size": 2635
+      },
+      "src/biotite/application/webapp.py": {
+        "size": 2145
+      },
+      "src/biotite/copyable.py": {
+        "size": 1897
+      },
+      "src/biotite/database/__init__.py": {
+        "size": 725
+      },
+      "src/biotite/database/afdb/__init__.py": {
+        "size": 333
+      },
+      "src/biotite/database/afdb/download.py": {
+        "size": 6868
+      },
+      "src/biotite/database/entrez/__init__.py": {
+        "size": 388
+      },
+      "src/biotite/database/entrez/check.py": {
+        "size": 2114
+      },
+      "src/biotite/database/entrez/dbnames.py": {
+        "size": 2772
+      },
+      "src/biotite/database/entrez/download.py": {
+        "size": 7235
+      },
+      "src/biotite/database/entrez/key.py": {
+        "size": 1108
+      },
+      "src/biotite/database/entrez/query.py": {
+        "size": 7354
+      },
+      "src/biotite/database/error.py": {
+        "size": 410
+      },
+      "src/biotite/database/pubchem/__init__.py": {
+        "size": 669
+      },
+      "src/biotite/database/pubchem/download.py": {
+        "size": 9902
+      },
+      "src/biotite/database/pubchem/error.py": {
+        "size": 878
+      },
+      "src/biotite/database/pubchem/query.py": {
+        "size": 26086
+      },
+      "src/biotite/database/pubchem/throttle.py": {
+        "size": 3286
+      },
+      "src/biotite/database/rcsb/__init__.py": {
+        "size": 332
+      },
+      "src/biotite/database/rcsb/download.py": {
+        "size": 6788
+      },
+      "src/biotite/database/rcsb/query.py": {
+        "size": 32868
+      },
+      "src/biotite/database/uniprot/__init__.py": {
+        "size": 334
+      },
+      "src/biotite/database/uniprot/check.py": {
+        "size": 1378
+      },
+      "src/biotite/database/uniprot/download.py": {
+        "size": 4266
+      },
+      "src/biotite/database/uniprot/query.py": {
+        "size": 7510
+      },
+      "src/biotite/file.py": {
+        "size": 6733
+      },
+      "src/biotite/interface/__init__.py": {
+        "size": 717
+      },
+      "src/biotite/interface/openmm/__init__.py": {
+        "size": 587
+      },
+      "src/biotite/interface/openmm/state.py": {
+        "size": 2723
+      },
+      "src/biotite/interface/openmm/system.py": {
+        "size": 7018
+      },
+      "src/biotite/interface/pymol/__init__.py": {
+        "size": 6648
+      },
+      "src/biotite/interface/pymol/cgo.py": {
+        "size": 9859
+      },
+      "src/biotite/interface/pymol/convert.py": {
+        "size": 6044
+      },
+      "src/biotite/interface/pymol/display.py": {
+        "size": 8458
+      },
+      "src/biotite/interface/pymol/object.py": {
+        "size": 44280
+      },
+      "src/biotite/interface/pymol/shapes.py": {
+        "size": 6066
+      },
+      "src/biotite/interface/pymol/startup.py": {
+        "size": 4619
+      },
+      "src/biotite/interface/rdkit/__init__.py": {
+        "size": 532
+      },
+      "src/biotite/interface/rdkit/mol.py": {
+        "size": 19679
+      },
+      "src/biotite/interface/version.py": {
+        "size": 2952
+      },
+      "src/biotite/interface/warning.py": {
+        "size": 577
+      },
+      "src/biotite/sequence/__init__.py": {
+        "size": 3423
+      },
+      "src/biotite/sequence/align/__init__.py": {
+        "size": 4711
+      },
+      "src/biotite/sequence/align/alignment.py": {
+        "size": 24372
+      },
+      "src/biotite/sequence/align/buckets.py": {
+        "size": 2464
+      },
+      "src/biotite/sequence/align/cigar.py": {
+        "size": 14335
+      },
+      "src/biotite/sequence/align/matrix.py": {
+        "size": 22360
+      },
+      "src/biotite/sequence/align/primes.txt": {
+        "size": 10140
+      },
+      "src/biotite/sequence/align/statistics.py": {
+        "size": 9652
+      },
+      "src/biotite/sequence/alphabet.py": {
+        "size": 17227
+      },
+      "src/biotite/sequence/annotation.py": {
+        "size": 29705
+      },
+      "src/biotite/sequence/codon.py": {
+        "size": 16346
+      },
+      "src/biotite/sequence/codon_tables.txt": {
+        "size": 10209
+      },
+      "src/biotite/sequence/graphics/__init__.py": {
+        "size": 1153
+      },
+      "src/biotite/sequence/graphics/alignment.py": {
+        "size": 39369
+      },
+      "src/biotite/sequence/graphics/color_schemes/3di_flower.json": {
+        "size": 917
+      },
+      "src/biotite/sequence/graphics/color_schemes/autumn.json": {
+        "size": 842
+      },
+      "src/biotite/sequence/graphics/color_schemes/blossom.json": {
+        "size": 843
+      },
+      "src/biotite/sequence/graphics/color_schemes/clustalx_dna.json": {
+        "size": 249
+      },
+      "src/biotite/sequence/graphics/color_schemes/clustalx_protein.json": {
+        "size": 704
+      },
+      "src/biotite/sequence/graphics/color_schemes/flower.json": {
+        "size": 842
+      },
+      "src/biotite/sequence/graphics/color_schemes/jalview_buried.json": {
+        "size": 777
+      },
+      "src/biotite/sequence/graphics/color_schemes/jalview_hydrophobicity.json": {
+        "size": 785
+      },
+      "src/biotite/sequence/graphics/color_schemes/jalview_prop_helix.json": {
+        "size": 780
+      },
+      "src/biotite/sequence/graphics/color_schemes/jalview_prop_strand.json": {
+        "size": 781
+      },
+      "src/biotite/sequence/graphics/color_schemes/jalview_prop_turn.json": {
+        "size": 779
+      },
+      "src/biotite/sequence/graphics/color_schemes/jalview_taylor.json": {
+        "size": 702
+      },
+      "src/biotite/sequence/graphics/color_schemes/jalview_zappo.json": {
+        "size": 701
+      },
+      "src/biotite/sequence/graphics/color_schemes/ocean.json": {
+        "size": 841
+      },
+      "src/biotite/sequence/graphics/color_schemes/pb_flower.json": {
+        "size": 676
+      },
+      "src/biotite/sequence/graphics/color_schemes/rainbow_dna.json": {
+        "size": 248
+      },
+      "src/biotite/sequence/graphics/color_schemes/rainbow_protein.json": {
+        "size": 753
+      },
+      "src/biotite/sequence/graphics/color_schemes/spring.json": {
+        "size": 842
+      },
+      "src/biotite/sequence/graphics/color_schemes/sunset.json": {
+        "size": 842
+      },
+      "src/biotite/sequence/graphics/color_schemes/wither.json": {
+        "size": 842
+      },
+      "src/biotite/sequence/graphics/colorschemes.py": {
+        "size": 5518
+      },
+      "src/biotite/sequence/graphics/dendrogram.py": {
+        "size": 7671
+      },
+      "src/biotite/sequence/graphics/features.py": {
+        "size": 17297
+      },
+      "src/biotite/sequence/graphics/logo.py": {
+        "size": 3692
+      },
+      "src/biotite/sequence/graphics/plasmid.py": {
+        "size": 26002
+      },
+      "src/biotite/sequence/io/__init__.py": {
+        "size": 314
+      },
+      "src/biotite/sequence/io/fasta/__init__.py": {
+        "size": 720
+      },
+      "src/biotite/sequence/io/fasta/convert.py": {
+        "size": 16632
+      },
+      "src/biotite/sequence/io/fasta/file.py": {
+        "size": 9052
+      },
+      "src/biotite/sequence/io/fastq/__init__.py": {
+        "size": 588
+      },
+      "src/biotite/sequence/io/fastq/convert.py": {
+        "size": 3632
+      },
+      "src/biotite/sequence/io/fastq/file.py": {
+        "size": 17817
+      },
+      "src/biotite/sequence/io/genbank/__init__.py": {
+        "size": 473
+      },
+      "src/biotite/sequence/io/genbank/annotation.py": {
+        "size": 9431
+      },
+      "src/biotite/sequence/io/genbank/file.py": {
+        "size": 20354
+      },
+      "src/biotite/sequence/io/genbank/metadata.py": {
+        "size": 9351
+      },
+      "src/biotite/sequence/io/genbank/sequence.py": {
+        "size": 5504
+      },
+      "src/biotite/sequence/io/general.py": {
+        "size": 6694
+      },
+      "src/biotite/sequence/io/gff/__init__.py": {
+        "size": 923
+      },
+      "src/biotite/sequence/io/gff/convert.py": {
+        "size": 4611
+      },
+      "src/biotite/sequence/io/gff/file.py": {
+        "size": 16076
+      },
+      "src/biotite/sequence/phylo/__init__.py": {
+        "size": 1261
+      },
+      "src/biotite/sequence/profile.py": {
+        "size": 19248
+      },
+      "src/biotite/sequence/search.py": {
+        "size": 3090
+      },
+      "src/biotite/sequence/seqtypes.py": {
+        "size": 23246
+      },
+      "src/biotite/sequence/sequence.py": {
+        "size": 11691
+      },
+      "src/biotite/setup_ccd.py": {
+        "size": 6051
+      },
+      "src/biotite/structure/__init__.py": {
+        "size": 5487
+      },
+      "src/biotite/structure/alphabet/__init__.py": {
+        "size": 928
+      },
+      "src/biotite/structure/alphabet/encoder.py": {
+        "size": 11379
+      },
+      "src/biotite/structure/alphabet/i3d.py": {
+        "size": 3009
+      },
+      "src/biotite/structure/alphabet/layers.py": {
+        "size": 2087
+      },
+      "src/biotite/structure/alphabet/pb.py": {
+        "size": 5994
+      },
+      "src/biotite/structure/alphabet/unkerasify.py": {
+        "size": 3301
+      },
+      "src/biotite/structure/atoms.py": {
+        "size": 52346
+      },
+      "src/biotite/structure/basepairs.py": {
+        "size": 49881
+      },
+      "src/biotite/structure/box.py": {
+        "size": 23396
+      },
+      "src/biotite/structure/chains.py": {
+        "size": 9347
+      },
+      "src/biotite/structure/compare.py": {
+        "size": 27437
+      },
+      "src/biotite/structure/density.py": {
+        "size": 4196
+      },
+      "src/biotite/structure/dotbracket.py": {
+        "size": 7197
+      },
+      "src/biotite/structure/error.py": {
+        "size": 783
+      },
+      "src/biotite/structure/filter.py": {
+        "size": 20199
+      },
+      "src/biotite/structure/geometry.py": {
+        "size": 29281
+      },
+      "src/biotite/structure/graphics/__init__.py": {
+        "size": 352
+      },
+      "src/biotite/structure/graphics/atoms.py": {
+        "size": 8116
+      },
+      "src/biotite/structure/graphics/rna.py": {
+        "size": 11841
+      },
+      "src/biotite/structure/hbond.py": {
+        "size": 15238
+      },
+      "src/biotite/structure/info/__init__.py": {
+        "size": 697
+      },
+      "src/biotite/structure/info/atom_masses.json": {
+        "size": 2383
+      },
+      "src/biotite/structure/info/atoms.py": {
+        "size": 3271
+      },
+      "src/biotite/structure/info/bonds.py": {
+        "size": 4644
+      },
+      "src/biotite/structure/info/ccd.py": {
+        "size": 5849
+      },
+      "src/biotite/structure/info/groups.py": {
+        "size": 3183
+      },
+      "src/biotite/structure/info/masses.py": {
+        "size": 4555
+      },
+      "src/biotite/structure/info/misc.py": {
+        "size": 3428
+      },
+      "src/biotite/structure/info/radii.py": {
+        "size": 7287
+      },
+      "src/biotite/structure/info/standardize.py": {
+        "size": 7739
+      },
+      "src/biotite/structure/integrity.py": {
+        "size": 6764
+      },
+      "src/biotite/structure/io/__init__.py": {
+        "size": 998
+      },
+      "src/biotite/structure/io/dcd/__init__.py": {
+        "size": 388
+      },
+      "src/biotite/structure/io/dcd/file.py": {
+        "size": 2224
+      },
+      "src/biotite/structure/io/general.py": {
+        "size": 8452
+      },
+      "src/biotite/structure/io/gro/__init__.py": {
+        "size": 408
+      },
+      "src/biotite/structure/io/gro/file.py": {
+        "size": 12740
+      },
+      "src/biotite/structure/io/mol/__init__.py": {
+        "size": 582
+      },
+      "src/biotite/structure/io/mol/convert.py": {
+        "size": 3789
+      },
+      "src/biotite/structure/io/mol/ctab.py": {
+        "size": 14120
+      },
+      "src/biotite/structure/io/mol/header.py": {
+        "size": 3425
+      },
+      "src/biotite/structure/io/mol/mol.py": {
+        "size": 5461
+      },
+      "src/biotite/structure/io/mol/sdf.py": {
+        "size": 32975
+      },
+      "src/biotite/structure/io/netcdf/__init__.py": {
+        "size": 350
+      },
+      "src/biotite/structure/io/netcdf/file.py": {
+        "size": 2192
+      },
+      "src/biotite/structure/io/pdb/__init__.py": {
+        "size": 733
+      },
+      "src/biotite/structure/io/pdb/convert.py": {
+        "size": 13827
+      },
+      "src/biotite/structure/io/pdb/file.py": {
+        "size": 54558
+      },
+      "src/biotite/structure/io/pdbqt/__init__.py": {
+        "size": 441
+      },
+      "src/biotite/structure/io/pdbqt/convert.py": {
+        "size": 4008
+      },
+      "src/biotite/structure/io/pdbqt/file.py": {
+        "size": 26645
+      },
+      "src/biotite/structure/io/pdbx/__init__.py": {
+        "size": 717
+      },
+      "src/biotite/structure/io/pdbx/bcif.py": {
+        "size": 21248
+      },
+      "src/biotite/structure/io/pdbx/cif.py": {
+        "size": 34979
+      },
+      "src/biotite/structure/io/pdbx/component.py": {
+        "size": 8398
+      },
+      "src/biotite/structure/io/pdbx/compress.py": {
+        "size": 13407
+      },
+      "src/biotite/structure/io/pdbx/convert.py": {
+        "size": 81418
+      },
+      "src/biotite/structure/io/trajfile.py": {
+        "size": 25393
+      },
+      "src/biotite/structure/io/trr/__init__.py": {
+        "size": 359
+      },
+      "src/biotite/structure/io/trr/file.py": {
+        "size": 1235
+      },
+      "src/biotite/structure/io/util.py": {
+        "size": 1016
+      },
+      "src/biotite/structure/io/xtc/__init__.py": {
+        "size": 357
+      },
+      "src/biotite/structure/io/xtc/file.py": {
+        "size": 1235
+      },
+      "src/biotite/structure/mechanics.py": {
+        "size": 2587
+      },
+      "src/biotite/structure/molecules.py": {
+        "size": 15291
+      },
+      "src/biotite/structure/pseudoknots.py": {
+        "size": 22090
+      },
+      "src/biotite/structure/rdf.py": {
+        "size": 8102
+      },
+      "src/biotite/structure/repair.py": {
+        "size": 6996
+      },
+      "src/biotite/structure/residues.py": {
+        "size": 28403
+      },
+      "src/biotite/structure/rings.py": {
+        "size": 15678
+      },
+      "src/biotite/structure/segments.py": {
+        "size": 10785
+      },
+      "src/biotite/structure/sequence.py": {
+        "size": 4245
+      },
+      "src/biotite/structure/spacegroups.json": {
+        "size": 51558
+      },
+      "src/biotite/structure/sse.py": {
+        "size": 11404
+      },
+      "src/biotite/structure/superimpose.py": {
+        "size": 19562
+      },
+      "src/biotite/structure/tm.py": {
+        "size": 20967
+      },
+      "src/biotite/structure/transform.py": {
+        "size": 26975
+      },
+      "src/biotite/structure/util.py": {
+        "size": 4400
+      },
+      "src/biotite/visualize.py": {
+        "size": 13955
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/application/__init__.py": {
+        "size": 0
+      },
+      "tests/application/test_autodock.py": {
+        "size": 3417
+      },
+      "tests/application/test_blast.py": {
+        "size": 4631
+      },
+      "tests/application/test_dssp.py": {
+        "size": 1648
+      },
+      "tests/application/test_msa.py": {
+        "size": 10410
+      },
+      "tests/application/test_rnaalifold.py": {
+        "size": 2727
+      },
+      "tests/application/test_rnafold.py": {
+        "size": 2370
+      },
+      "tests/application/test_rnaplot.py": {
+        "size": 947
+      },
+      "tests/application/test_sra.py": {
+        "size": 2094
+      },
+      "tests/application/test_tantan.py": {
+        "size": 2623
+      },
+      "tests/conftest.py": {
+        "size": 558
+      },
+      "tests/database/__init__.py": {
+        "size": 0
+      },
+      "tests/database/test_afdb.py": {
+        "size": 3899
+      },
+      "tests/database/test_entrez.py": {
+        "size": 2018
+      },
+      "tests/database/test_pubchem.py": {
+        "size": 7518
+      },
+      "tests/database/test_rcsb.py": {
+        "size": 14995
+      },
+      "tests/database/test_uniprot.py": {
+        "size": 2102
+      },
+      "tests/interface/__init__.py": {
+        "size": 0
+      },
+      "tests/interface/data/smiles.txt": {
+        "size": 9195
+      },
+      "tests/interface/pymol/__init__.py": {
+        "size": 0
+      },
+      "tests/interface/pymol/conftest.py": {
+        "size": 143
+      },
+      "tests/interface/pymol/test_cgo.py": {
+        "size": 2067
+      },
+      "tests/interface/pymol/test_command.py": {
+        "size": 3811
+      },
+      "tests/interface/pymol/test_conversion.py": {
+        "size": 3556
+      },
+      "tests/interface/pymol/test_display.py": {
+        "size": 1056
+      },
+      "tests/interface/pymol/test_selection.py": {
+        "size": 1328
+      },
+      "tests/interface/pymol/test_shapes.py": {
+        "size": 686
+      },
+      "tests/interface/pymol/test_startup.py": {
+        "size": 768
+      },
+      "tests/interface/test_openmm.py": {
+        "size": 5826
+      },
+      "tests/interface/test_rdkit.py": {
+        "size": 8394
+      },
+      "tests/interface/test_version.py": {
+        "size": 718
+      },
+      "tests/sequence/__init__.py": {
+        "size": 0
+      },
+      "tests/sequence/align/__init__.py": {
+        "size": 0
+      },
+      "tests/sequence/align/conftest.py": {
+        "size": 644
+      },
+      "tests/sequence/align/test_alignment.py": {
+        "size": 2915
+      },
+      "tests/sequence/align/test_banded.py": {
+        "size": 8388
+      },
+      "tests/sequence/align/test_cigar.py": {
+        "size": 5023
+      },
+      "tests/sequence/align/test_kmeralphabet.py": {
+        "size": 3931
+      },
+      "tests/sequence/align/test_kmersimilarity.py": {
+        "size": 2302
+      },
+      "tests/sequence/align/test_kmertable.py": {
+        "size": 16228
+      },
+      "tests/sequence/align/test_localgapped.py": {
+        "size": 7333
+      },
+      "tests/sequence/align/test_localungapped.py": {
+        "size": 7643
+      },
+      "tests/sequence/align/test_matrix.py": {
+        "size": 3169
+      },
+      "tests/sequence/align/test_multiple.py": {
+        "size": 1474
+      },
+      "tests/sequence/align/test_pairwise.py": {
+        "size": 7870
+      },
+      "tests/sequence/align/test_permutation.py": {
+        "size": 4515
+      },
+      "tests/sequence/align/test_selector.py": {
+        "size": 6750
+      },
+      "tests/sequence/align/test_statistics.py": {
+        "size": 6033
+      },
+      "tests/sequence/data/distances.txt": {
+        "size": 1599
+      },
+      "tests/sequence/data/newick_upgma.txt": {
+        "size": 339
+      },
+      "tests/sequence/test_alphabet.py": {
+        "size": 5976
+      },
+      "tests/sequence/test_annotation.py": {
+        "size": 4442
+      },
+      "tests/sequence/test_codon.py": {
+        "size": 1621
+      },
+      "tests/sequence/test_fasta.py": {
+        "size": 7102
+      },
+      "tests/sequence/test_fastq.py": {
+        "size": 4595
+      },
+      "tests/sequence/test_genbank.py": {
+        "size": 7444
+      },
+      "tests/sequence/test_generalio.py": {
+        "size": 2211
+      },
+      "tests/sequence/test_gff.py": {
+        "size": 6463
+      },
+      "tests/sequence/test_graphics.py": {
+        "size": 1245
+      },
+      "tests/sequence/test_phylo.py": {
+        "size": 11742
+      },
+      "tests/sequence/test_profile.py": {
+        "size": 5680
+      },
+      "tests/sequence/test_search.py": {
+        "size": 726
+      },
+      "tests/sequence/test_seqtypes.py": {
+        "size": 3910
+      },
+      "tests/sequence/test_sequence.py": {
+        "size": 2361
+      },
+      "tests/structure/__init__.py": {
+        "size": 0
+      },
+      "tests/structure/alphabet/__init__.py": {
+        "size": 0
+      },
+      "tests/structure/alphabet/test_i3d.py": {
+        "size": 4202
+      },
+      "tests/structure/alphabet/test_pb.py": {
+        "size": 2659
+      },
+      "tests/structure/data/base_pairs/1gid_edges.json": {
+        "size": 2132
+      },
+      "tests/structure/data/base_pairs/1gid_sugar.json": {
+        "size": 1777
+      },
+      "tests/structure/data/base_pairs/1nkw_edges.json": {
+        "size": 848
+      },
+      "tests/structure/data/base_pairs/1nkw_sugar.json": {
+        "size": 698
+      },
+      "tests/structure/data/base_pairs/1xnr_edges.json": {
+        "size": 20145
+      },
+      "tests/structure/data/base_pairs/1xnr_sugar.json": {
+        "size": 16850
+      },
+      "tests/structure/data/base_pairs/create_bond_orientation_test_data.py": {
+        "size": 2151
+      },
+      "tests/structure/data/base_pairs/create_interacting_edge_test_data.py": {
+        "size": 2458
+      },
+      "tests/structure/data/create_test_structures.py": {
+        "size": 2855
+      },
+      "tests/structure/data/ids.txt": {
+        "size": 129
+      },
+      "tests/structure/data/misc/dihedrals.json": {
+        "size": 3387
+      },
+      "tests/structure/data/misc/dihedrals.py": {
+        "size": 1655
+      },
+      "tests/structure/data/misc/hbond.json": {
+        "size": 151784
+      },
+      "tests/structure/data/misc/hbond.py": {
+        "size": 1611
+      },
+      "tests/structure/data/misc/rdf.json": {
+        "size": 4907
+      },
+      "tests/structure/data/misc/rdf.py": {
+        "size": 814
+      },
+      "tests/structure/data/misc/sasa.json": {
+        "size": 49198
+      },
+      "tests/structure/data/misc/sasa.py": {
+        "size": 1022
+      },
+      "tests/structure/data/molecules/create_v3000_sdf.py": {
+        "size": 413
+      },
+      "tests/structure/data/pseudoknots/test0_knotted.json": {
+        "size": 361
+      },
+      "tests/structure/data/pseudoknots/test0_unknotted.json": {
+        "size": 1910
+      },
+      "tests/structure/data/pseudoknots/test10_knotted.json": {
+        "size": 358
+      },
+      "tests/structure/data/pseudoknots/test10_unknotted.json": {
+        "size": 3825
+      },
+      "tests/structure/data/pseudoknots/test11_knotted.json": {
+        "size": 359
+      },
+      "tests/structure/data/pseudoknots/test11_unknotted.json": {
+        "size": 2734
+      },
+      "tests/structure/data/pseudoknots/test12_knotted.json": {
+        "size": 361
+      },
+      "tests/structure/data/pseudoknots/test12_unknotted.json": {
+        "size": 1271
+      },
+      "tests/structure/data/pseudoknots/test13_knotted.json": {
+        "size": 358
+      },
+      "tests/structure/data/pseudoknots/test13_unknotted.json": {
+        "size": 250
+      },
+      "tests/structure/data/pseudoknots/test14_knotted.json": {
+        "size": 359
+      },
+      "tests/structure/data/pseudoknots/test14_unknotted.json": {
+        "size": 808
+      },
+      "tests/structure/data/pseudoknots/test15_knotted.json": {
+        "size": 358
+      },
+      "tests/structure/data/pseudoknots/test15_unknotted.json": {
+        "size": 1098
+      },
+      "tests/structure/data/pseudoknots/test16_knotted.json": {
+        "size": 358
+      },
+      "tests/structure/data/pseudoknots/test16_unknotted.json": {
+        "size": 204
+      },
+      "tests/structure/data/pseudoknots/test17_knotted.json": {
+        "size": 358
+      },
+      "tests/structure/data/pseudoknots/test17_unknotted.json": {
+        "size": 611
+      },
+      "tests/structure/data/pseudoknots/test18_knotted.json": {
+        "size": 361
+      },
+      "tests/structure/data/pseudoknots/test18_unknotted.json": {
+        "size": 5138
+      },
+      "tests/structure/data/pseudoknots/test19_knotted.json": {
+        "size": 357
+      },
+      "tests/structure/data/pseudoknots/test19_unknotted.json": {
+        "size": 1426
+      },
+      "tests/structure/data/pseudoknots/test1_knotted.json": {
+        "size": 360
+      },
+      "tests/structure/data/pseudoknots/test1_unknotted.json": {
+        "size": 810
+      },
+      "tests/structure/data/pseudoknots/test20_knotted.json": {
+        "size": 360
+      },
+      "tests/structure/data/pseudoknots/test20_unknotted.json": {
+        "size": 4658
+      },
+      "tests/structure/data/pseudoknots/test2_knotted.json": {
+        "size": 360
+      },
+      "tests/structure/data/pseudoknots/test2_unknotted.json": {
+        "size": 454
+      },
+      "tests/structure/data/pseudoknots/test3_knotted.json": {
+        "size": 358
+      },
+      "tests/structure/data/pseudoknots/test3_unknotted.json": {
+        "size": 1433
+      },
+      "tests/structure/data/pseudoknots/test4_knotted.json": {
+        "size": 358
+      },
+      "tests/structure/data/pseudoknots/test4_unknotted.json": {
+        "size": 2529
+      },
+      "tests/structure/data/pseudoknots/test5_knotted.json": {
+        "size": 360
+      },
+      "tests/structure/data/pseudoknots/test5_unknotted.json": {
+        "size": 901
+      },
+      "tests/structure/data/pseudoknots/test6_knotted.json": {
+        "size": 356
+      },
+      "tests/structure/data/pseudoknots/test6_unknotted.json": {
+        "size": 181
+      },
+      "tests/structure/data/pseudoknots/test7_knotted.json": {
+        "size": 358
+      },
+      "tests/structure/data/pseudoknots/test7_unknotted.json": {
+        "size": 247
+      },
+      "tests/structure/data/pseudoknots/test8_knotted.json": {
+        "size": 358
+      },
+      "tests/structure/data/pseudoknots/test8_unknotted.json": {
+        "size": 1114
+      },
+      "tests/structure/data/pseudoknots/test9_knotted.json": {
+        "size": 359
+      },
+      "tests/structure/data/pseudoknots/test9_unknotted.json": {
+        "size": 730
+      },
+      "tests/structure/data/tm/tm.py": {
+        "size": 1405
+      },
+      "tests/structure/data/tm/tm_scores.json": {
+        "size": 982
+      },
+      "tests/structure/io/__init__.py": {
+        "size": 0
+      },
+      "tests/structure/io/test_gro.py": {
+        "size": 4869
+      },
+      "tests/structure/io/test_mol.py": {
+        "size": 13464
+      },
+      "tests/structure/io/test_pdb.py": {
+        "size": 19710
+      },
+      "tests/structure/io/test_pdbqt.py": {
+        "size": 1996
+      },
+      "tests/structure/io/test_pdbx.py": {
+        "size": 44386
+      },
+      "tests/structure/io/test_trajectory.py": {
+        "size": 9558
+      },
+      "tests/structure/test_atoms.py": {
+        "size": 7396
+      },
+      "tests/structure/test_basepairs.py": {
+        "size": 12779
+      },
+      "tests/structure/test_bonds.py": {
+        "size": 18391
+      },
+      "tests/structure/test_box.py": {
+        "size": 10981
+      },
+      "tests/structure/test_celllist.py": {
+        "size": 5099
+      },
+      "tests/structure/test_chains.py": {
+        "size": 2765
+      },
+      "tests/structure/test_charges.py": {
+        "size": 16096
+      },
+      "tests/structure/test_compare.py": {
+        "size": 13488
+      },
+      "tests/structure/test_density.py": {
+        "size": 3062
+      },
+      "tests/structure/test_dotbracket.py": {
+        "size": 3008
+      },
+      "tests/structure/test_filter.py": {
+        "size": 8833
+      },
+      "tests/structure/test_generalio.py": {
+        "size": 4954
+      },
+      "tests/structure/test_geometry.py": {
+        "size": 8370
+      },
+      "tests/structure/test_hbond.py": {
+        "size": 6899
+      },
+      "tests/structure/test_info.py": {
+        "size": 7615
+      },
+      "tests/structure/test_integrity.py": {
+        "size": 2345
+      },
+      "tests/structure/test_mechanics.py": {
+        "size": 1340
+      },
+      "tests/structure/test_molecules.py": {
+        "size": 3709
+      },
+      "tests/structure/test_pseudoknots.py": {
+        "size": 5459
+      },
+      "tests/structure/test_rdf.py": {
+        "size": 5100
+      },
+      "tests/structure/test_repair.py": {
+        "size": 2131
+      },
+      "tests/structure/test_residues.py": {
+        "size": 4007
+      },
+      "tests/structure/test_rings.py": {
+        "size": 7580
+      },
+      "tests/structure/test_sasa.py": {
+        "size": 2278
+      },
+      "tests/structure/test_sequence.py": {
+        "size": 2930
+      },
+      "tests/structure/test_sse.py": {
+        "size": 3780
+      },
+      "tests/structure/test_superimpose.py": {
+        "size": 10591
+      },
+      "tests/structure/test_tm.py": {
+        "size": 7342
+      },
+      "tests/structure/test_transform.py": {
+        "size": 12451
+      },
+      "tests/test_doctest.py": {
+        "size": 8979
+      },
+      "tests/test_modname.py": {
+        "size": 1970
+      },
+      "tests/test_repr.py": {
+        "size": 2807
+      },
+      "tests/test_version.py": {
+        "size": 203
+      },
+      "tests/util.py": {
+        "size": 831
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.benchmarks",
+      "source.benchmarks.sequence",
+      "source.benchmarks.structure",
+      "source.src.biotite",
+      "source.tests",
+      "source.tests.application",
+      "source.tests.database",
+      "source.tests.interface",
+      "source.tests.sequence",
+      "source.tests.structure"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": true,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.src.biotite",
+        "module": "source.src.biotite.sequence.align.alignment",
+        "functions": [
+          "align_optimal",
+          "align_local_ungapped",
+          "align_local_gapped",
+          "align_banded",
+          "get_codes",
+          "get_symbols"
+        ],
+        "classes": [
+          "Alignment"
+        ],
+        "description": "Core sequence alignment operations and alignment container primitives; central for homology and matching workflows."
+      },
+      {
+        "package": "source.src.biotite",
+        "module": "source.src.biotite.sequence.io.fasta.file",
+        "functions": [
+          "get_sequences",
+          "set_sequences"
+        ],
+        "classes": [
+          "FastaFile"
+        ],
+        "description": "FASTA parsing and serialization foundation for sequence input/output."
+      },
+      {
+        "package": "source.src.biotite",
+        "module": "source.src.biotite.structure.io.pdb.file",
+        "functions": [
+          "get_structure",
+          "set_structure",
+          "list_assemblies",
+          "get_assembly"
+        ],
+        "classes": [
+          "PDBFile"
+        ],
+        "description": "Primary PDB structure read/write and assembly extraction entrypoint for structural biology tasks."
+      },
+      {
+        "package": "source.src.biotite",
+        "module": "source.src.biotite.structure.io.pdbx.convert",
+        "functions": [
+          "get_structure",
+          "set_structure",
+          "get_component",
+          "set_component"
+        ],
+        "classes": [],
+        "description": "mmCIF/BinaryCIF conversion layer; high-value for modern structure pipelines and interoperability."
+      },
+      {
+        "package": "source.src.biotite",
+        "module": "source.src.biotite.database.rcsb.query",
+        "functions": [
+          "search",
+          "count",
+          "sort"
+        ],
+        "classes": [
+          "Query",
+          "BasicQuery",
+          "CompositeQuery",
+          "FieldQuery"
+        ],
+        "description": "Programmatic RCSB querying for structure discovery; suitable MCP-facing remote retrieval tool surface."
+      },
+      {
+        "package": "source.src.biotite",
+        "module": "source.src.biotite.database.rcsb.download",
+        "functions": [
+          "fetch"
+        ],
+        "classes": [],
+        "description": "Direct RCSB download integration for structure acquisition."
+      },
+      {
+        "package": "source.src.biotite",
+        "module": "source.src.biotite.database.uniprot.query",
+        "functions": [
+          "search",
+          "SimpleQuery",
+          "CompositeQuery"
+        ],
+        "classes": [
+          "Query"
+        ],
+        "description": "UniProt search composition and remote query execution for protein sequence metadata integration."
+      },
+      {
+        "package": "source.src.biotite",
+        "module": "source.src.biotite.structure.superimpose",
+        "functions": [
+          "superimpose",
+          "superimpose_homologs",
+          "rmsd",
+          "rmspd"
+        ],
+        "classes": [],
+        "description": "Structural comparison and superposition primitives for analysis-heavy MCP tools."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.93
+    },
+    "dependencies": {
+      "required": [
+        "numpy"
+      ],
+      "optional": [
+        "scipy",
+        "matplotlib",
+        "requests",
+        "networkx",
+        "msgpack",
+        "biotraj",
+        "rdkit",
+        "openmm",
+        "pymol"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/biotite-dev/biotite",
+    "repo_name": "biotite",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

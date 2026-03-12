@@ -1,0 +1,2001 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/danforthcenter/plantcv",
+    "summary": "Imported via zip fallback, file count: 598",
+    "file_tree": {
+      ".deepsource.toml": {
+        "size": 376
+      },
+      ".github/ISSUE_TEMPLATE/discussion.md": {
+        "size": 220
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.md": {
+        "size": 617
+      },
+      ".github/ISSUE_TEMPLATE/something-is-not-working.md": {
+        "size": 716
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 932
+      },
+      ".github/workflows/continuous-integration.yml": {
+        "size": 1459
+      },
+      ".github/workflows/publish-package.yml": {
+        "size": 1502
+      },
+      ".readthedocs.yaml": {
+        "size": 438
+      },
+      "README.md": {
+        "size": 38830
+      },
+      "docs/CODE_OF_CONDUCT.md": {
+        "size": 5909
+      },
+      "docs/CONTRIBUTING.md": {
+        "size": 15857
+      },
+      "docs/HistEqualization.md": {
+        "size": 1058
+      },
+      "docs/Points.md": {
+        "size": 1708
+      },
+      "docs/Spectral_data.md": {
+        "size": 3073
+      },
+      "docs/analysis_approach.md": {
+        "size": 10062
+      },
+      "docs/analyze_bound_horizontal2.md": {
+        "size": 3092
+      },
+      "docs/analyze_bound_vertical2.md": {
+        "size": 3300
+      },
+      "docs/analyze_color2.md": {
+        "size": 2554
+      },
+      "docs/analyze_distribution.md": {
+        "size": 3375
+      },
+      "docs/analyze_grayscale.md": {
+        "size": 2291
+      },
+      "docs/analyze_npq.md": {
+        "size": 3458
+      },
+      "docs/analyze_size.md": {
+        "size": 3007
+      },
+      "docs/analyze_spectral_index.md": {
+        "size": 2744
+      },
+      "docs/analyze_spectral_reflectance.md": {
+        "size": 2007
+      },
+      "docs/analyze_stem.md": {
+        "size": 2549
+      },
+      "docs/analyze_thermal.md": {
+        "size": 2776
+      },
+      "docs/analyze_yii.md": {
+        "size": 4461
+      },
+      "docs/apply_mask.md": {
+        "size": 1538
+      },
+      "docs/apply_transformation_matrix.md": {
+        "size": 1401
+      },
+      "docs/auto_crop.md": {
+        "size": 1431
+      },
+      "docs/background_subtraction.md": {
+        "size": 1799
+      },
+      "docs/binary_threshold.md": {
+        "size": 1863
+      },
+      "docs/calibrate.md": {
+        "size": 1957
+      },
+      "docs/canny_edge_detect.md": {
+        "size": 2249
+      },
+      "docs/check_cycles.md": {
+        "size": 1731
+      },
+      "docs/closing.md": {
+        "size": 1456
+      },
+      "docs/color_palette.md": {
+        "size": 1657
+      },
+      "docs/create_color_card_mask.md": {
+        "size": 1556
+      },
+      "docs/create_labels.md": {
+        "size": 1777
+      },
+      "docs/crop.md": {
+        "size": 989
+      },
+      "docs/crop_position_mask.md": {
+        "size": 1822
+      },
+      "docs/custom_range_threshold.md": {
+        "size": 4000
+      },
+      "docs/db-exporter.md": {
+        "size": 1510
+      },
+      "docs/dilate.md": {
+        "size": 1462
+      },
+      "docs/distance_transform.md": {
+        "size": 1564
+      },
+      "docs/documentation.md": {
+        "size": 2926
+      },
+      "docs/erode.md": {
+        "size": 1513
+      },
+      "docs/extract_wavelength.md": {
+        "size": 1788
+      },
+      "docs/faq.md": {
+        "size": 5382
+      },
+      "docs/fill.md": {
+        "size": 1444
+      },
+      "docs/fill_holes.md": {
+        "size": 1023
+      },
+      "docs/fill_segments.md": {
+        "size": 2357
+      },
+      "docs/filters_eccentricity.md": {
+        "size": 1754
+      },
+      "docs/filters_obj_props.md": {
+        "size": 2205
+      },
+      "docs/find_branch_pts.md": {
+        "size": 2432
+      },
+      "docs/find_color_card.md": {
+        "size": 3361
+      },
+      "docs/find_tips.md": {
+        "size": 2223
+      },
+      "docs/flip.md": {
+        "size": 1072
+      },
+      "docs/floodfill.md": {
+        "size": 1637
+      },
+      "docs/gaussian_blur.md": {
+        "size": 1925
+      },
+      "docs/gaussian_threshold.md": {
+        "size": 2713
+      },
+      "docs/get_color_matrix.md": {
+        "size": 2406
+      },
+      "docs/get_kernel.md": {
+        "size": 1195
+      },
+      "docs/homology_acute.md": {
+        "size": 2828
+      },
+      "docs/homology_constella.md": {
+        "size": 5048
+      },
+      "docs/homology_constellaqc.md": {
+        "size": 1765
+      },
+      "docs/homology_landmark_reference_pt_dist.md": {
+        "size": 2523
+      },
+      "docs/homology_scale_features.md": {
+        "size": 1873
+      },
+      "docs/homology_space.md": {
+        "size": 6420
+      },
+      "docs/homology_starscape.md": {
+        "size": 2079
+      },
+      "docs/homology_x_axis_pseudolandmarks.md": {
+        "size": 2195
+      },
+      "docs/homology_y_axis_pseudolandmarks.md": {
+        "size": 2247
+      },
+      "docs/hyperspectral_rot90.md": {
+        "size": 1253
+      },
+      "docs/image_add.md": {
+        "size": 1263
+      },
+      "docs/image_fusion.md": {
+        "size": 2294
+      },
+      "docs/image_subtract.md": {
+        "size": 1284
+      },
+      "docs/index.md": {
+        "size": 3310
+      },
+      "docs/installation.md": {
+        "size": 4115
+      },
+      "docs/invert.md": {
+        "size": 928
+      },
+      "docs/io_open_url.md": {
+        "size": 783
+      },
+      "docs/io_random_subset.md": {
+        "size": 604
+      },
+      "docs/io_read_dataset.md": {
+        "size": 685
+      },
+      "docs/jupyter.md": {
+        "size": 5484
+      },
+      "docs/kmeans_classifier.md": {
+        "size": 2924
+      },
+      "docs/laplace_filter.md": {
+        "size": 1436
+      },
+      "docs/load_matrix.md": {
+        "size": 531
+      },
+      "docs/logical_and.md": {
+        "size": 1417
+      },
+      "docs/logical_or.md": {
+        "size": 1409
+      },
+      "docs/logical_xor.md": {
+        "size": 1500
+      },
+      "docs/mask_bad_threshold.md": {
+        "size": 1828
+      },
+      "docs/mean_threshold.md": {
+        "size": 2565
+      },
+      "docs/median_blur.md": {
+        "size": 1788
+      },
+      "docs/mp_inverse.md": {
+        "size": 1166
+      },
+      "docs/naive_bayes.md": {
+        "size": 1856
+      },
+      "docs/naive_bayes_classifier.md": {
+        "size": 1849
+      },
+      "docs/naive_bayes_multiclass.md": {
+        "size": 2130
+      },
+      "docs/nonuniform_illumination.md": {
+        "size": 1231
+      },
+      "docs/objects.md": {
+        "size": 1417
+      },
+      "docs/opening.md": {
+        "size": 1642
+      },
+      "docs/otsu_threshold.md": {
+        "size": 1686
+      },
+      "docs/output_mask.md": {
+        "size": 1306
+      },
+      "docs/output_measurements.md": {
+        "size": 8494
+      },
+      "docs/outputs.md": {
+        "size": 5066
+      },
+      "docs/parallel_config.md": {
+        "size": 10193
+      },
+      "docs/parallel_inspect_config.md": {
+        "size": 1513
+      },
+      "docs/parallel_job_builder.md": {
+        "size": 721
+      },
+      "docs/parallel_metadata_parser.md": {
+        "size": 627
+      },
+      "docs/parallel_multiprocess.md": {
+        "size": 1247
+      },
+      "docs/parallel_process_results.md": {
+        "size": 1148
+      },
+      "docs/parallel_workflow_inputs.md": {
+        "size": 4001
+      },
+      "docs/params.md": {
+        "size": 6416
+      },
+      "docs/photosynthesis_read_cropreporter.md": {
+        "size": 3364
+      },
+      "docs/photosynthesis_reassign_frame_labels.md": {
+        "size": 1893
+      },
+      "docs/pipeline_parallel.md": {
+        "size": 13204
+      },
+      "docs/plot_image.md": {
+        "size": 660
+      },
+      "docs/pr_review_process.md": {
+        "size": 6627
+      },
+      "docs/print_image.md": {
+        "size": 1254
+      },
+      "docs/prune.md": {
+        "size": 2662
+      },
+      "docs/qc_exposure.md": {
+        "size": 2370
+      },
+      "docs/quick_color_check.md": {
+        "size": 1591
+      },
+      "docs/read_bayer.md": {
+        "size": 1498
+      },
+      "docs/read_image.md": {
+        "size": 3195
+      },
+      "docs/report_size_marker.md": {
+        "size": 3942
+      },
+      "docs/requirements.txt": {
+        "size": 9
+      },
+      "docs/rgb2cmyk.md": {
+        "size": 1713
+      },
+      "docs/rgb2gray.md": {
+        "size": 787
+      },
+      "docs/rgb2hsv.md": {
+        "size": 1446
+      },
+      "docs/rgb2lab.md": {
+        "size": 1572
+      },
+      "docs/roi2mask.md": {
+        "size": 1141
+      },
+      "docs/roi_auto_grid.md": {
+        "size": 2510
+      },
+      "docs/roi_auto_wells.md": {
+        "size": 2224
+      },
+      "docs/roi_circle.md": {
+        "size": 921
+      },
+      "docs/roi_custom.md": {
+        "size": 1332
+      },
+      "docs/roi_ellipse.md": {
+        "size": 1072
+      },
+      "docs/roi_filter.md": {
+        "size": 2563
+      },
+      "docs/roi_from_binary_image.md": {
+        "size": 901
+      },
+      "docs/roi_multi.md": {
+        "size": 2670
+      },
+      "docs/roi_multi_rect.md": {
+        "size": 2683
+      },
+      "docs/roi_quick_filter.md": {
+        "size": 1595
+      },
+      "docs/roi_rectangle.md": {
+        "size": 1016
+      },
+      "docs/rotate2.md": {
+        "size": 1573
+      },
+      "docs/saturation_threshold.md": {
+        "size": 1479
+      },
+      "docs/save_matrix.md": {
+        "size": 610
+      },
+      "docs/scharr_filter.md": {
+        "size": 2015
+      },
+      "docs/segment_angle.md": {
+        "size": 2094
+      },
+      "docs/segment_combine.md": {
+        "size": 2955
+      },
+      "docs/segment_curvature.md": {
+        "size": 2809
+      },
+      "docs/segment_ends.md": {
+        "size": 2384
+      },
+      "docs/segment_euclidean_length.md": {
+        "size": 2346
+      },
+      "docs/segment_id.md": {
+        "size": 2610
+      },
+      "docs/segment_image_series.md": {
+        "size": 2215
+      },
+      "docs/segment_insertion_angle.md": {
+        "size": 2947
+      },
+      "docs/segment_pathlength.md": {
+        "size": 2319
+      },
+      "docs/segment_skeleton.md": {
+        "size": 1860
+      },
+      "docs/segment_sort.md": {
+        "size": 2391
+      },
+      "docs/segment_tangent_angle.md": {
+        "size": 2695
+      },
+      "docs/segment_width.md": {
+        "size": 2461
+      },
+      "docs/shift.md": {
+        "size": 967
+      },
+      "docs/skeletonize.md": {
+        "size": 886
+      },
+      "docs/sobel_filter.md": {
+        "size": 1759
+      },
+      "docs/spatial_clustering.md": {
+        "size": 1852
+      },
+      "docs/spectral_index.md": {
+        "size": 32561
+      },
+      "docs/std_color_matrix.md": {
+        "size": 2459
+      },
+      "docs/stdev_filter.md": {
+        "size": 1871
+      },
+      "docs/texture_threshold.md": {
+        "size": 2018
+      },
+      "docs/threshold_dual_channels.md": {
+        "size": 2430
+      },
+      "docs/tools.md": {
+        "size": 7320
+      },
+      "docs/train_kmeans.md": {
+        "size": 1988
+      },
+      "docs/transform_affine_color_correction.md": {
+        "size": 2545
+      },
+      "docs/transform_auto_correct_color.md": {
+        "size": 3166
+      },
+      "docs/transform_calibrate_camera.md": {
+        "size": 1824
+      },
+      "docs/transform_checkerboard_calibration.md": {
+        "size": 1879
+      },
+      "docs/transform_correct_color.md": {
+        "size": 2999
+      },
+      "docs/transform_detect_color_card.md": {
+        "size": 6410
+      },
+      "docs/transform_gamma_correct.md": {
+        "size": 1111
+      },
+      "docs/transform_mask_color_card.md": {
+        "size": 2024
+      },
+      "docs/transform_merge_images.md": {
+        "size": 2897
+      },
+      "docs/transform_rescale.md": {
+        "size": 1061
+      },
+      "docs/transform_resize.md": {
+        "size": 3629
+      },
+      "docs/transform_warp.md": {
+        "size": 8809
+      },
+      "docs/transformation_matrix.md": {
+        "size": 1026
+      },
+      "docs/triangle_threshold.md": {
+        "size": 1906
+      },
+      "docs/tutorials.md": {
+        "size": 192
+      },
+      "docs/updating.md": {
+        "size": 64552
+      },
+      "docs/visualize_auto_threshold_methods.md": {
+        "size": 1753
+      },
+      "docs/visualize_chlorophyll_fluorescence.md": {
+        "size": 1905
+      },
+      "docs/visualize_colorize_label_img.md": {
+        "size": 913
+      },
+      "docs/visualize_colorize_masks.md": {
+        "size": 1822
+      },
+      "docs/visualize_colorspace.md": {
+        "size": 904
+      },
+      "docs/visualize_histogram.md": {
+        "size": 2647
+      },
+      "docs/visualize_hyper_histogram.md": {
+        "size": 2965
+      },
+      "docs/visualize_obj_size_ecdf.md": {
+        "size": 1161
+      },
+      "docs/visualize_obj_sizes.md": {
+        "size": 1329
+      },
+      "docs/visualize_ovelay_two_imgs.md": {
+        "size": 1258
+      },
+      "docs/visualize_pixel_scatter_vis.md": {
+        "size": 3199
+      },
+      "docs/visualize_pseudocolor.md": {
+        "size": 5614
+      },
+      "docs/visualize_tile.md": {
+        "size": 1236
+      },
+      "docs/visualize_time_lapse_video.md": {
+        "size": 1916
+      },
+      "docs/watershed.md": {
+        "size": 2577
+      },
+      "docs/white_balance.md": {
+        "size": 1602
+      },
+      "docs/within_frame.md": {
+        "size": 1486
+      },
+      "docs/write_data.md": {
+        "size": 1776
+      },
+      "environment.yml": {
+        "size": 525
+      },
+      "mkdocs.yml": {
+        "size": 11419
+      },
+      "plantcv/__init__.py": {
+        "size": 65
+      },
+      "plantcv/learn/__init__.py": {
+        "size": 302
+      },
+      "plantcv/learn/cli.py": {
+        "size": 5821
+      },
+      "plantcv/learn/naive_bayes.py": {
+        "size": 9104
+      },
+      "plantcv/learn/train_kmeans.py": {
+        "size": 4242
+      },
+      "plantcv/parallel/__init__.py": {
+        "size": 671
+      },
+      "plantcv/parallel/cli.py": {
+        "size": 4896
+      },
+      "plantcv/parallel/inspect_dataset.py": {
+        "size": 2572
+      },
+      "plantcv/parallel/job_builder.py": {
+        "size": 2622
+      },
+      "plantcv/parallel/multiprocess.py": {
+        "size": 2376
+      },
+      "plantcv/parallel/parsers.py": {
+        "size": 22611
+      },
+      "plantcv/parallel/process_results.py": {
+        "size": 2238
+      },
+      "plantcv/parallel/workflow_inputs.py": {
+        "size": 3010
+      },
+      "plantcv/parallel/workflowconfig.py": {
+        "size": 8312
+      },
+      "plantcv/plantcv/__init__.py": {
+        "size": 5421
+      },
+      "plantcv/plantcv/_debug.py": {
+        "size": 864
+      },
+      "plantcv/plantcv/_helpers.py": {
+        "size": 32744
+      },
+      "plantcv/plantcv/_show_dataarray.py": {
+        "size": 1774
+      },
+      "plantcv/plantcv/analyze/__init__.py": {
+        "size": 806
+      },
+      "plantcv/plantcv/analyze/bound_horizontal.py": {
+        "size": 8476
+      },
+      "plantcv/plantcv/analyze/bound_vertical.py": {
+        "size": 5765
+      },
+      "plantcv/plantcv/analyze/color.py": {
+        "size": 10016
+      },
+      "plantcv/plantcv/analyze/distribution.py": {
+        "size": 6120
+      },
+      "plantcv/plantcv/analyze/grayscale.py": {
+        "size": 4294
+      },
+      "plantcv/plantcv/analyze/npq.py": {
+        "size": 11703
+      },
+      "plantcv/plantcv/analyze/size.py": {
+        "size": 12817
+      },
+      "plantcv/plantcv/analyze/spectral_index.py": {
+        "size": 6407
+      },
+      "plantcv/plantcv/analyze/spectral_reflectance.py": {
+        "size": 6024
+      },
+      "plantcv/plantcv/analyze/thermal.py": {
+        "size": 4149
+      },
+      "plantcv/plantcv/analyze/yii.py": {
+        "size": 10599
+      },
+      "plantcv/plantcv/annotate/__init__.py": {
+        "size": 0
+      },
+      "plantcv/plantcv/annotate/points.py": {
+        "size": 673
+      },
+      "plantcv/plantcv/apply_mask.py": {
+        "size": 1834
+      },
+      "plantcv/plantcv/auto_crop.py": {
+        "size": 3148
+      },
+      "plantcv/plantcv/background_subtraction.py": {
+        "size": 2667
+      },
+      "plantcv/plantcv/canny_edge_detect.py": {
+        "size": 3410
+      },
+      "plantcv/plantcv/classes.py": {
+        "size": 18664
+      },
+      "plantcv/plantcv/closing.py": {
+        "size": 882
+      },
+      "plantcv/plantcv/color_palette.py": {
+        "size": 1143
+      },
+      "plantcv/plantcv/create_labels.py": {
+        "size": 2465
+      },
+      "plantcv/plantcv/crop.py": {
+        "size": 2389
+      },
+      "plantcv/plantcv/crop_position_mask.py": {
+        "size": 9206
+      },
+      "plantcv/plantcv/deprecation_warning.py": {
+        "size": 436
+      },
+      "plantcv/plantcv/dilate.py": {
+        "size": 1098
+      },
+      "plantcv/plantcv/distance_transform.py": {
+        "size": 1551
+      },
+      "plantcv/plantcv/erode.py": {
+        "size": 1200
+      },
+      "plantcv/plantcv/fatal_error.py": {
+        "size": 237
+      },
+      "plantcv/plantcv/fill.py": {
+        "size": 1691
+      },
+      "plantcv/plantcv/fill_holes.py": {
+        "size": 1427
+      },
+      "plantcv/plantcv/filters/__init__.py": {
+        "size": 170
+      },
+      "plantcv/plantcv/filters/eccentricity.py": {
+        "size": 1496
+      },
+      "plantcv/plantcv/filters/obj_props.py": {
+        "size": 3720
+      },
+      "plantcv/plantcv/flip.py": {
+        "size": 974
+      },
+      "plantcv/plantcv/floodfill.py": {
+        "size": 1716
+      },
+      "plantcv/plantcv/gaussian_blur.py": {
+        "size": 1393
+      },
+      "plantcv/plantcv/get_kernel.py": {
+        "size": 1075
+      },
+      "plantcv/plantcv/hist_equalization.py": {
+        "size": 859
+      },
+      "plantcv/plantcv/homology/__init__.py": {
+        "size": 778
+      },
+      "plantcv/plantcv/homology/acute.py": {
+        "size": 10440
+      },
+      "plantcv/plantcv/homology/constella.py": {
+        "size": 6836
+      },
+      "plantcv/plantcv/homology/constellaqc.py": {
+        "size": 2221
+      },
+      "plantcv/plantcv/homology/landmark_reference_pt_dist.py": {
+        "size": 5708
+      },
+      "plantcv/plantcv/homology/scale_features.py": {
+        "size": 3923
+      },
+      "plantcv/plantcv/homology/space.py": {
+        "size": 4717
+      },
+      "plantcv/plantcv/homology/starscape.py": {
+        "size": 5854
+      },
+      "plantcv/plantcv/homology/x_axis_pseudolandmark.py": {
+        "size": 13756
+      },
+      "plantcv/plantcv/homology/y_axis_pseudolandmarks.py": {
+        "size": 1931
+      },
+      "plantcv/plantcv/hyperspectral/__init__.py": {
+        "size": 836
+      },
+      "plantcv/plantcv/hyperspectral/_avg_reflectance.py": {
+        "size": 1205
+      },
+      "plantcv/plantcv/hyperspectral/_inverse_covariance.py": {
+        "size": 867
+      },
+      "plantcv/plantcv/hyperspectral/calibrate.py": {
+        "size": 2742
+      },
+      "plantcv/plantcv/hyperspectral/extract_wavelength.py": {
+        "size": 2687
+      },
+      "plantcv/plantcv/hyperspectral/read_data.py": {
+        "size": 13151
+      },
+      "plantcv/plantcv/hyperspectral/rot90.py": {
+        "size": 1922
+      },
+      "plantcv/plantcv/hyperspectral/write_data.py": {
+        "size": 1832
+      },
+      "plantcv/plantcv/image_add.py": {
+        "size": 952
+      },
+      "plantcv/plantcv/image_fusion.py": {
+        "size": 3543
+      },
+      "plantcv/plantcv/image_subtract.py": {
+        "size": 1050
+      },
+      "plantcv/plantcv/invert.py": {
+        "size": 559
+      },
+      "plantcv/plantcv/io/__init__.py": {
+        "size": 258
+      },
+      "plantcv/plantcv/io/open_url.py": {
+        "size": 849
+      },
+      "plantcv/plantcv/io/random_subset.py": {
+        "size": 851
+      },
+      "plantcv/plantcv/io/read_dataset.py": {
+        "size": 1267
+      },
+      "plantcv/plantcv/kmeans_classifier.py": {
+        "size": 3730
+      },
+      "plantcv/plantcv/laplace_filter.py": {
+        "size": 1628
+      },
+      "plantcv/plantcv/logical_and.py": {
+        "size": 681
+      },
+      "plantcv/plantcv/logical_or.py": {
+        "size": 676
+      },
+      "plantcv/plantcv/logical_xor.py": {
+        "size": 681
+      },
+      "plantcv/plantcv/median_blur.py": {
+        "size": 1355
+      },
+      "plantcv/plantcv/morphology/__init__.py": {
+        "size": 1727
+      },
+      "plantcv/plantcv/morphology/analyze_stem.py": {
+        "size": 2946
+      },
+      "plantcv/plantcv/morphology/check_cycles.py": {
+        "size": 2584
+      },
+      "plantcv/plantcv/morphology/fill_segments.py": {
+        "size": 3269
+      },
+      "plantcv/plantcv/morphology/find_branch_pts.py": {
+        "size": 3869
+      },
+      "plantcv/plantcv/morphology/find_tips.py": {
+        "size": 1540
+      },
+      "plantcv/plantcv/morphology/prune.py": {
+        "size": 3199
+      },
+      "plantcv/plantcv/morphology/segment_angle.py": {
+        "size": 3092
+      },
+      "plantcv/plantcv/morphology/segment_combine.py": {
+        "size": 2792
+      },
+      "plantcv/plantcv/morphology/segment_curvature.py": {
+        "size": 3631
+      },
+      "plantcv/plantcv/morphology/segment_ends.py": {
+        "size": 1923
+      },
+      "plantcv/plantcv/morphology/segment_euclidean_length.py": {
+        "size": 3403
+      },
+      "plantcv/plantcv/morphology/segment_id.py": {
+        "size": 1908
+      },
+      "plantcv/plantcv/morphology/segment_insertion_angle.py": {
+        "size": 8262
+      },
+      "plantcv/plantcv/morphology/segment_path_length.py": {
+        "size": 2227
+      },
+      "plantcv/plantcv/morphology/segment_skeleton.py": {
+        "size": 1777
+      },
+      "plantcv/plantcv/morphology/segment_sort.py": {
+        "size": 2609
+      },
+      "plantcv/plantcv/morphology/segment_tangent_angle.py": {
+        "size": 5218
+      },
+      "plantcv/plantcv/morphology/segment_width.py": {
+        "size": 4552
+      },
+      "plantcv/plantcv/morphology/skeletonize.py": {
+        "size": 754
+      },
+      "plantcv/plantcv/naive_bayes_classifier.py": {
+        "size": 3268
+      },
+      "plantcv/plantcv/opening.py": {
+        "size": 1812
+      },
+      "plantcv/plantcv/output_mask_ori_img.py": {
+        "size": 1887
+      },
+      "plantcv/plantcv/photosynthesis/__init__.py": {
+        "size": 224
+      },
+      "plantcv/plantcv/photosynthesis/read_cropreporter.py": {
+        "size": 17853
+      },
+      "plantcv/plantcv/photosynthesis/reassign_frame_labels.py": {
+        "size": 2997
+      },
+      "plantcv/plantcv/plot_image.py": {
+        "size": 1796
+      },
+      "plantcv/plantcv/print_image.py": {
+        "size": 1924
+      },
+      "plantcv/plantcv/qc/__init__.py": {
+        "size": 73
+      },
+      "plantcv/plantcv/qc/exposure.py": {
+        "size": 4417
+      },
+      "plantcv/plantcv/readbayer.py": {
+        "size": 2632
+      },
+      "plantcv/plantcv/readimage.py": {
+        "size": 2053
+      },
+      "plantcv/plantcv/report_size_marker_area.py": {
+        "size": 6348
+      },
+      "plantcv/plantcv/rgb2gray.py": {
+        "size": 534
+      },
+      "plantcv/plantcv/rgb2gray_cmyk.py": {
+        "size": 1129
+      },
+      "plantcv/plantcv/rgb2gray_hsv.py": {
+        "size": 1002
+      },
+      "plantcv/plantcv/rgb2gray_lab.py": {
+        "size": 1037
+      },
+      "plantcv/plantcv/roi/__init__.py": {
+        "size": 830
+      },
+      "plantcv/plantcv/roi/quick_filter.py": {
+        "size": 4489
+      },
+      "plantcv/plantcv/roi/roi2mask.py": {
+        "size": 975
+      },
+      "plantcv/plantcv/roi/roi_methods.py": {
+        "size": 31182
+      },
+      "plantcv/plantcv/scharr_filter.py": {
+        "size": 1653
+      },
+      "plantcv/plantcv/segment_image_series.py": {
+        "size": 4866
+      },
+      "plantcv/plantcv/shift_img.py": {
+        "size": 2027
+      },
+      "plantcv/plantcv/sobel_filter.py": {
+        "size": 1639
+      },
+      "plantcv/plantcv/spatial_clustering.py": {
+        "size": 4068
+      },
+      "plantcv/plantcv/spectral_index/__init__.py": {
+        "size": 2340
+      },
+      "plantcv/plantcv/spectral_index/spectral_index.py": {
+        "size": 44977
+      },
+      "plantcv/plantcv/stdev_filter.py": {
+        "size": 1622
+      },
+      "plantcv/plantcv/threshold/__init__.py": {
+        "size": 795
+      },
+      "plantcv/plantcv/threshold/threshold_methods.py": {
+        "size": 36252
+      },
+      "plantcv/plantcv/transform/__init__.py": {
+        "size": 2200
+      },
+      "plantcv/plantcv/transform/auto_correct_color.py": {
+        "size": 2100
+      },
+      "plantcv/plantcv/transform/checkerboard_calib.py": {
+        "size": 3858
+      },
+      "plantcv/plantcv/transform/color_correction.py": {
+        "size": 26309
+      },
+      "plantcv/plantcv/transform/detect_color_card.py": {
+        "size": 16822
+      },
+      "plantcv/plantcv/transform/find_color_card.py": {
+        "size": 14880
+      },
+      "plantcv/plantcv/transform/gamma_correct.py": {
+        "size": 786
+      },
+      "plantcv/plantcv/transform/merge_images.py": {
+        "size": 5694
+      },
+      "plantcv/plantcv/transform/nonuniform_illumination.py": {
+        "size": 1454
+      },
+      "plantcv/plantcv/transform/rescale.py": {
+        "size": 1037
+      },
+      "plantcv/plantcv/transform/resize.py": {
+        "size": 6393
+      },
+      "plantcv/plantcv/transform/rotate.py": {
+        "size": 1458
+      },
+      "plantcv/plantcv/transform/warp.py": {
+        "size": 7271
+      },
+      "plantcv/plantcv/visualize/__init__.py": {
+        "size": 1249
+      },
+      "plantcv/plantcv/visualize/auto_threshold_methods.py": {
+        "size": 3058
+      },
+      "plantcv/plantcv/visualize/chlorophyll_fluorescence.py": {
+        "size": 3849
+      },
+      "plantcv/plantcv/visualize/colorize_label_img.py": {
+        "size": 990
+      },
+      "plantcv/plantcv/visualize/colorize_masks.py": {
+        "size": 2975
+      },
+      "plantcv/plantcv/visualize/colorspaces.py": {
+        "size": 3729
+      },
+      "plantcv/plantcv/visualize/histogram.py": {
+        "size": 6762
+      },
+      "plantcv/plantcv/visualize/hyper_histogram.py": {
+        "size": 8767
+      },
+      "plantcv/plantcv/visualize/obj_size_ecdf.py": {
+        "size": 1419
+      },
+      "plantcv/plantcv/visualize/obj_sizes.py": {
+        "size": 2982
+      },
+      "plantcv/plantcv/visualize/overlay_two_imgs.py": {
+        "size": 2243
+      },
+      "plantcv/plantcv/visualize/pixel_scatter_vis.py": {
+        "size": 4086
+      },
+      "plantcv/plantcv/visualize/pseudocolor.py": {
+        "size": 5337
+      },
+      "plantcv/plantcv/visualize/tile.py": {
+        "size": 2544
+      },
+      "plantcv/plantcv/visualize/time_lapse_video.py": {
+        "size": 2255
+      },
+      "plantcv/plantcv/warn.py": {
+        "size": 375
+      },
+      "plantcv/plantcv/watershed.py": {
+        "size": 3222
+      },
+      "plantcv/plantcv/white_balance.py": {
+        "size": 5466
+      },
+      "plantcv/plantcv/within_frame.py": {
+        "size": 1932
+      },
+      "plantcv/utils/__init__.py": {
+        "size": 227
+      },
+      "plantcv/utils/cli.py": {
+        "size": 3292
+      },
+      "plantcv/utils/converters.py": {
+        "size": 9301
+      },
+      "plantcv/utils/sample_images.py": {
+        "size": 5936
+      },
+      "pyproject.toml": {
+        "size": 1537
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/conftest.py": {
+        "size": 8705
+      },
+      "tests/learn/__init__.py": {
+        "size": 0
+      },
+      "tests/learn/conftest.py": {
+        "size": 911
+      },
+      "tests/learn/test_cli.py": {
+        "size": 3291
+      },
+      "tests/learn/test_kmeans_train.py": {
+        "size": 1381
+      },
+      "tests/learn/test_naive_bayes.py": {
+        "size": 976
+      },
+      "tests/parallel/__init__.py": {
+        "size": 0
+      },
+      "tests/parallel/conftest.py": {
+        "size": 4816
+      },
+      "tests/parallel/test_cli.py": {
+        "size": 2324
+      },
+      "tests/parallel/test_inspect_config.py": {
+        "size": 1274
+      },
+      "tests/parallel/test_job_builder.py": {
+        "size": 4187
+      },
+      "tests/parallel/test_multiprocess.py": {
+        "size": 2003
+      },
+      "tests/parallel/test_parsers.py": {
+        "size": 2800
+      },
+      "tests/parallel/test_process_results.py": {
+        "size": 1903
+      },
+      "tests/parallel/test_workflow_inputs.py": {
+        "size": 522
+      },
+      "tests/parallel/test_workflowconfig.py": {
+        "size": 3492
+      },
+      "tests/plantcv/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/analyze/test_bound_horizontal.py": {
+        "size": 1017
+      },
+      "tests/plantcv/analyze/test_bound_vertical.py": {
+        "size": 1059
+      },
+      "tests/plantcv/analyze/test_color.py": {
+        "size": 1181
+      },
+      "tests/plantcv/analyze/test_distribution.py": {
+        "size": 571
+      },
+      "tests/plantcv/analyze/test_grayscale.py": {
+        "size": 948
+      },
+      "tests/plantcv/analyze/test_npq.py": {
+        "size": 2653
+      },
+      "tests/plantcv/analyze/test_size.py": {
+        "size": 4785
+      },
+      "tests/plantcv/analyze/test_spectral_index.py": {
+        "size": 2805
+      },
+      "tests/plantcv/analyze/test_spectral_reflectance.py": {
+        "size": 454
+      },
+      "tests/plantcv/analyze/test_thermal.py": {
+        "size": 490
+      },
+      "tests/plantcv/analyze/test_yii.py": {
+        "size": 2870
+      },
+      "tests/plantcv/annotate/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/annotate/conftest.py": {
+        "size": 577
+      },
+      "tests/plantcv/annotate/test_points.py": {
+        "size": 1821
+      },
+      "tests/plantcv/filters/conftest.py": {
+        "size": 709
+      },
+      "tests/plantcv/filters/test_eccentricity.py": {
+        "size": 356
+      },
+      "tests/plantcv/filters/test_filter_objs.py": {
+        "size": 2014
+      },
+      "tests/plantcv/homology/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/homology/conftest.py": {
+        "size": 1892
+      },
+      "tests/plantcv/homology/test_acute.py": {
+        "size": 1877
+      },
+      "tests/plantcv/homology/test_constella.py": {
+        "size": 2177
+      },
+      "tests/plantcv/homology/test_constellaqc.py": {
+        "size": 520
+      },
+      "tests/plantcv/homology/test_landmark_reference_pt_dist.py": {
+        "size": 1253
+      },
+      "tests/plantcv/homology/test_scale_features.py": {
+        "size": 681
+      },
+      "tests/plantcv/homology/test_space.py": {
+        "size": 822
+      },
+      "tests/plantcv/homology/test_starscape.py": {
+        "size": 1628
+      },
+      "tests/plantcv/homology/test_x_axis_pseudolandmarks.py": {
+        "size": 1535
+      },
+      "tests/plantcv/homology/test_y_axis_pseudolandmarks.py": {
+        "size": 1466
+      },
+      "tests/plantcv/hyperspectral/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/hyperspectral/conftest.py": {
+        "size": 1578
+      },
+      "tests/plantcv/hyperspectral/test_avg_reflectance.py": {
+        "size": 365
+      },
+      "tests/plantcv/hyperspectral/test_calibrate.py": {
+        "size": 543
+      },
+      "tests/plantcv/hyperspectral/test_extract_wavelength.py": {
+        "size": 340
+      },
+      "tests/plantcv/hyperspectral/test_inverse_covariance.py": {
+        "size": 310
+      },
+      "tests/plantcv/hyperspectral/test_read_data.py": {
+        "size": 1394
+      },
+      "tests/plantcv/hyperspectral/test_rot90.py": {
+        "size": 330
+      },
+      "tests/plantcv/hyperspectral/test_write_data.py": {
+        "size": 2192
+      },
+      "tests/plantcv/io/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/io/test_open_url.py": {
+        "size": 594
+      },
+      "tests/plantcv/io/test_random_subset.py": {
+        "size": 652
+      },
+      "tests/plantcv/io/test_read_dataset.py": {
+        "size": 1063
+      },
+      "tests/plantcv/morphology/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/morphology/conftest.py": {
+        "size": 1399
+      },
+      "tests/plantcv/morphology/test_analyze_stem.py": {
+        "size": 840
+      },
+      "tests/plantcv/morphology/test_check_cycles.py": {
+        "size": 391
+      },
+      "tests/plantcv/morphology/test_fill_segments.py": {
+        "size": 1042
+      },
+      "tests/plantcv/morphology/test_find_branch_pts.py": {
+        "size": 749
+      },
+      "tests/plantcv/morphology/test_find_tips.py": {
+        "size": 701
+      },
+      "tests/plantcv/morphology/test_prune.py": {
+        "size": 815
+      },
+      "tests/plantcv/morphology/test_segment_angle.py": {
+        "size": 1078
+      },
+      "tests/plantcv/morphology/test_segment_combine.py": {
+        "size": 841
+      },
+      "tests/plantcv/morphology/test_segment_curvature.py": {
+        "size": 543
+      },
+      "tests/plantcv/morphology/test_segment_ends.py": {
+        "size": 1387
+      },
+      "tests/plantcv/morphology/test_segment_euclidean_length.py": {
+        "size": 983
+      },
+      "tests/plantcv/morphology/test_segment_id.py": {
+        "size": 767
+      },
+      "tests/plantcv/morphology/test_segment_insertion_angle.py": {
+        "size": 2310
+      },
+      "tests/plantcv/morphology/test_segment_path_length.py": {
+        "size": 565
+      },
+      "tests/plantcv/morphology/test_segment_skeleton.py": {
+        "size": 636
+      },
+      "tests/plantcv/morphology/test_segment_sort.py": {
+        "size": 802
+      },
+      "tests/plantcv/morphology/test_segment_tangent_angle.py": {
+        "size": 645
+      },
+      "tests/plantcv/morphology/test_segment_width.py": {
+        "size": 658
+      },
+      "tests/plantcv/morphology/test_skeletonize.py": {
+        "size": 396
+      },
+      "tests/plantcv/photosynthesis/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/photosynthesis/conftest.py": {
+        "size": 2555
+      },
+      "tests/plantcv/photosynthesis/test_psii_data.py": {
+        "size": 274
+      },
+      "tests/plantcv/photosynthesis/test_read_cropreporter.py": {
+        "size": 3498
+      },
+      "tests/plantcv/photosynthesis/test_reassign_frame_labels.py": {
+        "size": 1773
+      },
+      "tests/plantcv/qc/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/qc/test_exposure.py": {
+        "size": 365
+      },
+      "tests/plantcv/roi/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/roi/conftest.py": {
+        "size": 1123
+      },
+      "tests/plantcv/roi/test_quick_filter.py": {
+        "size": 1019
+      },
+      "tests/plantcv/roi/test_roi.py": {
+        "size": 16298
+      },
+      "tests/plantcv/roi/test_roi2mask.py": {
+        "size": 533
+      },
+      "tests/plantcv/spectral_index/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/spectral_index/conftest.py": {
+        "size": 822
+      },
+      "tests/plantcv/spectral_index/test_spectral_index.py": {
+        "size": 16320
+      },
+      "tests/plantcv/test_Objects.py": {
+        "size": 648
+      },
+      "tests/plantcv/test_apply_mask.py": {
+        "size": 1352
+      },
+      "tests/plantcv/test_auto_crop.py": {
+        "size": 2247
+      },
+      "tests/plantcv/test_background_subtraction.py": {
+        "size": 2077
+      },
+      "tests/plantcv/test_canny_edge_detect.py": {
+        "size": 1310
+      },
+      "tests/plantcv/test_closing.py": {
+        "size": 2076
+      },
+      "tests/plantcv/test_color_palette.py": {
+        "size": 618
+      },
+      "tests/plantcv/test_create_labels.py": {
+        "size": 633
+      },
+      "tests/plantcv/test_crop.py": {
+        "size": 922
+      },
+      "tests/plantcv/test_crop_position_mask.py": {
+        "size": 2041
+      },
+      "tests/plantcv/test_debug.py": {
+        "size": 522
+      },
+      "tests/plantcv/test_deprecation_warning.py": {
+        "size": 263
+      },
+      "tests/plantcv/test_dilate.py": {
+        "size": 1283
+      },
+      "tests/plantcv/test_distance_transform.py": {
+        "size": 502
+      },
+      "tests/plantcv/test_erode.py": {
+        "size": 1270
+      },
+      "tests/plantcv/test_fatal_error.py": {
+        "size": 245
+      },
+      "tests/plantcv/test_fill.py": {
+        "size": 1015
+      },
+      "tests/plantcv/test_fill_holes.py": {
+        "size": 1259
+      },
+      "tests/plantcv/test_flip.py": {
+        "size": 728
+      },
+      "tests/plantcv/test_floodfill.py": {
+        "size": 1168
+      },
+      "tests/plantcv/test_gaussian_blur.py": {
+        "size": 1677
+      },
+      "tests/plantcv/test_get_kernel.py": {
+        "size": 952
+      },
+      "tests/plantcv/test_helper_grayscale_to_rgb.py": {
+        "size": 253
+      },
+      "tests/plantcv/test_helper_hough_circle.py": {
+        "size": 927
+      },
+      "tests/plantcv/test_helper_iterate_analysis.py": {
+        "size": 739
+      },
+      "tests/plantcv/test_helper_logical_operation.py": {
+        "size": 330
+      },
+      "tests/plantcv/test_helper_object_composition.py": {
+        "size": 960
+      },
+      "tests/plantcv/test_helper_rect_filter.py": {
+        "size": 563
+      },
+      "tests/plantcv/test_helper_rect_replace.py": {
+        "size": 959
+      },
+      "tests/plantcv/test_hist_equalization.py": {
+        "size": 555
+      },
+      "tests/plantcv/test_image_add.py": {
+        "size": 471
+      },
+      "tests/plantcv/test_image_fusion.py": {
+        "size": 787
+      },
+      "tests/plantcv/test_image_subtract.py": {
+        "size": 631
+      },
+      "tests/plantcv/test_invert.py": {
+        "size": 382
+      },
+      "tests/plantcv/test_kmeans_classifier.py": {
+        "size": 2895
+      },
+      "tests/plantcv/test_laplace_filter.py": {
+        "size": 928
+      },
+      "tests/plantcv/test_logical_and.py": {
+        "size": 380
+      },
+      "tests/plantcv/test_logical_or.py": {
+        "size": 377
+      },
+      "tests/plantcv/test_logical_xor.py": {
+        "size": 382
+      },
+      "tests/plantcv/test_median_blur.py": {
+        "size": 1419
+      },
+      "tests/plantcv/test_naive_bayes_classifier.py": {
+        "size": 834
+      },
+      "tests/plantcv/test_opening.py": {
+        "size": 2016
+      },
+      "tests/plantcv/test_output_mask.py": {
+        "size": 569
+      },
+      "tests/plantcv/test_outputs.py": {
+        "size": 5448
+      },
+      "tests/plantcv/test_plot_image.py": {
+        "size": 1632
+      },
+      "tests/plantcv/test_print_image.py": {
+        "size": 2423
+      },
+      "tests/plantcv/test_readbayer.py": {
+        "size": 1685
+      },
+      "tests/plantcv/test_readimage.py": {
+        "size": 2235
+      },
+      "tests/plantcv/test_report_size_marker.py": {
+        "size": 3004
+      },
+      "tests/plantcv/test_rgb2gray.py": {
+        "size": 360
+      },
+      "tests/plantcv/test_rgb2gray_cmyk.py": {
+        "size": 674
+      },
+      "tests/plantcv/test_rgb2gray_hsv.py": {
+        "size": 608
+      },
+      "tests/plantcv/test_rgb2gray_lab.py": {
+        "size": 608
+      },
+      "tests/plantcv/test_scharr_filter.py": {
+        "size": 935
+      },
+      "tests/plantcv/test_segment_image_series.py": {
+        "size": 2303
+      },
+      "tests/plantcv/test_shift_img.py": {
+        "size": 1086
+      },
+      "tests/plantcv/test_show_dataarray.py": {
+        "size": 1430
+      },
+      "tests/plantcv/test_sobel_filter.py": {
+        "size": 936
+      },
+      "tests/plantcv/test_spatial_clustering.py": {
+        "size": 781
+      },
+      "tests/plantcv/test_stdev_filter.py": {
+        "size": 762
+      },
+      "tests/plantcv/test_warn.py": {
+        "size": 135
+      },
+      "tests/plantcv/test_watershed_segmentation.py": {
+        "size": 466
+      },
+      "tests/plantcv/test_white_balance.py": {
+        "size": 1492
+      },
+      "tests/plantcv/test_within_frame.py": {
+        "size": 627
+      },
+      "tests/plantcv/threshold/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/threshold/conftest.py": {
+        "size": 691
+      },
+      "tests/plantcv/threshold/test_threshold_methods.py": {
+        "size": 11307
+      },
+      "tests/plantcv/transform/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/transform/conftest.py": {
+        "size": 4632
+      },
+      "tests/plantcv/transform/test_auto_correct_color.py": {
+        "size": 1034
+      },
+      "tests/plantcv/transform/test_check_corners.py": {
+        "size": 345
+      },
+      "tests/plantcv/transform/test_checkerboard_calib.py": {
+        "size": 1982
+      },
+      "tests/plantcv/transform/test_color_correction.py": {
+        "size": 13257
+      },
+      "tests/plantcv/transform/test_detect_color_card.py": {
+        "size": 2093
+      },
+      "tests/plantcv/transform/test_find_color_card.py": {
+        "size": 3516
+      },
+      "tests/plantcv/transform/test_gamma_correct.py": {
+        "size": 420
+      },
+      "tests/plantcv/transform/test_mask_color_card.py": {
+        "size": 470
+      },
+      "tests/plantcv/transform/test_merge_images.py": {
+        "size": 4000
+      },
+      "tests/plantcv/transform/test_nonuniform_illumination.py": {
+        "size": 660
+      },
+      "tests/plantcv/transform/test_rescale.py": {
+        "size": 582
+      },
+      "tests/plantcv/transform/test_resize.py": {
+        "size": 2171
+      },
+      "tests/plantcv/transform/test_rotate.py": {
+        "size": 666
+      },
+      "tests/plantcv/transform/test_warp.py": {
+        "size": 2773
+      },
+      "tests/plantcv/visualize/__init__.py": {
+        "size": 0
+      },
+      "tests/plantcv/visualize/conftest.py": {
+        "size": 1578
+      },
+      "tests/plantcv/visualize/test_auto_threshold_methods.py": {
+        "size": 558
+      },
+      "tests/plantcv/visualize/test_chlorophyll_fluorescence.py": {
+        "size": 1172
+      },
+      "tests/plantcv/visualize/test_colorize_label_img.py": {
+        "size": 332
+      },
+      "tests/plantcv/visualize/test_colorize_masks.py": {
+        "size": 1440
+      },
+      "tests/plantcv/visualize/test_colorspaces.py": {
+        "size": 558
+      },
+      "tests/plantcv/visualize/test_histogram.py": {
+        "size": 1927
+      },
+      "tests/plantcv/visualize/test_hyper_histogram.py": {
+        "size": 1995
+      },
+      "tests/plantcv/visualize/test_obj_size_ecdf.py": {
+        "size": 364
+      },
+      "tests/plantcv/visualize/test_obj_sizes.py": {
+        "size": 553
+      },
+      "tests/plantcv/visualize/test_overlay_two_imgs.py": {
+        "size": 1753
+      },
+      "tests/plantcv/visualize/test_pixel_scatter_plot.py": {
+        "size": 1484
+      },
+      "tests/plantcv/visualize/test_pseudocolor.py": {
+        "size": 2739
+      },
+      "tests/plantcv/visualize/test_tile.py": {
+        "size": 342
+      },
+      "tests/plantcv/visualize/test_time_lapse_video.py": {
+        "size": 2098
+      },
+      "tests/testdata/appended_results.json": {
+        "size": 8488
+      },
+      "tests/testdata/cluster_names.txt": {
+        "size": 119
+      },
+      "tests/testdata/cluster_names_too_many.txt": {
+        "size": 200
+      },
+      "tests/testdata/invalid_results.json": {
+        "size": 61
+      },
+      "tests/testdata/naive_bayes_pdfs.txt": {
+        "size": 25388
+      },
+      "tests/testdata/naive_bayes_pdfs_bad.txt": {
+        "size": 25589
+      },
+      "tests/testdata/new_results.json": {
+        "size": 5134
+      },
+      "tests/testdata/outputs_results.json": {
+        "size": 314
+      },
+      "tests/testdata/parallel_results/VIS_SV_0_z1_h1_g0_e82_117770.jpg.txt": {
+        "size": 2625
+      },
+      "tests/testdata/phenodata_dir/metadata.json": {
+        "size": 9234
+      },
+      "tests/testdata/pixel_inspector_rgb_values.txt": {
+        "size": 3994
+      },
+      "tests/testdata/plantcv-script.py": {
+        "size": 227
+      },
+      "tests/testdata/plantcv_results.json": {
+        "size": 193065
+      },
+      "tests/testdata/rgb_values_table.txt": {
+        "size": 41502
+      },
+      "tests/testdata/valid.json": {
+        "size": 2317
+      },
+      "tests/testdata/workflowconfig_template.json": {
+        "size": 957
+      },
+      "tests/tests.py": {
+        "size": 0
+      },
+      "tests/utils/__init__.py": {
+        "size": 0
+      },
+      "tests/utils/conftest.py": {
+        "size": 1082
+      },
+      "tests/utils/test_cli.py": {
+        "size": 1426
+      },
+      "tests/utils/test_json2csv.py": {
+        "size": 1023
+      },
+      "tests/utils/test_sample_images.py": {
+        "size": 2828
+      },
+      "tests/utils/test_tabulate_bayes_classes.py": {
+        "size": 819
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.plantcv",
+      "source.plantcv.learn",
+      "source.plantcv.parallel",
+      "source.plantcv.plantcv",
+      "source.plantcv.utils",
+      "source.tests",
+      "source.tests.learn",
+      "source.tests.parallel",
+      "source.tests.plantcv",
+      "source.tests.utils"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": true,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.plantcv.plantcv",
+        "module": "__init__",
+        "functions": [
+          "readimage",
+          "print_image",
+          "plot_image",
+          "apply_mask",
+          "crop",
+          "auto_crop",
+          "fill",
+          "fill_holes",
+          "gaussian_blur",
+          "median_blur",
+          "logical_and",
+          "logical_or",
+          "logical_xor",
+          "invert",
+          "image_add",
+          "image_subtract",
+          "canny_edge_detect",
+          "distance_transform",
+          "watershed",
+          "within_frame",
+          "report_size_marker_area",
+          "segment_image_series",
+          "spatial_clustering"
+        ],
+        "classes": [
+          "Params",
+          "Outputs",
+          "Objects"
+        ],
+        "description": "Primary public API aggregator for PlantCV image-processing workflows; best import surface for MCP tool wrapping with minimal code intrusion."
+      },
+      {
+        "package": "source.plantcv.plantcv",
+        "module": "threshold.threshold_methods",
+        "functions": [
+          "binary",
+          "custom_range",
+          "gaussian",
+          "mean",
+          "otsu",
+          "saturation",
+          "texture",
+          "triangle"
+        ],
+        "classes": [],
+        "description": "Central thresholding operations used across segmentation pipelines; stable functional units for parameterized MCP tools."
+      },
+      {
+        "package": "source.plantcv.plantcv",
+        "module": "roi.roi_methods",
+        "functions": [
+          "rectangle",
+          "circle",
+          "ellipse",
+          "line",
+          "custom",
+          "multi",
+          "auto_grid",
+          "auto_wells"
+        ],
+        "classes": [],
+        "description": "ROI construction and selection primitives; useful for composable MCP tool operations."
+      },
+      {
+        "package": "source.plantcv.plantcv",
+        "module": "analyze.size",
+        "functions": [
+          "analyze_object",
+          "analyze_bound",
+          "analyze_nir_intensity"
+        ],
+        "classes": [],
+        "description": "Core trait extraction routines producing structured measurements through PlantCV outputs."
+      },
+      {
+        "package": "source.plantcv.parallel",
+        "module": "cli",
+        "functions": [
+          "main"
+        ],
+        "classes": [],
+        "description": "Parallel workflow CLI entry module for batch execution and job orchestration."
+      },
+      {
+        "package": "source.plantcv.learn",
+        "module": "cli",
+        "functions": [
+          "main"
+        ],
+        "classes": [],
+        "description": "Machine-learning utility CLI entry module (training/classification helpers)."
+      },
+      {
+        "package": "source.plantcv.utils",
+        "module": "cli",
+        "functions": [
+          "main"
+        ],
+        "classes": [],
+        "description": "Utility CLI entry module for conversion/support tooling."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "plantcv.parallel.cli:main",
+        "module": "source.plantcv.parallel.cli",
+        "description": "Runs/configures parallel processing workflows (inspect config, build jobs, run multiprocess, process results)."
+      },
+      {
+        "name": "plantcv.learn.cli:main",
+        "module": "source.plantcv.learn.cli",
+        "description": "ML-related commands for training/inference helpers (e.g., naive Bayes / k-means tooling)."
+      },
+      {
+        "name": "plantcv.utils.cli:main",
+        "module": "source.plantcv.utils.cli",
+        "description": "General utility command group (format conversion and helper scripts)."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.92
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "opencv-python",
+        "scikit-image",
+        "scipy",
+        "matplotlib",
+        "pandas"
+      ],
+      "optional": [
+        "xarray",
+        "dask",
+        "rasterio",
+        "h5py",
+        "imageio",
+        "altair"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/danforthcenter/plantcv",
+    "repo_name": "plantcv",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

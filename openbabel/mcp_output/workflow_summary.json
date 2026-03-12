@@ -1,0 +1,221 @@
+{
+  "repository": {
+    "name": "openbabel",
+    "url": "https://github.com/openbabel/openbabel",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/openbabel",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773262978.339107,
+    "end_time": 1773263142.897793,
+    "duration": 164.5586860179901,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.34,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/openbabel/openbabel",
+      "repo_name": "openbabel",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/openbabel/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "fix module/package name extraction bugs (e.g.",
+    "`scriptsthon`/`openbabelbel`) and deduplicate endpoint generation",
+    "switch MCP adapter default to CLI black-box (`obabel`) with import as optional fallback given low import feasibility (0.34)",
+    "add a preflight validator that checks `obabel` on PATH",
+    "Open Babel shared libs",
+    "and Python binding availability before server start",
+    "prune non-production endpoints inferred from test classes (`Test*`",
+    "helper fixtures) and expose only stable public APIs (`readfile`",
+    "`readstring`",
+    "core molecule ops)",
+    "add strong typed request/response schemas and argument validation for all endpoints (especially file/format/options inputs)",
+    "implement endpoint namespacing and collision handling (currently duplicate `readfile`/`mytestcase`) with consistent snake_case naming",
+    "add integration smoke tests for MCP endpoints against real molecules and formats plus golden-output regression tests",
+    "add CI workflow for generated plugin (lint",
+    "type-check",
+    "unit/integration tests",
+    "minimal obabel invocation) and publish artifacts",
+    "improve error handling with actionable diagnostics and mapped error codes for missing binaries/plugins/formats",
+    "harden security around file paths and command execution (path allowlists",
+    "no shell interpolation",
+    "size/time limits)",
+    "generate a capability manifest at startup (available formats",
+    "plugins",
+    "forcefields) so clients can adapt dynamically",
+    "add caching for expensive capability/probe calls and optional request-level timeout controls",
+    "document build/run matrix clearly in `README_MCP.md` (source build vs system install",
+    "Linux/macOS/Windows nuances)",
+    "add dependency metadata (`pyproject.toml` or clarified setup) for reproducible plugin environment and pin tested versions",
+    "include observability hooks (structured logs",
+    "per-endpoint latency/error metrics",
+    "debug mode)",
+    "add fallback behavior tests for environments without Python bindings to ensure CLI path remains fully functional"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed all planned nodes (download, analysis, env, generate, run, review, finalize) with overall status=success.",
+      "Zip fallback ingestion succeeded and captured a usable repository snapshot (158 files), enabling downstream generation despite metadata gaps.",
+      "MCP plugin booted successfully and passed service-health checks over stdio.",
+      "Low intrusiveness strategy allowed generation without modifying upstream Open Babel source."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred, but functional quality is degraded by incorrect module/package extraction (e.g., `scriptsthon`, `openbabelbel`).",
+      "Adapter defaulted to import mode despite low import feasibility (0.34), creating runtime fragility in environments lacking Python bindings.",
+      "Endpoint generation included test/internal classes and duplicate names, reducing API correctness and usability.",
+      "Observability and metrics are effectively absent (0/unknown for multiple counters), limiting diagnostic confidence."
+    ],
+    "overall_assessment": "fair",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; exact per-node timing not provided. Appears efficient given total runtime (~164.6s).",
+      "analysis_time": "Static analysis completed but with extraction defects and DeepWiki failure; quality bottleneck rather than time bottleneck.",
+      "generation_time": "Generation finished and produced expected scaffold files, but output fidelity is moderate due to endpoint noise/duplication.",
+      "test_time": "MCP plugin health test passed quickly; original project tests did not pass/run meaningfully (passed=false, execution_time=0)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/inconclusive (reported 0 MB likely missing instrumentation).",
+      "cpu_efficiency": "Unknown/inconclusive (reported 0% likely missing instrumentation).",
+      "disk_usage": "Generated artifact footprint reported as 0, indicating telemetry gap rather than true zero usage."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 62,
+    "architecture_score": 68,
+    "performance_score": 55,
+    "maintainability_score": 64,
+    "security_score": 85,
+    "scalability_score": 60
+  }
+}

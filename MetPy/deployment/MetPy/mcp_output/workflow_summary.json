@@ -1,0 +1,225 @@
+{
+  "repository": {
+    "name": "MetPy",
+    "url": "https://github.com/Unidata/MetPy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/MetPy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773278863.8095639,
+    "end_time": 1773279187.500253,
+    "duration": 323.69068908691406,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 2,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.benchmarks.benchmarks",
+        "source.src.metpy"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": true,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/Unidata/MetPy",
+      "repo_name": "MetPy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/MetPy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "Add a minimal MCP smoke test suite (server startup + 2–3 representative endpoints like `cape_cin`",
+    "`vorticity`",
+    "`parse_metar_file`) into CI",
+    "Define and enforce endpoint input/output schemas with Pydantic models (units",
+    "dimensionality",
+    "and array shape validation) to reduce runtime ambiguity",
+    "Introduce tiered endpoint sets (core-safe vs heavy-optional) so `plots`/`cartopy`/radar features are conditionally enabled based on installed extras",
+    "Add structured error mapping in the adapter layer (ValueError/UnitError/File I/O → stable MCP error codes/messages) for client reliability",
+    "Create regression tests for unit-handling edge cases (Pint quantities",
+    "masked arrays",
+    "xarray coordinates) across exposed endpoints",
+    "Pin and document compatibility matrix for Python + numpy/scipy/pint/xarray in `mcp_output/README_MCP.md`",
+    "Add benchmark gates for high-cost functions (`cape_cin`",
+    "`interpolate_to_grid`",
+    "`q_vector`) and track drift with existing ASV patterns",
+    "Improve import resilience by lazy-loading heavy modules (`plots`",
+    "`io.nexrad`) and emitting clear dependency-missing hints",
+    "Add contract tests to verify generated endpoint names map correctly to callable objects (especially class wrappers like `level2file`",
+    "`skewt`",
+    "accessors)",
+    "Provide example client payloads/responses for 5–10 common workflows in MCP README to reduce integration errors",
+    "Add observability hooks (request timing",
+    "endpoint success/failure counts",
+    "exception taxonomy) for MCP runtime diagnostics",
+    "Enforce static checks on plugin code (ruff/mypy/pyright) and align formatting/linting with repository standards",
+    "Add security hardening for file-based endpoints (`parse_metar_file`",
+    "radar readers): path allowlists",
+    "size limits",
+    "and timeout controls",
+    "Create golden-data tests using existing `staticdata/` and `tests/remote/fixtures/` to validate deterministic MCP outputs",
+    "Add release automation for the MCP artifact (versioning tied to MetPy tag/commit + changelog of exposed endpoints)",
+    "Document deprecation policy for endpoint names/arguments to prevent breaking downstream MCP clients"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy was feasible (import_feasibility ~0.91) and aligned with low intrusiveness risk.",
+      "Generated MCP plugin started healthy over stdio and passed plugin-level validation.",
+      "Repository structure and module discovery were strong enough to expose a broad endpoint set from high-value MetPy modules.",
+      "No runtime errors or warnings were reported by the orchestration pipeline."
+    ],
+    "failure_reasons": [
+      "Original project tests were not executed successfully (passed=false) despite reported 100% coverage metadata, indicating test execution/collection inconsistency.",
+      "DeepWiki analysis failed, reducing external architectural/context enrichment.",
+      "Telemetry quality is weak (0 LOC, 0 file size, 0 performance metrics) and prevents evidence-based quality/performance validation.",
+      "Generated tool_endpoints reported as 0 in one section, while service endpoints list is non-empty, indicating reporting/schema inconsistency."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repo imported via zip fallback (262 files). No per-node timing available, so exact duration cannot be isolated.",
+      "analysis_time": "Successful static/LLM-assisted analysis with medium complexity and maintainability index 75; DeepWiki substep failed.",
+      "generation_time": "Generation completed with 7 files and import adapter mode; endpoint exposure appears extensive, but generation telemetry is inconsistent.",
+      "test_time": "Plugin health checks passed; original project test status failed/not run meaningfully. Test evidence is partial."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown in practice; reported memory_usage_mb=0 indicates missing instrumentation rather than zero usage.",
+      "cpu_efficiency": "Unknown in practice; cpu_usage_percent=0 suggests metrics were not captured.",
+      "disk_usage": "Generated artifact footprint reported as 0, likely telemetry defect; actual disk usage is non-zero given created files."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 80,
+    "performance_score": 62,
+    "maintainability_score": 72,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

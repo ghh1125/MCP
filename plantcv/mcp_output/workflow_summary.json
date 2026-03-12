@@ -1,0 +1,226 @@
+{
+  "repository": {
+    "name": "plantcv",
+    "url": "https://github.com/danforthcenter/plantcv",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/plantcv",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773250113.380268,
+    "end_time": 1773250363.1110919,
+    "duration": 249.73082375526428,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 10,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.plantcv",
+        "source.plantcv.learn",
+        "source.plantcv.parallel",
+        "source.plantcv.plantcv",
+        "source.plantcv.utils",
+        "source.tests",
+        "source.tests.learn",
+        "source.tests.parallel",
+        "source.tests.plantcv",
+        "source.tests.utils"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": true,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/danforthcenter/plantcv",
+      "repo_name": "plantcv",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/plantcv/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add and run MCP smoke/integration tests in CI (import + one call per exposed endpoint)",
+    "deduplicate endpoint names in the plugin registry (the three `main` entries) and give CLI wrappers unique tool names",
+    "define strict Pydantic input/output schemas for each tool (numpy arrays",
+    "paths",
+    "ROI objects) with validation and clear error messages",
+    "add an endpoint allowlist and versioned API surface to avoid overexposing internal/unstable functions",
+    "pin compatible dependency ranges between `pyproject.toml` and `mcp_output/requirements.txt` and add a lockfile for reproducible installs",
+    "add structured logging and request tracing in `mcp_service.py` (tool name",
+    "latency",
+    "exception class)",
+    "implement timeout/memory guards for heavy image operations and parallel workflows",
+    "add golden-result tests for key analysis functions (`analyze.size`",
+    "threshold methods",
+    "ROI methods) using `tests/testdata` fixtures",
+    "improve error normalization in `adapter.py` so PlantCV exceptions map to consistent MCP error codes",
+    "document array/image serialization conventions in `README_MCP.md` with minimal end-to-end examples",
+    "add security checks for filesystem/network inputs (path traversal",
+    "URL allow/deny rules for `open_url`-style usage)",
+    "include performance benchmarks for representative pipelines (single image",
+    "batch",
+    "hyperspectral) and track regressions in CI",
+    "split very large modules (`threshold_methods.py`",
+    "`roi_methods.py`",
+    "`spectral_index.py`) into smaller units to improve maintainability and targeted testing",
+    "add static analysis gates (ruff/mypy or pyright) for generated MCP code and enforce in pre-commit",
+    "publish a compatibility matrix (Python/OS/PlantCV versions) and deprecation policy for MCP endpoints"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all expected nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-first adapter strategy was appropriate for PlantCV (import feasibility 0.9, low intrusiveness risk).",
+      "Generated MCP service started healthy over stdio, indicating baseline runtime viability.",
+      "Repository structure is well-organized and test-rich, enabling reliable function discovery and endpoint extraction."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "Validation depth is limited: original project tests did not pass/run in this execution context despite reported 100% coverage metadata.",
+      "Endpoint registry quality issue: duplicate tool names ('main' appears three times) creates ambiguity and potential dispatch/runtime conflicts.",
+      "Observability/performance data is effectively missing (0 memory/cpu/latency/throughput), preventing evidence-based optimization."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository imported via zip fallback (598 files), which is acceptable but may be slower/less deterministic than git clone with pinned commit.",
+      "analysis_time": "Successful static and structural analysis with broad module discovery; DeepWiki failed but LLM direct analysis provided sufficient fallback coverage.",
+      "generation_time": "Generation succeeded and produced expected MCP artifact set (service, adapter, entrypoint, requirements, README).",
+      "test_time": "MCP plugin health check passed, but no substantive endpoint smoke/integration tests are evidenced; original project test execution outcome is inconsistent and should be treated as unverified."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown in practice; reported 0 MB indicates instrumentation gap rather than true usage.",
+      "cpu_efficiency": "Unknown in practice; reported 0% indicates missing telemetry.",
+      "disk_usage": "Low-to-moderate footprint expected from generated files, but reported size=0 indicates artifact sizing telemetry is incomplete."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 82,
+    "performance_score": 64,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

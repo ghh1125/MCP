@@ -1,0 +1,125 @@
+#!/bin/bash
+Fail()
+{
+    echo "ERROR($0): $1"
+    exit 1
+}
+
+./patch_version_numbers.py || Fail "Error updating version numbers."
+
+echo "Trimming trailing whitespace in source code."
+for file in template/astronomy.{c,cs,ts,py} ../source/c/astronomy.h; do
+    node trimspace.js ${file} || Fail "Cannot trim whitespace from template file: ${file}"
+done
+
+echo "Generating target code."
+./generate source || Fail "Problem generating target code."
+
+echo "Trimming trailing whitespace in target code."
+for file in ../source/c/astronomy.c ../source/js/astronomy.ts ../source/python/astronomy/astronomy.py ../source/csharp/astronomy.cs; do
+    node trimspace.js ${file} || Fail "Cannot trim whitespace from target file: ${file}"
+done
+
+# C# is a special case: we have to compile the code to get its documentation.
+echo "Building C# code to get documentation XML."
+cd dotnet/csharp_test || "Cannot change to directory dotnet/csharp_test"
+dotnet build --property:OutputPath=${PWD}/exe || Fail "Error building C# source code"
+cd ../../csdown || Fail "Error changing to csdown directory"
+./build || exit 1
+
+exe/csdown \
+    csharp_prefix.md \
+    ../dotnet/csharp_test/exe/astronomy.dll \
+    ../dotnet/csharp_test/exe/astronomy.xml \
+    ../../source/csharp/README.md \
+    || Fail "Error generating C# documentation."
+
+cd .. || Fail "Error changing back to generate directory"
+./check_internal_links.py ../source/csharp/README.md || exit 1
+
+if [[ ! -d node_modules ]]; then
+    # On Intel x64 architecture, we can use the
+    # native binary in google-closure-compiler-linux.
+    # But in other architectures, we have to fall back to
+    # the Java version in google-closure-compiler-java.
+    ARCH=$(uname -m) || Fail "Cannot determine machine architecture."
+    echo "Install NodeJS dev dependencies for architecture ${ARCH}"
+    if [[ "${ARCH}" == "x86_64" ]]; then
+        npm ci || Fail "Error installing npm dev dependencies."
+    else
+        # Fail early if java is not installed.
+        # This will save the user grief trying to figure out what's wrong.
+        java -version || Fail "Must install java/openjdk before building Astronomy Engine on non-Intel platforms."
+
+        # Work around bug in 'npm ci' by explicitly disabling optional dependencies.
+        # This prevents 'npm ci' from installing google-closure-compiler-linux,
+        # which contains the incorrect binary that works only on Intel x64.
+        npm ci --no-optional || Fail "Error installing npm dev dependencies (optional packages disabled)."
+    fi
+fi
+
+echo "Compiling TypeScript to JavaScript."
+npm run build || Fail "Error in typescript compiler"
+
+echo "Bundling JavaScript code for Browser."
+npm run build:browser || Fail "Error building browser bundle"
+
+echo "Minifying JavaScript code."
+npm run minify || Fail "Error minifying astronomy.js"
+npm run minify:browser || Fail "Error minifying astronomy.browser.js"
+./patch_readme.py ../README.md ../source/js/astronomy.browser.min.js || Fail "Error patching README.md."
+
+# Making this step optional because the website is not ready for prime time.
+if [[ -d ../website ]]; then
+    echo "Generating JS documentation in JSON format."
+    npm run docs:json || Fail "Error generating JSON documentation."
+    node jsdoc_strip_path.js || Fail "Error stripping absolute paths."
+fi
+
+echo "Generating JS documentation in Markdown format."
+npm run docs:md || Fail "Error generating JS documentation."
+./check_internal_links.py ../source/js/README.md || exit 1
+./sort_js_functions.py ../source/js/README.md || exit 1
+
+if [[ -d ../tutorials ]]; then
+    if [[ -d html ]]; then
+        echo "Generating JS documentation in HTML format for local viewing."
+        rm -rf html
+        npm run docs:html || Fail "Error generating HTML preview"
+    else
+        echo "(Skipping local HTML generation because html directory does not exist.)"
+    fi
+fi
+
+if [[ -f disable_generate_c_docs ]]; then
+    echo "Generation of C documentation is disabled."
+else
+    echo "Generating C documentation."
+    cd ../source/c || Fail "Error changing directory to ../source/c"
+    rm -rf xml
+    doxygen Doxyfile > doxygen.log || Fail "Error in doxygen"
+    cd xml || Fail "Error changinge to xml directory"
+    echo "Merging doxygen XML files."
+    xsltproc combine.xslt index.xml > all.xml || Fail "Error merging doxygen xml"
+    cd .. || Fail "Error changing to parent directory"
+    if [[ ! -d ../../generate/hydrogen/node_modules/xml2js ]]; then
+        pushd ../../generate/hydrogen > /dev/null || Fail "Cannot pushd hydrogen"
+        npm ci || Fail "Error installing Node modules for hydrogen"
+        popd
+    fi
+    echo "Translating doxygen XML to Markdown."
+    node ../../generate/hydrogen/hydrogen.js ../../generate/hydrogen/c_prefix.md ./xml/all.xml || Fail "Error in hydrogen.js"
+    cd ../../generate || Fail "Error changing directory back"
+    ./check_internal_links.py ../source/c/README.md || exit 1
+fi
+
+echo "Generating Python documentation."
+python pydown/pydown.py pydown/py_prefix.md ../source/python/astronomy/astronomy.py ../source/python/README.md || Fail "Error generating Markdown from Python source."
+./check_internal_links.py ../source/python/README.md || exit 1
+
+echo "Making redundant copies of source in demo folders."
+cp -v ../source/js/astronomy.browser.js ../demo/browser/ || exit $?
+cp -v ../source/js/astronomy.js ../demo/nodejs/  || exit $?
+cp -v ../source/python/astronomy/astronomy.py ../demo/python/  || exit $?
+
+exit 0

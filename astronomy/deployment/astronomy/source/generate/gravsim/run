@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [[ "$1" != "skipgen" ]]; then
+    pushd .. > /dev/null
+    ./build || exit $?
+    ./generate source || exit $?
+    popd > /dev/null
+fi
+
+gcc -Wall -Werror -o gravsim_test \
+    -I .. \
+    -I ../../source/c/ \
+    -I ../top2013/ \
+    -I ../vsop/ \
+    ../../source/c/astronomy.c \
+    ../top2013/top2013.c \
+    gravsim_test.c -lm || exit $?
+
+./gravsim_test || exit $?
+exit 0

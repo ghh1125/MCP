@@ -1,0 +1,11 @@
+#!/bin/bash
+Fail()
+{
+    echo "FATAL($0): $1"
+    exit 1
+}
+
+cp ../../../source/js/astronomy.ts . || Fail "Error copying astronomy TypeScript code."
+rm -f test/*.txt
+npm test || Fail "Error in unit test."
+exit 0

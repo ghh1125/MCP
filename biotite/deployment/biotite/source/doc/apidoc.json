@@ -1,0 +1,466 @@
+{
+    "biotite" : {
+        "File classes" : [
+            "File",
+            "TextFile"
+        ],
+        "Visualization utilities":[
+            "plot_scaled_text",
+            "AdaptiveFancyArrow"
+        ]
+    },
+
+    "biotite.application" : {
+        "Application classes" : [
+            "Application",
+            "WebApp",
+            "LocalApp",
+            "MSAApp"
+        ]
+    },
+
+    "biotite.interface.pymol" : {
+        "Launching and resetting": [
+            "launch_pymol",
+            "launch_interactive_pymol",
+            "reset",
+            "setup_parameters",
+            "DuplicatePyMOLError"
+        ],
+        "Object handling" : [
+            "PyMOLObject"
+        ],
+        "Structure conversion" : [
+            "to_model",
+            "from_model"
+        ],
+        "Compiled Graphics Objects": [
+            "draw_cgo",
+            "get_cylinder_cgo",
+            "get_cone_cgo",
+            "get_sphere_cgo",
+            "get_point_cgo",
+            "get_line_cgo",
+            "get_multiline_cgo"
+        ],
+        "Combined shapes": [
+            "draw_arrows",
+            "draw_box"
+        ],
+        "Display": [
+            "show",
+            "play"
+        ]
+    },
+
+    "biotite.database.entrez" : {
+        "Queries" : [
+            "Query",
+            "CompositeQuery",
+            "SimpleQuery"
+        ],
+        "Search and fetch" : [
+            "get_database_name",
+            "search",
+            "fetch",
+            "fetch_single_file"
+        ],
+        "API keys" : [
+            "set_api_key",
+            "get_api_key"
+        ]
+    },
+
+    "biotite.database.pubchem" : {
+        "Queries" : [
+            "Query",
+            "NameQuery",
+            "SmilesQuery",
+            "InchiQuery",
+            "InchiKeyQuery",
+            "FormulaQuery",
+            "SuperstructureQuery",
+            "SubstructureQuery",
+            "SimilarityQuery",
+            "IdentityQuery"
+        ],
+        "Search and fetch" : [
+            "search",
+            "fetch",
+            "fetch_property"
+        ]
+    },
+
+    "biotite.database.rcsb" : {
+        "Queries" : [
+            "Query",
+            "SingleQuery",
+            "CompositeQuery",
+            "BasicQuery",
+            "FieldQuery",
+            "SequenceQuery",
+            "MotifQuery",
+            "StructureQuery"
+        ],
+        "Sorting and grouping" : [
+            "Sorting",
+            "Grouping",
+            "DepositGrouping",
+            "IdentityGrouping",
+            "UniprotGrouping"
+        ],
+        "Search and fetch" : [
+            "count",
+            "search",
+            "fetch"
+        ]
+    },
+
+    "biotite.sequence" : {
+        "Sequence types" : [
+            "Sequence",
+            "NucleotideSequence",
+            "ProteinSequence",
+            "GeneralSequence"
+        ],
+        "Alphabets" : [
+            "Alphabet",
+            "LetterAlphabet",
+            "AlphabetMapper",
+            "AlphabetError",
+            "common_alphabet"
+        ],
+        "Sequence features" : [
+            "Feature",
+            "Location",
+            "Annotation",
+            "AnnotatedSequence"
+        ],
+        "Sequence search" : [
+            "find_subsequence",
+            "find_symbol",
+            "find_symbol_first",
+            "find_symbol_last"
+        ]
+    },
+
+    "biotite.sequence.align" : {
+        "Substitution matrices" : [
+            "SubstitutionMatrix"
+        ],
+        "Aligners" : [
+            "align_ungapped",
+            "align_optimal",
+            "align_local_ungapped",
+            "align_local_gapped",
+            "align_banded",
+            "align_multiple"
+        ],
+        "Alignments" : [
+            "Alignment",
+            "get_codes",
+            "get_symbols",
+            "get_sequence_identity",
+            "get_pairwise_sequence_identity",
+            "score"
+        ],
+        "k-mers" : [
+            "KmerAlphabet",
+            "KmerTable",
+            "BucketKmerTable",
+            "SimilarityRule",
+            "ScoreThresholdRule",
+            "bucket_number"
+        ],
+        "k-mer subset selections" : [
+            "MinimizerSelector",
+            "SyncmerSelector",
+            "CachedSyncmerSelector",
+            "MincodeSelector"
+        ],
+        "k-mer permutations" : [
+            "Permutation",
+            "RandomPermutation",
+            "FrequencyPermutation"
+        ],
+        "CIGAR strings" : [
+            "CigarOp",
+            "read_alignment_from_cigar",
+            "write_alignment_to_cigar"
+        ]
+    },
+
+    "biotite.sequence.phylo" : {
+        "Data structures" : [
+            "Tree",
+            "TreeNode",
+            "TreeError",
+            "as_binary"
+        ],
+        "Clustering algorithms" : [
+            "upgma",
+            "neighbor_joining"
+        ]
+    },
+
+    "biotite.sequence.graphics" : {
+        "Plotting functions" : [
+            "plot_feature_map",
+            "plot_sequence_logo",
+            "plot_alignment",
+            "plot_alignment_similarity_based",
+            "plot_alignment_type_based",
+            "plot_dendrogram"
+        ],
+        "Symbol plotters" : [
+            "SymbolPlotter",
+            "LetterPlotter",
+            "LetterSimilarityPlotter",
+            "LetterTypePlotter"
+        ],
+        "Feature plotters" : [
+            "FeaturePlotter",
+            "CodingPlotter",
+            "PromoterPlotter",
+            "TerminatorPlotter",
+            "RBSPlotter",
+            "MiscFeaturePlotter"
+        ],
+        "Color schemes" : [
+            "load_color_scheme",
+            "get_color_scheme",
+            "list_color_scheme_names"
+        ]
+    },
+
+    "biotite.structure" : {
+        "Structure types" : [
+            "Atom",
+            "AtomArray",
+            "AtomArrayStack",
+            "concatenate",
+            "array",
+            "stack",
+            "repeat",
+            "from_template"
+        ],
+        "Boxes and unit cells" : [
+            "space_group_transforms",
+            "vectors_from_unitcell",
+            "unitcell_from_vectors",
+            "box_volume",
+            "repeat_box",
+            "repeat_box_coord",
+            "move_inside_box",
+            "remove_pbc",
+            "remove_pbc_from_coord",
+            "coord_to_fraction",
+            "fraction_to_coord",
+            "is_orthogonal"
+        ],
+        "Bonds" : [
+            "BondList",
+            "BondType",
+            "connect_via_residue_names",
+            "connect_via_distances",
+            "find_connected",
+            "find_rotatable_bonds"
+        ],
+        "Geometry" : [
+            "displacement",
+            "index_displacement",
+            "distance",
+            "index_distance",
+            "angle",
+            "index_angle",
+            "dihedral",
+            "index_dihedral",
+            "centroid",
+            "mass_center",
+            "gyration_radius",
+            "rdf"
+        ],
+        "Transformations" : [
+            "AffineTransformation",
+            "translate",
+            "rotate",
+            "rotate_centered",
+            "rotate_about_axis",
+            "align_vectors",
+            "orient_principal_components"
+        ],
+        "Superimpositions" : [
+            "superimpose",
+            "superimpose_without_outliers",
+            "superimpose_homologs",
+            "superimpose_structural_homologs"
+        ],
+        "Filters" : [
+            "filter_canonical_nucleotides",
+            "filter_nucleotides",
+            "filter_canonical_amino_acids",
+            "filter_amino_acids",
+            "filter_carbohydrates",
+            "filter_peptide_backbone",
+            "filter_phosphate_backbone",
+            "filter_linear_bond_continuity",
+            "filter_polymer",
+            "filter_solvent",
+            "filter_monoatomic_ions",
+            "filter_heavy",
+            "filter_intersection",
+            "filter_first_altloc",
+            "filter_highest_occupancy_altloc"
+        ],
+        "Checks" : [
+            "check_atom_id_continuity",
+            "check_res_id_continuity",
+            "check_backbone_continuity",
+            "check_duplicate_atoms",
+            "check_linear_continuity"
+        ],
+        "Repair" : [
+            "create_continuous_res_ids",
+            "infer_elements",
+            "create_atom_names"
+        ],
+        "Residue level utility" : [
+            "get_residue_starts",
+            "get_residues",
+            "apply_residue_wise",
+            "spread_residue_wise",
+            "get_residue_masks",
+            "get_residue_starts_for",
+            "get_residue_positions",
+            "get_all_residue_positions",
+            "get_residue_count",
+            "residue_iter",
+            "get_atom_name_indices"
+        ],
+        "Chain level utility" : [
+            "get_chain_starts",
+            "apply_chain_wise",
+            "spread_chain_wise",
+            "get_chain_masks",
+            "get_chain_starts_for",
+            "get_chain_positions",
+            "get_all_chain_positions",
+            "get_chains",
+            "get_chain_count",
+            "chain_iter"
+        ],
+        "Molecule level utility" : [
+            "get_molecule_indices",
+            "get_molecule_masks",
+            "molecule_iter"
+        ],
+        "Structure comparison" : [
+            "average",
+            "rmsd",
+	        "rmspd",
+            "rmsf",
+            "lddt",
+            "tm_score"
+        ],
+        "General analysis" : [
+            "sasa",
+            "hbond",
+            "hbond_frequency",
+            "partial_charges",
+            "density"
+        ],
+        "Proteins" : [
+            "dihedral_backbone",
+            "dihedral_side_chain",
+            "annotate_sse"
+        ],
+        "Nucleic acids" : [
+            "Edge",
+            "GlycosidicBond",
+            "map_nucleotide",
+            "base_pairs",
+            "base_stacking",
+            "pseudoknots",
+            "base_pairs_edge",
+            "base_pairs_glycosidic_bond",
+            "dot_bracket",
+            "dot_bracket_from_structure",
+            "base_pairs_from_dot_bracket"
+        ],
+        "Aromatic rings": [
+            "find_aromatic_rings",
+            "find_stacking_interactions",
+            "find_pi_cation_interactions",
+            "PiStacking"
+        ]
+    },
+    "biotite.structure.info" : {
+        "Residues and bonds": [
+            "residue",
+            "bond_type",
+            "bonds_in_residue"
+        ],
+        "Component groups": [
+            "amino_acid_names",
+            "nucleotide_names",
+            "carbohydrate_names"
+        ],
+        "Atom radii": [
+            "vdw_radius_single",
+            "vdw_radius_protor"
+        ],
+        "Low-level CCD access": [
+            "get_ccd",
+            "get_from_ccd",
+            "set_ccd_path"
+        ]
+    },
+    "biotite.structure.io.pdbx" : {
+        "High-level functionality" : [
+            "get_sequence",
+            "get_model_count",
+            "get_structure",
+            "set_structure",
+            "get_component",
+            "set_component",
+            "list_assemblies",
+            "get_assembly",
+            "get_unit_cell",
+            "get_sse"
+        ],
+        "CIF format" : [
+            "CIFFile",
+            "CIFBlock",
+            "CIFCategory",
+            "CIFColumn",
+            "CIFData"
+        ],
+        "BinaryCIF format" : [
+            "BinaryCIFFile",
+            "BinaryCIFBlock",
+            "BinaryCIFCategory",
+            "BinaryCIFColumn",
+            "BinaryCIFData"
+        ],
+        "BinaryCIF encodings" : [
+            "ByteArrayEncoding",
+            "FixedPointEncoding",
+            "IntervalQuantizationEncoding",
+            "RunLengthEncoding",
+            "DeltaEncoding",
+            "IntegerPackingEncoding",
+            "StringArrayEncoding",
+            "TypeCode"
+        ]
+    },
+    "biotite.structure.alphabet" : {
+        "Structural alphabets": [
+            "I3DSequence",
+            "ProteinBlocksSequence"
+        ],
+        "Conversion Function": [
+            "to_3di",
+            "to_protein_blocks"
+        ]
+    }
+}

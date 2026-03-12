@@ -1,0 +1,226 @@
+{
+  "repository": {
+    "name": "biotite",
+    "url": "https://github.com/biotite-dev/biotite",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/biotite",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773288965.788922,
+    "end_time": 1773289177.8805802,
+    "duration": 212.09165906906128,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 10,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.benchmarks",
+        "source.benchmarks.sequence",
+        "source.benchmarks.structure",
+        "source.src.biotite",
+        "source.tests",
+        "source.tests.application",
+        "source.tests.database",
+        "source.tests.interface",
+        "source.tests.sequence",
+        "source.tests.structure"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": true,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/biotite-dev/biotite",
+      "repo_name": "biotite",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/biotite/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "deduplicate and namespace-colliding MCP endpoints (e.g.",
+    "repeated `get_structure`",
+    "`set_structure`",
+    "`search`",
+    "`query`) to avoid ambiguous tool resolution",
+    "add contract tests for every generated MCP endpoint with smoke tests for required/optional dependency permutations (numpy-only vs scipy/matplotlib/requests/etc.)",
+    "introduce strict input/output schemas with Pydantic models (including ndarray/structure serialization rules) and consistent error envelopes",
+    "split very large high-churn modules behind thinner MCP-facing façade functions to reduce coupling and breakage risk",
+    "add CI matrix jobs that validate the plugin in `import` and fallback modes across supported Python versions",
+    "implement endpoint-level timeouts/retries/rate-limiting for remote database calls (RCSB/UniProt/Entrez/PubChem) plus cache controls",
+    "add golden-file regression tests for core scientific outputs (alignment scores",
+    "RMSD/superposition transforms",
+    "parsed structure counts)",
+    "enforce API naming conventions (verb_noun + module prefix) and auto-generate an endpoint catalog from docstrings",
+    "improve observability with structured logs and per-endpoint latency/error metrics",
+    "harden security by validating file paths and sanitizing external query parameters before execution",
+    "expand README_MCP with dependency tiers",
+    "failure modes",
+    "and reproducible local run examples",
+    "add benchmark-driven performance gates for heavy endpoints (alignment",
+    "PDBx conversion",
+    "PyMOL object ops)",
+    "include compatibility shims/tests for optional integrations (rdkit/openmm/pymol) to fail gracefully when unavailable",
+    "pin and periodically audit MCP plugin dependencies (`fastmcp`",
+    "`pydantic`) with automated update PRs",
+    "add property-based tests for parsers/converters (FASTA/PDB/PDBx/GenBank/GFF) to catch edge-case serialization bugs"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed all planned nodes (download, analysis, env, generate, run, review, finalize) with final status = success.",
+      "Import-based adapter strategy was appropriate for this repo (import feasibility 0.9, confidence 0.93, low intrusiveness risk).",
+      "Repository structure and metadata were sufficient for automated endpoint extraction from core biotite modules.",
+      "Generated MCP service passed plugin health checks (healthy over stdio), indicating runnable baseline service."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki analysis failed (non-blocking), reducing external architectural/context enrichment.",
+      "Original project test result is marked as not passed with empty details, suggesting tests were not actually executed/validated in this run.",
+      "Several metrics are zero/unknown (LOC, file size, performance counters, versions), indicating observability gaps rather than runtime failure."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully via zip fallback; likely efficient for this size (~473 files). Exact per-node timing not provided.",
+      "analysis_time": "Substantial static analysis completed (package/dependency/core-module mapping); no per-node duration reported.",
+      "generation_time": "Generation succeeded with 7 files created and endpoint surface produced; per-node timing unavailable.",
+      "test_time": "MCP plugin health test passed; original project test status is inconclusive/not passed with no diagnostics. Timing fields reported as 0."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Cannot be reliably assessed (reported 0 MB). Instrumentation appears missing.",
+      "cpu_efficiency": "Cannot be reliably assessed (reported 0%). Instrumentation appears missing.",
+      "disk_usage": "Generated artifacts are minimal (7 files), but recorded generated size = 0 suggests metrics collection issue."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 81,
+    "performance_score": 66,
+    "maintainability_score": 74,
+    "security_score": 85,
+    "scalability_score": 72
+  }
+}

@@ -1,0 +1,39 @@
+{
+    "input_dir": "",
+    "json": "",
+    "filename_metadata": [],
+    "include_all_subdirs": true,
+    "workflow": "",
+    "img_outdir": "./output_images",
+    "tmp_dir": ".",
+    "start_date": null,
+    "end_date": null,
+    "imgformat": "all",
+    "delimiter": "_",
+    "metadata_filters": {},
+    "metadata_regex": {},
+    "timestampformat": "%Y-%m-%dT%H:%M:%S.%fZ",
+    "writeimg": false,
+    "other_args": {},
+    "groupby": ["filepath"],
+    "group_name": "auto",
+    "cleanup": true,
+    "append": false,
+    "cluster": "LocalCluster",
+    "cluster_config": {
+        "n_workers": 1,
+        "cores": 1,
+        "memory": "1GB",
+        "disk": "1GB",
+        "log_directory": null,
+        "local_directory": null,
+        "job_extra_directives": null
+    },
+    "metadata_terms": {
+        "timestamp": {
+            "label": "datetime of image",
+            "datatype": "<class 'datetime.datetime'>",
+            "value": null
+        }
+    }
+}

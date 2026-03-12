@@ -1,0 +1,229 @@
+{
+  "repository": {
+    "name": "pymc-marketing",
+    "url": "https://github.com/pymc-labs/pymc-marketing",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pymc-marketing",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "complex",
+    "intrusiveness_risk": "medium"
+  },
+  "execution": {
+    "start_time": 1773240470.431551,
+    "end_time": 1773240663.664607,
+    "duration": 193.23305702209473,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 15,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "mcp_output.mcp_plugin",
+        "source",
+        "source.pymc_marketing",
+        "source.pymc_marketing.bass",
+        "source.pymc_marketing.clv",
+        "source.pymc_marketing.customer_choice",
+        "source.pymc_marketing.data",
+        "source.pymc_marketing.mmm",
+        "source.tests",
+        "source.tests.bass",
+        "source.tests.clv",
+        "source.tests.customer_choice",
+        "source.tests.data",
+        "source.tests.mmm",
+        "source.tests.scripts"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": true,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.87,
+      "intrusiveness_risk": "medium",
+      "complexity": "complex"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/pymc-labs/pymc-marketing",
+      "repo_name": "pymc-marketing",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/pymc-marketing/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "define and run a minimum MCP smoke test suite (import + instantiate each exposed endpoint) because test status is empty",
+    "add contract tests that pin input/output schemas for high-value endpoints like `MMM`",
+    "`MultidimensionalMMM`",
+    "and `build_mmm_from_yaml`",
+    "introduce endpoint allowlisting and clearer naming/aliasing (e.g.",
+    "preserve class case or add snake_case aliases) to reduce ambiguity in generated tool names",
+    "add robust error mapping in the adapter layer (convert PyMC/pydantic/internal exceptions into structured MCP errors with actionable messages)",
+    "implement timeout and resource guards for long-running Bayesian sampling calls to prevent MCP server lockups",
+    "add lazy imports for heavy modules (PyMC/plotting/streamlit) to improve MCP startup latency and reliability",
+    "generate task-focused MCP wrappers instead of raw class exposure (e.g.",
+    "fit/predict/optimize tools) to reduce intrusiveness risk in a complex codebase",
+    "pin and validate dependency compatibility across `pyproject.toml`",
+    "`environment.yml`",
+    "and `mcp_output/requirements.txt` to avoid environment drift",
+    "add CI workflow for `mcp_output` (lint",
+    "type-check",
+    "smoke tests",
+    "packaging check) integrated with existing GitHub Actions",
+    "add structured logging and tracing IDs in `mcp_service.py` for observability and easier debugging",
+    "add authentication/authorization and rate limiting if MCP is used beyond local trusted environments",
+    "create reproducible benchmark scenarios (small synthetic MMM/CLV datasets) and track latency/memory per endpoint",
+    "add fallback behavior for DeepWiki analysis failure (degrade gracefully with cached/static summaries)",
+    "improve README_MCP with concrete examples per endpoint and known heavy-operation caveats",
+    "add versioned API metadata in MCP responses (plugin version + upstream `pymc_marketing` version) for compatibility tracking"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy was feasible (import_feasibility=0.87), enabling direct exposure of key pymc-marketing classes/functions.",
+      "MCP plugin started healthy over stdio, indicating generated service wiring (entrypoint, plugin package, runtime deps) is functionally valid.",
+      "Repository structure and package discovery were strong (303 files scanned; major domains MMM/CLV/customer_choice/data identified), supporting meaningful endpoint generation."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure detected.",
+      "Quality/validation gap: original project tests were not executed meaningfully (passed=false, empty details, test_files=[] despite reported 100% coverage), reducing confidence in compatibility.",
+      "DeepWiki enrichment failed, so contextual documentation intelligence was unavailable and had to fall back to direct analysis.",
+      "Observability and performance metrics were effectively missing (zeros/empty), limiting runtime diagnosis."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; exact per-node timing unavailable. Zip fallback import worked and did not block downstream stages.",
+      "analysis_time": "Completed successfully on a large, complex codebase; identified core modules and risks. DeepWiki sub-step failed but analysis continued via fallback.",
+      "generation_time": "Completed successfully; generated MCP scaffold and adapter files with import-mode endpoint mapping.",
+      "test_time": "MCP health test passed (healthy startup), but comprehensive functional/contract testing is absent; test evidence is currently shallow."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Undetermined due to missing telemetry (reported 0 MB). For Bayesian workloads, memory risk is likely medium-high during fit/sampling endpoints.",
+      "cpu_efficiency": "Undetermined due to missing telemetry (reported 0%). CPU-intensive inference paths (PyMC sampling/optimization) likely dominate under real load.",
+      "disk_usage": "Generated plugin footprint appears small, but size stats are missing (0 values). Main disk risk remains model artifacts/logging if enabled later."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 60,
+    "maintainability_score": 70,
+    "security_score": 85,
+    "scalability_score": 64
+  }
+}

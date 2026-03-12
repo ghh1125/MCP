@@ -1,0 +1,49 @@
+#!/bin/bash
+Fail()
+{
+    echo "FATAL(demo/python/demotest): $1"
+    exit 1
+}
+
+TestDemo()
+{
+    local name=$1
+    shift
+    echo "Testing Python demo: $name"
+    mypy --strict $name.py || Fail "Error in mypy verification of $name.py."
+    ./$name.py $* > test/$name${SUFFIX}.txt || Fail "Error testing $name.py."
+    diff {correct,test}/$name${SUFFIX}.txt || Fail "Incorrect output from $name.py."
+}
+
+rm -f test/*.txt
+mkdir -p test
+
+SUFFIX=
+TestDemo solar_time +38.88 -77.03 2023-02-12T17:00:00Z
+TestDemo jupiter_moons 2021-04-16T00:26:18Z
+SUFFIX=_nz TestDemo camera -41.17 175.5 2023-03-24T06:30:00Z
+SUFFIX=_fl TestDemo camera +29 -81 2023-03-25T00:00:00Z
+SUFFIX=_ca TestDemo camera 51.05 -114.07 2023-03-24T02:07:31.000Z
+TestDemo constellation 2021-06-01T00:00:00Z
+TestDemo moonphase 2019-06-15T09:15:32.987Z
+TestDemo riseset +45.6 -90.7 2018-11-30T17:55:07.234Z
+TestDemo positions +45.6 -90.7 2018-11-30T17:55:07.234Z
+TestDemo seasons 2019
+TestDemo culminate +30 -90 2015-02-28T00:00:00Z
+TestDemo horizon +25.5 -85.3 2016-12-25T12:30:45Z
+TestDemo lunar_eclipse 1988-01-01
+TestDemo lunar_angles 2021-05-15
+TestDemo galactic 38.92056 -77.0658 22.793498 197.070510 2025-04-06T00:00:00Z
+TestDemo triangulate 48.16042 24.49986 2019 18 7 48.27305 24.36401 662 83 12
+TestDemo stars_near_moon 30 -80 2021-11-08T23:00:00Z
+TestDemo ecliptic_of_date 53.6375 9.9981 2023-10-28T20:24:33.489Z
+TestDemo solar_eclipse 28.5 -82.5 2023-01-01
+
+echo "Testing Python demo: gravity"
+for latitude in {0..90}; do
+    ./gravity.py ${latitude} 0 >> test/gravity.txt || Fail "Error running gravity.py."
+done
+diff {correct,test}/gravity.txt || Fail "Incorrect output from gravity.py."
+
+echo "PASS: Python demos"
+exit 0

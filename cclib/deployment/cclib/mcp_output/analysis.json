@@ -1,0 +1,821 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/cclib/cclib",
+    "summary": "Imported via zip fallback, file count: 205",
+    "file_tree": {
+      ".devcontainer/devcontainer.json": {
+        "size": 68
+      },
+      ".github/codecov.yml": {
+        "size": 382
+      },
+      ".github/dependabot.yml": {
+        "size": 209
+      },
+      ".github/license_header.txt": {
+        "size": 164
+      },
+      ".github/workflows/ci.yml": {
+        "size": 619
+      },
+      ".github/workflows/docs.yml": {
+        "size": 1810
+      },
+      ".github/workflows/nix.yml": {
+        "size": 858
+      },
+      ".github/workflows/publish.yml": {
+        "size": 3485
+      },
+      ".github/workflows/test_and_package.yml": {
+        "size": 4277
+      },
+      ".pre-commit-config.yaml": {
+        "size": 4462
+      },
+      "README.md": {
+        "size": 1858
+      },
+      "cclib/__init__.py": {
+        "size": 1689
+      },
+      "cclib/attribute_parsers/__init__.py": {
+        "size": 1674
+      },
+      "cclib/attribute_parsers/aonames.py": {
+        "size": 8116
+      },
+      "cclib/attribute_parsers/aooverlaps.py": {
+        "size": 3540
+      },
+      "cclib/attribute_parsers/atombasis.py": {
+        "size": 8291
+      },
+      "cclib/attribute_parsers/atomcharges.py": {
+        "size": 12265
+      },
+      "cclib/attribute_parsers/atomcoords.py": {
+        "size": 5148
+      },
+      "cclib/attribute_parsers/atommasses.py": {
+        "size": 3317
+      },
+      "cclib/attribute_parsers/atomnos.py": {
+        "size": 4652
+      },
+      "cclib/attribute_parsers/base_parser.py": {
+        "size": 558
+      },
+      "cclib/attribute_parsers/ccenergies.py": {
+        "size": 2782
+      },
+      "cclib/attribute_parsers/charge.py": {
+        "size": 3652
+      },
+      "cclib/attribute_parsers/coreelectrons.py": {
+        "size": 3381
+      },
+      "cclib/attribute_parsers/data.py": {
+        "size": 17957
+      },
+      "cclib/attribute_parsers/dispersionenergies.py": {
+        "size": 2319
+      },
+      "cclib/attribute_parsers/gbasis.py": {
+        "size": 13935
+      },
+      "cclib/attribute_parsers/geotargets.py": {
+        "size": 4616
+      },
+      "cclib/attribute_parsers/mocoeffs.py": {
+        "size": 2548
+      },
+      "cclib/attribute_parsers/moenergies.py": {
+        "size": 2345
+      },
+      "cclib/attribute_parsers/moments.py": {
+        "size": 11042
+      },
+      "cclib/attribute_parsers/mosyms.py": {
+        "size": 9199
+      },
+      "cclib/attribute_parsers/mpenergies.py": {
+        "size": 4332
+      },
+      "cclib/attribute_parsers/mult.py": {
+        "size": 2543
+      },
+      "cclib/attribute_parsers/natom.py": {
+        "size": 2526
+      },
+      "cclib/attribute_parsers/nbasis.py": {
+        "size": 3628
+      },
+      "cclib/attribute_parsers/nmo.py": {
+        "size": 1792
+      },
+      "cclib/attribute_parsers/parser_state.py": {
+        "size": 1432
+      },
+      "cclib/attribute_parsers/scfenergies.py": {
+        "size": 2035
+      },
+      "cclib/attribute_parsers/scftargets.py": {
+        "size": 3642
+      },
+      "cclib/attribute_parsers/scfvalues.py": {
+        "size": 2660
+      },
+      "cclib/attribute_parsers/utils.py": {
+        "size": 9724
+      },
+      "cclib/attributes/__init__.py": {
+        "size": 198
+      },
+      "cclib/attributes/attribute.py": {
+        "size": 28784
+      },
+      "cclib/bridge/__init__.py": {
+        "size": 910
+      },
+      "cclib/bridge/cclib2ase.py": {
+        "size": 8727
+      },
+      "cclib/bridge/cclib2biopython.py": {
+        "size": 1036
+      },
+      "cclib/bridge/cclib2horton.py": {
+        "size": 5076
+      },
+      "cclib/bridge/cclib2openbabel.py": {
+        "size": 3428
+      },
+      "cclib/bridge/cclib2psi4.py": {
+        "size": 936
+      },
+      "cclib/bridge/cclib2pyquante.py": {
+        "size": 1419
+      },
+      "cclib/bridge/cclib2pyscf.py": {
+        "size": 3945
+      },
+      "cclib/collection/__init__.py": {
+        "size": 296
+      },
+      "cclib/collection/collection.py": {
+        "size": 1368
+      },
+      "cclib/combinator/__init__.py": {
+        "size": 253
+      },
+      "cclib/combinator/combinator.py": {
+        "size": 1065
+      },
+      "cclib/driver/__init__.py": {
+        "size": 344
+      },
+      "cclib/driver/ccdriver.py": {
+        "size": 22076
+      },
+      "cclib/file_handler/__init__.py": {
+        "size": 357
+      },
+      "cclib/file_handler/file_handler.py": {
+        "size": 14955
+      },
+      "cclib/file_handler/utils.py": {
+        "size": 9724
+      },
+      "cclib/io/__init__.py": {
+        "size": 987
+      },
+      "cclib/io/ccio.py": {
+        "size": 11573
+      },
+      "cclib/io/cjsonreader.py": {
+        "size": 1918
+      },
+      "cclib/io/cjsonwriter.py": {
+        "size": 9880
+      },
+      "cclib/io/cmlwriter.py": {
+        "size": 3421
+      },
+      "cclib/io/filereader.py": {
+        "size": 1238
+      },
+      "cclib/io/filewriter.py": {
+        "size": 6081
+      },
+      "cclib/io/moldenwriter.py": {
+        "size": 13214
+      },
+      "cclib/io/wfxwriter.py": {
+        "size": 18998
+      },
+      "cclib/io/xyzreader.py": {
+        "size": 2435
+      },
+      "cclib/io/xyzwriter.py": {
+        "size": 4214
+      },
+      "cclib/method/__init__.py": {
+        "size": 1014
+      },
+      "cclib/method/bader.py": {
+        "size": 9214
+      },
+      "cclib/method/bickelhaupt.py": {
+        "size": 5293
+      },
+      "cclib/method/calculationmethod.py": {
+        "size": 2399
+      },
+      "cclib/method/cda.py": {
+        "size": 4791
+      },
+      "cclib/method/cm5.py": {
+        "size": 9997
+      },
+      "cclib/method/cspa.py": {
+        "size": 3365
+      },
+      "cclib/method/ddec.py": {
+        "size": 38536
+      },
+      "cclib/method/density.py": {
+        "size": 2716
+      },
+      "cclib/method/electrons.py": {
+        "size": 1396
+      },
+      "cclib/method/fragments.py": {
+        "size": 5307
+      },
+      "cclib/method/hirshfeld.py": {
+        "size": 4383
+      },
+      "cclib/method/lpa.py": {
+        "size": 4205
+      },
+      "cclib/method/mbo.py": {
+        "size": 3923
+      },
+      "cclib/method/moments.py": {
+        "size": 5529
+      },
+      "cclib/method/mpa.py": {
+        "size": 3798
+      },
+      "cclib/method/nuclear.py": {
+        "size": 7336
+      },
+      "cclib/method/opa.py": {
+        "size": 3876
+      },
+      "cclib/method/orbitals.py": {
+        "size": 1679
+      },
+      "cclib/method/population.py": {
+        "size": 3467
+      },
+      "cclib/method/stockholder.py": {
+        "size": 9624
+      },
+      "cclib/method/volume.py": {
+        "size": 15994
+      },
+      "cclib/parser/__init__.py": {
+        "size": 571
+      },
+      "cclib/parser/adfparser.py": {
+        "size": 53135
+      },
+      "cclib/parser/daltonparser.py": {
+        "size": 61339
+      },
+      "cclib/parser/fchkparser.py": {
+        "size": 17336
+      },
+      "cclib/parser/gamessdatparser.py": {
+        "size": 9899
+      },
+      "cclib/parser/gamessparser.py": {
+        "size": 75963
+      },
+      "cclib/parser/gamessukparser.py": {
+        "size": 31412
+      },
+      "cclib/parser/gaussianparser.py": {
+        "size": 121474
+      },
+      "cclib/parser/jaguarparser.py": {
+        "size": 33993
+      },
+      "cclib/parser/logfileparser.py": {
+        "size": 16692
+      },
+      "cclib/parser/molcasparser.py": {
+        "size": 48018
+      },
+      "cclib/parser/molproparser.py": {
+        "size": 43052
+      },
+      "cclib/parser/mopacparser.py": {
+        "size": 9596
+      },
+      "cclib/parser/nboparser.py": {
+        "size": 13033
+      },
+      "cclib/parser/nwchemparser.py": {
+        "size": 67117
+      },
+      "cclib/parser/orcaparser.py": {
+        "size": 132822
+      },
+      "cclib/parser/psi3parser.py": {
+        "size": 13862
+      },
+      "cclib/parser/psi4parser.py": {
+        "size": 58814
+      },
+      "cclib/parser/qchemparser.py": {
+        "size": 86012
+      },
+      "cclib/parser/turbomoleparser.py": {
+        "size": 87807
+      },
+      "cclib/parser/utils.py": {
+        "size": 9770
+      },
+      "cclib/parser/xtbparser.py": {
+        "size": 34038
+      },
+      "cclib/progress/__init__.py": {
+        "size": 281
+      },
+      "cclib/progress/textprogress.py": {
+        "size": 1424
+      },
+      "cclib/scripts/__init__.py": {
+        "size": 234
+      },
+      "cclib/scripts/ccframe.py": {
+        "size": 2898
+      },
+      "cclib/scripts/ccget.py": {
+        "size": 7789
+      },
+      "cclib/scripts/ccwrite.py": {
+        "size": 3705
+      },
+      "cclib/scripts/cda.py": {
+        "size": 1966
+      },
+      "cclib/tree.py": {
+        "size": 2918
+      },
+      "data/ADF/basicADF2007.01/metadata.txt": {
+        "size": 113
+      },
+      "data/GAMESS-UK/basicGAMESS-UK7.0/metadata.txt": {
+        "size": 882
+      },
+      "data/GAMESS/basicGAMESS-US2017/metadata.txt": {
+        "size": 505
+      },
+      "data/GAMESS/basicGAMESS-US2018/metadata.txt": {
+        "size": 505
+      },
+      "data/GAMESSDAT/basicGAMESS-US2018/metadata.txt": {
+        "size": 505
+      },
+      "data/Molpro/basicMolpro2006/metadata.txt": {
+        "size": 724
+      },
+      "doc/README.md": {
+        "size": 713
+      },
+      "doc/sphinx/attributes.py": {
+        "size": 3205
+      },
+      "doc/sphinx/conf.py": {
+        "size": 8619
+      },
+      "doc/sphinx/coverage.py": {
+        "size": 5846
+      },
+      "doc/sphinx/docs_common.py": {
+        "size": 666
+      },
+      "doc/sphinx/helpers/README.md": {
+        "size": 873
+      },
+      "doc/sphinx/helpers/github_graphql_query.py": {
+        "size": 1470
+      },
+      "doc/sphinx/helpers/milestone_issues_and_prs.py": {
+        "size": 2901
+      },
+      "pyproject.toml": {
+        "size": 4305
+      },
+      "pytest.ini": {
+        "size": 297
+      },
+      "requirements-dev.txt": {
+        "size": 71
+      },
+      "test/__init__.py": {
+        "size": 304
+      },
+      "test/bridge/__init__.py": {
+        "size": 171
+      },
+      "test/bridge/testase.py": {
+        "size": 9710
+      },
+      "test/bridge/testbiopython.py": {
+        "size": 983
+      },
+      "test/bridge/testhorton.py": {
+        "size": 4285
+      },
+      "test/bridge/testopenbabel.py": {
+        "size": 2145
+      },
+      "test/bridge/testpsi4.py": {
+        "size": 929
+      },
+      "test/bridge/testpyquante.py": {
+        "size": 1324
+      },
+      "test/bridge/testpyscf.py": {
+        "size": 2213
+      },
+      "test/conftest.py": {
+        "size": 17382
+      },
+      "test/data/__init__.py": {
+        "size": 200
+      },
+      "test/data/common.py": {
+        "size": 912
+      },
+      "test/data/skip.py": {
+        "size": 2946
+      },
+      "test/data/testBOMD.py": {
+        "size": 1404
+      },
+      "test/data/testBasis.py": {
+        "size": 5421
+      },
+      "test/data/testCC.py": {
+        "size": 4074
+      },
+      "test/data/testCI.py": {
+        "size": 5446
+      },
+      "test/data/testCore.py": {
+        "size": 1501
+      },
+      "test/data/testGeoOpt.py": {
+        "size": 18947
+      },
+      "test/data/testMP.py": {
+        "size": 2593
+      },
+      "test/data/testNMR.py": {
+        "size": 2730
+      },
+      "test/data/testPolar.py": {
+        "size": 2192
+      },
+      "test/data/testSP.py": {
+        "size": 48515
+      },
+      "test/data/testSPun.py": {
+        "size": 12830
+      },
+      "test/data/testScan.py": {
+        "size": 4720
+      },
+      "test/data/testTD.py": {
+        "size": 14638
+      },
+      "test/data/testTDun.py": {
+        "size": 2492
+      },
+      "test/data/testvib.py": {
+        "size": 16263
+      },
+      "test/io/__init__.py": {
+        "size": 171
+      },
+      "test/io/testccio.py": {
+        "size": 7285
+      },
+      "test/io/testcjsonreader.py": {
+        "size": 3144
+      },
+      "test/io/testcjsonwriter.py": {
+        "size": 2666
+      },
+      "test/io/testfilewriter.py": {
+        "size": 765
+      },
+      "test/io/testmoldenwriter.py": {
+        "size": 6159
+      },
+      "test/io/testscripts.py": {
+        "size": 6470
+      },
+      "test/io/testwfxwriter.py": {
+        "size": 6166
+      },
+      "test/io/testxyzreader.py": {
+        "size": 1436
+      },
+      "test/io/testxyzwriter.py": {
+        "size": 2844
+      },
+      "test/method/__init__.py": {
+        "size": 171
+      },
+      "test/method/testbader.py": {
+        "size": 3182
+      },
+      "test/method/testcda.py": {
+        "size": 1695
+      },
+      "test/method/testcm5.py": {
+        "size": 1107
+      },
+      "test/method/testddec.py": {
+        "size": 8572
+      },
+      "test/method/testelectrons.py": {
+        "size": 1991
+      },
+      "test/method/testhirshfeld.py": {
+        "size": 4874
+      },
+      "test/method/testmbo.py": {
+        "size": 1428
+      },
+      "test/method/testmoments.py": {
+        "size": 4420
+      },
+      "test/method/testnuclear.py": {
+        "size": 6536
+      },
+      "test/method/testorbitals.py": {
+        "size": 1533
+      },
+      "test/method/testpopulation.py": {
+        "size": 6481
+      },
+      "test/method/testvolume.py": {
+        "size": 4109
+      },
+      "test/parser/__init__.py": {
+        "size": 171
+      },
+      "test/parser/testdata.py": {
+        "size": 4221
+      },
+      "test/parser/testlogfileparser.py": {
+        "size": 3636
+      },
+      "test/parser/testspecificparsers.py": {
+        "size": 3555
+      },
+      "test/parser/testutils.py": {
+        "size": 1971
+      },
+      "test/regression.py": {
+        "size": 130455
+      },
+      "test/regression_io.py": {
+        "size": 1007
+      },
+      "test/test_code_in_code.py": {
+        "size": 848
+      },
+      "test/test_data.py": {
+        "size": 2648
+      },
+      "test/test_tree.py": {
+        "size": 8376
+      },
+      "test/test_tree_usage.py": {
+        "size": 939
+      },
+      "test/test_utils.py": {
+        "size": 5605
+      },
+      "tools/versioningit_override.py": {
+        "size": 2274
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.cclib",
+      "source.cclib.bridge",
+      "source.cclib.io",
+      "source.cclib.method",
+      "source.cclib.parser",
+      "source.cclib.progress",
+      "source.cclib.scripts",
+      "source.test",
+      "source.test.bridge",
+      "source.test.data",
+      "source.test.io",
+      "source.test.method",
+      "source.test.parser"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.cclib",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level package export surface; likely exposes version/package metadata and convenience imports."
+      },
+      {
+        "package": "source.cclib.io",
+        "module": "ccio",
+        "functions": [
+          "ccopen",
+          "ccread",
+          "ccwrite"
+        ],
+        "classes": [],
+        "description": "Primary high-level I/O entry points for opening, parsing, and writing computational chemistry files. Best MCP integration point."
+      },
+      {
+        "package": "source.cclib.parser",
+        "module": "logfileparser",
+        "functions": [],
+        "classes": [
+          "Logfile"
+        ],
+        "description": "Base parser abstraction used by concrete program parsers; central for structured extraction workflow."
+      },
+      {
+        "package": "source.cclib.parser",
+        "module": "gaussianparser/orcaparser/qchemparser/nwchemparser/... (family)",
+        "functions": [],
+        "classes": [
+          "Gaussian",
+          "ORCA",
+          "QChem",
+          "NWChem",
+          "ADF",
+          "DALTON",
+          "Molpro",
+          "Psi4",
+          "Turbomole",
+          "xTB"
+        ],
+        "description": "Program-specific parsers for major QC engines. Use indirectly via ccio to minimize coupling."
+      },
+      {
+        "package": "source.cclib.method",
+        "module": "calculationmethod (+ method/*.py family)",
+        "functions": [],
+        "classes": [
+          "CalculationMethod",
+          "Bader",
+          "CDA",
+          "CM5",
+          "DDEC",
+          "Density",
+          "Electrons",
+          "Hirshfeld",
+          "MBO",
+          "Moments",
+          "Nuclear",
+          "Orbitals",
+          "Population",
+          "Volume"
+        ],
+        "description": "Post-processing/analysis algorithms operating on parsed data objects."
+      },
+      {
+        "package": "source.cclib.io",
+        "module": "cjsonwriter/moldenwriter/wfxwriter/xyzwriter",
+        "functions": [],
+        "classes": [
+          "CJSON",
+          "MOLDEN",
+          "WFXWriter",
+          "XYZ"
+        ],
+        "description": "Output serialization modules for downstream interoperability."
+      },
+      {
+        "package": "source.cclib.bridge",
+        "module": "cclib2ase/cclib2pyscf/cclib2openbabel/... (family)",
+        "functions": [],
+        "classes": [],
+        "description": "Interoperability bridge modules to external ecosystems; useful as optional MCP tools gated by dependency availability."
+      },
+      {
+        "package": "source.cclib.scripts",
+        "module": "ccget/ccwrite/ccframe/cda",
+        "functions": [
+          "main"
+        ],
+        "classes": [],
+        "description": "Script-level CLI implementations suitable for subprocess fallback strategy."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "ccget",
+        "module": "source.cclib.scripts.ccget",
+        "description": "Extract selected parsed attributes from logfiles via command line."
+      },
+      {
+        "name": "ccwrite",
+        "module": "source.cclib.scripts.ccwrite",
+        "description": "Convert parsed outputs into alternate formats (e.g., cjson, molden, xyz, wfx)."
+      },
+      {
+        "name": "ccframe",
+        "module": "source.cclib.scripts.ccframe",
+        "description": "Tabular/dataframe-style aggregation of parsed data."
+      },
+      {
+        "name": "cda",
+        "module": "source.cclib.scripts.cda",
+        "description": "Charge decomposition analysis CLI."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "cli",
+      "confidence": 0.91
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "packaging",
+        "periodictable",
+        "scipy"
+      ],
+      "optional": [
+        "pandas",
+        "ase",
+        "biopython",
+        "openbabel",
+        "psi4",
+        "pyquante",
+        "pyscf",
+        "horton",
+        "pytest (test only)"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/cclib/cclib",
+    "repo_name": "cclib",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.9,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

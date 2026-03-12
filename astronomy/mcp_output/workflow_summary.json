@@ -1,0 +1,217 @@
+{
+  "repository": {
+    "name": "astronomy",
+    "url": "https://github.com/cosinekitty/astronomy",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/astronomy",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773275816.563961,
+    "end_time": 1773275978.6130712,
+    "duration": 162.04911017417908,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 0,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": []
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": false,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.74,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/cosinekitty/astronomy",
+      "repo_name": "astronomy",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/astronomy/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "define a clear API allowlist before MCP generation (export only stable public symbols from `source/python/astronomy/astronomy.py` and exclude demo/generate internals)",
+    "deduplicate endpoint registration (many functions/classes appear multiple times) and normalize naming/casing to avoid collisions",
+    "add argument/schema validation for every exposed tool (types",
+    "ranges",
+    "enums like `Body`",
+    "`Direction`",
+    "`Refraction`) with consistent error mapping",
+    "split packaging metadata from analysis confusion by standardizing Python packaging at repo root or documenting subpackage layout (`source/python/pyproject.toml`)",
+    "add smoke/integration tests for MCP startup and a representative subset of astronomy endpoints in CI",
+    "add golden-output regression tests for MCP responses using existing `demo/*/correct` datasets",
+    "introduce endpoint categories and docs generation (core astronomy vs demos vs generate utilities) to improve discoverability",
+    "enforce timeout and resource guards on expensive search functions (`Search*`",
+    "eclipse/transit scans) plus pagination/limits where applicable",
+    "cache immutable computations (rotation matrices",
+    "ephemeris slices) and benchmark hot paths",
+    "add observability in MCP service (structured logs",
+    "per-endpoint latency/error metrics",
+    "request IDs)",
+    "tighten security by excluding filesystem-mutating generate scripts from MCP by default and sandboxing any retained file access",
+    "improve repository hygiene by moving large generated artifacts behind release assets or optional fetch scripts to reduce clone/scan weight",
+    "add pre-commit checks (formatting",
+    "linting",
+    "dead exports",
+    "duplicate endpoint detector)",
+    "pin and audit MCP dependencies (`fastmcp`",
+    "`pydantic`) with a lockfile and vulnerability scan",
+    "provide versioned API compatibility policy and changelog for MCP endpoints",
+    "add a minimal “getting started” contract test in `README_MCP.md` with exact request/response examples"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow status is success; all planned nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Import-mode adapter generation succeeded and produced runnable MCP scaffold files.",
+      "MCP plugin health check passed (healthy over stdio), indicating baseline service operability.",
+      "Low intrusiveness risk and medium complexity made wrapping feasible without heavy code mutation."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred.",
+      "DeepWiki analysis failed, reducing enrichment quality for architecture/context.",
+      "Original project test signal is effectively missing/invalid (passed=false with execution_time=0 and empty test files).",
+      "Generation quality is constrained by over-broad AST discovery causing duplicated/non-API endpoints."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed within total 162s run; repository imported via zip fallback (755 files), suggesting non-trivial I/O overhead but successful ingestion.",
+      "analysis_time": "Analysis completed but with metadata inaccuracies (dependencies/entry points reported false/empty despite source/python packaging files).",
+      "generation_time": "Generation succeeded and created expected MCP artifacts; however endpoint selection quality is low (duplicates, demos/generate internals included).",
+      "test_time": "Plugin health test passed quickly; no meaningful functional/integration test execution for core astronomy endpoints."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB likely placeholder).",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0% likely placeholder).",
+      "disk_usage": "Repository is large with many generated artifacts; scan/generation likely disk-heavy despite missing explicit size metrics."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 68,
+    "architecture_score": 64,
+    "performance_score": 58,
+    "maintainability_score": 62,
+    "security_score": 85,
+    "scalability_score": 60
+  }
+}

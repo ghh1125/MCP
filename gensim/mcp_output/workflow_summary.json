@@ -1,0 +1,223 @@
+{
+  "repository": {
+    "name": "gensim",
+    "url": "https://github.com/RaRe-Technologies/gensim",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/gensim",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773280724.987066,
+    "end_time": 1773281001.819922,
+    "duration": 276.83285689353943,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 8,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "source.gensim",
+        "source.gensim.corpora",
+        "source.gensim.models",
+        "source.gensim.parsing",
+        "source.gensim.scripts",
+        "source.gensim.similarities",
+        "source.gensim.test",
+        "source.gensim.topic_coherence"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": true,
+      "setup_py": true
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.9,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/RaRe-Technologies/gensim",
+      "repo_name": "gensim",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/gensim/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "add a minimal smoke-test suite for the generated MCP plugin (server start",
+    "endpoint registration",
+    "and one call per high-value endpoint)",
+    "pin and align runtime dependencies between root project and `mcp_output/requirements.txt` (including optional gensim extras used by exposed endpoints)",
+    "introduce structured error handling + typed response models in `mcp_service.py`/`adapter.py` (clear user-facing messages for missing optional deps like `annoy`/`nmslib`)",
+    "add CI workflow to run MCP tests on a Python version matrix and publish test artifacts",
+    "create endpoint-level input validation/guardrails (e.g.",
+    "corpus/vector size limits",
+    "file path sanitization for loader-like operations)",
+    "reduce duplicate docs/gallery assets by referencing shared sources to cut repo bloat and CI/doc build time",
+    "add performance benchmarks for heavy endpoints (`word2vec`",
+    "`doc2vec`",
+    "`ldamodel`",
+    "similarity classes) with baseline thresholds to catch regressions",
+    "improve observability with configurable logging/tracing in plugin entrypoints (`start_mcp.py`",
+    "`main.py`) and per-request timing",
+    "harden packaging by defining explicit console entry points and verifying install/import from wheel in CI",
+    "document endpoint stability levels and versioning policy in `README_MCP.md` (experimental vs stable)",
+    "add contract tests to ensure MCP endpoint signatures stay synchronized with upstream gensim APIs",
+    "cache/downloader resilience improvements (timeouts",
+    "retries",
+    "offline mode hints) for `info`/`load` exposed endpoints",
+    "add security checks (dependency scanning + basic SAST) and a lightweight threat-model note for remote model/data loading surfaces",
+    "prioritize DeepWiki-analysis fallback handling so failures don’t silently reduce generated coverage",
+    "add a compatibility matrix in docs for Python/gensim/fastmcp/pydantic versions and optional acceleration libraries"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "Workflow status is success with all planned nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Low intrusiveness risk and high import feasibility (0.9) enabled clean adapter-mode=import generation.",
+      "Generated MCP scaffold includes core runtime files, entrypoint, requirements, and README.",
+      "Service validation indicates MCP plugin passed and service health is healthy over stdio transport."
+    ],
+    "failure_reasons": [
+      "No hard workflow failure detected.",
+      "DeepWiki analysis failed, reducing external semantic enrichment and potentially limiting endpoint coverage depth.",
+      "Original project test signal is unreliable/incomplete (passed=false with empty details, 0 execution time, no test files), so upstream compatibility confidence is limited.",
+      "Generation telemetry appears inconsistent (tool_endpoints=0 and total_lines_of_code=0 despite populated endpoint list), indicating reporting/instrumentation gaps."
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Repository acquisition succeeded via zip fallback; effective for reliability but may be slower and less metadata-rich than native git clone.",
+      "analysis_time": "Static/package analysis completed successfully across a medium-complexity codebase; DeepWiki sub-step failed but LLM direct analysis provided useful module mapping.",
+      "generation_time": "Code generation completed quickly enough within total 276.83s runtime; produced expected MCP file set and endpoint inventory.",
+      "test_time": "Plugin runtime check passed, but meaningful automated MCP endpoint tests and original-project tests were effectively not executed (no measurable execution data)."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to zero/absent telemetry; no evidence of pressure, but measurement is insufficient.",
+      "cpu_efficiency": "Unknown due to missing CPU metrics; cannot validate efficiency.",
+      "disk_usage": "Likely moderate; repo includes substantial docs/test assets. Generated plugin footprint appears small, but size metrics are missing/zeroed."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 74,
+    "architecture_score": 80,
+    "performance_score": 62,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 70
+  }
+}

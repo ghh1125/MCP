@@ -1,0 +1,5208 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/cosinekitty/astronomy",
+    "summary": "Imported via zip fallback, file count: 755",
+    "file_tree": {
+      ".codeql/config.yml": {
+        "size": 110
+      },
+      ".github/workflows/astronomy-engine-tests.yml": {
+        "size": 1513
+      },
+      ".github/workflows/codeql.yml": {
+        "size": 973
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 1017
+      },
+      "README.md": {
+        "size": 11324
+      },
+      "demo/browser/README.md": {
+        "size": 2142
+      },
+      "demo/browser/astronomy.browser.js": {
+        "size": 422322
+      },
+      "demo/c/README.md": {
+        "size": 3214
+      },
+      "demo/c/correct/altazsearch.txt": {
+        "size": 97
+      },
+      "demo/c/correct/camera_ca.txt": {
+        "size": 371
+      },
+      "demo/c/correct/camera_fl.txt": {
+        "size": 371
+      },
+      "demo/c/correct/camera_nz.txt": {
+        "size": 369
+      },
+      "demo/c/correct/culminate.txt": {
+        "size": 682
+      },
+      "demo/c/correct/ecliptic_vector.txt": {
+        "size": 572
+      },
+      "demo/c/correct/galactic.txt": {
+        "size": 44
+      },
+      "demo/c/correct/gravity.txt": {
+        "size": 5369
+      },
+      "demo/c/correct/horizon.txt": {
+        "size": 170
+      },
+      "demo/c/correct/lunar_eclipse.txt": {
+        "size": 1840
+      },
+      "demo/c/correct/moonphase.txt": {
+        "size": 511
+      },
+      "demo/c/correct/positions.txt": {
+        "size": 527
+      },
+      "demo/c/correct/riseset.txt": {
+        "size": 160
+      },
+      "demo/c/correct/seasons.txt": {
+        "size": 164
+      },
+      "demo/c/correct/solar_time.txt": {
+        "size": 47
+      },
+      "demo/c/correct/triangulate.txt": {
+        "size": 89
+      },
+      "demo/c/correct/worldmap.txt": {
+        "size": 106
+      },
+      "demo/csharp/README.md": {
+        "size": 2555
+      },
+      "demo/csharp/correct/camera_ca.txt": {
+        "size": 371
+      },
+      "demo/csharp/correct/camera_fl.txt": {
+        "size": 371
+      },
+      "demo/csharp/correct/camera_nz.txt": {
+        "size": 369
+      },
+      "demo/csharp/correct/culminate.txt": {
+        "size": 716
+      },
+      "demo/csharp/correct/gravity.txt": {
+        "size": 5369
+      },
+      "demo/csharp/correct/horizon.txt": {
+        "size": 150
+      },
+      "demo/csharp/correct/lunar_eclipse.txt": {
+        "size": 1960
+      },
+      "demo/csharp/correct/moonphase.txt": {
+        "size": 560
+      },
+      "demo/csharp/correct/positions.txt": {
+        "size": 532
+      },
+      "demo/csharp/correct/riseset.txt": {
+        "size": 180
+      },
+      "demo/csharp/correct/seasons.txt": {
+        "size": 180
+      },
+      "demo/csharp/correct/solar_time.txt": {
+        "size": 47
+      },
+      "demo/csharp/correct/triangulate.txt": {
+        "size": 90
+      },
+      "demo/java/README.md": {
+        "size": 2578
+      },
+      "demo/java/correct/constellation.txt": {
+        "size": 988
+      },
+      "demo/java/correct/jupiter_moons.txt": {
+        "size": 392
+      },
+      "demo/java/correct/lunar_eclipse.txt": {
+        "size": 1960
+      },
+      "demo/java/correct/moonphase.txt": {
+        "size": 560
+      },
+      "demo/java/correct/positions.txt": {
+        "size": 532
+      },
+      "demo/java/correct/riseset.txt": {
+        "size": 254
+      },
+      "demo/java/correct/seasons.txt": {
+        "size": 180
+      },
+      "demo/java/correct/solar_time.txt": {
+        "size": 47
+      },
+      "demo/java/src/main/java/io/github/cosinekitty/astronomy/demo/Constellation.java": {
+        "size": 4318
+      },
+      "demo/java/src/main/java/io/github/cosinekitty/astronomy/demo/JupiterMoons.java": {
+        "size": 3276
+      },
+      "demo/java/src/main/java/io/github/cosinekitty/astronomy/demo/LunarEclipse.java": {
+        "size": 2088
+      },
+      "demo/java/src/main/java/io/github/cosinekitty/astronomy/demo/Main.java": {
+        "size": 8153
+      },
+      "demo/java/src/main/java/io/github/cosinekitty/astronomy/demo/MoonPhase.java": {
+        "size": 1903
+      },
+      "demo/java/src/main/java/io/github/cosinekitty/astronomy/demo/Positions.java": {
+        "size": 1403
+      },
+      "demo/java/src/main/java/io/github/cosinekitty/astronomy/demo/RiseSetCulm.java": {
+        "size": 3528
+      },
+      "demo/java/src/main/java/io/github/cosinekitty/astronomy/demo/Seasons.java": {
+        "size": 758
+      },
+      "demo/java/src/main/java/io/github/cosinekitty/astronomy/demo/SolarTime.java": {
+        "size": 986
+      },
+      "demo/java/src/test/java/io/github/cosinekitty/astronomy/demo/MainTests.java": {
+        "size": 552
+      },
+      "demo/kotlin/README.md": {
+        "size": 2259
+      },
+      "demo/kotlin/correct/constellation.txt": {
+        "size": 988
+      },
+      "demo/kotlin/correct/jupiter_moons.txt": {
+        "size": 392
+      },
+      "demo/kotlin/correct/lunar_eclipse.txt": {
+        "size": 1960
+      },
+      "demo/kotlin/correct/moonphase.txt": {
+        "size": 560
+      },
+      "demo/kotlin/correct/positions.txt": {
+        "size": 532
+      },
+      "demo/kotlin/correct/riseset.txt": {
+        "size": 254
+      },
+      "demo/kotlin/correct/seasons.txt": {
+        "size": 180
+      },
+      "demo/kotlin/correct/solar_time.txt": {
+        "size": 47
+      },
+      "demo/nodejs/README.md": {
+        "size": 3338
+      },
+      "demo/nodejs/astronomy.js": {
+        "size": 421432
+      },
+      "demo/nodejs/calendar/astronomy.ts": {
+        "size": 422879
+      },
+      "demo/nodejs/calendar/calendar.ts": {
+        "size": 14568
+      },
+      "demo/nodejs/calendar/correct/calendar.txt": {
+        "size": 524313
+      },
+      "demo/nodejs/calendar/package-lock.json": {
+        "size": 1018
+      },
+      "demo/nodejs/calendar/package.json": {
+        "size": 469
+      },
+      "demo/nodejs/calendar/tsconfig.json": {
+        "size": 204
+      },
+      "demo/nodejs/camera.js": {
+        "size": 5211
+      },
+      "demo/nodejs/correct/camera_ca.txt": {
+        "size": 371
+      },
+      "demo/nodejs/correct/camera_fl.txt": {
+        "size": 371
+      },
+      "demo/nodejs/correct/camera_nz.txt": {
+        "size": 369
+      },
+      "demo/nodejs/correct/culminate.txt": {
+        "size": 736
+      },
+      "demo/nodejs/correct/equator_of_date.txt": {
+        "size": 89
+      },
+      "demo/nodejs/correct/equatorial.txt": {
+        "size": 228
+      },
+      "demo/nodejs/correct/gravity.txt": {
+        "size": 5369
+      },
+      "demo/nodejs/correct/horizon.txt": {
+        "size": 144
+      },
+      "demo/nodejs/correct/lunar_eclipse.txt": {
+        "size": 1960
+      },
+      "demo/nodejs/correct/moon_north_south.txt": {
+        "size": 1104
+      },
+      "demo/nodejs/correct/moonphase.txt": {
+        "size": 547
+      },
+      "demo/nodejs/correct/positions.txt": {
+        "size": 532
+      },
+      "demo/nodejs/correct/riseset.txt": {
+        "size": 180
+      },
+      "demo/nodejs/correct/seasons.txt": {
+        "size": 180
+      },
+      "demo/nodejs/correct/solar_time.txt": {
+        "size": 47
+      },
+      "demo/nodejs/correct/triangulate.txt": {
+        "size": 89
+      },
+      "demo/nodejs/correct/vernal_point.txt": {
+        "size": 131
+      },
+      "demo/nodejs/culminate.js": {
+        "size": 2740
+      },
+      "demo/nodejs/equator_of_date.js": {
+        "size": 3668
+      },
+      "demo/nodejs/equatorial.js": {
+        "size": 4195
+      },
+      "demo/nodejs/gravity.js": {
+        "size": 1570
+      },
+      "demo/nodejs/horizon.js": {
+        "size": 4782
+      },
+      "demo/nodejs/lunar_eclipse.js": {
+        "size": 2610
+      },
+      "demo/nodejs/moon_north_south.js": {
+        "size": 6725
+      },
+      "demo/nodejs/moonphase.js": {
+        "size": 2834
+      },
+      "demo/nodejs/positions.js": {
+        "size": 2639
+      },
+      "demo/nodejs/riseset.js": {
+        "size": 2051
+      },
+      "demo/nodejs/seasons.js": {
+        "size": 1188
+      },
+      "demo/nodejs/solar_time.js": {
+        "size": 2402
+      },
+      "demo/nodejs/triangulate.js": {
+        "size": 4781
+      },
+      "demo/nodejs/vernal_point.js": {
+        "size": 2189
+      },
+      "demo/python/README.md": {
+        "size": 3725
+      },
+      "demo/python/astro_demo_common.py": {
+        "size": 669
+      },
+      "demo/python/astronomy.py": {
+        "size": 434431
+      },
+      "demo/python/camera.py": {
+        "size": 4347
+      },
+      "demo/python/constellation.py": {
+        "size": 3259
+      },
+      "demo/python/correct/camera_ca.txt": {
+        "size": 415
+      },
+      "demo/python/correct/camera_fl.txt": {
+        "size": 415
+      },
+      "demo/python/correct/camera_nz.txt": {
+        "size": 413
+      },
+      "demo/python/correct/constellation.txt": {
+        "size": 1197
+      },
+      "demo/python/correct/culminate.txt": {
+        "size": 736
+      },
+      "demo/python/correct/ecliptic_of_date.txt": {
+        "size": 440
+      },
+      "demo/python/correct/galactic.txt": {
+        "size": 44
+      },
+      "demo/python/correct/gravity.txt": {
+        "size": 5369
+      },
+      "demo/python/correct/horizon.txt": {
+        "size": 161
+      },
+      "demo/python/correct/jupiter_moons.txt": {
+        "size": 392
+      },
+      "demo/python/correct/lunar_angles.txt": {
+        "size": 2926
+      },
+      "demo/python/correct/lunar_eclipse.txt": {
+        "size": 1960
+      },
+      "demo/python/correct/moonphase.txt": {
+        "size": 560
+      },
+      "demo/python/correct/positions.txt": {
+        "size": 532
+      },
+      "demo/python/correct/riseset.txt": {
+        "size": 180
+      },
+      "demo/python/correct/seasons.txt": {
+        "size": 180
+      },
+      "demo/python/correct/solar_eclipse.txt": {
+        "size": 2251
+      },
+      "demo/python/correct/solar_time.txt": {
+        "size": 47
+      },
+      "demo/python/correct/stars_near_moon.txt": {
+        "size": 81
+      },
+      "demo/python/correct/triangulate.txt": {
+        "size": 150
+      },
+      "demo/python/culminate.py": {
+        "size": 1375
+      },
+      "demo/python/ecliptic_of_date.py": {
+        "size": 1633
+      },
+      "demo/python/galactic.py": {
+        "size": 2366
+      },
+      "demo/python/galeqj_matrix.py": {
+        "size": 2190
+      },
+      "demo/python/graphdist.py": {
+        "size": 1277
+      },
+      "demo/python/gravity.py": {
+        "size": 1137
+      },
+      "demo/python/horizon.py": {
+        "size": 3555
+      },
+      "demo/python/jupiter_moons.py": {
+        "size": 2809
+      },
+      "demo/python/lunar_angles.py": {
+        "size": 5775
+      },
+      "demo/python/lunar_eclipse.py": {
+        "size": 1923
+      },
+      "demo/python/lunarday.py": {
+        "size": 1054
+      },
+      "demo/python/moonphase.py": {
+        "size": 1997
+      },
+      "demo/python/pairlon.py": {
+        "size": 1124
+      },
+      "demo/python/positions.py": {
+        "size": 1345
+      },
+      "demo/python/riseset.py": {
+        "size": 1356
+      },
+      "demo/python/seasons.py": {
+        "size": 701
+      },
+      "demo/python/solar_eclipse.py": {
+        "size": 1762
+      },
+      "demo/python/solar_time.py": {
+        "size": 933
+      },
+      "demo/python/stars_near_moon.py": {
+        "size": 1854
+      },
+      "demo/python/triangulate.py": {
+        "size": 4880
+      },
+      "demo/python/utdate.py": {
+        "size": 436
+      },
+      "generate/README.md": {
+        "size": 3543
+      },
+      "generate/apsides/earth.txt": {
+        "size": 6000
+      },
+      "generate/apsides/moon.txt": {
+        "size": 71577
+      },
+      "generate/axis/Earth.txt": {
+        "size": 67015
+      },
+      "generate/axis/Jupiter.txt": {
+        "size": 66533
+      },
+      "generate/axis/Mars.txt": {
+        "size": 66601
+      },
+      "generate/axis/Mercury.txt": {
+        "size": 66498
+      },
+      "generate/axis/Moon.txt": {
+        "size": 368565
+      },
+      "generate/axis/Neptune.txt": {
+        "size": 66531
+      },
+      "generate/axis/Pluto.txt": {
+        "size": 66218
+      },
+      "generate/axis/README.md": {
+        "size": 1206
+      },
+      "generate/axis/Saturn.txt": {
+        "size": 66591
+      },
+      "generate/axis/Sun.txt": {
+        "size": 66508
+      },
+      "generate/axis/Uranus.txt": {
+        "size": 66515
+      },
+      "generate/axis/Venus.txt": {
+        "size": 66490
+      },
+      "generate/axis/jm_Callisto.txt": {
+        "size": 65690
+      },
+      "generate/axis/jm_Europa.txt": {
+        "size": 65687
+      },
+      "generate/axis/jm_Ganymede.txt": {
+        "size": 65687
+      },
+      "generate/axis/jm_Io.txt": {
+        "size": 65685
+      },
+      "generate/barystate/Bennu.txt": {
+        "size": 44272
+      },
+      "generate/barystate/Ceres.txt": {
+        "size": 162599
+      },
+      "generate/barystate/EMB.txt": {
+        "size": 524311
+      },
+      "generate/barystate/Earth.txt": {
+        "size": 524313
+      },
+      "generate/barystate/GeoEMB.txt": {
+        "size": 524311
+      },
+      "generate/barystate/GeoMoon.txt": {
+        "size": 524311
+      },
+      "generate/barystate/Halley.txt": {
+        "size": 45836
+      },
+      "generate/barystate/Juno.txt": {
+        "size": 162561
+      },
+      "generate/barystate/Jupiter.txt": {
+        "size": 317153
+      },
+      "generate/barystate/Mars.txt": {
+        "size": 524313
+      },
+      "generate/barystate/Mercury.txt": {
+        "size": 524313
+      },
+      "generate/barystate/Moon.txt": {
+        "size": 524311
+      },
+      "generate/barystate/Neptune.txt": {
+        "size": 317151
+      },
+      "generate/barystate/Pallas.txt": {
+        "size": 162565
+      },
+      "generate/barystate/Pluto.txt": {
+        "size": 309557
+      },
+      "generate/barystate/README.md": {
+        "size": 796
+      },
+      "generate/barystate/Saturn.txt": {
+        "size": 317182
+      },
+      "generate/barystate/Sun.txt": {
+        "size": 524313
+      },
+      "generate/barystate/Uranus.txt": {
+        "size": 317154
+      },
+      "generate/barystate/Venus.txt": {
+        "size": 524313
+      },
+      "generate/barystate/Vesta.txt": {
+        "size": 162599
+      },
+      "generate/barystate/de405_state.txt": {
+        "size": 1932
+      },
+      "generate/check_internal_links.py": {
+        "size": 1684
+      },
+      "generate/checksum.py": {
+        "size": 1862
+      },
+      "generate/constellation/README.md": {
+        "size": 133
+      },
+      "generate/csdown/csharp_prefix.md": {
+        "size": 12488
+      },
+      "generate/delta_t/README.md": {
+        "size": 137
+      },
+      "generate/delta_t/airless_Moon_dt.txt": {
+        "size": 524313
+      },
+      "generate/doc_edit_list.txt": {
+        "size": 93
+      },
+      "generate/dotnet/framework4/README.md": {
+        "size": 732
+      },
+      "generate/dotnet/notes.txt": {
+        "size": 344
+      },
+      "generate/doxygen_download_link.py": {
+        "size": 1151
+      },
+      "generate/eclipse/README.md": {
+        "size": 253
+      },
+      "generate/eclipse/local_solar_eclipse.txt": {
+        "size": 1127
+      },
+      "generate/eclipse/norm.py": {
+        "size": 9371
+      },
+      "generate/eclipse/readme_lunar_eclipse.txt": {
+        "size": 2998
+      },
+      "generate/eclipse/readme_solar_eclipse.txt": {
+        "size": 3553
+      },
+      "generate/eol_hack.js": {
+        "size": 850
+      },
+      "generate/equatorial/Mars_j2000_ofdate_aberration.txt": {
+        "size": 35857
+      },
+      "generate/equatorial/README.md": {
+        "size": 1057
+      },
+      "generate/funclist.py": {
+        "size": 2213
+      },
+      "generate/galactic/README.md": {
+        "size": 1307
+      },
+      "generate/galactic/mars.txt": {
+        "size": 8993
+      },
+      "generate/geostate/Ceres.txt": {
+        "size": 162716
+      },
+      "generate/geostate/Juno.txt": {
+        "size": 162678
+      },
+      "generate/geostate/Pallas.txt": {
+        "size": 162682
+      },
+      "generate/geostate/Vesta.txt": {
+        "size": 162716
+      },
+      "generate/heliostate/Ceres.txt": {
+        "size": 162599
+      },
+      "generate/heliostate/EMB.txt": {
+        "size": 524311
+      },
+      "generate/heliostate/Earth.txt": {
+        "size": 524311
+      },
+      "generate/heliostate/Juno.txt": {
+        "size": 162561
+      },
+      "generate/heliostate/Jupiter.txt": {
+        "size": 316570
+      },
+      "generate/heliostate/Mars.txt": {
+        "size": 461506
+      },
+      "generate/heliostate/Mercury.txt": {
+        "size": 524311
+      },
+      "generate/heliostate/Moon.txt": {
+        "size": 524311
+      },
+      "generate/heliostate/Neptune.txt": {
+        "size": 316560
+      },
+      "generate/heliostate/Pallas.txt": {
+        "size": 162565
+      },
+      "generate/heliostate/Pluto.txt": {
+        "size": 315549
+      },
+      "generate/heliostate/SSB.txt": {
+        "size": 315386
+      },
+      "generate/heliostate/Saturn.txt": {
+        "size": 316606
+      },
+      "generate/heliostate/Uranus.txt": {
+        "size": 316542
+      },
+      "generate/heliostate/Venus.txt": {
+        "size": 524311
+      },
+      "generate/heliostate/Vesta.txt": {
+        "size": 162599
+      },
+      "generate/horizons/Jupiter.txt": {
+        "size": 524313
+      },
+      "generate/horizons/Mars.txt": {
+        "size": 524313
+      },
+      "generate/horizons/Mercury.txt": {
+        "size": 524313
+      },
+      "generate/horizons/Moon.txt": {
+        "size": 524313
+      },
+      "generate/horizons/Moon_N15_E075.txt": {
+        "size": 53086
+      },
+      "generate/horizons/Moon_N29_W081.txt": {
+        "size": 53086
+      },
+      "generate/horizons/Moon_S30_E150.txt": {
+        "size": 53086
+      },
+      "generate/horizons/Neptune.txt": {
+        "size": 183420
+      },
+      "generate/horizons/Pluto.txt": {
+        "size": 183412
+      },
+      "generate/horizons/Saturn.txt": {
+        "size": 524313
+      },
+      "generate/horizons/Sun.txt": {
+        "size": 524313
+      },
+      "generate/horizons/Sun_equinox.txt": {
+        "size": 239708
+      },
+      "generate/horizons/Uranus.txt": {
+        "size": 524313
+      },
+      "generate/horizons/Venus.txt": {
+        "size": 524313
+      },
+      "generate/horizons/airless_Jupiter.txt": {
+        "size": 524313
+      },
+      "generate/horizons/airless_Moon.txt": {
+        "size": 524313
+      },
+      "generate/horizons/airless_Sun_equinox.txt": {
+        "size": 239618
+      },
+      "generate/hydrogen/c_prefix.md": {
+        "size": 14604
+      },
+      "generate/hydrogen/hydrogen.js": {
+        "size": 18331
+      },
+      "generate/hydrogen/package-lock.json": {
+        "size": 927
+      },
+      "generate/hydrogen/package.json": {
+        "size": 306
+      },
+      "generate/jpl_horizons_check.js": {
+        "size": 9393
+      },
+      "generate/jsdoc.json": {
+        "size": 655
+      },
+      "generate/jsdoc_strip_path.js": {
+        "size": 350
+      },
+      "generate/jupiter_moons/fortran/README.md": {
+        "size": 159
+      },
+      "generate/jupiter_moons/fortran/correct.txt": {
+        "size": 12263
+      },
+      "generate/jupiter_moons/horizons/README.txt": {
+        "size": 1472
+      },
+      "generate/jupiter_moons/horizons/jm0.txt": {
+        "size": 524313
+      },
+      "generate/jupiter_moons/horizons/jm1.txt": {
+        "size": 524313
+      },
+      "generate/jupiter_moons/horizons/jm2.txt": {
+        "size": 524313
+      },
+      "generate/jupiter_moons/horizons/jm3.txt": {
+        "size": 524313
+      },
+      "generate/jupiter_moons/horizons/jmcompare.py": {
+        "size": 3034
+      },
+      "generate/kotlindoc/format_kotlin_doc.py": {
+        "size": 8127
+      },
+      "generate/kotlindoc/kotlin_prefix.md": {
+        "size": 2872
+      },
+      "generate/lagrange/bary_L4.txt": {
+        "size": 5365
+      },
+      "generate/lagrange/bary_moon.txt": {
+        "size": 5924
+      },
+      "generate/lagrange/check_L4.txt": {
+        "size": 5482
+      },
+      "generate/lagrange/check_moon.txt": {
+        "size": 6041
+      },
+      "generate/lagrange/em_L1.txt": {
+        "size": 524311
+      },
+      "generate/lagrange/em_L2.txt": {
+        "size": 524311
+      },
+      "generate/lagrange/em_L4.txt": {
+        "size": 524311
+      },
+      "generate/lagrange/em_L5.txt": {
+        "size": 524311
+      },
+      "generate/lagrange/geo_moon.txt": {
+        "size": 524311
+      },
+      "generate/lagrange/helio_emb.txt": {
+        "size": 173667
+      },
+      "generate/lagrange/lagrange.py": {
+        "size": 2001
+      },
+      "generate/lagrange/semb_L1.txt": {
+        "size": 174739
+      },
+      "generate/lagrange/semb_L2.txt": {
+        "size": 174174
+      },
+      "generate/lagrange/semb_L4.txt": {
+        "size": 174191
+      },
+      "generate/lagrange/semb_L5.txt": {
+        "size": 174207
+      },
+      "generate/libration/README.md": {
+        "size": 1126
+      },
+      "generate/libration/mooninfo_2020.txt": {
+        "size": 524313
+      },
+      "generate/libration/mooninfo_2021.txt": {
+        "size": 524313
+      },
+      "generate/libration/mooninfo_2022.txt": {
+        "size": 524313
+      },
+      "generate/longitude/opposition_2018.txt": {
+        "size": 149
+      },
+      "generate/magnitude/Jupiter.txt": {
+        "size": 382509
+      },
+      "generate/magnitude/Mars.txt": {
+        "size": 382506
+      },
+      "generate/magnitude/Mercury.txt": {
+        "size": 382510
+      },
+      "generate/magnitude/Moon.txt": {
+        "size": 382418
+      },
+      "generate/magnitude/Neptune.txt": {
+        "size": 382546
+      },
+      "generate/magnitude/Pluto.txt": {
+        "size": 382545
+      },
+      "generate/magnitude/Sun.txt": {
+        "size": 382384
+      },
+      "generate/magnitude/Uranus.txt": {
+        "size": 382509
+      },
+      "generate/magnitude/Venus.txt": {
+        "size": 382510
+      },
+      "generate/magnitude/findmax.py": {
+        "size": 3115
+      },
+      "generate/magnitude/maxmag_Venus.txt": {
+        "size": 2700
+      },
+      "generate/make_constellation_data.py": {
+        "size": 1652
+      },
+      "generate/model_data/addsol.txt": {
+        "size": 4992
+      },
+      "generate/model_data/iau2000b.txt": {
+        "size": 6237
+      },
+      "generate/moon_nodes/README.md": {
+        "size": 426
+      },
+      "generate/moon_nodes/espenak_nodes.txt": {
+        "size": 120681
+      },
+      "generate/moon_nodes/moon_nodes.txt": {
+        "size": 107360
+      },
+      "generate/moon_nodes/parse_moon_nodes.py": {
+        "size": 2555
+      },
+      "generate/moonphase/moon_ecl.txt": {
+        "size": 524313
+      },
+      "generate/moonphase/moon_ecm.txt": {
+        "size": 524313
+      },
+      "generate/moonphase/moon_eqj.txt": {
+        "size": 524313
+      },
+      "generate/moonphase/moonphases.txt": {
+        "size": 41418
+      },
+      "generate/moonphase/parse_moon_phases.js": {
+        "size": 1351
+      },
+      "generate/output/jupiter_moons.txt": {
+        "size": 5637
+      },
+      "generate/output/vsop_0.txt": {
+        "size": 2330
+      },
+      "generate/output/vsop_1.txt": {
+        "size": 2118
+      },
+      "generate/output/vsop_11.txt": {
+        "size": 3949
+      },
+      "generate/output/vsop_3.txt": {
+        "size": 6788
+      },
+      "generate/output/vsop_4.txt": {
+        "size": 5412
+      },
+      "generate/output/vsop_5.txt": {
+        "size": 6789
+      },
+      "generate/output/vsop_6.txt": {
+        "size": 5669
+      },
+      "generate/output/vsop_7.txt": {
+        "size": 2349
+      },
+      "generate/package-lock.json": {
+        "size": 121485
+      },
+      "generate/package.json": {
+        "size": 1392
+      },
+      "generate/pass.txt": {
+        "size": 440
+      },
+      "generate/patch_readme.py": {
+        "size": 1107
+      },
+      "generate/patch_version_numbers.py": {
+        "size": 1439
+      },
+      "generate/plot_delta_t.py": {
+        "size": 2717
+      },
+      "generate/plotdist.py": {
+        "size": 1047
+      },
+      "generate/pydown/py_prefix.md": {
+        "size": 11862
+      },
+      "generate/pydown/pydown.py": {
+        "size": 15343
+      },
+      "generate/riseset/README.md": {
+        "size": 549
+      },
+      "generate/riseset/elevation.txt": {
+        "size": 704
+      },
+      "generate/riseset/parse_riseset.py": {
+        "size": 2617
+      },
+      "generate/riseset/riseset.txt": {
+        "size": 200906
+      },
+      "generate/riseset/twilight.txt": {
+        "size": 846
+      },
+      "generate/seasons/parse_seasons.js": {
+        "size": 843
+      },
+      "generate/seasons/seasons.txt": {
+        "size": 48762
+      },
+      "generate/sort_js_functions.py": {
+        "size": 1906
+      },
+      "generate/template/astronomy.py": {
+        "size": 347489
+      },
+      "generate/template/astronomy.ts": {
+        "size": 353994
+      },
+      "generate/test.js": {
+        "size": 157572
+      },
+      "generate/test.py": {
+        "size": 159211
+      },
+      "generate/top2013/correct.txt": {
+        "size": 16665
+      },
+      "generate/top2013/jplcheck.py": {
+        "size": 3243
+      },
+      "generate/top2013/jplhor_5.txt": {
+        "size": 6318
+      },
+      "generate/top2013/jplhor_6.txt": {
+        "size": 6345
+      },
+      "generate/top2013/jplhor_7.txt": {
+        "size": 6318
+      },
+      "generate/top2013/jplhor_8.txt": {
+        "size": 6320
+      },
+      "generate/top2013/jplhor_9.txt": {
+        "size": 6315
+      },
+      "generate/topostate/EMB_N30_W80_1000m.txt": {
+        "size": 251339
+      },
+      "generate/topostate/Earth_N30_W80_1000m.txt": {
+        "size": 252875
+      },
+      "generate/topostate/geoid.txt": {
+        "size": 5040
+      },
+      "generate/trimspace.js": {
+        "size": 852
+      },
+      "generate/tsconfig.main.json": {
+        "size": 290
+      },
+      "generate/tsconfig.module.json": {
+        "size": 236
+      },
+      "generate/update_copyrights.py": {
+        "size": 1148
+      },
+      "generate/version.txt": {
+        "size": 7
+      },
+      "generate/vsop/vsop87.txt": {
+        "size": 14046
+      },
+      "jitpack.yml": {
+        "size": 89
+      },
+      "source/c/README.md": {
+        "size": 224769
+      },
+      "source/csharp/README.md": {
+        "size": 186890
+      },
+      "source/js/README.md": {
+        "size": 174680
+      },
+      "source/js/astronomy.browser.js": {
+        "size": 422322
+      },
+      "source/js/astronomy.browser.min.js": {
+        "size": 116485
+      },
+      "source/js/astronomy.d.ts": {
+        "size": 156406
+      },
+      "source/js/astronomy.js": {
+        "size": 421432
+      },
+      "source/js/astronomy.min.js": {
+        "size": 135106
+      },
+      "source/js/astronomy.ts": {
+        "size": 422879
+      },
+      "source/js/esm/astronomy.js": {
+        "size": 412177
+      },
+      "source/js/package.json": {
+        "size": 1078
+      },
+      "source/kotlin/README.md": {
+        "size": 56542
+      },
+      "source/kotlin/doc/-a-u_-p-e-r_-l-y.md": {
+        "size": 330
+      },
+      "source/kotlin/doc/-aberration/-corrected/index.md": {
+        "size": 209
+      },
+      "source/kotlin/doc/-aberration/-none/index.md": {
+        "size": 190
+      },
+      "source/kotlin/doc/-aberration/index.md": {
+        "size": 1427
+      },
+      "source/kotlin/doc/-apsis-info/-apsis-info.md": {
+        "size": 361
+      },
+      "source/kotlin/doc/-apsis-info/distance-au.md": {
+        "size": 346
+      },
+      "source/kotlin/doc/-apsis-info/distance-km.md": {
+        "size": 338
+      },
+      "source/kotlin/doc/-apsis-info/index.md": {
+        "size": 2178
+      },
+      "source/kotlin/doc/-apsis-info/kind.md": {
+        "size": 235
+      },
+      "source/kotlin/doc/-apsis-info/time.md": {
+        "size": 207
+      },
+      "source/kotlin/doc/-apsis-kind/-apocenter/index.md": {
+        "size": 237
+      },
+      "source/kotlin/doc/-apsis-kind/-pericenter/index.md": {
+        "size": 237
+      },
+      "source/kotlin/doc/-apsis-kind/index.md": {
+        "size": 665
+      },
+      "source/kotlin/doc/-atmosphere-info/-atmosphere-info.md": {
+        "size": 526
+      },
+      "source/kotlin/doc/-atmosphere-info/density.md": {
+        "size": 307
+      },
+      "source/kotlin/doc/-atmosphere-info/index.md": {
+        "size": 1632
+      },
+      "source/kotlin/doc/-atmosphere-info/pressure.md": {
+        "size": 302
+      },
+      "source/kotlin/doc/-atmosphere-info/temperature.md": {
+        "size": 320
+      },
+      "source/kotlin/doc/-axis-info/-axis-info.md": {
+        "size": 511
+      },
+      "source/kotlin/doc/-axis-info/dec.md": {
+        "size": 308
+      },
+      "source/kotlin/doc/-axis-info/index.md": {
+        "size": 3005
+      },
+      "source/kotlin/doc/-axis-info/north.md": {
+        "size": 269
+      },
+      "source/kotlin/doc/-axis-info/ra.md": {
+        "size": 314
+      },
+      "source/kotlin/doc/-axis-info/spin.md": {
+        "size": 300
+      },
+      "source/kotlin/doc/-body/-e-m-b/index.md": {
+        "size": 419
+      },
+      "source/kotlin/doc/-body/-earth/index.md": {
+        "size": 355
+      },
+      "source/kotlin/doc/-body/-jupiter/index.md": {
+        "size": 159
+      },
+      "source/kotlin/doc/-body/-mars/index.md": {
+        "size": 150
+      },
+      "source/kotlin/doc/-body/-mercury/index.md": {
+        "size": 159
+      },
+      "source/kotlin/doc/-body/-moon/index.md": {
+        "size": 174
+      },
+      "source/kotlin/doc/-body/-neptune/index.md": {
+        "size": 159
+      },
+      "source/kotlin/doc/-body/-pluto/index.md": {
+        "size": 153
+      },
+      "source/kotlin/doc/-body/-s-s-b/index.md": {
+        "size": 555
+      },
+      "source/kotlin/doc/-body/-saturn/index.md": {
+        "size": 156
+      },
+      "source/kotlin/doc/-body/-star1/index.md": {
+        "size": 187
+      },
+      "source/kotlin/doc/-body/-star2/index.md": {
+        "size": 187
+      },
+      "source/kotlin/doc/-body/-star3/index.md": {
+        "size": 187
+      },
+      "source/kotlin/doc/-body/-star4/index.md": {
+        "size": 187
+      },
+      "source/kotlin/doc/-body/-star5/index.md": {
+        "size": 187
+      },
+      "source/kotlin/doc/-body/-star6/index.md": {
+        "size": 187
+      },
+      "source/kotlin/doc/-body/-star7/index.md": {
+        "size": 187
+      },
+      "source/kotlin/doc/-body/-star8/index.md": {
+        "size": 187
+      },
+      "source/kotlin/doc/-body/-sun/index.md": {
+        "size": 140
+      },
+      "source/kotlin/doc/-body/-uranus/index.md": {
+        "size": 156
+      },
+      "source/kotlin/doc/-body/-venus/index.md": {
+        "size": 153
+      },
+      "source/kotlin/doc/-body/index.md": {
+        "size": 1783
+      },
+      "source/kotlin/doc/-c-a-l-l-i-s-t-o_-r-a-d-i-u-s_-k-m.md": {
+        "size": 402
+      },
+      "source/kotlin/doc/-c_-a-u-d-a-y.md": {
+        "size": 299
+      },
+      "source/kotlin/doc/-constellation-info/-constellation-info.md": {
+        "size": 639
+      },
+      "source/kotlin/doc/-constellation-info/dec1875.md": {
+        "size": 311
+      },
+      "source/kotlin/doc/-constellation-info/index.md": {
+        "size": 2403
+      },
+      "source/kotlin/doc/-constellation-info/name.md": {
+        "size": 294
+      },
+      "source/kotlin/doc/-constellation-info/ra1875.md": {
+        "size": 310
+      },
+      "source/kotlin/doc/-constellation-info/symbol.md": {
+        "size": 325
+      },
+      "source/kotlin/doc/-d-e-g2-r-a-d.md": {
+        "size": 323
+      },
+      "source/kotlin/doc/-date-time/-date-time.md": {
+        "size": 756
+      },
+      "source/kotlin/doc/-date-time/day.md": {
+        "size": 261
+      },
+      "source/kotlin/doc/-date-time/hour.md": {
+        "size": 265
+      },
+      "source/kotlin/doc/-date-time/index.md": {
+        "size": 3318
+      },
+      "source/kotlin/doc/-date-time/minute.md": {
+        "size": 271
+      },
+      "source/kotlin/doc/-date-time/month.md": {
+        "size": 287
+      },
+      "source/kotlin/doc/-date-time/second.md": {
+        "size": 317
+      },
+      "source/kotlin/doc/-date-time/to-days.md": {
+        "size": 344
+      },
+      "source/kotlin/doc/-date-time/to-string.md": {
+        "size": 421
+      },
+      "source/kotlin/doc/-date-time/to-time.md": {
+        "size": 297
+      },
+      "source/kotlin/doc/-date-time/year.md": {
+        "size": 261
+      },
+      "source/kotlin/doc/-direction/-rise/index.md": {
+        "size": 561
+      },
+      "source/kotlin/doc/-direction/-set/index.md": {
+        "size": 560
+      },
+      "source/kotlin/doc/-direction/index.md": {
+        "size": 969
+      },
+      "source/kotlin/doc/-direction/sign.md": {
+        "size": 364
+      },
+      "source/kotlin/doc/-e-u-r-o-p-a_-r-a-d-i-u-s_-k-m.md": {
+        "size": 386
+      },
+      "source/kotlin/doc/-earth-not-allowed-exception/-earth-not-allowed-exception.md": {
+        "size": 272
+      },
+      "source/kotlin/doc/-earth-not-allowed-exception/index.md": {
+        "size": 4044
+      },
+      "source/kotlin/doc/-eclipse-event/-eclipse-event.md": {
+        "size": 333
+      },
+      "source/kotlin/doc/-eclipse-event/altitude.md": {
+        "size": 410
+      },
+      "source/kotlin/doc/-eclipse-event/index.md": {
+        "size": 1672
+      },
+      "source/kotlin/doc/-eclipse-event/time.md": {
+        "size": 210
+      },
+      "source/kotlin/doc/-eclipse-kind/-annular/index.md": {
+        "size": 229
+      },
+      "source/kotlin/doc/-eclipse-kind/-partial/index.md": {
+        "size": 200
+      },
+      "source/kotlin/doc/-eclipse-kind/-penumbral/index.md": {
+        "size": 236
+      },
+      "source/kotlin/doc/-eclipse-kind/-total/index.md": {
+        "size": 192
+      },
+      "source/kotlin/doc/-eclipse-kind/index.md": {
+        "size": 811
+      },
+      "source/kotlin/doc/-ecliptic/-ecliptic.md": {
+        "size": 408
+      },
+      "source/kotlin/doc/-ecliptic/elat.md": {
+        "size": 323
+      },
+      "source/kotlin/doc/-ecliptic/elon.md": {
+        "size": 317
+      },
+      "source/kotlin/doc/-ecliptic/index.md": {
+        "size": 1728
+      },
+      "source/kotlin/doc/-ecliptic/vec.md": {
+        "size": 408
+      },
+      "source/kotlin/doc/-elongation-info/-elongation-info.md": {
+        "size": 514
+      },
+      "source/kotlin/doc/-elongation-info/ecliptic-separation.md": {
+        "size": 417
+      },
+      "source/kotlin/doc/-elongation-info/elongation.md": {
+        "size": 354
+      },
+      "source/kotlin/doc/-elongation-info/index.md": {
+        "size": 2053
+      },
+      "source/kotlin/doc/-elongation-info/time.md": {
+        "size": 218
+      },
+      "source/kotlin/doc/-elongation-info/visibility.md": {
+        "size": 283
+      },
+      "source/kotlin/doc/-equator-epoch/-j2000/index.md": {
+        "size": 217
+      },
+      "source/kotlin/doc/-equator-epoch/-of-date/index.md": {
+        "size": 254
+      },
+      "source/kotlin/doc/-equator-epoch/index.md": {
+        "size": 1453
+      },
+      "source/kotlin/doc/-equatorial/-equatorial.md": {
+        "size": 519
+      },
+      "source/kotlin/doc/-equatorial/dec.md": {
+        "size": 264
+      },
+      "source/kotlin/doc/-equatorial/dist.md": {
+        "size": 283
+      },
+      "source/kotlin/doc/-equatorial/index.md": {
+        "size": 1886
+      },
+      "source/kotlin/doc/-equatorial/ra.md": {
+        "size": 270
+      },
+      "source/kotlin/doc/-equatorial/vec.md": {
+        "size": 273
+      },
+      "source/kotlin/doc/-g-a-n-y-m-e-d-e_-r-a-d-i-u-s_-k-m.md": {
+        "size": 402
+      },
+      "source/kotlin/doc/-global-solar-eclipse-info/-global-solar-eclipse-info.md": {
+        "size": 767
+      },
+      "source/kotlin/doc/-global-solar-eclipse-info/distance.md": {
+        "size": 367
+      },
+      "source/kotlin/doc/-global-solar-eclipse-info/index.md": {
+        "size": 4818
+      },
+      "source/kotlin/doc/-global-solar-eclipse-info/kind.md": {
+        "size": 294
+      },
+      "source/kotlin/doc/-global-solar-eclipse-info/latitude.md": {
+        "size": 343
+      },
+      "source/kotlin/doc/-global-solar-eclipse-info/longitude.md": {
+        "size": 349
+      },
+      "source/kotlin/doc/-global-solar-eclipse-info/obscuration.md": {
+        "size": 398
+      },
+      "source/kotlin/doc/-global-solar-eclipse-info/peak.md": {
+        "size": 339
+      },
+      "source/kotlin/doc/-gravity-simulator/-gravity-simulator.md": {
+        "size": 1878
+      },
+      "source/kotlin/doc/-gravity-simulator/index.md": {
+        "size": 2203
+      },
+      "source/kotlin/doc/-gravity-simulator/origin-body.md": {
+        "size": 280
+      },
+      "source/kotlin/doc/-gravity-simulator/solar-system-body-state.md": {
+        "size": 1058
+      },
+      "source/kotlin/doc/-gravity-simulator/swap.md": {
+        "size": 1263
+      },
+      "source/kotlin/doc/-gravity-simulator/time.md": {
+        "size": 233
+      },
+      "source/kotlin/doc/-gravity-simulator/update.md": {
+        "size": 1324
+      },
+      "source/kotlin/doc/-h-o-u-r2-r-a-d.md": {
+        "size": 335
+      },
+      "source/kotlin/doc/-hour-angle-info/-hour-angle-info.md": {
+        "size": 281
+      },
+      "source/kotlin/doc/-hour-angle-info/hor.md": {
+        "size": 270
+      },
+      "source/kotlin/doc/-hour-angle-info/index.md": {
+        "size": 1039
+      },
+      "source/kotlin/doc/-hour-angle-info/time.md": {
+        "size": 245
+      },
+      "source/kotlin/doc/-i-o_-r-a-d-i-u-s_-k-m.md": {
+        "size": 354
+      },
+      "source/kotlin/doc/-illumination-info/-illumination-info.md": {
+        "size": 784
+      },
+      "source/kotlin/doc/-illumination-info/helio-dist.md": {
+        "size": 345
+      },
+      "source/kotlin/doc/-illumination-info/index.md": {
+        "size": 3165
+      },
+      "source/kotlin/doc/-illumination-info/mag.md": {
+        "size": 309
+      },
+      "source/kotlin/doc/-illumination-info/phase-angle.md": {
+        "size": 409
+      },
+      "source/kotlin/doc/-illumination-info/phase-fraction.md": {
+        "size": 421
+      },
+      "source/kotlin/doc/-illumination-info/ring-tilt.md": {
+        "size": 371
+      },
+      "source/kotlin/doc/-illumination-info/time.md": {
+        "size": 220
+      },
+      "source/kotlin/doc/-internal-error/-internal-error.md": {
+        "size": 305
+      },
+      "source/kotlin/doc/-internal-error/index.md": {
+        "size": 3763
+      },
+      "source/kotlin/doc/-invalid-body-exception/-invalid-body-exception.md": {
+        "size": 277
+      },
+      "source/kotlin/doc/-invalid-body-exception/index.md": {
+        "size": 4084
+      },
+      "source/kotlin/doc/-j-u-p-i-t-e-r_-e-q-u-a-t-o-r-i-a-l_-r-a-d-i-u-s_-k-m.md": {
+        "size": 461
+      },
+      "source/kotlin/doc/-j-u-p-i-t-e-r_-m-e-a-n_-r-a-d-i-u-s_-k-m.md": {
+        "size": 424
+      },
+      "source/kotlin/doc/-j-u-p-i-t-e-r_-p-o-l-a-r_-r-a-d-i-u-s_-k-m.md": {
+        "size": 421
+      },
+      "source/kotlin/doc/-jupiter-moons-info/-jupiter-moons-info.md": {
+        "size": 420
+      },
+      "source/kotlin/doc/-jupiter-moons-info/callisto.md": {
+        "size": 271
+      },
+      "source/kotlin/doc/-jupiter-moons-info/europa.md": {
+        "size": 259
+      },
+      "source/kotlin/doc/-jupiter-moons-info/ganymede.md": {
+        "size": 271
+      },
+      "source/kotlin/doc/-jupiter-moons-info/index.md": {
+        "size": 1840
+      },
+      "source/kotlin/doc/-jupiter-moons-info/io.md": {
+        "size": 235
+      },
+      "source/kotlin/doc/-k-m_-p-e-r_-a-u.md": {
+        "size": 340
+      },
+      "source/kotlin/doc/-libration-info/-libration-info.md": {
+        "size": 821
+      },
+      "source/kotlin/doc/-libration-info/diam-deg.md": {
+        "size": 358
+      },
+      "source/kotlin/doc/-libration-info/distance-km.md": {
+        "size": 346
+      },
+      "source/kotlin/doc/-libration-info/elat.md": {
+        "size": 305
+      },
+      "source/kotlin/doc/-libration-info/elon.md": {
+        "size": 306
+      },
+      "source/kotlin/doc/-libration-info/index.md": {
+        "size": 2873
+      },
+      "source/kotlin/doc/-libration-info/mlat.md": {
+        "size": 285
+      },
+      "source/kotlin/doc/-libration-info/mlon.md": {
+        "size": 286
+      },
+      "source/kotlin/doc/-local-solar-eclipse-info/-local-solar-eclipse-info.md": {
+        "size": 685
+      },
+      "source/kotlin/doc/-local-solar-eclipse-info/index.md": {
+        "size": 4625
+      },
+      "source/kotlin/doc/-local-solar-eclipse-info/kind.md": {
+        "size": 293
+      },
+      "source/kotlin/doc/-local-solar-eclipse-info/obscuration.md": {
+        "size": 378
+      },
+      "source/kotlin/doc/-local-solar-eclipse-info/partial-begin.md": {
+        "size": 305
+      },
+      "source/kotlin/doc/-local-solar-eclipse-info/partial-end.md": {
+        "size": 289
+      },
+      "source/kotlin/doc/-local-solar-eclipse-info/peak.md": {
+        "size": 265
+      },
+      "source/kotlin/doc/-local-solar-eclipse-info/total-begin.md": {
+        "size": 354
+      },
+      "source/kotlin/doc/-local-solar-eclipse-info/total-end.md": {
+        "size": 342
+      },
+      "source/kotlin/doc/-lunar-eclipse-info/-lunar-eclipse-info.md": {
+        "size": 727
+      },
+      "source/kotlin/doc/-lunar-eclipse-info/index.md": {
+        "size": 4158
+      },
+      "source/kotlin/doc/-lunar-eclipse-info/kind.md": {
+        "size": 230
+      },
+      "source/kotlin/doc/-lunar-eclipse-info/obscuration.md": {
+        "size": 370
+      },
+      "source/kotlin/doc/-lunar-eclipse-info/peak.md": {
+        "size": 219
+      },
+      "source/kotlin/doc/-lunar-eclipse-info/sd-partial.md": {
+        "size": 345
+      },
+      "source/kotlin/doc/-lunar-eclipse-info/sd-penum.md": {
+        "size": 321
+      },
+      "source/kotlin/doc/-lunar-eclipse-info/sd-total.md": {
+        "size": 333
+      },
+      "source/kotlin/doc/-m-i-l-l-i-s-e-c-o-n-d-s_-p-e-r_-d-a-y.md": {
+        "size": 375
+      },
+      "source/kotlin/doc/-m-i-n-u-t-e-s_-p-e-r_-d-a-y.md": {
+        "size": 335
+      },
+      "source/kotlin/doc/-moon-quarter-info/-moon-quarter-info.md": {
+        "size": 346
+      },
+      "source/kotlin/doc/-moon-quarter-info/index.md": {
+        "size": 1026
+      },
+      "source/kotlin/doc/-moon-quarter-info/quarter.md": {
+        "size": 318
+      },
+      "source/kotlin/doc/-moon-quarter-info/time.md": {
+        "size": 221
+      },
+      "source/kotlin/doc/-node-event-info/-node-event-info.md": {
+        "size": 288
+      },
+      "source/kotlin/doc/-node-event-info/index.md": {
+        "size": 991
+      },
+      "source/kotlin/doc/-node-event-info/kind.md": {
+        "size": 244
+      },
+      "source/kotlin/doc/-node-event-info/time.md": {
+        "size": 208
+      },
+      "source/kotlin/doc/-node-event-kind/-ascending/index.md": {
+        "size": 241
+      },
+      "source/kotlin/doc/-node-event-kind/-descending/index.md": {
+        "size": 244
+      },
+      "source/kotlin/doc/-node-event-kind/index.md": {
+        "size": 685
+      },
+      "source/kotlin/doc/-observer/-observer.md": {
+        "size": 485
+      },
+      "source/kotlin/doc/-observer/height.md": {
+        "size": 333
+      },
+      "source/kotlin/doc/-observer/index.md": {
+        "size": 2472
+      },
+      "source/kotlin/doc/-observer/latitude.md": {
+        "size": 347
+      },
+      "source/kotlin/doc/-observer/longitude.md": {
+        "size": 380
+      },
+      "source/kotlin/doc/-observer/to-state-vector.md": {
+        "size": 1976
+      },
+      "source/kotlin/doc/-observer/to-vector.md": {
+        "size": 1955
+      },
+      "source/kotlin/doc/-position-function/index.md": {
+        "size": 815
+      },
+      "source/kotlin/doc/-position-function/position.md": {
+        "size": 468
+      },
+      "source/kotlin/doc/-r-a-d2-d-e-g.md": {
+        "size": 320
+      },
+      "source/kotlin/doc/-r-a-d2-h-o-u-r.md": {
+        "size": 333
+      },
+      "source/kotlin/doc/-refraction/-jpl-hor/index.md": {
+        "size": 232
+      },
+      "source/kotlin/doc/-refraction/-none/index.md": {
+        "size": 207
+      },
+      "source/kotlin/doc/-refraction/-normal/index.md": {
+        "size": 225
+      },
+      "source/kotlin/doc/-refraction/index.md": {
+        "size": 739
+      },
+      "source/kotlin/doc/-rotation-matrix/-companion/identity.md": {
+        "size": 604
+      },
+      "source/kotlin/doc/-rotation-matrix/-companion/index.md": {
+        "size": 467
+      },
+      "source/kotlin/doc/-rotation-matrix/-rotation-matrix.md": {
+        "size": 1370
+      },
+      "source/kotlin/doc/-rotation-matrix/combine.md": {
+        "size": 456
+      },
+      "source/kotlin/doc/-rotation-matrix/index.md": {
+        "size": 3370
+      },
+      "source/kotlin/doc/-rotation-matrix/inverse.md": {
+        "size": 347
+      },
+      "source/kotlin/doc/-rotation-matrix/pivot.md": {
+        "size": 1743
+      },
+      "source/kotlin/doc/-rotation-matrix/rot.md": {
+        "size": 413
+      },
+      "source/kotlin/doc/-rotation-matrix/rotate.md": {
+        "size": 1007
+      },
+      "source/kotlin/doc/-s-e-c-o-n-d-s_-p-e-r_-d-a-y.md": {
+        "size": 335
+      },
+      "source/kotlin/doc/-search-context/eval.md": {
+        "size": 503
+      },
+      "source/kotlin/doc/-search-context/index.md": {
+        "size": 739
+      },
+      "source/kotlin/doc/-seasons-info/-seasons-info.md": {
+        "size": 360
+      },
+      "source/kotlin/doc/-seasons-info/december-solstice.md": {
+        "size": 306
+      },
+      "source/kotlin/doc/-seasons-info/index.md": {
+        "size": 1518
+      },
+      "source/kotlin/doc/-seasons-info/june-solstice.md": {
+        "size": 281
+      },
+      "source/kotlin/doc/-seasons-info/march-equinox.md": {
+        "size": 282
+      },
+      "source/kotlin/doc/-seasons-info/september-equinox.md": {
+        "size": 306
+      },
+      "source/kotlin/doc/-spherical/-spherical.md": {
+        "size": 478
+      },
+      "source/kotlin/doc/-spherical/dist.md": {
+        "size": 260
+      },
+      "source/kotlin/doc/-spherical/index.md": {
+        "size": 2013
+      },
+      "source/kotlin/doc/-spherical/lat.md": {
+        "size": 277
+      },
+      "source/kotlin/doc/-spherical/lon.md": {
+        "size": 276
+      },
+      "source/kotlin/doc/-spherical/to-vector-from-horizon.md": {
+        "size": 1166
+      },
+      "source/kotlin/doc/-spherical/to-vector.md": {
+        "size": 589
+      },
+      "source/kotlin/doc/-state-vector/-state-vector.md": {
+        "size": 1201
+      },
+      "source/kotlin/doc/-state-vector/div.md": {
+        "size": 318
+      },
+      "source/kotlin/doc/-state-vector/index.md": {
+        "size": 4240
+      },
+      "source/kotlin/doc/-state-vector/minus.md": {
+        "size": 287
+      },
+      "source/kotlin/doc/-state-vector/plus.md": {
+        "size": 270
+      },
+      "source/kotlin/doc/-state-vector/position.md": {
+        "size": 266
+      },
+      "source/kotlin/doc/-state-vector/t.md": {
+        "size": 211
+      },
+      "source/kotlin/doc/-state-vector/unary-minus.md": {
+        "size": 301
+      },
+      "source/kotlin/doc/-state-vector/velocity.md": {
+        "size": 266
+      },
+      "source/kotlin/doc/-state-vector/vx.md": {
+        "size": 290
+      },
+      "source/kotlin/doc/-state-vector/vy.md": {
+        "size": 290
+      },
+      "source/kotlin/doc/-state-vector/vz.md": {
+        "size": 290
+      },
+      "source/kotlin/doc/-state-vector/x.md": {
+        "size": 282
+      },
+      "source/kotlin/doc/-state-vector/y.md": {
+        "size": 282
+      },
+      "source/kotlin/doc/-state-vector/z.md": {
+        "size": 282
+      },
+      "source/kotlin/doc/-time/-companion/from-milliseconds-since1970.md": {
+        "size": 851
+      },
+      "source/kotlin/doc/-time/-companion/from-terrestrial-time.md": {
+        "size": 1165
+      },
+      "source/kotlin/doc/-time/-companion/index.md": {
+        "size": 1054
+      },
+      "source/kotlin/doc/-time/-time.md": {
+        "size": 1211
+      },
+      "source/kotlin/doc/-time/add-days.md": {
+        "size": 1072
+      },
+      "source/kotlin/doc/-time/compare-to.md": {
+        "size": 479
+      },
+      "source/kotlin/doc/-time/index.md": {
+        "size": 3395
+      },
+      "source/kotlin/doc/-time/nutation-eps.md": {
+        "size": 277
+      },
+      "source/kotlin/doc/-time/nutation-psi.md": {
+        "size": 277
+      },
+      "source/kotlin/doc/-time/to-date-time.md": {
+        "size": 279
+      },
+      "source/kotlin/doc/-time/to-milliseconds-since1970.md": {
+        "size": 404
+      },
+      "source/kotlin/doc/-time/to-string.md": {
+        "size": 413
+      },
+      "source/kotlin/doc/-time/tt.md": {
+        "size": 899
+      },
+      "source/kotlin/doc/-time/ut.md": {
+        "size": 1611
+      },
+      "source/kotlin/doc/-topocentric/-topocentric.md": {
+        "size": 598
+      },
+      "source/kotlin/doc/-topocentric/altitude.md": {
+        "size": 344
+      },
+      "source/kotlin/doc/-topocentric/azimuth.md": {
+        "size": 349
+      },
+      "source/kotlin/doc/-topocentric/dec.md": {
+        "size": 265
+      },
+      "source/kotlin/doc/-topocentric/index.md": {
+        "size": 2178
+      },
+      "source/kotlin/doc/-topocentric/ra.md": {
+        "size": 271
+      },
+      "source/kotlin/doc/-transit-info/-transit-info.md": {
+        "size": 398
+      },
+      "source/kotlin/doc/-transit-info/finish.md": {
+        "size": 228
+      },
+      "source/kotlin/doc/-transit-info/index.md": {
+        "size": 2091
+      },
+      "source/kotlin/doc/-transit-info/peak.md": {
+        "size": 219
+      },
+      "source/kotlin/doc/-transit-info/separation.md": {
+        "size": 369
+      },
+      "source/kotlin/doc/-transit-info/start.md": {
+        "size": 229
+      },
+      "source/kotlin/doc/-vector/-vector.md": {
+        "size": 483
+      },
+      "source/kotlin/doc/-vector/angle-with.md": {
+        "size": 357
+      },
+      "source/kotlin/doc/-vector/div.md": {
+        "size": 302
+      },
+      "source/kotlin/doc/-vector/dot.md": {
+        "size": 307
+      },
+      "source/kotlin/doc/-vector/index.md": {
+        "size": 4086
+      },
+      "source/kotlin/doc/-vector/length.md": {
+        "size": 306
+      },
+      "source/kotlin/doc/-vector/minus.md": {
+        "size": 282
+      },
+      "source/kotlin/doc/-vector/plus.md": {
+        "size": 260
+      },
+      "source/kotlin/doc/-vector/t.md": {
+        "size": 206
+      },
+      "source/kotlin/doc/-vector/to-equatorial.md": {
+        "size": 299
+      },
+      "source/kotlin/doc/-vector/to-horizontal.md": {
+        "size": 1634
+      },
+      "source/kotlin/doc/-vector/to-observer.md": {
+        "size": 1244
+      },
+      "source/kotlin/doc/-vector/to-spherical.md": {
+        "size": 348
+      },
+      "source/kotlin/doc/-vector/unary-minus.md": {
+        "size": 279
+      },
+      "source/kotlin/doc/-vector/with-time.md": {
+        "size": 1014
+      },
+      "source/kotlin/doc/-vector/x.md": {
+        "size": 268
+      },
+      "source/kotlin/doc/-vector/y.md": {
+        "size": 268
+      },
+      "source/kotlin/doc/-vector/z.md": {
+        "size": 268
+      },
+      "source/kotlin/doc/-visibility/-evening/index.md": {
+        "size": 223
+      },
+      "source/kotlin/doc/-visibility/-morning/index.md": {
+        "size": 225
+      },
+      "source/kotlin/doc/-visibility/index.md": {
+        "size": 648
+      },
+      "source/kotlin/doc/angle-from-sun.md": {
+        "size": 949
+      },
+      "source/kotlin/doc/atmosphere.md": {
+        "size": 1226
+      },
+      "source/kotlin/doc/backdate-position.md": {
+        "size": 1693
+      },
+      "source/kotlin/doc/bary-state.md": {
+        "size": 1296
+      },
+      "source/kotlin/doc/constellation.md": {
+        "size": 1025
+      },
+      "source/kotlin/doc/correct-light-travel.md": {
+        "size": 1925
+      },
+      "source/kotlin/doc/define-star.md": {
+        "size": 1898
+      },
+      "source/kotlin/doc/degrees-to-radians.md": {
+        "size": 449
+      },
+      "source/kotlin/doc/ecliptic-geo-moon.md": {
+        "size": 1445
+      },
+      "source/kotlin/doc/ecliptic-longitude.md": {
+        "size": 956
+      },
+      "source/kotlin/doc/elongation.md": {
+        "size": 1533
+      },
+      "source/kotlin/doc/equator.md": {
+        "size": 1802
+      },
+      "source/kotlin/doc/equatorial-to-ecliptic.md": {
+        "size": 900
+      },
+      "source/kotlin/doc/geo-emb-state.md": {
+        "size": 765
+      },
+      "source/kotlin/doc/geo-moon-state.md": {
+        "size": 1096
+      },
+      "source/kotlin/doc/geo-moon.md": {
+        "size": 793
+      },
+      "source/kotlin/doc/geo-vector.md": {
+        "size": 1705
+      },
+      "source/kotlin/doc/global-solar-eclipses-after.md": {
+        "size": 937
+      },
+      "source/kotlin/doc/helio-distance.md": {
+        "size": 990
+      },
+      "source/kotlin/doc/helio-state.md": {
+        "size": 1972
+      },
+      "source/kotlin/doc/helio-vector.md": {
+        "size": 1255
+      },
+      "source/kotlin/doc/horizon.md": {
+        "size": 2977
+      },
+      "source/kotlin/doc/hour-angle.md": {
+        "size": 1288
+      },
+      "source/kotlin/doc/illumination.md": {
+        "size": 1698
+      },
+      "source/kotlin/doc/index.md": {
+        "size": 51559
+      },
+      "source/kotlin/doc/inverse-refraction-angle.md": {
+        "size": 1196
+      },
+      "source/kotlin/doc/jupiter-moons.md": {
+        "size": 1205
+      },
+      "source/kotlin/doc/lagrange-point-fast.md": {
+        "size": 2570
+      },
+      "source/kotlin/doc/lagrange-point.md": {
+        "size": 2407
+      },
+      "source/kotlin/doc/libration.md": {
+        "size": 1214
+      },
+      "source/kotlin/doc/local-solar-eclipses-after.md": {
+        "size": 1021
+      },
+      "source/kotlin/doc/lunar-apsides-after.md": {
+        "size": 823
+      },
+      "source/kotlin/doc/lunar-eclipses-after.md": {
+        "size": 846
+      },
+      "source/kotlin/doc/mass-product.md": {
+        "size": 1227
+      },
+      "source/kotlin/doc/moon-nodes-after.md": {
+        "size": 818
+      },
+      "source/kotlin/doc/moon-phase.md": {
+        "size": 792
+      },
+      "source/kotlin/doc/moon-quarters-after.md": {
+        "size": 821
+      },
+      "source/kotlin/doc/next-global-solar-eclipse.md": {
+        "size": 1097
+      },
+      "source/kotlin/doc/next-local-solar-eclipse.md": {
+        "size": 1210
+      },
+      "source/kotlin/doc/next-lunar-apsis.md": {
+        "size": 766
+      },
+      "source/kotlin/doc/next-lunar-eclipse.md": {
+        "size": 995
+      },
+      "source/kotlin/doc/next-moon-node.md": {
+        "size": 735
+      },
+      "source/kotlin/doc/next-moon-quarter.md": {
+        "size": 940
+      },
+      "source/kotlin/doc/next-planet-apsis.md": {
+        "size": 1149
+      },
+      "source/kotlin/doc/next-transit.md": {
+        "size": 866
+      },
+      "source/kotlin/doc/observer-gravity.md": {
+        "size": 1514
+      },
+      "source/kotlin/doc/pair-longitude.md": {
+        "size": 1598
+      },
+      "source/kotlin/doc/planet-apsides-after.md": {
+        "size": 983
+      },
+      "source/kotlin/doc/planet-orbital-period.md": {
+        "size": 536
+      },
+      "source/kotlin/doc/radians-to-degrees.md": {
+        "size": 449
+      },
+      "source/kotlin/doc/refraction-angle.md": {
+        "size": 1434
+      },
+      "source/kotlin/doc/rotation-axis.md": {
+        "size": 1386
+      },
+      "source/kotlin/doc/rotation-ecl-eqd.md": {
+        "size": 717
+      },
+      "source/kotlin/doc/rotation-ecl-eqj.md": {
+        "size": 553
+      },
+      "source/kotlin/doc/rotation-ecl-hor.md": {
+        "size": 1114
+      },
+      "source/kotlin/doc/rotation-ect-eqd.md": {
+        "size": 677
+      },
+      "source/kotlin/doc/rotation-ect-eqj.md": {
+        "size": 722
+      },
+      "source/kotlin/doc/rotation-eqd-ecl.md": {
+        "size": 716
+      },
+      "source/kotlin/doc/rotation-eqd-ect.md": {
+        "size": 677
+      },
+      "source/kotlin/doc/rotation-eqd-eqj.md": {
+        "size": 716
+      },
+      "source/kotlin/doc/rotation-eqd-hor.md": {
+        "size": 1126
+      },
+      "source/kotlin/doc/rotation-eqj-ecl.md": {
+        "size": 553
+      },
+      "source/kotlin/doc/rotation-eqj-ect.md": {
+        "size": 722
+      },
+      "source/kotlin/doc/rotation-eqj-eqd.md": {
+        "size": 716
+      },
+      "source/kotlin/doc/rotation-eqj-gal.md": {
+        "size": 600
+      },
+      "source/kotlin/doc/rotation-eqj-hor.md": {
+        "size": 1104
+      },
+      "source/kotlin/doc/rotation-gal-eqj.md": {
+        "size": 600
+      },
+      "source/kotlin/doc/rotation-hor-ecl.md": {
+        "size": 791
+      },
+      "source/kotlin/doc/rotation-hor-eqd.md": {
+        "size": 903
+      },
+      "source/kotlin/doc/rotation-hor-eqj.md": {
+        "size": 874
+      },
+      "source/kotlin/doc/search-altitude.md": {
+        "size": 3605
+      },
+      "source/kotlin/doc/search-global-solar-eclipse.md": {
+        "size": 1124
+      },
+      "source/kotlin/doc/search-hour-angle.md": {
+        "size": 2728
+      },
+      "source/kotlin/doc/search-local-solar-eclipse.md": {
+        "size": 1483
+      },
+      "source/kotlin/doc/search-lunar-apsis.md": {
+        "size": 1248
+      },
+      "source/kotlin/doc/search-lunar-eclipse.md": {
+        "size": 1022
+      },
+      "source/kotlin/doc/search-max-elongation.md": {
+        "size": 1766
+      },
+      "source/kotlin/doc/search-moon-node.md": {
+        "size": 1183
+      },
+      "source/kotlin/doc/search-moon-phase.md": {
+        "size": 2165
+      },
+      "source/kotlin/doc/search-moon-quarter.md": {
+        "size": 1027
+      },
+      "source/kotlin/doc/search-peak-magnitude.md": {
+        "size": 1466
+      },
+      "source/kotlin/doc/search-planet-apsis.md": {
+        "size": 1469
+      },
+      "source/kotlin/doc/search-relative-longitude.md": {
+        "size": 2793
+      },
+      "source/kotlin/doc/search-rise-set.md": {
+        "size": 3727
+      },
+      "source/kotlin/doc/search-sun-longitude.md": {
+        "size": 1294
+      },
+      "source/kotlin/doc/search-transit.md": {
+        "size": 1006
+      },
+      "source/kotlin/doc/search.md": {
+        "size": 3449
+      },
+      "source/kotlin/doc/seasons.md": {
+        "size": 2069
+      },
+      "source/kotlin/doc/sidereal-time.md": {
+        "size": 1489
+      },
+      "source/kotlin/doc/sun-position.md": {
+        "size": 1402
+      },
+      "source/kotlin/doc/times.md": {
+        "size": 346
+      },
+      "source/kotlin/doc/transits-after.md": {
+        "size": 949
+      },
+      "source/python/README.md": {
+        "size": 176155
+      },
+      "source/python/astronomy/__init__.py": {
+        "size": 225
+      },
+      "source/python/astronomy/astronomy.py": {
+        "size": 434431
+      },
+      "source/python/pyproject.toml": {
+        "size": 104
+      },
+      "source/python/setup.cfg": {
+        "size": 57
+      },
+      "source/python/setup.py": {
+        "size": 701
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": []
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": false,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "demothon",
+        "module": "graphdist",
+        "functions": [
+          "GraphPlanetHelioDistance"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "GraphPlanetHelioDistance": [
+            "body",
+            "t1",
+            "t2",
+            "npoints"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "galactic",
+        "functions": [
+          "GalacticToHorizontal"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "GalacticToHorizontal": [
+            "time",
+            "observer",
+            "glat",
+            "glon"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "constellation",
+        "functions": [
+          "BodyConstellation",
+          "FindConstellationChange",
+          "FindConstellationChanges"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "BodyConstellation": [
+            "body",
+            "time"
+          ],
+          "FindConstellationChange": [
+            "body",
+            "c1",
+            "t1",
+            "t2"
+          ],
+          "FindConstellationChanges": [
+            "body",
+            "startTime",
+            "stopTime",
+            "dayIncrement"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "lunarday",
+        "functions": [
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "main": [
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "horizon",
+        "functions": [
+          "ECLIPLON",
+          "FindEclipticCrossings",
+          "HorizontalCoords",
+          "SearchCrossing"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "ECLIPLON": [
+            "i"
+          ],
+          "HorizontalCoords": [
+            "ecliptic_longitude",
+            "time",
+            "rot_ecl_hor"
+          ],
+          "SearchCrossing": [
+            "time",
+            "rot_ecl_hor",
+            "e1",
+            "e2"
+          ],
+          "FindEclipticCrossings": [
+            "observer",
+            "time"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "solar_eclipse",
+        "functions": [
+          "PrintEclipse"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "PrintEclipse": [
+            "count",
+            "eclipse"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "jupiter_moons",
+        "functions": [
+          "PrintBody"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "PrintBody": [
+            "name",
+            "geovec"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "camera",
+        "functions": [
+          "Camera"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "Camera": [
+            "observer",
+            "time"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "lunar_eclipse",
+        "functions": [
+          "PrintEclipse",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "PrintEclipse": [
+            "e"
+          ],
+          "main": [
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "triangulate",
+        "functions": [
+          "Debug",
+          "DirectionVector",
+          "DotProduct",
+          "Intersect"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "Debug": [
+            "text"
+          ],
+          "DotProduct": [
+            "a",
+            "b"
+          ],
+          "Intersect": [
+            "pos1",
+            "dir1",
+            "pos2",
+            "dir2"
+          ],
+          "DirectionVector": [
+            "time",
+            "observer",
+            "altitude",
+            "azimuth"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "lunar_angles",
+        "functions": [
+          "AdjustAngle",
+          "AppendEvents",
+          "LongitudeFunc",
+          "LongitudeSearch",
+          "PrintMoonChart",
+          "Straddle"
+        ],
+        "classes": [
+          "Event",
+          "PairSearchContext"
+        ],
+        "function_signatures": {
+          "AdjustAngle": [
+            "angle"
+          ],
+          "LongitudeFunc": [
+            "context",
+            "time"
+          ],
+          "LongitudeSearch": [
+            "body1",
+            "body2",
+            "angle",
+            "t1",
+            "t2"
+          ],
+          "Straddle": [
+            "lon1",
+            "lon2",
+            "angle"
+          ],
+          "AppendEvents": [
+            "event_list",
+            "body",
+            "startTime",
+            "stopTime",
+            "dayIncrement"
+          ],
+          "PrintMoonChart": [
+            "startTime",
+            "stopTime",
+            "dayIncrement"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "riseset",
+        "functions": [
+          "PrintEvent",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "PrintEvent": [
+            "name",
+            "time"
+          ],
+          "main": [
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "galeqj_matrix",
+        "functions": [
+          "PrintRot"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "PrintRot": [
+            "rot"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "astro_demo_common",
+        "functions": [
+          "ParseArgs"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "ParseArgs": [
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "pairlon",
+        "functions": [
+          "GraphPairLongitude"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "GraphPairLongitude": [
+            "body1",
+            "body2",
+            "t1",
+            "t2",
+            "npoints"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "moonphase",
+        "functions": [
+          "QuarterName",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "QuarterName": [
+            "quarter"
+          ],
+          "main": [
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "demothon",
+        "module": "astronomy",
+        "functions": [
+          "AngleBetween",
+          "AngleFromSun",
+          "Atmosphere",
+          "BackdatePosition",
+          "BaryState",
+          "BodyCode",
+          "CombineRotation",
+          "Constellation",
+          "CorrectLightTravel",
+          "DefineStar",
+          "DeltaT_EspenakMeeus",
+          "Ecliptic",
+          "EclipticGeoMoon",
+          "EclipticLongitude",
+          "Elongation",
+          "Equator",
+          "EquatorFromVector",
+          "GeoEmbState",
+          "GeoMoon",
+          "GeoMoonState",
+          "GeoVector",
+          "HelioDistance",
+          "HelioState",
+          "HelioVector",
+          "Horizon",
+          "HorizonFromVector",
+          "HourAngle",
+          "IdentityMatrix",
+          "Illumination",
+          "InverseRefractionAngle",
+          "InverseRotation",
+          "JupiterMoons",
+          "LagrangePoint",
+          "LagrangePointFast",
+          "Libration",
+          "MassProduct",
+          "MoonPhase",
+          "NextGlobalSolarEclipse",
+          "NextLocalSolarEclipse",
+          "NextLunarApsis",
+          "NextLunarEclipse",
+          "NextMoonNode",
+          "NextMoonQuarter",
+          "NextPlanetApsis",
+          "NextTransit",
+          "ObserverGravity",
+          "ObserverState",
+          "ObserverVector",
+          "PairLongitude",
+          "Pivot",
+          "PlanetOrbitalPeriod",
+          "RefractionAngle",
+          "RotateState",
+          "RotateVector",
+          "RotationAxis",
+          "Rotation_ECL_EQD",
+          "Rotation_ECL_EQJ",
+          "Rotation_ECL_HOR",
+          "Rotation_ECT_EQD",
+          "Rotation_ECT_EQJ",
+          "Rotation_EQD_ECL",
+          "Rotation_EQD_ECT",
+          "Rotation_EQD_EQJ",
+          "Rotation_EQD_HOR",
+          "Rotation_EQJ_ECL",
+          "Rotation_EQJ_ECT",
+          "Rotation_EQJ_EQD",
+          "Rotation_EQJ_GAL",
+          "Rotation_EQJ_HOR",
+          "Rotation_GAL_EQJ",
+          "Rotation_HOR_ECL",
+          "Rotation_HOR_EQD",
+          "Rotation_HOR_EQJ",
+          "Search",
+          "SearchAltitude",
+          "SearchGlobalSolarEclipse",
+          "SearchHourAngle",
+          "SearchLocalSolarEclipse",
+          "SearchLunarApsis",
+          "SearchLunarEclipse",
+          "SearchMaxElongation",
+          "SearchMoonNode",
+          "SearchMoonPhase",
+          "SearchMoonQuarter",
+          "SearchPeakMagnitude",
+          "SearchPlanetApsis",
+          "SearchRelativeLongitude",
+          "SearchRiseSet",
+          "SearchSunLongitude",
+          "SearchTransit",
+          "Seasons",
+          "SiderealTime",
+          "SphereFromVector",
+          "SunPosition",
+          "VectorFromHorizon",
+          "VectorFromSphere",
+          "VectorObserver"
+        ],
+        "classes": [
+          "Apsis",
+          "ApsisKind",
+          "AtmosphereInfo",
+          "AxisInfo",
+          "BadVectorError",
+          "Body",
+          "ConstellationInfo",
+          "DateTimeFormatError",
+          "Direction",
+          "EarthNotAllowedError",
+          "EclipseEvent",
+          "EclipseKind",
+          "EclipticCoordinates",
+          "ElongationEvent",
+          "Equatorial",
+          "Error",
+          "GlobalSolarEclipseInfo",
+          "GravitySimulator",
+          "HorizontalCoordinates",
+          "HourAngleEvent",
+          "IlluminationInfo",
+          "InternalError",
+          "InvalidBodyError",
+          "JupiterMoonsInfo",
+          "LibrationInfo",
+          "LocalSolarEclipseInfo",
+          "LunarEclipseInfo",
+          "MoonQuarter",
+          "NoConvergeError",
+          "NodeEventInfo",
+          "NodeEventKind",
+          "Observer",
+          "PositionFunction",
+          "Refraction",
+          "RotationMatrix",
+          "SeasonInfo",
+          "Spherical",
+          "StateVector",
+          "Time",
+          "TransitInfo",
+          "Vector",
+          "Visibility"
+        ],
+        "function_signatures": {
+          "DeltaT_EspenakMeeus": [
+            "ut"
+          ],
+          "MassProduct": [
+            "body"
+          ],
+          "DefineStar": [
+            "body",
+            "ra",
+            "dec",
+            "distanceLightYears"
+          ],
+          "BodyCode": [
+            "name"
+          ],
+          "PlanetOrbitalPeriod": [
+            "body"
+          ],
+          "AngleBetween": [
+            "a",
+            "b"
+          ],
+          "SiderealTime": [
+            "time"
+          ],
+          "GeoMoon": [
+            "time"
+          ],
+          "EclipticGeoMoon": [
+            "time"
+          ],
+          "GeoMoonState": [
+            "time"
+          ],
+          "GeoEmbState": [
+            "time"
+          ],
+          "JupiterMoons": [
+            "time"
+          ],
+          "Search": [
+            "func",
+            "context",
+            "t1",
+            "t2",
+            "dt_tolerance_seconds"
+          ],
+          "HelioVector": [
+            "body",
+            "time"
+          ],
+          "HelioDistance": [
+            "body",
+            "time"
+          ],
+          "CorrectLightTravel": [
+            "func",
+            "time"
+          ],
+          "BackdatePosition": [
+            "time",
+            "observerBody",
+            "targetBody",
+            "aberration"
+          ],
+          "GeoVector": [
+            "body",
+            "time",
+            "aberration"
+          ],
+          "BaryState": [
+            "body",
+            "time"
+          ],
+          "HelioState": [
+            "body",
+            "time"
+          ],
+          "Equator": [
+            "body",
+            "time",
+            "observer",
+            "ofdate",
+            "aberration"
+          ],
+          "ObserverVector": [
+            "time",
+            "observer",
+            "ofdate"
+          ],
+          "ObserverState": [
+            "time",
+            "observer",
+            "ofdate"
+          ],
+          "VectorObserver": [
+            "vector",
+            "ofdate"
+          ],
+          "ObserverGravity": [
+            "latitude",
+            "height"
+          ],
+          "Horizon": [
+            "time",
+            "observer",
+            "ra",
+            "dec",
+            "refraction"
+          ],
+          "RefractionAngle": [
+            "refraction",
+            "altitude"
+          ],
+          "InverseRefractionAngle": [
+            "refraction",
+            "bent_altitude"
+          ],
+          "SunPosition": [
+            "time"
+          ],
+          "Ecliptic": [
+            "eqj"
+          ],
+          "EclipticLongitude": [
+            "body",
+            "time"
+          ],
+          "AngleFromSun": [
+            "body",
+            "time"
+          ],
+          "PairLongitude": [
+            "body1",
+            "body2",
+            "time"
+          ],
+          "Elongation": [
+            "body",
+            "time"
+          ],
+          "SearchRelativeLongitude": [
+            "body",
+            "targetRelLon",
+            "startTime"
+          ],
+          "SearchMaxElongation": [
+            "body",
+            "startTime"
+          ],
+          "SearchSunLongitude": [
+            "targetLon",
+            "startTime",
+            "limitDays"
+          ],
+          "MoonPhase": [
+            "time"
+          ],
+          "SearchMoonPhase": [
+            "targetLon",
+            "startTime",
+            "limitDays"
+          ],
+          "SearchMoonQuarter": [
+            "startTime"
+          ],
+          "NextMoonQuarter": [
+            "mq"
+          ],
+          "Atmosphere": [
+            "elevationMeters"
+          ],
+          "Illumination": [
+            "body",
+            "time"
+          ],
+          "SearchPeakMagnitude": [
+            "body",
+            "startTime"
+          ],
+          "SearchHourAngle": [
+            "body",
+            "observer",
+            "hourAngle",
+            "startTime",
+            "direction"
+          ],
+          "HourAngle": [
+            "body",
+            "time",
+            "observer"
+          ],
+          "SearchRiseSet": [
+            "body",
+            "observer",
+            "direction",
+            "startTime",
+            "limitDays",
+            "metersAboveGround"
+          ],
+          "SearchAltitude": [
+            "body",
+            "observer",
+            "direction",
+            "startTime",
+            "limitDays",
+            "altitude"
+          ],
+          "Seasons": [
+            "year"
+          ],
+          "SearchLunarApsis": [
+            "startTime"
+          ],
+          "NextLunarApsis": [
+            "apsis"
+          ],
+          "SearchPlanetApsis": [
+            "body",
+            "startTime"
+          ],
+          "NextPlanetApsis": [
+            "body",
+            "apsis"
+          ],
+          "VectorFromSphere": [
+            "sphere",
+            "time"
+          ],
+          "EquatorFromVector": [
+            "vec"
+          ],
+          "SphereFromVector": [
+            "vector"
+          ],
+          "VectorFromHorizon": [
+            "sphere",
+            "time",
+            "refraction"
+          ],
+          "HorizonFromVector": [
+            "vector",
+            "refraction"
+          ],
+          "InverseRotation": [
+            "rotation"
+          ],
+          "CombineRotation": [
+            "a",
+            "b"
+          ],
+          "IdentityMatrix": [],
+          "Pivot": [
+            "rotation",
+            "axis",
+            "angle"
+          ],
+          "RotateVector": [
+            "rotation",
+            "vector"
+          ],
+          "RotateState": [
+            "rotation",
+            "state"
+          ],
+          "Rotation_EQJ_ECL": [],
+          "Rotation_ECL_EQJ": [],
+          "Rotation_EQJ_EQD": [
+            "time"
+          ],
+          "Rotation_EQJ_ECT": [
+            "time"
+          ],
+          "Rotation_ECT_EQJ": [
+            "time"
+          ],
+          "Rotation_EQD_EQJ": [
+            "time"
+          ],
+          "Rotation_EQD_HOR": [
+            "time",
+            "observer"
+          ],
+          "Rotation_HOR_EQD": [
+            "time",
+            "observer"
+          ],
+          "Rotation_HOR_EQJ": [
+            "time",
+            "observer"
+          ],
+          "Rotation_EQJ_HOR": [
+            "time",
+            "observer"
+          ],
+          "Rotation_EQD_ECL": [
+            "time"
+          ],
+          "Rotation_ECL_EQD": [
+            "time"
+          ],
+          "Rotation_ECL_HOR": [
+            "time",
+            "observer"
+          ],
+          "Rotation_HOR_ECL": [
+            "time",
+            "observer"
+          ],
+          "Rotation_EQJ_GAL": [],
+          "Rotation_GAL_EQJ": [],
+          "Rotation_ECT_EQD": [
+            "time"
+          ],
+          "Rotation_EQD_ECT": [
+            "time"
+          ],
+          "Constellation": [
+            "ra",
+            "dec"
+          ],
+          "SearchLunarEclipse": [
+            "startTime"
+          ],
+          "NextLunarEclipse": [
+            "prevEclipseTime"
+          ],
+          "SearchGlobalSolarEclipse": [
+            "startTime"
+          ],
+          "NextGlobalSolarEclipse": [
+            "prevEclipseTime"
+          ],
+          "SearchLocalSolarEclipse": [
+            "startTime",
+            "observer"
+          ],
+          "NextLocalSolarEclipse": [
+            "prevEclipseTime",
+            "observer"
+          ],
+          "SearchTransit": [
+            "body",
+            "startTime"
+          ],
+          "NextTransit": [
+            "body",
+            "prevTransitTime"
+          ],
+          "SearchMoonNode": [
+            "startTime"
+          ],
+          "NextMoonNode": [
+            "prevNode"
+          ],
+          "Libration": [
+            "time"
+          ],
+          "RotationAxis": [
+            "body",
+            "time"
+          ],
+          "LagrangePoint": [
+            "point",
+            "time",
+            "major_body",
+            "minor_body"
+          ],
+          "LagrangePointFast": [
+            "point",
+            "major_state",
+            "major_mass",
+            "minor_state",
+            "minor_mass"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "sourcethon.astronomy",
+        "module": "astronomy",
+        "functions": [
+          "AngleBetween",
+          "AngleFromSun",
+          "Atmosphere",
+          "BackdatePosition",
+          "BaryState",
+          "BodyCode",
+          "CombineRotation",
+          "Constellation",
+          "CorrectLightTravel",
+          "DefineStar",
+          "DeltaT_EspenakMeeus",
+          "Ecliptic",
+          "EclipticGeoMoon",
+          "EclipticLongitude",
+          "Elongation",
+          "Equator",
+          "EquatorFromVector",
+          "GeoEmbState",
+          "GeoMoon",
+          "GeoMoonState",
+          "GeoVector",
+          "HelioDistance",
+          "HelioState",
+          "HelioVector",
+          "Horizon",
+          "HorizonFromVector",
+          "HourAngle",
+          "IdentityMatrix",
+          "Illumination",
+          "InverseRefractionAngle",
+          "InverseRotation",
+          "JupiterMoons",
+          "LagrangePoint",
+          "LagrangePointFast",
+          "Libration",
+          "MassProduct",
+          "MoonPhase",
+          "NextGlobalSolarEclipse",
+          "NextLocalSolarEclipse",
+          "NextLunarApsis",
+          "NextLunarEclipse",
+          "NextMoonNode",
+          "NextMoonQuarter",
+          "NextPlanetApsis",
+          "NextTransit",
+          "ObserverGravity",
+          "ObserverState",
+          "ObserverVector",
+          "PairLongitude",
+          "Pivot",
+          "PlanetOrbitalPeriod",
+          "RefractionAngle",
+          "RotateState",
+          "RotateVector",
+          "RotationAxis",
+          "Rotation_ECL_EQD",
+          "Rotation_ECL_EQJ",
+          "Rotation_ECL_HOR",
+          "Rotation_ECT_EQD",
+          "Rotation_ECT_EQJ",
+          "Rotation_EQD_ECL",
+          "Rotation_EQD_ECT",
+          "Rotation_EQD_EQJ",
+          "Rotation_EQD_HOR",
+          "Rotation_EQJ_ECL",
+          "Rotation_EQJ_ECT",
+          "Rotation_EQJ_EQD",
+          "Rotation_EQJ_GAL",
+          "Rotation_EQJ_HOR",
+          "Rotation_GAL_EQJ",
+          "Rotation_HOR_ECL",
+          "Rotation_HOR_EQD",
+          "Rotation_HOR_EQJ",
+          "Search",
+          "SearchAltitude",
+          "SearchGlobalSolarEclipse",
+          "SearchHourAngle",
+          "SearchLocalSolarEclipse",
+          "SearchLunarApsis",
+          "SearchLunarEclipse",
+          "SearchMaxElongation",
+          "SearchMoonNode",
+          "SearchMoonPhase",
+          "SearchMoonQuarter",
+          "SearchPeakMagnitude",
+          "SearchPlanetApsis",
+          "SearchRelativeLongitude",
+          "SearchRiseSet",
+          "SearchSunLongitude",
+          "SearchTransit",
+          "Seasons",
+          "SiderealTime",
+          "SphereFromVector",
+          "SunPosition",
+          "VectorFromHorizon",
+          "VectorFromSphere",
+          "VectorObserver"
+        ],
+        "classes": [
+          "Apsis",
+          "ApsisKind",
+          "AtmosphereInfo",
+          "AxisInfo",
+          "BadVectorError",
+          "Body",
+          "ConstellationInfo",
+          "DateTimeFormatError",
+          "Direction",
+          "EarthNotAllowedError",
+          "EclipseEvent",
+          "EclipseKind",
+          "EclipticCoordinates",
+          "ElongationEvent",
+          "Equatorial",
+          "Error",
+          "GlobalSolarEclipseInfo",
+          "GravitySimulator",
+          "HorizontalCoordinates",
+          "HourAngleEvent",
+          "IlluminationInfo",
+          "InternalError",
+          "InvalidBodyError",
+          "JupiterMoonsInfo",
+          "LibrationInfo",
+          "LocalSolarEclipseInfo",
+          "LunarEclipseInfo",
+          "MoonQuarter",
+          "NoConvergeError",
+          "NodeEventInfo",
+          "NodeEventKind",
+          "Observer",
+          "PositionFunction",
+          "Refraction",
+          "RotationMatrix",
+          "SeasonInfo",
+          "Spherical",
+          "StateVector",
+          "Time",
+          "TransitInfo",
+          "Vector",
+          "Visibility"
+        ],
+        "function_signatures": {
+          "DeltaT_EspenakMeeus": [
+            "ut"
+          ],
+          "MassProduct": [
+            "body"
+          ],
+          "DefineStar": [
+            "body",
+            "ra",
+            "dec",
+            "distanceLightYears"
+          ],
+          "BodyCode": [
+            "name"
+          ],
+          "PlanetOrbitalPeriod": [
+            "body"
+          ],
+          "AngleBetween": [
+            "a",
+            "b"
+          ],
+          "SiderealTime": [
+            "time"
+          ],
+          "GeoMoon": [
+            "time"
+          ],
+          "EclipticGeoMoon": [
+            "time"
+          ],
+          "GeoMoonState": [
+            "time"
+          ],
+          "GeoEmbState": [
+            "time"
+          ],
+          "JupiterMoons": [
+            "time"
+          ],
+          "Search": [
+            "func",
+            "context",
+            "t1",
+            "t2",
+            "dt_tolerance_seconds"
+          ],
+          "HelioVector": [
+            "body",
+            "time"
+          ],
+          "HelioDistance": [
+            "body",
+            "time"
+          ],
+          "CorrectLightTravel": [
+            "func",
+            "time"
+          ],
+          "BackdatePosition": [
+            "time",
+            "observerBody",
+            "targetBody",
+            "aberration"
+          ],
+          "GeoVector": [
+            "body",
+            "time",
+            "aberration"
+          ],
+          "BaryState": [
+            "body",
+            "time"
+          ],
+          "HelioState": [
+            "body",
+            "time"
+          ],
+          "Equator": [
+            "body",
+            "time",
+            "observer",
+            "ofdate",
+            "aberration"
+          ],
+          "ObserverVector": [
+            "time",
+            "observer",
+            "ofdate"
+          ],
+          "ObserverState": [
+            "time",
+            "observer",
+            "ofdate"
+          ],
+          "VectorObserver": [
+            "vector",
+            "ofdate"
+          ],
+          "ObserverGravity": [
+            "latitude",
+            "height"
+          ],
+          "Horizon": [
+            "time",
+            "observer",
+            "ra",
+            "dec",
+            "refraction"
+          ],
+          "RefractionAngle": [
+            "refraction",
+            "altitude"
+          ],
+          "InverseRefractionAngle": [
+            "refraction",
+            "bent_altitude"
+          ],
+          "SunPosition": [
+            "time"
+          ],
+          "Ecliptic": [
+            "eqj"
+          ],
+          "EclipticLongitude": [
+            "body",
+            "time"
+          ],
+          "AngleFromSun": [
+            "body",
+            "time"
+          ],
+          "PairLongitude": [
+            "body1",
+            "body2",
+            "time"
+          ],
+          "Elongation": [
+            "body",
+            "time"
+          ],
+          "SearchRelativeLongitude": [
+            "body",
+            "targetRelLon",
+            "startTime"
+          ],
+          "SearchMaxElongation": [
+            "body",
+            "startTime"
+          ],
+          "SearchSunLongitude": [
+            "targetLon",
+            "startTime",
+            "limitDays"
+          ],
+          "MoonPhase": [
+            "time"
+          ],
+          "SearchMoonPhase": [
+            "targetLon",
+            "startTime",
+            "limitDays"
+          ],
+          "SearchMoonQuarter": [
+            "startTime"
+          ],
+          "NextMoonQuarter": [
+            "mq"
+          ],
+          "Atmosphere": [
+            "elevationMeters"
+          ],
+          "Illumination": [
+            "body",
+            "time"
+          ],
+          "SearchPeakMagnitude": [
+            "body",
+            "startTime"
+          ],
+          "SearchHourAngle": [
+            "body",
+            "observer",
+            "hourAngle",
+            "startTime",
+            "direction"
+          ],
+          "HourAngle": [
+            "body",
+            "time",
+            "observer"
+          ],
+          "SearchRiseSet": [
+            "body",
+            "observer",
+            "direction",
+            "startTime",
+            "limitDays",
+            "metersAboveGround"
+          ],
+          "SearchAltitude": [
+            "body",
+            "observer",
+            "direction",
+            "startTime",
+            "limitDays",
+            "altitude"
+          ],
+          "Seasons": [
+            "year"
+          ],
+          "SearchLunarApsis": [
+            "startTime"
+          ],
+          "NextLunarApsis": [
+            "apsis"
+          ],
+          "SearchPlanetApsis": [
+            "body",
+            "startTime"
+          ],
+          "NextPlanetApsis": [
+            "body",
+            "apsis"
+          ],
+          "VectorFromSphere": [
+            "sphere",
+            "time"
+          ],
+          "EquatorFromVector": [
+            "vec"
+          ],
+          "SphereFromVector": [
+            "vector"
+          ],
+          "VectorFromHorizon": [
+            "sphere",
+            "time",
+            "refraction"
+          ],
+          "HorizonFromVector": [
+            "vector",
+            "refraction"
+          ],
+          "InverseRotation": [
+            "rotation"
+          ],
+          "CombineRotation": [
+            "a",
+            "b"
+          ],
+          "IdentityMatrix": [],
+          "Pivot": [
+            "rotation",
+            "axis",
+            "angle"
+          ],
+          "RotateVector": [
+            "rotation",
+            "vector"
+          ],
+          "RotateState": [
+            "rotation",
+            "state"
+          ],
+          "Rotation_EQJ_ECL": [],
+          "Rotation_ECL_EQJ": [],
+          "Rotation_EQJ_EQD": [
+            "time"
+          ],
+          "Rotation_EQJ_ECT": [
+            "time"
+          ],
+          "Rotation_ECT_EQJ": [
+            "time"
+          ],
+          "Rotation_EQD_EQJ": [
+            "time"
+          ],
+          "Rotation_EQD_HOR": [
+            "time",
+            "observer"
+          ],
+          "Rotation_HOR_EQD": [
+            "time",
+            "observer"
+          ],
+          "Rotation_HOR_EQJ": [
+            "time",
+            "observer"
+          ],
+          "Rotation_EQJ_HOR": [
+            "time",
+            "observer"
+          ],
+          "Rotation_EQD_ECL": [
+            "time"
+          ],
+          "Rotation_ECL_EQD": [
+            "time"
+          ],
+          "Rotation_ECL_HOR": [
+            "time",
+            "observer"
+          ],
+          "Rotation_HOR_ECL": [
+            "time",
+            "observer"
+          ],
+          "Rotation_EQJ_GAL": [],
+          "Rotation_GAL_EQJ": [],
+          "Rotation_ECT_EQD": [
+            "time"
+          ],
+          "Rotation_EQD_ECT": [
+            "time"
+          ],
+          "Constellation": [
+            "ra",
+            "dec"
+          ],
+          "SearchLunarEclipse": [
+            "startTime"
+          ],
+          "NextLunarEclipse": [
+            "prevEclipseTime"
+          ],
+          "SearchGlobalSolarEclipse": [
+            "startTime"
+          ],
+          "NextGlobalSolarEclipse": [
+            "prevEclipseTime"
+          ],
+          "SearchLocalSolarEclipse": [
+            "startTime",
+            "observer"
+          ],
+          "NextLocalSolarEclipse": [
+            "prevEclipseTime",
+            "observer"
+          ],
+          "SearchTransit": [
+            "body",
+            "startTime"
+          ],
+          "NextTransit": [
+            "body",
+            "prevTransitTime"
+          ],
+          "SearchMoonNode": [
+            "startTime"
+          ],
+          "NextMoonNode": [
+            "prevNode"
+          ],
+          "Libration": [
+            "time"
+          ],
+          "RotationAxis": [
+            "body",
+            "time"
+          ],
+          "LagrangePoint": [
+            "point",
+            "time",
+            "major_body",
+            "minor_body"
+          ],
+          "LagrangePointFast": [
+            "point",
+            "major_state",
+            "major_mass",
+            "minor_state",
+            "minor_mass"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "patch_readme",
+        "functions": [
+          "PatchReadme"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "PatchReadme": [
+            "readmeFileName",
+            "jsFileName"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "patch_version_numbers",
+        "functions": [
+          "Patch",
+          "PatchVersionNumbers"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "Patch": [
+            "version",
+            "filename",
+            "prefix",
+            "suffix"
+          ],
+          "PatchVersionNumbers": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "checksum",
+        "functions": [
+          "Checksum"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "Checksum": [
+            "algorithm",
+            "filename"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "check_internal_links",
+        "functions": [
+          "FindBogusLinks",
+          "FindBrokenLinks"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "FindBrokenLinks": [
+            "text"
+          ],
+          "FindBogusLinks": [
+            "text"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "test",
+        "functions": [
+          "Aberration",
+          "AngleDiff",
+          "ArcminPosError",
+          "ArcminVelError",
+          "AssertBadTime",
+          "AssertGoodTime",
+          "AstroCheck",
+          "AstroTime",
+          "Atmosphere",
+          "Axis",
+          "AxisTestBody",
+          "BaryState",
+          "CalendarCase",
+          "CheckCycle",
+          "CheckDecemberSolstice",
+          "CheckInverse",
+          "CheckMagnitudeData",
+          "CheckSaturn",
+          "CompareMatrices",
+          "CompareVectors",
+          "Constellation",
+          "DatesIssue250",
+          "Debug",
+          "Ecliptic",
+          "Elongation",
+          "Fail",
+          "GeoMoon",
+          "Geoid",
+          "GeoidTestCase",
+          "GlobalAnnularCase",
+          "GlobalSolarEclipse",
+          "GravSimEmpty",
+          "GravSimFile",
+          "GravSimTest",
+          "HelioState",
+          "HourAngle",
+          "Issue103",
+          "JplHorizonsStateVectors",
+          "JupiterMoons",
+          "JupiterMoons_CheckJpl",
+          "KindFromChar",
+          "Lagrange",
+          "Libration",
+          "LibrationFile",
+          "LocalSolarCase",
+          "LocalSolarEclipse",
+          "LocalSolarEclipse1",
+          "LocalSolarEclipse2",
+          "LunarApsis",
+          "LunarEclipse",
+          "LunarEclipseIssue78",
+          "LunarFraction",
+          "LunarFractionCase",
+          "Magnitude",
+          "MonthNumber",
+          "MoonNodes",
+          "MoonPhase",
+          "MoonReverse",
+          "MoonReversePhase",
+          "ParseEvent",
+          "ParseJplHorizonsDateTime",
+          "Pass",
+          "PlanetApsis",
+          "PlutoCheck",
+          "PlutoCheckDate",
+          "Refraction",
+          "Repr",
+          "RiseSet",
+          "RiseSetElevation",
+          "RiseSetElevationBodyCase",
+          "RiseSetReverse",
+          "RiseSetSlot",
+          "Rotation",
+          "Rotation_MatrixInverse",
+          "Rotation_MatrixMultiply",
+          "Rotation_Pivot",
+          "SearchElongTest",
+          "Seasons",
+          "SeasonsIssue187",
+          "SelectJupiterMoon",
+          "SiderealTime",
+          "SolarFraction",
+          "SsbArcminPosError",
+          "StarRiseSetCulm",
+          "StarRiseSetCulmCase",
+          "StateVectorDiff",
+          "TestElongFile",
+          "TestMaxElong",
+          "TestMaxMag",
+          "TestPlanetLongitudes",
+          "Test_EQD_ECT",
+          "Test_EQD_HOR",
+          "Test_EQJ_EQD",
+          "Test_GAL_EQJ_NOVAS",
+          "Test_RotRoundTrip",
+          "ToggleDir",
+          "TopoState",
+          "Transit",
+          "TransitFile",
+          "TrimLine",
+          "Twilight",
+          "VectorDiff",
+          "VectorFromAngles",
+          "VerifyState",
+          "VerifyStateBody",
+          "VerifyStateLagrange",
+          "sqrt",
+          "v",
+          "vabs",
+          "vmax",
+          "vmin"
+        ],
+        "classes": [
+          "BaryStateFunc",
+          "HelioStateFunc",
+          "HourAngleTester",
+          "JplStateRecord",
+          "LagrangeFunc",
+          "TopoStateFunc"
+        ],
+        "function_signatures": {
+          "Debug": [
+            "text"
+          ],
+          "Pass": [
+            "funcname"
+          ],
+          "Fail": [
+            "funcname",
+            "reason"
+          ],
+          "v": [
+            "x"
+          ],
+          "vabs": [
+            "x"
+          ],
+          "vmax": [
+            "a",
+            "b"
+          ],
+          "vmin": [
+            "a",
+            "b"
+          ],
+          "sqrt": [
+            "x"
+          ],
+          "AssertGoodTime": [
+            "text",
+            "correct"
+          ],
+          "AssertBadTime": [
+            "text"
+          ],
+          "CalendarCase": [
+            "year",
+            "month",
+            "day",
+            "hour",
+            "minute",
+            "second"
+          ],
+          "AstroTime": [],
+          "GeoMoon": [],
+          "SelectJupiterMoon": [
+            "jm",
+            "mindex"
+          ],
+          "AstroCheck": [
+            "printflag"
+          ],
+          "Seasons": [
+            "filename"
+          ],
+          "SeasonsIssue187": [],
+          "MoonPhase": [
+            "filename"
+          ],
+          "TestElongFile": [
+            "filename",
+            "targetRelLon"
+          ],
+          "TestPlanetLongitudes": [
+            "body",
+            "outFileName",
+            "zeroLonEventName"
+          ],
+          "TestMaxElong": [
+            "body",
+            "searchText",
+            "eventText",
+            "angle",
+            "visibility"
+          ],
+          "SearchElongTest": [],
+          "Elongation": [],
+          "MonthNumber": [
+            "mtext"
+          ],
+          "ParseJplHorizonsDateTime": [
+            "line"
+          ],
+          "CheckMagnitudeData": [
+            "body",
+            "filename"
+          ],
+          "CheckSaturn": [],
+          "TestMaxMag": [
+            "body",
+            "filename"
+          ],
+          "Magnitude": [],
+          "ToggleDir": [
+            "dir"
+          ],
+          "RiseSetSlot": [
+            "ut1",
+            "ut2",
+            "direction",
+            "observer"
+          ],
+          "RiseSetReverse": [],
+          "RiseSet": [
+            "filename"
+          ],
+          "LunarApsis": [
+            "filename"
+          ],
+          "CompareMatrices": [
+            "caller",
+            "a",
+            "b",
+            "tolerance"
+          ],
+          "CompareVectors": [
+            "caller",
+            "a",
+            "b",
+            "tolerance"
+          ],
+          "Rotation_MatrixInverse": [],
+          "Rotation_MatrixMultiply": [],
+          "VectorDiff": [
+            "a",
+            "b"
+          ],
+          "Test_GAL_EQJ_NOVAS": [
+            "filename"
+          ],
+          "Test_EQJ_EQD": [
+            "body"
+          ],
+          "Test_EQD_HOR": [
+            "body"
+          ],
+          "CheckInverse": [
+            "aname",
+            "bname",
+            "arot",
+            "brot"
+          ],
+          "CheckCycle": [
+            "cyclename",
+            "arot",
+            "brot",
+            "crot"
+          ],
+          "Test_RotRoundTrip": [],
+          "Rotation_Pivot": [],
+          "Test_EQD_ECT": [],
+          "Ecliptic": [],
+          "Rotation": [],
+          "Refraction": [],
+          "PlanetApsis": [],
+          "Constellation": [],
+          "LunarEclipseIssue78": [],
+          "LunarEclipse": [],
+          "VectorFromAngles": [
+            "lat",
+            "lon"
+          ],
+          "AngleDiff": [
+            "alat",
+            "alon",
+            "blat",
+            "blon"
+          ],
+          "KindFromChar": [
+            "typeChar"
+          ],
+          "GlobalSolarEclipse": [],
+          "LocalSolarEclipse1": [],
+          "TrimLine": [
+            "line"
+          ],
+          "ParseEvent": [
+            "time_str",
+            "alt_str",
+            "required"
+          ],
+          "LocalSolarEclipse2": [],
+          "LocalSolarEclipse": [],
+          "GlobalAnnularCase": [
+            "year",
+            "month",
+            "day",
+            "obscuration"
+          ],
+          "LocalSolarCase": [
+            "year",
+            "month",
+            "day",
+            "latitude",
+            "longitude",
+            "kind",
+            "obscuration",
+            "tolerance"
+          ],
+          "SolarFraction": [],
+          "TransitFile": [
+            "body",
+            "filename",
+            "limit_minutes",
+            "limit_sep"
+          ],
+          "Transit": [],
+          "PlutoCheckDate": [
+            "ut",
+            "arcmin_tolerance",
+            "x",
+            "y",
+            "z"
+          ],
+          "PlutoCheck": [],
+          "GeoidTestCase": [
+            "time",
+            "observer",
+            "ofdate"
+          ],
+          "Geoid": [],
+          "JupiterMoons_CheckJpl": [
+            "mindex",
+            "tt",
+            "pos",
+            "vel"
+          ],
+          "JupiterMoons": [],
+          "Issue103": [],
+          "StateVectorDiff": [
+            "relative",
+            "vec",
+            "x",
+            "y",
+            "z"
+          ],
+          "VerifyState": [
+            "func",
+            "stats",
+            "filename",
+            "lnum",
+            "time",
+            "pos",
+            "vel",
+            "r_thresh",
+            "v_thresh"
+          ],
+          "JplHorizonsStateVectors": [
+            "filename"
+          ],
+          "VerifyStateBody": [
+            "func",
+            "filename",
+            "r_thresh",
+            "v_thresh"
+          ],
+          "BaryState": [],
+          "HelioState": [],
+          "TopoState": [],
+          "Aberration": [],
+          "Twilight": [],
+          "LibrationFile": [
+            "filename"
+          ],
+          "Libration": [],
+          "Axis": [],
+          "AxisTestBody": [
+            "body",
+            "filename",
+            "arcmin_tolerance"
+          ],
+          "MoonNodes": [],
+          "MoonReversePhase": [
+            "longitude"
+          ],
+          "MoonReverse": [],
+          "VerifyStateLagrange": [
+            "major_body",
+            "minor_body",
+            "point",
+            "filename",
+            "r_thresh",
+            "v_thresh"
+          ],
+          "Lagrange": [],
+          "SiderealTime": [],
+          "Repr": [],
+          "GravSimTest": [],
+          "GravSimEmpty": [
+            "filename",
+            "origin",
+            "body",
+            "rthresh",
+            "vthresh"
+          ],
+          "GravSimFile": [
+            "filename",
+            "originBody",
+            "nsteps",
+            "rthresh",
+            "vthresh"
+          ],
+          "SsbArcminPosError": [
+            "correct",
+            "calc"
+          ],
+          "ArcminPosError": [
+            "correct",
+            "calc"
+          ],
+          "ArcminVelError": [
+            "correct",
+            "calc"
+          ],
+          "CheckDecemberSolstice": [
+            "year",
+            "expected"
+          ],
+          "DatesIssue250": [],
+          "LunarFractionCase": [
+            "year",
+            "month",
+            "day",
+            "obscuration"
+          ],
+          "LunarFraction": [],
+          "StarRiseSetCulmCase": [
+            "starName",
+            "ra",
+            "dec",
+            "distLy",
+            "observer",
+            "year",
+            "month",
+            "day",
+            "riseHour",
+            "riseMinute",
+            "culmHour",
+            "culmMinute",
+            "setHour",
+            "setMinute"
+          ],
+          "StarRiseSetCulm": [],
+          "HourAngle": [],
+          "Atmosphere": [],
+          "RiseSetElevationBodyCase": [
+            "body",
+            "observer",
+            "direction",
+            "metersAboveGround",
+            "startTime",
+            "eventOffsetDays"
+          ],
+          "RiseSetElevation": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "plotdist",
+        "functions": [
+          "LoadCsv",
+          "PlotData"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "LoadCsv": [
+            "inFileName"
+          ],
+          "PlotData": [
+            "novasFileName",
+            "topFileName"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "update_copyrights",
+        "functions": [
+          "UpdateCopyrights",
+          "main"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "UpdateCopyrights": [
+            "fn"
+          ],
+          "main": [
+            "fnlist"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "plot_delta_t",
+        "functions": [
+          "LoadCsv",
+          "LoadJplData",
+          "PlotData"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "LoadCsv": [
+            "inFileName"
+          ],
+          "LoadJplData": [
+            "inFileName"
+          ],
+          "PlotData": [
+            "extrapFileName",
+            "actualFileName",
+            "jplFileName"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "sort_js_functions",
+        "functions": [
+          "SortFunctionNames"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "SortFunctionNames": [
+            "intext"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "funclist",
+        "functions": [
+          "FuncList_C",
+          "FuncList_Csharp",
+          "FuncList_Python",
+          "Funclist_JavaScript"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "FuncList_Python": [
+            "filename"
+          ],
+          "FuncList_C": [
+            "filename"
+          ],
+          "FuncList_Csharp": [
+            "filename"
+          ],
+          "Funclist_JavaScript": [
+            "filename"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "make_constellation_data",
+        "functions": [
+          "Translate",
+          "Unquote"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "Unquote": [
+            "s"
+          ],
+          "Translate": [
+            "inFileName",
+            "outFileName"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate",
+        "module": "doxygen_download_link",
+        "functions": [
+          "DoxygenLink"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "DoxygenLink": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate.eclipse",
+        "module": "norm",
+        "functions": [
+          "FixLunarEclipseData",
+          "FixSolarEclipseData",
+          "FixTransitData",
+          "ParseDuration",
+          "ParseGeo",
+          "ParseMonth"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "ParseDuration": [
+            "s"
+          ],
+          "ParseMonth": [
+            "s"
+          ],
+          "ParseGeo": [
+            "text",
+            "suffixes"
+          ],
+          "FixLunarEclipseData": [],
+          "FixSolarEclipseData": [],
+          "FixTransitData": [
+            "planet"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate.moon_nodes",
+        "module": "parse_moon_nodes",
+        "functions": [
+          "HourMin",
+          "ParseNode"
+        ],
+        "classes": [
+          "Node"
+        ],
+        "function_signatures": {
+          "HourMin": [
+            "htext",
+            "mtext"
+          ],
+          "ParseNode": [
+            "kind",
+            "year",
+            "text"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate.riseset",
+        "module": "parse_riseset",
+        "functions": [
+          "Convert",
+          "ConvertAll",
+          "Emit"
+        ],
+        "classes": [
+          "Event"
+        ],
+        "function_signatures": {
+          "Emit": [
+            "evtlist",
+            "kind",
+            "body",
+            "lon",
+            "lat",
+            "year",
+            "month",
+            "day",
+            "time"
+          ],
+          "Convert": [
+            "infilename",
+            "evtlist"
+          ],
+          "ConvertAll": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate.template",
+        "module": "astronomy",
+        "functions": [
+          "AngleBetween",
+          "AngleFromSun",
+          "Atmosphere",
+          "BackdatePosition",
+          "BaryState",
+          "BodyCode",
+          "CombineRotation",
+          "Constellation",
+          "CorrectLightTravel",
+          "DefineStar",
+          "DeltaT_EspenakMeeus",
+          "Ecliptic",
+          "EclipticGeoMoon",
+          "EclipticLongitude",
+          "Elongation",
+          "Equator",
+          "EquatorFromVector",
+          "GeoEmbState",
+          "GeoMoon",
+          "GeoMoonState",
+          "GeoVector",
+          "HelioDistance",
+          "HelioState",
+          "HelioVector",
+          "Horizon",
+          "HorizonFromVector",
+          "HourAngle",
+          "IdentityMatrix",
+          "Illumination",
+          "InverseRefractionAngle",
+          "InverseRotation",
+          "JupiterMoons",
+          "LagrangePoint",
+          "LagrangePointFast",
+          "Libration",
+          "MassProduct",
+          "MoonPhase",
+          "NextGlobalSolarEclipse",
+          "NextLocalSolarEclipse",
+          "NextLunarApsis",
+          "NextLunarEclipse",
+          "NextMoonNode",
+          "NextMoonQuarter",
+          "NextPlanetApsis",
+          "NextTransit",
+          "ObserverGravity",
+          "ObserverState",
+          "ObserverVector",
+          "PairLongitude",
+          "Pivot",
+          "PlanetOrbitalPeriod",
+          "RefractionAngle",
+          "RotateState",
+          "RotateVector",
+          "RotationAxis",
+          "Rotation_ECL_EQD",
+          "Rotation_ECL_EQJ",
+          "Rotation_ECL_HOR",
+          "Rotation_ECT_EQD",
+          "Rotation_ECT_EQJ",
+          "Rotation_EQD_ECL",
+          "Rotation_EQD_ECT",
+          "Rotation_EQD_EQJ",
+          "Rotation_EQD_HOR",
+          "Rotation_EQJ_ECL",
+          "Rotation_EQJ_ECT",
+          "Rotation_EQJ_EQD",
+          "Rotation_EQJ_GAL",
+          "Rotation_EQJ_HOR",
+          "Rotation_GAL_EQJ",
+          "Rotation_HOR_ECL",
+          "Rotation_HOR_EQD",
+          "Rotation_HOR_EQJ",
+          "Search",
+          "SearchAltitude",
+          "SearchGlobalSolarEclipse",
+          "SearchHourAngle",
+          "SearchLocalSolarEclipse",
+          "SearchLunarApsis",
+          "SearchLunarEclipse",
+          "SearchMaxElongation",
+          "SearchMoonNode",
+          "SearchMoonPhase",
+          "SearchMoonQuarter",
+          "SearchPeakMagnitude",
+          "SearchPlanetApsis",
+          "SearchRelativeLongitude",
+          "SearchRiseSet",
+          "SearchSunLongitude",
+          "SearchTransit",
+          "Seasons",
+          "SiderealTime",
+          "SphereFromVector",
+          "SunPosition",
+          "VectorFromHorizon",
+          "VectorFromSphere",
+          "VectorObserver"
+        ],
+        "classes": [
+          "Apsis",
+          "ApsisKind",
+          "AtmosphereInfo",
+          "AxisInfo",
+          "BadVectorError",
+          "Body",
+          "ConstellationInfo",
+          "DateTimeFormatError",
+          "Direction",
+          "EarthNotAllowedError",
+          "EclipseEvent",
+          "EclipseKind",
+          "EclipticCoordinates",
+          "ElongationEvent",
+          "Equatorial",
+          "Error",
+          "GlobalSolarEclipseInfo",
+          "GravitySimulator",
+          "HorizontalCoordinates",
+          "HourAngleEvent",
+          "IlluminationInfo",
+          "InternalError",
+          "InvalidBodyError",
+          "JupiterMoonsInfo",
+          "LibrationInfo",
+          "LocalSolarEclipseInfo",
+          "LunarEclipseInfo",
+          "MoonQuarter",
+          "NoConvergeError",
+          "NodeEventInfo",
+          "NodeEventKind",
+          "Observer",
+          "PositionFunction",
+          "Refraction",
+          "RotationMatrix",
+          "SeasonInfo",
+          "Spherical",
+          "StateVector",
+          "Time",
+          "TransitInfo",
+          "Vector",
+          "Visibility"
+        ],
+        "function_signatures": {
+          "DeltaT_EspenakMeeus": [
+            "ut"
+          ],
+          "MassProduct": [
+            "body"
+          ],
+          "DefineStar": [
+            "body",
+            "ra",
+            "dec",
+            "distanceLightYears"
+          ],
+          "BodyCode": [
+            "name"
+          ],
+          "PlanetOrbitalPeriod": [
+            "body"
+          ],
+          "AngleBetween": [
+            "a",
+            "b"
+          ],
+          "SiderealTime": [
+            "time"
+          ],
+          "GeoMoon": [
+            "time"
+          ],
+          "EclipticGeoMoon": [
+            "time"
+          ],
+          "GeoMoonState": [
+            "time"
+          ],
+          "GeoEmbState": [
+            "time"
+          ],
+          "JupiterMoons": [
+            "time"
+          ],
+          "Search": [
+            "func",
+            "context",
+            "t1",
+            "t2",
+            "dt_tolerance_seconds"
+          ],
+          "HelioVector": [
+            "body",
+            "time"
+          ],
+          "HelioDistance": [
+            "body",
+            "time"
+          ],
+          "CorrectLightTravel": [
+            "func",
+            "time"
+          ],
+          "BackdatePosition": [
+            "time",
+            "observerBody",
+            "targetBody",
+            "aberration"
+          ],
+          "GeoVector": [
+            "body",
+            "time",
+            "aberration"
+          ],
+          "BaryState": [
+            "body",
+            "time"
+          ],
+          "HelioState": [
+            "body",
+            "time"
+          ],
+          "Equator": [
+            "body",
+            "time",
+            "observer",
+            "ofdate",
+            "aberration"
+          ],
+          "ObserverVector": [
+            "time",
+            "observer",
+            "ofdate"
+          ],
+          "ObserverState": [
+            "time",
+            "observer",
+            "ofdate"
+          ],
+          "VectorObserver": [
+            "vector",
+            "ofdate"
+          ],
+          "ObserverGravity": [
+            "latitude",
+            "height"
+          ],
+          "Horizon": [
+            "time",
+            "observer",
+            "ra",
+            "dec",
+            "refraction"
+          ],
+          "RefractionAngle": [
+            "refraction",
+            "altitude"
+          ],
+          "InverseRefractionAngle": [
+            "refraction",
+            "bent_altitude"
+          ],
+          "SunPosition": [
+            "time"
+          ],
+          "Ecliptic": [
+            "eqj"
+          ],
+          "EclipticLongitude": [
+            "body",
+            "time"
+          ],
+          "AngleFromSun": [
+            "body",
+            "time"
+          ],
+          "PairLongitude": [
+            "body1",
+            "body2",
+            "time"
+          ],
+          "Elongation": [
+            "body",
+            "time"
+          ],
+          "SearchRelativeLongitude": [
+            "body",
+            "targetRelLon",
+            "startTime"
+          ],
+          "SearchMaxElongation": [
+            "body",
+            "startTime"
+          ],
+          "SearchSunLongitude": [
+            "targetLon",
+            "startTime",
+            "limitDays"
+          ],
+          "MoonPhase": [
+            "time"
+          ],
+          "SearchMoonPhase": [
+            "targetLon",
+            "startTime",
+            "limitDays"
+          ],
+          "SearchMoonQuarter": [
+            "startTime"
+          ],
+          "NextMoonQuarter": [
+            "mq"
+          ],
+          "Atmosphere": [
+            "elevationMeters"
+          ],
+          "Illumination": [
+            "body",
+            "time"
+          ],
+          "SearchPeakMagnitude": [
+            "body",
+            "startTime"
+          ],
+          "SearchHourAngle": [
+            "body",
+            "observer",
+            "hourAngle",
+            "startTime",
+            "direction"
+          ],
+          "HourAngle": [
+            "body",
+            "time",
+            "observer"
+          ],
+          "SearchRiseSet": [
+            "body",
+            "observer",
+            "direction",
+            "startTime",
+            "limitDays",
+            "metersAboveGround"
+          ],
+          "SearchAltitude": [
+            "body",
+            "observer",
+            "direction",
+            "startTime",
+            "limitDays",
+            "altitude"
+          ],
+          "Seasons": [
+            "year"
+          ],
+          "SearchLunarApsis": [
+            "startTime"
+          ],
+          "NextLunarApsis": [
+            "apsis"
+          ],
+          "SearchPlanetApsis": [
+            "body",
+            "startTime"
+          ],
+          "NextPlanetApsis": [
+            "body",
+            "apsis"
+          ],
+          "VectorFromSphere": [
+            "sphere",
+            "time"
+          ],
+          "EquatorFromVector": [
+            "vec"
+          ],
+          "SphereFromVector": [
+            "vector"
+          ],
+          "VectorFromHorizon": [
+            "sphere",
+            "time",
+            "refraction"
+          ],
+          "HorizonFromVector": [
+            "vector",
+            "refraction"
+          ],
+          "InverseRotation": [
+            "rotation"
+          ],
+          "CombineRotation": [
+            "a",
+            "b"
+          ],
+          "IdentityMatrix": [],
+          "Pivot": [
+            "rotation",
+            "axis",
+            "angle"
+          ],
+          "RotateVector": [
+            "rotation",
+            "vector"
+          ],
+          "RotateState": [
+            "rotation",
+            "state"
+          ],
+          "Rotation_EQJ_ECL": [],
+          "Rotation_ECL_EQJ": [],
+          "Rotation_EQJ_EQD": [
+            "time"
+          ],
+          "Rotation_EQJ_ECT": [
+            "time"
+          ],
+          "Rotation_ECT_EQJ": [
+            "time"
+          ],
+          "Rotation_EQD_EQJ": [
+            "time"
+          ],
+          "Rotation_EQD_HOR": [
+            "time",
+            "observer"
+          ],
+          "Rotation_HOR_EQD": [
+            "time",
+            "observer"
+          ],
+          "Rotation_HOR_EQJ": [
+            "time",
+            "observer"
+          ],
+          "Rotation_EQJ_HOR": [
+            "time",
+            "observer"
+          ],
+          "Rotation_EQD_ECL": [
+            "time"
+          ],
+          "Rotation_ECL_EQD": [
+            "time"
+          ],
+          "Rotation_ECL_HOR": [
+            "time",
+            "observer"
+          ],
+          "Rotation_HOR_ECL": [
+            "time",
+            "observer"
+          ],
+          "Rotation_EQJ_GAL": [],
+          "Rotation_GAL_EQJ": [],
+          "Rotation_ECT_EQD": [
+            "time"
+          ],
+          "Rotation_EQD_ECT": [
+            "time"
+          ],
+          "Constellation": [
+            "ra",
+            "dec"
+          ],
+          "SearchLunarEclipse": [
+            "startTime"
+          ],
+          "NextLunarEclipse": [
+            "prevEclipseTime"
+          ],
+          "SearchGlobalSolarEclipse": [
+            "startTime"
+          ],
+          "NextGlobalSolarEclipse": [
+            "prevEclipseTime"
+          ],
+          "SearchLocalSolarEclipse": [
+            "startTime",
+            "observer"
+          ],
+          "NextLocalSolarEclipse": [
+            "prevEclipseTime",
+            "observer"
+          ],
+          "SearchTransit": [
+            "body",
+            "startTime"
+          ],
+          "NextTransit": [
+            "body",
+            "prevTransitTime"
+          ],
+          "SearchMoonNode": [
+            "startTime"
+          ],
+          "NextMoonNode": [
+            "prevNode"
+          ],
+          "Libration": [
+            "time"
+          ],
+          "RotationAxis": [
+            "body",
+            "time"
+          ],
+          "LagrangePoint": [
+            "point",
+            "time",
+            "major_body",
+            "minor_body"
+          ],
+          "LagrangePointFast": [
+            "point",
+            "major_state",
+            "major_mass",
+            "minor_state",
+            "minor_mass"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate.kotlindoc",
+        "module": "format_kotlin_doc",
+        "functions": [
+          "ExtractVersionNumber",
+          "FixMarkdown",
+          "RemoveEnumProperties",
+          "RemoveJvmTags",
+          "RemovePrivateConstructors",
+          "ReverseEnumEntries"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "RemoveJvmTags": [
+            "text"
+          ],
+          "RemoveEnumProperties": [
+            "text"
+          ],
+          "RemovePrivateConstructors": [
+            "text"
+          ],
+          "ReverseEnumEntries": [
+            "text"
+          ],
+          "FixMarkdown": [
+            "text"
+          ],
+          "ExtractVersionNumber": [
+            "filename"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate.lagrange",
+        "module": "lagrange",
+        "functions": [
+          "ArcminBetween",
+          "Normal"
+        ],
+        "classes": [
+          "Vector"
+        ],
+        "function_signatures": {
+          "Normal": [
+            "p",
+            "v"
+          ],
+          "ArcminBetween": [
+            "a",
+            "b"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate.magnitude",
+        "module": "findmax",
+        "functions": [
+          "DateStr",
+          "FindMaxMagEvents"
+        ],
+        "classes": [
+          "Item"
+        ],
+        "function_signatures": {
+          "DateStr": [
+            "date"
+          ],
+          "FindMaxMagEvents": [
+            "filename"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate.jupiter_moons.horizons",
+        "module": "jmcompare",
+        "functions": [
+          "Compare",
+          "LoadJpl",
+          "LoadRef",
+          "ParseVector"
+        ],
+        "classes": [
+          "Sample"
+        ],
+        "function_signatures": {
+          "LoadRef": [
+            "filename"
+          ],
+          "ParseVector": [
+            "line"
+          ],
+          "LoadJpl": [
+            "filename"
+          ],
+          "Compare": [
+            "ref",
+            "jpl"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generatedowndown",
+        "module": "generatedowndown",
+        "functions": [
+          "ConstantsMd",
+          "Fail",
+          "FixText",
+          "HtmlEscape",
+          "LoadModule",
+          "Markdown",
+          "MdClass",
+          "MdEnumType",
+          "MdErrType",
+          "MdFunction",
+          "MdSignature",
+          "PrintUsage",
+          "SymbolLink",
+          "main"
+        ],
+        "classes": [
+          "DocInfo",
+          "ParmInfo"
+        ],
+        "function_signatures": {
+          "PrintUsage": [],
+          "Fail": [
+            "message"
+          ],
+          "LoadModule": [
+            "inPythonFileName"
+          ],
+          "HtmlEscape": [
+            "text"
+          ],
+          "SymbolLink": [
+            "name"
+          ],
+          "FixText": [
+            "s"
+          ],
+          "MdSignature": [
+            "sig"
+          ],
+          "MdFunction": [
+            "func",
+            "parent"
+          ],
+          "MdClass": [
+            "c"
+          ],
+          "MdEnumType": [
+            "c"
+          ],
+          "MdErrType": [
+            "c"
+          ],
+          "Markdown": [
+            "module",
+            "const_md",
+            "const_set"
+          ],
+          "ConstantsMd": [
+            "inPythonFileName"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "generate.top2013",
+        "module": "jplcheck",
+        "functions": [
+          "Compare",
+          "JplRead",
+          "TopRead",
+          "main"
+        ],
+        "classes": [
+          "Record"
+        ],
+        "function_signatures": {
+          "JplRead": [
+            "fn",
+            "planet"
+          ],
+          "TopRead": [
+            "fn"
+          ],
+          "Compare": [
+            "t",
+            "j"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.9
+    },
+    "dependencies": {
+      "required": [
+        "python>=3.x (from packaging files)",
+        "standard library"
+      ],
+      "optional": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.74,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/cosinekitty/astronomy",
+    "repo_name": "astronomy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.74,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

@@ -1,0 +1,1393 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/neuropsychology/NeuroKit",
+    "summary": "Imported via zip fallback, file count: 386",
+    "file_tree": {
+      ".binder/requirements.txt": {
+        "size": 53
+      },
+      ".github/CODE_OF_CONDUCT.md": {
+        "size": 3196
+      },
+      ".github/FUNDING.yml": {
+        "size": 653
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.md": {
+        "size": 1085
+      },
+      ".github/ISSUE_TEMPLATE/feature-idea.md": {
+        "size": 247
+      },
+      ".github/ISSUE_TEMPLATE/question.md": {
+        "size": 90
+      },
+      ".github/PULL_REQUEST_TEMPLATE.md": {
+        "size": 994
+      },
+      ".github/config.yml": {
+        "size": 1553
+      },
+      ".github/release-drafter-config.yml": {
+        "size": 1085
+      },
+      ".github/stale.yml": {
+        "size": 809
+      },
+      ".github/workflows/checks.yml": {
+        "size": 553
+      },
+      ".github/workflows/docs-build.yml": {
+        "size": 2080
+      },
+      ".github/workflows/release-drafter.yml": {
+        "size": 530
+      },
+      ".github/workflows/releasePR.yml": {
+        "size": 2097
+      },
+      ".github/workflows/style.yml": {
+        "size": 705
+      },
+      ".github/workflows/tests.yml": {
+        "size": 1924
+      },
+      ".pre-commit-config.yaml": {
+        "size": 508
+      },
+      "codecov.yml": {
+        "size": 229
+      },
+      "data/bio_resting_8min_200hz.json": {
+        "size": 524313
+      },
+      "data/eeg.txt": {
+        "size": 16116
+      },
+      "data/eeg_1min_200hz.py": {
+        "size": 446
+      },
+      "data/eeg_resting_8min.py": {
+        "size": 1307
+      },
+      "data/eogdb/README.md": {
+        "size": 74
+      },
+      "data/fantasia/download_fantasia.py": {
+        "size": 2477
+      },
+      "data/gudb/download_gudb.py": {
+        "size": 2084
+      },
+      "data/lemon/download_lemon.py": {
+        "size": 2675
+      },
+      "data/ludb/download_ludb.py": {
+        "size": 1791
+      },
+      "data/mit_arrhythmia/download_mit_arrhythmia.py": {
+        "size": 3054
+      },
+      "data/mit_long-term/download_mit_long-term.py": {
+        "size": 1993
+      },
+      "data/mit_long-term/mit-bih-long-term-ecg-database-1.0.0/SHA256SUMS.txt": {
+        "size": 2781
+      },
+      "data/mit_normal/download_mit_normal.py": {
+        "size": 2017
+      },
+      "data/mit_nst/download_mit_nst.py": {
+        "size": 2089
+      },
+      "data/ptb_xl/download_ptbxl.py": {
+        "size": 94
+      },
+      "data/rs_eeg_texas/README.md": {
+        "size": 1157
+      },
+      "data/rsp_1000hz.txt": {
+        "size": 524313
+      },
+      "data/srm_restingstate_eeg/download_script.py": {
+        "size": 1089
+      },
+      "data/testretest_restingstate_eeg/download_script.py": {
+        "size": 2019
+      },
+      "dev.py": {
+        "size": 3446
+      },
+      "docs/conf.py": {
+        "size": 5287
+      },
+      "docs/directives/csv_codebook_directive.py": {
+        "size": 3786
+      },
+      "docs/readme/README_examples.py": {
+        "size": 11745
+      },
+      "neurokit2/__init__.py": {
+        "size": 3180
+      },
+      "neurokit2/benchmark/__init__.py": {
+        "size": 137
+      },
+      "neurokit2/benchmark/benchmark_ecg.py": {
+        "size": 5376
+      },
+      "neurokit2/benchmark/benchmark_utils.py": {
+        "size": 2161
+      },
+      "neurokit2/bio/__init__.py": {
+        "size": 148
+      },
+      "neurokit2/bio/bio_analyze.py": {
+        "size": 11687
+      },
+      "neurokit2/bio/bio_process.py": {
+        "size": 7876
+      },
+      "neurokit2/complexity/TODO_entropy_wiener.py": {
+        "size": 2964
+      },
+      "neurokit2/complexity/TODO_fractal_capacity.py": {
+        "size": 3375
+      },
+      "neurokit2/complexity/__init__.py": {
+        "size": 7528
+      },
+      "neurokit2/complexity/complexity.py": {
+        "size": 8116
+      },
+      "neurokit2/complexity/complexity_decorrelation.py": {
+        "size": 2983
+      },
+      "neurokit2/complexity/complexity_hjorth.py": {
+        "size": 3435
+      },
+      "neurokit2/complexity/complexity_lempelziv.py": {
+        "size": 8793
+      },
+      "neurokit2/complexity/complexity_lyapunov.py": {
+        "size": 16941
+      },
+      "neurokit2/complexity/complexity_relativeroughness.py": {
+        "size": 1843
+      },
+      "neurokit2/complexity/complexity_rqa.py": {
+        "size": 12278
+      },
+      "neurokit2/complexity/entropy_angular.py": {
+        "size": 5340
+      },
+      "neurokit2/complexity/entropy_approximate.py": {
+        "size": 5079
+      },
+      "neurokit2/complexity/entropy_attention.py": {
+        "size": 5146
+      },
+      "neurokit2/complexity/entropy_bubble.py": {
+        "size": 2944
+      },
+      "neurokit2/complexity/entropy_coalition.py": {
+        "size": 6310
+      },
+      "neurokit2/complexity/entropy_cosinesimilarity.py": {
+        "size": 4264
+      },
+      "neurokit2/complexity/entropy_cumulativeresidual.py": {
+        "size": 3343
+      },
+      "neurokit2/complexity/entropy_differential.py": {
+        "size": 2578
+      },
+      "neurokit2/complexity/entropy_dispersion.py": {
+        "size": 4258
+      },
+      "neurokit2/complexity/entropy_distribution.py": {
+        "size": 3773
+      },
+      "neurokit2/complexity/entropy_fuzzy.py": {
+        "size": 3142
+      },
+      "neurokit2/complexity/entropy_grid.py": {
+        "size": 4578
+      },
+      "neurokit2/complexity/entropy_hierarchical.py": {
+        "size": 7332
+      },
+      "neurokit2/complexity/entropy_increment.py": {
+        "size": 5146
+      },
+      "neurokit2/complexity/entropy_kl.py": {
+        "size": 4892
+      },
+      "neurokit2/complexity/entropy_kolmogorov.py": {
+        "size": 3168
+      },
+      "neurokit2/complexity/entropy_maximum.py": {
+        "size": 1037
+      },
+      "neurokit2/complexity/entropy_multiscale.py": {
+        "size": 16941
+      },
+      "neurokit2/complexity/entropy_ofentropy.py": {
+        "size": 3194
+      },
+      "neurokit2/complexity/entropy_permutation.py": {
+        "size": 7146
+      },
+      "neurokit2/complexity/entropy_phase.py": {
+        "size": 4957
+      },
+      "neurokit2/complexity/entropy_power.py": {
+        "size": 3144
+      },
+      "neurokit2/complexity/entropy_quadratic.py": {
+        "size": 2483
+      },
+      "neurokit2/complexity/entropy_range.py": {
+        "size": 4172
+      },
+      "neurokit2/complexity/entropy_rate.py": {
+        "size": 6110
+      },
+      "neurokit2/complexity/entropy_renyi.py": {
+        "size": 2898
+      },
+      "neurokit2/complexity/entropy_sample.py": {
+        "size": 3130
+      },
+      "neurokit2/complexity/entropy_shannon.py": {
+        "size": 4840
+      },
+      "neurokit2/complexity/entropy_shannon_joint.py": {
+        "size": 1440
+      },
+      "neurokit2/complexity/entropy_slope.py": {
+        "size": 3916
+      },
+      "neurokit2/complexity/entropy_spectral.py": {
+        "size": 3470
+      },
+      "neurokit2/complexity/entropy_svd.py": {
+        "size": 2710
+      },
+      "neurokit2/complexity/entropy_symbolicdynamic.py": {
+        "size": 5256
+      },
+      "neurokit2/complexity/entropy_tsallis.py": {
+        "size": 2443
+      },
+      "neurokit2/complexity/fractal_correlation.py": {
+        "size": 6345
+      },
+      "neurokit2/complexity/fractal_density.py": {
+        "size": 5833
+      },
+      "neurokit2/complexity/fractal_dfa.py": {
+        "size": 25063
+      },
+      "neurokit2/complexity/fractal_higuchi.py": {
+        "size": 5252
+      },
+      "neurokit2/complexity/fractal_hurst.py": {
+        "size": 8848
+      },
+      "neurokit2/complexity/fractal_katz.py": {
+        "size": 2869
+      },
+      "neurokit2/complexity/fractal_linelength.py": {
+        "size": 2103
+      },
+      "neurokit2/complexity/fractal_nld.py": {
+        "size": 4528
+      },
+      "neurokit2/complexity/fractal_petrosian.py": {
+        "size": 3953
+      },
+      "neurokit2/complexity/fractal_psdslope.py": {
+        "size": 5837
+      },
+      "neurokit2/complexity/fractal_sda.py": {
+        "size": 4909
+      },
+      "neurokit2/complexity/fractal_sevcik.py": {
+        "size": 2832
+      },
+      "neurokit2/complexity/fractal_tmf.py": {
+        "size": 4871
+      },
+      "neurokit2/complexity/information_fisher.py": {
+        "size": 2638
+      },
+      "neurokit2/complexity/information_fishershannon.py": {
+        "size": 2280
+      },
+      "neurokit2/complexity/information_gain.py": {
+        "size": 4306
+      },
+      "neurokit2/complexity/information_mutual.py": {
+        "size": 8764
+      },
+      "neurokit2/complexity/optim_complexity_delay.py": {
+        "size": 30260
+      },
+      "neurokit2/complexity/optim_complexity_dimension.py": {
+        "size": 18059
+      },
+      "neurokit2/complexity/optim_complexity_k.py": {
+        "size": 6279
+      },
+      "neurokit2/complexity/optim_complexity_optimize.py": {
+        "size": 9757
+      },
+      "neurokit2/complexity/optim_complexity_tolerance.py": {
+        "size": 18902
+      },
+      "neurokit2/complexity/utils_complexity_attractor.py": {
+        "size": 10442
+      },
+      "neurokit2/complexity/utils_complexity_coarsegraining.py": {
+        "size": 9413
+      },
+      "neurokit2/complexity/utils_complexity_embedding.py": {
+        "size": 6091
+      },
+      "neurokit2/complexity/utils_complexity_ordinalpatterns.py": {
+        "size": 3626
+      },
+      "neurokit2/complexity/utils_complexity_simulate.py": {
+        "size": 9794
+      },
+      "neurokit2/complexity/utils_complexity_symbolize.py": {
+        "size": 11551
+      },
+      "neurokit2/complexity/utils_entropy.py": {
+        "size": 5623
+      },
+      "neurokit2/complexity/utils_fractal_mandelbrot.py": {
+        "size": 8214
+      },
+      "neurokit2/complexity/utils_recurrence_matrix.py": {
+        "size": 4870
+      },
+      "neurokit2/data/__init__.py": {
+        "size": 467
+      },
+      "neurokit2/data/data.py": {
+        "size": 8420
+      },
+      "neurokit2/data/database.py": {
+        "size": 3938
+      },
+      "neurokit2/data/read_acqknowledge.py": {
+        "size": 4494
+      },
+      "neurokit2/data/read_bitalino.py": {
+        "size": 4551
+      },
+      "neurokit2/data/read_video.py": {
+        "size": 1517
+      },
+      "neurokit2/data/read_xdf.py": {
+        "size": 39154
+      },
+      "neurokit2/data/write_csv.py": {
+        "size": 1287
+      },
+      "neurokit2/ecg/__init__.py": {
+        "size": 970
+      },
+      "neurokit2/ecg/ecg_analyze.py": {
+        "size": 4474
+      },
+      "neurokit2/ecg/ecg_clean.py": {
+        "size": 14449
+      },
+      "neurokit2/ecg/ecg_delineate.py": {
+        "size": 51750
+      },
+      "neurokit2/ecg/ecg_eventrelated.py": {
+        "size": 5924
+      },
+      "neurokit2/ecg/ecg_findpeaks.py": {
+        "size": 64396
+      },
+      "neurokit2/ecg/ecg_intervalrelated.py": {
+        "size": 4226
+      },
+      "neurokit2/ecg/ecg_invert.py": {
+        "size": 3346
+      },
+      "neurokit2/ecg/ecg_peaks.py": {
+        "size": 17970
+      },
+      "neurokit2/ecg/ecg_phase.py": {
+        "size": 5227
+      },
+      "neurokit2/ecg/ecg_plot.py": {
+        "size": 3309
+      },
+      "neurokit2/ecg/ecg_process.py": {
+        "size": 5561
+      },
+      "neurokit2/ecg/ecg_quality.py": {
+        "size": 17779
+      },
+      "neurokit2/ecg/ecg_rsp.py": {
+        "size": 4577
+      },
+      "neurokit2/ecg/ecg_segment.py": {
+        "size": 5316
+      },
+      "neurokit2/ecg/ecg_simulate.py": {
+        "size": 15499
+      },
+      "neurokit2/eda/__init__.py": {
+        "size": 885
+      },
+      "neurokit2/eda/eda_analyze.py": {
+        "size": 4342
+      },
+      "neurokit2/eda/eda_autocor.py": {
+        "size": 2303
+      },
+      "neurokit2/eda/eda_changepoints.py": {
+        "size": 2342
+      },
+      "neurokit2/eda/eda_clean.py": {
+        "size": 4568
+      },
+      "neurokit2/eda/eda_eventrelated.py": {
+        "size": 6350
+      },
+      "neurokit2/eda/eda_findpeaks.py": {
+        "size": 12879
+      },
+      "neurokit2/eda/eda_fixpeaks.py": {
+        "size": 2976
+      },
+      "neurokit2/eda/eda_intervalrelated.py": {
+        "size": 5475
+      },
+      "neurokit2/eda/eda_methods.py": {
+        "size": 6576
+      },
+      "neurokit2/eda/eda_peaks.py": {
+        "size": 7560
+      },
+      "neurokit2/eda/eda_phasic.py": {
+        "size": 25432
+      },
+      "neurokit2/eda/eda_plot.py": {
+        "size": 10637
+      },
+      "neurokit2/eda/eda_process.py": {
+        "size": 4609
+      },
+      "neurokit2/eda/eda_simulate.py": {
+        "size": 6172
+      },
+      "neurokit2/eda/eda_sympathetic.py": {
+        "size": 7438
+      },
+      "neurokit2/eeg/__init__.py": {
+        "size": 905
+      },
+      "neurokit2/eeg/eeg_1f.py": {
+        "size": 972
+      },
+      "neurokit2/eeg/eeg_badchannels.py": {
+        "size": 4469
+      },
+      "neurokit2/eeg/eeg_diss.py": {
+        "size": 2002
+      },
+      "neurokit2/eeg/eeg_gfp.py": {
+        "size": 4845
+      },
+      "neurokit2/eeg/eeg_power.py": {
+        "size": 3933
+      },
+      "neurokit2/eeg/eeg_rereference.py": {
+        "size": 5596
+      },
+      "neurokit2/eeg/eeg_simulate.py": {
+        "size": 3600
+      },
+      "neurokit2/eeg/eeg_source.py": {
+        "size": 2629
+      },
+      "neurokit2/eeg/eeg_source_extract.py": {
+        "size": 2135
+      },
+      "neurokit2/eeg/mne_channel_add.py": {
+        "size": 3663
+      },
+      "neurokit2/eeg/mne_channel_extract.py": {
+        "size": 3766
+      },
+      "neurokit2/eeg/mne_crop.py": {
+        "size": 4011
+      },
+      "neurokit2/eeg/mne_data.py": {
+        "size": 2260
+      },
+      "neurokit2/eeg/mne_templateMRI.py": {
+        "size": 1277
+      },
+      "neurokit2/eeg/mne_to_df.py": {
+        "size": 4400
+      },
+      "neurokit2/eeg/utils.py": {
+        "size": 874
+      },
+      "neurokit2/emg/__init__.py": {
+        "size": 593
+      },
+      "neurokit2/emg/emg_activation.py": {
+        "size": 15246
+      },
+      "neurokit2/emg/emg_amplitude.py": {
+        "size": 4189
+      },
+      "neurokit2/emg/emg_analyze.py": {
+        "size": 3890
+      },
+      "neurokit2/emg/emg_clean.py": {
+        "size": 3157
+      },
+      "neurokit2/emg/emg_eventrelated.py": {
+        "size": 4653
+      },
+      "neurokit2/emg/emg_intervalrelated.py": {
+        "size": 4358
+      },
+      "neurokit2/emg/emg_methods.py": {
+        "size": 4966
+      },
+      "neurokit2/emg/emg_plot.py": {
+        "size": 7753
+      },
+      "neurokit2/emg/emg_process.py": {
+        "size": 3630
+      },
+      "neurokit2/emg/emg_simulate.py": {
+        "size": 3488
+      },
+      "neurokit2/eog/__init__.py": {
+        "size": 639
+      },
+      "neurokit2/eog/eog_analyze.py": {
+        "size": 3794
+      },
+      "neurokit2/eog/eog_clean.py": {
+        "size": 8131
+      },
+      "neurokit2/eog/eog_eventrelated.py": {
+        "size": 3808
+      },
+      "neurokit2/eog/eog_features.py": {
+        "size": 8472
+      },
+      "neurokit2/eog/eog_findpeaks.py": {
+        "size": 10267
+      },
+      "neurokit2/eog/eog_intervalrelated.py": {
+        "size": 3233
+      },
+      "neurokit2/eog/eog_peaks.py": {
+        "size": 3523
+      },
+      "neurokit2/eog/eog_plot.py": {
+        "size": 4327
+      },
+      "neurokit2/eog/eog_process.py": {
+        "size": 2898
+      },
+      "neurokit2/eog/eog_simulate.py": {
+        "size": 1892
+      },
+      "neurokit2/epochs/__init__.py": {
+        "size": 334
+      },
+      "neurokit2/epochs/epochs_average.py": {
+        "size": 2616
+      },
+      "neurokit2/epochs/epochs_create.py": {
+        "size": 7885
+      },
+      "neurokit2/epochs/epochs_plot.py": {
+        "size": 4603
+      },
+      "neurokit2/epochs/epochs_to_array.py": {
+        "size": 1602
+      },
+      "neurokit2/epochs/epochs_to_df.py": {
+        "size": 1438
+      },
+      "neurokit2/epochs/eventrelated_utils.py": {
+        "size": 4126
+      },
+      "neurokit2/events/__init__.py": {
+        "size": 264
+      },
+      "neurokit2/events/events_create.py": {
+        "size": 1807
+      },
+      "neurokit2/events/events_find.py": {
+        "size": 10950
+      },
+      "neurokit2/events/events_plot.py": {
+        "size": 3936
+      },
+      "neurokit2/events/events_to_mne.py": {
+        "size": 2015
+      },
+      "neurokit2/hrv/__init__.py": {
+        "size": 492
+      },
+      "neurokit2/hrv/hrv.py": {
+        "size": 6356
+      },
+      "neurokit2/hrv/hrv_frequency.py": {
+        "size": 11512
+      },
+      "neurokit2/hrv/hrv_nonlinear.py": {
+        "size": 40640
+      },
+      "neurokit2/hrv/hrv_rqa.py": {
+        "size": 3373
+      },
+      "neurokit2/hrv/hrv_rsa.py": {
+        "size": 23052
+      },
+      "neurokit2/hrv/hrv_time.py": {
+        "size": 14011
+      },
+      "neurokit2/hrv/hrv_utils.py": {
+        "size": 4864
+      },
+      "neurokit2/hrv/intervals_process.py": {
+        "size": 5072
+      },
+      "neurokit2/hrv/intervals_to_peaks.py": {
+        "size": 2889
+      },
+      "neurokit2/hrv/intervals_utils.py": {
+        "size": 7136
+      },
+      "neurokit2/markov/__init__.py": {
+        "size": 601
+      },
+      "neurokit2/markov/markov_mixingtime.py": {
+        "size": 1356
+      },
+      "neurokit2/markov/markov_simulate.py": {
+        "size": 1582
+      },
+      "neurokit2/markov/markov_test_homogeneity.py": {
+        "size": 2468
+      },
+      "neurokit2/markov/markov_test_markovity.py": {
+        "size": 3341
+      },
+      "neurokit2/markov/markov_test_random.py": {
+        "size": 1841
+      },
+      "neurokit2/markov/markov_test_symmetry.py": {
+        "size": 1713
+      },
+      "neurokit2/markov/transition_matrix.py": {
+        "size": 6175
+      },
+      "neurokit2/microstates/__init__.py": {
+        "size": 764
+      },
+      "neurokit2/microstates/microstates_classify.py": {
+        "size": 2413
+      },
+      "neurokit2/microstates/microstates_clean.py": {
+        "size": 3261
+      },
+      "neurokit2/microstates/microstates_complexity.py": {
+        "size": 1668
+      },
+      "neurokit2/microstates/microstates_dynamic.py": {
+        "size": 2057
+      },
+      "neurokit2/microstates/microstates_findnumber.py": {
+        "size": 4638
+      },
+      "neurokit2/microstates/microstates_peaks.py": {
+        "size": 3744
+      },
+      "neurokit2/microstates/microstates_plot.py": {
+        "size": 4123
+      },
+      "neurokit2/microstates/microstates_segment.py": {
+        "size": 11340
+      },
+      "neurokit2/microstates/microstates_static.py": {
+        "size": 6468
+      },
+      "neurokit2/misc/__init__.py": {
+        "size": 1249
+      },
+      "neurokit2/misc/_warnings.py": {
+        "size": 246
+      },
+      "neurokit2/misc/check_random_state.py": {
+        "size": 5500
+      },
+      "neurokit2/misc/check_type.py": {
+        "size": 1198
+      },
+      "neurokit2/misc/copyfunction.py": {
+        "size": 222
+      },
+      "neurokit2/misc/expspace.py": {
+        "size": 1248
+      },
+      "neurokit2/misc/fig2img.py": {
+        "size": 945
+      },
+      "neurokit2/misc/find_closest.py": {
+        "size": 3376
+      },
+      "neurokit2/misc/find_consecutive.py": {
+        "size": 568
+      },
+      "neurokit2/misc/find_groups.py": {
+        "size": 537
+      },
+      "neurokit2/misc/find_knee.py": {
+        "size": 2830
+      },
+      "neurokit2/misc/find_outliers.py": {
+        "size": 4051
+      },
+      "neurokit2/misc/find_plateau.py": {
+        "size": 2981
+      },
+      "neurokit2/misc/listify.py": {
+        "size": 797
+      },
+      "neurokit2/misc/parallel_run.py": {
+        "size": 1518
+      },
+      "neurokit2/misc/progress_bar.py": {
+        "size": 1112
+      },
+      "neurokit2/misc/replace.py": {
+        "size": 908
+      },
+      "neurokit2/misc/report.py": {
+        "size": 7414
+      },
+      "neurokit2/misc/type_converters.py": {
+        "size": 1135
+      },
+      "neurokit2/ppg/__init__.py": {
+        "size": 817
+      },
+      "neurokit2/ppg/ppg_analyze.py": {
+        "size": 4119
+      },
+      "neurokit2/ppg/ppg_clean.py": {
+        "size": 7762
+      },
+      "neurokit2/ppg/ppg_eventrelated.py": {
+        "size": 2837
+      },
+      "neurokit2/ppg/ppg_findpeaks.py": {
+        "size": 18628
+      },
+      "neurokit2/ppg/ppg_intervalrelated.py": {
+        "size": 4075
+      },
+      "neurokit2/ppg/ppg_methods.py": {
+        "size": 9089
+      },
+      "neurokit2/ppg/ppg_peaks.py": {
+        "size": 8283
+      },
+      "neurokit2/ppg/ppg_plot.py": {
+        "size": 5758
+      },
+      "neurokit2/ppg/ppg_process.py": {
+        "size": 3935
+      },
+      "neurokit2/ppg/ppg_quality.py": {
+        "size": 15251
+      },
+      "neurokit2/ppg/ppg_segment.py": {
+        "size": 1905
+      },
+      "neurokit2/ppg/ppg_simulate.py": {
+        "size": 11163
+      },
+      "neurokit2/rsp/__init__.py": {
+        "size": 1212
+      },
+      "neurokit2/rsp/rsp_amplitude.py": {
+        "size": 4548
+      },
+      "neurokit2/rsp/rsp_analyze.py": {
+        "size": 4150
+      },
+      "neurokit2/rsp/rsp_clean.py": {
+        "size": 8614
+      },
+      "neurokit2/rsp/rsp_eventrelated.py": {
+        "size": 7103
+      },
+      "neurokit2/rsp/rsp_findpeaks.py": {
+        "size": 10313
+      },
+      "neurokit2/rsp/rsp_fixpeaks.py": {
+        "size": 2385
+      },
+      "neurokit2/rsp/rsp_intervalrelated.py": {
+        "size": 5701
+      },
+      "neurokit2/rsp/rsp_methods.py": {
+        "size": 8374
+      },
+      "neurokit2/rsp/rsp_peaks.py": {
+        "size": 3720
+      },
+      "neurokit2/rsp/rsp_phase.py": {
+        "size": 2693
+      },
+      "neurokit2/rsp/rsp_plot.py": {
+        "size": 11915
+      },
+      "neurokit2/rsp/rsp_process.py": {
+        "size": 5321
+      },
+      "neurokit2/rsp/rsp_quality.py": {
+        "size": 4312
+      },
+      "neurokit2/rsp/rsp_rate.py": {
+        "size": 5655
+      },
+      "neurokit2/rsp/rsp_rav.py": {
+        "size": 2809
+      },
+      "neurokit2/rsp/rsp_rrv.py": {
+        "size": 11901
+      },
+      "neurokit2/rsp/rsp_rvt.py": {
+        "size": 13089
+      },
+      "neurokit2/rsp/rsp_segment.py": {
+        "size": 1952
+      },
+      "neurokit2/rsp/rsp_simulate.py": {
+        "size": 14841
+      },
+      "neurokit2/rsp/rsp_symmetry.py": {
+        "size": 6584
+      },
+      "neurokit2/signal/__init__.py": {
+        "size": 2303
+      },
+      "neurokit2/signal/signal_autocor.py": {
+        "size": 4009
+      },
+      "neurokit2/signal/signal_binarize.py": {
+        "size": 3685
+      },
+      "neurokit2/signal/signal_changepoints.py": {
+        "size": 4923
+      },
+      "neurokit2/signal/signal_cyclesegment.py": {
+        "size": 5885
+      },
+      "neurokit2/signal/signal_decompose.py": {
+        "size": 6032
+      },
+      "neurokit2/signal/signal_detrend.py": {
+        "size": 10040
+      },
+      "neurokit2/signal/signal_distort.py": {
+        "size": 10593
+      },
+      "neurokit2/signal/signal_fillmissing.py": {
+        "size": 1075
+      },
+      "neurokit2/signal/signal_filter.py": {
+        "size": 16894
+      },
+      "neurokit2/signal/signal_findpeaks.py": {
+        "size": 7404
+      },
+      "neurokit2/signal/signal_fixpeaks.py": {
+        "size": 24331
+      },
+      "neurokit2/signal/signal_flatline.py": {
+        "size": 954
+      },
+      "neurokit2/signal/signal_formatpeaks.py": {
+        "size": 4286
+      },
+      "neurokit2/signal/signal_interpolate.py": {
+        "size": 8268
+      },
+      "neurokit2/signal/signal_merge.py": {
+        "size": 2702
+      },
+      "neurokit2/signal/signal_noise.py": {
+        "size": 4050
+      },
+      "neurokit2/signal/signal_period.py": {
+        "size": 4794
+      },
+      "neurokit2/signal/signal_phase.py": {
+        "size": 3278
+      },
+      "neurokit2/signal/signal_plot.py": {
+        "size": 6467
+      },
+      "neurokit2/signal/signal_power.py": {
+        "size": 7828
+      },
+      "neurokit2/signal/signal_psd.py": {
+        "size": 19391
+      },
+      "neurokit2/signal/signal_quality.py": {
+        "size": 23225
+      },
+      "neurokit2/signal/signal_rate.py": {
+        "size": 5319
+      },
+      "neurokit2/signal/signal_recompose.py": {
+        "size": 6280
+      },
+      "neurokit2/signal/signal_resample.py": {
+        "size": 6609
+      },
+      "neurokit2/signal/signal_sanitize.py": {
+        "size": 918
+      },
+      "neurokit2/signal/signal_simulate.py": {
+        "size": 3854
+      },
+      "neurokit2/signal/signal_smooth.py": {
+        "size": 5246
+      },
+      "neurokit2/signal/signal_surrogate.py": {
+        "size": 5516
+      },
+      "neurokit2/signal/signal_synchrony.py": {
+        "size": 4246
+      },
+      "neurokit2/signal/signal_tidypeaksonsets.py": {
+        "size": 8954
+      },
+      "neurokit2/signal/signal_timefrequency.py": {
+        "size": 22004
+      },
+      "neurokit2/signal/signal_zerocrossings.py": {
+        "size": 1540
+      },
+      "neurokit2/stats/__init__.py": {
+        "size": 1010
+      },
+      "neurokit2/stats/cluster.py": {
+        "size": 27931
+      },
+      "neurokit2/stats/cluster_findnumber.py": {
+        "size": 2641
+      },
+      "neurokit2/stats/cluster_quality.py": {
+        "size": 12462
+      },
+      "neurokit2/stats/correlation.py": {
+        "size": 1849
+      },
+      "neurokit2/stats/density.py": {
+        "size": 2021
+      },
+      "neurokit2/stats/density_bandwidth.py": {
+        "size": 4897
+      },
+      "neurokit2/stats/distance.py": {
+        "size": 2227
+      },
+      "neurokit2/stats/fit_error.py": {
+        "size": 3172
+      },
+      "neurokit2/stats/fit_loess.py": {
+        "size": 2895
+      },
+      "neurokit2/stats/fit_mixture.py": {
+        "size": 1441
+      },
+      "neurokit2/stats/fit_polynomial.py": {
+        "size": 4937
+      },
+      "neurokit2/stats/hdi.py": {
+        "size": 2847
+      },
+      "neurokit2/stats/mad.py": {
+        "size": 791
+      },
+      "neurokit2/stats/rescale.py": {
+        "size": 1921
+      },
+      "neurokit2/stats/standardize.py": {
+        "size": 4584
+      },
+      "neurokit2/stats/summary.py": {
+        "size": 1830
+      },
+      "neurokit2/video/__init__.py": {
+        "size": 237
+      },
+      "neurokit2/video/video_blinks.py": {
+        "size": 2574
+      },
+      "neurokit2/video/video_face.py": {
+        "size": 2663
+      },
+      "neurokit2/video/video_plot.py": {
+        "size": 3440
+      },
+      "neurokit2/video/video_ppg.py": {
+        "size": 3465
+      },
+      "neurokit2/video/video_skin.py": {
+        "size": 4207
+      },
+      "pyproject.toml": {
+        "size": 5059
+      },
+      "readthedocs.yml": {
+        "size": 304
+      },
+      "studies/complexity_eeg/README.md": {
+        "size": 17920
+      },
+      "studies/complexity_eeg/make_data.py": {
+        "size": 12440
+      },
+      "studies/ecg_benchmark/README.md": {
+        "size": 21191
+      },
+      "studies/ecg_benchmark/make_data.py": {
+        "size": 5870
+      },
+      "studies/eog_blinktemplate/README.md": {
+        "size": 16107
+      },
+      "studies/erp_gam/README.md": {
+        "size": 12997
+      },
+      "studies/erp_gam/script.py": {
+        "size": 2915
+      },
+      "studies/hrv_frequency/make_data.py": {
+        "size": 1493
+      },
+      "studies/microstates_howmany/script.py": {
+        "size": 1648
+      },
+      "tests/__init__.py": {
+        "size": 0
+      },
+      "tests/tests.py": {
+        "size": 99
+      },
+      "tests/tests_bio.py": {
+        "size": 2106
+      },
+      "tests/tests_complexity.py": {
+        "size": 22600
+      },
+      "tests/tests_data.py": {
+        "size": 1186
+      },
+      "tests/tests_ecg.py": {
+        "size": 12524
+      },
+      "tests/tests_ecg_delineate.py": {
+        "size": 2736
+      },
+      "tests/tests_ecg_findpeaks.py": {
+        "size": 3298
+      },
+      "tests/tests_eda.py": {
+        "size": 8355
+      },
+      "tests/tests_eeg.py": {
+        "size": 6314
+      },
+      "tests/tests_emg.py": {
+        "size": 6156
+      },
+      "tests/tests_eog.py": {
+        "size": 5242
+      },
+      "tests/tests_epochs.py": {
+        "size": 1414
+      },
+      "tests/tests_events.py": {
+        "size": 3017
+      },
+      "tests/tests_hrv.py": {
+        "size": 10238
+      },
+      "tests/tests_microstates.py": {
+        "size": 916
+      },
+      "tests/tests_ppg.py": {
+        "size": 13189
+      },
+      "tests/tests_read_xdf.py": {
+        "size": 14976
+      },
+      "tests/tests_rsp.py": {
+        "size": 15841
+      },
+      "tests/tests_signal.py": {
+        "size": 22609
+      },
+      "tests/tests_signal_fixpeaks.py": {
+        "size": 9379
+      },
+      "tests/tests_stats.py": {
+        "size": 3962
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "deployment.NeuroKit.source",
+      "mcp_output.mcp_plugin",
+      "source",
+      "source.neurokit2",
+      "source.neurokit2.benchmark",
+      "source.neurokit2.bio",
+      "source.neurokit2.complexity",
+      "source.neurokit2.data",
+      "source.neurokit2.ecg",
+      "source.neurokit2.eda",
+      "source.neurokit2.eeg",
+      "source.neurokit2.emg",
+      "source.neurokit2.eog",
+      "source.neurokit2.epochs",
+      "source.neurokit2.events",
+      "source.neurokit2.hrv",
+      "source.neurokit2.markov",
+      "source.neurokit2.microstates",
+      "source.neurokit2.misc",
+      "source.neurokit2.ppg",
+      "source.neurokit2.rsp",
+      "source.neurokit2.signal",
+      "source.neurokit2.stats",
+      "source.neurokit2.video",
+      "source.tests"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": false,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.neurokit2",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level re-export surface for NeuroKit2 functionality across biosignal domains; primary import anchor for MCP wrapping."
+      },
+      {
+        "package": "source.neurokit2.ecg",
+        "module": "ecg_process",
+        "functions": [
+          "ecg_process"
+        ],
+        "classes": [],
+        "description": "End-to-end ECG pipeline (cleaning, peak detection, rate/features) suitable as a high-value single MCP tool."
+      },
+      {
+        "package": "source.neurokit2.eda",
+        "module": "eda_process",
+        "functions": [
+          "eda_process"
+        ],
+        "classes": [],
+        "description": "Core EDA processing pipeline for tonic/phasic decomposition and peak-oriented outputs."
+      },
+      {
+        "package": "source.neurokit2.ppg",
+        "module": "ppg_process",
+        "functions": [
+          "ppg_process"
+        ],
+        "classes": [],
+        "description": "Primary PPG processing entry point; practical for MCP exposure as a stable high-level API."
+      },
+      {
+        "package": "source.neurokit2.rsp",
+        "module": "rsp_process",
+        "functions": [
+          "rsp_process"
+        ],
+        "classes": [],
+        "description": "Respiration processing pipeline with signal cleaning, phase/rate extraction, and quality-related outputs."
+      },
+      {
+        "package": "source.neurokit2.emg",
+        "module": "emg_process",
+        "functions": [
+          "emg_process"
+        ],
+        "classes": [],
+        "description": "EMG processing pipeline for cleaned signal and activation-related metrics."
+      },
+      {
+        "package": "source.neurokit2.eog",
+        "module": "eog_process",
+        "functions": [
+          "eog_process"
+        ],
+        "classes": [],
+        "description": "EOG processing workflow (cleaning, blink/peak features) suitable for structured MCP outputs."
+      },
+      {
+        "package": "source.neurokit2.bio",
+        "module": "bio_process",
+        "functions": [
+          "bio_process"
+        ],
+        "classes": [],
+        "description": "Multimodal biosignal processing orchestrator; useful as a consolidated MCP tool for combined channels."
+      },
+      {
+        "package": "source.neurokit2.hrv",
+        "module": "hrv",
+        "functions": [
+          "hrv"
+        ],
+        "classes": [],
+        "description": "Central HRV feature computation interface (time/frequency/nonlinear) from interval/peak inputs."
+      },
+      {
+        "package": "source.neurokit2.signal",
+        "module": "signal_filter",
+        "functions": [
+          "signal_filter"
+        ],
+        "classes": [],
+        "description": "Reusable low-level signal filtering primitive; good utility MCP tool for preprocessing."
+      },
+      {
+        "package": "source.neurokit2.signal",
+        "module": "signal_psd",
+        "functions": [
+          "signal_psd"
+        ],
+        "classes": [],
+        "description": "Power spectral density computation utility used across modalities and feature extraction workflows."
+      },
+      {
+        "package": "source.neurokit2.events",
+        "module": "events_find",
+        "functions": [
+          "events_find"
+        ],
+        "classes": [],
+        "description": "Event detection helper for triggers/onsets in time-series workflows."
+      },
+      {
+        "package": "source.neurokit2.epochs",
+        "module": "epochs_create",
+        "functions": [
+          "epochs_create"
+        ],
+        "classes": [],
+        "description": "Epoch generation utility for event-related analyses; useful for MCP tool chaining."
+      },
+      {
+        "package": "source.neurokit2.complexity",
+        "module": "complexity",
+        "functions": [
+          "complexity"
+        ],
+        "classes": [],
+        "description": "High-level complexity metric aggregator; broad but potentially heavier computational profile."
+      },
+      {
+        "package": "source.neurokit2.data",
+        "module": "data",
+        "functions": [
+          "data"
+        ],
+        "classes": [],
+        "description": "Built-in dataset accessor for examples/tests; valuable for MCP smoke tests and demos."
+      }
+    ],
+    "cli_commands": [],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.95
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "pandas",
+        "matplotlib"
+      ],
+      "optional": [
+        "scikit-learn",
+        "mne",
+        "PyWavelets",
+        "nolds",
+        "biosppy",
+        "cvxopt",
+        "opencv-python",
+        "imageio",
+        "numba"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.95,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/neuropsychology/NeuroKit",
+    "repo_name": "NeuroKit",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.95,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

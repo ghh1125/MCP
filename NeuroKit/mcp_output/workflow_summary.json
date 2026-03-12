@@ -1,0 +1,243 @@
+{
+  "repository": {
+    "name": "NeuroKit",
+    "url": "https://github.com/neuropsychology/NeuroKit",
+    "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/NeuroKit",
+    "description": "Python library",
+    "features": "Basic functionality",
+    "tech_stack": "Python",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "last_updated": "",
+    "complexity": "medium",
+    "intrusiveness_risk": "low"
+  },
+  "execution": {
+    "start_time": 1773290219.897693,
+    "end_time": 1773290647.374885,
+    "duration": 427.4771921634674,
+    "status": "success",
+    "workflow_status": "success",
+    "nodes_executed": [
+      "download",
+      "analysis",
+      "env",
+      "generate",
+      "run",
+      "review",
+      "finalize"
+    ],
+    "total_files_processed": 25,
+    "environment_type": "unknown",
+    "llm_calls": 0,
+    "deepwiki_calls": 0
+  },
+  "tests": {
+    "original_project": {
+      "passed": false,
+      "details": {},
+      "test_coverage": "100%",
+      "execution_time": 0,
+      "test_files": []
+    },
+    "mcp_plugin": {
+      "passed": true,
+      "details": {},
+      "service_health": "healthy",
+      "startup_time": 0,
+      "transport_mode": "stdio",
+      "fastmcp_version": "unknown",
+      "mcp_version": "unknown"
+    }
+  },
+  "analysis": {
+    "structure": {
+      "packages": [
+        "deployment.NeuroKit.source",
+        "mcp_output.mcp_plugin",
+        "source",
+        "source.neurokit2",
+        "source.neurokit2.benchmark",
+        "source.neurokit2.bio",
+        "source.neurokit2.complexity",
+        "source.neurokit2.data",
+        "source.neurokit2.ecg",
+        "source.neurokit2.eda",
+        "source.neurokit2.eeg",
+        "source.neurokit2.emg",
+        "source.neurokit2.eog",
+        "source.neurokit2.epochs",
+        "source.neurokit2.events",
+        "source.neurokit2.hrv",
+        "source.neurokit2.markov",
+        "source.neurokit2.microstates",
+        "source.neurokit2.misc",
+        "source.neurokit2.ppg",
+        "source.neurokit2.rsp",
+        "source.neurokit2.signal",
+        "source.neurokit2.stats",
+        "source.neurokit2.video",
+        "source.tests"
+      ]
+    },
+    "dependencies": {
+      "has_environment_yml": false,
+      "has_requirements_txt": false,
+      "pyproject": true,
+      "setup_cfg": false,
+      "setup_py": false
+    },
+    "entry_points": {
+      "imports": [],
+      "cli": [],
+      "modules": []
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.95,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    },
+    "deepwiki_analysis": {
+      "repo_url": "https://github.com/neuropsychology/NeuroKit",
+      "repo_name": "NeuroKit",
+      "error": "DeepWiki analysis failed",
+      "model": "gpt-5.3-codex",
+      "source": "llm_direct_analysis",
+      "success": false
+    },
+    "code_complexity": {
+      "cyclomatic_complexity": "medium",
+      "cognitive_complexity": "medium",
+      "maintainability_index": 75
+    },
+    "security_analysis": {
+      "vulnerabilities_found": 0,
+      "security_score": 85,
+      "recommendations": []
+    }
+  },
+  "plugin_generation": {
+    "files_created": [
+      "mcp_output/start_mcp.py",
+      "mcp_output/mcp_plugin/__init__.py",
+      "mcp_output/mcp_plugin/mcp_service.py",
+      "mcp_output/mcp_plugin/adapter.py",
+      "mcp_output/mcp_plugin/main.py",
+      "mcp_output/requirements.txt",
+      "mcp_output/README_MCP.md"
+    ],
+    "main_entry": "start_mcp.py",
+    "requirements": [
+      "fastmcp>=0.1.0",
+      "pydantic>=2.0.0"
+    ],
+    "readme_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/NeuroKit/mcp_output/README_MCP.md",
+    "adapter_mode": "import",
+    "total_lines_of_code": 0,
+    "generated_files_size": 0,
+    "tool_endpoints": 0,
+    "supported_features": [
+      "Basic functionality"
+    ],
+    "generated_tools": [
+      "Basic tools",
+      "Health check tools",
+      "Version info tools"
+    ]
+  },
+  "code_review": {},
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    "Add MCP smoke/integration tests for all exposed endpoints (happy path + invalid inputs + missing optional deps)",
+    "enforce strict input/output schemas with Pydantic models (typed arrays/dataframes",
+    "sampling_rate bounds",
+    "clear error messages)",
+    "introduce timeout and resource guards for heavy endpoints (especially `complexity`",
+    "`signal_psd`",
+    "`bio_process`) with configurable max signal length",
+    "pin and matrix-test dependencies in CI (Python versions + optional stacks like `mne`",
+    "`numba`",
+    "`opencv-python`)",
+    "expand `README_MCP.md` with copy-paste examples per endpoint and modality-specific parameter guidance",
+    "add deterministic test fixtures and seeds for stochastic/simulation code paths",
+    "implement structured logging/telemetry in `mcp_service.py` (request id",
+    "endpoint",
+    "latency",
+    "failure class)",
+    "cache repeated computations for expensive transforms (PSD/filter pipelines) where inputs are identical",
+    "add graceful degradation/feature flags when optional packages are unavailable",
+    "harden `data` endpoint for offline/air-gapped behavior with explicit dataset availability checks",
+    "create contract tests to detect upstream NeuroKit API signature changes",
+    "improve error normalization in `adapter.py` to map library exceptions to stable MCP error codes",
+    "add benchmark tests for representative signal lengths and set regression thresholds",
+    "include security/robustness checks (input size limits",
+    "path sanitization",
+    "denial-of-service prevention)",
+    "automate docs validation in CI (build + example execution for MCP docs)",
+    "add versioned endpoint metadata/capabilities discovery",
+    "and publish a small “recommended endpoint set” profile (fast vs comprehensive) for production deployments"
+  ],
+  "performance_metrics": {
+    "memory_usage_mb": 0,
+    "cpu_usage_percent": 0,
+    "response_time_ms": 0,
+    "throughput_requests_per_second": 0
+  },
+  "deployment_info": {
+    "supported_platforms": [
+      "Linux",
+      "Windows",
+      "macOS"
+    ],
+    "python_versions": [
+      "3.8",
+      "3.9",
+      "3.10",
+      "3.11",
+      "3.12"
+    ],
+    "deployment_methods": [
+      "Docker",
+      "pip",
+      "conda"
+    ],
+    "monitoring_support": true,
+    "logging_configuration": "structured"
+  },
+  "execution_analysis": {
+    "success_factors": [
+      "End-to-end workflow status is success with all expected nodes executed (download, analysis, env, generate, run, review, finalize)",
+      "Import-based adapter strategy was appropriate for NeuroKit (import feasibility 0.95, low intrusiveness risk)",
+      "Generated MCP service started successfully and reported healthy over stdio transport",
+      "Target endpoint set is meaningful and aligned with NeuroKit high-value APIs (14 domain-relevant tools)"
+    ],
+    "failure_reasons": [
+      "No hard workflow failure occurred",
+      "Original project tests were not executed/passed despite reported 100% coverage metadata, indicating test-reporting inconsistency",
+      "DeepWiki enrichment failed, reducing external architectural/context confidence",
+      "Performance telemetry and generation metrics were not captured (0 values), limiting objective efficiency analysis"
+    ],
+    "overall_assessment": "good",
+    "node_performance": {
+      "download_time": "Completed successfully; repository imported via zip fallback (386 files). No per-node timing available.",
+      "analysis_time": "Completed successfully; identified package structure, dependencies, core modules, and risk profile.",
+      "generation_time": "Completed successfully; MCP scaffold and adapter files generated with endpoint mapping, but LOC/size metrics are missing (reported as 0).",
+      "test_time": "MCP plugin health test passed; original repository test validation absent/inconclusive."
+    },
+    "resource_usage": {
+      "memory_efficiency": "Unknown due to missing runtime telemetry (reported 0 MB).",
+      "cpu_efficiency": "Unknown due to missing runtime telemetry (reported 0%).",
+      "disk_usage": "Low-to-moderate; small MCP output footprint implied, but generated size metrics are missing."
+    }
+  },
+  "technical_quality": {
+    "code_quality_score": 78,
+    "architecture_score": 84,
+    "performance_score": 68,
+    "maintainability_score": 76,
+    "security_score": 85,
+    "scalability_score": 72
+  }
+}

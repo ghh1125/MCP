@@ -1,0 +1,19 @@
+#!/bin/bash
+Fail()
+{
+    echo "ERROR($0): $1"
+    exit 1
+}
+
+[[ "$1" == "" || "$1" == "-v" ]] || Fail "Invalid command line options."
+
+echo "unit_test_csharp: Starting."
+cd dotnet/csharp_test || "Cannot change to directory dotnet/csharp_test"
+dotnet exe/csharp_test.dll $1 all || Fail "Error running csharp unit test"
+cd ../..
+./generate $1 check dotnet/csharp_test/csharp_check.txt || Fail "Verification failure for C# unit test output."
+for file in dotnet/csharp_test/csharp_longitude_*.txt; do
+    ./generate $1 check ${file} || Fail "Failed verification of file ${file}"
+done
+echo "unit_test_csharp: PASS."
+exit 0

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+[[ -z "${CC}" ]] && CC=gcc
+echo "$0: C compiler = ${CC}"
+
+if [[ "$1" == "debug" ]]; then
+    BUILDOPT='-g -Og'
+elif [[ -z "$1" ]]; then
+    # I ran into some numeric calculation discrepancies when
+    # didn't explicitly turn off "fp contract" optimizations
+    # on gcc 9.3.0 aarch64 (Rasbperry Pi 3).
+    # See notes in the 'ctbuild' script for more info.
+    BUILDOPT='-O3 -ffp-contract=off'
+else
+    echo "FATAL(buildcode): unrecognized command line option"
+    exit 1
+fi
+
+${CC} ${BUILDOPT} -Wall -Werror -o generate -I novas -I vsop -I top2013 -I . \
+    generate.c \
+    earth.c \
+    astro_vector.c \
+    chebyshev.c \
+    codegen.c \
+    ephfile.c \
+    vsop/vsop.c \
+    top2013/top2013.c \
+    novas/novas.c \
+    novas/novascon.c \
+    novas/nutation.c \
+    novas/readeph0.c \
+    novas/solsys1.c \
+    novas/eph_manager.c \
+    -lm || exit $?
+
+echo "$0: Built 'generate' program."
+exit 0

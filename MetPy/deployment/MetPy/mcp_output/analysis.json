@@ -1,0 +1,996 @@
+{
+  "summary": {
+    "repository_url": "https://github.com/Unidata/MetPy",
+    "summary": "Imported via zip fallback, file count: 262",
+    "file_tree": {
+      ".codecov.yml": {
+        "size": 407
+      },
+      ".devcontainer/devcontainer.json": {
+        "size": 1589
+      },
+      ".github/ISSUE_TEMPLATE/bug_report.yml": {
+        "size": 2323
+      },
+      ".github/ISSUE_TEMPLATE/config.yml": {
+        "size": 237
+      },
+      ".github/ISSUE_TEMPLATE/documentation.yml": {
+        "size": 382
+      },
+      ".github/ISSUE_TEMPLATE/feature_request.yml": {
+        "size": 541
+      },
+      ".github/actions/build-docs/action.yml": {
+        "size": 2322
+      },
+      ".github/actions/install-conda/action.yml": {
+        "size": 1387
+      },
+      ".github/actions/install-pypi/action.yml": {
+        "size": 2622
+      },
+      ".github/actions/run-tests/action.yml": {
+        "size": 1836
+      },
+      ".github/codeql/codeql-config.yml": {
+        "size": 139
+      },
+      ".github/dependabot.yml": {
+        "size": 1759
+      },
+      ".github/pull_request_template.md": {
+        "size": 605
+      },
+      ".github/release.yml": {
+        "size": 443
+      },
+      ".github/workflows/assign-milestone.yml": {
+        "size": 1683
+      },
+      ".github/workflows/automerge-dependabot.yml": {
+        "size": 1127
+      },
+      ".github/workflows/backport-prs.yml": {
+        "size": 3850
+      },
+      ".github/workflows/benchmark-pr.yml": {
+        "size": 1561
+      },
+      ".github/workflows/cffcheck.yml": {
+        "size": 560
+      },
+      ".github/workflows/code-analysis.yml": {
+        "size": 846
+      },
+      ".github/workflows/docs-conda.yml": {
+        "size": 1177
+      },
+      ".github/workflows/docs.yml": {
+        "size": 4361
+      },
+      ".github/workflows/linting.yml": {
+        "size": 1943
+      },
+      ".github/workflows/nightly-builds.yml": {
+        "size": 3315
+      },
+      ".github/workflows/release.yml": {
+        "size": 1359
+      },
+      ".github/workflows/run-unstable-pr.yml": {
+        "size": 362
+      },
+      ".github/workflows/tests-conda.yml": {
+        "size": 1877
+      },
+      ".github/workflows/tests-pypi.yml": {
+        "size": 3192
+      },
+      ".github/workflows/unstable-builds.yml": {
+        "size": 2417
+      },
+      ".lgtm.yml": {
+        "size": 171
+      },
+      ".markdownlint.yaml": {
+        "size": 55
+      },
+      ".qlty/qlty.toml": {
+        "size": 282
+      },
+      ".stickler.yml": {
+        "size": 72
+      },
+      "AUTHORS.txt": {
+        "size": 742
+      },
+      "CLA.md": {
+        "size": 11868
+      },
+      "CODE_OF_CONDUCT.md": {
+        "size": 3230
+      },
+      "CONTRIBUTING.md": {
+        "size": 18912
+      },
+      "README.md": {
+        "size": 6298
+      },
+      "SUPPORT.md": {
+        "size": 1847
+      },
+      "benchmarks/asv.conf.json": {
+        "size": 8429
+      },
+      "benchmarks/benchmarks/__init__.py": {
+        "size": 189
+      },
+      "benchmarks/benchmarks/apparent_temp_benchmarks.py": {
+        "size": 2270
+      },
+      "benchmarks/benchmarks/bound_layer_turbulence_benchmarks.py": {
+        "size": 2473
+      },
+      "benchmarks/benchmarks/dry_thermo_benchmarks.py": {
+        "size": 5049
+      },
+      "benchmarks/benchmarks/dyn_kin_benchmarks.py": {
+        "size": 7030
+      },
+      "benchmarks/benchmarks/math_fctn_benchmarks.py": {
+        "size": 3217
+      },
+      "benchmarks/benchmarks/moist_thermo_benchmarks.py": {
+        "size": 11552
+      },
+      "benchmarks/benchmarks/other_benchmarks.py": {
+        "size": 3104
+      },
+      "benchmarks/benchmarks/smoothing_benchmarks.py": {
+        "size": 2701
+      },
+      "benchmarks/benchmarks/soundings_benchmarks.py": {
+        "size": 11218
+      },
+      "benchmarks/benchmarks/std_atm_benchmarks.py": {
+        "size": 2389
+      },
+      "benchmarks/data_array_generate.py": {
+        "size": 10497
+      },
+      "ci-dev/doc_requirements.txt": {
+        "size": 122
+      },
+      "ci-dev/linting_requirements.txt": {
+        "size": 254
+      },
+      "ci-dev/test_requirements.txt": {
+        "size": 79
+      },
+      "ci/download_cartopy_maps.py": {
+        "size": 1059
+      },
+      "ci/extra_requirements.txt": {
+        "size": 75
+      },
+      "ci/filter_links.py": {
+        "size": 1577
+      },
+      "ci/requirements.txt": {
+        "size": 136
+      },
+      "conftest.py": {
+        "size": 6621
+      },
+      "docs/_static/doc_shared.js": {
+        "size": 2554
+      },
+      "docs/conf.py": {
+        "size": 18700
+      },
+      "docs/devel/CONTRIBUTING.md": {
+        "size": 21
+      },
+      "docs/doc-server.py": {
+        "size": 1298
+      },
+      "docs/make_areas.py": {
+        "size": 4350
+      },
+      "docs/override_check.py": {
+        "size": 1137
+      },
+      "docs/test-server/pst-versions.json": {
+        "size": 720
+      },
+      "docs/userguide/SUPPORT.md": {
+        "size": 16
+      },
+      "examples/Advanced_Sounding.py": {
+        "size": 3280
+      },
+      "examples/Advanced_Sounding_With_Complex_Layout.py": {
+        "size": 15252
+      },
+      "examples/Four_Panel_Map.py": {
+        "size": 4745
+      },
+      "examples/README.txt": {
+        "size": 309
+      },
+      "examples/XArray_Projections.py": {
+        "size": 1171
+      },
+      "examples/calculations/Absolute_Vorticity.py": {
+        "size": 1036
+      },
+      "examples/calculations/Advection.py": {
+        "size": 1439
+      },
+      "examples/calculations/Angle_to_Direction.py": {
+        "size": 1305
+      },
+      "examples/calculations/Bulk_Shear.py": {
+        "size": 1807
+      },
+      "examples/calculations/Dewpoint_and_Mixing_Ratio.py": {
+        "size": 1705
+      },
+      "examples/calculations/Divergence.py": {
+        "size": 984
+      },
+      "examples/calculations/Equivalent_Potential_Temperature.py": {
+        "size": 2183
+      },
+      "examples/calculations/Gradient.py": {
+        "size": 2073
+      },
+      "examples/calculations/High_Low_Analysis.py": {
+        "size": 2632
+      },
+      "examples/calculations/Mean_Pressure_Weighted.py": {
+        "size": 1665
+      },
+      "examples/calculations/Mountain_Problem.py": {
+        "size": 2747
+      },
+      "examples/calculations/Parse_Angles.py": {
+        "size": 1063
+      },
+      "examples/calculations/QVector.py": {
+        "size": 2090
+      },
+      "examples/calculations/README.txt": {
+        "size": 104
+      },
+      "examples/calculations/Shearing_Deformation.py": {
+        "size": 1058
+      },
+      "examples/calculations/Smoothing.py": {
+        "size": 2435
+      },
+      "examples/calculations/Sounding_Calculations.py": {
+        "size": 8205
+      },
+      "examples/calculations/Static_Stability.py": {
+        "size": 1599
+      },
+      "examples/calculations/Stretching_Deformation.py": {
+        "size": 1076
+      },
+      "examples/calculations/Thickness_Hydrostatic.py": {
+        "size": 2069
+      },
+      "examples/calculations/Total_Deformation.py": {
+        "size": 1040
+      },
+      "examples/calculations/Vorticity.py": {
+        "size": 993
+      },
+      "examples/calculations/Wind_Speed.py": {
+        "size": 959
+      },
+      "examples/cross_section.py": {
+        "size": 5049
+      },
+      "examples/formats/GINI_Water_Vapor.py": {
+        "size": 1710
+      },
+      "examples/formats/NEXRAD_Level_2_File.py": {
+        "size": 3424
+      },
+      "examples/formats/NEXRAD_Level_3_File.py": {
+        "size": 2282
+      },
+      "examples/formats/README.txt": {
+        "size": 115
+      },
+      "examples/gridding/Find_Natural_Neighbors_Verification.py": {
+        "size": 2557
+      },
+      "examples/gridding/Inverse_Distance_Verification.py": {
+        "size": 7102
+      },
+      "examples/gridding/Natural_Neighbor_Verification.py": {
+        "size": 10380
+      },
+      "examples/gridding/Point_Interpolation.py": {
+        "size": 5119
+      },
+      "examples/gridding/README.txt": {
+        "size": 113
+      },
+      "examples/gridding/Wind_SLP_Interpolation.py": {
+        "size": 4475
+      },
+      "examples/isentropic_example.py": {
+        "size": 7367
+      },
+      "examples/meteogram_metpy.py": {
+        "size": 9027
+      },
+      "examples/plots/Combined_plotting.py": {
+        "size": 1336
+      },
+      "examples/plots/Hodograph_Inset.py": {
+        "size": 2383
+      },
+      "examples/plots/Mesonet_Stationplot.py": {
+        "size": 4217
+      },
+      "examples/plots/Plotting_Surface_Analysis.py": {
+        "size": 3423
+      },
+      "examples/plots/README.txt": {
+        "size": 103
+      },
+      "examples/plots/Simple_Fronts_Plot.py": {
+        "size": 1459
+      },
+      "examples/plots/Simple_Sounding.py": {
+        "size": 3184
+      },
+      "examples/plots/Simplified_Image_Plot.py": {
+        "size": 727
+      },
+      "examples/plots/Skew-T_Layout.py": {
+        "size": 2399
+      },
+      "examples/plots/Sounding_LCL_Dataset.py": {
+        "size": 3080
+      },
+      "examples/plots/Station_Plot.py": {
+        "size": 4577
+      },
+      "examples/plots/Station_Plot_with_Layout.py": {
+        "size": 8152
+      },
+      "examples/plots/US_Counties.py": {
+        "size": 850
+      },
+      "examples/plots/nhc_wind_probabilities.py": {
+        "size": 4274
+      },
+      "examples/plots/raster_declarative.py": {
+        "size": 1426
+      },
+      "examples/plots/spc_convective_outlook.py": {
+        "size": 1777
+      },
+      "examples/plots/surface_declarative.py": {
+        "size": 2181
+      },
+      "examples/plots/upperair_declarative.py": {
+        "size": 2177
+      },
+      "examples/remote/README.txt": {
+        "size": 159
+      },
+      "examples/remote/basic.py": {
+        "size": 1061
+      },
+      "examples/remote/ml_forecast.py": {
+        "size": 1199
+      },
+      "examples/sigma_to_pressure_interpolation.py": {
+        "size": 3493
+      },
+      "pyproject.toml": {
+        "size": 6144
+      },
+      "setup.cfg": {
+        "size": 1049
+      },
+      "src/metpy/__init__.py": {
+        "size": 525
+      },
+      "src/metpy/_vendor/__init__.py": {
+        "size": 189
+      },
+      "src/metpy/_vendor/xarray.py": {
+        "size": 2816
+      },
+      "src/metpy/_version.py": {
+        "size": 1332
+      },
+      "src/metpy/_warnings.py": {
+        "size": 823
+      },
+      "src/metpy/calc/__init__.py": {
+        "size": 1085
+      },
+      "src/metpy/calc/basic.py": {
+        "size": 46972
+      },
+      "src/metpy/calc/cross_sections.py": {
+        "size": 10773
+      },
+      "src/metpy/calc/exceptions.py": {
+        "size": 325
+      },
+      "src/metpy/calc/indices.py": {
+        "size": 26492
+      },
+      "src/metpy/calc/kinematics.py": {
+        "size": 73179
+      },
+      "src/metpy/calc/thermo.py": {
+        "size": 198357
+      },
+      "src/metpy/calc/tools.py": {
+        "size": 82702
+      },
+      "src/metpy/calc/turbulence.py": {
+        "size": 7608
+      },
+      "src/metpy/cbook.py": {
+        "size": 5854
+      },
+      "src/metpy/constants/__init__.py": {
+        "size": 6851
+      },
+      "src/metpy/constants/default.py": {
+        "size": 2978
+      },
+      "src/metpy/constants/nounit.py": {
+        "size": 872
+      },
+      "src/metpy/deprecation.py": {
+        "size": 11148
+      },
+      "src/metpy/future.py": {
+        "size": 285
+      },
+      "src/metpy/interpolate/__init__.py": {
+        "size": 778
+      },
+      "src/metpy/interpolate/geometry.py": {
+        "size": 10454
+      },
+      "src/metpy/interpolate/grid.py": {
+        "size": 12842
+      },
+      "src/metpy/interpolate/one_dimension.py": {
+        "size": 7900
+      },
+      "src/metpy/interpolate/points.py": {
+        "size": 13724
+      },
+      "src/metpy/interpolate/slices.py": {
+        "size": 6754
+      },
+      "src/metpy/interpolate/tools.py": {
+        "size": 4458
+      },
+      "src/metpy/io/__init__.py": {
+        "size": 1305
+      },
+      "src/metpy/io/_metar_parser.py": {
+        "size": 228959
+      },
+      "src/metpy/io/_nexrad_msgs/__init__.py": {
+        "size": 203
+      },
+      "src/metpy/io/_nexrad_msgs/msg18.py": {
+        "size": 43236
+      },
+      "src/metpy/io/_nexrad_msgs/msg3.py": {
+        "size": 18946
+      },
+      "src/metpy/io/_tools.py": {
+        "size": 12319
+      },
+      "src/metpy/io/gempak.py": {
+        "size": 114036
+      },
+      "src/metpy/io/gini.py": {
+        "size": 18521
+      },
+      "src/metpy/io/metar.py": {
+        "size": 20075
+      },
+      "src/metpy/io/nexrad.py": {
+        "size": 119894
+      },
+      "src/metpy/io/station_data.py": {
+        "size": 7650
+      },
+      "src/metpy/io/text.py": {
+        "size": 5899
+      },
+      "src/metpy/package_tools.py": {
+        "size": 2178
+      },
+      "src/metpy/pandas.py": {
+        "size": 826
+      },
+      "src/metpy/plots/__init__.py": {
+        "size": 1851
+      },
+      "src/metpy/plots/_util.py": {
+        "size": 9186
+      },
+      "src/metpy/plots/cartopy_utils.py": {
+        "size": 2810
+      },
+      "src/metpy/plots/ctables.py": {
+        "size": 8716
+      },
+      "src/metpy/plots/declarative.py": {
+        "size": 93828
+      },
+      "src/metpy/plots/fonts/wx_symbols_license.txt": {
+        "size": 328
+      },
+      "src/metpy/plots/mapping.py": {
+        "size": 8548
+      },
+      "src/metpy/plots/patheffects.py": {
+        "size": 43589
+      },
+      "src/metpy/plots/plot_areas.py": {
+        "size": 39092
+      },
+      "src/metpy/plots/skewt.py": {
+        "size": 41279
+      },
+      "src/metpy/plots/station_plot.py": {
+        "size": 27950
+      },
+      "src/metpy/plots/text.py": {
+        "size": 9211
+      },
+      "src/metpy/plots/wx_symbols.py": {
+        "size": 10744
+      },
+      "src/metpy/remote/__init__.py": {
+        "size": 454
+      },
+      "src/metpy/remote/aws.py": {
+        "size": 27436
+      },
+      "src/metpy/static-data-manifest.txt": {
+        "size": 24858
+      },
+      "src/metpy/testing.py": {
+        "size": 11806
+      },
+      "src/metpy/units.py": {
+        "size": 15097
+      },
+      "src/metpy/xarray.py": {
+        "size": 65473
+      },
+      "staticdata/20110522_OUN_12Z.txt": {
+        "size": 5900
+      },
+      "staticdata/WPC_sfc_fronts_20210628_1800.txt": {
+        "size": 3627
+      },
+      "staticdata/WPC_sfc_fronts_lowres_20210628_1800.txt": {
+        "size": 2863
+      },
+      "staticdata/dec9_sounding.txt": {
+        "size": 10765
+      },
+      "staticdata/jan20_sounding.txt": {
+        "size": 6084
+      },
+      "staticdata/master.txt": {
+        "size": 524313
+      },
+      "staticdata/may22_sounding.txt": {
+        "size": 6317
+      },
+      "staticdata/may4_sounding.txt": {
+        "size": 2730
+      },
+      "staticdata/mesonet_sample.txt": {
+        "size": 10075
+      },
+      "staticdata/metar_20190701_1200.txt": {
+        "size": 524313
+      },
+      "staticdata/nov11_sounding.txt": {
+        "size": 4460
+      },
+      "staticdata/station_data.txt": {
+        "size": 188266
+      },
+      "staticdata/stations.txt": {
+        "size": 524313
+      },
+      "tests/calc/test_basic.py": {
+        "size": 35703
+      },
+      "tests/calc/test_calc_tools.py": {
+        "size": 69144
+      },
+      "tests/calc/test_cross_sections.py": {
+        "size": 17512
+      },
+      "tests/calc/test_indices.py": {
+        "size": 16737
+      },
+      "tests/calc/test_kinematics.py": {
+        "size": 116459
+      },
+      "tests/calc/test_thermo.py": {
+        "size": 143254
+      },
+      "tests/calc/test_turbulence.py": {
+        "size": 19114
+      },
+      "tests/interpolate/test_geometry.py": {
+        "size": 6054
+      },
+      "tests/interpolate/test_grid.py": {
+        "size": 11977
+      },
+      "tests/interpolate/test_interpolate_tools.py": {
+        "size": 3800
+      },
+      "tests/interpolate/test_one_dimension.py": {
+        "size": 7950
+      },
+      "tests/interpolate/test_points.py": {
+        "size": 6042
+      },
+      "tests/interpolate/test_slices.py": {
+        "size": 9870
+      },
+      "tests/io/test_gempak.py": {
+        "size": 16437
+      },
+      "tests/io/test_gini.py": {
+        "size": 10122
+      },
+      "tests/io/test_metar.py": {
+        "size": 22999
+      },
+      "tests/io/test_nexrad.py": {
+        "size": 11659
+      },
+      "tests/io/test_station_data.py": {
+        "size": 2500
+      },
+      "tests/io/test_text.py": {
+        "size": 3314
+      },
+      "tests/io/test_tools.py": {
+        "size": 674
+      },
+      "tests/plots/test_cartopy_utils.py": {
+        "size": 3416
+      },
+      "tests/plots/test_ctables.py": {
+        "size": 4814
+      },
+      "tests/plots/test_declarative.py": {
+        "size": 68715
+      },
+      "tests/plots/test_mapping.py": {
+        "size": 10794
+      },
+      "tests/plots/test_patheffects.py": {
+        "size": 6190
+      },
+      "tests/plots/test_plot_areas.py": {
+        "size": 3747
+      },
+      "tests/plots/test_plot_text.py": {
+        "size": 1697
+      },
+      "tests/plots/test_skewt.py": {
+        "size": 32476
+      },
+      "tests/plots/test_station_plot.py": {
+        "size": 15430
+      },
+      "tests/plots/test_util.py": {
+        "size": 4838
+      },
+      "tests/plots/test_wx_symbols.py": {
+        "size": 2405
+      },
+      "tests/remote/fixtures/test_goes_range.yaml": {
+        "size": 19261
+      },
+      "tests/remote/fixtures/test_goes_single.yaml": {
+        "size": 29835
+      },
+      "tests/remote/fixtures/test_mlwp_range.yaml": {
+        "size": 8002
+      },
+      "tests/remote/fixtures/test_mlwp_single.yaml": {
+        "size": 3860
+      },
+      "tests/remote/fixtures/test_nexrad2_range.yaml": {
+        "size": 45493
+      },
+      "tests/remote/fixtures/test_nexrad2_single.yaml": {
+        "size": 124906
+      },
+      "tests/remote/fixtures/test_nexrad3_range.yaml": {
+        "size": 447356
+      },
+      "tests/remote/fixtures/test_nexrad3_single.yaml": {
+        "size": 52451
+      },
+      "tests/remote/test_aws.py": {
+        "size": 5945
+      },
+      "tests/test_cbook.py": {
+        "size": 857
+      },
+      "tests/test_deprecation.py": {
+        "size": 907
+      },
+      "tests/test_packaging.py": {
+        "size": 621
+      },
+      "tests/test_testing.py": {
+        "size": 2581
+      },
+      "tests/test_xarray.py": {
+        "size": 60599
+      },
+      "tests/units/test_units.py": {
+        "size": 9322
+      },
+      "tools/README.md": {
+        "size": 131
+      },
+      "tools/flake8-metpy/flake8_metpy.py": {
+        "size": 2532
+      },
+      "tools/flake8-metpy/test_flake8_metpy.py": {
+        "size": 1014
+      },
+      "tools/nexrad_msgs/parse_spec.py": {
+        "size": 6409
+      },
+      "tutorials/README.md": {
+        "size": 2426
+      },
+      "tutorials/area_tutorial.py": {
+        "size": 3835
+      },
+      "tutorials/declarative_tutorial.py": {
+        "size": 21683
+      },
+      "tutorials/unit_tutorial.py": {
+        "size": 10756
+      },
+      "tutorials/upperair_soundings.py": {
+        "size": 7360
+      },
+      "tutorials/xarray_tutorial.py": {
+        "size": 18510
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
+  },
+  "structure": {
+    "packages": [
+      "source.benchmarks.benchmarks",
+      "source.src.metpy"
+    ]
+  },
+  "dependencies": {
+    "has_environment_yml": false,
+    "has_requirements_txt": false,
+    "pyproject": true,
+    "setup_cfg": true,
+    "setup_py": false
+  },
+  "entry_points": {
+    "imports": [],
+    "cli": [],
+    "modules": []
+  },
+  "llm_analysis": {
+    "core_modules": [
+      {
+        "package": "source.src.metpy",
+        "module": "calc.thermo",
+        "functions": [
+          "parcel_profile",
+          "lcl",
+          "lfc",
+          "el",
+          "cape_cin",
+          "mixing_ratio",
+          "dewpoint_from_relative_humidity",
+          "equivalent_potential_temperature",
+          "virtual_temperature"
+        ],
+        "classes": [],
+        "description": "Thermodynamic calculations for parcel diagnostics, moisture variables, and severe-weather indices; highest-value computational core."
+      },
+      {
+        "package": "source.src.metpy",
+        "module": "calc.kinematics",
+        "functions": [
+          "vorticity",
+          "divergence",
+          "advection",
+          "frontogenesis",
+          "absolute_vorticity",
+          "q_vector",
+          "shearing_deformation",
+          "stretching_deformation",
+          "total_deformation"
+        ],
+        "classes": [],
+        "description": "Grid/flow kinematics and derivative-based meteorological diagnostics."
+      },
+      {
+        "package": "source.src.metpy",
+        "module": "calc.basic",
+        "functions": [
+          "wind_speed",
+          "wind_direction",
+          "wind_components",
+          "potential_temperature",
+          "height_to_geopotential",
+          "geopotential_to_height"
+        ],
+        "classes": [],
+        "description": "Fundamental scalar/vector meteorological transformations used broadly by higher-level modules."
+      },
+      {
+        "package": "source.src.metpy",
+        "module": "calc.indices",
+        "functions": [
+          "showalter_index",
+          "k_index",
+          "total_totals_index",
+          "lifted_index",
+          "bulk_shear",
+          "storm_relative_helicity"
+        ],
+        "classes": [],
+        "description": "Forecast and severe-weather stability/kinematic indices frequently used in operational workflows."
+      },
+      {
+        "package": "source.src.metpy",
+        "module": "interpolate.grid",
+        "functions": [
+          "interpolate_to_grid"
+        ],
+        "classes": [],
+        "description": "Objective analysis/gridding entry point for station-to-grid interpolation workflows."
+      },
+      {
+        "package": "source.src.metpy",
+        "module": "io.metar",
+        "functions": [
+          "parse_metar_file"
+        ],
+        "classes": [],
+        "description": "METAR text decoding utilities for ingesting observational station reports."
+      },
+      {
+        "package": "source.src.metpy",
+        "module": "io.nexrad",
+        "functions": [],
+        "classes": [
+          "Level2File",
+          "Level3File"
+        ],
+        "description": "NEXRAD radar file readers for binary Level II/III products."
+      },
+      {
+        "package": "source.src.metpy",
+        "module": "plots.skewt",
+        "functions": [],
+        "classes": [
+          "SkewT",
+          "Hodograph"
+        ],
+        "description": "Sounding visualization primitives; useful but higher dependency footprint."
+      },
+      {
+        "package": "source.src.metpy",
+        "module": "xarray",
+        "functions": [
+          "preprocess_and_wrap",
+          "check_axis",
+          "grid_deltas_from_dataarray"
+        ],
+        "classes": [
+          "MetPyDataArrayAccessor",
+          "MetPyDatasetAccessor"
+        ],
+        "description": "xarray integration/accessor layer that enables coordinate-aware calculations and unit-aware parsing."
+      },
+      {
+        "package": "source.src.metpy",
+        "module": "units",
+        "functions": [
+          "units",
+          "pandas_dataframe_to_unit_arrays",
+          "concatenate",
+          "masked_array"
+        ],
+        "classes": [],
+        "description": "Unit handling bridge (Pint-centric) that underpins nearly all safe numeric usage in MetPy."
+      }
+    ],
+    "cli_commands": [
+      {
+        "name": "none_detected",
+        "module": "N/A",
+        "description": "No explicit CLI entry points detected in scanned package paths (no console_scripts or __main__-style command modules identified in source.src.metpy)."
+      }
+    ],
+    "import_strategy": {
+      "primary": "import",
+      "fallback": "blackbox",
+      "confidence": 0.93
+    },
+    "dependencies": {
+      "required": [
+        "numpy",
+        "scipy",
+        "pint",
+        "packaging"
+      ],
+      "optional": [
+        "xarray",
+        "pandas",
+        "matplotlib",
+        "cartopy",
+        "pyproj",
+        "netCDF4",
+        "pooch",
+        "siphon"
+      ]
+    },
+    "risk_assessment": {
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
+      "complexity": "medium"
+    }
+  },
+  "deepwiki_analysis": {
+    "repo_url": "https://github.com/Unidata/MetPy",
+    "repo_name": "MetPy",
+    "error": "DeepWiki analysis failed",
+    "model": "gpt-5.3-codex",
+    "source": "llm_direct_analysis",
+    "success": false
+  },
+  "deepwiki_options": {
+    "enabled": true,
+    "model": "gpt-5.3-codex"
+  },
+  "risk": {
+    "import_feasibility": 0.91,
+    "intrusiveness_risk": "low",
+    "complexity": "medium"
+  }
+}

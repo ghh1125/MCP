@@ -1,0 +1,164 @@
+#!/bin/bash
+Fail()
+{
+    echo "ERROR($0): $1"
+    exit 1
+}
+
+IsInstalled()
+{
+    type "$1" > /dev/null 2>&1
+    return $?
+}
+
+Download()
+{
+    local EPHURL=$1
+    local EPHFILE=$2
+    local SHAFILE=$3
+
+    if [[ ! -f ${EPHFILE} ]]; then
+        echo ""
+        echo "Local file not found: ${EPHFILE}"
+    elif ! ./checksum.py sha256 ${SHAFILE}; then
+        # Sometimes we have to upgrade to a new version an external file.
+        # When that happens, we just change the checksum file.
+        # Then we notice here that the checksum doesn't match,
+        # delete the file, and re-download it.
+        echo ""
+        echo "The local version of ${EPHFILE} is obsolete or corrupt."
+        rm -fv ${EPHFILE}
+    else
+        return 0
+    fi
+
+    echo "Attempting download from:"
+    echo "${EPHURL}"
+    echo ""
+    if IsInstalled wget; then
+        wget_success=false
+        for attempt in {1..10}; do
+            if [[ ${attempt} > 1 ]]; then
+                echo "wget failed (attempt ${attempt} of 10) -- will retry download in 9 seconds..."
+                sleep 9
+            fi
+            if wget --no-verbose ${EPHURL}; then
+                echo "wget successfully downloaded the file."
+                wget_success=true
+                break
+            fi
+        done
+        [[ ${wget_success} == true ]] || Fail "Could not download using wget: ${EPHFILE}"
+    elif IsInstalled curl; then
+        curl -L -o ${EPHFILE} ${EPHURL} || Fail "Could not download using curl: ${EPHFILE}"
+    else
+        echo "Neither wget nor curl is installed. Use your browser to download"
+        echo "the file at the URL above into this directory."
+        echo "Then run this script again to continue."
+        exit 1
+    fi
+
+    if ./checksum.py sha256 ${SHAFILE}; then
+        echo "Validated file using sha256 checksum."
+    else
+        rm -fv ${EPHFILE}
+        Fail "Detected corrupt file: failed sha256 check."
+    fi
+}
+
+[[ "$1" == "" || "$1" == "-v" ]] || Fail "Invalid command line options."
+
+Download https://github.com/cosinekitty/ephemeris/raw/master/lnxp1600p2200.405 lnxp1600p2200.405 ephemeris.sha256
+Download https://github.com/cosinekitty/ephemeris/raw/master/top2013/TOP2013.dat TOP2013.dat top2013.sha256
+Download https://raw.githubusercontent.com/astronexus/HYG-Database/3964fa862d1f08f05919a35306889fa4a0afa7d6/hyg/v3/hyg_v36_1.csv hyg_v36_1.csv hyg_v36_1.sha256
+
+rm -f constellation/test_input.txt
+./make_constellation_data.py || Fail "Error creating constellation test data."
+
+cd .. || Fail "Cannot change to parent directory."
+python generate/update_copyrights.py $(git grep -l Copyright -- generate hydrogen LICENSE source/c/astronomy.h) ||
+    Fail "Error updating copyrights."
+cd generate || Fail "Cannot change back to generate directory."
+
+echo ""
+echo "Building C source code for 'generate' program."
+CPPCHECK_OPTIONS="-I . -I novas -I vsop -I top2013 --error-exitcode=9 --enable=all --suppress=variableScope --suppress=unusedStructMember --suppress=missingIncludeSystem --suppress=unusedFunction"
+if [[ "${OS_NAME}" == "macOS" ]]; then
+    CPPCHECK_OPTIONS+=" --check-level=exhaustive"
+fi
+cppcheck ${CPPCHECK_OPTIONS} generate.c earth.c astro_vector.c chebyshev.c codegen.c ephfile.c vsop/vsop.c top2013/top2013.c || exit 1
+./build || Fail "Could not build 'generate' program from source."
+
+mkdir -pv output temp apsides || Fail "Error creating directories."
+rm -f temp/*
+
+echo ""
+echo "Validating TOP2013 code."
+./generate validate_top2013 || Fail "Error in TOP2013 validation."
+
+FASTMODE=true
+for file in output/vsop_{0,1,3,4,5,6,7,11}.txt; do
+    if [[ ! -f ${file} ]]; then
+        echo "Missing required planet model file: ${file}"
+        FASTMODE=false
+    fi
+done
+
+if [[ "${FASTMODE}" == "false" ]]; then
+    echo ""
+    echo "Generating planet models."
+    rm -f output/vsop_*.txt
+    ./generate planets || Fail "Could not generate planet models."
+fi
+
+if [[ ! -f output/jupiter_moons.txt ]]; then
+    echo ""
+    echo "Optimizing Jupiter Moon models."
+    ./generate jmopt || Fail "Error optimizing Jupiter Moon models."
+fi
+
+echo ""
+echo "Generating apsis test data."
+rm -f apsides/apsis_*.txt
+./generate apsis || Fail "Could not generate apsis test data."
+
+echo ""
+echo "Generating eclipse data."
+cd eclipse || Fail "Could not change to eclipse directory."
+rm -f lunar_eclipse.txt solar_eclipse.txt mercury.txt venus.txt
+python norm.py || Fail "Error normalizing eclipse test data."
+cd .. || Fail "Could not change to parent directory."
+
+echo ""
+echo "Generating EQJ/GAL conversion test data."
+./generate galeqj temp/galeqj.txt || Fail "Error generating EQJ/GAL test data."
+echo ""
+
+./makedoc || exit $?
+( cd gravsim && ./run skipgen && cd .. ) || exit $?
+./unit_test_csharp $1 || exit $?
+./unit_test_js $1 || exit $?
+./unit_test_c $1 || exit $?
+./unit_test_python $1 || exit $?
+./unit_test_kotlin $1 || exit $?
+
+./diffcalc || exit $?
+
+echo ""
+echo "Testing example programs."
+cd ../demo/c || Fail "Cannot change directory to ../demo/c"
+./demotest || Fail "Error testing C examples"
+cd ../nodejs || Fail "Cannot change directory to ../nodejs"
+./demotest || Fail "Error testing nodejs examples."
+cd ../python || Fail "Cannot change directory to ../python"
+./demotest || Fail "Error testing Python examples."
+cd ../csharp || Fail "Cannot change directory to ../csharp"
+./demotest || Fail "Error testing C# examples."
+cd ../java || Fail "Cannot change directory to ../java"
+./demotest || Fail "Error testing Java examples."
+cd ../kotlin || Fail "Cannot change directory to ../kotlin"
+./demotest || Fail "Error testing Kotlin examples."
+
+cd ../../generate || Fail "Cannot change back to generate directory."
+cat pass.txt
+exit 0
