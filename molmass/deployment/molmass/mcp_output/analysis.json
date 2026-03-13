@@ -41,7 +41,10 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.molmass.source",
+      "mcp_output.mcp_plugin"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
@@ -58,112 +61,68 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "molmass/__init__.py",
-        "module": "__init__",
-        "functions": [],
-        "classes": [],
-        "description": "Package initializer that re-exports core API symbols and version metadata from molmass/molmass.py for convenient top-level imports."
-      },
-      {
-        "package": "molmass/molmass.py",
-        "module": "molmass",
+        "package": "deployment.molmass.source",
+        "module": "molmass.molmass",
         "functions": [
           "analyze",
+          "from_string",
           "from_fractions",
-          "from_elements",
-          "from_oligo",
-          "from_peptide",
           "from_sequence",
           "hill_sorted",
-          "join_charge",
-          "main",
+          "gcd",
+          "precision_digits",
           "split_charge",
+          "join_charge",
+          "format_charge",
           "test"
         ],
         "classes": [
+          "Formula",
           "Composition",
           "CompositionItem",
-          "Formula",
-          "FormulaError",
           "Spectrum",
-          "SpectrumEntry"
+          "SpectrumEntry",
+          "FormulaError"
         ],
-        "description": "Primary computational engine for molecular mass/formula parsing, isotopic composition, spectrum generation, and sequence/oligo helpers. This is the best MCP integration target."
+        "description": "Primary chemistry/formula engine: parsing molecular formula strings, computing molecular/isotopic mass, elemental composition, and mass spectrum-related outputs."
       },
       {
-        "package": "molmass/elements.py",
-        "module": "elements",
+        "package": "deployment.molmass.source",
+        "module": "molmass.elements",
         "functions": [],
         "classes": [
           "Element",
-          "Elements",
-          "Group",
           "Isotope",
           "Particle",
-          "Period",
-          "Series"
+          "Elements"
         ],
-        "description": "Chemical element/isotope data model and periodic table dataset used by molmass/molmass.py."
+        "description": "Periodic table and isotope data model used by the Formula/mass computation layer."
       },
       {
-        "package": "molmass/elements_descriptions.py",
-        "module": "elements_descriptions",
-        "functions": [],
-        "classes": [],
-        "description": "Static textual descriptions for elements; data-only support module."
-      },
-      {
-        "package": "molmass/web.py",
-        "module": "web",
+        "package": "deployment.molmass.source",
+        "module": "molmass.web",
         "functions": [
+          "main",
           "response",
-          "main"
+          "analyze",
+          "favicon"
         ],
         "classes": [],
-        "description": "Web/CGI-style interface wrapper around core molmass analysis logic."
+        "description": "Lightweight web-facing wrapper around formula analysis; useful as an adapter layer but not required for MCP integration."
       },
       {
-        "package": "molmass/elements_gui.py",
-        "module": "elements_gui",
-        "functions": [
-          "main"
-        ],
-        "classes": [
-          "ElementDialog",
-          "ElementsApp",
-          "PeriodicTable",
-          "SeriesDialog"
-        ],
-        "description": "Tkinter GUI for browsing element data; not ideal for MCP server use."
-      },
-      {
-        "package": "molmass/__main__.py",
-        "module": "__main__",
+        "package": "deployment.molmass.source",
+        "module": "molmass.__init__",
         "functions": [],
         "classes": [],
-        "description": "Python module execution entry point (python -m molmass), delegates to CLI main logic."
+        "description": "Package export surface/version metadata; likely re-exports core symbols from molmass.molmass."
       }
     ],
     "cli_commands": [
       {
         "name": "python -m molmass",
-        "module": "molmass/__main__.py",
-        "description": "Module-based CLI entry that invokes the package command-line behavior."
-      },
-      {
-        "name": "molmass (console script, from setup metadata)",
-        "module": "molmass/molmass.py::main",
-        "description": "Primary command-line interface for formula/mass analysis."
-      },
-      {
-        "name": "molmass-web (if exposed by packaging metadata)",
-        "module": "molmass/web.py::main",
-        "description": "Web/CGI runner for browser-accessible analysis."
-      },
-      {
-        "name": "elements-gui (if exposed by packaging metadata)",
-        "module": "molmass/elements_gui.py::main",
-        "description": "Desktop GUI launcher for periodic table exploration."
+        "module": "deployment.molmass.source/molmass.__main__",
+        "description": "Module entrypoint delegating to package main routine for command-line formula analysis."
       }
     ],
     "import_strategy": {
@@ -173,12 +132,12 @@
     },
     "dependencies": {
       "required": [
-        "python>=3.x (per pyproject/setup constraints)",
-        "standard library (dataclasses/typing/re/math/etc. as used internally)"
+        "python>=3.x",
+        "standard library only (core runtime appears pure-Python)"
       ],
       "optional": [
-        "tkinter (for molmass/elements_gui.py only)",
-        "web/CGI runtime context (for molmass/web.py deployment)"
+        "tkinter (for elements_gui usage)",
+        "web server runtime context (only if using molmass.web as HTTP endpoint)"
       ]
     },
     "risk_assessment": {

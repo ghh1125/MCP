@@ -11,12 +11,12 @@
     "language": "Python",
     "last_updated": "",
     "complexity": "medium",
-    "intrusiveness_risk": "low"
+    "intrusiveness_risk": "medium"
   },
   "execution": {
-    "start_time": 1773288075.108274,
-    "end_time": 1773288308.4799201,
-    "duration": 233.37164616584778,
+    "start_time": 1773385748.13471,
+    "end_time": 1773385951.607003,
+    "duration": 203.47229290008545,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 2,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,7 +53,10 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.langgraph.source",
+        "mcp_output.mcp_plugin"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
@@ -68,8 +71,8 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.86,
-      "intrusiveness_risk": "low",
+      "import_feasibility": 0.22,
+      "intrusiveness_risk": "medium",
       "complexity": "medium"
     },
     "deepwiki_analysis": {
@@ -121,50 +124,37 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/langgraph/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Operation timed out\nerror: 16 bytes of body are still expected\nfatal: expected flush after ref listing\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/langgraph/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Operation timed out\nerror: 16 bytes of body are still expected\nfatal: expected flush after ref listing\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "add a minimal smoke test suite for the generated MCP plugin (startup",
-    "import checks",
-    "and one call per endpoint)",
-    "pin and align dependency versions with upstream project constraints (especially pydantic/httpx/typing-related libs)",
-    "replace broad endpoint exposure with a curated stable surface plus explicit versioning (e.g.",
-    "v1 tools)",
-    "add structured error mapping in `adapter.py`/`mcp_service.py` (LangGraph exceptions → MCP-friendly codes/messages)",
-    "implement request/response schema validation for each tool endpoint with strict Pydantic models",
-    "add timeout/retry/circuit-breaker guards around long-running Pregel and remote SDK calls",
-    "introduce observability hooks (structured logs",
-    "latency/error counters",
-    "optional tracing IDs)",
-    "add compatibility tests across sync/async paths (`get_client` vs `get_sync_client`) and local vs remote execution modes",
-    "create contract tests to detect upstream API drift for `StateGraph`",
-    "`Pregel`",
-    "`ToolNode`",
-    "and `create_react_agent`",
-    "harden packaging by adding `pyproject.toml` for `mcp_output` and lockfile-based reproducible installs",
-    "improve README_MCP with concrete invocation examples",
-    "env var matrix",
-    "and failure troubleshooting",
-    "add security guardrails (input size limits",
-    "tool allowlist",
-    "safe deserialization expectations)",
-    "define performance baselines (cold start time",
-    "per-endpoint p95 latency",
-    "memory) and a lightweight benchmark CI job",
-    "integrate CI workflow for `mcp_output` (lint",
-    "type-check",
-    "tests) instead of relying only on parent repo workflows",
-    "add graceful degradation/fallback behavior when optional backends (postgres/redis/checkpointers) are unavailable",
-    "refactor very large adapter/service functions into smaller units with typed interfaces to reduce maintenance risk"
+    "stabilize repository ingestion by adding retry/backoff and alternate fetch methods (git clone/API tarball) for SSL EOF failures",
+    "add a minimal reproducible lockfile and explicit dependency manifests for each package (pyproject.toml/requirements) to improve build reliability",
+    "gate MCP endpoint generation with an allowlist to avoid exposing hundreds of low-level/internal symbols by default",
+    "deduplicate and namespace-collide-proof generated endpoint names (e.g.",
+    "repeated interrupt/call_model/add_messages/config)",
+    "prioritize wrapping only stable public APIs instead of AST-discovered internals",
+    "add automated smoke tests for generated MCP tools (import + invoke + schema validation) and fail CI on regressions",
+    "introduce contract tests for sync/async parity in SDK clients and MCP adapters",
+    "add type-checked request/response models for each endpoint with stricter validation and clearer error messages",
+    "implement structured observability (request IDs",
+    "latency",
+    "error class",
+    "endpoint) in mcp_service.py",
+    "add rate limiting/timeouts/circuit breakers for potentially heavy endpoints",
+    "improve security posture by blocking dangerous callable exposure and enforcing explicit safe-module policies",
+    "create a curated “core tools” profile for MCP with optional expansion flags",
+    "improve README_MCP with quickstart",
+    "auth model",
+    "endpoint selection guidance",
+    "and troubleshooting for import failures",
+    "add performance benchmarks for high-fanout graph operations and store/checkpoint backends with baseline thresholds in CI",
+    "add compatibility matrix tests across Python versions and optional backends (sqlite/postgres/redis)",
+    "separate example/demo code from production endpoint discovery to reduce noise",
+    "add migration/versioning strategy for MCP schemas to prevent breaking clients",
+    "add fallback adapter mode logic (import → subprocess) when import feasibility is low",
+    "and track plugin quality metrics (endpoint success rate",
+    "median latency",
+    "exception rate) over time"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -196,34 +186,35 @@
   "execution_analysis": {
     "success_factors": [
       "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Resilience mechanism worked: clone failure was tolerated via zip fallback, enabling downstream analysis and generation.",
-      "Import-based adapter strategy was appropriate for LangGraph (import feasibility 0.86, low intrusiveness risk).",
-      "Generated MCP service started healthy over stdio transport, indicating baseline runtime viability."
+      "Generated MCP plugin started successfully with healthy service status over stdio transport.",
+      "Fallback static AST-based discovery enabled progress despite repository ingestion/preprocess failure.",
+      "No runtime errors, warnings, or security findings were reported during generation and run phases."
     ],
     "failure_reasons": [
-      "Primary repository clone failed due to network/RPC timeout (curl 56 Recv failure, expected flush after ref listing).",
-      "Analysis metadata quality degraded in parts (e.g., total_files_processed=0 and empty dependency flags) despite fallback evidence of 402 files, indicating telemetry inconsistency.",
-      "Validation depth was insufficient: original project tests were not executed successfully and MCP tests were minimal/no substantive endpoint validation."
+      "Repository preprocessing failed due to SSL EOF during zip download, reducing analysis fidelity.",
+      "DeepWiki analysis failed, so architectural/contextual enrichment was unavailable.",
+      "Original project tests were not executed/passed (passed=false, no test files), so source baseline is unverified.",
+      "Generated artifact metrics are inconsistent (0 LOC/size, 0 endpoints in one section vs large endpoint list in service info), indicating telemetry/reporting gaps."
     ],
-    "overall_assessment": "good",
+    "overall_assessment": "fair",
     "node_performance": {
-      "download_time": "Download node encountered a blocking clone timeout; recovery path (zip fallback) prevented hard failure but likely consumed disproportionate time.",
-      "analysis_time": "Analysis completed and identified key integration anchors (StateGraph, Pregel, ToolNode, create_react_agent, SDK clients), but reported counters are inconsistent, suggesting partial instrumentation gaps.",
-      "generation_time": "Generation completed quickly with standard scaffold files; however, generated LOC/size/tool counts reported as zero indicates post-generation metric collection issues.",
-      "test_time": "Runtime health check passed for MCP plugin, but no meaningful functional/performance/security test execution was captured (execution_time=0, empty details)."
+      "download_time": "Node completed, but remote zip ingestion was unreliable (SSL EOF). Timing per node is unavailable; this is the main pipeline fragility.",
+      "analysis_time": "Completed via fallback AST scan; broad symbol discovery succeeded but likely over-inclusive and less semantically accurate.",
+      "generation_time": "Generation completed quickly relative to total duration (~203s overall), producing expected MCP scaffold files and runnable entrypoint.",
+      "test_time": "MCP smoke run succeeded (healthy), but original project tests were effectively absent; validation depth is limited."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown/insufficient data (reported 0 MB likely means not collected).",
-      "cpu_efficiency": "Unknown/insufficient data (reported 0% likely means not collected).",
-      "disk_usage": "Low for generated output, but measured size=0 is likely a telemetry defect rather than true zero usage."
+      "memory_efficiency": "Unknown due to missing metrics (reported 0 MB). Instrumentation likely incomplete.",
+      "cpu_efficiency": "Unknown due to missing metrics (reported 0%). Need runtime profiling hooks.",
+      "disk_usage": "Reported as 0 generated size, conflicting with created files; disk telemetry is unreliable."
     }
   },
   "technical_quality": {
-    "code_quality_score": 72,
-    "architecture_score": 80,
-    "performance_score": 58,
-    "maintainability_score": 74,
+    "code_quality_score": 68,
+    "architecture_score": 64,
+    "performance_score": 52,
+    "maintainability_score": 61,
     "security_score": 85,
-    "scalability_score": 70
+    "scalability_score": 58
   }
 }

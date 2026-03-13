@@ -1,145 +1,128 @@
 # Psi4 MCP (Model Context Protocol) Service README
 
-## 1) Introduction
+## 1) Project Introduction
 
-This project provides an MCP (Model Context Protocol) service layer for **Psi4** (quantum chemistry engine), exposing practical, automation-friendly operations such as:
+This MCP (Model Context Protocol) service wraps **Psi4** (quantum chemistry engine) so LLM agents can run computational chemistry tasks through standardized tool calls.
 
-- Single-point energy calculations
-- Gradient/property execution
-- Schema-based task execution (QCSchema-style)
-- Task planning and structured job orchestration
+Primary capabilities:
+- Single-point energy, gradient, Hessian
+- Geometry optimization and frequency analysis
+- Property calculations
+- QCSchema/JSON execution pathways
+- Optional advanced workflows (CBS, n-body, SAPT, TD-SCF) depending on environment
 
-It is intended for developers who want to call Psi4 from MCP (Model Context Protocol) clients (agents, orchestration servers, workflow tools) without tightly coupling to Psi4 internals.
+Core Python driver areas:
+- `psi4.driver.driver` (energy/gradient/hessian/optimize/frequency/properties)
+- `psi4.driver.schema_wrapper` (`run_qcschema`, `run_json`)
+- `psi4.driver.task_planner` (method/basis planning support)
 
 ---
 
-## 2) Installation
+## 2) Installation Method
 
-### Prerequisites
+## System prerequisites
+- Python 3.9+ recommended
+- C/C++/Fortran toolchain only if building from source
+- Best path for developers: Conda environment (Psi4 has `environment.yml` and multiple conda env specs)
 
-- Python 3.9+ (recommended)
-- CMake toolchain (for compiled Psi4 components)
-- A working Psi4 installation (conda recommended)
-- Native scientific dependencies required by Psi4 core
+## Minimal Python dependencies (runtime integration)
+- `numpy`
+- `qcelemental`
+- `qcengine`
+- Psi4 core binaries/libraries (installed via conda/package build)
 
-### Recommended setup (conda first)
+## Typical setup
+1. Create environment from project file (recommended):
+   - `conda env create -f environment.yml`
+2. Activate environment
+3. Install Psi4 (conda-forge commonly used in practice)
+4. Install your MCP (Model Context Protocol) server package that exposes Psi4 tools
 
-1. Install Psi4 in a dedicated environment (recommended by upstream):
-   - Use official Psi4 install guidance from repository/docs.
-2. Install your MCP (Model Context Protocol) service package:
-   - `pip install -e .` (for local development)
-   - or `pip install <your-mcp-service-package>`
-
-### Notes
-
-- This repository is build-heavy; pure `pip install psi4` may not match your platform/toolchain.
-- If import of `psi4` fails, fix the compiled/runtime environment first before testing MCP (Model Context Protocol) endpoints.
+If your MCP (Model Context Protocol) layer is separate, install it with pip in the same environment so it can import `psi4`.
 
 ---
 
 ## 3) Quick Start
 
-### Minimal flow
+## A. Verify Psi4 import
+- Import `psi4` in Python
+- Optionally set output file via `psi4.set_output_file(...)`
 
-1. Start MCP (Model Context Protocol) service process.
-2. Call an endpoint such as `energy.compute` with:
-   - molecule specification
-   - method (e.g., HF/DFT)
-   - basis
-   - optional driver options
-3. Receive structured result (energy value, metadata, errors).
+## B. Typical tool flow in MCP (Model Context Protocol)
+1. Submit molecular input (geometry, method, basis, driver type)
+2. Call a calculation tool (energy/gradient/hessian/optimize/frequency)
+3. Receive structured result (energy/properties/wavefunction metadata depending on endpoint)
 
-### Example request shape (conceptual)
+## C. Main callable functions (Python-side backend)
+- `psi4.driver.energy(name)`
+- `psi4.driver.gradient(name)`
+- `psi4.driver.hessian(name)`
+- `psi4.driver.optimize(name)`
+- `psi4.driver.frequency(name)`
+- `psi4.driver.properties(...)`
+- `psi4.driver.schema_wrapper.run_qcschema(input_data, clean=True, postclean=True)`
 
-- `task`: `energy`
-- `model.method`: `HF`
-- `model.basis`: `cc-pVDZ`
-- `molecule`: atoms, charge, multiplicity
-- `options`: convergence, memory, threads
-
-### Main integration points in Psi4
-
-- `psi4.driver.driver` (core orchestration)
-- `psi4.driver.schema_wrapper` (structured/schema execution)
-- `psi4.driver.task_planner` (planning/multi-step execution)
-- `psi4.run_psi4` (runtime/launcher behavior)
+## D. CLI fallback
+When import-based execution is unavailable, use:
+- `psi4`
+- `python -m psi4`
 
 ---
 
-## 4) Available Tools / Endpoints
+## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) endpoint set for this service:
+Recommended MCP (Model Context Protocol) endpoint design for this repository:
 
-- `health.check`  
-  Returns service/runtime readiness (Python, Psi4 import, compiled libs).
+- `psi4_energy`
+  - Run single-point energy with method/basis and molecule input.
 
-- `psi4.version`  
-  Returns Psi4 version/build/runtime details.
+- `psi4_gradient`
+  - Compute first derivatives for optimization pipelines.
 
-- `energy.compute`  
-  Runs single-point energy calculation.
+- `psi4_hessian`
+  - Compute second derivatives for vibrational analysis.
 
-- `gradient.compute`  
-  Runs gradient calculation.
+- `psi4_optimize`
+  - Geometry optimization using Psi4 driver workflows.
 
-- `properties.compute`  
-  Runs selected molecular properties.
+- `psi4_frequency`
+  - Harmonic frequency + thermochemistry-related outputs.
 
-- `schema.run`  
-  Executes structured schema input via Psi4 schema wrapper.
+- `psi4_properties`
+  - Dipole/response and related property calculations (method-dependent).
 
-- `task.plan`  
-  Builds execution plan for multi-step jobs (e.g., optimize → frequency).
+- `psi4_qcschema_run`
+  - Execute QCSchema-compatible payload through `run_qcschema` / `run_json_qcschema`.
 
-- `task.run`  
-  Executes a planned task graph/workflow.
+- `psi4_task_plan` (optional advanced)
+  - Expose planning from `task_planner` for multi-step or composite jobs.
 
-- `options.list`  
-  Lists supported/active Psi4 options exposed by service.
-
-- `methods.list`  
-  Lists available methods/basis families detected in runtime.
-
-- `job.status`  
-  Polls async job status (if service uses background execution).
-
-- `job.cancel`  
-  Cancels a running job.
+- `psi4_health`
+  - Validate import availability, binary linkage, optional dependency availability.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- **Import issues (`import psi4`)**  
-  Usually environment/toolchain related; verify conda env and native libs.
-
-- **Large runtime footprint**  
-  Psi4 is compute-heavy; set memory/threads explicitly per request.
-
-- **Platform differences**  
-  Linux/macOS are typically smoother than ad hoc Windows native builds.
-
-- **Method availability varies**  
-  Some capabilities depend on optional external components and build flags.
-
-- **Performance**  
-  Reuse long-lived worker processes for lower startup overhead.
-
-- **Error handling**  
-  Wrap Psi4 exceptions into structured MCP (Model Context Protocol) errors with actionable diagnostics (input validation, missing basis, SCF convergence, etc.).
+- **Install complexity**: Psi4 is a complex scientific stack; prefer conda-based environments.
+- **Optional features**: Many methods require extras (`adcc`, `cppe`, `ddx`, `dftd3`, `dftd4`, `gdma`, `geometric`, `mdi`, `pcmsolver`, `libefp`, `mrcc`, `chemps2`).
+- **Performance**: High-level methods are CPU/RAM intensive. Enforce MCP (Model Context Protocol) request limits and job timeouts.
+- **Threading/resources**: Align Psi4 thread/memory settings with MCP host limits to avoid oversubscription.
+- **Schema mode reliability**: For agent workflows, QCSchema endpoints are usually more stable than raw text input parsing.
+- **Fallback strategy**: Prefer Python import; fallback to CLI only when import fails.
 
 ---
 
-## 6) References
+## 6) Reference Links or Documentation
 
-- Psi4 repository: https://github.com/psi4/psi4
-- Psi4 top-level docs/README (in repo): `README.md`
-- Driver core modules:
-  - `psi4/driver/driver.py`
-  - `psi4/driver/schema_wrapper.py`
-  - `psi4/driver/task_planner.py`
-  - `psi4/run_psi4.py`
-- Conda helper utility in repo:
-  - `conda/psi4-path-advisor.py`
+- Repository: https://github.com/psi4/psi4
+- Upstream README: `README.md` in repo root
+- Python driver package: `psi4/driver/`
+- QCSchema wrapper: `psi4/driver/schema_wrapper.py`
+- Main runner: `psi4/run_psi4.py`
+- Tests/examples:
+  - `samples/json/`
+  - `samples/python/`
+  - `tests/pytests/`
 
-If you want, I can also generate a production-ready `mcp_service.yaml` endpoint contract and JSON request/response schemas aligned to this README.
+If you are implementing this as an MCP (Model Context Protocol) service, start with `psi4_qcschema_run`, `psi4_energy`, and `psi4_health`, then add advanced endpoints incrementally.

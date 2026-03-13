@@ -572,7 +572,10 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.gala.source",
+      "mcp_output.mcp_plugin"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
@@ -589,92 +592,75 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "src/gala/potential/potential/core.py",
+        "package": "deployment.gala.source",
         "module": "gala.potential.potential.core",
         "functions": [
-          "potential evaluation helpers (module-level utilities)",
-          "gradient / Hessian related helpers",
-          "serialization-facing helpers used by potential I/O"
+          "load",
+          "save",
+          "to_sympy"
         ],
         "classes": [
           "PotentialBase",
           "CompositePotential",
           "CCompositePotential"
         ],
-        "description": "Central gravitational potential abstraction layer; highest-value API surface for MCP exposure (evaluate potential, forces, composition, parameterized models)."
+        "description": "Primary gravitational potential abstraction layer; central for defining, combining, serializing, and evaluating potentials."
       },
       {
-        "package": "src/gala/potential/potential/builtin/core.py",
+        "package": "deployment.gala.source",
         "module": "gala.potential.potential.builtin.core",
-        "functions": [
-          "builtin potential constructors/utilities"
-        ],
+        "functions": [],
         "classes": [
           "KeplerPotential",
           "HernquistPotential",
-          "NFWPotential",
           "MiyamotoNagaiPotential",
+          "NFWPotential",
           "PlummerPotential",
-          "LogarithmicPotential"
+          "IsochronePotential",
+          "LogarithmicPotential",
+          "HarmonicOscillatorPotential"
         ],
-        "description": "Large catalog of concrete potential models; ideal for tool endpoints that instantiate named potentials from typed parameters."
+        "description": "Built-in analytic potential models used as the main user-facing model library."
       },
       {
-        "package": "src/gala/dynamics/orbit.py",
+        "package": "deployment.gala.source",
         "module": "gala.dynamics.orbit",
-        "functions": [
-          "orbit diagnostics helpers",
-          "time-series/statistics helpers"
-        ],
+        "functions": [],
         "classes": [
           "Orbit"
         ],
-        "description": "Orbit container and analysis routines; natural second MCP surface after potential construction."
+        "description": "Orbit container and analysis utilities for integrated trajectories."
       },
       {
-        "package": "src/gala/integrate/pyintegrators/leapfrog.py",
-        "module": "gala.integrate.pyintegrators.leapfrog",
-        "functions": [
-          "leapfrog stepper/integration routines"
-        ],
+        "package": "deployment.gala.source",
+        "module": "gala.integrate.core",
+        "functions": [],
         "classes": [
-          "LeapfrogIntegrator"
+          "Integrator"
         ],
-        "description": "Pure-Python integrator backend suitable for low-friction MCP execution without compiled extensions."
+        "description": "Integrator base API and integration flow used by dynamics/potential modules."
       },
       {
-        "package": "src/gala/integrate/pyintegrators/dopri853.py",
-        "module": "gala.integrate.pyintegrators.dopri853",
-        "functions": [
-          "Dormand-Prince integration routines"
-        ],
+        "package": "deployment.gala.source",
+        "module": "gala.potential.hamiltonian",
+        "functions": [],
         "classes": [
-          "DOPRI853Integrator"
+          "Hamiltonian"
         ],
-        "description": "Higher-accuracy pure-Python integration option for MCP tool variants requiring precision."
+        "description": "High-level coupling of potential + frame for orbit integration workflows."
       },
       {
-        "package": "src/gala/units.py",
+        "package": "deployment.gala.source",
         "module": "gala.units",
         "functions": [
-          "unit-system conversion helpers"
+          "UnitSystem",
+          "DimensionlessUnitSystem"
         ],
         "classes": [
           "UnitSystem",
           "DimensionlessUnitSystem"
         ],
-        "description": "Critical boundary module for safe MCP input/output normalization (astrophysical units handling)."
-      },
-      {
-        "package": "src/gala/potential/potential/io.py",
-        "module": "gala.potential.potential.io",
-        "functions": [
-          "load",
-          "save",
-          "from_dict/to_dict-style serialization helpers"
-        ],
-        "classes": [],
-        "description": "Model serialization/deserialization; useful for MCP resource persistence with minimal custom schema work."
+        "description": "Unit-system management foundational to safe numerical use across all dynamics/potential APIs."
       }
     ],
     "cli_commands": [],
@@ -685,16 +671,17 @@
     },
     "dependencies": {
       "required": [
+        "python",
         "numpy",
         "scipy",
-        "astropy",
-        "pyyaml"
+        "astropy"
       ],
       "optional": [
-        "agama (interop/tests)",
-        "galpy (interop/tests)",
-        "matplotlib (plotting paths)",
-        "fortran/C-extension acceleration components"
+        "matplotlib",
+        "pyyaml",
+        "h5py",
+        "galpy",
+        "agama"
       ]
     },
     "risk_assessment": {

@@ -1,7 +1,7 @@
 import os
 import sys
-import traceback
 import importlib
+import traceback
 from typing import Any, Dict, Optional, Tuple
 
 source_path = os.path.join(
@@ -13,272 +13,277 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import Mode Adapter for PyAbel repository source import.
+    MCP import-mode adapter for the PyAbel repository.
 
-    This adapter attempts to import PyAbel modules directly from local source code
-    (under injected `source_path`) and exposes stable wrapper methods for core
-    transform and tools functionality with unified status dictionaries.
+    This adapter prefers direct in-repo imports from the configured `source` path.
+    If import fails, methods return graceful fallback responses with actionable guidance.
     """
 
     # -------------------------------------------------------------------------
-    # Lifecycle
+    # Initialization and module management
     # -------------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
-        self._modules: Dict[str, Optional[Any]] = {}
+        self._modules: Dict[str, Any] = {}
         self._import_errors: Dict[str, str] = {}
-        self._load_modules()
+        self._initialize_imports()
 
-    def _ok(self, data: Any = None, message: str = "ok", extra: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        payload = {"status": "success", "mode": self.mode, "message": message}
-        if data is not None:
-            payload["data"] = data
-        if extra:
-            payload.update(extra)
-        return payload
+    def _initialize_imports(self) -> None:
+        module_names = [
+            "abel",
+            "abel.transform",
+            "abel.basex",
+            "abel.dasch",
+            "abel.daun",
+            "abel.direct",
+            "abel.hansenlaw",
+            "abel.linbasex",
+            "abel.nestorolsen",
+            "abel.onion_bordas",
+            "abel.rbasex",
+            "abel.benchmark",
+            "abel.tools",
+            "abel.tools.analytical",
+            "abel.tools.center",
+            "abel.tools.circularize",
+            "abel.tools.io",
+            "abel.tools.math",
+            "abel.tools.polar",
+            "abel.tools.polynomial",
+            "abel.tools.symmetry",
+            "abel.tools.transform_pairs",
+            "abel.tools.vmi",
+        ]
 
-    def _err(self, message: str, exception: Optional[Exception] = None, hint: Optional[str] = None) -> Dict[str, Any]:
-        payload = {"status": "error", "mode": self.mode, "message": message}
-        if hint:
-            payload["hint"] = hint
-        if exception is not None:
-            payload["error_type"] = type(exception).__name__
-            payload["error"] = str(exception)
-        return payload
+        for name in module_names:
+            try:
+                self._modules[name] = importlib.import_module(name)
+            except Exception as exc:
+                self._import_errors[name] = f"{type(exc).__name__}: {exc}"
 
-    def _load_one(self, key: str, module_path: str) -> None:
-        try:
-            self._modules[key] = importlib.import_module(module_path)
-        except Exception as exc:
-            self._modules[key] = None
-            self._import_errors[key] = f"{module_path}: {exc}"
-
-    def _load_modules(self) -> None:
-        module_map = {
-            "abel": "abel",
-            "transform": "abel.transform",
-            "basex": "abel.basex",
-            "dasch": "abel.dasch",
-            "daun": "abel.daun",
-            "direct": "abel.direct",
-            "hansenlaw": "abel.hansenlaw",
-            "linbasex": "abel.linbasex",
-            "nestorolsen": "abel.nestorolsen",
-            "onion_bordas": "abel.onion_bordas",
-            "rbasex": "abel.rbasex",
-            "benchmark": "abel.benchmark",
-            "tools_analytical": "abel.tools.analytical",
-            "tools_center": "abel.tools.center",
-            "tools_circularize": "abel.tools.circularize",
-            "tools_io": "abel.tools.io",
-            "tools_math": "abel.tools.math",
-            "tools_polar": "abel.tools.polar",
-            "tools_polynomial": "abel.tools.polynomial",
-            "tools_symmetry": "abel.tools.symmetry",
-            "tools_transform_pairs": "abel.tools.transform_pairs",
-            "tools_vmi": "abel.tools.vmi",
+    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "success") -> Dict[str, Any]:
+        return {
+            "status": "success",
+            "mode": self.mode,
+            "message": message,
+            "data": data or {},
+            "import_errors": self._import_errors,
         }
-        for k, v in module_map.items():
-            self._load_one(k, v)
 
-    def _get_module(self, key: str) -> Tuple[Optional[Any], Optional[Dict[str, Any]]]:
-        mod = self._modules.get(key)
-        if mod is None:
-            err = self._import_errors.get(key, "Module is unavailable.")
-            return None, self._err(
-                message=f"Import unavailable for module key '{key}'.",
-                hint=f"Ensure source files are present under source_path and dependencies are installed. Details: {err}",
-            )
-        return mod, None
+    def _fail(self, message: str, error: Optional[Exception] = None, guidance: Optional[str] = None) -> Dict[str, Any]:
+        payload = {
+            "status": "error",
+            "mode": self.mode,
+            "message": message,
+            "error": f"{type(error).__name__}: {error}" if error else None,
+            "guidance": guidance or "Verify repository source path and dependency availability (numpy, scipy).",
+            "import_errors": self._import_errors,
+        }
+        return payload
 
-    def get_status(self) -> Dict[str, Any]:
+    def _fallback(self, feature: str) -> Dict[str, Any]:
+        return {
+            "status": "fallback",
+            "mode": self.mode,
+            "message": f"Feature '{feature}' is unavailable in import mode due to missing module/function.",
+            "guidance": "Ensure the source tree is present under ../source and required dependencies are installed.",
+            "import_errors": self._import_errors,
+        }
+
+    def _resolve(self, module_name: str, attr_name: str) -> Tuple[Optional[Any], Optional[str]]:
+        module = self._modules.get(module_name)
+        if module is None:
+            return None, f"Module '{module_name}' not imported."
+        obj = getattr(module, attr_name, None)
+        if obj is None:
+            return None, f"Attribute '{attr_name}' not found in '{module_name}'."
+        return obj, None
+
+    # -------------------------------------------------------------------------
+    # Health / diagnostics
+    # -------------------------------------------------------------------------
+    def health(self) -> Dict[str, Any]:
+        """
+        Return adapter health, import status, and import-mode readiness details.
+        """
         return self._ok(
             data={
-                "loaded_modules": sorted([k for k, v in self._modules.items() if v is not None]),
+                "loaded_modules": sorted(list(self._modules.keys())),
                 "failed_modules": self._import_errors,
-                "source_path": source_path,
-            }
+                "import_feasibility": 0.93,
+                "intrusiveness_risk": "low",
+                "complexity": "medium",
+            },
+            message="adapter initialized",
         )
 
     # -------------------------------------------------------------------------
-    # Core Transform Interface
+    # High-level Abel transform APIs
     # -------------------------------------------------------------------------
-    def transform(self, image: Any, method: str = "hansenlaw", direction: str = "inverse", **kwargs: Any) -> Dict[str, Any]:
+    def transform(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Run abel.transform.Transform and return transformed image payload.
+        Call abel.transform.Transform constructor.
 
         Parameters:
-            image: 2D array-like image.
-            method: Transform method name (e.g., 'hansenlaw', 'basex', 'rbasex').
-            direction: 'inverse' or 'forward'.
-            **kwargs: Additional Transform kwargs from PyAbel.
+            *args, **kwargs: Forwarded to abel.transform.Transform
 
         Returns:
-            Unified status dictionary with transform result in `data`.
+            Unified status dictionary with created object (non-serialized reference).
         """
-        mod, err = self._get_module("transform")
+        cls, err = self._resolve("abel.transform", "Transform")
         if err:
-            return err
+            return self._fallback("abel.transform.Transform")
         try:
-            obj = mod.Transform(image, method=method, direction=direction, **kwargs)
-            out = {
-                "transform": getattr(obj, "transform", None),
-                "method": method,
-                "direction": direction,
-            }
-            return self._ok(data=out, message="Transform executed.")
+            instance = cls(*args, **kwargs)
+            return self._ok({"object": instance}, "Transform instance created")
         except Exception as exc:
-            return self._err("Failed to execute transform.", exception=exc, hint="Validate image shape and method-specific parameters.")
+            return self._fail("Failed to create Transform instance.", exc, "Check input image shape and method parameters.")
 
     # -------------------------------------------------------------------------
-    # Method-specific wrappers
+    # Method-specific transform wrappers
     # -------------------------------------------------------------------------
-    def call_basex(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod, err = self._get_module("basex")
+    def basex_transform(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        fn, err = self._resolve("abel.basex", "basex_transform")
         if err:
-            return err
+            return self._fallback("abel.basex.basex_transform")
         try:
-            fn = getattr(mod, "basex_transform", None)
-            if fn is None:
-                return self._err("Function 'basex_transform' not found in abel.basex.", hint="Check repository version compatibility.")
-            return self._ok(data=fn(*args, **kwargs), message="BASEX function executed.")
+            return self._ok({"result": fn(*args, **kwargs)}, "BASEX transform completed")
         except Exception as exc:
-            return self._err("BASEX execution failed.", exception=exc)
+            return self._fail("BASEX transform failed.", exc, "Validate basis settings and numeric input arrays.")
 
-    def call_dasch(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod, err = self._get_module("dasch")
+    def daun_transform(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        fn, err = self._resolve("abel.daun", "daun_transform")
         if err:
-            return err
+            return self._fallback("abel.daun.daun_transform")
         try:
-            for name in ("two_point_transform", "three_point_transform", "onion_peeling_transform"):
-                if hasattr(mod, name):
-                    pass
-            return self._ok(data={"available": [n for n in dir(mod) if n.endswith("_transform")]}, message="Dasch module inspected.")
+            return self._ok({"result": fn(*args, **kwargs)}, "Daun transform completed")
         except Exception as exc:
-            return self._err("Dasch execution failed.", exception=exc)
+            return self._fail("Daun transform failed.", exc, "Check regularization options and input radius/image consistency.")
 
-    def call_daun(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod, err = self._get_module("daun")
+    def direct_transform(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        fn, err = self._resolve("abel.direct", "direct_transform")
         if err:
-            return err
+            return self._fallback("abel.direct.direct_transform")
         try:
-            fn = getattr(mod, "daun_transform", None)
-            if fn is None:
-                return self._err("Function 'daun_transform' not found in abel.daun.", hint="Inspect available callables via module listing.")
-            return self._ok(data=fn(*args, **kwargs), message="DAUN function executed.")
+            return self._ok({"result": fn(*args, **kwargs)}, "Direct transform completed")
         except Exception as exc:
-            return self._err("DAUN execution failed.", exception=exc)
+            return self._fail("Direct transform failed.", exc, "Ensure monotonic radial grid and valid interpolation settings.")
 
-    def call_direct(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod, err = self._get_module("direct")
+    def hansenlaw_transform(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        fn, err = self._resolve("abel.hansenlaw", "hansenlaw_transform")
         if err:
-            return err
+            return self._fallback("abel.hansenlaw.hansenlaw_transform")
         try:
-            fn = getattr(mod, "direct_transform", None)
-            if fn is None:
-                return self._err("Function 'direct_transform' not found in abel.direct.")
-            return self._ok(data=fn(*args, **kwargs), message="Direct transform executed.")
+            return self._ok({"result": fn(*args, **kwargs)}, "Hansen-Law transform completed")
         except Exception as exc:
-            return self._err("Direct transform failed.", exception=exc)
+            return self._fail("Hansen-Law transform failed.", exc, "Verify image dimensions and recursion-compatible parameters.")
 
-    def call_hansenlaw(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod, err = self._get_module("hansenlaw")
+    def linbasex_transform(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        fn, err = self._resolve("abel.linbasex", "linbasex_transform")
         if err:
-            return err
+            return self._fallback("abel.linbasex.linbasex_transform")
         try:
-            fn = getattr(mod, "hansenlaw_transform", None)
-            if fn is None:
-                return self._err("Function 'hansenlaw_transform' not found in abel.hansenlaw.")
-            return self._ok(data=fn(*args, **kwargs), message="Hansen-Law transform executed.")
+            return self._ok({"result": fn(*args, **kwargs)}, "LinBasex transform completed")
         except Exception as exc:
-            return self._err("Hansen-Law transform failed.", exception=exc)
+            return self._fail("LinBasex transform failed.", exc, "Check angular basis configuration and image centering.")
 
-    def call_linbasex(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod, err = self._get_module("linbasex")
+    def onion_bordas_transform(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        fn, err = self._resolve("abel.onion_bordas", "onion_bordas_transform")
         if err:
-            return err
+            return self._fallback("abel.onion_bordas.onion_bordas_transform")
         try:
-            fn = getattr(mod, "linbasex_transform", None)
-            if fn is None:
-                return self._err("Function 'linbasex_transform' not found in abel.linbasex.")
-            return self._ok(data=fn(*args, **kwargs), message="LinBASEX transform executed.")
+            return self._ok({"result": fn(*args, **kwargs)}, "Onion Bordas transform completed")
         except Exception as exc:
-            return self._err("LinBASEX transform failed.", exception=exc)
+            return self._fail("Onion Bordas transform failed.", exc, "Check image symmetry and projection assumptions.")
 
-    def call_nestorolsen(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod, err = self._get_module("nestorolsen")
+    def rbasex_transform(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        fn, err = self._resolve("abel.rbasex", "rbasex_transform")
         if err:
-            return err
+            return self._fallback("abel.rbasex.rbasex_transform")
         try:
-            fn = getattr(mod, "nestor_olsen_transform", None)
-            if fn is None:
-                return self._err("Function 'nestor_olsen_transform' not found in abel.nestorolsen.")
-            return self._ok(data=fn(*args, **kwargs), message="Nestor-Olsen transform executed.")
+            return self._ok({"result": fn(*args, **kwargs)}, "rBasex transform completed")
         except Exception as exc:
-            return self._err("Nestor-Olsen transform failed.", exception=exc)
+            return self._fail("rBasex transform failed.", exc, "Validate radial limits, regularization, and data shape.")
 
-    def call_onion_bordas(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod, err = self._get_module("onion_bordas")
-        if err:
-            return err
+    def dasch_methods(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        module = self._modules.get("abel.dasch")
+        if module is None:
+            return self._fallback("abel.dasch")
         try:
-            fn = getattr(mod, "onion_bordas_transform", None)
-            if fn is None:
-                return self._err("Function 'onion_bordas_transform' not found in abel.onion_bordas.")
-            return self._ok(data=fn(*args, **kwargs), message="Onion-Bordas transform executed.")
+            methods = [name for name in dir(module) if not name.startswith("_")]
+            return self._ok({"available": methods}, "Dasch module symbols listed")
         except Exception as exc:
-            return self._err("Onion-Bordas transform failed.", exception=exc)
-
-    def call_rbasex(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod, err = self._get_module("rbasex")
-        if err:
-            return err
-        try:
-            fn = getattr(mod, "rbasex_transform", None)
-            if fn is None:
-                return self._err("Function 'rbasex_transform' not found in abel.rbasex.")
-            return self._ok(data=fn(*args, **kwargs), message="rBASEX transform executed.")
-        except Exception as exc:
-            return self._err("rBASEX transform failed.", exception=exc)
+            return self._fail("Failed to inspect Dasch module.", exc)
 
     # -------------------------------------------------------------------------
-    # Tools wrappers
+    # Tools module generic dispatcher
     # -------------------------------------------------------------------------
-    def tools_module_api(self, module_key: str) -> Dict[str, Any]:
-        mod, err = self._get_module(module_key)
-        if err:
-            return err
-        try:
-            public = [n for n in dir(mod) if not n.startswith("_")]
-            return self._ok(data={"module": module_key, "public": public}, message="Module API listed.")
-        except Exception as exc:
-            return self._err("Failed to list module API.", exception=exc)
+    def call_tool_function(self, module_name: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call any function under abel.tools.* dynamically.
 
-    def call_tools_function(self, module_key: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod, err = self._get_module(module_key)
-        if err:
-            return err
+        Parameters:
+            module_name: Full module path, e.g., 'abel.tools.center'
+            function_name: Function name in the module
+            *args, **kwargs: Forwarded call arguments
+        """
+        module = self._modules.get(module_name)
+        if module is None:
+            return self._fallback(f"{module_name}.{function_name}")
+        fn = getattr(module, function_name, None)
+        if fn is None or not callable(fn):
+            return self._fail(
+                f"Function '{function_name}' not found or not callable in '{module_name}'.",
+                guidance="Inspect module symbols via inspect_module_symbols().",
+            )
         try:
-            fn = getattr(mod, function_name, None)
-            if fn is None or not callable(fn):
-                return self._err(
-                    f"Function '{function_name}' not found or not callable in module '{module_key}'.",
-                    hint="Use tools_module_api() to inspect available functions.",
-                )
-            return self._ok(data=fn(*args, **kwargs), message=f"{module_key}.{function_name} executed.")
+            return self._ok({"result": fn(*args, **kwargs)}, f"{module_name}.{function_name} completed")
         except Exception as exc:
-            return self._err("Tool function execution failed.", exception=exc)
+            return self._fail(f"Execution failed for {module_name}.{function_name}.", exc)
+
+    def inspect_module_symbols(self, module_name: str) -> Dict[str, Any]:
+        """
+        Return public symbols for a loaded module to support full function utilization.
+        """
+        module = self._modules.get(module_name)
+        if module is None:
+            return self._fallback(module_name)
+        try:
+            public_symbols = [s for s in dir(module) if not s.startswith("_")]
+            return self._ok({"symbols": public_symbols}, f"Symbols listed for {module_name}")
+        except Exception as exc:
+            return self._fail(f"Failed to inspect symbols in {module_name}.", exc)
 
     # -------------------------------------------------------------------------
-    # Utility
+    # Repository-aware convenience methods
     # -------------------------------------------------------------------------
-    def fallback_info(self) -> Dict[str, Any]:
-        return self._ok(
-            data={
-                "mode": self.mode,
-                "fallback": "blackbox",
-                "guidance": "If imports fail, verify source_path and install required dependencies: numpy, scipy. Optional: matplotlib, setuptools.",
-                "trace": traceback.format_exc(),
-            },
-            message="Fallback guidance provided.",
-        )
+    def benchmark(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        module = self._modules.get("abel.benchmark")
+        if module is None:
+            return self._fallback("abel.benchmark")
+        try:
+            if hasattr(module, "benchmark"):
+                return self._ok({"result": getattr(module, "benchmark")(*args, **kwargs)}, "Benchmark completed")
+            return self._ok({"symbols": [s for s in dir(module) if not s.startswith("_")]}, "Benchmark module loaded")
+        except Exception as exc:
+            return self._fail("Benchmark execution failed.", exc)
+
+    def raw_call(self, module_name: str, attr_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Low-level call entry point for any imported module attribute.
+        If attribute is callable, it is called; otherwise, value is returned.
+        """
+        module = self._modules.get(module_name)
+        if module is None:
+            return self._fallback(f"{module_name}.{attr_name}")
+        try:
+            obj = getattr(module, attr_name)
+        except Exception as exc:
+            return self._fail(f"Attribute '{attr_name}' not found in '{module_name}'.", exc)
+
+        try:
+            if callable(obj):
+                return self._ok({"result": obj(*args, **kwargs)}, f"{module_name}.{attr_name} called")
+            return self._ok({"value": obj}, f"{module_name}.{attr_name} retrieved")
+        except Exception as exc:
+            return self._fail(f"Failed calling '{module_name}.{attr_name}'.", exc, traceback.format_exc())

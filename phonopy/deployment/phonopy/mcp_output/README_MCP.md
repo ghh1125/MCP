@@ -2,145 +2,137 @@
 
 ## 1) Project Introduction
 
-This service wraps the `phonopy` Python library as an MCP (Model Context Protocol) service for phonon workflows.  
-It is designed for developers who want programmatic access to:
+This service wraps the `phonopy` Python library as an MCP (Model Context Protocol) service for phonon workflows in materials science.
 
-- phonon model loading and initialization
-- displacement / force-constant file handling
-- band structure, mesh, DOS, and thermal property calculations
-- QHA and Grüneisen post-processing
-- calculator format conversion helpers (VASP, QE, CP2K, ABINIT, LAMMPS, etc.)
+Main goals:
+- Load and validate crystal/phonopy YAML inputs
+- Generate and parse core phonopy artifacts (`FORCE_SETS`, `FORCE_CONSTANTS`, `BORN`)
+- Run core phonon workflows (band structure, mesh, thermal properties)
+- Support calculator I/O interoperability (VASP, QE, ABINIT, CP2K, etc.)
+- Expose optional Grüneisen and QHA analysis paths
 
-Core integration targets in this repository are:
-
-- `phonopy.api_phonopy.Phonopy`
-- `phonopy.api_qha.PhonopyQHA`
+Core integration targets:
+- `phonopy.Phonopy`
+- `phonopy.load`
 - `phonopy.api_gruneisen.PhonopyGruneisen`
-- `phonopy.cui.load.load`
-- `phonopy.file_IO` parsing/writing utilities
+- `phonopy.api_qha.PhonopyQHA`
+- `phonopy.interface.calculator.*`
+- `phonopy.interface.phonopy_yaml.*`
+- `phonopy.file_IO.*`
 
 ---
 
 ## 2) Installation Method
 
-### Prerequisites
+### Requirements
+- Python 3.9+ (recommended)
+- Required Python deps: `numpy`, `PyYAML`, `h5py`, `spglib`, `matplotlib`
+- Optional: `scipy`, `symfc`, `ALM`, `pypolymlp`, `seekpath`
+- External DFT calculators are optional and only needed for calculator-specific workflows
 
-- Python 3.x
-- `numpy`
-- `PyYAML`
-- `matplotlib`
+### Install
+- pip install phonopy
+- or from source repo:
+  - pip install -r requirements.txt
+  - pip install .
 
-Optional but commonly needed:
-
-- `h5py`
-- `spglib`
-- `symfc`
-- `pypolymlp`
-- external calculator tools/data (VASP, QE, CP2K, ABINIT, LAMMPS, etc.)
-
-### Install commands
-
-- Install phonopy:
-  - `pip install phonopy`
-- Recommended extras for broader workflows:
-  - `pip install spglib h5py symfc pypolymlp`
-
-If your MCP (Model Context Protocol) service has its own package, add `phonopy` and the above runtime dependencies to your service dependency list.
+If you are building this MCP (Model Context Protocol) service layer, add your MCP runtime dependency (SDK/server framework) separately.
 
 ---
 
 ## 3) Quick Start
 
-### Typical service flow
+### Minimal workflow idea
+1. Load existing phonopy data (`phonopy.load` or YAML loader).
+2. Build/inspect force constants (`parse_FORCE_CONSTANTS`, `write_FORCE_CONSTANTS`).
+3. Run phonon properties through `Phonopy` API methods.
+4. Return structured MCP (Model Context Protocol) responses (JSON-serializable summaries + file paths).
 
-1. Load a phonopy YAML/params input via `phonopy.cui.load.load`.
-2. Build/use a `Phonopy` object.
-3. Run requested computation (band, mesh, DOS, thermal).
-4. Return parsed structured output (JSON-friendly), and optionally write standard files.
-
-### Minimal Python usage pattern (inside service handlers)
-
-- Import and load:
-  - `from phonopy.cui.load import load`
-  - `phonon = load("phonopy.yaml")`
-- Example operations:
-  - run mesh / DOS / thermal calculations through `phonon` methods
-  - parse/write files using:
-    - `parse_FORCE_SETS`, `parse_FORCE_CONSTANTS`, `parse_BORN`
-    - `write_FORCE_SETS`, `write_FORCE_CONSTANTS`
-
-For QHA/Grüneisen endpoints, use `PhonopyQHA` / `PhonopyGruneisen` APIs with precomputed harmonic inputs.
+### Typical service call patterns
+- Load structure/YAML:
+  - `phonopy.load(...)`
+  - `phonopy.interface.phonopy_yaml.load_yaml(...)`
+- Read/write core files:
+  - `phonopy.file_IO.parse_FORCE_SETS(...)`
+  - `phonopy.file_IO.write_FORCE_SETS(...)`
+  - `phonopy.file_IO.parse_FORCE_CONSTANTS(...)`
+  - `phonopy.file_IO.write_FORCE_CONSTANTS(...)`
+  - `phonopy.file_IO.parse_BORN(...)`
+- Calculator conversion:
+  - `phonopy.interface.calculator.read_crystal_structure(...)`
+  - `phonopy.interface.calculator.write_crystal_structure(...)`
 
 ---
 
-## 4) Available Tools and Endpoints List
+## 4) Available Tools and Endpoints
 
-Suggested MCP (Model Context Protocol) service endpoints:
+Recommended MCP (Model Context Protocol) service endpoints:
 
-- `phonopy.load`
-  - Load `phonopy.yaml` or related params into a working model context.
+- `phonopy.load_project`
+  - Load phonopy YAML/params and return normalized metadata.
 
-- `phonopy.structure.read`
-  - Read crystal structure via calculator interface abstraction.
+- `phonopy.read_structure`
+  - Read structure from calculator-specific format via calculator interface.
 
-- `phonopy.structure.write`
-  - Write crystal structure in calculator-specific format.
+- `phonopy.write_structure`
+  - Export structure to target calculator format.
 
-- `phonopy.forcesets.parse`
-  - Parse `FORCE_SETS` into structured data.
+- `phonopy.parse_force_sets`
+  - Parse `FORCE_SETS` and return displacement/force dataset summary.
 
-- `phonopy.forceconstants.parse`
-  - Parse `FORCE_CONSTANTS` into structured data.
+- `phonopy.parse_force_constants`
+  - Parse `FORCE_CONSTANTS` and return shape/consistency checks.
 
-- `phonopy.forcesets.write`
-  - Write `FORCE_SETS` from structured input.
+- `phonopy.write_force_sets`
+  - Write validated `FORCE_SETS`.
 
-- `phonopy.forceconstants.write`
-  - Write `FORCE_CONSTANTS` from structured input.
+- `phonopy.write_force_constants`
+  - Write validated `FORCE_CONSTANTS`.
 
-- `phonopy.band.compute`
-  - Compute phonon band structure from loaded model.
+- `phonopy.parse_born`
+  - Parse NAC-related `BORN` data.
 
-- `phonopy.mesh.compute`
-  - Compute mesh phonons / derived quantities.
+- `phonopy.run_band_structure`
+  - Compute band structure from loaded phonopy object and return output artifact paths.
 
-- `phonopy.dos.compute`
-  - Compute total/projected DOS.
+- `phonopy.run_mesh`
+  - Compute q-point mesh properties (DOS-ready outputs).
 
-- `phonopy.thermal.compute`
-  - Compute thermal properties.
+- `phonopy.run_thermal_properties`
+  - Compute temperature-dependent thermodynamic properties.
 
-- `phonopy.qha.compute`
-  - QHA workflow endpoint (volume-temperature thermodynamics).
+- `phonopy.run_gruneisen` (optional)
+  - Execute Grüneisen workflow via `PhonopyGruneisen`.
 
-- `phonopy.gruneisen.compute`
-  - Grüneisen parameter workflow endpoint.
+- `phonopy.run_qha` (optional)
+  - Execute QHA workflow via `PhonopyQHA`.
 
-- `phonopy.convert.calculator_format`
-  - Convert between supported calculator formats.
+- `phonopy.validate_inputs`
+  - Perform preflight checks (units, symmetry, required files, dimensions).
 
 ---
 
 ## 5) Common Issues and Notes
 
-- **spglib missing**: symmetry-dependent features may fail or degrade.
-- **Large supercells**: memory and runtime grow quickly for FC and mesh operations.
-- **Input consistency**: force files, structure files, and units must match calculator conventions.
-- **NAC/BORN data**: ensure correct dielectric/Born effective charge inputs for non-analytical corrections.
-- **Plot dependencies**: plotting-related tasks require `matplotlib` and suitable backend in headless environments.
-- **External calculators**: this service does not run DFT itself; it orchestrates phonopy-side processing.
+- `spglib` availability is critical for symmetry operations.
+- `matplotlib` is needed for plot-oriented CLI-equivalent outputs.
+- Some advanced paths require optional dependencies (`scipy`, `symfc`, etc.).
+- Calculator-specific workflows depend on correct external file formats and units.
+- Large supercells and dense meshes can be memory/CPU intensive; prefer async job execution in service mode.
+- Keep file I/O sandboxed (workspace directories) to avoid accidental overwrite.
+- Validate NAC/BORN consistency early to prevent downstream non-physical results.
+- Import-first strategy is preferred; CLI fallback is possible but less structured for service responses.
 
 ---
 
-## 6) Reference Links and Documentation
+## 6) Reference Links / Documentation
 
-- Repository: https://github.com/phonopy/phonopy
-- Main docs index: `doc/index.md`
-- Installation docs: `doc/install.md`
+- Official repository: https://github.com/phonopy/phonopy
+- Main docs index: `doc/index.md` (in repository)
+- Installation guide: `doc/install.md`
 - API/module usage: `doc/phonopy-module.md`
-- CLI/options: `doc/command-options.md`
-- Input format: `doc/input-files.md`
-- Output format: `doc/output-files.md`
-- Interfaces: `doc/interfaces.md`
-- QHA: `doc/qha.md`
-- Grüneisen: `doc/gruneisen.md`
+- Input format details: `doc/input-files.md`
+- Output format details: `doc/output-files.md`
+- Calculator interfaces: `doc/interfaces.md`
+- Command options: `doc/command-options.md`
+- Examples: `example/` directory

@@ -1,9 +1,8 @@
 import os
 import sys
 import importlib
-import inspect
 import traceback
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -15,235 +14,241 @@ if source_path not in sys.path:
 
 class Adapter:
     """
-    Import-mode MCP adapter for the gala repository.
+    MCP import-mode adapter for the gala repository.
 
-    This adapter attempts to import and expose practical entry points from the
-    `gala` package with graceful fallback behavior when optional dependencies
-    or compiled extensions are unavailable.
+    This adapter prioritizes direct imports from deployment.gala.source-compatible paths
+    and provides graceful fallback behavior when imports or runtime calls fail.
     """
 
     # -------------------------------------------------------------------------
-    # Lifecycle
+    # Initialization and module management
     # -------------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
-        self._loaded = {}
-        self._import_errors = {}
-        self._bootstrap()
+        self._modules: Dict[str, Any] = {}
+        self._import_errors: Dict[str, str] = {}
+        self._bootstrap_imports()
 
-    def _bootstrap(self) -> None:
-        targets = [
+    def _result(self, status: str, **kwargs: Any) -> Dict[str, Any]:
+        payload = {"status": status}
+        payload.update(kwargs)
+        return payload
+
+    def _safe_import(self, module_path: str) -> Optional[Any]:
+        try:
+            module = importlib.import_module(module_path)
+            self._modules[module_path] = module
+            return module
+        except Exception as exc:
+            self._import_errors[module_path] = f"{type(exc).__name__}: {exc}"
+            return None
+
+    def _bootstrap_imports(self) -> None:
+        module_paths = [
             "gala",
             "gala.coordinates",
             "gala.dynamics",
+            "gala.dynamics.actionangle",
+            "gala.dynamics.mockstream",
+            "gala.dynamics.nbody",
             "gala.integrate",
+            "gala.integrate.pyintegrators",
             "gala.potential",
+            "gala.potential.frame",
+            "gala.potential.hamiltonian",
+            "gala.potential.potential",
+            "gala.potential.scf",
             "gala.units",
-            "gala.io",
             "gala.util",
+            "gala.io",
+            "numpy",
+            "scipy",
+            "astropy",
         ]
-        for mod in targets:
-            self._safe_import(mod)
+        for path in module_paths:
+            self._safe_import(path)
 
-    # -------------------------------------------------------------------------
-    # Internal utilities
-    # -------------------------------------------------------------------------
-    def _ok(self, data: Any = None, message: str = "ok", **extra: Any) -> Dict[str, Any]:
-        out = {"status": "success", "mode": self.mode, "message": message, "data": data}
-        out.update(extra)
-        return out
-
-    def _fail(self, message: str, error: Optional[Exception] = None, **extra: Any) -> Dict[str, Any]:
-        out = {
-            "status": "error",
-            "mode": self.mode,
-            "message": message,
-            "error": str(error) if error else None,
-        }
-        out.update(extra)
-        return out
-
-    def _safe_import(self, module_path: str) -> Dict[str, Any]:
-        try:
-            module = importlib.import_module(module_path)
-            self._loaded[module_path] = module
-            return self._ok({"module": module_path}, f"Imported {module_path}")
-        except Exception as e:
-            self._import_errors[module_path] = traceback.format_exc()
-            return self._fail(
-                f"Failed to import module '{module_path}'. Ensure optional dependencies are installed.",
-                e,
-                module=module_path,
-            )
-
-    def _get_module(self, module_path: str):
-        if module_path in self._loaded:
-            return self._loaded[module_path]
-        res = self._safe_import(module_path)
-        if res["status"] == "success":
-            return self._loaded.get(module_path)
-        return None
-
-    def _call_symbol(self, module_path: str, symbol: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod = self._get_module(module_path)
-        if mod is None:
-            return self._fail(
-                f"Module '{module_path}' is unavailable. Try installing required dependencies: numpy, scipy, astropy, pyyaml."
-            )
-        if not hasattr(mod, symbol):
-            return self._fail(
-                f"Symbol '{symbol}' not found in '{module_path}'. Verify version compatibility."
-            )
-        try:
-            fn = getattr(mod, symbol)
-            result = fn(*args, **kwargs)
-            return self._ok(result, f"Called {module_path}.{symbol} successfully")
-        except Exception as e:
-            return self._fail(
-                f"Execution failed for '{module_path}.{symbol}'. Check argument types and units.",
-                e,
-            )
-
-    def _instantiate_symbol(self, module_path: str, symbol: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod = self._get_module(module_path)
-        if mod is None:
-            return self._fail(
-                f"Module '{module_path}' is unavailable. Install optional compiled/interop dependencies if needed."
-            )
-        if not hasattr(mod, symbol):
-            return self._fail(
-                f"Class '{symbol}' not found in '{module_path}'. Verify module and version."
-            )
-        try:
-            cls = getattr(mod, symbol)
-            instance = cls(*args, **kwargs)
-            return self._ok(instance, f"Instantiated {module_path}.{symbol} successfully")
-        except Exception as e:
-            return self._fail(
-                f"Instantiation failed for '{module_path}.{symbol}'. Review constructor arguments.",
-                e,
-            )
-
-    # -------------------------------------------------------------------------
-    # Health and discovery
-    # -------------------------------------------------------------------------
-    def health_check(self) -> Dict[str, Any]:
+    def health(self) -> Dict[str, Any]:
         """
-        Validate import readiness and report environment status.
-
-        Returns:
-            dict: Unified status dictionary containing loaded modules,
-            import errors, and actionable guidance.
+        Return adapter import health and loaded-module diagnostics.
         """
-        guidance = [
-            "Install required dependencies: numpy, scipy, astropy, pyyaml.",
-            "For plotting paths install matplotlib.",
-            "For interop tests or optional workflows install agama and galpy.",
-            "If compiled extensions fail, use pure-Python fallback paths where available.",
-        ]
-        return self._ok(
-            {
-                "loaded_modules": sorted(list(self._loaded.keys())),
-                "failed_modules": sorted(list(self._import_errors.keys())),
-                "import_errors": self._import_errors,
-                "guidance": guidance,
-            },
-            "Adapter health check completed",
+        return self._result(
+            "success",
+            mode=self.mode,
+            loaded_modules=sorted(self._modules.keys()),
+            import_errors=self._import_errors,
+            guidance=(
+                "If critical gala modules failed to import, ensure repository source is available "
+                "under the expected 'source' directory and dependencies are installed."
+            ),
         )
 
-    def list_loaded_modules(self) -> Dict[str, Any]:
-        return self._ok(sorted(self._loaded.keys()), "Loaded modules listed")
-
-    def inspect_module(self, module_path: str) -> Dict[str, Any]:
-        """
-        Inspect a module and return public symbols.
-
-        Args:
-            module_path: Full module path (e.g., 'gala.dynamics').
-
-        Returns:
-            dict: status, module metadata, public symbols, and callable names.
-        """
-        mod = self._get_module(module_path)
-        if mod is None:
-            return self._fail(f"Cannot inspect '{module_path}' because import failed.")
-        try:
-            members = inspect.getmembers(mod)
-            public = [n for n, _ in members if not n.startswith("_")]
-            callables = [n for n, v in members if callable(v) and not n.startswith("_")]
-            classes = [n for n, v in members if inspect.isclass(v) and not n.startswith("_")]
-            return self._ok(
-                {"module": module_path, "public": public, "callables": callables, "classes": classes},
-                f"Inspected {module_path}",
+    # -------------------------------------------------------------------------
+    # Generic execution helpers
+    # -------------------------------------------------------------------------
+    def _resolve_attr(self, module_path: str, attr_name: str) -> Dict[str, Any]:
+        module = self._modules.get(module_path) or self._safe_import(module_path)
+        if module is None:
+            return self._result(
+                "error",
+                message=f"Failed to import module '{module_path}'.",
+                details=self._import_errors.get(module_path, "Unknown import error."),
+                action="Verify source path and required dependencies, then retry.",
             )
-        except Exception as e:
-            return self._fail(f"Failed to inspect module '{module_path}'.", e)
+        if not hasattr(module, attr_name):
+            return self._result(
+                "error",
+                message=f"Attribute '{attr_name}' not found in module '{module_path}'.",
+                action="Check the installed repository version and attribute name.",
+            )
+        return self._result("success", target=getattr(module, attr_name))
+
+    def _call_function(self, module_path: str, func_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        resolved = self._resolve_attr(module_path, func_name)
+        if resolved["status"] != "success":
+            return resolved
+        func = resolved["target"]
+        try:
+            output = func(*args, **kwargs)
+            return self._result("success", module=module_path, function=func_name, result=output)
+        except Exception as exc:
+            return self._result(
+                "error",
+                message=f"Function call failed: {module_path}.{func_name}",
+                error=f"{type(exc).__name__}: {exc}",
+                traceback=traceback.format_exc(limit=3),
+                action="Validate function arguments and compatible input types.",
+            )
+
+    def _create_instance(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        resolved = self._resolve_attr(module_path, class_name)
+        if resolved["status"] != "success":
+            return resolved
+        cls = resolved["target"]
+        try:
+            instance = cls(*args, **kwargs)
+            return self._result("success", module=module_path, class_name=class_name, instance=instance)
+        except Exception as exc:
+            return self._result(
+                "error",
+                message=f"Class instantiation failed: {module_path}.{class_name}",
+                error=f"{type(exc).__name__}: {exc}",
+                traceback=traceback.format_exc(limit=3),
+                action="Verify constructor parameters and required units/data formats.",
+            )
 
     # -------------------------------------------------------------------------
-    # Generic invoke/instantiate methods (covers all discoverable features)
+    # Discovery utilities (rich fallback when DeepWiki/class-function list missing)
     # -------------------------------------------------------------------------
-    def call_function(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def list_available_attributes(self, module_path: str, public_only: bool = True) -> Dict[str, Any]:
         """
-        Call any function exposed by a gala module.
+        List module attributes for dynamic exploration.
 
-        Args:
-            module_path: Full module path under gala.
-            function_name: Function symbol name.
-            *args: Positional arguments forwarded to target function.
-            **kwargs: Keyword arguments forwarded to target function.
+        Parameters:
+            module_path: Full module path, e.g., 'gala.potential'.
+            public_only: If True, hide private names beginning with underscore.
 
         Returns:
-            dict: Unified status and function output.
+            Unified status dictionary with discovered attributes.
         """
-        return self._call_symbol(module_path, function_name, *args, **kwargs)
+        module = self._modules.get(module_path) or self._safe_import(module_path)
+        if module is None:
+            return self._result(
+                "error",
+                message=f"Unable to inspect module '{module_path}' because import failed.",
+                details=self._import_errors.get(module_path, "Unknown import error."),
+                action="Install missing dependencies and verify source path.",
+            )
+        attrs = dir(module)
+        if public_only:
+            attrs = [a for a in attrs if not a.startswith("_")]
+        return self._result("success", module=module_path, attributes=attrs)
 
-    def create_instance(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call_module_function(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Instantiate any class exposed by a gala module.
+        Dynamically call any function exposed by a loaded/importable module.
 
-        Args:
-            module_path: Full module path under gala.
-            class_name: Class symbol name.
-            *args: Positional constructor args.
-            **kwargs: Keyword constructor args.
+        Parameters:
+            module_path: Full module path, e.g., 'gala.integrate.timespec'.
+            function_name: Function symbol name in module.
+            *args/**kwargs: Forwarded to target function.
 
         Returns:
-            dict: Unified status and created instance.
+            Unified status dictionary with call result.
         """
-        return self._instantiate_symbol(module_path, class_name, *args, **kwargs)
+        return self._call_function(module_path, function_name, *args, **kwargs)
 
-    # -------------------------------------------------------------------------
-    # Curated high-value module wrappers
-    # -------------------------------------------------------------------------
-    def import_coordinates(self) -> Dict[str, Any]:
-        return self._safe_import("gala.coordinates")
-
-    def import_dynamics(self) -> Dict[str, Any]:
-        return self._safe_import("gala.dynamics")
-
-    def import_integrate(self) -> Dict[str, Any]:
-        return self._safe_import("gala.integrate")
-
-    def import_potential(self) -> Dict[str, Any]:
-        return self._safe_import("gala.potential")
-
-    def import_units(self) -> Dict[str, Any]:
-        return self._safe_import("gala.units")
-
-    # -------------------------------------------------------------------------
-    # Fallback guidance
-    # -------------------------------------------------------------------------
-    def fallback_guidance(self) -> Dict[str, Any]:
+    def create_module_instance(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Provide actionable guidance when import-mode functionality is partially unavailable.
+        Dynamically instantiate any class exposed by a loaded/importable module.
+
+        Parameters:
+            module_path: Full module path, e.g., 'gala.dynamics'.
+            class_name: Class symbol name in module.
+            *args/**kwargs: Forwarded to class constructor.
+
+        Returns:
+            Unified status dictionary with created instance.
         """
-        return self._ok(
-            {
-                "mode": self.mode,
-                "fallback": "blackbox",
-                "when_to_use": "Use blackbox mode if imports fail due to missing compiled extensions or optional interop packages.",
-                "recommended_installs": ["numpy", "scipy", "astropy", "pyyaml", "matplotlib"],
-                "optional_installs": ["agama", "galpy"],
-            },
-            "Fallback guidance generated",
+        return self._create_instance(module_path, class_name, *args, **kwargs)
+
+    # -------------------------------------------------------------------------
+    # Core package convenience methods
+    # -------------------------------------------------------------------------
+    def import_gala(self) -> Dict[str, Any]:
+        """
+        Import and return the top-level gala module.
+        """
+        mod = self._safe_import("gala")
+        if mod is None:
+            return self._result(
+                "error",
+                message="Failed to import 'gala'.",
+                details=self._import_errors.get("gala", "Unknown import error."),
+                action="Ensure required dependencies (numpy, scipy, astropy) are installed.",
+            )
+        return self._result("success", module="gala", result=mod)
+
+    def get_dependency_status(self) -> Dict[str, Any]:
+        """
+        Check availability of required/optional dependencies inferred by analysis.
+        """
+        required = ["python", "numpy", "scipy", "astropy"]
+        optional = ["matplotlib", "pyyaml", "h5py", "galpy", "agama"]
+
+        req_status = {}
+        for pkg in required:
+            if pkg == "python":
+                req_status[pkg] = True
+            else:
+                req_status[pkg] = self._safe_import(pkg) is not None
+
+        opt_status = {pkg: self._safe_import(pkg) is not None for pkg in optional}
+
+        return self._result(
+            "success",
+            required=req_status,
+            optional=opt_status,
+            guidance="Install any missing required dependencies before running heavy dynamics/potential workflows.",
+        )
+
+    def suggest_fallback(self) -> Dict[str, Any]:
+        """
+        Provide actionable guidance for fallback mode when import execution is incomplete.
+        """
+        if not self._import_errors:
+            return self._result(
+                "success",
+                message="Import mode is healthy; fallback mode is not required.",
+            )
+        return self._result(
+            "warning",
+            message="Some modules failed to import. Use dynamic calls only for available modules.",
+            import_errors=self._import_errors,
+            action_items=[
+                "Confirm the source directory is mounted at the expected location.",
+                "Install required dependencies: numpy, scipy, astropy.",
+                "Install optional packages as needed: matplotlib, pyyaml, h5py, galpy, agama.",
+                "Retry health() and then targeted module imports.",
+            ],
         )

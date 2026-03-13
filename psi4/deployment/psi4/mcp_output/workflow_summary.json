@@ -11,12 +11,12 @@
     "language": "Python",
     "last_updated": "",
     "complexity": "complex",
-    "intrusiveness_risk": "medium"
+    "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773264908.336117,
-    "end_time": 1773265153.4658718,
-    "duration": 245.12975597381592,
+    "start_time": 1773387872.6624079,
+    "end_time": 1773388110.698943,
+    "duration": 238.03653502464294,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 4,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,10 +53,15 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.psi4.source",
+        "mcp_output.mcp_plugin",
+        "source.psi4",
+        "source.psi4.driver"
+      ]
     },
     "dependencies": {
-      "has_environment_yml": false,
+      "has_environment_yml": true,
       "has_requirements_txt": false,
       "pyproject": false,
       "setup_cfg": false,
@@ -68,8 +73,8 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.42,
-      "intrusiveness_risk": "medium",
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "low",
       "complexity": "complex"
     },
     "deepwiki_analysis": {
@@ -121,52 +126,51 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/psi4/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75000 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/psi4/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75000 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "Add a graceful runtime fallback in `mcp_plugin/adapter.py` that detects missing compiled Psi4 components and transparently switches from import-mode to CLI-mode (`psi4.run_psi4`) with clear user-facing diagnostics",
-    "Add an MCP health/readiness endpoint in `mcp_service.py` (reports import status",
-    "Psi4 version",
-    "backend mode",
-    "and dependency checks) so failures are discoverable before first tool call",
-    "Introduce a minimal but real integration test suite under `mcp_output/tests_mcp` covering: successful import path",
-    "fallback CLI path",
-    "invalid input/schema rejection",
-    "and one smoke energy calculation",
-    "Pin and align dependencies by merging `mcp_output/requirements.txt` with project environment guidance (document Python/CMake/compiled-core expectations and provide a “known-good” conda env snippet in `README_MCP.md`)",
-    "Reduce coupling risk by routing all MCP tool calls through `psi4.driver.schema_wrapper`/`task_planner` instead of direct deep driver calls to keep interface stable across Psi4 internals",
-    "Add strict input/output Pydantic models for every MCP tool (units",
-    "method",
-    "basis",
-    "charge/multiplicity",
-    "resource limits) and return structured error codes instead of raw exceptions",
-    "Implement execution safeguards: per-request timeout",
-    "memory/thread caps",
-    "and working-directory sandboxing for spawned jobs to prevent runaway computations",
-    "Add result caching keyed by normalized QCSchema-like payloads for repeated calculations to improve responsiveness and reduce compute cost",
-    "Expand observability with structured logging (request id",
-    "method",
-    "basis",
-    "runtime",
-    "backend path",
-    "failure class) and optional debug traces gated by config",
-    "Create endpoint-level documentation in `README_MCP.md` with concrete examples (energy/gradient/property) plus troubleshooting for common build/import failures",
-    "Add CI for the plugin itself (lint",
-    "type-check",
-    "unit/integration tests) in a lightweight matrix independent of full Psi4 heavy tests",
-    "Refactor large adapter/service functions into smaller strategy classes (ImportBackend",
-    "CliBackend) to simplify maintenance and future backend extension",
-    "Validate numerical outputs with tolerance-based regression fixtures (small molecules) to detect backend drift between import and CLI modes",
-    "Add a startup self-check command in `start_mcp.py` that verifies dependencies and emits actionable remediation steps before launching the server"
+    "Define and run a minimal CI smoke suite (import psi4",
+    "single-point energy",
+    "JSON schema path) since test status is empty",
+    "reduce MCP surface by whitelisting stable/public APIs only (current endpoint list is massively overexposed and includes tests/internal helpers)",
+    "add endpoint namespacing + versioning (e.g.",
+    "`driver.energy.v1`) and deduplicate collisions (`version_formatter`",
+    "`harvest_output`",
+    "`infile`",
+    "etc.)",
+    "exclude test/sample/doc modules from plugin generation to cut noise and startup cost",
+    "add automated endpoint contract tests (input/output schema",
+    "error mapping",
+    "deterministic behavior)",
+    "enforce typed request/response models with pydantic for every endpoint and reject ambiguous positional args",
+    "implement import-fallback hardening (graceful downgrade to CLI with clear capability flags and actionable errors)",
+    "add dependency capability detection at startup (adcc/cppe/ddx/pcmsolver/etc.) and expose feature flags to clients",
+    "introduce security guardrails (denylist file/system-mutating helpers",
+    "sandbox path access",
+    "execution timeouts",
+    "resource limits)",
+    "split large driver modules behind thin façade endpoints to reduce intrusiveness and upgrade risk",
+    "add performance benchmarking for hot endpoints (`energy`",
+    "`gradient`",
+    "`task_planner`) with cold/warm timings and regression thresholds",
+    "cache expensive static metadata (method tables",
+    "capability maps) to reduce repeated AST/runtime overhead",
+    "standardize logging/telemetry (request id",
+    "endpoint",
+    "latency",
+    "backend mode import/cli",
+    "failure class)",
+    "add coverage reporting for MCP adapter and prioritize tests around schema_wrapper/task_planner/driver core paths",
+    "create a compatibility matrix in README_MCP (OS",
+    "Python",
+    "optional deps",
+    "known-disabled endpoints)",
+    "pin and periodically audit plugin deps (`fastmcp`",
+    "`pydantic`) with reproducible lockfile",
+    "add pre-commit hooks for plugin code (ruff/black/mypy) and CI gates for lint+type+tests",
+    "generate endpoint docs automatically from signatures + docstrings and mark unstable/internal endpoints explicitly",
+    "add golden tests for key scientific outputs to catch silent numerical/API regressions",
+    "implement rate/concurrency limits for heavy compute endpoints to prevent resource exhaustion"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -197,36 +201,36 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow orchestration completed all nodes (download, analysis, env, generate, run, review, finalize) and returned workflow_status=success.",
-      "Resilience mechanism worked: clone failure was handled via fallback ingestion path (zip-based analysis succeeded; ~1822 files discovered).",
-      "MCP scaffold generation completed and service smoke state is healthy (stdio transport, startup succeeded).",
-      "Risk-aware generation strategy selected import-first with explicit recognition of CLI fallback potential for Psi4."
+      "Workflow reached terminal success state with all planned nodes executed (download, analysis, env, generate, run, review, finalize)",
+      "MCP plugin started healthy over stdio and passed plugin-level run checks",
+      "Import-first adapter strategy was feasible for this repo (import feasibility 0.72) with low intrusiveness risk",
+      "Repository ingestion succeeded despite fallback path (zip fallback), avoiding pipeline abort on upstream analysis tooling failure"
     ],
     "failure_reasons": [
-      "Primary repository clone failed due to network connectivity to github.com:443 (curl 28 timeout, RPC failure).",
-      "DeepWiki analysis failed, reducing semantic depth for automated architecture inference.",
-      "Execution telemetry quality is poor/inconsistent (0 files processed in summary vs 1822 in detailed state; zeroed perf metrics), limiting confidence in measured outcomes.",
-      "Original project tests were not executed successfully (passed=false), so compatibility with true Psi4 runtime remains unvalidated."
+      "No hard workflow failure occurred",
+      "DeepWiki analysis failed (non-blocking), reducing external contextual intelligence",
+      "Original project test status is effectively unusable/empty despite a reported 100% coverage field, creating validation blind spots",
+      "Generated service metadata is inconsistent (tool_endpoints=0 while endpoint list is very large; LOC/size reported as 0), indicating observability/reporting defects"
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Likely dominant delay (~75s timeout observed) due to failed git clone and recovery path activation.",
-      "analysis_time": "Completed successfully on fallback source; broad structural scan performed on large codebase (1822 files), likely moderate-to-high share of remaining runtime.",
-      "generation_time": "Fast scaffold generation; created 7 files but appears mostly template-level output (0 LOC/size reported indicates instrumentation or generation-depth issue).",
-      "test_time": "MCP plugin health check passed quickly; original project test phase effectively not executed/validated."
+      "download_time": "Completed successfully as part of 238.04s total run; exact per-node timing not captured. Zip fallback likely increased I/O and parsing overhead.",
+      "analysis_time": "Dominant phase given ~1,822 files and deep AST extraction; expected to be the main contributor to total duration.",
+      "generation_time": "File generation succeeded (7 files), likely moderate runtime; however generated artifact metrics (LOC/size/endpoints) were not correctly recorded.",
+      "test_time": "MCP plugin health/run checks completed quickly; original project tests were not meaningfully executed (execution_time=0, no test files)."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown from telemetry (reported 0 MB); cannot validate actual memory behavior.",
-      "cpu_efficiency": "Unknown from telemetry (reported 0%); likely light compute except repository scanning.",
-      "disk_usage": "Generated artifact footprint appears minimal; however detailed repository snapshot is large, so workspace storage should be considered moderate."
+      "memory_efficiency": "Unknown from telemetry (all zeros), but likely acceptable for this duration; add real memory instrumentation.",
+      "cpu_efficiency": "Unknown from telemetry (all zeros); AST-heavy analysis on large codebase likely CPU-bound during analysis stage.",
+      "disk_usage": "Repository is large; zip fallback plus generated outputs increase temporary disk churn. Reported generated size=0 is likely a metric bug."
     }
   },
   "technical_quality": {
-    "code_quality_score": 64,
-    "architecture_score": 72,
-    "performance_score": 48,
-    "maintainability_score": 66,
+    "code_quality_score": 68,
+    "architecture_score": 64,
+    "performance_score": 52,
+    "maintainability_score": 70,
     "security_score": 85,
-    "scalability_score": 61
+    "scalability_score": 58
   }
 }

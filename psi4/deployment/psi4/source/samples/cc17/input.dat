@@ -1,0 +1,22 @@
+#! Single point energies of multiple excited states with EOM-CCSD
+
+molecule ch2 {
+  0 3
+  c
+  h 1 r
+  h 1 r 2 a
+  r = 1.1
+  a = 109.0
+}
+
+set {
+  reference uhf
+  basis cc-pVDZ
+  roots_per_irrep [2, 2, 2, 2]
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") != "INTERNAL":
+    psi4.set_options({"e_convergence": 9, "d_convergence": 2e-8})
+
+energy('eom-ccsd')
+

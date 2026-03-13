@@ -2,115 +2,123 @@
 
 ## 1) Project Introduction
 
-This repository can be exposed as an MCP (Model Context Protocol) service for text-to-image generation based on the `dalle-mini` stack (JAX/Flax + Transformers).  
-It is best suited for:
+This repository is intended to expose **dalle-mini** capabilities through an MCP (Model Context Protocol) service interface, so developer tools and agents can request image-generation related operations in a standardized way.
 
-- Prompt-to-image generation via a callable backend function
-- Local inference UI (Gradio or Streamlit)
-- Model training/fine-tuning pipelines (advanced usage)
+> Note: The source repository could not be fully fetched during analysis, so this README is a **practical integration template** based on detected package structure and likely runtime dependencies.
 
-Core callable surface for service integration:
-- `get_images_from_prompt` in:
-  - `app/gradio/backend.py`
-  - `app/streamlit/backend.py`
+Main goals:
+- Provide an MCP (Model Context Protocol) service wrapper around dalle-mini inference workflows
+- Offer callable endpoints/tools for text-to-image generation flows
+- Enable integration with agent frameworks via MCP (Model Context Protocol)
 
 ---
 
 ## 2) Installation Method
 
+Because dependency manifests were not detected (`requirements.txt`, `pyproject.toml`, etc.), install a baseline environment manually.
+
 ### Prerequisites
-- Python 3.8+ (recommended 3.9/3.10)
-- `pip` and virtual environment tooling
-- JAX-compatible runtime (CPU/GPU/TPU depending on your setup)
+- Python 3.8+
+- Linux/macOS recommended (GPU optional but highly recommended for performance)
 
-### Install dependencies
-This repo uses `setup.cfg`/`setup.py` style packaging.
-
+### Suggested setup
 1. Create and activate a virtual environment
-2. Install package and runtime deps
+2. Install core packages:
+   - `jax`
+   - `flax`
+   - `transformers`
+   - `Pillow`
+3. Optional packages (depending on your runtime path):
+   - `gradio`
+   - `torch`
+   - `sentencepiece`
 
-Example:
-- `pip install -U pip setuptools wheel`
-- `pip install -e .`
-- `pip install jax flax transformers numpy Pillow datasets sentencepiece tokenizers`
-- Optional UI deps:
-  - `pip install gradio`
-  - `pip install streamlit`
+### Example pip flow
+- `pip install --upgrade pip`
+- `pip install jax flax transformers pillow`
+- Optional: `pip install gradio torch sentencepiece`
 
-If you plan to train:
-- `pip install wandb` (optional tracking)
-- Install additional optimizer extras in `tools/train/scalable_shampoo` as needed.
+If using GPU, install the correct JAX build for your CUDA/driver stack from official JAX instructions.
 
 ---
 
 ## 3) Quick Start
 
-### A. Run inference UI
-- Gradio:
-  - `python app/gradio/app.py`
-- Streamlit:
-  - `streamlit run app/streamlit/app.py`
+Given the scanned structure:
+- `deployment.dalle-mini.source`
+- `mcp_output.mcp_service`
 
-### B. Call main inference function from your MCP (Model Context Protocol) service
-Use `get_images_from_prompt(prompt, ...)` from either backend module as your tool handler target.  
-Typical flow:
-1. Receive prompt from MCP (Model Context Protocol) client
-2. Normalize/process text
-3. Run model generation
-4. Return images (or image paths/base64 payloads) to client
+a practical startup sequence is:
 
-### C. Training entrypoint
-- `python tools/train/train.py`
-Use config files under `tools/train/config/*/config.json`.
+1. Ensure your MCP (Model Context Protocol) host/runtime can import the service package.
+2. Register/load the service module (likely under `mcp_output.mcp_service`).
+3. Invoke exposed tools via your MCP (Model Context Protocol) client.
+
+Minimal usage pattern (conceptual):
+- Start your MCP (Model Context Protocol) server process
+- Connect from client/agent
+- Call a text-to-image tool with:
+  - `prompt` (string)
+  - optional generation parameters (seed, image count, size, guidance, etc., if supported)
+- Receive image output (path, bytes, or encoded payload depending on implementation)
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Recommended MCP (Model Context Protocol) service tools:
+No concrete callable symbols were discoverable from fetched metadata. Use this as the expected endpoint contract for implementation/verification:
 
-1. `generate_images`
-- Backed by: `get_images_from_prompt`
-- Input: text prompt (+ optional generation parameters)
-- Output: generated image set (format defined by your service layer)
+- `generate_image`
+  - Purpose: Generate image(s) from a text prompt
+  - Input: `prompt`, optional generation settings
+  - Output: generated image artifact(s), metadata
 
-2. `normalize_prompt` (optional utility)
-- Backed by: `normalize_text` in `src/dalle_mini/model/text.py`
-- Input: raw prompt
-- Output: cleaned/normalized prompt
+- `health_check`
+  - Purpose: Service readiness/liveness check
+  - Output: status, model load state, runtime info
 
-3. `train_model` (advanced/admin)
-- Backed by: `tools/train/train.py:main`
-- Input: training config path and runtime flags
-- Output: training job status/artifacts
+- `model_info`
+  - Purpose: Return model/version/capability details
+  - Output: model name, backend, supported parameters
 
-4. `health_check`
-- Custom service endpoint
-- Verifies model/tokenizer load and runtime readiness
+- `list_tools`
+  - Purpose: Enumerate available MCP (Model Context Protocol) tools
+  - Output: tool names, schemas, descriptions
+
+If your local code differs, treat the actual exported MCP (Model Context Protocol) tool list as source of truth.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- JAX installation is environment-specific; install the correct wheel for CPU/GPU/TPU.
-- First model load can be slow and memory-heavy.
-- Inference/training requires significant RAM/VRAM for larger variants.
-- `import_feasibility` is moderate (complex stack), so pin dependency versions for production.
-- Gradio/Streamlit apps are good references, but MCP (Model Context Protocol) services should wrap backend functions directly for cleaner automation.
-- DeepWiki analysis was unavailable; rely on repository source modules listed above.
+- Repository fetch/analysis failure:
+  - Upstream snapshot failed due to SSL/EOF during zip download.
+  - Re-clone locally and validate package contents before production use.
+
+- Heavy runtime requirements:
+  - JAX/Flax-based inference can be memory-intensive.
+  - Prefer GPU/TPU for practical latency.
+
+- Dependency compatibility:
+  - Pin versions for `jax`, `flax`, and `transformers` to avoid ABI/API mismatches.
+  - Validate tokenizer backends (`sentencepiece`) when loading pretrained assets.
+
+- Import feasibility risk:
+  - Current automated confidence is low due to missing concrete module symbols.
+  - Add explicit entrypoints and dependency files for reproducible deployment.
+
+- Performance:
+  - First inference may be slow due to model loading/JIT compilation.
+  - Warm-up calls can reduce steady-state latency.
 
 ---
 
-## 6) Reference Links / Documentation
+## 6) Reference Links or Documentation
 
 - Repository: https://github.com/borisdayma/dalle-mini
-- Main project README: `README.md`
-- Docker notes: `Docker/README.md`
-- Training script: `tools/train/train.py`
-- Model core: `src/dalle_mini/model/modeling.py`
-- Processor/config:
-  - `src/dalle_mini/model/processor.py`
-  - `src/dalle_mini/model/configuration.py`
-- Inference backends:
-  - `app/gradio/backend.py`
-  - `app/streamlit/backend.py`
+- MCP (Model Context Protocol) overview: https://modelcontextprotocol.io
+- JAX installation: https://github.com/google/jax#installation
+- Hugging Face Transformers docs: https://huggingface.co/docs/transformers/index
+- Pillow docs: https://pillow.readthedocs.io/
+
+If you want, I can also provide a stricter “production-ready” README variant with explicit environment matrix, version pin recommendations, and MCP (Model Context Protocol) tool schemas.

@@ -2,14 +2,16 @@
 
 ## 1) Project Introduction
 
-This service wraps core **PyAbel** functionality for Abel transform workflows, mainly for velocity-map imaging (VMI) and cylindrically symmetric image reconstruction.
+This service wraps core functionality from [PyAbel](https://github.com/PyAbel/PyAbel) to provide Abel-transform workflows through MCP (Model Context Protocol)-style tools.
 
-Primary capabilities:
-- Run forward/inverse Abel transforms through a unified interface (`abel.transform.Transform`)
-- Select among multiple numerical methods (BASEX, rBasex, Hansen–Law, Direct, Dasch-family, Daun, lin-Basex, Nestor–Olsen, Onion-Bordas)
-- Pre/post-process images (centering, symmetry handling, polar conversion, VMI distributions)
+Primary goals:
+- Run forward/inverse Abel transforms on 2D images
+- Choose among multiple transform backends (BASEX, Hansen–Law, Direct, Dasch, Daun, Lin-BASEX, rBASEX)
+- Support common pre/post processing used in VMI pipelines:
+  - image centering
+  - radial/angular integrations
 
-This MCP (Model Context Protocol) service is intended for developers who want programmatic transform operations with method-level control.
+Best high-level integration point: `abel.transform.Transform`.
 
 ---
 
@@ -17,111 +19,138 @@ This MCP (Model Context Protocol) service is intended for developers who want pr
 
 ### Requirements
 - Python 3.x
-- Required: `numpy`, `scipy`
-- Optional (recommended): `matplotlib` (visualization), `setuptools`
+- Required libraries:
+  - `numpy`
+  - `scipy`
+- Common optional libraries:
+  - `matplotlib` (visualization/examples)
+  - `pytest` (tests)
 
-### Install from PyPI
-pip install pyabel
+### Install commands
+- Install PyAbel from PyPI:
+  - `pip install pyabel`
+- Or install from source repository:
+  - `pip install .`
 
-### Install from source
-pip install git+https://github.com/PyAbel/PyAbel.git
-
-### Verify
-python -c "import abel; print('PyAbel OK')"
+If building an MCP (Model Context Protocol) service wrapper, install your MCP server/runtime framework separately, then import PyAbel in service handlers.
 
 ---
 
 ## 3) Quick Start
 
-### Minimal transform usage
-import numpy as np
-from abel.transform import Transform
+### Minimal transform flow
+1. Load a 2D image (NumPy array).
+2. Optionally center it (`find_center`, `center_image`).
+3. Run transform via `Transform` (recommended) or a specific backend function.
+4. Extract distributions with VMI utilities (`radial_integration`, `angular_integration`).
 
-# image: 2D numpy array (centered or centerable)
-image = np.random.rand(201, 201)
+### Example usage pattern
+- High-level:
+  - `abel.transform.Transform(image, method="hansenlaw", direction="inverse")`
+- Backend-specific:
+  - `basex_transform(...)`
+  - `direct_transform(...)`
+  - `hansenlaw_transform(...)`
+  - `rbasex_transform(...)`
 
-# Inverse Abel transform with a selected method
-result = Transform(image, method='hansenlaw', direction='inverse')
-reconstructed = result.transform
-
-### Typical preprocessing + transform flow
-- Center image (`abel.tools.center`)
-- Apply symmetry/quadrant strategy (`abel.tools.symmetry`)
-- Run transform (`abel.transform.Transform`)
-- Extract radial/VMI observables (`abel.tools.vmi`, `abel.tools.polar`)
+Recommended default for service design:
+- Expose one unified endpoint using `Transform`
+- Add an optional `method` parameter for backend selection
+- Keep backend-specific endpoints for advanced users
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Recommended MCP (Model Context Protocol) service endpoints:
+Suggested MCP (Model Context Protocol) service endpoints:
 
-- `transform.run`
-  - Execute forward/inverse Abel transform.
-  - Inputs: image array, method, direction, method options.
-  - Backend: `abel.transform.Transform`.
+- `transform_image`
+  - Main unified transform endpoint
+  - Params: `image`, `method`, `direction`, method-specific options
+  - Internally uses `abel.transform.Transform`
 
-- `transform.methods.list`
-  - Return supported transform methods and brief descriptions.
-  - Includes: `basex`, `rbasex`, `hansenlaw`, `direct`, `dasch`, `daun`, `linbasex`, `nestorolsen`, `onion_bordas`.
+- `transform_basex`
+  - BASEX backend
+  - Uses `abel.basex.basex_transform`
 
-- `preprocess.center`
-  - Center image before transform.
-  - Backend: `abel.tools.center`.
+- `transform_direct`
+  - Direct numerical integration backend
+  - Uses `abel.direct.direct_transform`
 
-- `preprocess.symmetry`
-  - Apply symmetry and quadrant handling.
-  - Backend: `abel.tools.symmetry`.
+- `transform_hansenlaw`
+  - Fast recursive Hansen–Law backend
+  - Uses `abel.hansenlaw.hansenlaw_transform`
 
-- `coords.to_polar`
-  - Convert Cartesian image representation to polar.
-  - Backend: `abel.tools.polar`.
+- `transform_dasch`
+  - Dasch family methods
+  - Options: `two_point`, `three_point`, `onion_peeling`
+  - Uses functions in `abel.dasch`
 
-- `vmi.distributions`
-  - Compute radial/angular distributions and anisotropy-related quantities.
-  - Backend: `abel.tools.vmi`.
+- `transform_daun`
+  - Daun backend with regularization-related controls
+  - Uses `abel.daun.daun_transform`
 
-- `system.health`
-  - Validate runtime dependencies and basic import checks.
+- `transform_linbasex`
+  - Lin-BASEX analysis flow
+  - Uses `abel.linbasex.linbasex_transform`
+
+- `transform_rbasex`
+  - rBASEX backend for VMI-oriented use cases
+  - Uses `abel.rbasex.rbasex_transform`
+
+- `find_center`
+  - Detect image center
+  - Uses `abel.tools.center.find_center`
+
+- `center_image`
+  - Shift/recenter image
+  - Uses `abel.tools.center.center_image`
+
+- `radial_integration`
+  - Extract radial intensity distribution
+  - Uses `abel.tools.vmi.radial_integration`
+
+- `angular_integration`
+  - Extract angular distribution
+  - Uses `abel.tools.vmi.angular_integration`
+
+Note: No packaged CLI entry points were detected; service usage is Python API-driven.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- **Centering is critical**: poor centering strongly degrades reconstruction quality.
-- **Method choice matters**:
-  - `hansenlaw`/`direct` are good general baselines.
-  - `rbasex` is common for VMI-style analyses.
-  - `basex`/`daun` may require basis/regularization tuning.
-- **Performance considerations**:
-  - Larger images and basis-generation methods can be slower.
-  - Reusing cached basis data (where supported) improves throughput.
-- **Numerical stability**:
-  - Use appropriate smoothing/regularization for noisy data.
-  - Validate outputs with synthetic or known-reference images.
-- **Dependencies**:
-  - Missing `numpy/scipy` will prevent core execution.
-  - `matplotlib` only needed for plotting/debug visualization.
+- Input format:
+  - Expect NumPy 2D arrays.
+  - Validate shape/dtype in service layer before calling PyAbel.
+
+- Centering quality matters:
+  - Poor centering can significantly degrade inversion quality.
+  - Prefer running `find_center` + `center_image` before transform.
+
+- Method selection:
+  - Different backends trade off speed, noise sensitivity, and reconstruction quality.
+  - Provide sensible defaults (for example, `hansenlaw` or `rbasex`) and allow override.
+
+- Performance:
+  - Large images and basis-generation methods can be expensive.
+  - Consider caching and async/background execution in your MCP (Model Context Protocol) service.
+
+- Dependencies:
+  - Missing `numpy/scipy` will prevent imports.
+  - `matplotlib` is optional unless plotting is needed.
+
+- Testing:
+  - Repository includes extensive tests under `abel/tests`; use them as behavioral references when validating service wrappers.
 
 ---
 
-## 6) Reference Links / Documentation
+## 6) Reference Links and Documentation
 
 - Repository: https://github.com/PyAbel/PyAbel
-- Main API entry point: `abel/transform.py` (`Transform` class)
-- Method implementations:
-  - `abel/basex.py`
-  - `abel/rbasex.py`
-  - `abel/hansenlaw.py`
-  - `abel/direct.py`
-  - `abel/dasch.py`
-  - `abel/daun.py`
-  - `abel/linbasex.py`
-  - `abel/nestorolsen.py`
-  - `abel/onion_bordas.py`
-- Utilities:
+- PyAbel documentation (in repo `doc/` and project docs): start from repository README/docs
+- Key module entrypoint:
+  - `abel/transform.py` (`Transform` class)
+- Useful utility modules:
   - `abel/tools/center.py`
-  - `abel/tools/symmetry.py`
-  - `abel/tools/polar.py`
   - `abel/tools/vmi.py`
-- Examples folder: `examples/` (practical usage patterns)

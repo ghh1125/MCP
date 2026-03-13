@@ -2,110 +2,151 @@
 
 ## 1) Project Introduction
 
-EigenLedger is a portfolio analytics service focused on return/risk evaluation and performance attribution.  
-This MCP (Model Context Protocol) service wraps EigenLedger’s analytics workflow and exposes practical tools for:
+EigenLedger is a quantitative backtesting and analytics toolkit that can be exposed as an MCP (Model Context Protocol) service for LLM-driven research and automation.
 
-- Return and cumulative performance analysis
-- Risk metrics (volatility, drawdown, tail risk)
-- Risk-adjusted ratios (e.g., Sharpe-style metrics)
-- Rolling statistics over time windows
-- Factor/performance attribution
+This service is best suited for:
+- Strategy backtest orchestration
+- Backtest reporting and analysis workflows
+- Portfolio performance/risk metric calculation (via vendored `empyrical` utilities)
+- Performance attribution calculations
 
-Core logic is mainly in `EigenLedger/main.py`, with analytics utilities in `EigenLedger/modules/empyrical/*`.
+Primary callable surface:
+- `EigenLedger.main` (core workflow functions such as `Backtest_Model`, `Backtest_Report`, `Backtest_Analysis`, etc.)
+- `EigenLedger.modules.empyrical.stats` (risk/performance metrics)
+- `EigenLedger.modules.empyrical.perf_attrib` (attribution utility)
 
 ---
 
 ## 2) Installation Method
 
 ### Requirements
-Recommended Python: 3.9+  
-Core dependencies (from analysis):  
-- `numpy`
-- `pandas`
-- `scipy`
-
-Optional (for UI/visualization/data ingestion depending on your use case):  
-- `streamlit`
-- `matplotlib`
-- `plotly`
-- `yfinance`
+- Python 3.8+
+- Core libraries: `numpy`, `pandas`, `scipy`
+- Optional (visualization/UI): `matplotlib`, `plotly`, `streamlit`, `seaborn`
 
 ### Install
-1. Clone the repository:
+1. Clone repository:
    - `git clone https://github.com/santoshlite/EigenLedger.git`
+2. Enter project directory:
    - `cd EigenLedger`
-
-2. Install dependencies manually (no confirmed `requirements.txt`/`setup.py` in scan metadata):
-   - `pip install numpy pandas scipy streamlit matplotlib plotly yfinance`
-
-3. (Optional) Install as editable package:
+3. Install package (editable recommended for service development):
    - `pip install -e .`
+4. If optional visualization/service features are needed, install extras manually:
+   - `pip install matplotlib plotly streamlit seaborn`
 
 ---
 
 ## 3) Quick Start
 
-### Run via launcher
-- `python -m EigenLedger.run`  
-Fallback:
-- `python EigenLedger/run.py`
+### A. Import and call core workflow functions
+Typical main-module entry points include:
+- `Backtest_Model`
+- `Backtest_Report`
+- `Backtest_Models`
+- `Backtest_Analysis`
+- `Backtest_Integration`
+- `Backtest_Dataset`
+- `Backtest_Transform`
+- `Backtest_Visualize`
+- `Backtest_Dashboard`
+- `Backtest_Multiprocess`
+- `Backtest_Optimize`
+- `Backtest_Utility`
 
-### Import-oriented usage pattern
-Use `EigenLedger.main` as the primary integration entry for custom MCP (Model Context Protocol) service handlers, and `EigenLedger.modules.empyrical` for metric-level operations.
+Use your MCP (Model Context Protocol) service layer to wrap these functions as callable tools, passing plain JSON-like parameters and returning structured results.
 
-Typical flow:
-1. Load/prepare return series (Pandas Series/DataFrame).
-2. Call analytics functions from main workflow or empyrical-style stats helpers.
-3. Return structured JSON to MCP (Model Context Protocol) clients.
+### B. Use analytics functions directly (stable tool candidates)
+From `EigenLedger.modules.empyrical.stats`:
+- `alpha`, `beta`
+- `annual_return`, `annual_volatility`
+- `sharpe_ratio`, `sortino_ratio`
+- `max_drawdown`, `calmar_ratio`
+- `omega_ratio`, `tail_ratio`
+- `value_at_risk`, `conditional_value_at_risk`
+
+From `EigenLedger.modules.empyrical.perf_attrib`:
+- `perf_attrib`
+
+### C. CLI fallback execution
+If direct import behavior varies by environment, run:
+- `python -m source.EigenLedger.run`
+- `python -m source.EigenLedger.main`
+
+(Use this as a fallback invocation path in your MCP (Model Context Protocol) service runtime.)
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Below is a practical MCP (Model Context Protocol) endpoint design based on discovered modules.
+Recommended MCP (Model Context Protocol) service endpoints:
 
-### `analyze_performance`
-Compute overall performance metrics (total return, annualized return, cumulative curves).
+- `backtest_model`  
+  Wraps `Backtest_Model`; runs a strategy/model backtest pipeline.
 
-### `analyze_risk`
-Compute volatility, max drawdown, downside/tail risk, and related risk diagnostics.
+- `backtest_report`  
+  Wraps `Backtest_Report`; generates summarized backtest reports.
 
-### `analyze_risk_adjusted`
-Compute risk-adjusted metrics (e.g., Sharpe-like and drawdown-aware ratios).
+- `backtest_analysis`  
+  Wraps `Backtest_Analysis`; computes deeper diagnostics on results.
 
-### `analyze_rolling_metrics`
-Compute rolling-window statistics for trend and stability monitoring.
+- `backtest_optimize`  
+  Wraps `Backtest_Optimize`; performs parameter/search optimization workflow.
 
-### `analyze_perf_attribution`
-Decompose performance by factor/asset contribution (from `perf_attrib.py`).
+- `backtest_dataset`  
+  Wraps `Backtest_Dataset`; dataset preparation and loading helper.
 
-### `health_check`
-Return service runtime status, dependency readiness, and version/build metadata.
+- `metric_alpha_beta`  
+  Wraps `alpha`/`beta`; estimates market-relative performance.
 
-Note: Exact function names are not fully enumerated by scan metadata, so map endpoint handlers to available callable symbols in `EigenLedger/main.py` and `EigenLedger/modules/empyrical/*` during implementation.
+- `metric_risk_return`  
+  Wraps annualized return/volatility and Sharpe/Sortino metrics.
+
+- `metric_drawdown`  
+  Wraps `max_drawdown` and `calmar_ratio`; downside risk summaries.
+
+- `metric_tail_risk`  
+  Wraps `value_at_risk`, `conditional_value_at_risk`, `tail_ratio`.
+
+- `performance_attribution`  
+  Wraps `perf_attrib`; factor/segment-level attribution output.
+
+Implementation note: keep endpoints narrow and deterministic (single responsibility, explicit schema in/out).
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Packaging metadata appears minimal/incomplete in scan results; dependency pinning is recommended for production.
-- Import feasibility is medium (0.58): validate module import paths in your runtime image.
-- Main logic is concentrated in a large single file (`main.py`), so startup overhead and coupling may be moderate.
-- If using visualization/UI libraries, separate server runtime dependencies from analytics-only runtime for lean deployments.
-- Ensure input data quality (frequency consistency, NaN handling, timezone normalization) before metric computation.
-- For large rolling-window workloads, prefer vectorized Pandas/Numpy operations and cache repeated computations.
+- Import feasibility is moderate (estimated ~0.74).  
+  If module paths differ in deployment, prefer a thin adapter layer and CLI fallback.
+
+- Dependency gaps: no `requirements.txt` detected.  
+  Use `pyproject.toml` plus manual installation of optional libraries.
+
+- Visualization stack is optional.  
+  Install plotting/UI packages only if corresponding endpoints are enabled.
+
+- Performance considerations:
+  - Backtests can be CPU/memory intensive on large datasets.
+  - Consider batching, caching, and multiprocessing safeguards.
+  - Add execution timeout and input-size limits in service endpoints.
+
+- Environment consistency:
+  - Pin Python and numerical package versions for reproducibility.
+  - Validate data schema before running expensive computations.
+
+- Intrusiveness risk: medium.  
+  Prefer non-invasive wrappers around existing functions rather than modifying internal logic.
 
 ---
 
 ## 6) Reference Links / Documentation
 
 - Repository: https://github.com/santoshlite/EigenLedger
-- Main module: `EigenLedger/main.py`
+- Package root: `EigenLedger/`
+- Core module: `EigenLedger/main.py`
 - Runner: `EigenLedger/run.py`
-- Analytics modules:
-  - `EigenLedger/modules/empyrical/stats.py`
-  - `EigenLedger/modules/empyrical/perf_attrib.py`
-  - `EigenLedger/modules/empyrical/utils.py`
-  - `EigenLedger/modules/empyrical/periods.py`
-
-If you are building an MCP (Model Context Protocol) service wrapper, treat this repo as the analytics engine and expose stable, JSON-friendly endpoint contracts at your service layer.
+- Analytics module: `EigenLedger/modules/empyrical/stats.py`
+- Attribution module: `EigenLedger/modules/empyrical/perf_attrib.py`
+- Existing docs:
+  - `README.md`
+  - `README_CN.md`

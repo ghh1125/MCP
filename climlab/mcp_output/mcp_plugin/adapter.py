@@ -2,327 +2,320 @@ import os
 import sys
 import traceback
 import inspect
+import importlib
 from typing import Any, Dict, List, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "source",
 )
-sys.path.insert(0, source_path)
+if source_path not in sys.path:
+    sys.path.insert(0, source_path)
 
 
 class Adapter:
     """
-    MCP Import-mode adapter for the climlab repository.
+    MCP Import Mode Adapter for climlab repository.
 
-    This adapter attempts direct import of climlab modules from the local `source` path.
-    It exposes structured methods to instantiate key classes and call key functions across
-    major functional areas: model construction, radiation, dynamics, domain setup,
-    convection, utilities, and diagnostics.
-
-    All public methods return a unified dictionary:
-    {
-        "status": "success" | "error" | "fallback",
-        ...
-    }
+    This adapter prioritizes direct import execution against repository source code.
+    If import-based execution is unavailable, it gracefully degrades to fallback behavior
+    with actionable error guidance.
     """
 
+    # -------------------------------------------------------------------------
+    # Initialization and Module Management
+    # -------------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
-        self._modules: Dict[str, Any] = {}
-        self._errors: Dict[str, str] = {}
-        self._import_all()
+        self._imports: Dict[str, Any] = {}
+        self._import_errors: Dict[str, str] = {}
+        self._modules_to_load = [
+            "climlab",
+            "climlab.convection.akmaev_adjustment",
+            "climlab.convection.convadj",
+            "climlab.convection.emanuel_convection",
+            "climlab.convection.simplified_betts_miller",
+            "climlab.domain.axis",
+            "climlab.domain.domain",
+            "climlab.domain.field",
+            "climlab.domain.initial",
+            "climlab.domain.xarray",
+            "climlab.dynamics.adv_diff_numerics",
+            "climlab.dynamics.advection_diffusion",
+            "climlab.dynamics.budyko_transport",
+            "climlab.dynamics.large_scale_condensation",
+            "climlab.dynamics.meridional_advection_diffusion",
+            "climlab.dynamics.meridional_heat_diffusion",
+            "climlab.dynamics.meridional_moist_diffusion",
+            "climlab.model.column",
+            "climlab.model.ebm",
+            "climlab.model.stommelbox",
+            "climlab.process.diagnostic",
+            "climlab.process.energy_budget",
+            "climlab.process.external_forcing",
+            "climlab.process.implicit",
+            "climlab.process.limiter",
+            "climlab.process.process",
+            "climlab.process.time_dependent_process",
+            "climlab.radiation.absorbed_shorwave",
+            "climlab.radiation.aplusbt",
+            "climlab.radiation.boltzmann",
+            "climlab.radiation.cam3",
+            "climlab.radiation.greygas",
+            "climlab.radiation.insolation",
+            "climlab.radiation.nband",
+            "climlab.radiation.radiation",
+            "climlab.radiation.rrtm.rrtmg",
+            "climlab.radiation.rrtm.rrtmg_lw",
+            "climlab.radiation.rrtm.rrtmg_sw",
+            "climlab.radiation.rrtm.utils",
+            "climlab.radiation.transmissivity",
+            "climlab.radiation.water_vapor",
+            "climlab.solar.insolation",
+            "climlab.solar.orbital.long",
+            "climlab.solar.orbital.table",
+            "climlab.solar.orbital_cycles",
+            "climlab.surface.albedo",
+            "climlab.surface.surface_radiation",
+            "climlab.surface.turbulent",
+            "climlab.utils.constants",
+            "climlab.utils.heat_capacity",
+            "climlab.utils.legendre",
+            "climlab.utils.thermo",
+            "climlab.utils.walk",
+        ]
+        self._load_modules()
 
-    # -------------------------------------------------------------------------
-    # Internal helpers
-    # -------------------------------------------------------------------------
-    def _ok(self, **kwargs) -> Dict[str, Any]:
-        out = {"status": "success"}
-        out.update(kwargs)
-        return out
+    def _result(self, status: str, **kwargs: Any) -> Dict[str, Any]:
+        data = {"status": status}
+        data.update(kwargs)
+        return data
 
-    def _err(self, message: str, guidance: Optional[str] = None, **kwargs) -> Dict[str, Any]:
-        out = {"status": "error", "message": message}
-        if guidance:
-            out["guidance"] = guidance
-        out.update(kwargs)
-        return out
+    def _load_modules(self) -> None:
+        for mod in self._modules_to_load:
+            try:
+                self._imports[mod] = importlib.import_module(mod)
+            except Exception as e:
+                self._import_errors[mod] = f"{type(e).__name__}: {e}"
 
-    def _fallback(self, message: str, guidance: Optional[str] = None, **kwargs) -> Dict[str, Any]:
-        out = {"status": "fallback", "message": message}
-        if guidance:
-            out["guidance"] = guidance
-        out.update(kwargs)
-        return out
-
-    def _import_module(self, key: str, module_path: str) -> None:
-        try:
-            self._modules[key] = __import__(module_path, fromlist=["*"])
-        except Exception as exc:
-            self._errors[key] = f"{exc.__class__.__name__}: {exc}"
-
-    def _import_all(self) -> None:
-        module_map = {
-            "climlab": "climlab",
-            "model_column": "climlab.model.column",
-            "model_ebm": "climlab.model.ebm",
-            "process_process": "climlab.process.process",
-            "process_tdp": "climlab.process.time_dependent_process",
-            "domain_initial": "climlab.domain.initial",
-            "domain_domain": "climlab.domain.domain",
-            "domain_axis": "climlab.domain.axis",
-            "radiation_insolation": "climlab.radiation.insolation",
-            "solar_insolation": "climlab.solar.insolation",
-            "solar_orbital_cycles": "climlab.solar.orbital_cycles",
-            "radiation_aplusbt": "climlab.radiation.aplusbt",
-            "radiation_boltzmann": "climlab.radiation.boltzmann",
-            "radiation_greygas": "climlab.radiation.greygas",
-            "radiation_transmissivity": "climlab.radiation.transmissivity",
-            "radiation_water_vapor": "climlab.radiation.water_vapor",
-            "surface_albedo": "climlab.surface.albedo",
-            "surface_turbulent": "climlab.surface.turbulent",
-            "surface_surface_radiation": "climlab.surface.surface_radiation",
-            "dynamics_advdiff": "climlab.dynamics.advection_diffusion",
-            "dynamics_meridional_heat_diffusion": "climlab.dynamics.meridional_heat_diffusion",
-            "dynamics_meridional_moist_diffusion": "climlab.dynamics.meridional_moist_diffusion",
-            "dynamics_budyko_transport": "climlab.dynamics.budyko_transport",
-            "convection_convadj": "climlab.convection.convadj",
-            "convection_sbm": "climlab.convection.simplified_betts_miller",
-            "convection_emanuel": "climlab.convection.emanuel_convection",
-            "utils_constants": "climlab.utils.constants",
-            "utils_thermo": "climlab.utils.thermo",
-            "utils_heat_capacity": "climlab.utils.heat_capacity",
-            "utils_legendre": "climlab.utils.legendre",
-        }
-        for key, module_path in module_map.items():
-            self._import_module(key, module_path)
-
-    def health_check(self) -> Dict[str, Any]:
+    def health(self) -> Dict[str, Any]:
         """
-        Check module import health and adapter readiness.
+        Return adapter health and import readiness.
 
         Returns:
-            dict: Unified status dictionary with loaded module count and import errors.
+            dict: Unified status dictionary with mode, loaded modules, and import errors.
         """
-        loaded = sorted(self._modules.keys())
-        errors = dict(self._errors)
-        if loaded:
-            return self._ok(mode=self.mode, loaded_modules=loaded, import_errors=errors)
-        return self._fallback(
-            "No modules could be imported in import mode.",
-            guidance="Verify the repository exists under the expected source path and required dependencies are installed.",
+        return self._result(
+            "ok" if len(self._import_errors) == 0 else "partial",
             mode=self.mode,
-            import_errors=errors,
+            loaded_count=len(self._imports),
+            failed_count=len(self._import_errors),
+            failed_modules=self._import_errors,
+            guidance=(
+                "Install required dependencies: numpy, scipy. "
+                "Optional: xarray, matplotlib, netCDF4, numba. "
+                "RRTMG modules may require Fortran-compiled extensions."
+            ),
         )
 
-    def list_available_symbols(self, module_key: str) -> Dict[str, Any]:
+    # -------------------------------------------------------------------------
+    # Generic Reflection and Invocation Utilities
+    # -------------------------------------------------------------------------
+    def list_module_symbols(self, module_name: str) -> Dict[str, Any]:
         """
-        List public symbols for a loaded module.
+        List public symbols in a module.
 
-        Args:
-            module_key (str): Internal module key from the adapter's module registry.
+        Parameters:
+            module_name (str): Full module path, e.g., 'climlab.model.ebm'.
 
         Returns:
-            dict: Unified status dictionary containing discovered symbols.
+            dict: Status + module symbols or error details.
         """
-        mod = self._modules.get(module_key)
-        if mod is None:
-            return self._err(
-                f"Module key '{module_key}' is not loaded.",
-                guidance="Call health_check() to inspect import errors and available module keys.",
-            )
-        symbols = [s for s in dir(mod) if not s.startswith("_")]
-        return self._ok(module_key=module_key, symbols=symbols)
-
-    # -------------------------------------------------------------------------
-    # Generic reflective constructor / function caller
-    # -------------------------------------------------------------------------
-    def create_instance(self, module_key: str, class_name: str, *args, **kwargs) -> Dict[str, Any]:
-        """
-        Create an instance of a class from a loaded module.
-
-        Args:
-            module_key (str): Internal module key.
-            class_name (str): Exact class name in the target module.
-            *args: Positional args forwarded to class constructor.
-            **kwargs: Keyword args forwarded to class constructor.
-
-        Returns:
-            dict: Unified status dictionary with created object.
-        """
-        mod = self._modules.get(module_key)
-        if mod is None:
-            return self._fallback(
-                f"Module '{module_key}' is unavailable.",
-                guidance="Ensure optional dependencies for this module are installed, then rerun health_check().",
-            )
         try:
+            mod = self._imports.get(module_name) or importlib.import_module(module_name)
+            names = [n for n in dir(mod) if not n.startswith("_")]
+            return self._result("ok", module=module_name, symbols=names)
+        except Exception as e:
+            return self._result(
+                "error",
+                module=module_name,
+                error=f"{type(e).__name__}: {e}",
+                guidance="Verify module path and required dependencies.",
+            )
+
+    def create_instance(self, module_name: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create an instance from a class in the specified module.
+
+        Parameters:
+            module_name (str): Full module import path.
+            class_name (str): Class name to instantiate.
+            *args: Positional constructor arguments.
+            **kwargs: Keyword constructor arguments.
+
+        Returns:
+            dict: Status + created object or actionable error guidance.
+        """
+        try:
+            mod = self._imports.get(module_name) or importlib.import_module(module_name)
             cls = getattr(mod, class_name)
             instance = cls(*args, **kwargs)
-            return self._ok(module_key=module_key, class_name=class_name, instance=instance)
-        except AttributeError:
-            return self._err(
-                f"Class '{class_name}' was not found in module '{module_key}'.",
-                guidance="Use list_available_symbols() to inspect available classes.",
-            )
-        except Exception as exc:
-            return self._err(
-                f"Failed to instantiate '{class_name}' from '{module_key}': {exc}",
-                guidance="Check constructor parameters and dependency availability.",
+            return self._result("ok", module=module_name, class_name=class_name, instance=instance)
+        except Exception as e:
+            return self._result(
+                "error",
+                module=module_name,
+                class_name=class_name,
+                error=f"{type(e).__name__}: {e}",
                 traceback=traceback.format_exc(),
+                guidance="Check constructor arguments and optional compiled dependency requirements.",
             )
 
-    def call_function(self, module_key: str, function_name: str, *args, **kwargs) -> Dict[str, Any]:
+    def call_function(self, module_name: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Call a function from a loaded module.
+        Call a function from the specified module.
 
-        Args:
-            module_key (str): Internal module key.
-            function_name (str): Exact function name.
-            *args: Positional function args.
-            **kwargs: Keyword function args.
+        Parameters:
+            module_name (str): Full module import path.
+            function_name (str): Function name to call.
+            *args: Positional function arguments.
+            **kwargs: Keyword function arguments.
 
         Returns:
-            dict: Unified status dictionary with function output.
+            dict: Status + function result or clear error details.
         """
-        mod = self._modules.get(module_key)
-        if mod is None:
-            return self._fallback(
-                f"Module '{module_key}' is unavailable.",
-                guidance="Confirm imports via health_check() and install missing dependencies.",
-            )
         try:
+            mod = self._imports.get(module_name) or importlib.import_module(module_name)
             fn = getattr(mod, function_name)
             if not callable(fn):
-                return self._err(
-                    f"Symbol '{function_name}' in '{module_key}' is not callable.",
-                    guidance="Use list_available_symbols() to choose a callable function.",
+                return self._result(
+                    "error",
+                    module=module_name,
+                    function_name=function_name,
+                    error="Attribute exists but is not callable.",
+                    guidance="Use list_module_symbols() to inspect callable APIs.",
                 )
             result = fn(*args, **kwargs)
-            return self._ok(module_key=module_key, function_name=function_name, result=result)
-        except AttributeError:
-            return self._err(
-                f"Function '{function_name}' was not found in module '{module_key}'.",
-                guidance="Use list_available_symbols() to inspect available functions.",
-            )
-        except Exception as exc:
-            return self._err(
-                f"Function call failed for '{function_name}' in '{module_key}': {exc}",
-                guidance="Validate the function signature and argument values.",
+            return self._result("ok", module=module_name, function_name=function_name, result=result)
+        except Exception as e:
+            return self._result(
+                "error",
+                module=module_name,
+                function_name=function_name,
+                error=f"{type(e).__name__}: {e}",
                 traceback=traceback.format_exc(),
+                guidance="Verify function signature and input types using describe_symbol().",
             )
 
-    # -------------------------------------------------------------------------
-    # Dedicated class instance methods (high-value, commonly used)
-    # -------------------------------------------------------------------------
-    def create_ebm(self, *args, **kwargs) -> Dict[str, Any]:
-        """Instantiate climlab.model.ebm.EBM."""
-        return self.create_instance("model_ebm", "EBM", *args, **kwargs)
-
-    def create_ebm_seasonal(self, *args, **kwargs) -> Dict[str, Any]:
-        """Instantiate climlab.model.ebm.EBM_seasonal."""
-        return self.create_instance("model_ebm", "EBM_seasonal", *args, **kwargs)
-
-    def create_radiative_convective_model(self, *args, **kwargs) -> Dict[str, Any]:
-        """Instantiate climlab.model.column.RadiativeConvectiveModel."""
-        return self.create_instance("model_column", "RadiativeConvectiveModel", *args, **kwargs)
-
-    def create_grey_radiation_model(self, *args, **kwargs) -> Dict[str, Any]:
-        """Instantiate climlab.model.column.GreyRadiationModel."""
-        return self.create_instance("model_column", "GreyRadiationModel", *args, **kwargs)
-
-    def create_band_rc_model(self, *args, **kwargs) -> Dict[str, Any]:
-        """Instantiate climlab.model.column.BandRCModel."""
-        return self.create_instance("model_column", "BandRCModel", *args, **kwargs)
-
-    def create_process(self, *args, **kwargs) -> Dict[str, Any]:
-        """Instantiate climlab.process.process.Process."""
-        return self.create_instance("process_process", "Process", *args, **kwargs)
-
-    def create_time_dependent_process(self, *args, **kwargs) -> Dict[str, Any]:
-        """Instantiate climlab.process.time_dependent_process.TimeDependentProcess."""
-        return self.create_instance("process_tdp", "TimeDependentProcess", *args, **kwargs)
-
-    # -------------------------------------------------------------------------
-    # Dedicated function call methods (broad utility coverage)
-    # -------------------------------------------------------------------------
-    def call_daily_insolation(self, *args, **kwargs) -> Dict[str, Any]:
-        """Call climlab.solar.insolation.daily_insolation."""
-        return self.call_function("solar_insolation", "daily_insolation", *args, **kwargs)
-
-    def call_instant_insolation(self, *args, **kwargs) -> Dict[str, Any]:
-        """Call climlab.solar.insolation.instant_insolation."""
-        return self.call_function("solar_insolation", "instant_insolation", *args, **kwargs)
-
-    def call_orbital_parameters(self, *args, **kwargs) -> Dict[str, Any]:
-        """Call climlab.solar.orbital_cycles.OrbitalTable or helpers through generic function path."""
-        return self.call_function("solar_orbital_cycles", "OrbitalTable", *args, **kwargs)
-
-    def call_initial_column_state(self, *args, **kwargs) -> Dict[str, Any]:
-        """Call climlab.domain.initial.column_state."""
-        return self.call_function("domain_initial", "column_state", *args, **kwargs)
-
-    def call_initial_surface_state(self, *args, **kwargs) -> Dict[str, Any]:
-        """Call climlab.domain.initial.surface_state."""
-        return self.call_function("domain_initial", "surface_state", *args, **kwargs)
-
-    def call_potential_temperature(self, *args, **kwargs) -> Dict[str, Any]:
-        """Call climlab.utils.thermo.potential_temperature."""
-        return self.call_function("utils_thermo", "potential_temperature", *args, **kwargs)
-
-    def call_clausius_clapeyron(self, *args, **kwargs) -> Dict[str, Any]:
-        """Call climlab.utils.thermo.clausius_clapeyron."""
-        return self.call_function("utils_thermo", "clausius_clapeyron", *args, **kwargs)
-
-    def call_heat_capacity_atm(self, *args, **kwargs) -> Dict[str, Any]:
-        """Call climlab.utils.heat_capacity.atmosphere."""
-        return self.call_function("utils_heat_capacity", "atmosphere", *args, **kwargs)
-
-    def call_legendre_polynomial(self, *args, **kwargs) -> Dict[str, Any]:
-        """Call climlab.utils.legendre.Pn."""
-        return self.call_function("utils_legendre", "Pn", *args, **kwargs)
-
-    # -------------------------------------------------------------------------
-    # Introspection and discovery methods for full utilization
-    # -------------------------------------------------------------------------
-    def list_loaded_modules(self) -> Dict[str, Any]:
+    def describe_symbol(self, module_name: str, symbol_name: str) -> Dict[str, Any]:
         """
-        Return all successfully loaded modules and import failures.
+        Describe a symbol signature and docstring for safe invocation.
+
+        Parameters:
+            module_name (str): Full module path.
+            symbol_name (str): Name of class/function/attribute.
 
         Returns:
-            dict: Unified status dictionary with module inventory.
+            dict: Status + symbol metadata.
         """
-        return self._ok(loaded_modules=sorted(self._modules.keys()), import_errors=self._errors)
-
-    def describe_callable(self, module_key: str, symbol_name: str) -> Dict[str, Any]:
-        """
-        Describe signature and docstring of a callable symbol.
-
-        Args:
-            module_key (str): Internal module key.
-            symbol_name (str): Symbol to inspect.
-
-        Returns:
-            dict: Unified status dictionary with signature and documentation snippet.
-        """
-        mod = self._modules.get(module_key)
-        if mod is None:
-            return self._err(
-                f"Module key '{module_key}' is not loaded.",
-                guidance="Use list_loaded_modules() to choose a valid module key.",
-            )
         try:
-            obj = getattr(mod, symbol_name)
-            if not callable(obj):
-                return self._err(
-                    f"Symbol '{symbol_name}' in '{module_key}' is not callable.",
-                    guidance="Choose a function or class symbol.",
-                )
-            sig = str(inspect.signature(obj))
-            doc = inspect.getdoc(obj) or ""
-            return self._ok(module_key=module_key, symbol_name=symbol_name, signature=sig, doc=doc[:3000])
-        except Exception as exc:
-            return self._err(
-                f"Could not inspect '{symbol_name}' in '{module_key}': {exc}",
-                guidance="Verify the symbol exists and can be introspected.",
+            mod = self._imports.get(module_name) or importlib.import_module(module_name)
+            sym = getattr(mod, symbol_name)
+            signature = None
+            if callable(sym):
+                try:
+                    signature = str(inspect.signature(sym))
+                except Exception:
+                    signature = "unavailable"
+            doc = inspect.getdoc(sym) or ""
+            return self._result(
+                "ok",
+                module=module_name,
+                symbol_name=symbol_name,
+                is_callable=callable(sym),
+                signature=signature,
+                doc=doc,
+                type=str(type(sym)),
+            )
+        except Exception as e:
+            return self._result(
+                "error",
+                module=module_name,
+                symbol_name=symbol_name,
+                error=f"{type(e).__name__}: {e}",
+                guidance="Confirm symbol exists and module imports correctly.",
+            )
+
+    # -------------------------------------------------------------------------
+    # Bulk Operations for Full Repository Utilization
+    # -------------------------------------------------------------------------
+    def scan_all_modules(self) -> Dict[str, Any]:
+        """
+        Scan all configured modules and report available public classes and functions.
+
+        Returns:
+            dict: Status + catalog of discovered APIs across climlab modules.
+        """
+        catalog: Dict[str, Dict[str, List[str]]] = {}
+        errors: Dict[str, str] = {}
+        for mod_name in self._modules_to_load:
+            try:
+                mod = self._imports.get(mod_name) or importlib.import_module(mod_name)
+                classes = []
+                functions = []
+                for name, obj in inspect.getmembers(mod):
+                    if name.startswith("_"):
+                        continue
+                    if inspect.isclass(obj):
+                        classes.append(name)
+                    elif inspect.isfunction(obj):
+                        functions.append(name)
+                catalog[mod_name] = {"classes": classes, "functions": functions}
+            except Exception as e:
+                errors[mod_name] = f"{type(e).__name__}: {e}"
+
+        return self._result(
+            "ok" if not errors else "partial",
+            catalog=catalog,
+            errors=errors,
+            guidance="Use create_instance() and call_function() for concrete execution.",
+        )
+
+    def invoke(self, module_name: str, symbol_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Unified invoke entrypoint.
+        - If symbol is a class: instantiate it.
+        - If symbol is callable: call it.
+
+        Parameters:
+            module_name (str): Full module path.
+            symbol_name (str): Symbol name in module.
+            *args: Positional args.
+            **kwargs: Keyword args.
+
+        Returns:
+            dict: Unified status dictionary with invocation result.
+        """
+        try:
+            mod = self._imports.get(module_name) or importlib.import_module(module_name)
+            sym = getattr(mod, symbol_name)
+            if inspect.isclass(sym):
+                return self.create_instance(module_name, symbol_name, *args, **kwargs)
+            if callable(sym):
+                return self.call_function(module_name, symbol_name, *args, **kwargs)
+            return self._result(
+                "error",
+                module=module_name,
+                symbol_name=symbol_name,
+                error="Symbol is not callable and not a class.",
+                guidance="Use describe_symbol() to inspect valid operations.",
+            )
+        except Exception as e:
+            return self._result(
+                "error",
+                module=module_name,
+                symbol_name=symbol_name,
+                error=f"{type(e).__name__}: {e}",
+                traceback=traceback.format_exc(),
+                guidance="Ensure correct module path and symbol name.",
             )

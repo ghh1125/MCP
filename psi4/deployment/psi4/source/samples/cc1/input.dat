@@ -1,0 +1,19 @@
+#! RHF-CCSD 6-31G** all-electron optimization of the H2O molecule
+
+molecule h2o {
+    O
+    H 1 0.97
+    H 1 0.97 2 103.0
+}
+
+set {
+    basis 6-31G**
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") != "INTERNAL":
+    psi4.set_options({"e_convergence": 9, "d_convergence": 2e-8})
+
+wfn = optimize('ccsd', return_wfn=True)[1]
+
+
+

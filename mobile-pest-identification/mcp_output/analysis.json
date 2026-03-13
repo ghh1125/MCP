@@ -35,11 +35,14 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.mobile-pest-identification.source",
+      "mcp_output.mcp_plugin"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
-    "has_requirements_txt": false,
+    "has_requirements_txt": true,
     "pyproject": false,
     "setup_cfg": false,
     "setup_py": false
@@ -52,46 +55,38 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "src/pest.py",
-        "module": "pest",
-        "functions": [],
-        "classes": [],
-        "description": "Top-level script-like module for pest identification workflow; likely orchestrates model loading/inference/training entry behavior rather than exposing a formal package API."
-      },
-      {
-        "package": "src/utils.py",
+        "package": "src",
         "module": "utils",
-        "functions": [],
-        "classes": [],
-        "description": "Primary utility module and most likely location of reusable logic (data parsing, preprocessing, helper routines) used by src/pest.py and model configuration."
-      },
-      {
-        "package": "src/model/pest/mobile.yaml",
-        "module": "mobile_yaml_config",
-        "functions": [],
-        "classes": [],
-        "description": "Model configuration artifact (non-Python) for mobile-oriented pest model; should be treated as data/config input rather than importable code."
+        "functions": [
+          "asklr",
+          "custom_split"
+        ],
+        "classes": [
+          "Detector",
+          "PestDetector"
+        ],
+        "function_signatures": {
+          "asklr": [],
+          "custom_split": [
+            "m"
+          ]
+        },
+        "description": "Discovered via AST scan"
       }
     ],
-    "cli_commands": [
-      {
-        "name": "python src/pest.py",
-        "module": "src/pest.py",
-        "description": "Inferred direct script execution entry point; no explicit console_scripts or argparse-click CLI metadata detected from scanned structure."
-      }
-    ],
+    "cli_commands": [],
     "import_strategy": {
       "primary": "import",
-      "fallback": "import",
+      "fallback": "blackbox",
       "confidence": 0.9
     },
     "dependencies": {
       "required": [
-        "python",
-        "requirements.txt dependencies (not fully expanded from provided scan)"
+        "python (runtime)",
+        "packages listed in requirements.txt (exact names/versions not available in provided metadata)"
       ],
       "optional": [
-        "Deep learning runtime dependencies implied by model workflow (likely torch/vision stack, subject to requirements.txt confirmation)"
+        "CLI wrapper dependencies for MCP adapter layer (if adding subprocess-based execution fallback)"
       ]
     },
     "risk_assessment": {

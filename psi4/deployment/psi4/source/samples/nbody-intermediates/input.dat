@@ -1,0 +1,24 @@
+#! HF/cc-pVDZ many body energies of an arbitrary noble gas trimer complex
+#! Size vs cost tradeoff is rough here
+
+
+molecule noble_trimer {
+He 0 0 0
+--
+Ar 0 0 4
+--
+Ne 0 4 0
+}
+
+set {
+    e_convergence 1.e-10
+    d_convergence 1.e-10
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") != "INTERNAL":
+    psi4.set_options({"e_convergence": 9, "d_convergence": 5e-8})
+
+energy('SCF/cc-pvdz', molecule=noble_trimer, bsse_type=['cp', 'nocp', 'vmfc'])
+
+for compl in comparison_dict.keys():
+

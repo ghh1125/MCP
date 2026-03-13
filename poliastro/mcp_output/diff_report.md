@@ -1,6 +1,6 @@
 # Difference Report — `poliastro`
 
-**Generated:** 2026-03-12 09:00:55  
+**Generated:** 2026-03-13 15:43:45  
 **Repository:** `poliastro`  
 **Project Type:** Python library  
 **Scope:** Basic functionality  
@@ -12,135 +12,122 @@
 
 ## 1) Project Overview
 
-This change set appears to be a **non-intrusive incremental update** focused on introducing new content without altering existing files.  
-Key summary:
+`poliastro` is a Python library focused on astrodynamics and orbital mechanics workflows.  
+This change set appears to be **non-intrusive** and limited to the introduction of new artifacts, with no direct modifications to existing tracked files.
 
+### High-level Summary
 - **New files:** 8  
 - **Modified files:** 0  
-- **Deleted files:** 0 (not reported)
-
-Given that no existing files were modified, the update likely adds supplementary modules, tests, docs, configuration, or examples rather than changing current behavior directly.
+- **Deleted files:** 0 (not reported)  
+- **Net impact:** Additive-only change, but validation pipeline indicates unresolved issues (tests failing).
 
 ---
 
 ## 2) Difference Analysis
 
-## File-Level Change Summary
+## File-level Change Summary
+- ✅ **Added:** 8 files
+- ➖ **Changed:** 0 files
+- ➖ **Removed:** 0 files (not indicated)
 
-| Change Type | Count |
-|---|---:|
-| Added | 8 |
-| Modified | 0 |
-| Deleted | 0 |
+Because no existing files were modified, the update is likely:
+- introducing new modules/utilities,
+- adding tests, examples, docs, or configs,
+- or adding integration scaffolding.
 
-## Interpretation
-
-- The patch is **additive-only**.
-- Existing functionality should remain logically intact unless:
-  - New files are automatically imported/registered at runtime.
-  - Packaging/config changes in new files affect install/runtime behavior.
-  - New tests expose pre-existing defects.
+## Behavioral Impact (Expected)
+With zero modified files, direct regression risk from edited logic is low.  
+However, **failing tests** imply one or more of the following:
+1. Added files introduce incompatible assumptions.
+2. New tests expose pre-existing defects.
+3. Environment/dependency mismatch in CI.
+4. Configuration or packaging side effects from newly added files.
 
 ---
 
 ## 3) Technical Analysis
 
-## CI/Workflow
+## CI / Workflow Interpretation
+- **Workflow success + test failure** suggests orchestration completed correctly, but quality gates failed.
+- Common patterns:
+  - Lint/build steps pass while unit/integration tests fail.
+  - Partial matrix failures (e.g., specific Python version or optional dependencies).
 
-- **Workflow:** Successful  
-  This indicates formatting/lint/build pipeline stages likely passed, and repository-level automation is operational.
+## Risk Profile
+- **Change intrusiveness:** None → low structural risk.
+- **Operational risk:** Moderate due to failing tests.
+- **Release readiness:** Not ready for production release until tests pass.
 
-## Testing
-
-- **Tests:** Failed  
-  Despite additive changes only, failure indicates one or more of:
-  1. Newly added tests fail.
-  2. New code introduces runtime/import issues.
-  3. Environmental or dependency mismatch in CI.
-  4. Flaky tests unrelated to this change.
-
-## Risk Assessment
-
-- **Codebase Intrusiveness:** Low (none declared)
-- **Operational Risk:** Low to Medium (elevated by failing tests)
-- **Release Readiness:** Not ready for release until tests pass.
+## Potential Failure Domains to Inspect
+1. **Test discovery and import paths** (new files affecting `pytest` collection).
+2. **Dependency declarations** (`pyproject.toml`, extras, optional runtime deps).
+3. **Numerical tolerances** in orbital computations (precision-sensitive tests).
+4. **Platform-specific behavior** (Linux/macOS/Windows matrix divergence).
+5. **Data/resource files** newly added but not packaged/resolved at runtime.
 
 ---
 
-## 4) Quality & Compatibility Considerations
+## 4) Quality & Compliance Assessment
 
-Even with no modified files, validate the following:
-
-- **Import graph integrity:** Ensure new modules do not create circular imports.
-- **Package exposure:** Confirm `__init__.py` exports are intentional.
-- **Dependency constraints:** Check whether new files introduce undeclared dependencies.
-- **Versioning discipline:** If user-facing functionality is added, verify semantic version bump policy.
-- **Backward compatibility:** Confirm no behavior changes through side effects (entry points, plugin auto-discovery, config defaults).
+- **Code stability:** Inconclusive due to failed tests.
+- **Backward compatibility:** Likely preserved (no modified files), but unverified.
+- **Documentation consistency:** Unknown (depends on added file types).
+- **Release gate status:** **Blocked** by test failures.
 
 ---
 
 ## 5) Recommendations & Improvements
 
-## Immediate (Blocker Resolution)
+## Immediate (P0)
+1. **Triage failed test logs** and classify by category:
+   - deterministic logic failures,
+   - environment/setup failures,
+   - flaky/time-dependent failures.
+2. **Re-run failed jobs with verbose output** (`pytest -vv`, failure traceback capture).
+3. **Pin/verify dependency versions** in CI to match local development baseline.
+4. **Confirm new files are correctly included/excluded** in packaging and test collection settings.
 
-1. **Triage test failures first**
-   - Identify failing suites/tests and error class (assertion vs import vs environment).
-   - Re-run failed tests locally with identical CI Python/dependency matrix.
-2. **Isolate additive impact**
-   - Temporarily skip or isolate new tests to determine whether failure is pre-existing.
-3. **Dependency audit**
-   - Verify new modules’ imports are represented in project dependency files.
+## Short-term (P1)
+1. Add/adjust **targeted tests** around newly introduced functionality.
+2. Validate compatibility across supported Python versions.
+3. Add a **pre-merge smoke test** for core orbital propagation and conversion routines.
+4. If failures are precision-related, define consistent **numerical tolerances** and document rationale.
 
-## Short-Term
-
-1. Add or update:
-   - Unit tests for each newly introduced functional unit.
-   - Minimal integration tests if files affect package discovery or API surface.
-2. Ensure documentation for all newly added user-facing elements.
-3. Run static checks specifically on new files (typing, linting, docstyle).
-
-## Medium-Term
-
-1. Strengthen CI gates:
-   - Fail fast on import errors.
-   - Add coverage thresholds for newly added files.
-2. Introduce flaky-test detection/retry policy if instability is observed.
+## Medium-term (P2)
+1. Introduce **failure clustering dashboards** in CI (by module/platform/Python version).
+2. Strengthen **contract tests** for key public APIs to protect stability.
+3. Add **release checklist enforcement**: no-tag policy when test gate is red.
 
 ---
 
 ## 6) Deployment Information
 
-## Current Deployment Posture
+## Current Deployment Readiness
+- **Status:** 🚫 Not deployable (test gate failed)
 
-- **Do not deploy/tag release** while test status is failed.
-- CI pipeline is structurally healthy, but quality gate (tests) is not met.
-
-## Suggested Deployment Flow
-
-1. Fix failing tests.
-2. Re-run full CI matrix.
-3. Validate package build artifact (`sdist`/`wheel`) includes intended new files only.
-4. Publish only after all mandatory checks pass.
+## Suggested Deployment Decision
+- **Do not publish package/release artifacts** from this revision.
+- Allow deployment only after:
+  1. all mandatory tests pass,
+  2. CI matrix is green,
+  3. changelog/release notes include new-file additions and test remediation details.
 
 ---
 
 ## 7) Future Planning
 
-## Next Iteration Goals
-
-- Convert this additive patch into a fully validated increment:
-  - Green tests across supported Python versions.
-  - Explicit changelog entry for added assets/features.
-  - Coverage report showing impact of 8 new files.
-- Add a **pre-merge checklist** for additive PRs:
-  - [ ] Dependency declaration checked  
-  - [ ] Public API exposure reviewed  
-  - [ ] Tests added/passing  
-  - [ ] Docs/changelog updated  
+1. **Stabilization Sprint**
+   - Resolve failing tests and confirm deterministic pass rate over multiple reruns.
+2. **Observability Upgrade**
+   - Improve CI diagnostics (artifacted logs, test timing, flaky detection).
+3. **Maintenance Hardening**
+   - Periodic dependency refresh with compatibility checks.
+4. **Documentation Alignment**
+   - Ensure any newly added functionality is reflected in docs/examples and API references.
 
 ---
 
-## 8) Executive Summary
+## 8) Executive Conclusion
 
-This update is a **low-intrusion, additive change set** (`+8 files, 0 modified`) with a **successful workflow** but **failed tests**, making it **not release-ready**.  
-Primary action is to resolve test failures and verify that newly introduced files do not create indirect runtime or packaging side effects. Once tests pass and artifact validation is complete, the change is suitable for progression.
+This revision is an **additive, non-intrusive update** (8 new files, no edits), but quality gates indicate **failed tests**, making it unsuitable for release at this time.  
+Primary next step is **rapid failure triage and correction**, followed by full CI revalidation. Once test status is green, the change should be low-risk to integrate given the absence of modifications to existing files.

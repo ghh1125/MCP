@@ -2,123 +2,136 @@
 
 ## 1) Project Introduction
 
-This service wraps **LangGraph** as an MCP (Model Context Protocol) service so LLM clients can run graph-based agents, tool-calling workflows, and stateful conversations through a clean interface.
+This repository appears to expose LangGraph capabilities as an MCP (Model Context Protocol) service layer (detected package hint: `mcp_output.mcp_plugin`, treated here as MCP service).  
+Because repository preprocessing failed, this README is a practical integration guide based on discovered modules and likely usage patterns.
 
-Main capabilities:
-- Build and execute **stateful graphs** (`StateGraph` + compiled runtime).
-- Expose **prebuilt ReAct agents** (`create_react_agent`) as MCP (Model Context Protocol) tools.
-- Bridge graph tool-calling via `ToolNode`.
-- Support local execution or remote LangGraph server access via `langgraph-sdk`.
+### What this service is for
+- Run and orchestrate graph-based LLM workflows (stateful, multi-step execution).
+- Support checkpoints (memory/sqlite/postgres) for resumable runs.
+- Stream execution updates/messages.
+- Expose graph run/state/store operations via MCP (Model Context Protocol)-compatible tools.
 
 ---
 
 ## 2) Installation Method
 
-Recommended dependencies:
-- `langgraph`
-- `langgraph-prebuilt`
-- `langgraph-sdk`
-- `pydantic`
-- `httpx`
+## Prerequisites
+- Python 3.10+ (recommended)
+- `pip` / virtual environment
+- Optional databases:
+  - SQLite (local persistence)
+  - PostgreSQL (production checkpoint/store)
 
-Install with pip:
-- `pip install langgraph langgraph-prebuilt langgraph-sdk pydantic httpx`
+## Install (practical baseline)
+Since dependency manifests were not reliably detected, start with:
 
-Optional production storage/checkpoint backends:
-- `langgraph-checkpoint`
-- `langgraph-checkpoint-sqlite`
-- `langgraph-checkpoint-postgres`
-- Redis / Postgres runtime services if needed
+pip install -U langgraph
+pip install -U langgraph-sdk
 
-CLI (optional, for validation/run/deploy workflows):
-- `pip install langgraph-cli`
+If you plan persistence backends:
+
+pip install -U langgraph-checkpoint-sqlite
+pip install -U langgraph-checkpoint-postgres
+
+For MCP (Model Context Protocol) runtime/host, install your chosen MCP SDK/runtime (server and client side) per your stack.
 
 ---
 
 ## 3) Quick Start
 
-Typical integration paths:
+## Minimal graph usage (Python)
+Typical LangGraph flow:
+1. Define state schema
+2. Create `StateGraph`
+3. Add nodes/edges
+4. Compile graph
+5. Invoke/stream run
 
-### A. In-process graph service
-1. Define typed state (Pydantic or TypedDict style).
-2. Build a `StateGraph`.
-3. Compile and invoke/stream with LangGraph runtime.
-4. Expose invoke/stream methods as MCP (Model Context Protocol) service endpoints.
+Common entry modules discovered:
+- `langgraph.graph.state` (`StateGraph`, `CompiledStateGraph`)
+- `langgraph.graph.message` (`MessageGraph`)
+- `langgraph.checkpoint.memory` (`InMemorySaver`)
+- `langgraph.checkpoint.sqlite` / `langgraph.checkpoint.postgres` (persistent savers)
 
-### B. Prebuilt agent service (fastest)
-1. Use `create_react_agent(...)` from `langgraph-prebuilt`.
-2. Register tools (or map MCP (Model Context Protocol) tools via `ToolNode`).
-3. Expose chat/run methods as MCP (Model Context Protocol) endpoints.
-
-### C. Remote mode
-1. Use `langgraph_sdk.get_client()` or `get_sync_client()`.
-2. Forward MCP (Model Context Protocol) requests to remote LangGraph runs/threads APIs.
-3. Return normalized responses to MCP (Model Context Protocol) clients.
+## MCP (Model Context Protocol) service integration pattern
+- Register tools that wrap graph operations:
+  - create/load graph
+  - invoke run
+  - stream run events
+  - read/update thread state
+  - checkpoint search/replay
+- Return structured payloads aligned with `langgraph_sdk.schema`-style objects (Run, Thread, Checkpoint, StreamPart).
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) service surface:
+Exact MCP (Model Context Protocol) tool names were not recoverable from the scan, so use this recommended endpoint set:
 
-- `health`
-  - Basic liveness/readiness check.
+- `graph.invoke`  
+  Run a graph synchronously with input/config and return final state/output.
 
-- `graph.invoke`
-  - Run a graph once with input/state payload.
-  - Returns final output + metadata.
+- `graph.stream`  
+  Run and stream incremental events (messages, tasks, updates, values).
 
-- `graph.stream`
-  - Stream step/token/events from runtime execution.
-  - Useful for interactive clients and long tasks.
+- `thread.create`  
+  Create a new execution thread/session context.
 
-- `agent.chat`
-  - Chat-oriented endpoint backed by `create_react_agent`.
-  - Handles conversation turns and tool usage.
+- `thread.get_state`  
+  Fetch current thread state snapshot.
 
-- `tools.execute`
-  - Execute tool calls via `ToolNode` bridge.
-  - Returns tool outputs/errors in structured form.
+- `thread.update_state`  
+  Patch/overwrite thread state for controlled recovery or human-in-the-loop edits.
 
-- `threads.create` / `threads.get`
-  - Create/retrieve persistent conversation thread context.
+- `checkpoint.list`  
+  List checkpoints by thread/run filters.
 
-- `runs.create` / `runs.get` / `runs.cancel`
-  - Manage long-running jobs (especially in remote SDK mode).
+- `checkpoint.get`  
+  Retrieve one checkpoint payload/metadata.
 
-- `store.get` / `store.put` (optional)
-  - Access backing store/checkpoint state where enabled.
+- `checkpoint.replay`  
+  Resume from a checkpoint and continue execution.
+
+- `store.put`  
+  Persist item(s) into graph store namespace.
+
+- `store.get`  
+  Read item by namespace/key.
+
+- `store.search`  
+  Search indexed memory/store entries (optionally embedding/vector-backed).
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Version alignment:
-  - Keep `langgraph`, `langgraph-prebuilt`, and `langgraph-sdk` on compatible versions.
-- Checkpoint backend setup:
-  - SQLite is easiest locally; Postgres is recommended for production durability.
-- Streaming behavior:
-  - Prefer streaming endpoints for long-running graphs to avoid timeouts.
-- Tool safety:
-  - Validate tool schemas and sanitize external tool I/O before exposing via MCP (Model Context Protocol).
-- Performance:
-  - Use async runtime paths for high concurrency.
-  - Add caching/checkpointing for expensive multi-step workflows.
-- Operational fallback:
-  - If direct embedding is constrained, use `langgraph` CLI for app validation/build/run flows.
+- Repository analysis was partial  
+  Some names/commands may differ in your implementation. Validate against actual source before production rollout.
+
+- Dependency ambiguity  
+  No authoritative `pyproject.toml`/`requirements.txt` was detected in this run. Pin versions explicitly in your own project.
+
+- Backend mismatch  
+  Ensure checkpoint/store backend package matches your runtime (memory vs sqlite vs postgres).
+
+- Async vs sync clients  
+  LangGraph SDK exposes both sync and async clients (`_sync`, `_async`). Keep execution model consistent.
+
+- Streaming behavior  
+  Large streamed events can increase latency/memory usage. Filter stream parts when possible.
+
+- Serialization/typing  
+  Complex custom objects may require serializer allowlisting and careful schema control.
+
+- Operational reliability  
+  Add retry/timeouts around remote graph calls and store/checkpoint operations.
 
 ---
 
-## 6) Reference Links or Documentation
+## 6) Reference Links / Documentation
 
-- Repository: https://github.com/langchain-ai/langgraph
-- Core library (graph/runtime): `libs/langgraph`
-- Prebuilt agents/tools: `libs/prebuilt`
-- Python SDK (remote mode): `libs/sdk-py`
-- CLI: `libs/cli`
-- Checkpoint backends:
-  - `libs/checkpoint`
-  - `libs/checkpoint-sqlite`
-  - `libs/checkpoint-postgres`
+- LangGraph repository: https://github.com/langchain-ai/langgraph
+- LangGraph Python package (PyPI): https://pypi.org/project/langgraph/
+- Model Context Protocol (MCP) docs: https://modelcontextprotocol.io
 
-If you want, I can also generate a ready-to-use MCP (Model Context Protocol) service skeleton (endpoint contracts + minimal Python wiring) based on these modules.
+If you want, I can generate a stricter “drop-in” README template with concrete MCP (Model Context Protocol) tool schemas (`name`, `description`, `inputSchema`) for immediate server registration.

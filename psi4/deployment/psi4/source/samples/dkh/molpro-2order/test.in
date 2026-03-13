@@ -1,0 +1,26 @@
+#! DKH comparison Psi4 vs. Molpro from http://forum.psicode.org/t/problems-enabling-dkh/388/3
+
+memory 450 mb
+
+molecule Ne {
+0 1
+Ne
+}
+
+set {
+reference rhf
+basis cc-pvtz-dk
+#rel_basis cc-pvtz-dk-decon
+relativistic dkh
+dkh_order 2
+print 2
+scf_type pk
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") != "INTERNAL":
+    psi4.set_options({"e_convergence": 7, "d_convergence": 5e-7})
+
+e = energy('scf')
+
+print_variables()
+compare_values(-128.66891610, e, 6, '2nd order vs Molpro')  #TEST

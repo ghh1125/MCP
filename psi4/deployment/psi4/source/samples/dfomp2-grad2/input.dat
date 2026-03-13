@@ -1,0 +1,27 @@
+#! OMP2 cc-pVDZ energy for the NO molecule.
+
+
+molecule {
+0 2
+N
+O 1 1.158
+}
+
+set {
+  basis cc-pvdz
+  df_basis_scf cc-pvdz-jkfit
+  df_basis_cc cc-pvdz-ri
+  scf_type df
+  guess sad
+  reference uhf
+  freeze_core true
+  mp2_type df
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") != "INTERNAL":
+    psi4.set_options({"e_convergence": 9, "d_convergence": 5e-9})
+
+grad = gradient('omp2')
+
+
+

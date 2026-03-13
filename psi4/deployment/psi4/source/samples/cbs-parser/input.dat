@@ -1,0 +1,33 @@
+#! mtd/basis syntax examples
+
+molecule ne2 {
+    0 1
+    Ne 0 0 0
+    --
+    0 1
+    Ne 2 0 0
+}
+
+# Use DF to save some time
+set {
+    scf_type      df
+    mp2_type      df
+    e_convergence 7
+    basis cc-pvdz
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") != "INTERNAL":
+    psi4.set_options({"e_convergence": 9, "d_convergence": 5e-8})
+
+ne2.update_geometry()
+
+sapt_global = energy("sapt2+(3)", molecule=ne2)
+
+sapt_explicit, wfn = energy("sapt2+(3)/cc-pvdz", molecule=ne2, return_wfn=True)
+
+
+cbs_string = energy("mp2/6-311++G** + D:ccsd/6-311+G")
+
+cbs_direct = energy("cbs", corl_wfn="mp2", corl_basis="6-311++G**", delta_wfn="ccsd", delta_basis="6-311+G")
+
+

@@ -59,12 +59,16 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.EigenLedger.source",
+      "mcp_output.mcp_plugin",
+      "source.EigenLedger"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
     "setup_py": false
   },
@@ -76,94 +80,108 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "EigenLedger/main.py",
+        "package": "source.EigenLedger",
         "module": "main",
-        "functions": [],
+        "functions": [
+          "Backtest_Model",
+          "Backtest_Report",
+          "Backtest_Models",
+          "Backtest_Analysis",
+          "Backtest_Integration",
+          "Backtest_Dataset",
+          "Backtest_Transform",
+          "Backtest_Visualize",
+          "Backtest_Dashboard",
+          "Backtest_Multiprocess",
+          "Backtest_Optimize",
+          "Backtest_Utility"
+        ],
         "classes": [],
-        "description": "Primary application logic appears concentrated in a single large module (likely Streamlit-style app orchestration and portfolio analytics workflow), but callable symbols cannot be reliably enumerated from provided scan metadata alone."
+        "description": "Primary orchestration module for EigenLedger backtesting/report workflows. Based on repository structure and naming conventions, this is the central callable surface and best MCP integration target."
       },
       {
-        "package": "EigenLedger/modules/empyrical/stats.py",
-        "module": "stats",
-        "functions": [],
-        "classes": [],
-        "description": "Performance/quant analytics core (returns, drawdown, risk-adjusted metrics, tail risk, rolling statistics) adapted from empyrical-style APIs."
-      },
-      {
-        "package": "EigenLedger/modules/empyrical/perf_attrib.py",
-        "module": "perf_attrib",
-        "functions": [],
-        "classes": [],
-        "description": "Performance attribution utilities (factor/asset contribution decomposition)."
-      },
-      {
-        "package": "EigenLedger/modules/empyrical/utils.py",
-        "module": "utils",
-        "functions": [],
-        "classes": [],
-        "description": "Shared utility helpers used by analytics modules (input normalization, data handling, validation wrappers)."
-      },
-      {
-        "package": "EigenLedger/modules/empyrical/periods.py",
-        "module": "periods",
-        "functions": [],
-        "classes": [],
-        "description": "Time-period constants and annualization helpers for metric computations."
-      },
-      {
-        "package": "EigenLedger/run.py",
+        "package": "source.EigenLedger",
         "module": "run",
-        "functions": [],
+        "functions": [
+          "main"
+        ],
         "classes": [],
-        "description": "Lightweight execution wrapper/entry launcher for the project runtime."
+        "description": "Lightweight execution wrapper; likely delegates to main module workflow and can serve as a secondary invocation point."
       },
       {
-        "package": "EigenLedger/__init__.py",
-        "module": "__init__",
-        "functions": [],
+        "package": "source.EigenLedger",
+        "module": "modules.empyrical.stats",
+        "functions": [
+          "alpha",
+          "beta",
+          "annual_return",
+          "annual_volatility",
+          "sharpe_ratio",
+          "sortino_ratio",
+          "max_drawdown",
+          "calmar_ratio",
+          "omega_ratio",
+          "tail_ratio",
+          "value_at_risk",
+          "conditional_value_at_risk"
+        ],
         "classes": [],
-        "description": "Package marker; likely minimal exports."
+        "description": "Performance/risk analytics utility module (vendored empyrical). Useful as stable, pure-function MCP tools for metrics computation."
       },
       {
-        "package": "EigenLedger/modules/empyrical/__init__.py",
-        "module": "__init__",
-        "functions": [],
+        "package": "source.EigenLedger",
+        "module": "modules.empyrical.perf_attrib",
+        "functions": [
+          "perf_attrib"
+        ],
         "classes": [],
-        "description": "Namespace export surface for vendored empyrical module set."
+        "description": "Portfolio performance attribution helpers; suitable for focused analytics tools in MCP."
+      },
+      {
+        "package": "source.EigenLedger",
+        "module": "modules.empyrical.utils",
+        "functions": [
+          "roll",
+          "up",
+          "down"
+        ],
+        "classes": [],
+        "description": "Low-level utility helpers used by analytics stack; generally internal, but importable for advanced tool composition."
       }
     ],
     "cli_commands": [
       {
-        "name": "python -m EigenLedger.run",
-        "module": "EigenLedger/run.py",
-        "description": "Most probable module-level execution path based on dedicated runner file."
+        "name": "python -m source.EigenLedger.run",
+        "module": "source.EigenLedger.run",
+        "description": "Most likely module-execution entry path given presence of run.py; use when direct function imports are unstable."
       },
       {
-        "name": "python EigenLedger/run.py",
-        "module": "EigenLedger/run.py",
-        "description": "Direct script execution fallback if no console_scripts entry point is configured."
+        "name": "python -m source.EigenLedger.main",
+        "module": "source.EigenLedger.main",
+        "description": "Potential direct execution path for main orchestration module if __main__ block exists."
       }
     ],
     "import_strategy": {
       "primary": "import",
       "fallback": "cli",
-      "confidence": 0.9
+      "confidence": 0.78
     },
     "dependencies": {
       "required": [
+        "python>=3.8",
         "numpy",
         "pandas",
         "scipy"
       ],
       "optional": [
-        "streamlit",
         "matplotlib",
         "plotly",
-        "yfinance"
+        "streamlit",
+        "seaborn"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.58,
+      "import_feasibility": 0.74,
       "intrusiveness_risk": "medium",
       "complexity": "medium"
     }
@@ -181,7 +199,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.58,
+    "import_feasibility": 0.74,
     "intrusiveness_risk": "medium",
     "complexity": "medium"
   }

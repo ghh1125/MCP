@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773276854.46175,
-    "end_time": 1773277107.306588,
-    "duration": 252.84483885765076,
+    "start_time": 1773387513.5395782,
+    "end_time": 1773387664.826732,
+    "duration": 151.2871537208557,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 2,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,7 +53,10 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.poliastro.source",
+        "mcp_output.mcp_plugin"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
@@ -68,7 +71,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.93,
+      "import_feasibility": 0.95,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -125,45 +128,48 @@
     {
       "node": "DownloadNode",
       "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/poliastro/temp_clone'...\nfatal: unable to access 'https://github.com/poliastro/poliastro/': Recv failure: Operation timed out\n",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/poliastro/temp_clone'...\nfatal: unable to access 'https://github.com/poliastro/poliastro/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 \n",
       "action_taken": "continue_with_empty"
     }
   ],
   "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/poliastro/temp_clone'...\nfatal: unable to access 'https://github.com/poliastro/poliastro/': Recv failure: Operation timed out\n"
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/poliastro/temp_clone'...\nfatal: unable to access 'https://github.com/poliastro/poliastro/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 \n"
   ],
   "recommendations": [
-    "Add CI smoke tests for generated MCP endpoints (instantiate Orbit",
-    "run lambert",
-    "propagate with 2–3 propagators)",
-    "Add regression tests in `mcp_output/tests_mcp` for unit-handling/serialization of `astropy` quantities and times",
-    "Deduplicate endpoint naming collisions (two `lambert` entries) by namespacing (e.g.",
-    "`izzo_lambert`",
-    "`vallado_lambert`)",
-    "Expand plugin README with a compatibility matrix (Python/poliastro versions",
-    "optional deps like plotly/matplotlib)",
-    "Pin and validate dependency bounds in `mcp_output/requirements.txt` (including upper bounds) and add a lockfile for reproducible runs",
-    "Add graceful degradation for optional dependencies (plotting/astroquery/jplephem) with clear runtime error messages",
-    "Introduce structured error mapping in adapter/service layers (ValueError/UnitsError -> user-friendly MCP errors)",
-    "Add contract tests for each exposed class endpoint covering constructor args and minimal method calls",
-    "Add input validation schemas (Pydantic models) for common orbital inputs to prevent ambiguous units/frames",
-    "Implement timeout and resource guards for heavy propagations/plotting calls to protect MCP server responsiveness",
-    "Add basic observability (request IDs",
-    "endpoint latency",
-    "error counts) in `mcp_service.py`",
-    "Create golden examples in README_MCP for core workflows (orbit creation",
-    "maneuver",
-    "event-based propagation)",
-    "Exclude or clearly mark `contrib/` experimental modules from auto-exposed endpoints",
-    "Add API surface snapshot tests to detect unintended endpoint changes across releases",
-    "Add mypy/ruff/pre-commit to `mcp_output` and enforce in CI",
-    "Add security hardening for server startup (host binding defaults",
-    "optional auth token",
-    "rate limiting)",
-    "Provide fallback behavior/tests for zip-import environments since repository analysis used zip fallback",
-    "Add performance benchmarks for key endpoints (`orbit`",
+    "add and run an MCP smoke/integration test suite (current test status is empty) that validates each generated endpoint (`orbit`",
+    "propagators",
+    "`maneuver`",
+    "`body`",
+    "`ephem`",
     "`lambert`",
-    "`cowellpropagator`) and track in CI trend reports"
+    "`orbitplotter`) end-to-end",
+    "deduplicate the two `lambert` endpoints by renaming to method-specific tools (e.g.",
+    "`lambert_izzo`",
+    "`lambert_vallado`) to avoid API ambiguity",
+    "improve packaging detection/build metadata in the importer (analysis incorrectly reports missing `pyproject.toml` despite it existing) to make dependency resolution reliable",
+    "pin and align MCP plugin/runtime dependencies with the upstream project (numpy/astropy/scipy compatibility matrix + optional extras for plotting) and document supported versions",
+    "add strict input/output schemas for astropy quantities and time types in the adapter (units",
+    "frames",
+    "epochs) with clear serialization rules to prevent runtime conversion errors",
+    "implement robust error mapping in MCP service (domain exceptions -> structured MCP errors with actionable messages)",
+    "create a minimal “golden examples” test set from existing docs notebooks to verify MCP outputs against known orbit/lambert/propagation results",
+    "add CI workflow for `mcp_output` (lint",
+    "type-check",
+    "tests",
+    "startup check) and publish artifacts/health status badges in `README_MCP.md`",
+    "add lightweight performance benchmarks for heavy paths (Cowell propagation",
+    "Lambert solves",
+    "plotting data prep) with regression thresholds",
+    "strengthen observability by adding structured logging and per-endpoint timing/failed-call metrics",
+    "reduce surface-area risk by exposing a curated stable endpoint layer instead of direct class-level mirrors where possible",
+    "add contract tests for adapter mode `import` plus fallback behavior to ensure resilience when optional dependencies are missing",
+    "improve documentation with endpoint-by-endpoint request/response examples and common failure cases (units mismatch",
+    "invalid epochs",
+    "unavailable ephemerides)",
+    "add security hardening for MCP server execution (input size limits",
+    "timeout guards for long propagations",
+    "safe defaults)",
+    "track technical debt in `contrib/` by explicitly excluding non-production modules from MCP auto-exposure and documenting rationale"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -194,35 +200,38 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal status 'success' and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Zip fallback ingestion succeeded after git clone timeout, enabling repository analysis (244 files detected).",
-      "MCP plugin scaffold was generated with runnable entrypoint and healthy service status on stdio transport.",
-      "Import-based adapter strategy matched repo characteristics (high import feasibility: 0.93, low intrusiveness risk)."
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Zip fallback ingestion succeeded after git clone failure, allowing repository analysis (244 files discovered).",
+      "Import-mode adapter strategy was feasible (import feasibility 0.95) for a Python library with low intrusiveness risk.",
+      "MCP plugin startup/health checks passed (service healthy over stdio).",
+      "Core endpoint surface was generated for major poliastro domains (orbit, propagators, maneuvers, bodies, ephemerides, Lambert, plotting)."
     ],
     "failure_reasons": [
-      "Primary repository clone failed due to network timeout (Recv failure: Operation timed out).",
-      "Metadata extraction appears partially inconsistent (dependencies/entry points reported empty in one stage despite pyproject.toml existing).",
-      "Observability and metrics capture were effectively missing (0 or unknown for CPU/memory/response metrics, unknown environment type)."
+      "Primary source acquisition failed at DownloadNode due to TLS/network error (LibreSSL SSL_ERROR_SYSCALL to github.com:443).",
+      "Dependency/packaging detection is incorrect (reported no pyproject/requirements despite pyproject.toml present), reducing build reliability.",
+      "Validation quality is weak: original project tests did not run (passed=false, empty details) and MCP integration tests are effectively absent.",
+      "Generated metadata is inconsistent (total LOC/files size/tool endpoint counts reported as 0 while files/endpoints exist).",
+      "DeepWiki augmentation failed, reducing analysis depth."
     ],
-    "overall_assessment": "good",
+    "overall_assessment": "fair",
     "node_performance": {
-      "download_time": "Download encountered clone timeout; fallback path recovered execution. This node is the main reliability weak point.",
-      "analysis_time": "Analysis completed functionally via fallback and produced useful module/endpoints mapping, but structured dependency extraction quality is mixed.",
-      "generation_time": "Generation succeeded quickly and produced expected scaffold files; however, reported LOC/filesize/tool count telemetry is inconsistent with actual output.",
-      "test_time": "MCP plugin health check passed, but original project tests did not run (passed=false with empty test set), limiting confidence."
+      "download_time": "Download path partially failed (git clone), then recovered via zip fallback; reliability concern outweighs speed.",
+      "analysis_time": "Completed successfully with broad repository scan; detected structure and core modules, but packaging inference errors indicate parser quality gaps.",
+      "generation_time": "Generated MCP scaffold and endpoint set successfully; however duplicate lambert endpoint and zeroed generation metrics indicate post-processing/reporting defects.",
+      "test_time": "MCP health test passed quickly, but no meaningful endpoint-level or regression test execution; test confidence is low."
     },
     "resource_usage": {
-      "memory_efficiency": "Not measurable from provided telemetry (reported 0 MB). Treat as unknown; add real profiling.",
-      "cpu_efficiency": "Not measurable from provided telemetry (reported 0%). Treat as unknown; add per-node CPU timing.",
-      "disk_usage": "Low-to-moderate inferred usage (zip fallback + generated scaffold). Reported generated file size=0 indicates instrumentation gap."
+      "memory_efficiency": "No usable telemetry (reported 0 MB); cannot validate efficiency. Add runtime instrumentation.",
+      "cpu_efficiency": "No usable telemetry (reported 0%); profiling data missing.",
+      "disk_usage": "Generated artifacts are small scaffold files, but reported size=0 is inconsistent; disk accounting is currently unreliable."
     }
   },
   "technical_quality": {
-    "code_quality_score": 74,
+    "code_quality_score": 72,
     "architecture_score": 78,
-    "performance_score": 62,
-    "maintainability_score": 72,
+    "performance_score": 60,
+    "maintainability_score": 74,
     "security_score": 85,
-    "scalability_score": 70
+    "scalability_score": 68
   }
 }

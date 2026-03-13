@@ -740,7 +740,10 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.poliastro.source",
+      "mcp_output.mcp_plugin"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
@@ -757,24 +760,24 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "src/poliastro/twobody/orbit/scalar.py",
-        "module": "scalar",
+        "package": "deployment.poliastro.source",
+        "module": "poliastro.twobody.orbit.scalar",
         "functions": [],
         "classes": [
           "Orbit"
         ],
-        "description": "Primary high-level two-body orbit object with state representation, propagation, sampling, and frame-aware orbital operations."
+        "description": "Primary high-level orbital state object for two-body dynamics; central abstraction for creation, propagation, transformation, and maneuver workflows."
       },
       {
-        "package": "src/poliastro/twobody/orbit/creation.py",
-        "module": "creation",
+        "package": "deployment.poliastro.source",
+        "module": "poliastro.twobody.orbit.creation",
         "functions": [],
         "classes": [],
-        "description": "Orbit factory/constructor helpers used to create Orbit instances from classical elements, vectors, ephemerides, and attractor-centric definitions."
+        "description": "Orbit construction helpers/factories used to create Orbit instances from classical elements, vectors, ephemerides, and other initial-condition representations."
       },
       {
-        "package": "src/poliastro/twobody/propagation/__init__.py",
-        "module": "propagation",
+        "package": "deployment.poliastro.source",
+        "module": "poliastro.twobody.propagation",
         "functions": [],
         "classes": [
           "CowellPropagator",
@@ -787,86 +790,61 @@
           "RecseriesPropagator",
           "ValladoPropagator"
         ],
-        "description": "Public propagator interfaces for two-body trajectory propagation with multiple analytical/numerical methods."
+        "description": "Two-body propagation strategy layer exposing multiple analytical/numerical propagators selectable by accuracy/performance tradeoffs."
       },
       {
-        "package": "src/poliastro/maneuver.py",
-        "module": "maneuver",
+        "package": "deployment.poliastro.source",
+        "module": "poliastro.maneuver",
         "functions": [],
         "classes": [
           "Maneuver"
         ],
-        "description": "Impulse maneuver model and canonical transfer constructors (e.g., Hohmann/bi-elliptic-style workflows in library API)."
+        "description": "Impulse maneuver representation and utilities (e.g., transfer maneuver construction) integrated with Orbit workflows."
       },
       {
-        "package": "src/poliastro/bodies.py",
-        "module": "bodies",
+        "package": "deployment.poliastro.source",
+        "module": "poliastro.bodies",
         "functions": [],
         "classes": [
-          "Body",
-          "SolarSystemPlanet"
+          "Body"
         ],
-        "description": "Celestial body definitions/constants used across orbit creation, propagation, and transfer analysis."
+        "description": "Solar-system body constants and body abstractions (Earth, Mars, Sun, etc.) used by orbit initialization and propagation."
       },
       {
-        "package": "src/poliastro/ephem.py",
-        "module": "ephem",
+        "package": "deployment.poliastro.source",
+        "module": "poliastro.ephem",
         "functions": [],
         "classes": [
           "Ephem"
         ],
-        "description": "Ephemerides handling and sampling utilities for body/spacecraft state access over time."
+        "description": "Ephemerides interface for time-dependent state retrieval and interoperability with astropy coordinate/time systems."
       },
       {
-        "package": "src/poliastro/iod/izzo.py",
-        "module": "izzo",
+        "package": "deployment.poliastro.source",
+        "module": "poliastro.iod.izzo",
         "functions": [
           "lambert"
         ],
         "classes": [],
-        "description": "Lambert problem solver (Izzo algorithm) for transfer arc initial/final velocity determination."
+        "description": "Lambert solver (Izzo method) for transfer orbit determination from boundary conditions."
       },
       {
-        "package": "src/poliastro/iod/vallado.py",
-        "module": "vallado",
+        "package": "deployment.poliastro.source",
+        "module": "poliastro.iod.vallado",
         "functions": [
           "lambert"
         ],
         "classes": [],
-        "description": "Alternative Lambert solver implementation (Vallado formulation)."
+        "description": "Alternative Lambert solver implementation (Vallado) for robustness/cross-validation."
       },
       {
-        "package": "src/poliastro/earth/__init__.py",
-        "module": "earth",
+        "package": "deployment.poliastro.source",
+        "module": "poliastro.plotting.orbit.plotter",
         "functions": [],
         "classes": [
-          "EarthSatellite"
+          "OrbitPlotter"
         ],
-        "description": "Earth-centered helper abstractions, including Earth satellite-specific workflows."
-      },
-      {
-        "package": "src/poliastro/plotting/orbit/plotter.py",
-        "module": "plotter",
-        "functions": [],
-        "classes": [
-          "OrbitPlotter",
-          "OrbitPlotter2D",
-          "OrbitPlotter3D"
-        ],
-        "description": "Visualization API for 2D/3D orbit plotting with backend abstraction (matplotlib/plotly)."
-      },
-      {
-        "package": "src/poliastro/twobody/events.py",
-        "module": "events",
-        "functions": [],
-        "classes": [
-          "AltitudeCrossEvent",
-          "LatitudeCrossEvent",
-          "NodeCrossEvent",
-          "PenumbraEvent",
-          "UmbraEvent"
-        ],
-        "description": "Event detection classes for propagation stopping/monitoring conditions."
+        "description": "High-level orbit visualization frontend with backend abstraction (Matplotlib/Plotly)."
       }
     ],
     "cli_commands": [],
@@ -885,12 +863,13 @@
         "matplotlib",
         "plotly",
         "numba",
+        "jplephem",
         "astroquery",
-        "jplephem"
+        "pandas"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.93,
+      "import_feasibility": 0.95,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -908,7 +887,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.93,
+    "import_feasibility": 0.95,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

@@ -7064,14 +7064,42 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.pyomo.source",
+      "mcp_output.mcp_plugin",
+      "source.examples.pyomobook",
+      "source.pyomo",
+      "source.pyomo._archive",
+      "source.pyomo.addons",
+      "source.pyomo.common",
+      "source.pyomo.contrib",
+      "source.pyomo.core",
+      "source.pyomo.dae",
+      "source.pyomo.dataportal",
+      "source.pyomo.devel",
+      "source.pyomo.duality",
+      "source.pyomo.environ",
+      "source.pyomo.gdp",
+      "source.pyomo.kernel",
+      "source.pyomo.mpec",
+      "source.pyomo.neos",
+      "source.pyomo.network",
+      "source.pyomo.opt",
+      "source.pyomo.repn",
+      "source.pyomo.scripting",
+      "source.pyomo.solvers",
+      "source.pyomo.tpl",
+      "source.pyomo.unsupported",
+      "source.pyomo.util",
+      "source.pyomo.version"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -7081,140 +7109,194 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "pyomo/core/base",
-        "module": "pyomo.core.base.PyomoModel",
+        "package": "source.pyomo.environ",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Primary user-facing import surface for Pyomo modeling (re-exports core modeling symbols and solver factory access). Best MCP anchor for low-intrusion integration."
+      },
+      {
+        "package": "source.pyomo.core.base",
+        "module": "PyomoModel",
         "functions": [],
         "classes": [
           "ConcreteModel",
           "AbstractModel"
         ],
-        "description": "Primary model container types; foundational for building optimization models programmatically."
+        "description": "Model container entry points for building optimization models."
       },
       {
-        "package": "pyomo/core/base",
-        "module": "pyomo.core.base.var",
+        "package": "source.pyomo.core.base",
+        "module": "var",
         "functions": [],
         "classes": [
           "Var"
         ],
-        "description": "Decision variable declarations and variable data handling."
+        "description": "Decision variable component definitions."
       },
       {
-        "package": "pyomo/core/base",
-        "module": "pyomo.core.base.constraint",
+        "package": "source.pyomo.core.base",
+        "module": "constraint",
         "functions": [],
         "classes": [
           "Constraint"
         ],
-        "description": "Constraint declaration and indexed/scalar constraint handling."
+        "description": "Constraint component definitions and indexed/scalar forms."
       },
       {
-        "package": "pyomo/core/base",
-        "module": "pyomo.core.base.objective",
+        "package": "source.pyomo.core.base",
+        "module": "objective",
         "functions": [],
         "classes": [
           "Objective"
         ],
-        "description": "Objective expression declaration and sense management (min/max)."
+        "description": "Objective expression component and sense handling."
       },
       {
-        "package": "pyomo/core/base",
-        "module": "pyomo.core.base.param",
-        "functions": [],
-        "classes": [
-          "Param"
-        ],
-        "description": "Model parameter declaration, mutable/immutable parameter support."
-      },
-      {
-        "package": "pyomo/core/base",
-        "module": "pyomo.core.base.set",
+        "package": "source.pyomo.core.base",
+        "module": "set",
         "functions": [],
         "classes": [
           "Set",
           "RangeSet"
         ],
-        "description": "Indexing and domain sets used by model components."
+        "description": "Index sets and finite/infinite set structures."
       },
       {
-        "package": "pyomo/opt/base",
-        "module": "pyomo.opt.base.solvers",
+        "package": "source.pyomo.core.base",
+        "module": "param",
+        "functions": [],
+        "classes": [
+          "Param"
+        ],
+        "description": "Model parameter declarations (mutable and immutable)."
+      },
+      {
+        "package": "source.pyomo.opt.base",
+        "module": "solvers",
         "functions": [
           "SolverFactory"
         ],
         "classes": [],
-        "description": "Factory API to instantiate solver interfaces by name."
+        "description": "Canonical solver instantiation API used by most Pyomo workflows."
       },
       {
-        "package": "pyomo/environ",
-        "module": "pyomo.environ",
-        "functions": [
-          "value"
-        ],
-        "classes": [],
-        "description": "High-level convenience import surface that re-exports core modeling symbols and utilities."
-      },
-      {
-        "package": "pyomo/scripting",
-        "module": "pyomo.scripting.pyomo_main",
+        "package": "source.pyomo.scripting",
+        "module": "pyomo_main",
         "functions": [
           "main"
         ],
         "classes": [],
-        "description": "Main CLI entry dispatcher for the `pyomo` command family."
+        "description": "Top-level CLI driver implementation for the pyomo command."
       },
       {
-        "package": "pyomo/scripting",
-        "module": "pyomo.scripting.pyomo_command",
+        "package": "source.pyomo.scripting",
+        "module": "pyomo_command",
         "functions": [
-          "run_pyomo"
+          "main"
         ],
         "classes": [],
-        "description": "Top-level command execution integration for scripting commands."
+        "description": "Command wrapper/dispatcher used by scripting entrypoints."
+      },
+      {
+        "package": "source.pyomo.solvers.plugins.solvers",
+        "module": "gurobi_direct",
+        "functions": [],
+        "classes": [
+          "GurobiDirect"
+        ],
+        "description": "Direct solver backend example (many analogous backends exist)."
+      },
+      {
+        "package": "source.pyomo.solvers.plugins.solvers",
+        "module": "cplex_direct",
+        "functions": [],
+        "classes": [
+          "CPLEXDirect"
+        ],
+        "description": "Direct solver backend example."
+      },
+      {
+        "package": "source.pyomo.contrib.appsi.solvers",
+        "module": "highs",
+        "functions": [],
+        "classes": [
+          "Highs"
+        ],
+        "description": "Modern persistent/APPSI-style solver interface representative of contrib solver stack."
+      },
+      {
+        "package": "source.pyomo.util",
+        "module": "infeasible",
+        "functions": [
+          "log_infeasible_constraints",
+          "log_infeasible_bounds"
+        ],
+        "classes": [],
+        "description": "Useful diagnostics helpers for MCP tool outputs and explainability."
+      },
+      {
+        "package": "source.pyomo.util",
+        "module": "model_size",
+        "functions": [
+          "build_model_size_report"
+        ],
+        "classes": [],
+        "description": "Model introspection utility suitable for non-invasive analysis tools."
       }
     ],
     "cli_commands": [
       {
         "name": "pyomo",
-        "module": "pyomo.scripting.pyomo_main",
-        "description": "Primary CLI for solve/convert/help and related Pyomo scripting workflows."
+        "module": "source.pyomo.scripting.pyomo_main",
+        "description": "Primary command-line entry for solve/convert/help workflows."
+      },
+      {
+        "name": "pyomo solve",
+        "module": "source.pyomo.scripting.plugins.solve",
+        "description": "CLI subcommand for model solve execution with solver options."
+      },
+      {
+        "name": "pyomo convert",
+        "module": "source.pyomo.scripting.plugins.convert",
+        "description": "CLI subcommand for format conversion (LP/NL/etc.) via writer stack."
+      },
+      {
+        "name": "pyomo download-extensions",
+        "module": "source.pyomo.scripting.plugins.download",
+        "description": "CLI utility to fetch optional native/extension assets."
       }
     ],
     "import_strategy": {
       "primary": "import",
       "fallback": "cli",
-      "confidence": 0.9
+      "confidence": 0.93
     },
     "dependencies": {
       "required": [
-        "python>=3.x",
+        "python>=3.9",
         "ply"
       ],
       "optional": [
         "numpy",
         "scipy",
-        "sympy",
         "pandas",
         "networkx",
         "matplotlib",
+        "sympy",
         "pyyaml",
         "openpyxl",
         "xlrd",
-        "sqlite3",
-        "gurobipy",
-        "cplex",
-        "highspy",
-        "ipopt/cyipopt",
-        "mosek",
-        "xpress",
-        "casadi",
-        "mpi4py"
+        "lxml",
+        "mpi4py",
+        "pynumero native extensions",
+        "solver runtimes (glpk/cbc/ipopt/gurobi/cplex/highs/knitro/baron/scip, etc.)"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.94,
+      "import_feasibility": 0.9,
       "intrusiveness_risk": "low",
-      "complexity": "complex"
+      "complexity": "medium"
     }
   },
   "deepwiki_analysis": {
@@ -7230,8 +7312,8 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.94,
+    "import_feasibility": 0.9,
     "intrusiveness_risk": "low",
-    "complexity": "complex"
+    "complexity": "medium"
   }
 }

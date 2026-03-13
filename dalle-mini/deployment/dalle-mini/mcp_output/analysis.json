@@ -1,119 +1,18 @@
 {
   "summary": {
     "repository_url": "https://github.com/borisdayma/dalle-mini",
-    "summary": "Imported via zip fallback, file count: 35",
-    "file_tree": {
-      ".github/FUNDING.yml": {
-        "size": 21
-      },
-      ".github/workflows/check_size.yml": {
-        "size": 362
-      },
-      ".github/workflows/pypi_release.yml": {
-        "size": 847
-      },
-      ".github/workflows/style.yml": {
-        "size": 397
-      },
-      ".github/workflows/sync_to_hub_debug.yml": {
-        "size": 444
-      },
-      "Docker/README.md": {
-        "size": 715
-      },
-      "README.md": {
-        "size": 10627
-      },
-      "app/gradio/app.py": {
-        "size": 1854
-      },
-      "app/gradio/backend.py": {
-        "size": 863
-      },
-      "app/streamlit/app.py": {
-        "size": 3571
-      },
-      "app/streamlit/backend.py": {
-        "size": 863
-      },
-      "pyproject.toml": {
-        "size": 30
-      },
-      "setup.cfg": {
-        "size": 1079
-      },
-      "setup.py": {
-        "size": 69
-      },
-      "src/dalle_mini/__init__.py": {
-        "size": 72
-      },
-      "src/dalle_mini/data.py": {
-        "size": 17784
-      },
-      "src/dalle_mini/model/__init__.py": {
-        "size": 198
-      },
-      "src/dalle_mini/model/configuration.py": {
-        "size": 7947
-      },
-      "src/dalle_mini/model/modeling.py": {
-        "size": 70641
-      },
-      "src/dalle_mini/model/partitions.py": {
-        "size": 2506
-      },
-      "src/dalle_mini/model/processor.py": {
-        "size": 2038
-      },
-      "src/dalle_mini/model/text.py": {
-        "size": 7392
-      },
-      "src/dalle_mini/model/tokenizer.py": {
-        "size": 198
-      },
-      "src/dalle_mini/model/utils.py": {
-        "size": 1028
-      },
-      "tools/train/config/mega/config.json": {
-        "size": 1287
-      },
-      "tools/train/config/micro/config.json": {
-        "size": 751
-      },
-      "tools/train/config/mini/config.json": {
-        "size": 737
-      },
-      "tools/train/config/mini_glu/config.json": {
-        "size": 758
-      },
-      "tools/train/scalable_shampoo/README.md": {
-        "size": 264
-      },
-      "tools/train/scalable_shampoo/distributed_shampoo.py": {
-        "size": 96206
-      },
-      "tools/train/scalable_shampoo/quantization_utils.py": {
-        "size": 4585
-      },
-      "tools/train/scalable_shampoo/sm3.py": {
-        "size": 6157
-      },
-      "tools/train/scalable_shampoo/symmetric_matrices/symmetric_matrices.py": {
-        "size": 14470
-      },
-      "tools/train/sweep.yaml": {
-        "size": 883
-      },
-      "tools/train/train.py": {
-        "size": 65368
-      }
-    },
-    "processed_by": "zip_fallback",
-    "success": true
+    "summary": "Unable to preprocess repository: https://github.com/borisdayma/dalle-mini",
+    "file_tree": {},
+    "content": {},
+    "processed_by": "fallback",
+    "success": false,
+    "error": "zip download failed: <urlopen error EOF occurred in violation of protocol (_ssl.c:997)>"
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.dalle-mini.source",
+      "mcp_output.mcp_plugin"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
@@ -130,100 +29,21 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "src/dalle_mini/model/modeling.py",
-        "module": "modeling",
+        "package": "deployment.dalle-mini.source",
+        "module": "__init__",
         "functions": [],
-        "classes": [
-          "DalleBart",
-          "DalleBartDecoder",
-          "DalleBartEncoder",
-          "DalleBartForConditionalGeneration",
-          "DalleBartPretrainedModel"
-        ],
-        "description": "Primary model architecture implementation (Flax/JAX transformer stack for text-to-image token generation). This is the core inference/training model surface."
+        "classes": [],
+        "description": "Scanned package path is present, but repository content could not be fetched and no importable symbols were discovered from available metadata."
       },
       {
-        "package": "src/dalle_mini/model/configuration.py",
-        "module": "configuration",
+        "package": "mcp_output.mcp_plugin",
+        "module": "__init__",
         "functions": [],
-        "classes": [
-          "DalleBartConfig"
-        ],
-        "description": "Model configuration schema and defaults used to instantiate architecture variants."
-      },
-      {
-        "package": "src/dalle_mini/model/processor.py",
-        "module": "processor",
-        "functions": [],
-        "classes": [
-          "DalleBartProcessor"
-        ],
-        "description": "Pre/post-processing wrapper coordinating tokenizer/text handling and model-ready inputs."
-      },
-      {
-        "package": "src/dalle_mini/model/text.py",
-        "module": "text",
-        "functions": [
-          "normalize_text"
-        ],
         "classes": [],
-        "description": "Text normalization and preprocessing helpers for prompt cleaning before tokenization."
-      },
-      {
-        "package": "src/dalle_mini/data.py",
-        "module": "data",
-        "functions": [],
-        "classes": [
-          "Dataset",
-          "DatasetConfig"
-        ],
-        "description": "Training/evaluation data pipeline and dataset configuration logic."
-      },
-      {
-        "package": "tools/train/train.py",
-        "module": "train",
-        "functions": [
-          "main"
-        ],
-        "classes": [],
-        "description": "Training entry script orchestrating model setup, optimizer/scheduler, distributed execution, and dataset loading."
-      },
-      {
-        "package": "app/gradio/backend.py",
-        "module": "backend",
-        "functions": [
-          "get_images_from_prompt"
-        ],
-        "classes": [],
-        "description": "Inference-serving helper used by Gradio app; likely the cleanest callable unit for prompt-to-image generation."
-      },
-      {
-        "package": "app/streamlit/backend.py",
-        "module": "backend",
-        "functions": [
-          "get_images_from_prompt"
-        ],
-        "classes": [],
-        "description": "Inference-serving helper used by Streamlit app; mirrors Gradio backend behavior."
+        "description": "Likely MCP integration/output package from scan context; no concrete symbols could be resolved from provided data."
       }
     ],
-    "cli_commands": [
-      {
-        "name": "python tools/train/train.py",
-        "module": "tools/train/train.py",
-        "description": "Primary training CLI/script entrypoint for model training."
-      },
-      {
-        "name": "streamlit run app/streamlit/app.py",
-        "module": "app/streamlit/app.py",
-        "description": "Launches Streamlit inference UI."
-      },
-      {
-        "name": "python app/gradio/app.py",
-        "module": "app/gradio/app.py",
-        "description": "Launches Gradio inference UI."
-      }
-    ],
+    "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "import",
@@ -231,25 +51,20 @@
     },
     "dependencies": {
       "required": [
-        "jax",
-        "flax",
-        "transformers",
-        "numpy",
-        "Pillow",
-        "datasets",
-        "sentencepiece",
-        "tokenizers"
+        "python>=3.8",
+        "jax (likely, for model execution)",
+        "flax (likely, for model definitions)",
+        "transformers (likely, tokenizer/model utilities)",
+        "Pillow (likely, image I/O)"
       ],
       "optional": [
-        "gradio",
-        "streamlit",
-        "wandb",
-        "scalable-shampoo related training extras",
-        "torch (possibly indirect/tooling)"
+        "gradio (likely, demo UI)",
+        "torch (possible auxiliary tooling)",
+        "sentencepiece (possible tokenizer backend)"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.56,
+      "import_feasibility": 0.2,
       "intrusiveness_risk": "medium",
       "complexity": "complex"
     }
@@ -267,7 +82,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.56,
+    "import_feasibility": 0.2,
     "intrusiveness_risk": "medium",
     "complexity": "complex"
   }

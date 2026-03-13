@@ -260,14 +260,18 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.cvxopt.source",
+      "mcp_output.mcp_plugin",
+      "source.src.python"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
-    "setup_cfg": false,
-    "setup_py": false
+    "pyproject": true,
+    "setup_cfg": true,
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -277,13 +281,16 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "src/python",
-        "module": "__init__.py",
+        "package": "source.src.python",
+        "module": "__init__",
         "functions": [
-          "matrix",
-          "spmatrix",
+          "normal",
+          "uniform",
+          "setseed",
+          "getseed",
           "sparse",
-          "spdiag",
+          "spmatrix",
+          "matrix",
           "sqrt",
           "sin",
           "cos",
@@ -293,17 +300,18 @@
           "max",
           "mul",
           "div",
-          "normal",
-          "uniform",
-          "setseed",
-          "getseed"
+          "blas",
+          "lapack"
         ],
-        "classes": [],
-        "description": "Primary public API surface for CVXOPT base numeric types and utility/math/random helpers exposed at package import level."
+        "classes": [
+          "matrix",
+          "spmatrix"
+        ],
+        "description": "Top-level CVXOPT bindings and numeric primitives; primary import surface for dense/sparse matrix types and low-level numeric helpers."
       },
       {
-        "package": "src/python",
-        "module": "solvers.py",
+        "package": "source.src.python",
+        "module": "solvers",
         "functions": [
           "lp",
           "qp",
@@ -311,16 +319,17 @@
           "sdp",
           "conelp",
           "coneqp",
+          "gp",
           "cp",
           "cpl",
-          "gp"
+          "options"
         ],
         "classes": [],
-        "description": "Unified solver entry-point wrappers; this is the most suitable integration module for MCP tool calls to optimization routines."
+        "description": "Unified optimization solver entry points (LP/QP/SOCP/SDP/GP/convex programs), best MCP tool integration target for optimization tasks."
       },
       {
-        "package": "src/python",
-        "module": "coneprog.py",
+        "package": "source.src.python",
+        "module": "coneprog",
         "functions": [
           "conelp",
           "coneqp",
@@ -330,76 +339,127 @@
           "qp"
         ],
         "classes": [],
-        "description": "Core cone-programming implementations and numerical routines backing LP/QP/SOCP/SDP solvers."
+        "description": "Core cone programming implementations backing solver APIs; lower-level but stable computational core."
       },
       {
-        "package": "src/python",
-        "module": "cvxprog.py",
+        "package": "source.src.python",
+        "module": "cvxprog",
         "functions": [
           "cp",
           "cpl",
           "gp"
         ],
         "classes": [],
-        "description": "Convex and geometric programming interfaces and solver logic."
+        "description": "Convex/geometric programming solvers used by high-level solver facade."
       },
       {
-        "package": "src/python",
-        "module": "modeling.py",
+        "package": "source.src.python",
+        "module": "modeling",
         "functions": [
-          "variable",
-          "op",
-          "sum",
+          "dot",
           "max",
           "min",
-          "dot"
+          "sum",
+          "variable",
+          "op"
         ],
         "classes": [
           "variable",
           "constraint",
-          "op",
-          "_function",
-          "_lin"
+          "op"
         ],
-        "description": "High-level modeling DSL for constructing optimization expressions and problems before solving."
+        "description": "Modeling DSL for constructing optimization problems symbolically before solving."
       },
       {
-        "package": "src/python",
-        "module": "msk.py",
+        "package": "source.src.python",
+        "module": "misc",
+        "functions": [
+          "kkt_ldl",
+          "kkt_chol",
+          "kkt_chol2",
+          "scale",
+          "pack",
+          "unpack"
+        ],
+        "classes": [],
+        "description": "Internal linear algebra/KKT utilities; useful for advanced plugins but more intrusive/riskier due to low-level coupling."
+      },
+      {
+        "package": "source.src.python",
+        "module": "msk",
         "functions": [
           "lp",
           "qp",
-          "ilp",
-          "socp"
+          "socp",
+          "sdp"
         ],
         "classes": [],
-        "description": "MOSEK backend adapter module; relevant when external commercial solver is available."
+        "description": "MOSEK backend adapters for external commercial solver integration."
+      },
+      {
+        "package": "source.src.python",
+        "module": "printing",
+        "functions": [
+          "matrix_str",
+          "spmatrix_str",
+          "str2",
+          "strMat"
+        ],
+        "classes": [],
+        "description": "Formatting/printing helpers for CVXOPT data structures."
+      },
+      {
+        "package": "source.src.python",
+        "module": "info",
+        "functions": [],
+        "classes": [],
+        "description": "Package metadata/version information."
       }
     ],
     "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.93
     },
     "dependencies": {
       "required": [
-        "Python (package runtime)",
-        "NumPy",
-        "CVXOPT compiled extension modules (built from this repository)",
-        "BLAS/LAPACK runtime"
+        "Python>=3.8",
+        "numpy",
+        "C extension modules built by cvxopt (base/blas/lapack/amd/cholmod/umfpack/etc. depending on build)"
       ],
       "optional": [
-        "GLPK (for LP/MIP backends)",
-        "DSDP (for SDP backend)",
+        "GLPK (for LP/MILP integrations where enabled)",
         "GSL",
-        "MOSEK"
+        "DSDP",
+        "MOSEK",
+        "SuiteSparse/CHOLMOD/UMFPACK",
+        "FFTW"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.91,
-      "intrusiveness_risk": "low",
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "medium",
       "complexity": "medium"
+    },
+    "minimal_intrusion_strategy_suggestions": {
+      "recommended_mcp_plugin_strategy": "Create a thin import-based MCP adapter over source.src.python.solvers and optionally source.src.python.modeling, avoiding direct modification of CVXOPT internals.",
+      "steps": [
+        "1) Implement MCP tools that accept plain JSON inputs and map to solvers.lp/qp/socp/sdp/conelp/coneqp/gp.",
+        "2) Add a matrix-conversion layer (list->cvxopt.matrix/spmatrix) isolated in plugin code.",
+        "3) Detect optional backends at runtime (e.g., msk, glpk) and expose capability flags.",
+        "4) Normalize solver outputs into stable JSON (status, objective, primal/dual vectors, iterations).",
+        "5) Keep plugin read-only with no monkeypatching; do not alter source.src.python modules."
+      ],
+      "why_this_fits_repo": [
+        "No CLI entry points were identified; import-first integration is natural.",
+        "CVXOPT already exposes stable callable APIs in solvers/modeling modules.",
+        "Repository has compiled-extension build complexity; minimizing touch points reduces fragility."
+      ],
+      "fallback_plan": [
+        "If import/build fails in target runtime, provide a blackbox mode that executes a prebuilt CVXOPT environment/container and exchanges JSON I/O.",
+        "Restrict fallback to a small solver subset (lp/qp) for reliability."
+      ]
     }
   },
   "deepwiki_analysis": {
@@ -415,8 +475,8 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.91,
-    "intrusiveness_risk": "low",
+    "import_feasibility": 0.72,
+    "intrusiveness_risk": "medium",
     "complexity": "medium"
   }
 }

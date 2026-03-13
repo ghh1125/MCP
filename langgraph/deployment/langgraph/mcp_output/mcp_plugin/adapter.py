@@ -1,8 +1,8 @@
 import os
 import sys
-import traceback
 import importlib
-from typing import Any, Dict, List, Optional
+import traceback
+from typing import Any, Dict, Optional, List
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -13,263 +13,416 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    Import-mode MCP adapter for the LangGraph monorepo.
+    MCP Import-mode adapter for selected modules discovered in repository analysis.
 
-    This adapter prioritizes direct module imports from the repository source tree and
-    provides a graceful CLI fallback when import-based operations are unavailable.
+    This adapter attempts direct imports from repository source paths and exposes
+    stable wrapper methods with unified status dictionaries.
+
+    Mode:
+        - import: primary runtime mode using local source imports.
     """
 
+    # -------------------------------------------------------------------------
+    # Initialization and module management
+    # -------------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
-        self._modules: Dict[str, Any] = {}
-        self._imports_ok = False
-        self._import_errors: List[str] = []
-        self._bootstrap_imports()
+        self._loaded = False
+        self._errors: List[str] = []
+        self._imports: Dict[str, Any] = {}
+        self._load_modules()
 
-    # -------------------------------------------------------------------------
-    # Internal Utilities
-    # -------------------------------------------------------------------------
-    def _result(self, status: str, message: str, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def _result(
+        self,
+        status: str,
+        message: str,
+        data: Optional[Dict[str, Any]] = None,
+        error: Optional[str] = None,
+        guidance: Optional[str] = None,
+    ) -> Dict[str, Any]:
         return {
             "status": status,
+            "mode": self.mode,
             "message": message,
             "data": data or {},
-            "mode": self.mode,
+            "error": error,
+            "guidance": guidance,
         }
 
-    def _bootstrap_imports(self) -> None:
-        targets = {
-            "cli": "libs.cli.langgraph_cli.cli",
-            "config": "libs.cli.langgraph_cli.config",
-            "schemas": "libs.cli.langgraph_cli.schemas",
-            "templates": "libs.cli.langgraph_cli.templates",
-            "sdk_client": "libs.sdk-py.langgraph_sdk.client".replace("-", "_"),
-            "sdk_schema": "libs.sdk-py.langgraph_sdk.schema".replace("-", "_"),
-            "graph_state": "libs.langgraph.langgraph.graph.state",
-            "graph_message": "libs.langgraph.langgraph.graph.message",
-            "pregel_main": "libs.langgraph.langgraph.pregel.main",
-            "prebuilt_agent": "libs.prebuilt.langgraph.prebuilt.chat_agent_executor",
-            "prebuilt_tool_node": "libs.prebuilt.langgraph.prebuilt.tool_node",
-        }
-
-        for key, module_path in targets.items():
-            try:
-                self._modules[key] = importlib.import_module(module_path)
-            except Exception as exc:
-                self._import_errors.append(f"{module_path}: {exc}")
-
-        self._imports_ok = len(self._modules) > 0
-
-    def _require_module(self, key: str) -> Optional[Any]:
-        return self._modules.get(key)
-
-    # -------------------------------------------------------------------------
-    # Health / Status
-    # -------------------------------------------------------------------------
-    def get_status(self) -> Dict[str, Any]:
+    def _load_modules(self) -> None:
         """
-        Return adapter readiness and import diagnostics.
+        Attempt to import all discovered modules/classes/functions using full package paths.
+        Any failures are recorded and exposed via get_health().
+        """
+        targets = {
+            "docs.generate_redirects": {
+                "functions": ["generate_redirects"],
+                "classes": [],
+            },
+            "libs.langgraph.langgraph.config": {
+                "functions": ["get_config", "get_store", "get_stream_writer"],
+                "classes": [],
+            },
+            "libs.langgraph.langgraph.warnings": {
+                "functions": [],
+                "classes": [
+                    "LangGraphDeprecatedSinceV05",
+                    "LangGraphDeprecatedSinceV10",
+                    "LangGraphDeprecatedSinceV11",
+                ],
+            },
+            "libs.langgraph.langgraph.types": {
+                "functions": ["ensure_valid_checkpointer", "interrupt"],
+                "classes": ["CacheKey", "CachePolicy", "CheckpointPayload"],
+            },
+        }
+
+        all_ok = True
+        for module_path, spec in targets.items():
+            try:
+                mod = importlib.import_module(module_path)
+                self._imports[module_path] = {"module": mod, "functions": {}, "classes": {}}
+
+                for fn_name in spec["functions"]:
+                    fn_obj = getattr(mod, fn_name, None)
+                    if callable(fn_obj):
+                        self._imports[module_path]["functions"][fn_name] = fn_obj
+                    else:
+                        all_ok = False
+                        self._errors.append(
+                            f"Function '{fn_name}' not found in module '{module_path}'."
+                        )
+
+                for cls_name in spec["classes"]:
+                    cls_obj = getattr(mod, cls_name, None)
+                    if cls_obj is not None:
+                        self._imports[module_path]["classes"][cls_name] = cls_obj
+                    else:
+                        all_ok = False
+                        self._errors.append(
+                            f"Class '{cls_name}' not found in module '{module_path}'."
+                        )
+
+            except Exception as exc:
+                all_ok = False
+                self._errors.append(
+                    f"Failed to import module '{module_path}': {exc}. "
+                    f"Ensure repository source is available at '{source_path}'."
+                )
+
+        self._loaded = all_ok
+
+    # -------------------------------------------------------------------------
+    # Health and diagnostics
+    # -------------------------------------------------------------------------
+    def get_health(self) -> Dict[str, Any]:
+        """
+        Return adapter health including import status and actionable diagnostics.
 
         Returns:
-            Unified status dictionary with loaded modules and import errors.
+            dict: Unified status dictionary with loaded modules and errors.
         """
-        if self._imports_ok:
-            return self._result(
-                "ok",
-                "Adapter is ready in import mode.",
-                {
-                    "loaded_modules": sorted(self._modules.keys()),
-                    "import_errors": self._import_errors,
-                },
-            )
         return self._result(
-            "error",
-            "No import targets were loaded. Verify repository source is mounted under ./source and paths are correct.",
-            {"import_errors": self._import_errors},
+            status="ok" if self._loaded else "degraded",
+            message="Adapter health check completed.",
+            data={
+                "loaded": self._loaded,
+                "modules": list(self._imports.keys()),
+                "errors": self._errors,
+                "source_path": source_path,
+            },
+            guidance=(
+                None
+                if self._loaded
+                else "Verify the local repository source layout and module paths, then retry."
+            ),
         )
 
     # -------------------------------------------------------------------------
-    # CLI Module Methods
+    # Internal callable resolver
     # -------------------------------------------------------------------------
-    def cli_main(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
+    def _get_callable(self, module_path: str, kind: str, name: str) -> Any:
+        if module_path not in self._imports:
+            raise ImportError(f"Module '{module_path}' is not loaded.")
+        entry = self._imports[module_path]
+        bucket = entry.get(kind, {})
+        if name not in bucket:
+            raise AttributeError(f"{kind[:-1].capitalize()} '{name}' not available in '{module_path}'.")
+        return bucket[name]
+
+    # -------------------------------------------------------------------------
+    # docs.generate_redirects module wrappers
+    # -------------------------------------------------------------------------
+    def call_generate_redirects(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Invoke LangGraph CLI main entrypoint.
+        Call docs.generate_redirects.generate_redirects.
 
         Parameters:
-            argv: Optional command argument list to pass to CLI.
+            *args: Positional arguments forwarded to generate_redirects.
+            **kwargs: Keyword arguments forwarded to generate_redirects.
 
         Returns:
-            Unified status dictionary with execution outcome.
+            dict: Unified status dictionary with call result.
         """
-        mod = self._require_module("cli")
-        if mod is None:
+        module_path = "docs.generate_redirects"
+        fn_name = "generate_redirects"
+        try:
+            fn = self._get_callable(module_path, "functions", fn_name)
+            result = fn(*args, **kwargs)
             return self._result(
-                "error",
-                "CLI module import failed. Fallback: run `langgraph --help` in shell to validate installation.",
-                {"import_errors": self._import_errors},
+                status="ok",
+                message=f"Called {module_path}.{fn_name} successfully.",
+                data={"result": result},
             )
-        try:
-            if hasattr(mod, "main"):
-                out = mod.main(argv) if argv is not None else mod.main()
-                return self._result("ok", "CLI main executed successfully.", {"result": out})
-            return self._result("error", "CLI module does not expose `main`.", {})
-        except Exception:
-            return self._result("error", "CLI execution failed. Check arguments and project configuration.", {"traceback": traceback.format_exc()})
-
-    def cli_call(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Dynamically call a function from langgraph CLI module.
-
-        Parameters:
-            function_name: Function attribute name in CLI module.
-            *args/**kwargs: Function call arguments.
-
-        Returns:
-            Unified status dictionary with function result.
-        """
-        mod = self._require_module("cli")
-        if mod is None:
-            return self._result("error", "CLI module unavailable. Ensure source tree is complete.", {})
-        try:
-            fn = getattr(mod, function_name, None)
-            if fn is None or not callable(fn):
-                return self._result("error", f"Function `{function_name}` not found or not callable in CLI module.", {})
-            return self._result("ok", f"Function `{function_name}` executed.", {"result": fn(*args, **kwargs)})
-        except Exception:
+        except Exception as exc:
             return self._result(
-                "error",
-                f"Failed to execute CLI function `{function_name}`. Verify parameters and module compatibility.",
-                {"traceback": traceback.format_exc()},
+                status="error",
+                message=f"Failed to call {module_path}.{fn_name}.",
+                error=str(exc),
+                guidance="Check argument compatibility with the repository version.",
+                data={"traceback": traceback.format_exc()},
             )
 
     # -------------------------------------------------------------------------
-    # SDK Module Methods
+    # libs.langgraph.langgraph.config module wrappers
     # -------------------------------------------------------------------------
-    def sdk_get_client_class(self) -> Dict[str, Any]:
+    def call_get_config(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Retrieve primary SDK client class symbols from langgraph_sdk.client.
+        Call libs.langgraph.langgraph.config.get_config.
+
+        Parameters:
+            *args: Positional arguments forwarded to get_config.
+            **kwargs: Keyword arguments forwarded to get_config.
 
         Returns:
-            Unified status dictionary with discovered client-like classes.
+            dict: Unified status dictionary with call result.
         """
-        mod = self._require_module("sdk_client")
-        if mod is None:
+        module_path = "libs.langgraph.langgraph.config"
+        fn_name = "get_config"
+        try:
+            fn = self._get_callable(module_path, "functions", fn_name)
+            result = fn(*args, **kwargs)
+            return self._result("ok", f"Called {module_path}.{fn_name} successfully.", {"result": result})
+        except Exception as exc:
             return self._result(
                 "error",
-                "SDK client module import failed. Confirm `libs/sdk-py` package path and underscores conversion are valid.",
-                {"import_errors": self._import_errors},
+                f"Failed to call {module_path}.{fn_name}.",
+                error=str(exc),
+                guidance="Validate runtime context and required LangGraph configuration state.",
+                data={"traceback": traceback.format_exc()},
             )
-        try:
-            names = [n for n in dir(mod) if "Client" in n]
-            return self._result("ok", "SDK client symbols discovered.", {"symbols": names})
-        except Exception:
-            return self._result("error", "Failed to introspect SDK client module.", {"traceback": traceback.format_exc()})
 
-    def sdk_call(self, module_key: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call_get_store(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Dynamically call a function from loaded SDK modules.
+        Call libs.langgraph.langgraph.config.get_store.
 
         Parameters:
-            module_key: Loaded module key, e.g. `sdk_client` or `sdk_schema`.
-            function_name: Callable attribute name.
-            *args/**kwargs: Call parameters.
+            *args: Positional arguments forwarded to get_store.
+            **kwargs: Keyword arguments forwarded to get_store.
 
         Returns:
-            Unified status dictionary with call outcome.
+            dict: Unified status dictionary with call result.
         """
-        mod = self._require_module(module_key)
-        if mod is None:
-            return self._result("error", f"Module `{module_key}` not loaded. Check import diagnostics.", {})
+        module_path = "libs.langgraph.langgraph.config"
+        fn_name = "get_store"
         try:
-            fn = getattr(mod, function_name, None)
-            if not callable(fn):
-                return self._result("error", f"`{function_name}` is not callable in `{module_key}`.", {})
-            return self._result("ok", f"{module_key}.{function_name} executed.", {"result": fn(*args, **kwargs)})
-        except Exception:
-            return self._result("error", f"Call failed for `{module_key}.{function_name}`.", {"traceback": traceback.format_exc()})
+            fn = self._get_callable(module_path, "functions", fn_name)
+            result = fn(*args, **kwargs)
+            return self._result("ok", f"Called {module_path}.{fn_name} successfully.", {"result": result})
+        except Exception as exc:
+            return self._result(
+                "error",
+                f"Failed to call {module_path}.{fn_name}.",
+                error=str(exc),
+                guidance="Ensure store context exists before invocation.",
+                data={"traceback": traceback.format_exc()},
+            )
 
-    # -------------------------------------------------------------------------
-    # Core LangGraph Module Methods
-    # -------------------------------------------------------------------------
-    def create_instance(self, module_key: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call_get_stream_writer(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Create an instance of a class from any loaded module.
+        Call libs.langgraph.langgraph.config.get_stream_writer.
 
         Parameters:
-            module_key: Key in loaded module registry.
-            class_name: Class attribute to instantiate.
-            *args/**kwargs: Constructor parameters.
+            *args: Positional arguments forwarded to get_stream_writer.
+            **kwargs: Keyword arguments forwarded to get_stream_writer.
 
         Returns:
-            Unified status dictionary with created instance metadata.
+            dict: Unified status dictionary with call result.
         """
-        mod = self._require_module(module_key)
-        if mod is None:
-            return self._result("error", f"Module `{module_key}` is not loaded.", {})
+        module_path = "libs.langgraph.langgraph.config"
+        fn_name = "get_stream_writer"
         try:
-            cls = getattr(mod, class_name, None)
-            if cls is None:
-                return self._result("error", f"Class `{class_name}` not found in `{module_key}`.", {})
+            fn = self._get_callable(module_path, "functions", fn_name)
+            result = fn(*args, **kwargs)
+            return self._result("ok", f"Called {module_path}.{fn_name} successfully.", {"result": result})
+        except Exception as exc:
+            return self._result(
+                "error",
+                f"Failed to call {module_path}.{fn_name}.",
+                error=str(exc),
+                guidance="Ensure stream context is initialized in the current execution scope.",
+                data={"traceback": traceback.format_exc()},
+            )
+
+    # -------------------------------------------------------------------------
+    # libs.langgraph.langgraph.types module wrappers
+    # -------------------------------------------------------------------------
+    def call_ensure_valid_checkpointer(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call libs.langgraph.langgraph.types.ensure_valid_checkpointer.
+
+        Parameters:
+            *args: Positional arguments forwarded to ensure_valid_checkpointer.
+            **kwargs: Keyword arguments forwarded to ensure_valid_checkpointer.
+
+        Returns:
+            dict: Unified status dictionary with call result.
+        """
+        module_path = "libs.langgraph.langgraph.types"
+        fn_name = "ensure_valid_checkpointer"
+        try:
+            fn = self._get_callable(module_path, "functions", fn_name)
+            result = fn(*args, **kwargs)
+            return self._result("ok", f"Called {module_path}.{fn_name} successfully.", {"result": result})
+        except Exception as exc:
+            return self._result(
+                "error",
+                f"Failed to call {module_path}.{fn_name}.",
+                error=str(exc),
+                guidance="Pass a checkpointer object that matches the expected protocol.",
+                data={"traceback": traceback.format_exc()},
+            )
+
+    def call_interrupt(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call libs.langgraph.langgraph.types.interrupt.
+
+        Parameters:
+            *args: Positional arguments forwarded to interrupt.
+            **kwargs: Keyword arguments forwarded to interrupt.
+
+        Returns:
+            dict: Unified status dictionary with call result.
+        """
+        module_path = "libs.langgraph.langgraph.types"
+        fn_name = "interrupt"
+        try:
+            fn = self._get_callable(module_path, "functions", fn_name)
+            result = fn(*args, **kwargs)
+            return self._result("ok", f"Called {module_path}.{fn_name} successfully.", {"result": result})
+        except Exception as exc:
+            return self._result(
+                "error",
+                f"Failed to call {module_path}.{fn_name}.",
+                error=str(exc),
+                guidance="Check interrupt payload format and runtime graph context.",
+                data={"traceback": traceback.format_exc()},
+            )
+
+    # -------------------------------------------------------------------------
+    # Class instance constructors (warnings module)
+    # -------------------------------------------------------------------------
+    def instance_langgraph_deprecated_since_v05(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create an instance of libs.langgraph.langgraph.warnings.LangGraphDeprecatedSinceV05.
+
+        Parameters:
+            *args: Positional arguments for class constructor.
+            **kwargs: Keyword arguments for class constructor.
+
+        Returns:
+            dict: Unified status dictionary containing created instance.
+        """
+        return self._create_instance(
+            "libs.langgraph.langgraph.warnings", "LangGraphDeprecatedSinceV05", *args, **kwargs
+        )
+
+    def instance_langgraph_deprecated_since_v10(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create an instance of libs.langgraph.langgraph.warnings.LangGraphDeprecatedSinceV10.
+
+        Parameters:
+            *args: Positional arguments for class constructor.
+            **kwargs: Keyword arguments for class constructor.
+
+        Returns:
+            dict: Unified status dictionary containing created instance.
+        """
+        return self._create_instance(
+            "libs.langgraph.langgraph.warnings", "LangGraphDeprecatedSinceV10", *args, **kwargs
+        )
+
+    def instance_langgraph_deprecated_since_v11(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create an instance of libs.langgraph.langgraph.warnings.LangGraphDeprecatedSinceV11.
+
+        Parameters:
+            *args: Positional arguments for class constructor.
+            **kwargs: Keyword arguments for class constructor.
+
+        Returns:
+            dict: Unified status dictionary containing created instance.
+        """
+        return self._create_instance(
+            "libs.langgraph.langgraph.warnings", "LangGraphDeprecatedSinceV11", *args, **kwargs
+        )
+
+    # -------------------------------------------------------------------------
+    # Class instance constructors (types module)
+    # -------------------------------------------------------------------------
+    def instance_cache_key(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create an instance of libs.langgraph.langgraph.types.CacheKey.
+
+        Parameters:
+            *args: Positional arguments for class constructor.
+            **kwargs: Keyword arguments for class constructor.
+
+        Returns:
+            dict: Unified status dictionary containing created instance.
+        """
+        return self._create_instance("libs.langgraph.langgraph.types", "CacheKey", *args, **kwargs)
+
+    def instance_cache_policy(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create an instance of libs.langgraph.langgraph.types.CachePolicy.
+
+        Parameters:
+            *args: Positional arguments for class constructor.
+            **kwargs: Keyword arguments for class constructor.
+
+        Returns:
+            dict: Unified status dictionary containing created instance.
+        """
+        return self._create_instance("libs.langgraph.langgraph.types", "CachePolicy", *args, **kwargs)
+
+    def instance_checkpoint_payload(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create an instance of libs.langgraph.langgraph.types.CheckpointPayload.
+
+        Parameters:
+            *args: Positional arguments for class constructor.
+            **kwargs: Keyword arguments for class constructor.
+
+        Returns:
+            dict: Unified status dictionary containing created instance.
+        """
+        return self._create_instance("libs.langgraph.langgraph.types", "CheckpointPayload", *args, **kwargs)
+
+    def _create_instance(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        try:
+            cls = self._get_callable(module_path, "classes", class_name)
             instance = cls(*args, **kwargs)
             return self._result(
-                "ok",
-                f"Instance of `{class_name}` created successfully.",
-                {"class": class_name, "module_key": module_key, "instance_repr": repr(instance)},
+                status="ok",
+                message=f"Created instance of {module_path}.{class_name} successfully.",
+                data={"instance": instance},
             )
-        except Exception:
+        except Exception as exc:
             return self._result(
-                "error",
-                f"Failed to instantiate `{class_name}`. Verify constructor arguments and dependency setup.",
-                {"traceback": traceback.format_exc()},
+                status="error",
+                message=f"Failed to create instance of {module_path}.{class_name}.",
+                error=str(exc),
+                guidance="Review constructor parameters and repository version compatibility.",
+                data={"traceback": traceback.format_exc()},
             )
-
-    def call_module_function(self, module_key: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call a function from any loaded module.
-
-        Parameters:
-            module_key: Key in loaded module registry.
-            function_name: Function name.
-            *args/**kwargs: Call arguments.
-
-        Returns:
-            Unified status dictionary with function result.
-        """
-        mod = self._require_module(module_key)
-        if mod is None:
-            return self._result("error", f"Module `{module_key}` is not loaded.", {})
-        try:
-            fn = getattr(mod, function_name, None)
-            if fn is None or not callable(fn):
-                return self._result("error", f"Function `{function_name}` is missing or not callable in `{module_key}`.", {})
-            out = fn(*args, **kwargs)
-            return self._result("ok", f"{module_key}.{function_name} executed.", {"result": out})
-        except Exception:
-            return self._result(
-                "error",
-                f"Execution failed for `{module_key}.{function_name}`. Review parameters and runtime dependencies.",
-                {"traceback": traceback.format_exc()},
-            )
-
-    # -------------------------------------------------------------------------
-    # Fallback Helpers
-    # -------------------------------------------------------------------------
-    def fallback_cli_guidance(self) -> Dict[str, Any]:
-        """
-        Provide actionable CLI fallback guidance when import mode is partially unavailable.
-
-        Returns:
-            Unified status dictionary with suggested next steps.
-        """
-        return self._result(
-            "ok",
-            "Fallback guidance generated.",
-            {
-                "steps": [
-                    "Run `python -m libs.cli.langgraph_cli.cli --help` from repository root if import path is correct.",
-                    "Or run installed binary `langgraph --help` to validate CLI availability.",
-                    "Ensure ./source contains the full repository and adapter file depth matches expected sys.path logic.",
-                    "For SDK operations, verify `libs/sdk-py` package naming and Python path normalization.",
-                ]
-            },
-        )

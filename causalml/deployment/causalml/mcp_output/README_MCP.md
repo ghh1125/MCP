@@ -2,170 +2,160 @@
 
 ## 1) Project Introduction
 
-This service wraps core capabilities from [uber/causalml](https://github.com/uber/causalml) to provide practical causal inference workflows through MCP (Model Context Protocol).  
-It is designed for developers who need to:
+This service wraps key capabilities from [uber/causalml](https://github.com/uber/causalml) so MCP (Model Context Protocol) clients can run practical causal inference workflows:
 
-- Generate synthetic uplift/treatment-effect datasets
-- Estimate treatment effects (CATE/ATE) with meta-learners (S/T/X/R/DR)
-- Train causal trees/forests
-- Estimate propensity scores and run matching
-- Evaluate uplift models with Qini/Gain/Lift metrics
+- Estimate heterogeneous treatment effects (CATE/ITE)
+- Train meta-learners (S/T/X/R/DR learners)
+- Use causal trees and causal forests
+- Estimate and calibrate propensity scores
+- Run matching for observational data
+- Evaluate uplift models (Qini/gain/lift)
+- Generate synthetic datasets for testing
 - Optimize treatment policy decisions
 
-Typical use cases include personalized treatment assignment, campaign uplift modeling, and observational study analysis.
+It is intended for experimentation, model comparison, and production-oriented decision support.
 
 ---
 
 ## 2) Installation Method
 
-### Recommended environment
+### Python and core dependencies
+Recommended: Python 3.9+ with scientific stack.
 
-- Python 3.9+
-- `pip` latest version
-- Optional virtual environment (`venv` or `conda`)
-
-### Core dependencies
-
+Core dependencies:
 - numpy
 - pandas
-- scipy
 - scikit-learn
+- scipy
 - statsmodels
 - matplotlib
 
-### Optional dependencies (feature-dependent)
-
+Optional (feature-dependent):
 - xgboost
 - lightgbm
 - shap
+- seaborn
 - tensorflow
 - torch
-- pydotplus
-- seaborn
+- pyro-ppl
 
-### Install commands
-
+### Install causalml
 pip install causalml
 
-For fuller functionality:
+### Install common optional extras (as needed)
+pip install xgboost lightgbm shap seaborn tensorflow torch pyro-ppl
 
-pip install "causalml[xgboost]"  
-pip install xgboost lightgbm shap tensorflow torch seaborn pydotplus
-
-If you are building an MCP (Model Context Protocol) wrapper service, also install your MCP runtime/SDK in the same environment.
+### Verify install
+python -c "import causalml; print('causalml OK')"
 
 ---
 
 ## 3) Quick Start
 
-### A. Generate synthetic data
+### A. Generate synthetic data + train a T-learner
+from causalml.dataset.synthetic import synthetic_data
+from causalml.inference.meta import BaseTRegressor
+from xgboost import XGBRegressor
 
-Use dataset utilities (for example `make_uplift_classification` or `synthetic_data`) to create treatment/control samples with known uplift.
+y, X, treatment, tau, b, e = synthetic_data(mode=1, n=2000, p=10, sigma=1.0)
 
-### B. Train a learner
+learner = BaseTRegressor(learner=XGBRegressor())
+learner.fit(X=X, treatment=treatment, y=y)
+te_pred = learner.predict(X)
 
-Use a meta-learner such as:
+print(te_pred[:5])
 
-- `BaseSRegressor`/`BaseSLearner` style
-- `BaseTRegressor`
-- `BaseXRegressor`
-- `BaseRRegressor`
-- `BaseDRRegressor`
+### B. Propensity scoring + trimming
+from causalml.propensity import compute_propensity_score, trim_by_propensity_score
 
-Then fit on features, treatment labels, and outcomes; predict treatment effects per unit.
+p = compute_propensity_score(X, treatment)
+X_trim, t_trim, y_trim = trim_by_propensity_score(X, treatment, y, p, cutoff=0.01)
 
-### C. Evaluate uplift
+### C. Matching
+from causalml.match import nearest_neighbor_match
 
-Use plotting utilities:
+matched = nearest_neighbor_match(
+    data=None,  # replace with your DataFrame pipeline
+    treatment_col="treatment",
+    score_cols=["propensity_score"]
+)
 
-- `plot_qini`
-- `plot_gain`
-- `plot_lift`
+### D. Uplift evaluation plots
+from causalml.metrics.visualize import plot_qini, plot_gain, plot_lift
 
-to compare ranking quality across models.
-
-### D. Propensity + matching workflow
-
-- Estimate propensity: `compute_propensity_score`
-- Match cohorts: `nearest_neighbor_match`
-- Summarize covariate balance: `create_table_one`
-
-### E. Policy optimization
-
-Use `PolicyLearner` to convert estimated treatment effects into recommended treatment actions under constraints.
+# plot_qini(y_true, uplift_score, treatment)
+# plot_gain(y_true, uplift_score, treatment)
+# plot_lift(y_true, uplift_score, treatment)
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) service endpoints (developer-oriented mapping):
+Suggested MCP (Model Context Protocol) service endpoints (mapped to causalml modules):
 
-- `dataset.make_uplift_classification`  
-  Generate synthetic classification uplift data.
+- estimate_s_learner  
+  Train/predict with S-learner (`BaseSRegressor`, `BaseSClassifier`)
 
-- `dataset.make_uplift_classification_logistic`  
-  Logistic uplift data generation variant.
+- estimate_t_learner  
+  Train/predict with T-learner (`BaseTRegressor`, `BaseTClassifier`)
 
-- `dataset.simulate_randomized_trial`  
-  Simulate RCT-like data.
+- estimate_x_learner  
+  Train/predict with X-learner (`BaseXRegressor`, `BaseXClassifier`)
 
-- `dataset.synthetic_data`  
-  Regression-style synthetic causal data.
+- estimate_r_learner  
+  Train/predict with R-learner (`BaseRRegressor`, `BaseRClassifier`)
 
-- `inference.meta.s_learner`  
-  S-learner CATE estimation.
+- estimate_dr_learner  
+  Train/predict with doubly robust learners (`BaseDRRegressor`, `BaseDRClassifier`)
 
-- `inference.meta.t_learner`  
-  T-learner with separate treatment/control models.
+- estimate_driv  
+  IV-based doubly robust estimation (`BaseDRIVLearner`)
 
-- `inference.meta.x_learner`  
-  X-learner for imbalanced treatment groups.
+- train_causal_tree  
+  Interpretable segmentation (`CausalTreeRegressor`)
 
-- `inference.meta.r_learner`  
-  Orthogonalized R-learner estimation.
+- train_causal_forest  
+  Tree ensemble CATE estimation (`CausalRandomForestRegressor`)
 
-- `inference.meta.dr_learner`  
-  Doubly robust treatment-effect estimation.
+- compute_propensity  
+  Propensity estimation/calibration/trimming (`compute_propensity_score`, `calibrate`, `trim_by_propensity_score`, `get_importance_weights`)
 
-- `inference.tree.causal_tree`  
-  `CausalTreeRegressor` for interpretable partitioning.
+- run_matching  
+  Covariate balance and nearest-neighbor matching (`create_table_one`, `nearest_neighbor_match`)
 
-- `inference.tree.causal_forest`  
-  `CausalRandomForestRegressor` for non-linear heterogeneous effects.
+- evaluate_uplift  
+  Uplift metrics/plots (`plot_qini`, `plot_gain`, `plot_lift`)
 
-- `propensity.compute`  
-  Propensity score estimation/calibration.
+- generate_synthetic_data  
+  Simulation helpers (`synthetic_data`, `simulate_randomized_trial`, etc.)
 
-- `match.nearest_neighbor`  
-  Nearest-neighbor matching for observational data.
-
-- `metrics.plot_qini` / `metrics.plot_gain` / `metrics.plot_lift`  
-  Uplift evaluation charts.
-
-- `optimize.policy_learner`  
-  Learn deployment policy from treatment effects.
+- optimize_policy  
+  Policy optimization (`PolicyLearner`)
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Optional packages missing  
-  Some learners/features silently require extras (e.g., XGBoost, TensorFlow, Torch). Install only what your endpoints need.
+- Optional ML backends not installed  
+  Some learners require extra packages (e.g., xgboost, tensorflow, torch). Install only what you need.
 
-- Version compatibility  
-  Pin `numpy/scipy/scikit-learn` in production. Validate against your deployment Python version.
+- Binary treatment expectations  
+  Many workflows assume treatment is binary; verify encoding and input schema.
 
-- Data assumptions  
-  Treatment coding, outcome type (binary vs regression), and confounding assumptions must match learner choice.
+- Propensity extremes  
+  Very small/large propensity scores can destabilize estimators. Use trimming and calibration.
+
+- Small sample sizes  
+  Meta-learners can overfit easily. Use cross-validation and simpler base learners first.
 
 - Performance  
-  Tree/forest and deep-learning models can be expensive. Use sampling, feature selection, and parallel training where possible.
+  Tree ensembles and deep models can be slow. Start with smaller datasets and tune incrementally.
 
 - Reproducibility  
-  Set random seeds for data generation and model training.
+  Set random seeds consistently across NumPy, sklearn, and model backends.
 
-- Observational data caution  
-  Propensity and matching reduce bias but do not guarantee causal identification without strong assumptions.
+- Visualization in headless environments  
+  Configure matplotlib backend (e.g., Agg) if running on servers/containers.
 
 ---
 
@@ -173,7 +163,6 @@ Suggested MCP (Model Context Protocol) service endpoints (developer-oriented map
 
 - Repository: https://github.com/uber/causalml
 - Main README: https://github.com/uber/causalml/blob/master/README.md
-- Package source tree: `causalml/dataset`, `causalml/inference`, `causalml/metrics`, `causalml/optimize`
-- Tests/examples reference: `tests/` directory for practical usage patterns
-
-If you are exposing this as an MCP (Model Context Protocol) service, keep endpoint names stable and version your service contract as you add new learners.
+- Package source tree: `causalml/`
+- Tests/examples reference: `tests/`
+- Project metadata: `pyproject.toml`, `setup.py`, `setup.cfg`

@@ -1,8 +1,8 @@
 import os
 import sys
 import traceback
-import inspect
-from typing import Any, Dict, List, Optional
+import importlib
+from typing import Any, Dict, Optional, Tuple
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -13,391 +13,355 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import-mode adapter for the `mobile-pest-identification` repository.
+    MCP Import Mode Adapter for mobile-pest-identification.
 
-    This adapter attempts to import and expose runtime-accessible functionality from:
-      - src/pest.py
-      - src/utils.py
+    This adapter attempts to import project internals directly from the bundled source tree.
+    If imports fail, it switches to a graceful fallback mode and returns actionable guidance.
 
-    It provides:
-      - Unified status-based return dictionaries
-      - Graceful fallback when imports fail
-      - Introspection helpers to discover callable functions/classes
-      - Safe invocation wrappers
+    Unified response schema:
+    {
+        "status": "success" | "error" | "fallback",
+        "mode": "import" | "fallback",
+        "message": str,
+        "data": Any,
+        "error": Optional[str],
+        "traceback": Optional[str]
+    }
     """
 
     # -------------------------------------------------------------------------
-    # Initialization / Module Management
+    # Lifecycle / Initialization
     # -------------------------------------------------------------------------
     def __init__(self) -> None:
-        """
-        Initialize adapter in import mode and attempt module imports.
-
-        Returns
-        -------
-        None
-        """
         self.mode = "import"
-        self._modules: Dict[str, Any] = {}
-        self._import_errors: Dict[str, str] = {}
-        self._load_modules()
+        self._imports_ready = False
+        self._import_errors = []
+
+        self._utils_module = None
+        self._Detector = None
+        self._PestDetector = None
+        self._asklr = None
+        self._custom_split = None
+
+        self._load_imports()
 
     def _result(
         self,
         status: str,
-        message: str = "",
-        data: Optional[Dict[str, Any]] = None,
+        message: str,
+        data: Any = None,
         error: Optional[str] = None,
+        tb: Optional[str] = None,
     ) -> Dict[str, Any]:
-        """
-        Create a unified result payload.
+        return {
+            "status": status,
+            "mode": self.mode,
+            "message": message,
+            "data": data,
+            "error": error,
+            "traceback": tb,
+        }
 
-        Parameters
-        ----------
-        status : str
-            Operation status, usually "success" or "error".
-        message : str
-            Human-readable summary.
-        data : dict, optional
-            Additional response payload.
-        error : str, optional
-            Error details in English.
+    def _load_imports(self) -> None:
+        try:
+            # Full module path based on analysis: deployment.mobile-pest-identification.source.src.utils
+            # Python module names cannot contain hyphens, so we attempt robust alternatives.
+            candidates = [
+                "deployment.mobile-pest-identification.source.src.utils",
+                "deployment.mobile_pest_identification.source.src.utils",
+                "src.utils",
+            ]
 
-        Returns
-        -------
-        dict
-            Unified response dictionary containing at least `status`.
-        """
-        payload = {"status": status, "message": message}
-        if data is not None:
-            payload["data"] = data
-        if error is not None:
-            payload["error"] = error
-        return payload
+            module = None
+            last_exc = None
+            for path in candidates:
+                try:
+                    module = importlib.import_module(path)
+                    break
+                except Exception as exc:
+                    last_exc = exc
+                    self._import_errors.append(f"Failed import: {path} -> {exc}")
 
-    def _load_modules(self) -> None:
-        """
-        Import repository modules using full in-repo paths inferred from analysis.
+            if module is None:
+                raise ImportError(
+                    "Could not import utils module from repository source. "
+                    "Tried: " + ", ".join(candidates)
+                ) from last_exc
 
-        Target modules:
-          - src.pest
-          - src.utils
-        """
-        targets = ["src.pest", "src.utils"]
-        for module_path in targets:
-            try:
-                module = __import__(module_path, fromlist=["*"])
-                self._modules[module_path] = module
-            except Exception as exc:
-                self._import_errors[module_path] = (
-                    f"Failed to import '{module_path}'. "
-                    f"Check repository layout and dependencies. Detail: {exc}"
+            self._utils_module = module
+            self._Detector = getattr(module, "Detector", None)
+            self._PestDetector = getattr(module, "PestDetector", None)
+            self._asklr = getattr(module, "asklr", None)
+            self._custom_split = getattr(module, "custom_split", None)
+
+            missing = []
+            for name, obj in [
+                ("Detector", self._Detector),
+                ("PestDetector", self._PestDetector),
+                ("asklr", self._asklr),
+                ("custom_split", self._custom_split),
+            ]:
+                if obj is None:
+                    missing.append(name)
+
+            if missing:
+                raise AttributeError(
+                    f"Imported module but missing expected symbols: {', '.join(missing)}"
                 )
 
+            self._imports_ready = True
+            self.mode = "import"
+        except Exception as exc:
+            self._imports_ready = False
+            self.mode = "fallback"
+            self._import_errors.append(str(exc))
+
     # -------------------------------------------------------------------------
-    # Health / Diagnostics
+    # Health / Status
     # -------------------------------------------------------------------------
     def health_check(self) -> Dict[str, Any]:
         """
-        Report adapter and import health status.
+        Return adapter readiness and diagnostic details.
 
-        Returns
-        -------
-        dict
-            Unified status dict with imported modules and import errors.
+        Returns:
+            Dict[str, Any]: Unified status dictionary with import state and actionable guidance.
         """
-        ok = len(self._modules) > 0
+        if self._imports_ready:
+            return self._result(
+                status="success",
+                message="Adapter is ready in import mode.",
+                data={
+                    "imports_ready": True,
+                    "available_symbols": [
+                        "Detector",
+                        "PestDetector",
+                        "asklr",
+                        "custom_split",
+                    ],
+                    "source_path": source_path,
+                },
+            )
+
         return self._result(
-            status="success" if ok else "error",
-            message="Adapter initialized." if ok else "No modules imported.",
+            status="fallback",
+            message=(
+                "Adapter is running in fallback mode because direct imports failed. "
+                "Verify repository layout and Python dependencies from requirements.txt."
+            ),
             data={
-                "mode": self.mode,
-                "imported_modules": sorted(list(self._modules.keys())),
+                "imports_ready": False,
+                "source_path": source_path,
                 "import_errors": self._import_errors,
+                "guidance": [
+                    "Ensure source/src/utils.py exists.",
+                    "Install dependencies listed in requirements.txt.",
+                    "Confirm runtime Python can access the source path.",
+                ],
             },
-            error=None if ok else "Import failed for all target modules. Install dependencies and verify source path.",
-        )
-
-    def list_available_symbols(self) -> Dict[str, Any]:
-        """
-        List classes and functions available from imported repository modules.
-
-        Returns
-        -------
-        dict
-            Unified status dict with module symbol inventory.
-        """
-        if not self._modules:
-            return self._result(
-                status="error",
-                message="No modules available for introspection.",
-                error="Import modules first. Verify `source/src` exists and dependencies are installed.",
-            )
-
-        inventory: Dict[str, Dict[str, List[str]]] = {}
-        for module_name, module in self._modules.items():
-            classes = []
-            functions = []
-            for name, obj in inspect.getmembers(module):
-                if name.startswith("_"):
-                    continue
-                if inspect.isclass(obj) and getattr(obj, "__module__", "") == module.__name__:
-                    classes.append(name)
-                elif inspect.isfunction(obj) and getattr(obj, "__module__", "") == module.__name__:
-                    functions.append(name)
-            inventory[module_name] = {
-                "classes": sorted(classes),
-                "functions": sorted(functions),
-            }
-
-        return self._result(
-            status="success",
-            message="Symbol inventory generated.",
-            data=inventory,
+            error="Import initialization failed.",
         )
 
     # -------------------------------------------------------------------------
-    # Generic Invocation Utilities
+    # Class Instance Methods
     # -------------------------------------------------------------------------
-    def _resolve_symbol(self, module_path: str, symbol_name: str) -> Dict[str, Any]:
+    def create_detector(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Resolve a symbol from an imported module.
+        Create an instance of Detector from src.utils.
 
-        Parameters
-        ----------
-        module_path : str
-            Full module path (e.g., 'src.utils').
-        symbol_name : str
-            Symbol name to fetch.
+        Parameters:
+            *args: Positional arguments forwarded to Detector constructor.
+            **kwargs: Keyword arguments forwarded to Detector constructor.
 
-        Returns
-        -------
-        dict
-            Unified status dict with resolved symbol in data.symbol.
+        Returns:
+            Dict[str, Any]: Unified status dictionary with detector instance in data["instance"].
         """
-        module = self._modules.get(module_path)
-        if module is None:
-            err = self._import_errors.get(
-                module_path,
-                f"Module '{module_path}' is not imported."
-            )
+        if not self._imports_ready:
             return self._result(
-                status="error",
-                message="Module not available.",
-                error=err,
-            )
-
-        if not hasattr(module, symbol_name):
-            return self._result(
-                status="error",
-                message="Symbol not found.",
-                error=f"'{symbol_name}' does not exist in '{module_path}'. Use list_available_symbols() to inspect valid names.",
-            )
-
-        return self._result(
-            status="success",
-            message="Symbol resolved.",
-            data={"symbol": getattr(module, symbol_name)},
-        )
-
-    def create_instance(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Create an instance of a class from a repository module.
-
-        Parameters
-        ----------
-        module_path : str
-            Full module path, e.g., 'src.utils' or 'src.pest'.
-        class_name : str
-            Class name to instantiate.
-        *args : Any
-            Positional arguments for class constructor.
-        **kwargs : Any
-            Keyword arguments for class constructor.
-
-        Returns
-        -------
-        dict
-            Unified status dict with instance object in data.instance.
-        """
-        resolved = self._resolve_symbol(module_path, class_name)
-        if resolved["status"] != "success":
-            return resolved
-
-        cls = resolved["data"]["symbol"]
-        if not inspect.isclass(cls):
-            return self._result(
-                status="error",
-                message="Resolved symbol is not a class.",
-                error=f"'{class_name}' in '{module_path}' is not a class. Use call_function() for callables.",
+                status="fallback",
+                message=(
+                    "Detector is unavailable in fallback mode. "
+                    "Resolve import issues and retry."
+                ),
+                data={"args": args, "kwargs": kwargs},
+                error="Detector import not available.",
             )
 
         try:
-            instance = cls(*args, **kwargs)
+            instance = self._Detector(*args, **kwargs)
             return self._result(
                 status="success",
-                message="Class instance created.",
-                data={"instance": instance, "module_path": module_path, "class_name": class_name},
+                message="Detector instance created successfully.",
+                data={"instance": instance, "class": "Detector"},
             )
         except Exception as exc:
             return self._result(
                 status="error",
-                message="Failed to create class instance.",
-                error=f"{exc}",
-                data={"traceback": traceback.format_exc()},
+                message="Failed to create Detector instance.",
+                error=str(exc),
+                tb=traceback.format_exc(),
             )
 
-    def call_function(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def create_pest_detector(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Call a function from a repository module.
+        Create an instance of PestDetector from src.utils.
 
-        Parameters
-        ----------
-        module_path : str
-            Full module path, e.g., 'src.utils' or 'src.pest'.
-        function_name : str
-            Function name to invoke.
-        *args : Any
-            Positional arguments passed to the function.
-        **kwargs : Any
-            Keyword arguments passed to the function.
+        Parameters:
+            *args: Positional arguments forwarded to PestDetector constructor.
+            **kwargs: Keyword arguments forwarded to PestDetector constructor.
 
-        Returns
-        -------
-        dict
-            Unified status dict containing invocation output in data.result.
+        Returns:
+            Dict[str, Any]: Unified status dictionary with pest detector instance in data["instance"].
         """
-        resolved = self._resolve_symbol(module_path, function_name)
-        if resolved["status"] != "success":
-            return resolved
-
-        fn = resolved["data"]["symbol"]
-        if not callable(fn):
+        if not self._imports_ready:
             return self._result(
-                status="error",
-                message="Resolved symbol is not callable.",
-                error=f"'{function_name}' in '{module_path}' is not callable.",
+                status="fallback",
+                message=(
+                    "PestDetector is unavailable in fallback mode. "
+                    "Resolve import issues and retry."
+                ),
+                data={"args": args, "kwargs": kwargs},
+                error="PestDetector import not available.",
             )
 
         try:
-            result = fn(*args, **kwargs)
+            instance = self._PestDetector(*args, **kwargs)
             return self._result(
                 status="success",
-                message="Function executed.",
-                data={"result": result, "module_path": module_path, "function_name": function_name},
+                message="PestDetector instance created successfully.",
+                data={"instance": instance, "class": "PestDetector"},
             )
         except Exception as exc:
             return self._result(
                 status="error",
-                message="Function execution failed.",
-                error=f"{exc}",
-                data={"traceback": traceback.format_exc()},
+                message="Failed to create PestDetector instance.",
+                error=str(exc),
+                tb=traceback.format_exc(),
             )
 
     # -------------------------------------------------------------------------
-    # Repository-specific Convenience Methods
+    # Function Call Methods
     # -------------------------------------------------------------------------
-    def run_pest_script_main(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call_asklr(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Attempt to run a likely entrypoint in `src.pest`.
+        Call asklr function from src.utils.
 
-        This method tries common entrypoint symbols in order:
-          - main
-          - run
-          - predict
-          - infer
+        Parameters:
+            *args: Positional arguments for asklr.
+            **kwargs: Keyword arguments for asklr.
 
-        Parameters
-        ----------
-        *args : Any
-            Positional args for entrypoint.
-        **kwargs : Any
-            Keyword args for entrypoint.
-
-        Returns
-        -------
-        dict
-            Unified status dict with result payload.
+        Returns:
+            Dict[str, Any]: Unified status dictionary with function return value in data["result"].
         """
-        module_path = "src.pest"
-        candidates = ["main", "run", "predict", "infer"]
+        if not self._imports_ready:
+            return self._result(
+                status="fallback",
+                message=(
+                    "asklr is unavailable in fallback mode. "
+                    "Resolve import issues and verify dependencies before retrying."
+                ),
+                data={"args": args, "kwargs": kwargs},
+                error="asklr import not available.",
+            )
 
-        if module_path not in self._modules:
+        try:
+            result = self._asklr(*args, **kwargs)
+            return self._result(
+                status="success",
+                message="asklr executed successfully.",
+                data={"result": result, "function": "asklr"},
+            )
+        except Exception as exc:
             return self._result(
                 status="error",
-                message="pest module unavailable.",
-                error=self._import_errors.get(
-                    module_path,
-                    "Cannot import src.pest. Verify dependencies from requirements.txt."
+                message="asklr execution failed.",
+                error=str(exc),
+                tb=traceback.format_exc(),
+            )
+
+    def call_custom_split(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call custom_split function from src.utils.
+
+        Parameters:
+            *args: Positional arguments for custom_split.
+            **kwargs: Keyword arguments for custom_split.
+
+        Returns:
+            Dict[str, Any]: Unified status dictionary with function return value in data["result"].
+        """
+        if not self._imports_ready:
+            return self._result(
+                status="fallback",
+                message=(
+                    "custom_split is unavailable in fallback mode. "
+                    "Resolve import issues and verify dataset paths before retrying."
+                ),
+                data={"args": args, "kwargs": kwargs},
+                error="custom_split import not available.",
+            )
+
+        try:
+            result = self._custom_split(*args, **kwargs)
+            return self._result(
+                status="success",
+                message="custom_split executed successfully.",
+                data={"result": result, "function": "custom_split"},
+            )
+        except Exception as exc:
+            return self._result(
+                status="error",
+                message="custom_split execution failed.",
+                error=str(exc),
+                tb=traceback.format_exc(),
+            )
+
+    # -------------------------------------------------------------------------
+    # Generic Dispatcher
+    # -------------------------------------------------------------------------
+    def invoke(self, operation: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Generic dispatcher for adapter operations.
+
+        Supported operations:
+            - "health_check"
+            - "create_detector"
+            - "create_pest_detector"
+            - "call_asklr"
+            - "call_custom_split"
+
+        Parameters:
+            operation (str): Operation name.
+            *args: Positional args forwarded to target method.
+            **kwargs: Keyword args forwarded to target method.
+
+        Returns:
+            Dict[str, Any]: Unified status dictionary.
+        """
+        routing = {
+            "health_check": self.health_check,
+            "create_detector": self.create_detector,
+            "create_pest_detector": self.create_pest_detector,
+            "call_asklr": self.call_asklr,
+            "call_custom_split": self.call_custom_split,
+        }
+
+        fn = routing.get(operation)
+        if fn is None:
+            return self._result(
+                status="error",
+                message="Unknown operation.",
+                error=(
+                    f"Operation '{operation}' is not supported. "
+                    f"Supported operations: {', '.join(routing.keys())}"
                 ),
             )
 
-        for name in candidates:
-            if hasattr(self._modules[module_path], name):
-                return self.call_function(module_path, name, *args, **kwargs)
-
-        return self._result(
-            status="error",
-            message="No recognized entrypoint found in src.pest.",
-            error="Expected one of: main/run/predict/infer. Inspect module symbols with list_available_symbols().",
-        )
-
-    def call_utils_function(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call any function exposed by `src.utils`.
-
-        Parameters
-        ----------
-        function_name : str
-            Exact function name in src.utils.
-        *args : Any
-            Positional arguments.
-        **kwargs : Any
-            Keyword arguments.
-
-        Returns
-        -------
-        dict
-            Unified status dict with function result.
-        """
-        return self.call_function("src.utils", function_name, *args, **kwargs)
-
-    def create_utils_class_instance(self, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Instantiate any class exposed by `src.utils`.
-
-        Parameters
-        ----------
-        class_name : str
-            Exact class name in src.utils.
-        *args : Any
-            Positional constructor arguments.
-        **kwargs : Any
-            Keyword constructor arguments.
-
-        Returns
-        -------
-        dict
-            Unified status dict with created instance.
-        """
-        return self.create_instance("src.utils", class_name, *args, **kwargs)
-
-    def create_pest_class_instance(self, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Instantiate any class exposed by `src.pest`.
-
-        Parameters
-        ----------
-        class_name : str
-            Exact class name in src.pest.
-        *args : Any
-            Positional constructor arguments.
-        **kwargs : Any
-            Keyword constructor arguments.
-
-        Returns
-        -------
-        dict
-            Unified status dict with created instance.
-        """
-        return self.create_instance("src.pest", class_name, *args, **kwargs)
+        try:
+            return fn(*args, **kwargs)
+        except Exception as exc:
+            return self._result(
+                status="error",
+                message="Operation failed unexpectedly.",
+                error=str(exc),
+                tb=traceback.format_exc(),
+            )

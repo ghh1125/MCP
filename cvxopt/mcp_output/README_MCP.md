@@ -2,135 +2,137 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service provides a practical wrapper around **CVXOPT** optimization capabilities for LLM/tool-based workflows.  
-It focuses on exposing reliable solver calls for:
+This service exposes CVXOPT optimization capabilities through MCP (Model Context Protocol) tools with a thin, import-based adapter.
 
-- Linear Programming (LP)
-- Quadratic Programming (QP)
-- Second-Order Cone Programming (SOCP)
-- Semidefinite Programming (SDP)
+Primary goals:
+- Solve optimization problems via CVXOPT `solvers` APIs
+- Accept JSON-friendly inputs and convert them to CVXOPT matrices
+- Return normalized JSON outputs for reliable downstream use
+- Keep integration low-risk (no patching CVXOPT internals)
+
+Main solver coverage:
+- LP, QP, SOCP, SDP
 - Cone LP/QP (`conelp`, `coneqp`)
-- Convex Programming (`cp`, `cpl`)
-- Geometric Programming (`gp`)
-
-Primary integration target: `cvxopt.solvers` (backed by `coneprog.py` and `cvxprog.py`).
+- Optional GP/CP-style workflows when enabled
 
 ---
 
 ## 2) Installation Method
 
-### Prerequisites
+### Requirements
+- Python >= 3.8
+- `numpy`
+- `cvxopt` (with compiled extensions)
+- Optional native backends depending on your target usage:
+  - GLPK, GSL, DSDP, MOSEK
+  - SuiteSparse (CHOLMOD/UMFPACK), FFTW
 
-- Python 3.8+ recommended
-- NumPy
-- BLAS/LAPACK runtime
-- CVXOPT compiled extensions
+### Recommended install
+1. Create and activate a virtual environment.
+2. Install CVXOPT and NumPy:
+   - `pip install numpy cvxopt`
+3. Install your MCP (Model Context Protocol) service package (your adapter layer).
+4. Verify import:
+   - `import cvxopt`
+   - `from cvxopt import solvers`
 
-Optional backends/features:
-
-- GLPK (LP/MIP-related workflows)
-- DSDP (SDP backend)
-- GSL
-- MOSEK (commercial, via `msk.py` adapter)
-
-### Install
-
-1. Install core runtime:
-- `pip install numpy`
-
-2. Install CVXOPT:
-- `pip install cvxopt`
-
-3. (Optional) Build from source repository if you need custom backend linkage:
-- `pip install .`
+If CVXOPT wheel/build is unavailable for your platform, use a container/prebuilt runtime and run this service in blackbox mode.
 
 ---
 
 ## 3) Quick Start
 
-Minimal Python usage pattern for this MCP (Model Context Protocol) service is to map service calls directly to `cvxopt.solvers.*`.
+Typical flow:
+1. Send JSON problem data (vectors/matrices as lists or sparse triplets).
+2. Service converts input to `cvxopt.matrix` / `cvxopt.spmatrix`.
+3. Service calls selected solver (`lp`, `qp`, `socp`, etc.).
+4. Service returns normalized JSON:
+   - `status`
+   - `objective`
+   - `x` (primal)
+   - `y/z/s` (dual/slack when available)
+   - `iterations`
+   - backend/capability metadata
 
-Example flow:
-
-1. Create matrices/vectors with `cvxopt.matrix` / `cvxopt.spmatrix`
-2. Call solver endpoint (for example `lp`, `qp`, or `socp`)
-3. Return structured result fields like status/objective/primal variables
-
-Typical call targets:
-
-- `cvxopt.solvers.lp(...)`
-- `cvxopt.solvers.qp(...)`
-- `cvxopt.solvers.socp(...)`
-- `cvxopt.solvers.sdp(...)`
-- `cvxopt.solvers.conelp(...)`
-- `cvxopt.solvers.coneqp(...)`
-- `cvxopt.solvers.cp(...)`
-- `cvxopt.solvers.cpl(...)`
-- `cvxopt.solvers.gp(...)`
-
-For higher-level model construction, use `cvxopt.modeling` (`variable`, `op`, `dot`, `sum`, etc.) before solving.
+Minimal example request pattern:
+- Tool: `solve_qp`
+- Inputs: `P, q, G, h, A, b` (JSON arrays; optional constraints omitted as null)
+- Output: standardized solve result with status/objective/solution vectors
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Recommended MCP (Model Context Protocol) service endpoints:
+Suggested MCP (Model Context Protocol) service tool set:
 
-- `solve_lp` → wraps `solvers.lp`  
-  Solve standard linear programs.
+- `capabilities`
+  - Returns detected solver/backends and feature flags (e.g., `mosek`, `glpk` availability).
 
-- `solve_qp` → wraps `solvers.qp`  
-  Solve convex quadratic programs.
+- `solve_lp`
+  - Linear programming via `solvers.lp`.
 
-- `solve_socp` → wraps `solvers.socp`  
-  Solve second-order cone constrained problems.
+- `solve_qp`
+  - Quadratic programming via `solvers.qp`.
 
-- `solve_sdp` → wraps `solvers.sdp`  
-  Solve semidefinite programs.
+- `solve_socp`
+  - Second-order cone programming via `solvers.socp`.
 
-- `solve_conelp` → wraps `solvers.conelp`  
-  General cone LP interface.
+- `solve_sdp`
+  - Semidefinite programming via `solvers.sdp`.
 
-- `solve_coneqp` → wraps `solvers.coneqp`  
-  General cone QP interface.
+- `solve_conelp`
+  - General cone LP via `solvers.conelp`.
 
-- `solve_cp` → wraps `solvers.cp`  
-  Convex programming interface.
+- `solve_coneqp`
+  - General cone QP via `solvers.coneqp`.
 
-- `solve_cpl` → wraps `solvers.cpl`  
-  Convex programming with linear structure.
+- `solve_gp` (optional)
+  - Geometric programming via `solvers.gp` where configured.
 
-- `solve_gp` → wraps `solvers.gp`  
-  Geometric programming interface.
+- `validate_problem` (recommended)
+  - Shape/type checks before solve; returns actionable validation errors.
 
-- `build_model` (optional helper) → wraps `modeling.variable/op/...`  
-  Build symbolic models before solving.
-
-- `solve_with_mosek` (optional) → wraps `msk.lp/qp/ilp/socp`  
-  Route to MOSEK backend when available.
+- `set_solver_options` (recommended)
+  - Controlled update of CVXOPT solver options (tolerances, max iterations, verbosity).
 
 ---
 
 ## 5) Common Issues and Notes
 
-- CVXOPT is not pure Python; build/runtime linkage to BLAS/LAPACK matters.
-- Some features are backend-dependent (GLPK/DSDP/MOSEK may be unavailable in default installs).
-- Input matrix dimensions and cone definitions must match solver expectations exactly.
-- Prefer sparse matrices (`spmatrix`) for large-scale problems to reduce memory usage.
-- Numerical conditioning strongly affects convergence/performance; scale inputs when possible.
-- In containerized deployments, prebuild wheels or validate native library presence at startup.
-- If importing fails, verify Python version, wheel compatibility, and native dependencies first.
+- Build complexity:
+  - CVXOPT may require compiled native dependencies; installation can fail on minimal systems.
+- Backend variability:
+  - Optional solvers (MOSEK/GLPK/DSDP) differ by environment; always query `capabilities`.
+- Input shape mismatches:
+  - Most failures are dimension/type errors in matrix inputs; validate before solving.
+- Sparse vs dense:
+  - Prefer sparse representation for large structured problems to reduce memory/time.
+- Numerical stability:
+  - Poorly scaled problems may converge slowly or fail; apply scaling/regularization when needed.
+- Service safety:
+  - Keep adapter read-only and thin; do not modify CVXOPT internals.
+- Fallback mode:
+  - If import/build fails, run a prebuilt CVXOPT container and expose a reduced stable subset (commonly LP/QP).
 
 ---
 
-## 6) Reference Links and Documentation
+## 6) Reference Links / Documentation
 
-- Repository: https://github.com/cvxopt/cvxopt
-- Project README: https://github.com/cvxopt/cvxopt/blob/master/README.md
-- Documentation (included in repo under `doc/` and `doc/html/`)
-- Core modules:
+- CVXOPT repository: https://github.com/cvxopt/cvxopt
+- CVXOPT package docs (in repo): `doc/` and generated `doc/html/`
+- Key API modules:
   - `src/python/solvers.py`
+  - `src/python/modeling.py`
   - `src/python/coneprog.py`
   - `src/python/cvxprog.py`
-  - `src/python/modeling.py`
-  - `src/python/msk.py`
+- Tests/examples for expected behavior:
+  - `tests/`
+  - `examples/`
+
+---
+
+For production MCP (Model Context Protocol) service usage, prioritize:
+- strict JSON schema validation,
+- deterministic output formatting,
+- runtime capability detection,
+- and minimal-intrusion integration over `cvxopt.solvers`.

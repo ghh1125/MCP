@@ -14,9 +14,9 @@
     "intrusiveness_risk": "medium"
   },
   "execution": {
-    "start_time": 1773248400.967104,
-    "end_time": 1773248647.119989,
-    "duration": 246.15288496017456,
+    "start_time": 1773382166.0371258,
+    "end_time": 1773382361.8644989,
+    "duration": 195.8273742198944,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 3,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,12 +53,16 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.EigenLedger.source",
+        "mcp_output.mcp_plugin",
+        "source.EigenLedger"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
       "has_requirements_txt": false,
-      "pyproject": false,
+      "pyproject": true,
       "setup_cfg": false,
       "setup_py": false
     },
@@ -68,7 +72,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.58,
+      "import_feasibility": 0.74,
       "intrusiveness_risk": "medium",
       "complexity": "medium"
     },
@@ -121,59 +125,37 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/EigenLedger/temp_clone'...\nfatal: unable to access 'https://github.com/santoshlite/EigenLedger/': Recv failure: Operation timed out\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/EigenLedger/temp_clone'...\nfatal: unable to access 'https://github.com/santoshlite/EigenLedger/': Recv failure: Operation timed out\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "Add a real test suite (unit tests for analytics functions in `modules/empyrical`",
-    "integration tests for `run.py`/main flow",
-    "and basic smoke tests)",
-    "split `EigenLedger/main.py` into smaller modules (data ingestion",
-    "metrics engine",
-    "visualization",
-    "app/controller) to reduce the current single-file bottleneck",
-    "fix packaging metadata detection by correcting and validating `pyproject.toml` (build-system",
-    "project metadata",
-    "dependencies",
-    "optional extras",
-    "entry points)",
-    "add explicit dependency files and pin ranges (`pyproject` + optional `requirements.txt`) including dev/test extras",
-    "define stable CLI entry points (e.g.",
-    "`eigenledger` console script) instead of relying on `python -m ...`",
-    "add CI workflows for lint/test/build/publish (not just publish) with matrix testing across Python versions",
-    "introduce code quality tooling (`ruff`/`flake8`",
-    "`black`",
-    "`isort`",
-    "`mypy`) with pre-commit hooks",
-    "improve observability and error handling (structured logging",
-    "user-facing error messages",
-    "graceful failures for missing market data/APIs)",
-    "document architecture and execution paths in README (module responsibilities",
-    "CLI usage",
-    "examples",
-    "troubleshooting)",
-    "add API-level docstrings/type hints across core functions to improve maintainability and MCP toolability",
-    "validate and harden external-data paths (e.g.",
-    "yfinance failures",
-    "network timeouts",
-    "retry/backoff",
-    "caching)",
-    "remove or clearly vendor-lock third-party `empyrical` code with attribution/update strategy to avoid drift",
-    "add benchmark/performance checks for heavy stats computations (vectorization hotspots",
-    "optional parallel/numba paths)",
-    "add security and release hygiene (dependency scanning",
-    "pinned action versions",
-    "changelog",
-    "semantic versioning)",
-    "and add MCP plugin tests plus endpoint documentation to ensure the generated MCP layer remains functional and discoverable"
+    "Add a minimal automated test suite (unit tests for `modules/empyrical` metrics and smoke tests for each `Backtest_*` endpoint)",
+    "Create a `requirements.txt` (or lock file) aligned with `pyproject.toml` and pin key versions for reproducibility",
+    "Add CI workflow steps to run lint + tests on pull requests (current workflow appears publish-focused only)",
+    "Refactor `EigenLedger/main.py` (very large single file) into smaller domain modules to improve maintainability and MCP stability",
+    "Define explicit CLI entry points in `pyproject.toml` (e.g.",
+    "`eigenledger=EigenLedger.run:main`) instead of relying on `python -m ...`",
+    "Add input/output schemas and validation (Pydantic models) for all MCP-exposed endpoints to prevent runtime type issues",
+    "Prioritize import-safe API boundaries (avoid side effects at import time) since adapter mode is `import` with medium intrusiveness risk",
+    "Add structured logging and error taxonomy across backtest workflows for easier debugging in MCP service mode",
+    "Add performance benchmarks for heavy paths (`Backtest_Multiprocess`",
+    "`Backtest_Optimize`",
+    "visualization/dashboard generation) and track regressions",
+    "Document a stable public API contract separating core backtest orchestration from internal utilities (`roll/up/down`)",
+    "Strengthen packaging metadata (classifiers",
+    "license clarity",
+    "Python version constraints) and include optional dependency groups for plotting/dashboard features",
+    "Add security and quality checks (ruff/flake8",
+    "mypy",
+    "bandit",
+    "pip-audit) in CI",
+    "Create deterministic sample datasets and golden-result tests for analytics outputs (Sharpe",
+    "Sortino",
+    "VaR/CVaR",
+    "perf attribution)",
+    "Improve README with quickstart for both library and MCP usage",
+    "including end-to-end examples and expected outputs",
+    "Add cross-platform multiprocessing safeguards and tests (especially for Windows spawn behavior)",
+    "Set up release/versioning automation (semantic versioning + changelog) to support reliable downstream MCP integrations"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -204,36 +186,35 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow orchestration was resilient: despite git clone timeout, pipeline continued via zip fallback and completed all nodes.",
-      "Import-first adapter strategy was appropriate for a Python package and enabled MCP layer generation without deep code rewrites.",
-      "Generated MCP service started healthy over stdio, indicating baseline runtime viability.",
-      "Risk and complexity were assessed as medium with maintainability index 75, supporting feasible integration."
+      "Workflow completed all planned nodes (download, analysis, env, generate, run, review, finalize) with overall status=success.",
+      "Import-based adapter generation succeeded and produced runnable MCP scaffolding with healthy service status over stdio.",
+      "Repository structure was analyzable despite fallback ingestion method (zip_fallback), enabling endpoint discovery.",
+      "Generated plugin included broad endpoint coverage across orchestration and analytics functions."
     ],
     "failure_reasons": [
-      "Primary repository acquisition failed due to network timeout in DownloadNode (CloneFailed).",
-      "DeepWiki analysis failed, reducing enrichment depth for architecture/tool inference.",
-      "Static detection pipeline reported zero processed files / no dependencies in one stage, indicating metadata/telemetry inconsistency.",
-      "Generated plugin exposed zero concrete endpoints/tools, limiting functional MCP value."
+      "No hard execution failure occurred.",
+      "Quality validation gap: original project tests were not executed successfully (passed=false, no test files), reducing confidence in behavioral correctness.",
+      "DeepWiki analysis failed, limiting external architectural/context enrichment."
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Download encountered clone timeout; recovery via zip fallback succeeded but likely consumed a significant share of total 246.15s.",
-      "analysis_time": "Analysis completed with mixed quality: file tree discovered (17 files), but dependency and entry-point detectors under-reported.",
-      "generation_time": "Generation succeeded quickly enough to produce scaffold files, but output was largely boilerplate with no endpoint surface.",
-      "test_time": "MCP plugin health check passed (startup healthy), while original project tests were effectively absent (0 test files, no meaningful execution)."
+      "download_time": "Completed successfully; repo imported via zip fallback, indicating resilient retrieval path but potentially slower/less rich metadata than native clone.",
+      "analysis_time": "Completed with medium-confidence import feasibility (0.74); static analysis identified core modules/endpoints effectively.",
+      "generation_time": "Successful MCP code generation with required files and endpoint mapping; however reported LOC/size metrics are zero, indicating telemetry/reporting inconsistency.",
+      "test_time": "MCP plugin health test passed, but original project test signal is effectively absent; end-to-end correctness remains partially unverified."
     },
     "resource_usage": {
-      "memory_efficiency": "No reliable metrics recorded (reported 0 MB); efficiency cannot be validated.",
-      "cpu_efficiency": "No reliable metrics recorded (reported 0%); CPU behavior is unobservable from current telemetry.",
-      "disk_usage": "Generated artifact footprint reported as 0 bytes/LOC in summary, conflicting with actual files present; disk accounting instrumentation appears incomplete."
+      "memory_efficiency": "Insufficient measured data (reported 0 MB). Likely acceptable for this run, but instrumentation is missing.",
+      "cpu_efficiency": "Insufficient measured data (reported 0%). Cannot evaluate true compute efficiency.",
+      "disk_usage": "Generated artifact footprint appears small, but reported size=0 suggests metric collection issue rather than true zero usage."
     }
   },
   "technical_quality": {
-    "code_quality_score": 62,
-    "architecture_score": 58,
-    "performance_score": 52,
-    "maintainability_score": 64,
+    "code_quality_score": 74,
+    "architecture_score": 76,
+    "performance_score": 68,
+    "maintainability_score": 72,
     "security_score": 85,
-    "scalability_score": 57
+    "scalability_score": 70
   }
 }

@@ -2,7 +2,7 @@
 set -euo pipefail
 cd "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 mcp_entry_name="${MCP_ENTRY_NAME:-climlab}"
-mcp_entry_url="${MCP_ENTRY_URL:-http://localhost:7952/mcp}"
+mcp_entry_url="${MCP_ENTRY_URL:-http://localhost:7864/mcp}"
 mcp_dir="${HOME}/.cursor"
 mcp_path="${mcp_dir}/mcp.json"
 mkdir -p "${mcp_dir}"
@@ -72,4 +72,4 @@ elif command -v jq >/dev/null 2>&1; then
   fi
 fi
 docker build -t climlab-mcp .
-docker run --rm -p 7952:7860 climlab-mcp
+docker run --rm -p 7864:7860 climlab-mcp

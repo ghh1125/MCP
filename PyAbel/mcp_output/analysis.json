@@ -389,14 +389,22 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.PyAbel.source",
+      "mcp_output.mcp_plugin",
+      "source.abel",
+      "source.abel.lib",
+      "source.abel.tests",
+      "source.abel.tools",
+      "source.doc.tools"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -406,111 +414,113 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "abel/transform.py",
+        "package": "source.abel",
         "module": "transform",
-        "functions": [],
+        "functions": [
+          "Transform"
+        ],
         "classes": [
           "Transform"
         ],
-        "description": "High-level orchestration entry point for Abel transforms; selects method implementations, manages options, and provides the primary API used by examples/tests."
+        "description": "Primary high-level API for performing Abel transforms using multiple backend methods; most suitable integration point for MCP tool wrapping."
       },
       {
-        "package": "abel/basex.py",
+        "package": "source.abel",
         "module": "basex",
-        "functions": [],
+        "functions": [
+          "basex_transform"
+        ],
         "classes": [],
-        "description": "BASEX transform implementation module (basis-set expansion approach), including basis generation/caching and inversion logic."
+        "description": "BASEX method implementation for inverse/forward Abel transforms with basis-set workflow."
       },
       {
-        "package": "abel/rbasex.py",
-        "module": "rbasex",
-        "functions": [],
-        "classes": [],
-        "description": "rBasex transform implementation for velocity-map imaging style workflows, with regularization and reconstruction utilities."
-      },
-      {
-        "package": "abel/hansenlaw.py",
-        "module": "hansenlaw",
-        "functions": [],
-        "classes": [],
-        "description": "Hansen–Law recursive Abel transform algorithm implementation."
-      },
-      {
-        "package": "abel/direct.py",
+        "package": "source.abel",
         "module": "direct",
-        "functions": [],
+        "functions": [
+          "direct_transform"
+        ],
         "classes": [],
-        "description": "Direct numerical Abel transform implementation and variants."
+        "description": "Direct numerical integration Abel transform implementation; low-level deterministic backend."
       },
       {
-        "package": "abel/dasch.py",
+        "package": "source.abel",
+        "module": "hansenlaw",
+        "functions": [
+          "hansenlaw_transform"
+        ],
+        "classes": [],
+        "description": "Hansen-Law recursive transform backend, commonly used for performance-oriented workflows."
+      },
+      {
+        "package": "source.abel",
         "module": "dasch",
-        "functions": [],
+        "functions": [
+          "two_point_transform",
+          "three_point_transform",
+          "onion_peeling_transform"
+        ],
         "classes": [],
-        "description": "Dasch-family transform methods (including onion-peeling/three-point/two-point style approaches)."
+        "description": "Dasch-family inversion methods for onion-peeling style processing."
       },
       {
-        "package": "abel/daun.py",
+        "package": "source.abel",
         "module": "daun",
-        "functions": [],
+        "functions": [
+          "daun_transform"
+        ],
         "classes": [],
-        "description": "Daun transform method implementation with basis/regularization options."
+        "description": "Daun transform implementation with regularization-related options."
       },
       {
-        "package": "abel/linbasex.py",
+        "package": "source.abel",
         "module": "linbasex",
-        "functions": [],
+        "functions": [
+          "linbasex_transform"
+        ],
         "classes": [],
-        "description": "lin-Basex implementation for anisotropy/basis decomposition workflows."
+        "description": "Lin-BASEX implementation for angular-distribution oriented analysis."
       },
       {
-        "package": "abel/nestorolsen.py",
-        "module": "nestorolsen",
-        "functions": [],
+        "package": "source.abel",
+        "module": "rbasex",
+        "functions": [
+          "rbasex_transform"
+        ],
         "classes": [],
-        "description": "Nestor–Olsen method implementation."
+        "description": "rBASEX backend for velocity-map imaging style analysis and robust basis handling."
       },
       {
-        "package": "abel/onion_bordas.py",
-        "module": "onion_bordas",
-        "functions": [],
+        "package": "source.abel.tools",
+        "module": "center",
+        "functions": [
+          "find_center",
+          "center_image"
+        ],
         "classes": [],
-        "description": "Onion-Bordas style inverse transform implementation."
+        "description": "Image centering utilities; useful MCP pre-processing tool before transform execution."
       },
       {
-        "package": "abel/tools/vmi.py",
-        "module": "tools.vmi",
-        "functions": [],
+        "package": "source.abel.tools",
+        "module": "vmi",
+        "functions": [
+          "angular_integration",
+          "radial_integration"
+        ],
         "classes": [],
-        "description": "VMI-focused post-processing utilities (distributions, anisotropy, integration helpers) used alongside transforms."
-      },
-      {
-        "package": "abel/tools/center.py",
-        "module": "tools.center",
-        "functions": [],
-        "classes": [],
-        "description": "Image centering utilities critical for pre-processing before transform execution."
-      },
-      {
-        "package": "abel/tools/symmetry.py",
-        "module": "tools.symmetry",
-        "functions": [],
-        "classes": [],
-        "description": "Symmetry operations and quadrant handling utilities for transform preparation."
-      },
-      {
-        "package": "abel/tools/polar.py",
-        "module": "tools.polar",
-        "functions": [],
-        "classes": [],
-        "description": "Cartesian/polar conversion and coordinate helper routines."
+        "description": "VMI post-processing utilities for extracting radial/angular distributions from transformed images."
       }
     ],
-    "cli_commands": [],
+    "cli_commands": [
+      {
+        "name": "none_detected",
+        "module": "",
+        "description": "No explicit CLI entry points detected in scanned package paths (no console_scripts or __main__ CLI modules identified). Examples provide script usage but not packaged CLI commands."
+      }
+    ],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.92
     },
     "dependencies": {
       "required": [
@@ -518,12 +528,13 @@
         "scipy"
       ],
       "optional": [
+        "setuptools",
         "matplotlib",
-        "setuptools"
+        "pytest"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.92,
+      "import_feasibility": 0.93,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -541,7 +552,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.92,
+    "import_feasibility": 0.93,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

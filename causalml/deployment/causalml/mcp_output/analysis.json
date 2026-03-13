@@ -314,14 +314,24 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.causalml.source",
+      "mcp_output.mcp_plugin",
+      "source.causalml",
+      "source.causalml.dataset",
+      "source.causalml.feature_selection",
+      "source.causalml.inference",
+      "source.causalml.metrics",
+      "source.causalml.optimize",
+      "source.tests"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
-    "setup_cfg": false,
-    "setup_py": false
+    "pyproject": true,
+    "setup_cfg": true,
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -331,158 +341,164 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "causalml/dataset",
-        "module": "classification.py",
-        "functions": [
-          "make_uplift_classification",
-          "make_uplift_classification_logistic",
-          "simulate_randomized_trial"
-        ],
-        "classes": [],
-        "description": "Synthetic/semi-synthetic data generation utilities for uplift and treatment-effect classification workflows."
-      },
-      {
-        "package": "causalml/dataset",
-        "module": "regression.py",
-        "functions": [
-          "synthetic_data"
-        ],
-        "classes": [],
-        "description": "Regression-style synthetic data generation for treatment effect experiments."
-      },
-      {
-        "package": "causalml/inference/meta",
-        "module": "slearner.py",
+        "package": "source.causalml.inference.meta",
+        "module": "source.causalml.inference.meta.base",
         "functions": [],
         "classes": [
+          "BaseLearner",
           "BaseSLearner",
-          "LRSRegressor",
-          "XGBSRegressor",
-          "MLPSRegressor"
-        ],
-        "description": "S-learner family for conditional average treatment effect (CATE) estimation."
-      },
-      {
-        "package": "causalml/inference/meta",
-        "module": "tlearner.py",
-        "functions": [],
-        "classes": [
           "BaseTLearner",
-          "BaseTRegressor",
-          "BaseTClassifier",
-          "XGBTRegressor",
-          "MLPTRegressor"
-        ],
-        "description": "T-learner variants with separate models per treatment arm."
-      },
-      {
-        "package": "causalml/inference/meta",
-        "module": "xlearner.py",
-        "functions": [],
-        "classes": [
           "BaseXLearner",
-          "BaseXRegressor",
-          "BaseXClassifier",
-          "XGBXRegressor",
-          "MLPXRegressor"
-        ],
-        "description": "X-learner implementations for improved treatment effect estimation under imbalance."
-      },
-      {
-        "package": "causalml/inference/meta",
-        "module": "rlearner.py",
-        "functions": [],
-        "classes": [
           "BaseRLearner",
-          "BaseRRegressor",
-          "XGBRRegressor"
+          "BaseDRLearner"
         ],
-        "description": "R-learner based orthogonalized treatment effect estimation."
+        "description": "Core meta-learner abstractions and shared training/prediction logic for CATE estimation."
       },
       {
-        "package": "causalml/inference/meta",
-        "module": "drlearner.py",
+        "package": "source.causalml.inference.meta",
+        "module": "source.causalml.inference.meta.slearner",
         "functions": [],
         "classes": [
-          "BaseDRLearner",
-          "BaseDRRegressor",
-          "BaseDRClassifier",
-          "XGBDRRegressor"
+          "LRSRegressor",
+          "BaseSRegressor",
+          "BaseSClassifier"
         ],
-        "description": "Doubly robust learner implementations with nuisance models."
+        "description": "S-Learner implementations for treatment effect estimation with single-model strategy."
       },
       {
-        "package": "causalml/inference/tree/causal",
-        "module": "causalforest.py",
+        "package": "source.causalml.inference.meta",
+        "module": "source.causalml.inference.meta.tlearner",
+        "functions": [],
+        "classes": [
+          "XGBRegressor",
+          "BaseTRegressor",
+          "BaseTClassifier"
+        ],
+        "description": "T-Learner implementations using separate models per treatment/control."
+      },
+      {
+        "package": "source.causalml.inference.meta",
+        "module": "source.causalml.inference.meta.xlearner",
+        "functions": [],
+        "classes": [
+          "BaseXRegressor",
+          "BaseXClassifier"
+        ],
+        "description": "X-Learner implementations optimized for treatment imbalance and heterogeneous effects."
+      },
+      {
+        "package": "source.causalml.inference.meta",
+        "module": "source.causalml.inference.meta.rlearner",
+        "functions": [],
+        "classes": [
+          "BaseRRegressor",
+          "BaseRClassifier"
+        ],
+        "description": "R-Learner implementations based on residualization and nuisance model decomposition."
+      },
+      {
+        "package": "source.causalml.inference.meta",
+        "module": "source.causalml.inference.meta.drlearner",
+        "functions": [],
+        "classes": [
+          "BaseDRRegressor",
+          "BaseDRClassifier"
+        ],
+        "description": "Doubly robust learner implementations combining propensity and outcome models."
+      },
+      {
+        "package": "source.causalml.inference.tree",
+        "module": "source.causalml.inference.tree.causal.causalforest",
         "functions": [],
         "classes": [
           "CausalRandomForestRegressor"
         ],
-        "description": "Tree/forest-based heterogeneous treatment effect estimation."
+        "description": "Tree-based causal forest estimator for heterogeneous treatment effect estimation."
       },
       {
-        "package": "causalml/inference/tree/causal",
-        "module": "causaltree.py",
+        "package": "source.causalml.inference.tree",
+        "module": "source.causalml.inference.tree.causal.causaltree",
         "functions": [],
         "classes": [
           "CausalTreeRegressor"
         ],
-        "description": "Single-tree causal partitioning model."
+        "description": "Causal tree model for interpretable uplift and treatment effect segmentation."
       },
       {
-        "package": "causalml/metrics",
-        "module": "visualize.py",
-        "functions": [
-          "plot_gain",
-          "plot_qini",
-          "plot_lift"
-        ],
-        "classes": [],
-        "description": "Uplift/causal model evaluation visualizations."
-      },
-      {
-        "package": "causalml/optimize",
-        "module": "policylearner.py",
+        "package": "source.causalml.inference.iv",
+        "module": "source.causalml.inference.iv.drivlearner",
         "functions": [],
         "classes": [
-          "PolicyLearner"
+          "BaseDRIVLearner"
         ],
-        "description": "Policy learning for treatment assignment optimization."
+        "description": "Instrumental-variable doubly robust learners for causal inference under endogeneity."
       },
       {
-        "package": "causalml",
-        "module": "propensity.py",
+        "package": "source.causalml",
+        "module": "source.causalml.propensity",
         "functions": [
           "compute_propensity_score",
+          "trim_by_propensity_score",
           "calibrate",
-          "elastic_net_propensity_model"
+          "get_importance_weights"
         ],
         "classes": [],
-        "description": "Propensity score estimation and calibration helpers."
+        "description": "Propensity estimation, calibration, trimming, and weighting utilities."
       },
       {
-        "package": "causalml",
-        "module": "match.py",
+        "package": "source.causalml",
+        "module": "source.causalml.match",
         "functions": [
           "create_table_one",
           "nearest_neighbor_match"
         ],
         "classes": [],
         "description": "Matching and balance-table utilities for observational studies."
+      },
+      {
+        "package": "source.causalml.metrics",
+        "module": "source.causalml.metrics.visualize",
+        "functions": [
+          "plot_gain",
+          "plot_qini",
+          "plot_lift"
+        ],
+        "classes": [],
+        "description": "Evaluation and visualization utilities for uplift and treatment effect models."
+      },
+      {
+        "package": "source.causalml.dataset",
+        "module": "source.causalml.dataset.synthetic",
+        "functions": [
+          "synthetic_data",
+          "simulate_nuisance_and_easy_treatment",
+          "simulate_randomized_trial"
+        ],
+        "classes": [],
+        "description": "Synthetic data generators for benchmarking uplift/causal models."
+      },
+      {
+        "package": "source.causalml.optimize",
+        "module": "source.causalml.optimize.policylearner",
+        "functions": [],
+        "classes": [
+          "PolicyLearner"
+        ],
+        "description": "Policy learning module for treatment assignment optimization."
       }
     ],
     "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.94
     },
     "dependencies": {
       "required": [
         "numpy",
         "pandas",
-        "scipy",
         "scikit-learn",
+        "scipy",
         "statsmodels",
         "matplotlib"
       ],
@@ -490,14 +506,14 @@
         "xgboost",
         "lightgbm",
         "shap",
+        "seaborn",
         "tensorflow",
         "torch",
-        "pydotplus",
-        "seaborn"
+        "pyro-ppl"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.92,
+      "import_feasibility": 0.9,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -515,7 +531,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.92,
+    "import_feasibility": 0.9,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

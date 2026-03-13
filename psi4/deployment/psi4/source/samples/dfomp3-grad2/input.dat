@@ -1,0 +1,28 @@
+#! DF-OMP3 cc-pVDZ gradients for the H2O+ cation.
+
+
+molecule h2o {
+1 2
+o
+h 1 0.958
+h 1 0.958 2 104.4776 
+}
+
+set {
+  basis cc-pvdz
+  df_basis_scf cc-pvdz-jkfit
+  df_basis_cc cc-pvdz-ri
+  scf_type df
+  guess gwh
+  freeze_core true
+  reference uhf
+  mp_type df
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") != "INTERNAL":
+    psi4.set_options({"e_convergence": 9, "d_convergence": 1e-8})
+
+grad = gradient('omp3')
+
+
+

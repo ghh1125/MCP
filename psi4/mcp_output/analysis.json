@@ -5474,10 +5474,15 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.psi4.source",
+      "mcp_output.mcp_plugin",
+      "source.psi4",
+      "source.psi4.driver"
+    ]
   },
   "dependencies": {
-    "has_environment_yml": false,
+    "has_environment_yml": true,
     "has_requirements_txt": false,
     "pyproject": false,
     "setup_cfg": false,
@@ -5491,58 +5496,4821 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "psi4",
-        "module": "psi4.__init__",
-        "functions": [],
+        "package": "conda",
+        "module": "psi4-path-advisor",
+        "functions": [
+          "compiler_type",
+          "compute_width",
+          "conda_info",
+          "conda_list",
+          "lapack_type",
+          "native_platform",
+          "strike",
+          "visible_width"
+        ],
+        "classes": [
+          "PreserveWhiteSpaceWrapRawTextHelpFormatter"
+        ],
+        "function_signatures": {
+          "native_platform": [],
+          "conda_list": [],
+          "conda_info": [],
+          "strike": [
+            "text",
+            "tilde"
+          ],
+          "visible_width": [
+            "chars"
+          ],
+          "compute_width": [
+            "head",
+            "width"
+          ],
+          "lapack_type": [
+            "arg"
+          ],
+          "compiler_type": [
+            "arg"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "conda",
+        "module": "_conda_vers",
+        "functions": [
+          "version_func"
+        ],
         "classes": [],
-        "description": "Top-level package initializer for Psi4. Acts as the primary import surface but likely depends on compiled native components."
+        "function_signatures": {
+          "version_func": []
+        },
+        "description": "Discovered via AST scan"
       },
       {
         "package": "psi4",
-        "module": "psi4.run_psi4",
-        "functions": [],
+        "module": "extras",
+        "functions": [
+          "addons",
+          "clean_numpy_files",
+          "exit_printing",
+          "get_input_directory",
+          "psi4_which",
+          "register_numpy_file",
+          "register_scratch_file",
+          "set_output_file",
+          "test"
+        ],
         "classes": [],
-        "description": "Primary runtime/launcher module for executing Psi4 workflows from Python context."
+        "function_signatures": {
+          "register_numpy_file": [
+            "filename"
+          ],
+          "register_scratch_file": [
+            "filename"
+          ],
+          "clean_numpy_files": [],
+          "exit_printing": [
+            "start_time",
+            "success"
+          ],
+          "get_input_directory": [],
+          "psi4_which": [
+            "command"
+          ],
+          "addons": [
+            "request"
+          ],
+          "test": [
+            "extent",
+            "extras"
+          ],
+          "set_output_file": [
+            "ofile",
+            "append"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "psi4/driver",
-        "module": "psi4.driver.driver",
-        "functions": [],
+        "package": "psi4",
+        "module": "metadata",
+        "functions": [
+          "version_formatter"
+        ],
         "classes": [],
-        "description": "Central high-level driver logic for energy/gradient/property orchestration; large and core to computation flow."
+        "function_signatures": {
+          "version_formatter": [
+            "dummy"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "psi4/driver",
-        "module": "psi4.driver.schema_wrapper",
-        "functions": [],
+        "package": "psi4",
+        "module": "header",
+        "functions": [
+          "citation_formatter",
+          "print_header",
+          "sizeof_fmt"
+        ],
         "classes": [],
-        "description": "Schema-oriented wrapper layer (QCSchema-style execution paths), suitable for structured programmatic invocation."
+        "function_signatures": {
+          "citation_formatter": [
+            "formatstring"
+          ],
+          "sizeof_fmt": [
+            "num",
+            "suffix"
+          ],
+          "print_header": []
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "psi4/driver",
-        "module": "psi4.driver.task_planner",
-        "functions": [],
+        "package": "psi4",
+        "module": "versioner",
+        "functions": [
+          "collect_version_input_from_fallback",
+          "collect_version_input_from_git",
+          "is_git_repo",
+          "reconcile_and_compute_version_output",
+          "version_formatter",
+          "write_new_cmake_metafile",
+          "write_new_metafile"
+        ],
         "classes": [],
-        "description": "Task planning/orchestration module; useful for building minimally intrusive higher-level automation."
+        "function_signatures": {
+          "collect_version_input_from_fallback": [
+            "meta_file"
+          ],
+          "is_git_repo": [
+            "cwd",
+            "dot_git_qualifies",
+            "no_git_cmd_result",
+            "extraneous_toplevel_patterns"
+          ],
+          "collect_version_input_from_git": [],
+          "reconcile_and_compute_version_output": [
+            "quiet"
+          ],
+          "write_new_metafile": [
+            "versdata",
+            "outfile"
+          ],
+          "write_new_cmake_metafile": [
+            "versdata",
+            "outfile"
+          ],
+          "version_formatter": [
+            "versdata",
+            "formatstring"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "psi4/driver",
-        "module": "psi4.driver.pluginutil",
-        "functions": [],
+        "package": "psi4",
+        "module": "run_psi4",
+        "functions": [
+          "custom_formatwarning"
+        ],
         "classes": [],
-        "description": "Existing plugin utility support; best insertion point for MCP-aligned extension with minimal architectural disruption."
+        "function_signatures": {
+          "custom_formatwarning": [
+            "msg"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "task_base",
+        "functions": [],
+        "classes": [
+          "AtomicComputer",
+          "BaseComputer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "schema_wrapper",
+        "functions": [
+          "run_json",
+          "run_json_qcschema",
+          "run_qcschema"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "run_qcschema": [
+            "input_data",
+            "clean",
+            "postclean"
+          ],
+          "run_json": [
+            "json_data",
+            "clean"
+          ],
+          "run_json_qcschema": [
+            "json_data",
+            "clean",
+            "json_serialization",
+            "keep_wfn"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "task_planner",
+        "functions": [
+          "expand_cbs_methods",
+          "task_planner"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "expand_cbs_methods": [
+            "method",
+            "basis",
+            "driver"
+          ],
+          "task_planner": [
+            "driver",
+            "method",
+            "molecule"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "gaussian_n",
+        "functions": [
+          "run_gaussian_2"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "run_gaussian_2": [
+            "name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "driver_cbs",
+        "functions": [
+          "cbs",
+          "cbs_text_parser",
+          "corl_xtpl_helgaker_2",
+          "return_energy_components",
+          "scf_xtpl_helgaker_2",
+          "scf_xtpl_helgaker_3",
+          "scf_xtpl_karton_2",
+          "scf_xtpl_truhlar_2",
+          "xtpl_highest_1"
+        ],
+        "classes": [
+          "CompositeComputer"
+        ],
+        "function_signatures": {
+          "xtpl_highest_1": [],
+          "scf_xtpl_helgaker_2": [],
+          "scf_xtpl_truhlar_2": [],
+          "scf_xtpl_karton_2": [],
+          "scf_xtpl_helgaker_3": [],
+          "corl_xtpl_helgaker_2": [],
+          "return_energy_components": [],
+          "cbs": [
+            "func",
+            "label"
+          ],
+          "cbs_text_parser": [
+            "total_method_name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "mdi_engine",
+        "functions": [
+          "mdi_init",
+          "mdi_run"
+        ],
+        "classes": [
+          "MDIEngine"
+        ],
+        "function_signatures": {
+          "mdi_init": [
+            "mdi_arguments"
+          ],
+          "mdi_run": [
+            "scf_method"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "pluginutil",
+        "functions": [
+          "create_plugin",
+          "sanitize_name"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "sanitize_name": [
+            "name"
+          ],
+          "create_plugin": [
+            "name",
+            "template"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "qmmm",
+        "functions": [],
+        "classes": [
+          "Diffuse",
+          "QMMM",
+          "QMMMbohr"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "frac",
+        "functions": [
+          "frac_nuke",
+          "frac_traverse",
+          "ip_fitting"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "frac_traverse": [
+            "name"
+          ],
+          "frac_nuke": [
+            "name"
+          ],
+          "ip_fitting": [
+            "name",
+            "omega_l",
+            "omega_r",
+            "omega_convergence",
+            "maxiter"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "aliases",
+        "functions": [
+          "allen_focal_point",
+          "fake_file11",
+          "sherrill_gold_standard"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "fake_file11": [
+            "wfn",
+            "filename"
+          ],
+          "sherrill_gold_standard": [],
+          "allen_focal_point": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "molutil",
+        "functions": [
+          "activate",
+          "dynamic_variable_bind",
+          "geometry",
+          "molecule_get_attr",
+          "molecule_set_attr"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "molecule_set_attr": [
+            "self",
+            "name",
+            "value"
+          ],
+          "molecule_get_attr": [
+            "self",
+            "name"
+          ],
+          "dynamic_variable_bind": [
+            "cls"
+          ],
+          "geometry": [
+            "geom",
+            "name"
+          ],
+          "activate": [
+            "mol"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "driver_findif",
+        "functions": [
+          "assemble_dipder_from_dipoles",
+          "assemble_gradient_from_energies",
+          "assemble_hessian_from_energies",
+          "assemble_hessian_from_gradients",
+          "gradient_write",
+          "hessian_write"
+        ],
+        "classes": [
+          "FiniteDifferenceComputer"
+        ],
+        "function_signatures": {
+          "assemble_gradient_from_energies": [
+            "findifrec"
+          ],
+          "assemble_dipder_from_dipoles": [
+            "findifrec",
+            "freq_irrep_only"
+          ],
+          "assemble_hessian_from_gradients": [
+            "findifrec",
+            "freq_irrep_only"
+          ],
+          "assemble_hessian_from_energies": [
+            "findifrec",
+            "freq_irrep_only"
+          ],
+          "hessian_write": [
+            "wfn"
+          ],
+          "gradient_write": [
+            "wfn"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "driver_nbody",
+        "functions": [
+          "nbody"
+        ],
+        "classes": [
+          "ManyBodyComputer"
+        ],
+        "function_signatures": {
+          "nbody": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "driver_cbs_helper",
+        "functions": [
+          "corl_xtpl_helgaker_2",
+          "register_composite_function",
+          "register_xtpl_function",
+          "scf_xtpl_helgaker_2",
+          "scf_xtpl_helgaker_3",
+          "scf_xtpl_karton_2",
+          "scf_xtpl_truhlar_2",
+          "xtpl_highest_1"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "xtpl_highest_1": [
+            "functionname",
+            "zHI",
+            "valueHI",
+            "verbose"
+          ],
+          "scf_xtpl_helgaker_2": [
+            "functionname",
+            "zLO",
+            "valueLO",
+            "zHI",
+            "valueHI",
+            "verbose",
+            "alpha"
+          ],
+          "scf_xtpl_truhlar_2": [
+            "functionname",
+            "zLO",
+            "valueLO",
+            "zHI",
+            "valueHI",
+            "verbose",
+            "alpha"
+          ],
+          "scf_xtpl_karton_2": [
+            "functionname",
+            "zLO",
+            "valueLO",
+            "zHI",
+            "valueHI",
+            "verbose",
+            "alpha"
+          ],
+          "scf_xtpl_helgaker_3": [
+            "functionname",
+            "zLO",
+            "valueLO",
+            "zMD",
+            "valueMD",
+            "zHI",
+            "valueHI",
+            "verbose",
+            "alpha"
+          ],
+          "corl_xtpl_helgaker_2": [
+            "functionname",
+            "zLO",
+            "valueLO",
+            "zHI",
+            "valueHI",
+            "verbose",
+            "alpha"
+          ],
+          "register_xtpl_function": [
+            "func"
+          ],
+          "register_composite_function": [
+            "func"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "wrapper_autofrag",
+        "functions": [
+          "auto_fragments"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "auto_fragments": [
+            "molecule",
+            "seed_atoms"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "wrapper_database",
+        "functions": [
+          "database"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "database": [
+            "name",
+            "db_name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "inputparser",
+        "functions": [
+          "bad_option_syntax",
+          "basname",
+          "check_parentheses_and_brackets",
+          "dequotify",
+          "parse_multiline_array",
+          "process_basis_block",
+          "process_cfour_command",
+          "process_external_command",
+          "process_extract_command",
+          "process_from_file_command",
+          "process_input",
+          "process_literal_blocks",
+          "process_memory_command",
+          "process_molecule_command",
+          "process_multiline_arrays",
+          "process_option",
+          "process_pcm_command",
+          "process_print_command",
+          "process_set_command",
+          "process_set_commands",
+          "process_word_quotes",
+          "quotify"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "bad_option_syntax": [
+            "line"
+          ],
+          "process_word_quotes": [
+            "matchobj"
+          ],
+          "quotify": [
+            "string",
+            "isbasis"
+          ],
+          "dequotify": [
+            "string"
+          ],
+          "process_option": [
+            "spaces",
+            "module",
+            "key",
+            "value",
+            "line"
+          ],
+          "process_set_command": [
+            "matchobj"
+          ],
+          "process_set_commands": [
+            "matchobj"
+          ],
+          "process_from_file_command": [
+            "matchobj"
+          ],
+          "process_molecule_command": [
+            "matchobj"
+          ],
+          "process_literal_blocks": [
+            "matchobj"
+          ],
+          "process_cfour_command": [
+            "matchobj"
+          ],
+          "process_extract_command": [
+            "matchobj"
+          ],
+          "process_print_command": [
+            "matchobj"
+          ],
+          "process_memory_command": [
+            "matchobj"
+          ],
+          "basname": [
+            "name"
+          ],
+          "process_basis_block": [
+            "matchobj"
+          ],
+          "process_pcm_command": [
+            "matchobj"
+          ],
+          "process_external_command": [
+            "matchobj"
+          ],
+          "check_parentheses_and_brackets": [
+            "input_string",
+            "exit_on_error"
+          ],
+          "parse_multiline_array": [
+            "input_list"
+          ],
+          "process_multiline_arrays": [
+            "inputfile"
+          ],
+          "process_input": [
+            "raw_input",
+            "print_level"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "driver",
+        "functions": [
+          "energy",
+          "fchk",
+          "frequency",
+          "fsapt_analysis",
+          "gdma",
+          "gradient",
+          "hessian",
+          "molden",
+          "optimize",
+          "optimize_geometric",
+          "properties",
+          "tdscf",
+          "vibanal_wfn"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "energy": [
+            "name"
+          ],
+          "gradient": [
+            "name"
+          ],
+          "properties": [],
+          "optimize_geometric": [
+            "name"
+          ],
+          "optimize": [
+            "name"
+          ],
+          "hessian": [
+            "name"
+          ],
+          "frequency": [
+            "name"
+          ],
+          "vibanal_wfn": [
+            "wfn",
+            "hess",
+            "irrep",
+            "molecule",
+            "project_trans",
+            "project_rot"
+          ],
+          "gdma": [
+            "wfn",
+            "datafile"
+          ],
+          "fchk": [
+            "wfn",
+            "filename"
+          ],
+          "molden": [
+            "wfn",
+            "filename",
+            "density_a",
+            "density_b",
+            "dovirtual"
+          ],
+          "tdscf": [
+            "wfn"
+          ],
+          "fsapt_analysis": [
+            "source",
+            "fragments_a",
+            "fragments_b",
+            "pdb_dir",
+            "analysis_type",
+            "links5050",
+            "link_siao",
+            "print_output"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "diatomic",
+        "functions": [
+          "anharmonicity",
+          "least_squares_fit_polynomial"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "least_squares_fit_polynomial": [
+            "xvals",
+            "fvals",
+            "localization_point",
+            "no_factorials",
+            "weighted",
+            "polynomial_order"
+          ],
+          "anharmonicity": [
+            "rvals",
+            "energies",
+            "plot_fit",
+            "mol"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "ipi_broker",
+        "functions": [
+          "ipi_broker"
+        ],
+        "classes": [
+          "IPIBroker"
+        ],
+        "function_signatures": {
+          "ipi_broker": [
+            "LOT",
+            "molecule",
+            "serverdata",
+            "options"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "driver_util",
+        "functions": [
+          "highest_analytic_derivative_available",
+          "highest_analytic_properties_available",
+          "negotiate_convergence_criterion",
+          "negotiate_derivative_type",
+          "parse_cotton_irreps",
+          "sort_derivative_type",
+          "upgrade_interventions"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "negotiate_convergence_criterion": [
+            "dermode",
+            "method",
+            "return_optstash"
+          ],
+          "upgrade_interventions": [
+            "method"
+          ],
+          "parse_cotton_irreps": [
+            "irrep",
+            "point_group"
+          ],
+          "negotiate_derivative_type": [
+            "target_dertype",
+            "method",
+            "user_dertype",
+            "verbose",
+            "proc"
+          ],
+          "highest_analytic_derivative_available": [
+            "method",
+            "proc",
+            "managed_keywords"
+          ],
+          "highest_analytic_properties_available": [
+            "method",
+            "proc",
+            "managed_keywords"
+          ],
+          "sort_derivative_type": [
+            "target_dertype",
+            "highest_analytic_dertype",
+            "user_dertype",
+            "proc_messages",
+            "verbose"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.util.tty",
+        "module": "color",
+        "functions": [
+          "cescape",
+          "cextra",
+          "clen",
+          "colorize",
+          "cprint",
+          "cwrite"
+        ],
+        "classes": [
+          "ColorParseError",
+          "ColorStream",
+          "match_to_ansi"
+        ],
+        "function_signatures": {
+          "colorize": [
+            "string"
+          ],
+          "clen": [
+            "string"
+          ],
+          "cextra": [
+            "string"
+          ],
+          "cwrite": [
+            "string",
+            "stream",
+            "color"
+          ],
+          "cprint": [
+            "string",
+            "stream",
+            "color"
+          ],
+          "cescape": [
+            "string"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.util",
+        "module": "tty",
+        "functions": [
+          "debug",
+          "die",
+          "error",
+          "hline",
+          "info",
+          "is_debug",
+          "is_verbose",
+          "msg",
+          "set_debug",
+          "set_verbose",
+          "terminal_size",
+          "verbose",
+          "warn"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "is_verbose": [],
+          "is_debug": [],
+          "set_verbose": [
+            "flag"
+          ],
+          "set_debug": [
+            "flag"
+          ],
+          "msg": [
+            "message"
+          ],
+          "info": [
+            "message"
+          ],
+          "verbose": [
+            "message"
+          ],
+          "debug": [
+            "message"
+          ],
+          "error": [
+            "message"
+          ],
+          "warn": [
+            "message"
+          ],
+          "die": [
+            "message"
+          ],
+          "hline": [
+            "label"
+          ],
+          "terminal_size": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "basislistother",
+        "functions": [
+          "load_basfam_other"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "load_basfam_other": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "options",
+        "functions": [
+          "conv_float2negexp",
+          "format_option_for_cfour",
+          "prepare_options_for_cfour",
+          "prepare_options_for_orca",
+          "prepare_options_for_psi4",
+          "prepare_options_for_qchem",
+          "reconcile_options",
+          "reconcile_options2"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "format_option_for_cfour": [
+            "opt",
+            "val"
+          ],
+          "prepare_options_for_cfour": [
+            "options"
+          ],
+          "prepare_options_for_orca": [
+            "options"
+          ],
+          "prepare_options_for_psi4": [
+            "options"
+          ],
+          "prepare_options_for_qchem": [
+            "options"
+          ],
+          "reconcile_options": [
+            "full",
+            "partial"
+          ],
+          "reconcile_options2": [
+            "full",
+            "partial"
+          ],
+          "conv_float2negexp": [
+            "val"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "basislistdunning",
+        "functions": [
+          "load_basfam_dunning"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "load_basfam_dunning": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "libmintsbasisset",
+        "functions": [],
+        "classes": [
+          "BasisSet"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "orca",
+        "functions": [
+          "find_start",
+          "harvest",
+          "harvest_coupled_cluster",
+          "harvest_dipole",
+          "harvest_engrad",
+          "harvest_molecule_from_outfile",
+          "harvest_mp2",
+          "harvest_scf_from_outfile",
+          "muster_memory",
+          "muster_modelchem",
+          "orca_gradient_list",
+          "orca_list"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "harvest": [
+            "p4Mol",
+            "orca_out"
+          ],
+          "muster_memory": [
+            "mem"
+          ],
+          "muster_modelchem": [
+            "name",
+            "dertype"
+          ],
+          "orca_list": [],
+          "orca_gradient_list": [],
+          "harvest_molecule_from_outfile": [
+            "lines"
+          ],
+          "harvest_scf_from_outfile": [
+            "lines",
+            "psivar"
+          ],
+          "harvest_dipole": [
+            "lines",
+            "psivar"
+          ],
+          "harvest_mp2": [
+            "lines",
+            "psivar"
+          ],
+          "harvest_coupled_cluster": [
+            "lines",
+            "psivar"
+          ],
+          "harvest_engrad": [
+            "engrad"
+          ],
+          "find_start": [
+            "lines",
+            "start_str",
+            "reverse"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "molpro",
+        "functions": [],
+        "classes": [
+          "MolproIn"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "align",
+        "functions": [
+          "B787",
+          "compute_scramble"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "B787": [
+            "cgeom",
+            "rgeom",
+            "cuniq",
+            "runiq",
+            "do_plot",
+            "verbose",
+            "atoms_map",
+            "run_resorting",
+            "mols_align",
+            "run_to_completion",
+            "uno_cutoff",
+            "run_mirror"
+          ],
+          "compute_scramble": [
+            "nat",
+            "do_resort",
+            "do_shift",
+            "do_rotate",
+            "deflection",
+            "do_mirror"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "molpro2",
+        "functions": [
+          "harvest_output",
+          "muster_cdsgroup_options",
+          "muster_modelchem",
+          "prepare_options_for_molpro",
+          "psi4_list"
+        ],
+        "classes": [
+          "Infile"
+        ],
+        "function_signatures": {
+          "harvest_output": [
+            "outtext"
+          ],
+          "muster_cdsgroup_options": [
+            "name"
+          ],
+          "prepare_options_for_molpro": [
+            "options",
+            "proc"
+          ],
+          "muster_modelchem": [
+            "name",
+            "dertype",
+            "mol"
+          ],
+          "psi4_list": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "gradparse",
+        "functions": [
+          "to_string"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "to_string": [
+            "grad",
+            "handle",
+            "dtype",
+            "mol",
+            "energy"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "molecule",
+        "functions": [],
+        "classes": [
+          "Molecule"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "qchem",
+        "functions": [
+          "harvest_output",
+          "muster_basis",
+          "muster_cdsgroup_options",
+          "muster_memory",
+          "muster_modelchem",
+          "psi4_list"
+        ],
+        "classes": [
+          "Infile"
+        ],
+        "function_signatures": {
+          "harvest_output": [
+            "outtext"
+          ],
+          "muster_memory": [
+            "mem"
+          ],
+          "muster_basis": [
+            "bas"
+          ],
+          "muster_cdsgroup_options": [],
+          "muster_modelchem": [
+            "name",
+            "dertype"
+          ],
+          "psi4_list": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "modelchems",
+        "functions": [],
+        "classes": [
+          "BasisSet",
+          "Citation",
+          "Error",
+          "Method",
+          "Publication",
+          "QCEssential"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "dbproc",
+        "functions": [
+          "dictify_database_docstrings",
+          "drop_duplicates",
+          "useful"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "useful": [],
+          "drop_duplicates": [
+            "seq"
+          ],
+          "dictify_database_docstrings": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "qcformat",
+        "functions": [],
+        "classes": [
+          "InputFormat",
+          "InputFormat2"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "libmintsbasissetparser",
+        "functions": [],
+        "classes": [
+          "Gaussian94BasisSetParser"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "vecutil",
+        "functions": [
+          "add",
+          "cross",
+          "determinant",
+          "diagonalize3x3symmat",
+          "distance",
+          "dot",
+          "identity",
+          "matadd",
+          "mscale",
+          "mult",
+          "naivemult",
+          "norm",
+          "normalize",
+          "perp_unit",
+          "rotate",
+          "scale",
+          "show",
+          "sub",
+          "transpose",
+          "zero"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "norm": [
+            "v"
+          ],
+          "add": [
+            "v",
+            "u"
+          ],
+          "sub": [
+            "v",
+            "u"
+          ],
+          "dot": [
+            "v",
+            "u"
+          ],
+          "scale": [
+            "v",
+            "d"
+          ],
+          "naivemult": [
+            "v",
+            "u"
+          ],
+          "normalize": [
+            "v"
+          ],
+          "distance": [
+            "v",
+            "u"
+          ],
+          "cross": [
+            "v",
+            "u"
+          ],
+          "rotate": [
+            "v",
+            "theta",
+            "axis"
+          ],
+          "perp_unit": [
+            "u",
+            "v"
+          ],
+          "determinant": [
+            "mat"
+          ],
+          "diagonalize3x3symmat": [
+            "M"
+          ],
+          "zero": [
+            "m",
+            "n"
+          ],
+          "identity": [
+            "m"
+          ],
+          "show": [
+            "matrix"
+          ],
+          "mscale": [
+            "matrix",
+            "d"
+          ],
+          "mult": [
+            "matrix1",
+            "matrix2"
+          ],
+          "transpose": [
+            "matrix"
+          ],
+          "matadd": [
+            "matrix1",
+            "matrix2",
+            "fac1",
+            "fac2"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "subsetgenerator",
+        "functions": [
+          "genset_DDn5min",
+          "genset_HBn5min",
+          "genset_MXDDNPn5min",
+          "genset_MXDDPPn5min",
+          "genset_MXn5min",
+          "genset_MXuDD",
+          "genset_allneutral",
+          "genset_anyanion",
+          "genset_anycation"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "genset_MXuDD": [
+            "dbinstance"
+          ],
+          "genset_HBn5min": [
+            "dbinstance"
+          ],
+          "genset_MXn5min": [
+            "dbinstance"
+          ],
+          "genset_DDn5min": [
+            "dbinstance"
+          ],
+          "genset_MXDDPPn5min": [
+            "dbinstance"
+          ],
+          "genset_MXDDNPn5min": [
+            "dbinstance"
+          ],
+          "genset_allneutral": [
+            "dbinstance"
+          ],
+          "genset_anyanion": [
+            "dbinstance"
+          ],
+          "genset_anycation": [
+            "dbinstance"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "jajo",
+        "functions": [
+          "getrec"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "getrec": [
+            "reclabelarray",
+            "verbose"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "libmintscoordentry",
+        "functions": [],
+        "classes": [
+          "CartesianEntry",
+          "CoordEntry",
+          "CoordValue",
+          "NumberValue",
+          "VariableValue",
+          "ZMatrixEntry"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "psivardefs",
+        "functions": [
+          "sapt_psivars"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "sapt_psivars": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "libmintspointgrp",
+        "functions": [
+          "similar"
+        ],
+        "classes": [
+          "CharacterTable",
+          "IrreducibleRepresentation",
+          "PointGroup",
+          "SymRep",
+          "SymmetryOperation"
+        ],
+        "function_signatures": {
+          "similar": [
+            "bits"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "textables",
+        "functions": [
+          "begin_latex_document",
+          "count",
+          "empty",
+          "end_latex_document",
+          "flat",
+          "graphics",
+          "label",
+          "label2",
+          "liliowa",
+          "lmtdbas",
+          "table_generic",
+          "val"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "val": [
+            "kw"
+          ],
+          "graphics": [
+            "kw"
+          ],
+          "flat": [
+            "kw"
+          ],
+          "liliowa": [
+            "kw"
+          ],
+          "lmtdbas": [
+            "kw"
+          ],
+          "label": [
+            "kw"
+          ],
+          "label2": [
+            "kw"
+          ],
+          "count": [
+            "kw"
+          ],
+          "empty": [
+            "kw"
+          ],
+          "table_generic": [
+            "dbse",
+            "serrors",
+            "mtd",
+            "bas",
+            "columnplan",
+            "rowplan",
+            "opt",
+            "err",
+            "sset",
+            "landscape",
+            "standalone",
+            "subjoin",
+            "suppressblanks",
+            "footnotes",
+            "title",
+            "indextitle",
+            "plotpath",
+            "theme"
+          ],
+          "begin_latex_document": [],
+          "end_latex_document": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "dbwrap",
+        "functions": [
+          "average_errors",
+          "balanced_error",
+          "cure_weight",
+          "fancify_mc_tag",
+          "format_errors",
+          "initialize_errors",
+          "initialize_errors_elaborate",
+          "oxcom",
+          "string_contrast"
+        ],
+        "classes": [
+          "DB4",
+          "Database",
+          "Reaction",
+          "ReactionDatum",
+          "Reagent",
+          "Subset",
+          "ThreeDatabases",
+          "WrappedDatabase"
+        ],
+        "function_signatures": {
+          "initialize_errors": [],
+          "initialize_errors_elaborate": [
+            "e",
+            "pe",
+            "pbe",
+            "pce",
+            "extrema"
+          ],
+          "average_errors": [],
+          "format_errors": [
+            "err",
+            "mode"
+          ],
+          "string_contrast": [
+            "ss"
+          ],
+          "oxcom": [
+            "lst"
+          ],
+          "cure_weight": [
+            "refrxn",
+            "refeq",
+            "rrat",
+            "xi"
+          ],
+          "balanced_error": [
+            "refrxn",
+            "refeq",
+            "rrat",
+            "m",
+            "p"
+          ],
+          "fancify_mc_tag": [
+            "mc",
+            "latex"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "parker",
+        "functions": [
+          "missing_bonds",
+          "missing_neighbors",
+          "xyz2mol"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "xyz2mol": [
+            "self"
+          ],
+          "missing_bonds": [
+            "bonds",
+            "bond_tree",
+            "at_types"
+          ],
+          "missing_neighbors": [
+            "bond_tree",
+            "n_missing"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "bfs",
+        "functions": [
+          "BFS"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "BFS": [
+            "geom",
+            "elem",
+            "seed_atoms",
+            "bond_threshold"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "libmintsgshell",
+        "functions": [
+          "INT_CARTINDEX",
+          "INT_ICART",
+          "INT_IPURE",
+          "INT_NCART",
+          "INT_NFUNC",
+          "INT_NPURE",
+          "df"
+        ],
+        "classes": [
+          "ShellInfo"
+        ],
+        "function_signatures": {
+          "df": [
+            "n"
+          ],
+          "INT_NCART": [
+            "am"
+          ],
+          "INT_NPURE": [
+            "am"
+          ],
+          "INT_NFUNC": [
+            "pu",
+            "am"
+          ],
+          "INT_CARTINDEX": [
+            "am",
+            "i",
+            "j"
+          ],
+          "INT_ICART": [
+            "a",
+            "b",
+            "c"
+          ],
+          "INT_IPURE": [
+            "l",
+            "m"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "mpl",
+        "functions": [
+          "bars",
+          "composition_tile",
+          "disthist",
+          "expand_saveas",
+          "flat",
+          "iowa",
+          "liliowa",
+          "segment_color",
+          "ternary",
+          "threads",
+          "valerr"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "expand_saveas": [
+            "saveas",
+            "def_filename",
+            "def_path",
+            "def_prefix",
+            "relpath"
+          ],
+          "segment_color": [
+            "argcolor",
+            "saptcolor"
+          ],
+          "bars": [
+            "data",
+            "title",
+            "saveas",
+            "relpath",
+            "graphicsformat",
+            "view"
+          ],
+          "flat": [
+            "data",
+            "color",
+            "title",
+            "xlimit",
+            "xlines",
+            "mae",
+            "mape",
+            "view",
+            "saveas",
+            "relpath",
+            "graphicsformat"
+          ],
+          "valerr": [
+            "data",
+            "color",
+            "title",
+            "xtitle",
+            "view",
+            "saveas",
+            "relpath",
+            "graphicsformat"
+          ],
+          "disthist": [
+            "data",
+            "title",
+            "xtitle",
+            "xmin",
+            "xmax",
+            "me",
+            "stde",
+            "view",
+            "saveas",
+            "relpath",
+            "graphicsformat"
+          ],
+          "threads": [
+            "data",
+            "labels",
+            "color",
+            "title",
+            "xlimit",
+            "mae",
+            "mape",
+            "mousetext",
+            "mouselink",
+            "mouseimag",
+            "mousetitle",
+            "mousediv",
+            "labeled",
+            "view",
+            "saveas",
+            "relpath",
+            "graphicsformat"
+          ],
+          "ternary": [
+            "sapt",
+            "title",
+            "labeled",
+            "view",
+            "saveas",
+            "relpath",
+            "graphicsformat"
+          ],
+          "composition_tile": [
+            "db",
+            "aa1",
+            "aa2"
+          ],
+          "iowa": [
+            "mcdat",
+            "mclbl",
+            "title",
+            "xtitle",
+            "xlimit",
+            "view",
+            "saveas",
+            "relpath",
+            "graphicsformat"
+          ],
+          "liliowa": [
+            "mcdat",
+            "title",
+            "xlimit",
+            "view",
+            "saveas",
+            "relpath",
+            "graphicsformat"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "libmintsmolecule",
+        "functions": [
+          "atom_present_in_geom",
+          "compute_atom_map",
+          "equal_but_for_row_order",
+          "matrix_3d_rotation",
+          "matrix_3d_rotation_Cn"
+        ],
+        "classes": [
+          "LibmintsMolecule"
+        ],
+        "function_signatures": {
+          "atom_present_in_geom": [
+            "geom",
+            "b",
+            "tol"
+          ],
+          "matrix_3d_rotation_Cn": [
+            "coord",
+            "axis",
+            "reflect",
+            "tol",
+            "max_Cn_to_check"
+          ],
+          "matrix_3d_rotation": [
+            "mat",
+            "axis",
+            "phi",
+            "Sn"
+          ],
+          "equal_but_for_row_order": [
+            "mat",
+            "rhs",
+            "tol"
+          ],
+          "compute_atom_map": [
+            "mol",
+            "tol"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "exceptions",
+        "functions": [],
+        "classes": [
+          "BasisSetFileNotFound",
+          "BasisSetNotDefined",
+          "BasisSetNotFound",
+          "BasisSetNotFoundDeprecated",
+          "Dftd3Error",
+          "FeatureDeprecated",
+          "FeatureNotImplemented",
+          "FragmentCountError",
+          "IncompleteAtomError",
+          "MoleculeFormatError",
+          "ParsingValidationError",
+          "QcdbException",
+          "TestComparisonError",
+          "UpgradeHelper",
+          "ValidationError"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "cfour",
+        "functions": [
+          "backtransform",
+          "cfour_gradient_list",
+          "cfour_hessian_list",
+          "cfour_list",
+          "cfour_psivar_list",
+          "format_fjobarc",
+          "harvest",
+          "harvest_DIPOL",
+          "harvest_FCM",
+          "harvest_GRD",
+          "harvest_output",
+          "harvest_zmat",
+          "jajo2mol",
+          "local_harvest_outfile_pass",
+          "muster_memory",
+          "muster_modelchem",
+          "muster_psi4options"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "harvest_output": [
+            "outtext"
+          ],
+          "local_harvest_outfile_pass": [
+            "outtext"
+          ],
+          "harvest": [
+            "p4Mol",
+            "c4out"
+          ],
+          "harvest_GRD": [
+            "grd"
+          ],
+          "harvest_zmat": [
+            "zmat"
+          ],
+          "harvest_FCM": [
+            "fcm"
+          ],
+          "harvest_DIPOL": [
+            "dipol"
+          ],
+          "muster_memory": [
+            "mem"
+          ],
+          "muster_psi4options": [
+            "opt"
+          ],
+          "muster_modelchem": [
+            "name",
+            "dertype"
+          ],
+          "cfour_list": [],
+          "cfour_gradient_list": [],
+          "cfour_hessian_list": [],
+          "cfour_psivar_list": [],
+          "format_fjobarc": [
+            "energy",
+            "map",
+            "elem",
+            "coordinates",
+            "gradient",
+            "dipole"
+          ],
+          "backtransform": [
+            "chgeMol",
+            "permMol",
+            "chgeGrad",
+            "chgeDip"
+          ],
+          "jajo2mol": [
+            "jajodic"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "hessparse",
+        "functions": [
+          "load_hessian",
+          "to_string"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "load_hessian": [
+            "shess",
+            "dtype"
+          ],
+          "to_string": [
+            "hess",
+            "handle",
+            "dtype"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "basislist",
+        "functions": [
+          "corresponding_basis",
+          "corresponding_zeta",
+          "load_basis_families",
+          "print_basis_families",
+          "sanitize_basisname"
+        ],
+        "classes": [
+          "BasisFamily"
+        ],
+        "function_signatures": {
+          "sanitize_basisname": [
+            "name"
+          ],
+          "load_basis_families": [],
+          "print_basis_families": [],
+          "corresponding_zeta": [
+            "name"
+          ],
+          "corresponding_basis": [
+            "name",
+            "role"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "vib",
+        "functions": [
+          "compare_vibinfos",
+          "filter_nonvib",
+          "filter_omega_to_real",
+          "harmonic_analysis",
+          "hessian_symmetrize",
+          "print_molden_vibs",
+          "print_vibs",
+          "thermo"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "compare_vibinfos": [
+            "expected",
+            "computed",
+            "tol",
+            "label",
+            "verbose",
+            "forgive",
+            "required",
+            "toldict"
+          ],
+          "hessian_symmetrize": [
+            "hess",
+            "mol"
+          ],
+          "print_molden_vibs": [
+            "vibinfo",
+            "atom_symbol",
+            "geom",
+            "standalone"
+          ],
+          "harmonic_analysis": [
+            "hess",
+            "geom",
+            "mass",
+            "basisset",
+            "irrep_labels",
+            "dipder",
+            "project_trans",
+            "project_rot"
+          ],
+          "print_vibs": [
+            "vibinfo",
+            "atom_lbl"
+          ],
+          "thermo": [
+            "vibinfo",
+            "T",
+            "P",
+            "multiplicity",
+            "molecular_mass",
+            "E0",
+            "sigma",
+            "rot_const",
+            "rotor_type"
+          ],
+          "filter_nonvib": [
+            "vibinfo",
+            "remove"
+          ],
+          "filter_omega_to_real": [
+            "omega"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "testing",
+        "functions": [
+          "compare_dicts",
+          "compare_matrices"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "compare_matrices": [
+            "expected",
+            "computed"
+          ],
+          "compare_dicts": [
+            "expected",
+            "computed"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "qcprog_psi4",
+        "functions": [
+          "harvest_output",
+          "muster_cdsgroup_options",
+          "muster_modelchem",
+          "psi4_list"
+        ],
+        "classes": [
+          "Infile"
+        ],
+        "function_signatures": {
+          "harvest_output": [
+            "outtext"
+          ],
+          "muster_cdsgroup_options": [],
+          "muster_modelchem": [
+            "name",
+            "dertype"
+          ],
+          "psi4_list": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "orient",
+        "functions": [],
+        "classes": [
+          "OrientMols"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "psiutil",
+        "functions": [
+          "all_casings",
+          "drop_duplicates",
+          "findfile_ignorecase",
+          "getattr_ignorecase",
+          "import_ignorecase",
+          "query_yes_no",
+          "search_file"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "query_yes_no": [
+            "question",
+            "default"
+          ],
+          "search_file": [
+            "filename",
+            "search_path"
+          ],
+          "drop_duplicates": [
+            "seq"
+          ],
+          "all_casings": [
+            "input_string"
+          ],
+          "getattr_ignorecase": [
+            "module",
+            "attr"
+          ],
+          "import_ignorecase": [
+            "module"
+          ],
+          "findfile_ignorecase": [
+            "fil",
+            "pre",
+            "post"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb",
+        "module": "pdict",
+        "functions": [],
+        "classes": [
+          "PreservingDict"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb.util",
+        "module": "mpl",
+        "functions": [
+          "plot_coord"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "plot_coord": [
+            "ref",
+            "cand",
+            "orig",
+            "comment"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdb.util",
+        "module": "regex",
+        "functions": [
+          "parse_dertype"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "parse_dertype": [
+            "dertype",
+            "max_derivative"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdbtest",
+        "module": "test_mints5_molecule_symmetry",
+        "functions": [
+          "mol_tester",
+          "sys_tester",
+          "test_BH4p",
+          "test_BrF5",
+          "test_C2H2",
+          "test_C4H4Cl2F2",
+          "test_CH2ClBr",
+          "test_CH2F2",
+          "test_CH4",
+          "test_CHFClBr",
+          "test_CN",
+          "test_H2O",
+          "test_HCCCl",
+          "test_HOCl",
+          "test_HOOH",
+          "test_HOOH_dimer",
+          "test_Ih",
+          "test_Li_H2O_4_p",
+          "test_N2",
+          "test_N2H2",
+          "test_NH3",
+          "test_NOHOHOH",
+          "test_SF6",
+          "test_TFCOT",
+          "test_allene",
+          "test_ethane_eclipsed",
+          "test_ethane_gauche",
+          "test_ethane_staggered",
+          "test_ethylene_cation",
+          "test_isoBH4p",
+          "test_isoBrF5",
+          "test_isoC2H2",
+          "test_isoC4H4Cl2F2",
+          "test_isoCH2ClBr",
+          "test_isoCH2F2",
+          "test_isoCH4",
+          "test_isoCHFClBr",
+          "test_isoCN",
+          "test_isoH2O",
+          "test_isoHCCCl",
+          "test_isoHOCl",
+          "test_isoHOOH",
+          "test_isoHOOH_dimer",
+          "test_isoIh",
+          "test_isoN2",
+          "test_isoNH3",
+          "test_isoNOHOHOH",
+          "test_isoSF6",
+          "test_isoallene",
+          "test_isosinglet_ethylene",
+          "test_singlet_ethylene",
+          "test_triplet_ethylene"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_C2H2": [],
+          "test_isoC2H2": [],
+          "test_N2": [],
+          "test_isoN2": [],
+          "test_CN": [],
+          "test_isoCN": [],
+          "test_HCCCl": [],
+          "test_isoHCCCl": [],
+          "test_CHFClBr": [],
+          "test_isoCHFClBr": [],
+          "test_CH2ClBr": [],
+          "test_isoCH2ClBr": [],
+          "test_HOCl": [],
+          "test_isoHOCl": [],
+          "test_C4H4Cl2F2": [],
+          "test_isoC4H4Cl2F2": [],
+          "test_HOOH_dimer": [],
+          "test_isoHOOH_dimer": [],
+          "test_HOOH": [],
+          "test_isoHOOH": [],
+          "test_NOHOHOH": [],
+          "test_isoNOHOHOH": [],
+          "test_H2O": [],
+          "test_isoH2O": [],
+          "test_CH2F2": [],
+          "test_isoCH2F2": [],
+          "test_NH3": [],
+          "test_isoNH3": [],
+          "test_BrF5": [],
+          "test_isoBrF5": [],
+          "test_N2H2": [],
+          "test_TFCOT": [],
+          "test_Li_H2O_4_p": [],
+          "test_ethylene_cation": [],
+          "test_ethane_gauche": [],
+          "test_triplet_ethylene": [],
+          "test_allene": [],
+          "test_isoallene": [],
+          "test_ethane_staggered": [],
+          "test_singlet_ethylene": [],
+          "test_isosinglet_ethylene": [],
+          "test_ethane_eclipsed": [],
+          "test_BH4p": [],
+          "test_isoBH4p": [],
+          "test_CH4": [],
+          "test_isoCH4": [],
+          "test_SF6": [],
+          "test_isoSF6": [],
+          "test_Ih": [],
+          "test_isoIh": [],
+          "mol_tester": [
+            "lbl",
+            "molstr",
+            "pg",
+            "sigma",
+            "refgeomang",
+            "isbohr",
+            "iso"
+          ],
+          "sys_tester": [
+            "sys"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdbtest",
+        "module": "test_to_string",
+        "functions": [
+          "test_toxyz_1a",
+          "test_toxyz_1b",
+          "test_toxyz_1c",
+          "test_toxyz_2a",
+          "test_toxyz_2b",
+          "test_toxyz_2c",
+          "test_toxyz_3a"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_toxyz_1a": [],
+          "test_toxyz_1b": [],
+          "test_toxyz_1c": [],
+          "test_toxyz_2a": [],
+          "test_toxyz_2b": [],
+          "test_toxyz_2c": [],
+          "test_toxyz_3a": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdbtest",
+        "module": "addons",
+        "functions": [
+          "is_psi4_new_enough"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "is_psi4_new_enough": [
+            "version_feature_introduced"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdbtest",
+        "module": "utils",
+        "functions": [
+          "true_false_decorator"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "true_false_decorator": [
+            "compare_fn"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdbtest",
+        "module": "test_mints9_basisset",
+        "functions": [
+          "test_1",
+          "test_1b",
+          "test_2",
+          "test_2b",
+          "test_3",
+          "test_3b"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_1": [],
+          "test_1b": [],
+          "test_2": [],
+          "test_2b": [],
+          "test_3": [],
+          "test_3b": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdbtest",
+        "module": "test_from_string",
+        "functions": [
+          "assess_mol_11",
+          "test_arrays_10a",
+          "test_arrays_10b",
+          "test_arrays_10c",
+          "test_arrays_10d",
+          "test_arrays_10e",
+          "test_arrays_10f",
+          "test_arrays_10g",
+          "test_arrays_10h",
+          "test_arrays_10i",
+          "test_arrays_10j",
+          "test_arrays_10k",
+          "test_arrays_10l",
+          "test_arrays_10m",
+          "test_arrays_10n",
+          "test_arrays_10o",
+          "test_arrays_10p",
+          "test_arrays_10q",
+          "test_pmol_11k",
+          "test_pmol_11l",
+          "test_pmol_11m",
+          "test_pmol_11n",
+          "test_pmol_11o",
+          "test_psi4_efp_5a",
+          "test_psi4_efp_5b",
+          "test_psi4_efp_5c",
+          "test_psi4_efp_5d",
+          "test_psi4_efp_5e",
+          "test_psi4_pubchem_4a",
+          "test_psi4_pubchem_4b",
+          "test_psi4_pubchem_4c",
+          "test_psi4_qm_1a",
+          "test_psi4_qm_1b",
+          "test_psi4_qm_1c",
+          "test_psi4_qm_1d",
+          "test_psi4_qm_1e",
+          "test_psi4_qm_2a",
+          "test_psi4_qm_2b",
+          "test_psi4_qm_2c",
+          "test_psi4_qm_2d",
+          "test_psi4_qm_2f",
+          "test_psi4_qm_2g",
+          "test_psi4_qm_3",
+          "test_psi4_qmefp_6a",
+          "test_psi4_qmefp_6b",
+          "test_psi4_qmefp_6c",
+          "test_psi4_qmefp_6d",
+          "test_qmol_11a",
+          "test_qmol_11b",
+          "test_qmol_11c",
+          "test_qmol_11d",
+          "test_qmol_11e",
+          "test_qmol_11f",
+          "test_qmol_11g",
+          "test_qmol_11h",
+          "test_qmol_11i",
+          "test_qmol_11j",
+          "test_qmol_11p",
+          "test_qmol_12",
+          "test_strings_10r",
+          "test_strings_10s",
+          "test_strings_10t",
+          "test_xyzp_qm_7a",
+          "test_xyzp_qm_7b",
+          "test_xyzp_qm_7c",
+          "test_xyzp_qm_7d",
+          "test_xyzp_qm_8a"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_psi4_qm_1a": [],
+          "test_psi4_qm_1b": [],
+          "test_psi4_qm_1c": [],
+          "test_psi4_qm_1d": [],
+          "test_psi4_qm_1e": [],
+          "test_psi4_qm_2a": [],
+          "test_psi4_qm_2b": [],
+          "test_psi4_qm_2c": [],
+          "test_psi4_qm_2d": [],
+          "test_psi4_qm_2f": [],
+          "test_psi4_qm_2g": [],
+          "test_psi4_qm_3": [],
+          "test_psi4_pubchem_4a": [],
+          "test_psi4_pubchem_4b": [],
+          "test_psi4_pubchem_4c": [],
+          "test_psi4_efp_5a": [],
+          "test_psi4_efp_5b": [],
+          "test_psi4_efp_5c": [],
+          "test_psi4_efp_5d": [],
+          "test_psi4_efp_5e": [],
+          "test_psi4_qmefp_6a": [],
+          "test_psi4_qmefp_6b": [],
+          "test_psi4_qmefp_6c": [],
+          "test_psi4_qmefp_6d": [],
+          "test_xyzp_qm_7a": [],
+          "test_xyzp_qm_7b": [],
+          "test_xyzp_qm_7c": [],
+          "test_xyzp_qm_7d": [],
+          "test_xyzp_qm_8a": [],
+          "test_arrays_10a": [],
+          "test_arrays_10b": [],
+          "test_arrays_10c": [],
+          "test_arrays_10d": [],
+          "test_arrays_10e": [],
+          "test_arrays_10f": [],
+          "test_arrays_10g": [],
+          "test_arrays_10h": [],
+          "test_arrays_10i": [],
+          "test_arrays_10j": [],
+          "test_arrays_10k": [],
+          "test_arrays_10l": [],
+          "test_arrays_10m": [],
+          "test_arrays_10n": [],
+          "test_arrays_10o": [],
+          "test_arrays_10p": [],
+          "test_arrays_10q": [],
+          "test_strings_10r": [],
+          "test_strings_10s": [],
+          "test_strings_10t": [],
+          "assess_mol_11": [
+            "mol",
+            "label"
+          ],
+          "test_qmol_11a": [],
+          "test_qmol_11b": [],
+          "test_qmol_11c": [],
+          "test_qmol_11d": [],
+          "test_qmol_11e": [],
+          "test_qmol_11f": [],
+          "test_qmol_11g": [],
+          "test_qmol_11h": [],
+          "test_qmol_11i": [],
+          "test_qmol_11j": [],
+          "test_pmol_11k": [],
+          "test_pmol_11l": [],
+          "test_pmol_11m": [],
+          "test_pmol_11n": [],
+          "test_pmol_11o": [],
+          "test_qmol_11p": [],
+          "test_qmol_12": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdbtest",
+        "module": "test_bfs",
+        "functions": [
+          "test_Molecule_BFS",
+          "test_numpy_BFS"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_Molecule_BFS": [],
+          "test_numpy_BFS": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.qcdbtest",
+        "module": "test_mints4",
+        "functions": [
+          "test_mints4",
+          "test_scf4"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_mints4": [],
+          "test_scf4": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "optproc",
+        "functions": [
+          "OptionsStateCM"
+        ],
+        "classes": [
+          "OptionState",
+          "OptionsState"
+        ],
+        "function_signatures": {
+          "OptionsStateCM": [
+            "osd"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver",
+        "module": "p4utilthon_helpers",
+        "functions": [
+          "basis_helper",
+          "pcm_helper",
+          "plump_qcvar",
+          "set_module_options",
+          "set_options",
+          "validate_external_potential"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "set_options": [
+            "options_dict",
+            "verbose"
+          ],
+          "set_module_options": [
+            "module",
+            "options_dict"
+          ],
+          "pcm_helper": [
+            "block"
+          ],
+          "basis_helper": [
+            "block",
+            "name",
+            "key",
+            "set_option"
+          ],
+          "validate_external_potential": [
+            "external_potential"
+          ],
+          "plump_qcvar": [
+            "key",
+            "val"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "prop_util",
+        "functions": [
+          "free_atom_volumes"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "free_atom_volumes": [
+            "wfn"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "procutil",
+        "functions": [
+          "all_casings",
+          "drop_duplicates",
+          "expand_psivars",
+          "format_molecule_for_input",
+          "format_options_for_input",
+          "get_psifile",
+          "getattr_ignorecase",
+          "hold_options_state",
+          "import_ignorecase",
+          "kwargs_lower",
+          "mat2arr",
+          "prepare_options_for_modules",
+          "prepare_options_for_set_options",
+          "provenance_stamp",
+          "state_to_atomicinput"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "kwargs_lower": [
+            "kwargs"
+          ],
+          "get_psifile": [
+            "fileno",
+            "pidspace"
+          ],
+          "format_molecule_for_input": [
+            "mol",
+            "name",
+            "forcexyz"
+          ],
+          "format_options_for_input": [
+            "molecule"
+          ],
+          "drop_duplicates": [
+            "seq"
+          ],
+          "all_casings": [
+            "input_string"
+          ],
+          "getattr_ignorecase": [
+            "module",
+            "attr"
+          ],
+          "import_ignorecase": [
+            "module"
+          ],
+          "hold_options_state": [],
+          "prepare_options_for_modules": [
+            "changedOnly",
+            "commandsInsteadDict",
+            "globalsOnly",
+            "stateInsteadMediated"
+          ],
+          "prepare_options_for_set_options": [],
+          "state_to_atomicinput": [],
+          "mat2arr": [
+            "mat"
+          ],
+          "expand_psivars": [
+            "pvdefs",
+            "verbose"
+          ],
+          "provenance_stamp": [
+            "routine",
+            "module"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "util",
+        "functions": [
+          "copy_file_from_scratch",
+          "copy_file_to_scratch",
+          "cubeprop",
+          "get_memory",
+          "libint2_configuration",
+          "libint2_print_out",
+          "oeprop",
+          "set_memory"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "oeprop": [
+            "wfn"
+          ],
+          "cubeprop": [
+            "wfn"
+          ],
+          "set_memory": [
+            "inputval",
+            "execute",
+            "quiet"
+          ],
+          "get_memory": [],
+          "copy_file_to_scratch": [
+            "filename",
+            "prefix",
+            "namespace",
+            "unit",
+            "move"
+          ],
+          "copy_file_from_scratch": [
+            "filename",
+            "prefix",
+            "namespace",
+            "unit",
+            "move"
+          ],
+          "libint2_configuration": [],
+          "libint2_print_out": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "fcidump",
+        "functions": [
+          "compare_fcidumps",
+          "energies_from_fcidump",
+          "fcidump",
+          "fcidump_from_file",
+          "write_eigenvalues"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "fcidump": [
+            "wfn",
+            "fname",
+            "oe_ints"
+          ],
+          "write_eigenvalues": [
+            "eigs",
+            "mo_idx"
+          ],
+          "fcidump_from_file": [
+            "fname"
+          ],
+          "compare_fcidumps": [
+            "expected",
+            "computed",
+            "label",
+            "atol"
+          ],
+          "energies_from_fcidump": [
+            "intdump"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "solvers",
+        "functions": [
+          "cg_solver",
+          "davidson_solver",
+          "hamiltonian_solver"
+        ],
+        "classes": [
+          "DIIS",
+          "SolverEngine"
+        ],
+        "function_signatures": {
+          "cg_solver": [
+            "rhs_vec",
+            "hx_function",
+            "preconditioner",
+            "guess",
+            "printer",
+            "printlvl",
+            "maxiter",
+            "rcond"
+          ],
+          "davidson_solver": [
+            "engine",
+            "guess"
+          ],
+          "hamiltonian_solver": [
+            "engine",
+            "guess"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "spectrum",
+        "functions": [
+          "prefactor_ecd",
+          "prefactor_opa",
+          "spectrum"
+        ],
+        "classes": [
+          "Gaussian",
+          "Lineshape",
+          "Lorentzian"
+        ],
+        "function_signatures": {
+          "prefactor_opa": [],
+          "prefactor_ecd": [],
+          "spectrum": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "inpsight",
+        "functions": [],
+        "classes": [
+          "InPsight"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "text",
+        "functions": [
+          "banner",
+          "find_approximate_string_matches",
+          "levenshtein",
+          "message_box"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "banner": [
+            "text",
+            "type",
+            "width",
+            "strNotOutfile"
+          ],
+          "levenshtein": [
+            "seq1",
+            "seq2"
+          ],
+          "find_approximate_string_matches": [
+            "seq1",
+            "options",
+            "max_distance"
+          ],
+          "message_box": [
+            "message",
+            "max_width",
+            "min_width"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "numpy_helper",
+        "functions": [
+          "array_to_matrix",
+          "block_diagonal_array"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "array_to_matrix": [
+            "self",
+            "arr",
+            "name",
+            "dim1",
+            "dim2"
+          ],
+          "block_diagonal_array": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "fchk",
+        "functions": [
+          "compare_fchkfiles",
+          "compare_moldenfiles"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "compare_fchkfiles": [
+            "expected",
+            "computed",
+            "atol_exponent",
+            "label"
+          ],
+          "compare_moldenfiles": [
+            "expected",
+            "computed",
+            "atol_exponent",
+            "label"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.p4util",
+        "module": "exceptions",
+        "functions": [
+          "docs_table_link",
+          "sanitize_method"
+        ],
+        "classes": [
+          "ConvergenceError",
+          "ManagedMethodError",
+          "MissingMethodError",
+          "OptimizationConvergenceError",
+          "ParsingError",
+          "PastureRequiredError",
+          "PsiException",
+          "SCFConvergenceError",
+          "TDSCFConvergenceError",
+          "TestComparisonError",
+          "UpgradeHelper",
+          "ValidationError"
+        ],
+        "function_signatures": {
+          "sanitize_method": [
+            "name"
+          ],
+          "docs_table_link": [
+            "name",
+            "mode"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting",
+        "module": "interface_cfour",
+        "functions": [
+          "cfour_gradient_list",
+          "cfour_hessian_list",
+          "cfour_list",
+          "cfour_psivar_list",
+          "run_cfour",
+          "write_zmat"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "run_cfour": [
+            "name"
+          ],
+          "cfour_list": [],
+          "cfour_gradient_list": [],
+          "cfour_hessian_list": [],
+          "cfour_psivar_list": [],
+          "write_zmat": [
+            "name",
+            "dertype",
+            "molecule"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting",
+        "module": "proc",
+        "functions": [
+          "build_functional_and_disp",
+          "run_adcc",
+          "run_adcc_property",
+          "run_bccd",
+          "run_cc_property",
+          "run_ccenergy",
+          "run_ccenergy_gradient",
+          "run_cepa",
+          "run_dct",
+          "run_dct_gradient",
+          "run_dct_property",
+          "run_detcas",
+          "run_detci",
+          "run_detci_property",
+          "run_dfep2",
+          "run_dfmp2",
+          "run_dfmp2_gradient",
+          "run_dfmp2_property",
+          "run_dfmp2d_gradient",
+          "run_dfocc",
+          "run_dfocc_gradient",
+          "run_dfocc_property",
+          "run_dlpnoccsd",
+          "run_dlpnoccsd_t",
+          "run_dlpnomp2",
+          "run_dmrgci",
+          "run_dmrgscf",
+          "run_efp",
+          "run_eom_cc",
+          "run_eom_cc_gradient",
+          "run_fisapt",
+          "run_fnocc",
+          "run_fnodfcc",
+          "run_mcscf",
+          "run_mp2f12",
+          "run_mrcc",
+          "run_occ",
+          "run_occ_gradient",
+          "run_psimrcc",
+          "run_psimrcc_scf",
+          "run_qchf",
+          "run_sapt",
+          "run_sapt_ct",
+          "run_scf",
+          "run_scf_gradient",
+          "run_scf_hessian",
+          "run_scf_property",
+          "run_tdscf_energy",
+          "run_tdscf_excitations",
+          "scf_helper",
+          "scf_wavefunction_factory",
+          "select_cc2",
+          "select_cc2_gradient",
+          "select_cc3",
+          "select_ccd",
+          "select_ccd_gradient",
+          "select_ccsd",
+          "select_ccsd_at_",
+          "select_ccsd_gradient",
+          "select_ccsd_t_",
+          "select_ccsd_t__gradient",
+          "select_cisd",
+          "select_fnoccsd",
+          "select_fnoccsd_t_",
+          "select_lccd",
+          "select_lccd_gradient",
+          "select_mp2",
+          "select_mp2_gradient",
+          "select_mp2_property",
+          "select_mp2p5",
+          "select_mp2p5_gradient",
+          "select_mp3",
+          "select_mp3_gradient",
+          "select_mp4",
+          "select_mrcc",
+          "select_olccd",
+          "select_olccd_gradient",
+          "select_olccd_property",
+          "select_omp2",
+          "select_omp2_gradient",
+          "select_omp2_property",
+          "select_omp2p5",
+          "select_omp2p5_gradient",
+          "select_omp2p5_property",
+          "select_omp3",
+          "select_omp3_gradient",
+          "select_omp3_property",
+          "select_remp2",
+          "select_scf_gradient",
+          "validate_external_potential"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "select_scf_gradient": [
+            "name"
+          ],
+          "select_mp2": [
+            "name"
+          ],
+          "select_mp2_gradient": [
+            "name"
+          ],
+          "select_mp2_property": [
+            "name"
+          ],
+          "select_omp2": [
+            "name"
+          ],
+          "select_omp2_gradient": [
+            "name"
+          ],
+          "select_omp2_property": [
+            "name"
+          ],
+          "select_omp2p5_property": [
+            "name"
+          ],
+          "select_omp3_property": [
+            "name"
+          ],
+          "select_olccd_property": [
+            "name"
+          ],
+          "select_mp3": [
+            "name"
+          ],
+          "select_mp3_gradient": [
+            "name"
+          ],
+          "select_omp3": [
+            "name"
+          ],
+          "select_omp3_gradient": [
+            "name"
+          ],
+          "select_mp2p5": [
+            "name"
+          ],
+          "select_mp2p5_gradient": [
+            "name"
+          ],
+          "select_omp2p5": [
+            "name"
+          ],
+          "select_omp2p5_gradient": [
+            "name"
+          ],
+          "select_lccd": [
+            "name"
+          ],
+          "select_lccd_gradient": [
+            "name"
+          ],
+          "select_olccd": [
+            "name"
+          ],
+          "select_olccd_gradient": [
+            "name"
+          ],
+          "select_fnoccsd": [
+            "name"
+          ],
+          "select_ccsd": [
+            "name"
+          ],
+          "select_ccsd_gradient": [
+            "name"
+          ],
+          "select_fnoccsd_t_": [
+            "name"
+          ],
+          "select_ccsd_t_": [
+            "name"
+          ],
+          "select_ccsd_t__gradient": [
+            "name"
+          ],
+          "select_ccsd_at_": [
+            "name"
+          ],
+          "select_cisd": [
+            "name"
+          ],
+          "select_mp4": [
+            "name"
+          ],
+          "select_remp2": [
+            "name"
+          ],
+          "select_ccd": [
+            "name"
+          ],
+          "select_ccd_gradient": [
+            "name"
+          ],
+          "select_cc2": [
+            "name"
+          ],
+          "select_cc2_gradient": [
+            "name"
+          ],
+          "select_cc3": [
+            "name"
+          ],
+          "select_mrcc": [
+            "name"
+          ],
+          "build_functional_and_disp": [
+            "name",
+            "restricted",
+            "save_pairwise_disp"
+          ],
+          "scf_wavefunction_factory": [
+            "name",
+            "ref_wfn",
+            "reference"
+          ],
+          "validate_external_potential": [
+            "external_potential"
+          ],
+          "scf_helper": [
+            "name",
+            "post_scf"
+          ],
+          "run_dct": [
+            "name"
+          ],
+          "run_dct_gradient": [
+            "name"
+          ],
+          "run_dct_property": [
+            "name"
+          ],
+          "run_dfocc": [
+            "name"
+          ],
+          "run_dfocc_gradient": [
+            "name"
+          ],
+          "run_dfocc_property": [
+            "name"
+          ],
+          "run_qchf": [
+            "name"
+          ],
+          "run_occ": [
+            "name"
+          ],
+          "run_occ_gradient": [
+            "name"
+          ],
+          "run_scf": [
+            "name"
+          ],
+          "run_scf_gradient": [
+            "name"
+          ],
+          "run_scf_hessian": [
+            "name"
+          ],
+          "run_mcscf": [
+            "name"
+          ],
+          "run_dfmp2_gradient": [
+            "name"
+          ],
+          "run_dfmp2d_gradient": [
+            "name"
+          ],
+          "run_ccenergy": [
+            "name"
+          ],
+          "run_ccenergy_gradient": [
+            "name"
+          ],
+          "run_bccd": [
+            "name"
+          ],
+          "run_tdscf_excitations": [
+            "wfn"
+          ],
+          "run_tdscf_energy": [
+            "name"
+          ],
+          "run_scf_property": [
+            "name"
+          ],
+          "run_cc_property": [
+            "name"
+          ],
+          "run_dfmp2_property": [
+            "name"
+          ],
+          "run_detci_property": [
+            "name"
+          ],
+          "run_eom_cc": [
+            "name"
+          ],
+          "run_eom_cc_gradient": [
+            "name"
+          ],
+          "run_adcc": [
+            "name"
+          ],
+          "run_adcc_property": [
+            "name"
+          ],
+          "run_detci": [
+            "name"
+          ],
+          "run_dfmp2": [
+            "name"
+          ],
+          "run_dfep2": [
+            "name"
+          ],
+          "run_dlpnomp2": [
+            "name"
+          ],
+          "run_dlpnoccsd": [
+            "name"
+          ],
+          "run_dlpnoccsd_t": [
+            "name"
+          ],
+          "run_mp2f12": [
+            "name"
+          ],
+          "run_dmrgscf": [
+            "name"
+          ],
+          "run_dmrgci": [
+            "name"
+          ],
+          "run_psimrcc": [
+            "name"
+          ],
+          "run_psimrcc_scf": [
+            "name"
+          ],
+          "run_sapt": [
+            "name"
+          ],
+          "run_sapt_ct": [
+            "name"
+          ],
+          "run_fisapt": [
+            "name"
+          ],
+          "run_mrcc": [
+            "name"
+          ],
+          "run_fnodfcc": [
+            "name"
+          ],
+          "run_fnocc": [
+            "name"
+          ],
+          "run_cepa": [
+            "name"
+          ],
+          "run_detcas": [
+            "name"
+          ],
+          "run_efp": [
+            "name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting",
+        "module": "proc_data",
+        "functions": [
+          "method_algorithm_type"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "method_algorithm_type": [
+            "name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting",
+        "module": "wrappers_cfour",
+        "functions": [
+          "reap_job_validate",
+          "run_cfour_module",
+          "sown_jobs_status",
+          "vpt2",
+          "vpt2_instructions",
+          "vpt2_reaprun_files",
+          "vpt2_sow_files"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "run_cfour_module": [
+            "xmod"
+          ],
+          "vpt2": [
+            "name"
+          ],
+          "vpt2_sow_files": [
+            "item",
+            "linkage",
+            "isC4notP4",
+            "isC4fully",
+            "zmat",
+            "inputSansMol",
+            "inputGenbas"
+          ],
+          "vpt2_reaprun_files": [
+            "item",
+            "linkage",
+            "isSowReap",
+            "isC4notP4",
+            "isC4fully",
+            "zmat",
+            "outdir",
+            "scrdir",
+            "c4scrdir",
+            "lowername",
+            "kwargs"
+          ],
+          "vpt2_instructions": [
+            "stage",
+            "dir",
+            "zmats"
+          ],
+          "sown_jobs_status": [
+            "dir",
+            "prefix",
+            "zmats",
+            "validate_func",
+            "linkage",
+            "keys"
+          ],
+          "reap_job_validate": [
+            "dir",
+            "prefix",
+            "item",
+            "linkage",
+            "keys"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting",
+        "module": "proc_util",
+        "functions": [
+          "check_disk_df",
+          "check_iwl_file_from_scf_type",
+          "check_non_symmetric_jk_density",
+          "oeprop_validator",
+          "prepare_sapt_molecule",
+          "print_ci_results",
+          "sapt_empirical_dispersion",
+          "scf_set_reference_local"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "scf_set_reference_local": [
+            "name",
+            "is_dft"
+          ],
+          "oeprop_validator": [
+            "prop_list"
+          ],
+          "check_iwl_file_from_scf_type": [
+            "scf_type",
+            "wfn"
+          ],
+          "check_non_symmetric_jk_density": [
+            "name"
+          ],
+          "check_disk_df": [
+            "name",
+            "optstash"
+          ],
+          "print_ci_results": [
+            "ciwfn",
+            "rname",
+            "scf_e",
+            "ci_e",
+            "print_opdm_no"
+          ],
+          "prepare_sapt_molecule": [
+            "sapt_dimer",
+            "sapt_basis"
+          ],
+          "sapt_empirical_dispersion": [
+            "name",
+            "dimer_wfn"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting",
+        "module": "roa",
+        "functions": [
+          "run_roa"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "run_roa": [
+            "name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting",
+        "module": "empirical_dispersion",
+        "functions": [],
+        "classes": [
+          "EmpiricalDispersion"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting",
+        "module": "diis",
+        "functions": [
+          "axpy",
+          "template_helper"
+        ],
+        "classes": [
+          "DIIS",
+          "RemovalPolicy",
+          "StoragePolicy"
+        ],
+        "function_signatures": {
+          "axpy": [
+            "y",
+            "alpha",
+            "x"
+          ],
+          "template_helper": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.libcubeprop",
+        "module": "cubeprop",
+        "functions": [
+          "cubeprop_compute_properties"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "cubeprop_compute_properties": [
+            "self"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.solvent",
+        "module": "efp",
+        "functions": [
+          "get_qm_atoms_opts",
+          "modify_Fock_induced",
+          "modify_Fock_permanent"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_qm_atoms_opts": [
+            "mol"
+          ],
+          "modify_Fock_permanent": [
+            "mol",
+            "mints",
+            "verbose"
+          ],
+          "modify_Fock_induced": [
+            "efpobj",
+            "mints",
+            "verbose"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.solvent",
+        "module": "ddx",
+        "functions": [
+          "get_ddx_options"
+        ],
+        "classes": [
+          "DdxInterface"
+        ],
+        "function_signatures": {
+          "get_ddx_options": [
+            "molecule"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.solvent",
+        "module": "pol_embed",
+        "functions": [
+          "get_pe_options",
+          "psi4mol_to_cppemol"
+        ],
+        "classes": [
+          "CppeInterface"
+        ],
+        "function_signatures": {
+          "get_pe_options": [],
+          "psi4mol_to_cppemol": [
+            "psi4mol"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.response",
+        "module": "scf_products",
+        "functions": [],
+        "classes": [
+          "PairedMatPerVector",
+          "ProductCache",
+          "SingleMatPerVector",
+          "TDRSCFEngine",
+          "TDUSCFEngine"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.response",
+        "module": "scf_response",
+        "functions": [
+          "cpscf_linear_response",
+          "tdscf_excitations"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "cpscf_linear_response": [
+            "wfn"
+          ],
+          "tdscf_excitations": [
+            "wfn"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.dft",
+        "module": "dh_functionals",
+        "functions": [
+          "get_pwpb95_tweaks"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_pwpb95_tweaks": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.dft",
+        "module": "superfunctionals",
+        "functions": [
+          "build_superfunctional",
+          "test_ccl_functional"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "build_superfunctional": [
+            "name",
+            "restricted",
+            "npoints",
+            "deriv"
+          ],
+          "test_ccl_functional": [
+            "functional",
+            "ccl_functional"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.dft",
+        "module": "dft_builder",
+        "functions": [
+          "build_superfunctional_from_dictionary",
+          "check_consistency",
+          "get_functional_aliases"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_functional_aliases": [
+            "functional_dict"
+          ],
+          "check_consistency": [
+            "func_dictionary"
+          ],
+          "build_superfunctional_from_dictionary": [
+            "func_dictionary",
+            "npoints",
+            "deriv",
+            "restricted"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.dft",
+        "module": "hyb_functionals",
+        "functions": [
+          "get_pw6b95_tweaks"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_pw6b95_tweaks": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.scf_proc",
+        "module": "scf_iterator",
+        "functions": [
+          "efp_field_fn",
+          "initialize_jk",
+          "scf_compute_energy",
+          "scf_finalize_energy",
+          "scf_initialize",
+          "scf_iterate",
+          "scf_print_energies",
+          "scf_print_preiterations"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "scf_compute_energy": [
+            "self"
+          ],
+          "initialize_jk": [
+            "self",
+            "memory",
+            "jk"
+          ],
+          "scf_initialize": [
+            "self"
+          ],
+          "scf_iterate": [
+            "self",
+            "e_conv",
+            "d_conv"
+          ],
+          "scf_finalize_energy": [
+            "self"
+          ],
+          "scf_print_energies": [
+            "self"
+          ],
+          "scf_print_preiterations": [
+            "self",
+            "small"
+          ],
+          "efp_field_fn": [
+            "xyz"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.scf_proc",
+        "module": "subclass_methods",
+        "functions": [
+          "diis_engine_helper"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "diis_engine_helper": [
+            "self"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.mcscf",
+        "module": "augmented_hessian",
+        "functions": [
+          "ah_iteration"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "ah_iteration": [
+            "mcscf_obj",
+            "tol",
+            "max_iter",
+            "lindep",
+            "print_micro"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.mcscf",
+        "module": "mcscf_solver",
+        "functions": [
+          "mcscf_solver",
+          "print_iteration"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "print_iteration": [
+            "mtype",
+            "niter",
+            "energy",
+            "de",
+            "orb_rms",
+            "ci_rms",
+            "nci",
+            "norb",
+            "stype"
+          ],
+          "mcscf_solver": [
+            "ref_wfn"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.sapt",
+        "module": "sapt_util",
+        "functions": [
+          "print_sapt_dft_summary",
+          "print_sapt_hf_summary",
+          "print_sapt_var"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "print_sapt_var": [
+            "name",
+            "value",
+            "short",
+            "start_spacer"
+          ],
+          "print_sapt_hf_summary": [
+            "data",
+            "name",
+            "short",
+            "delta_hf"
+          ],
+          "print_sapt_dft_summary": [
+            "data",
+            "name",
+            "dimer_wfn",
+            "do_dft",
+            "short"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.sapt",
+        "module": "sapt_proc",
+        "functions": [
+          "compute_GRAC_shift",
+          "run_sapt_dft",
+          "run_sf_sapt",
+          "sapt_dft",
+          "sapt_dft_header"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "run_sapt_dft": [
+            "name"
+          ],
+          "compute_GRAC_shift": [
+            "molecule",
+            "sapt_dft_grac_convergence_tier",
+            "label"
+          ],
+          "sapt_dft_header": [
+            "sapt_dft_functional",
+            "mon_a_shift",
+            "mon_b_shift",
+            "do_delta_hf",
+            "jk_alg"
+          ],
+          "sapt_dft": [
+            "dimer_wfn",
+            "wfn_A",
+            "wfn_B",
+            "do_dft",
+            "sapt_jk",
+            "sapt_jk_B",
+            "data",
+            "print_header",
+            "cleanup_jk",
+            "delta_hf"
+          ],
+          "run_sf_sapt": [
+            "name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.sapt",
+        "module": "fisapt_proc",
+        "functions": [
+          "fisapt_compute_energy",
+          "fisapt_fdrop",
+          "fisapt_plot",
+          "fisapt_variables_to_wfn"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "fisapt_compute_energy": [
+            "self",
+            "jk_obj"
+          ],
+          "fisapt_fdrop": [
+            "self",
+            "external_potentials"
+          ],
+          "fisapt_variables_to_wfn": [
+            "self",
+            "ref_wfn",
+            "external_potentials"
+          ],
+          "fisapt_plot": [
+            "self"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.sapt",
+        "module": "fsapt",
+        "functions": [
+          "check_fragments",
+          "collapse_links",
+          "collapse_rows",
+          "compute_closest_contact",
+          "compute_fsapt",
+          "compute_fsapt_qcvars",
+          "diff_order2",
+          "extract_order2_fsapt",
+          "extract_osapt_data",
+          "extract_osapt_data_from_fsapt_vars",
+          "extract_osapt_data_from_wfn",
+          "fragment_d3_disp",
+          "get_natoms",
+          "partition_fragments",
+          "print_fragments",
+          "print_order1",
+          "print_order2",
+          "read_block",
+          "read_d3_fragments",
+          "read_fragments",
+          "read_list",
+          "read_xyz",
+          "run_from_output",
+          "run_fsapt_analysis",
+          "write_xyz"
+        ],
+        "classes": [
+          "PDB",
+          "PDBAtom"
+        ],
+        "function_signatures": {
+          "read_xyz": [
+            "filename"
+          ],
+          "write_xyz": [
+            "filename",
+            "geom"
+          ],
+          "read_list": [
+            "filename",
+            "factor"
+          ],
+          "read_block": [
+            "filename",
+            "factor"
+          ],
+          "read_fragments": [
+            "filename"
+          ],
+          "get_natoms": [
+            "frags"
+          ],
+          "compute_closest_contact": [
+            "geom",
+            "indices_a",
+            "indices_b"
+          ],
+          "read_d3_fragments": [
+            "dirname"
+          ],
+          "collapse_rows": [
+            "vals"
+          ],
+          "check_fragments": [
+            "geom",
+            "Zs",
+            "frags"
+          ],
+          "partition_fragments": [
+            "fragkeys",
+            "frags",
+            "Z",
+            "Q",
+            "completeness"
+          ],
+          "print_fragments": [
+            "geom",
+            "Z",
+            "Q",
+            "fragkeys",
+            "frags",
+            "nuclear_ws",
+            "orbital_ws",
+            "filename"
+          ],
+          "extract_osapt_data_from_fsapt_vars": [
+            "fsapt_vars",
+            "print_output"
+          ],
+          "extract_osapt_data_from_wfn": [
+            "wfn",
+            "print_output"
+          ],
+          "extract_osapt_data": [
+            "filepath",
+            "print_output"
+          ],
+          "fragment_d3_disp": [
+            "d3disp",
+            "frags"
+          ],
+          "extract_order2_fsapt": [
+            "osapt",
+            "wsA",
+            "wsB",
+            "frags"
+          ],
+          "collapse_links": [
+            "order2",
+            "frags",
+            "Qs",
+            "orbital_ws",
+            "links5050"
+          ],
+          "print_order2": [
+            "order2",
+            "fragkeys",
+            "saptkeys",
+            "print_output",
+            "frags",
+            "closest_contacts"
+          ],
+          "diff_order2": [
+            "order2P",
+            "order2M"
+          ],
+          "compute_fsapt_qcvars": [
+            "geom",
+            "Z",
+            "monomer_slices",
+            "holder",
+            "osapt",
+            "Qs",
+            "links5050",
+            "completeness",
+            "dirname",
+            "link_siao",
+            "external_potentials",
+            "print_output"
+          ],
+          "compute_fsapt": [
+            "dirname",
+            "links5050",
+            "completeness",
+            "print_output"
+          ],
+          "print_order1": [
+            "dirname",
+            "order2",
+            "pdb",
+            "frags",
+            "reA",
+            "reB",
+            "saptkeys"
+          ],
+          "run_fsapt_analysis": [
+            "fragments_a",
+            "fragments_b"
+          ],
+          "run_from_output": [
+            "dirname",
+            "return_data"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.sapt",
+        "module": "sapt_sf_terms",
+        "functions": [
+          "compute_sapt_sf"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "compute_sapt_sf": [
+            "dimer",
+            "jk",
+            "wfn_A",
+            "wfn_B",
+            "do_print"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.sapt",
+        "module": "sapt_jk_terms",
+        "functions": [
+          "build_sapt_jk_cache",
+          "electrostatics",
+          "exchange",
+          "induction"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "build_sapt_jk_cache": [
+            "wfn_A",
+            "wfn_B",
+            "jk",
+            "do_print"
+          ],
+          "electrostatics": [
+            "cache",
+            "do_print"
+          ],
+          "exchange": [
+            "cache",
+            "jk",
+            "do_print"
+          ],
+          "induction": [
+            "cache",
+            "jk",
+            "do_print",
+            "maxiter",
+            "conv",
+            "do_response",
+            "Sinf",
+            "sapt_jk_B"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.sapt",
+        "module": "sapt_mp2_terms",
+        "functions": [
+          "df_fdds_dispersion",
+          "df_mp2_fisapt_dispersion",
+          "df_mp2_sapt_dispersion"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "df_fdds_dispersion": [
+            "primary",
+            "auxiliary",
+            "cache",
+            "is_hybrid",
+            "x_alpha",
+            "leg_points",
+            "leg_lambda",
+            "do_print"
+          ],
+          "df_mp2_fisapt_dispersion": [
+            "wfn",
+            "primary",
+            "auxiliary",
+            "cache",
+            "nfrozen_A",
+            "nfrozen_B",
+            "do_print"
+          ],
+          "df_mp2_sapt_dispersion": [
+            "dimer_wfn",
+            "wfn_A",
+            "wfn_B",
+            "primary_basis",
+            "aux_basis",
+            "cache",
+            "do_print"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.findif_response_utils",
+        "module": "db_helper",
+        "functions": [
+          "generate_inputs",
+          "initialize_database",
+          "stat"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "generate_inputs": [
+            "db",
+            "name"
+          ],
+          "initialize_database": [
+            "database",
+            "name",
+            "prop",
+            "properties_array",
+            "additional_kwargs"
+          ],
+          "stat": [
+            "db"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.driver.procrouting.findif_response_utils",
+        "module": "data_collection_helper",
+        "functions": [
+          "collect_displaced_matrix_data",
+          "parse_geometry_matrix_data"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "collect_displaced_matrix_data": [
+            "db",
+            "signature",
+            "row_dim"
+          ],
+          "parse_geometry_matrix_data": [
+            "outfile",
+            "matrix_name",
+            "row_tot"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.share.psi4.scripts",
+        "module": "test_threading",
+        "functions": [
+          "print_math_ldd",
+          "run_psithon_inputs",
+          "test_plugin_dfmp2",
+          "test_psithon",
+          "test_threaded_blas"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_threaded_blas": [
+            "args"
+          ],
+          "test_psithon": [
+            "args"
+          ],
+          "run_psithon_inputs": [
+            "args",
+            "tfn",
+            "label"
+          ],
+          "test_plugin_dfmp2": [
+            "args"
+          ],
+          "print_math_ldd": [
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.share.psi4.scripts",
+        "module": "apply_license",
+        "functions": [
+          "check_header"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "check_header": [
+            "infile"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.share.psi4.scripts",
+        "module": "vmd_cube",
+        "functions": [
+          "call_montage",
+          "find_cubes",
+          "find_vmd",
+          "main",
+          "multigsub",
+          "read_options",
+          "save_setup_command",
+          "which",
+          "write_and_run_vmd_script",
+          "zip_files"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "which": [
+            "program"
+          ],
+          "multigsub": [
+            "subs",
+            "str"
+          ],
+          "find_vmd": [
+            "options"
+          ],
+          "save_setup_command": [
+            "argv"
+          ],
+          "read_options": [
+            "options"
+          ],
+          "find_cubes": [
+            "options"
+          ],
+          "write_and_run_vmd_script": [
+            "options",
+            "cube_files"
+          ],
+          "call_montage": [
+            "options",
+            "cube_files"
+          ],
+          "zip_files": [
+            "cube_files",
+            "options"
+          ],
+          "main": [
+            "argv"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "psi4.share.psi4.basis.primitives",
+        "module": "diff_gbs",
+        "functions": [
+          "bas_sanitize"
+        ],
+        "classes": [
+          "bcolors"
+        ],
+        "function_signatures": {
+          "bas_sanitize": [
+            "fl"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samplesthon.mints13",
+        "module": "test",
+        "functions": [
+          "test_chgmult",
+          "test_dimer"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_chgmult": [
+            "expected",
+            "cgmpdict",
+            "label"
+          ],
+          "test_dimer": [
+            "mol",
+            "expected_cgmp",
+            "label",
+            "mtype"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samplesthon.mints13",
+        "module": "input",
+        "functions": [
+          "test_chgmult",
+          "test_dimer"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_chgmult": [
+            "expected",
+            "cgmpdict",
+            "label"
+          ],
+          "test_dimer": [
+            "mol",
+            "expected_cgmp",
+            "label",
+            "mtype"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.psi4numpy.cphf",
+        "module": "test",
+        "functions": [
+          "precon_func",
+          "wrap_Hx"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "precon_func": [
+            "matrices",
+            "active_mask"
+          ],
+          "wrap_Hx": [
+            "matrices",
+            "active_mask"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.psi4numpy.cphf",
+        "module": "input",
+        "functions": [
+          "precon_func",
+          "wrap_Hx"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "precon_func": [
+            "matrices",
+            "active_mask"
+          ],
+          "wrap_Hx": [
+            "matrices",
+            "active_mask"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.psi4numpy.rhf",
+        "module": "test",
+        "functions": [
+          "build_orbitals"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "build_orbitals": [
+            "diag"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.psi4numpy.rhf",
+        "module": "input",
+        "functions": [
+          "build_orbitals"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "build_orbitals": [
+            "diag"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.sphinxman",
+        "module": "document_stubs",
+        "functions": [
+          "pts"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "pts": [
+            "category",
+            "pyfile"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.sphinxman",
+        "module": "document_databases",
+        "functions": [
+          "pts"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "pts": [
+            "category",
+            "pyfile"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.sphinxman",
+        "module": "document_plugins",
+        "functions": [
+          "determine_options",
+          "pts",
+          "sphinxify_comment",
+          "substitute_comment"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "pts": [
+            "category",
+            "pyfile"
+          ],
+          "sphinxify_comment": [
+            "text"
+          ],
+          "substitute_comment": [
+            "cmnt"
+          ],
+          "determine_options": [
+            "cfilename"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.sphinxman",
+        "module": "document_cfour",
+        "functions": [
+          "pts"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "pts": [
+            "category",
+            "pyfile"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.sphinxman",
+        "module": "document_efpfrag",
+        "functions": [
+          "canvas",
+          "extract_xyz",
+          "pts"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "pts": [
+            "category",
+            "pyfile"
+          ],
+          "extract_xyz": [
+            "pyfile"
+          ],
+          "canvas": [
+            "fragname",
+            "molxyz"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.sphinxman",
+        "module": "document_psifiles",
+        "functions": [
+          "pts"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "pts": [
+            "category",
+            "pyfile"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.sphinxman",
+        "module": "document_driver",
+        "functions": [
+          "pts"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "pts": [
+            "category",
+            "pyfile"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.sphinxman",
+        "module": "document_capabilities",
+        "functions": [
+          "compute_width",
+          "extract_modules",
+          "fcell",
+          "fheader",
+          "fline_data",
+          "fline_fill",
+          "method_title_append",
+          "module_title_append",
+          "pts",
+          "table_builder__ref_driver_type_fcae",
+          "unique",
+          "visible_width"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "unique": [
+            "sequence"
+          ],
+          "fcell": [
+            "module",
+            "winnowed",
+            "contrast"
+          ],
+          "fheader": [
+            "head",
+            "width",
+            "contrast"
+          ],
+          "visible_width": [
+            "chars"
+          ],
+          "compute_width": [
+            "head",
+            "width"
+          ],
+          "fline_data": [
+            "outer",
+            "mid",
+            "inner",
+            "guts"
+          ],
+          "fline_fill": [
+            "outer",
+            "mid",
+            "inner",
+            "guts",
+            "span"
+          ],
+          "extract_modules": [
+            "winnowed"
+          ],
+          "method_title_append": [
+            "mtd",
+            "mod"
+          ],
+          "module_title_append": [
+            "mtd",
+            "mod"
+          ],
+          "table_builder__ref_driver_type_fcae": [],
+          "pts": [
+            "category",
+            "pyfile"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.sphinxman.source",
+        "module": "psistyle",
+        "functions": [],
+        "classes": [
+          "PsiStyle"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.sphinxman.source.extensions",
+        "module": "relbar_toc",
+        "functions": [
+          "insert_toc",
+          "setup"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "insert_toc": [
+            "app",
+            "pagename",
+            "templatename",
+            "ctx",
+            "event_arg"
+          ],
+          "setup": [
+            "app"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "doc.sphinxman.source.extensions",
+        "module": "psidomain",
+        "functions": [
+          "setup"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "setup": [
+            "app"
+          ]
+        },
+        "description": "Discovered via AST scan"
       }
     ],
     "cli_commands": [
       {
-        "name": "psi4 (inferred)",
-        "module": "psi4.run_psi4",
-        "description": "Repository contains runtime entry module consistent with command-style execution, but explicit setuptools console_scripts were not provided in scanned metadata."
+        "name": "psi4",
+        "module": "source.psi4.run_psi4",
+        "description": "Main Psi4 command-line runner (batch/script execution). Best treated as fallback execution path when in-process import is unavailable."
       },
       {
-        "name": "psi4-path-advisor.py",
-        "module": "conda/psi4-path-advisor.py",
-        "description": "Standalone utility script for environment/path guidance in conda setups."
+        "name": "python -m psi4",
+        "module": "source.psi4.__init__ / source.psi4.run_psi4",
+        "description": "Module-style invocation route depending on installation layout; useful as secondary CLI fallback."
       }
     ],
     "import_strategy": {
@@ -5552,19 +10320,29 @@
     },
     "dependencies": {
       "required": [
-        "Python",
-        "CMake build chain",
-        "Compiled Psi4 core libraries/extensions"
+        "numpy",
+        "qcelemental",
+        "qcengine",
+        "psi4-core-binary-components"
       ],
       "optional": [
-        "External upstream/downstream scientific libraries under external/upstream and external/downstream",
-        "Conda-managed runtime extras",
-        "Documentation/test-only dependencies"
+        "adcc",
+        "cppe",
+        "ddx",
+        "dftd3",
+        "dftd4",
+        "gdma",
+        "geometric",
+        "mdi",
+        "pcmsolver",
+        "libefp",
+        "mrcc",
+        "chemps2"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.42,
-      "intrusiveness_risk": "medium",
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "low",
       "complexity": "complex"
     }
   },
@@ -5581,8 +10359,8 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.42,
-    "intrusiveness_risk": "medium",
+    "import_feasibility": 0.72,
+    "intrusiveness_risk": "low",
     "complexity": "complex"
   }
 }

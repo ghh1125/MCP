@@ -1,0 +1,23 @@
+#! MP2 cc-pVDZ gradient for the NO radical
+
+
+
+molecule no {
+0 2
+n
+o 1 1.158
+}
+
+set {
+  basis cc-pvdz
+  reference uhf
+  guess gwh
+  mp2_type conv
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") != "INTERNAL":
+    psi4.set_options({"e_convergence": 9, "d_convergence": 5e-9})
+
+grad = gradient('mp2')
+
+

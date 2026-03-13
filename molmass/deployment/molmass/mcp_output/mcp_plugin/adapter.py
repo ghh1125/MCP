@@ -1,11 +1,8 @@
 import os
 import sys
-import io
-import json
 import traceback
-import contextlib
-import runpy
-from typing import Any, Dict, Optional, List
+import subprocess
+from typing import Any, Dict, List, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -16,396 +13,365 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import-Mode Adapter for the molmass repository.
+    MCP Import Mode Adapter for molmass repository.
 
-    This adapter prioritizes direct Python imports and falls back to CLI/module execution
-    behavior when imports are unavailable. All public methods return a unified dictionary:
-    {
-        "status": "success" | "error",
-        "mode": "import" | "fallback-cli",
-        "data": ...,
-        "error": ...,
-        "hint": ...
-    }
+    This adapter attempts direct import first and gracefully falls back to CLI mode
+    using `python -m molmass` when direct import is unavailable.
     """
 
+    # ---------------------------------------------------------------------
+    # Initialization and module management
+    # ---------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
-        self._imports: Dict[str, Any] = {}
-        self._load_errors: List[str] = []
-        self._initialize_imports()
+        self._import_ok = False
+        self._import_error: Optional[str] = None
+        self._loaded_modules: Dict[str, Any] = {}
+        self._load_modules()
 
-    # -------------------------------------------------------------------------
-    # Internal utilities
-    # -------------------------------------------------------------------------
-    def _ok(self, data: Any = None, extra: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        result = {"status": "success", "mode": self.mode, "data": data}
-        if extra:
-            result.update(extra)
-        return result
-
-    def _err(self, message: str, hint: Optional[str] = None, exc: Optional[BaseException] = None) -> Dict[str, Any]:
-        payload = {"status": "error", "mode": self.mode, "error": message}
-        if hint:
-            payload["hint"] = hint
-        if exc is not None:
-            payload["details"] = str(exc)
-            payload["traceback"] = traceback.format_exc()
+    def _result(self, status: str, **kwargs: Any) -> Dict[str, Any]:
+        payload = {"status": status, "mode": self.mode}
+        payload.update(kwargs)
         return payload
 
-    def _initialize_imports(self) -> None:
+    def _load_modules(self) -> None:
         """
-        Try importing repository modules and callable entry points discovered by analysis.
+        Try importing molmass modules from local source path.
         """
         try:
-            import molmass.__main__ as molmass_main_module
-            self._imports["molmass.__main__"] = molmass_main_module
-        except Exception as e:
-            self._load_errors.append(f"Failed to import molmass.__main__: {e}")
+            import importlib
 
-        try:
-            import molmass.molmass as molmass_module
-            self._imports["molmass.molmass"] = molmass_module
-            self._imports["molmass.molmass.main"] = getattr(molmass_module, "main", None)
-        except Exception as e:
-            self._load_errors.append(f"Failed to import molmass.molmass: {e}")
+            # Full package path from analysis structure, without `source.` prefix.
+            self._loaded_modules["deployment.molmass.source.molmass"] = importlib.import_module(
+                "deployment.molmass.source.molmass"
+            )
+            self._loaded_modules["deployment.molmass.source.molmass.molmass"] = importlib.import_module(
+                "deployment.molmass.source.molmass.molmass"
+            )
+            self._loaded_modules["deployment.molmass.source.molmass.elements"] = importlib.import_module(
+                "deployment.molmass.source.molmass.elements"
+            )
+            self._loaded_modules["deployment.molmass.source.molmass.web"] = importlib.import_module(
+                "deployment.molmass.source.molmass.web"
+            )
+            self._loaded_modules["deployment.molmass.source.molmass.__main__"] = importlib.import_module(
+                "deployment.molmass.source.molmass.__main__"
+            )
 
-        try:
-            import molmass.web as web_module
-            self._imports["molmass.web"] = web_module
-            self._imports["molmass.web.main"] = getattr(web_module, "main", None)
-        except Exception as e:
-            self._load_errors.append(f"Failed to import molmass.web: {e}")
-
-        try:
-            import molmass.elements_gui as gui_module
-            self._imports["molmass.elements_gui"] = gui_module
-            self._imports["molmass.elements_gui.main"] = getattr(gui_module, "main", None)
-        except Exception as e:
-            self._load_errors.append(f"Failed to import molmass.elements_gui: {e}")
-
-        try:
-            import molmass.elements as elements_module
-            self._imports["molmass.elements"] = elements_module
-        except Exception as e:
-            self._load_errors.append(f"Failed to import molmass.elements: {e}")
-
-        try:
-            import molmass.elements_descriptions as elements_desc_module
-            self._imports["molmass.elements_descriptions"] = elements_desc_module
-        except Exception as e:
-            self._load_errors.append(f"Failed to import molmass.elements_descriptions: {e}")
-
-        if self._load_errors:
-            self.mode = "fallback-cli"
+            self._import_ok = True
+            self.mode = "import"
+        except Exception as exc:
+            self._import_ok = False
+            self.mode = "cli"
+            self._import_error = (
+                f"Import mode unavailable. Falling back to CLI mode. "
+                f"Ensure source files exist under deployment/molmass/source. "
+                f"Details: {exc}"
+            )
 
     def health(self) -> Dict[str, Any]:
         """
-        Report adapter readiness, import availability, and fallback reasons.
-
-        Returns:
-            Unified status dictionary with import summary and detected modules.
+        Return adapter health and import status.
         """
-        return self._ok(
-            data={
-                "imports_loaded": sorted(list(self._imports.keys())),
-                "load_errors": self._load_errors,
-                "import_ready": len(self._load_errors) == 0,
-            }
+        return self._result(
+            "success" if self._import_ok else "fallback",
+            import_available=self._import_ok,
+            import_error=self._import_error,
+            loaded_modules=sorted(list(self._loaded_modules.keys())),
+            cli_fallback_command="python -m molmass",
         )
 
-    # -------------------------------------------------------------------------
-    # CLI / entry-point adapters
-    # -------------------------------------------------------------------------
-    def call_python_m_molmass(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
+    # ---------------------------------------------------------------------
+    # CLI fallback helper
+    # ---------------------------------------------------------------------
+    def _run_cli(self, args: Optional[List[str]] = None, timeout: int = 30) -> Dict[str, Any]:
         """
-        Execute behavior equivalent to: python -m molmass
+        Execute molmass via CLI fallback.
 
         Parameters:
-            argv: Optional list of command-line arguments passed to module execution.
+            args: Additional CLI args passed to `python -m molmass`.
+            timeout: Subprocess timeout in seconds.
 
         Returns:
-            Unified status dictionary containing captured stdout/stderr and exit metadata.
+            Unified status dictionary with stdout/stderr/returncode.
         """
-        argv = argv or []
-        original_argv = sys.argv[:]
-        stdout_buffer = io.StringIO()
-        stderr_buffer = io.StringIO()
-
+        cmd = [sys.executable, "-m", "molmass"] + (args or [])
         try:
-            sys.argv = ["-m", "molmass"] + argv
-            with contextlib.redirect_stdout(stdout_buffer), contextlib.redirect_stderr(stderr_buffer):
-                runpy.run_module("molmass", run_name="__main__", alter_sys=True)
-            return self._ok(
-                data={
-                    "stdout": stdout_buffer.getvalue(),
-                    "stderr": stderr_buffer.getvalue(),
-                    "argv": argv,
-                    "runner": "runpy.run_module('molmass', run_name='__main__')",
-                }
+            proc = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+                check=False,
             )
-        except SystemExit as e:
-            code = getattr(e, "code", 0)
-            status = "success" if code in (0, None) else "error"
-            result = {
-                "status": status,
-                "mode": self.mode,
-                "data": {
-                    "stdout": stdout_buffer.getvalue(),
-                    "stderr": stderr_buffer.getvalue(),
-                    "exit_code": code,
-                    "argv": argv,
-                },
-            }
-            if status == "error":
-                result["error"] = "Module execution exited with a non-zero status."
-                result["hint"] = "Check formula syntax and provided CLI flags."
-            return result
-        except Exception as e:
-            return self._err(
-                "Failed to execute module mode for molmass.",
-                hint="Ensure repository source is present under the configured source path and dependencies are available.",
-                exc=e,
+            if proc.returncode == 0:
+                return self._result(
+                    "success",
+                    command=cmd,
+                    returncode=proc.returncode,
+                    stdout=proc.stdout.strip(),
+                    stderr=proc.stderr.strip(),
+                )
+            return self._result(
+                "error",
+                message=(
+                    "CLI command failed. Verify formula input and command arguments. "
+                    "Inspect stderr for details."
+                ),
+                command=cmd,
+                returncode=proc.returncode,
+                stdout=proc.stdout.strip(),
+                stderr=proc.stderr.strip(),
             )
-        finally:
-            sys.argv = original_argv
+        except FileNotFoundError:
+            return self._result(
+                "error",
+                message=(
+                    "Python executable not found for CLI fallback. "
+                    "Ensure Python is installed and available in PATH."
+                ),
+                command=cmd,
+            )
+        except subprocess.TimeoutExpired:
+            return self._result(
+                "error",
+                message=(
+                    "CLI execution timed out. Try a simpler input or increase timeout."
+                ),
+                command=cmd,
+                timeout=timeout,
+            )
+        except Exception as exc:
+            return self._result(
+                "error",
+                message="Unexpected CLI fallback error. Check environment configuration.",
+                error=str(exc),
+                traceback=traceback.format_exc(),
+                command=cmd,
+            )
 
-    def call_molmass_main(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
+    # ---------------------------------------------------------------------
+    # Entry-point method from identified CLI command
+    # ---------------------------------------------------------------------
+    def call_module_main(self, args: Optional[List[str]] = None, timeout: int = 30) -> Dict[str, Any]:
         """
-        Call molmass.molmass.main directly (console-script equivalent).
+        Call the module entrypoint identified by analysis:
+        deployment.molmass.source/molmass.__main__
 
         Parameters:
-            argv: Optional list of command-line arguments.
+            args: Optional command-line style arguments.
+            timeout: Timeout used only in CLI fallback mode.
 
         Returns:
-            Unified status dictionary with output and return value.
+            Unified status dictionary.
         """
-        fn = self._imports.get("molmass.molmass.main")
-        if fn is None:
-            return self._err(
-                "molmass.molmass.main is unavailable.",
-                hint="Run health() and resolve import errors; fallback to call_python_m_molmass().",
+        if self._import_ok:
+            try:
+                main_mod = self._loaded_modules["deployment.molmass.source.molmass.__main__"]
+                # Best-effort direct call if main function exists.
+                if hasattr(main_mod, "main"):
+                    fn = getattr(main_mod, "main")
+                    if args is None:
+                        ret = fn()
+                    else:
+                        # Some CLI mains accept argv; if not, TypeError will be handled.
+                        ret = fn(args)
+                    return self._result("success", result=ret)
+                return self._result(
+                    "error",
+                    message=(
+                        "Entrypoint module imported but no callable `main` found. "
+                        "Use CLI fallback with explicit arguments."
+                    ),
+                )
+            except TypeError:
+                # Retry without args if signature mismatch
+                try:
+                    ret = self._loaded_modules["deployment.molmass.source.molmass.__main__"].main()
+                    return self._result("success", result=ret)
+                except Exception as exc:
+                    return self._result(
+                        "error",
+                        message="Failed to execute module main in import mode.",
+                        error=str(exc),
+                        traceback=traceback.format_exc(),
+                    )
+            except Exception as exc:
+                return self._result(
+                    "error",
+                    message="Failed to execute module main in import mode.",
+                    error=str(exc),
+                    traceback=traceback.format_exc(),
+                )
+
+        return self._run_cli(args=args, timeout=timeout)
+
+    # ---------------------------------------------------------------------
+    # Generic import-mode utility methods to expose repository functionality
+    # ---------------------------------------------------------------------
+    def list_module_attributes(self, module_key: str) -> Dict[str, Any]:
+        """
+        List public attributes from an imported module.
+
+        Parameters:
+            module_key: One of loaded module keys, e.g.
+                        'deployment.molmass.source.molmass.molmass'
+
+        Returns:
+            Unified status dictionary with public names.
+        """
+        if not self._import_ok:
+            return self._result(
+                "fallback",
+                message=(
+                    "Import mode unavailable. Use `call_module_main` for CLI fallback operations."
+                ),
+                import_error=self._import_error,
             )
-
-        argv = argv or []
-        original_argv = sys.argv[:]
-        stdout_buffer = io.StringIO()
-        stderr_buffer = io.StringIO()
-
         try:
-            sys.argv = ["molmass"] + argv
-            with contextlib.redirect_stdout(stdout_buffer), contextlib.redirect_stderr(stderr_buffer):
-                ret = fn()
-            return self._ok(
-                data={
-                    "return": ret,
-                    "stdout": stdout_buffer.getvalue(),
-                    "stderr": stderr_buffer.getvalue(),
-                    "argv": argv,
-                }
+            mod = self._loaded_modules[module_key]
+            names = [n for n in dir(mod) if not n.startswith("_")]
+            return self._result("success", module=module_key, attributes=names)
+        except KeyError:
+            return self._result(
+                "error",
+                message="Unknown module key. Call health() to see available loaded modules.",
+                module_key=module_key,
             )
-        except SystemExit as e:
-            code = getattr(e, "code", 0)
-            status = "success" if code in (0, None) else "error"
-            result = {
-                "status": status,
-                "mode": self.mode,
-                "data": {
-                    "stdout": stdout_buffer.getvalue(),
-                    "stderr": stderr_buffer.getvalue(),
-                    "exit_code": code,
-                    "argv": argv,
-                },
-            }
-            if status == "error":
-                result["error"] = "molmass main exited with a non-zero status."
-                result["hint"] = "Verify CLI arguments and formula input."
-            return result
-        except Exception as e:
-            return self._err(
-                "Failed to execute molmass.molmass.main.",
-                hint="Use health() output to diagnose import/runtime errors.",
-                exc=e,
+        except Exception as exc:
+            return self._result(
+                "error",
+                message="Failed to list module attributes.",
+                error=str(exc),
+                traceback=traceback.format_exc(),
             )
-        finally:
-            sys.argv = original_argv
 
-    def call_web_main(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
+    def call_function(
+        self,
+        module_key: str,
+        function_name: str,
+        *args: Any,
+        **kwargs: Any,
+    ) -> Dict[str, Any]:
         """
-        Call molmass.web.main (web/CGI-style runner entry).
+        Call any function from imported molmass modules dynamically.
 
         Parameters:
-            argv: Optional list of arguments for web main.
+            module_key: Module key from loaded modules.
+            function_name: Target function name.
+            *args, **kwargs: Arguments for the function.
 
         Returns:
-            Unified status dictionary with captured output.
+            Unified status dictionary with function result.
         """
-        fn = self._imports.get("molmass.web.main")
-        if fn is None:
-            return self._err(
-                "molmass.web.main is unavailable.",
-                hint="This entry may require specific web runtime context. Check import readiness with health().",
+        if not self._import_ok:
+            return self._result(
+                "fallback",
+                message=(
+                    "Import mode unavailable. Direct function call is not possible. "
+                    "Use `call_module_main` with CLI args."
+                ),
+                import_error=self._import_error,
             )
-
-        argv = argv or []
-        original_argv = sys.argv[:]
-        stdout_buffer = io.StringIO()
-        stderr_buffer = io.StringIO()
-
         try:
-            sys.argv = ["molmass-web"] + argv
-            with contextlib.redirect_stdout(stdout_buffer), contextlib.redirect_stderr(stderr_buffer):
-                ret = fn()
-            return self._ok(data={"return": ret, "stdout": stdout_buffer.getvalue(), "stderr": stderr_buffer.getvalue()})
-        except SystemExit as e:
-            code = getattr(e, "code", 0)
-            return self._ok(data={"exit_code": code, "stdout": stdout_buffer.getvalue(), "stderr": stderr_buffer.getvalue()})
-        except Exception as e:
-            return self._err(
-                "Failed to execute molmass.web.main.",
-                hint="If running outside CGI/web context, use library APIs or CLI analysis paths instead.",
-                exc=e,
+            mod = self._loaded_modules[module_key]
+            fn = getattr(mod, function_name)
+            if not callable(fn):
+                return self._result(
+                    "error",
+                    message="Resolved attribute is not callable.",
+                    module=module_key,
+                    function=function_name,
+                )
+            result = fn(*args, **kwargs)
+            return self._result(
+                "success",
+                module=module_key,
+                function=function_name,
+                result=result,
             )
-        finally:
-            sys.argv = original_argv
+        except KeyError:
+            return self._result(
+                "error",
+                message="Unknown module key. Call health() to inspect loaded modules.",
+                module_key=module_key,
+            )
+        except AttributeError:
+            return self._result(
+                "error",
+                message="Function not found in the specified module.",
+                module=module_key,
+                function=function_name,
+            )
+        except Exception as exc:
+            return self._result(
+                "error",
+                message=(
+                    "Function call failed. Validate argument types and function signature."
+                ),
+                module=module_key,
+                function=function_name,
+                error=str(exc),
+                traceback=traceback.format_exc(),
+            )
 
-    def call_elements_gui_main(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
+    def create_instance(
+        self,
+        module_key: str,
+        class_name: str,
+        *args: Any,
+        **kwargs: Any,
+    ) -> Dict[str, Any]:
         """
-        Call molmass.elements_gui.main (desktop GUI launcher).
+        Create an instance from any class in imported molmass modules.
 
         Parameters:
-            argv: Optional list of arguments for GUI launcher.
+            module_key: Module key from loaded modules.
+            class_name: Target class name.
+            *args, **kwargs: Constructor arguments.
 
         Returns:
-            Unified status dictionary. GUI launch may block depending on environment.
+            Unified status dictionary with instance reference.
         """
-        fn = self._imports.get("molmass.elements_gui.main")
-        if fn is None:
-            return self._err(
-                "molmass.elements_gui.main is unavailable.",
-                hint="Install/enable tkinter and ensure GUI environment is available.",
+        if not self._import_ok:
+            return self._result(
+                "fallback",
+                message=(
+                    "Import mode unavailable. Class instantiation is not possible in CLI fallback."
+                ),
+                import_error=self._import_error,
             )
-
-        argv = argv or []
-        original_argv = sys.argv[:]
-
         try:
-            sys.argv = ["elements-gui"] + argv
-            ret = fn()
-            return self._ok(data={"return": ret, "message": "GUI entry point invoked."})
-        except Exception as e:
-            return self._err(
-                "Failed to execute GUI entry point.",
-                hint="Ensure a desktop environment and tkinter are available; avoid headless runtime for GUI launch.",
-                exc=e,
+            mod = self._loaded_modules[module_key]
+            cls = getattr(mod, class_name)
+            instance = cls(*args, **kwargs)
+            return self._result(
+                "success",
+                module=module_key,
+                class_name=class_name,
+                instance=instance,
             )
-        finally:
-            sys.argv = original_argv
-
-    # -------------------------------------------------------------------------
-    # Module object accessors (instance methods for identified modules/classes)
-    # -------------------------------------------------------------------------
-    def instance_molmass_module(self) -> Dict[str, Any]:
-        """
-        Return loaded molmass.molmass module instance.
-
-        Returns:
-            Unified status dictionary with module metadata and exported symbols.
-        """
-        mod = self._imports.get("molmass.molmass")
-        if mod is None:
-            return self._err("molmass.molmass module is unavailable.", hint="Check source path and import errors via health().")
-        return self._ok(data={"module": "molmass.molmass", "name": getattr(mod, "__name__", None), "file": getattr(mod, "__file__", None)})
-
-    def instance_web_module(self) -> Dict[str, Any]:
-        mod = self._imports.get("molmass.web")
-        if mod is None:
-            return self._err("molmass.web module is unavailable.", hint="Check health() and runtime constraints.")
-        return self._ok(data={"module": "molmass.web", "name": getattr(mod, "__name__", None), "file": getattr(mod, "__file__", None)})
-
-    def instance_elements_gui_module(self) -> Dict[str, Any]:
-        mod = self._imports.get("molmass.elements_gui")
-        if mod is None:
-            return self._err("molmass.elements_gui module is unavailable.", hint="tkinter may be missing or GUI dependencies unavailable.")
-        return self._ok(data={"module": "molmass.elements_gui", "name": getattr(mod, "__name__", None), "file": getattr(mod, "__file__", None)})
-
-    def instance_elements_module(self) -> Dict[str, Any]:
-        mod = self._imports.get("molmass.elements")
-        if mod is None:
-            return self._err("molmass.elements module is unavailable.", hint="Check health() import errors and source path setup.")
-        return self._ok(data={"module": "molmass.elements", "name": getattr(mod, "__name__", None), "file": getattr(mod, "__file__", None)})
-
-    def instance_elements_descriptions_module(self) -> Dict[str, Any]:
-        mod = self._imports.get("molmass.elements_descriptions")
-        if mod is None:
-            return self._err("molmass.elements_descriptions module is unavailable.", hint="Check health() import errors and source path setup.")
-        return self._ok(data={"module": "molmass.elements_descriptions", "name": getattr(mod, "__name__", None), "file": getattr(mod, "__file__", None)})
-
-    # -------------------------------------------------------------------------
-    # Generic helpers for broad repository feature utilization
-    # -------------------------------------------------------------------------
-    def call_module_attr(self, module_name: str, attr_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Dynamically call any callable attribute from a loaded repository module.
-
-        Parameters:
-            module_name: Full module key used by adapter (e.g., "molmass.molmass").
-            attr_name: Callable attribute name in that module.
-            *args, **kwargs: Arguments forwarded to the target callable.
-
-        Returns:
-            Unified status dictionary with return value and callable metadata.
-        """
-        mod = self._imports.get(module_name)
-        if mod is None:
-            return self._err(
-                f"Module '{module_name}' is not loaded.",
-                hint="Use health() to inspect available imports and resolve missing modules.",
+        except KeyError:
+            return self._result(
+                "error",
+                message="Unknown module key. Call health() to inspect loaded modules.",
+                module_key=module_key,
             )
-        target = getattr(mod, attr_name, None)
-        if target is None:
-            return self._err(
-                f"Attribute '{attr_name}' not found in module '{module_name}'.",
-                hint="Inspect module exports via list_module_symbols().",
+        except AttributeError:
+            return self._result(
+                "error",
+                message="Class not found in the specified module.",
+                module=module_key,
+                class_name=class_name,
             )
-        if not callable(target):
-            return self._ok(data={"value": target, "callable": False, "module": module_name, "attribute": attr_name})
-        try:
-            value = target(*args, **kwargs)
-            return self._ok(data={"return": value, "callable": True, "module": module_name, "attribute": attr_name})
-        except Exception as e:
-            return self._err(
-                f"Callable '{module_name}.{attr_name}' execution failed.",
-                hint="Verify argument names/types against the repository function signature.",
-                exc=e,
+        except Exception as exc:
+            return self._result(
+                "error",
+                message=(
+                    "Class instantiation failed. Validate constructor parameters."
+                ),
+                module=module_key,
+                class_name=class_name,
+                error=str(exc),
+                traceback=traceback.format_exc(),
             )
-
-    def list_module_symbols(self, module_name: str) -> Dict[str, Any]:
-        """
-        List public symbols for a loaded module.
-
-        Parameters:
-            module_name: Adapter module key (full package path string).
-
-        Returns:
-            Unified status dictionary with symbol list.
-        """
-        mod = self._imports.get(module_name)
-        if mod is None:
-            return self._err(f"Module '{module_name}' is not loaded.", hint="Check health() for load diagnostics.")
-        symbols = [name for name in dir(mod) if not name.startswith("_")]
-        return self._ok(data={"module": module_name, "symbols": symbols, "count": len(symbols)})
-
-    def export_state(self) -> Dict[str, Any]:
-        """
-        Export adapter operational state in JSON-serializable form.
-
-        Returns:
-            Unified status dictionary with mode, imports, and load errors.
-        """
-        state = {
-            "mode": self.mode,
-            "imports_loaded": sorted(list(self._imports.keys())),
-            "load_errors": self._load_errors,
-        }
-        return self._ok(data=state, extra={"json": json.dumps(state, ensure_ascii=False)})

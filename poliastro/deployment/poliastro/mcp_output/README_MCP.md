@@ -2,133 +2,124 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service wraps core `poliastro` astrodynamics capabilities so LLM clients can run practical orbital analysis tasks through structured tools/services.
+This MCP (Model Context Protocol) service provides a developer-friendly interface to core `poliastro` astrodynamics capabilities, including:
 
-Main capabilities:
-- Create and manipulate two-body orbits (`Orbit`)
-- Propagate trajectories with multiple propagators (Cowell, Farnocchia, Vallado, etc.)
-- Solve Lambert transfer problems (Izzo and Vallado)
-- Build impulse maneuvers (e.g., Hohmann-like workflows)
-- Access ephemerides and body constants
-- Detect propagation events (node, altitude, eclipse-related)
-- Generate orbit visualizations (2D/3D, backend-dependent)
+- Orbit creation and state handling (`Orbit`)
+- Orbit propagation with multiple propagators (Cowell, Vallado, Farnocchia, etc.)
+- Impulsive maneuver design and application (`Maneuver`)
+- Lambert transfer solving (Izzo and Vallado methods)
+- Ephemerides access (`Ephem`)
+- Orbit visualization orchestration (`OrbitPlotter`)
+
+It is designed for AI-agent and automation workflows that need reliable orbital mechanics operations through structured service endpoints.
 
 ---
 
 ## 2) Installation Method
 
-Recommended environment: Python 3.10+ virtual environment.
+### Requirements
 
-Core dependencies:
-- `numpy`
-- `astropy`
-- `scipy`
+- Python 3.9+ recommended
+- Core dependencies:
+  - `numpy`
+  - `astropy`
+  - `scipy`
+- Optional (feature-dependent):
+  - `matplotlib` / `plotly` (plotting)
+  - `numba` (performance)
+  - `jplephem`, `astroquery`, `pandas` (ephemerides/data workflows)
 
-Optional (feature-dependent):
-- `matplotlib` (2D plotting)
-- `plotly` (interactive plotting)
-- `numba` (performance acceleration in some paths)
-- `astroquery`, `jplephem` (ephemerides/data workflows)
+### Install
 
-Install:
-- `pip install poliastro`
-- Optional extras as needed:
-  - `pip install matplotlib plotly numba astroquery jplephem`
+pip install poliastro numpy astropy scipy
 
-If you are packaging this as an MCP (Model Context Protocol) server, also install your MCP runtime/framework and expose the service handlers listed below.
+Optional extras (as needed):
+
+pip install matplotlib plotly numba jplephem astroquery pandas
 
 ---
 
 ## 3) Quick Start
 
-Minimal developer flow:
-1. Initialize service/client connection.
-2. Call orbit creation service with attractor + state.
-3. Call propagation service for future state sampling.
-4. Optionally call maneuver or Lambert services for transfers.
-5. Optionally call plotting service to produce visualization payloads.
+### Typical service flow
 
-Example usage flow:
-- `orbit.create` → build an Earth-centered orbit from vectors or classical elements
-- `orbit.propagate` → propagate to target epoch using selected propagator
-- `iod.lambert.izzo` → compute transfer velocities between two position vectors and TOF
-- `maneuver.hohmann` → generate impulse plan from initial orbit
-- `plot.orbit.2d` or `plot.orbit.3d` → return plot artifact/serialized data
+1. Create orbit from body + elements or position/velocity  
+2. Propagate orbit using selected propagator  
+3. Compute transfer using Lambert solver  
+4. Build/apply maneuver  
+5. Return states and optional plot metadata
+
+### Minimal Python usage example (service backend logic)
+
+from astropy import units as u
+from poliastro.bodies import Earth
+from poliastro.twobody import Orbit
+from poliastro.twobody.propagation import CowellPropagator
+from poliastro.maneuver import Maneuver
+
+# Create orbit
+orb = Orbit.circular(Earth, alt=500 * u.km)
+
+# Propagate
+future = orb.propagate(30 * u.min, method=CowellPropagator())
+
+# Maneuver example
+man = Maneuver.impulse([0, 0.1, 0] * u.km / u.s)
+post = orb.apply_maneuver(man)
+
+In an MCP (Model Context Protocol) service, these operations are exposed as structured tool endpoints returning JSON-safe outputs (state vectors, elements, metadata, warnings).
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) services/endpoints for this repo:
+Suggested endpoint set for this service:
 
-- `bodies.list`  
-  Return supported celestial bodies and key constants.
-
-- `orbit.create`  
-  Create `Orbit` from elements, vectors, or attractor-based definitions.
-
-- `orbit.propagate`  
-  Propagate orbit with chosen method (`cowell`, `farnocchia`, `vallado`, etc.).
-
-- `orbit.sample`  
-  Sample orbit states over time grid.
-
-- `orbit.events.propagate`  
-  Propagate with event stopping/monitoring (node/altitude/eclipse conditions).
-
-- `maneuver.create`  
-  Build generic impulse maneuver.
-
-- `maneuver.hohmann`  
-  Compute Hohmann-style transfer maneuver from an initial orbit.
-
-- `iod.lambert.izzo`  
-  Lambert solve using Izzo implementation.
-
-- `iod.lambert.vallado`  
-  Lambert solve using Vallado implementation.
-
-- `ephem.get`  
-  Retrieve ephemerides states over time for supported bodies/objects.
-
-- `earth.satellite.create`  
-  Earth satellite-centric helper creation workflow.
-
-- `plot.orbit.2d`  
-  Produce 2D orbit plot output (typically matplotlib-backed).
-
-- `plot.orbit.3d`  
-  Produce 3D orbit plot output (typically plotly-backed).
-
-- `health.check`  
-  Service health/version/dependency readiness.
+- `orbit.create`
+  - Create an `Orbit` from classical elements, vectors, or predefined constructors.
+- `orbit.propagate`
+  - Propagate an orbit to a target time-of-flight using a selected propagator.
+- `orbit.sample`
+  - Sample trajectory points for analysis/plotting.
+- `maneuver.create`
+  - Create impulsive maneuvers (single/multi-impulse).
+- `maneuver.apply`
+  - Apply maneuver to an orbit and return resulting state.
+- `iod.lambert.izzo`
+  - Solve Lambert boundary-value transfer with Izzo implementation.
+- `iod.lambert.vallado`
+  - Solve Lambert transfer with Vallado implementation (cross-check/robustness).
+- `ephem.get`
+  - Retrieve ephemerides-derived states for bodies/targets over time.
+- `plot.orbit`
+  - Generate plot-ready orbit data (2D/3D backend-aware payloads).
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Units are critical: `poliastro` is tightly integrated with `astropy.units`; always pass unit-aware values.
-- Time handling: use consistent epochs/time scales to avoid subtle propagation errors.
+- Units are mandatory: `poliastro` relies heavily on `astropy.units`; unit mismatches are the #1 source of errors.
+- Time handling: prefer `astropy.time.Time` for consistent epochs and frame conversions.
 - Propagator choice matters:
-  - Fast/analytic methods for standard cases
-  - Cowell/numerical for perturbed or custom force models
+  - Fast/simple: Markley, Mikkola
+  - General numerical: Cowell
+  - Problem-specific tradeoffs: Farnocchia, Vallado, etc.
 - Optional dependencies:
-  - Missing plotting packages will break visualization services
-  - Missing ephemeris packages limits some data retrieval workflows
+  - Missing plotting libraries will break visualization endpoints only.
+  - Missing ephemeris/data libraries affects advanced data retrieval only.
 - Performance:
-  - Large sampling grids and event-heavy propagation can be expensive
-  - Consider batching and configurable resolution/time windows
+  - Large Monte Carlo/batch runs may require vectorization, caching, or `numba`.
 - Reliability:
-  - Validate attractor/body consistency (e.g., Earth-centered states with Earth parameters)
-  - Add input guards for singular/near-singular orbital element sets
+  - Keep endpoints deterministic (explicit propagator, tolerances, frame, epoch).
+  - Return clear warnings for convergence/fallback conditions.
 
 ---
 
 ## 6) Reference Links or Documentation
 
 - Repository: https://github.com/poliastro/poliastro
-- Official docs index: `docs/source/index.md` in repo
-- Quickstart: `docs/source/quickstart.md`
-- API overview: `docs/source/api.md`
-- Examples gallery: `docs/source/examples/`
-- Contribution guide: `CONTRIBUTING.md`
+- Official docs index: https://docs.poliastro.space/
+- Quickstart: https://docs.poliastro.space/en/stable/quickstart.html
+- API docs: https://docs.poliastro.space/en/stable/autoapi/
+- Changelog: https://docs.poliastro.space/en/stable/changelog.html
+- Contributing guide: https://github.com/poliastro/poliastro/blob/main/CONTRIBUTING.md

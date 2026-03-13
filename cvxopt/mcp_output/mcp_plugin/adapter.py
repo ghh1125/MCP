@@ -1,249 +1,359 @@
 import os
 import sys
+import traceback
 from typing import Any, Dict, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "source",
 )
-sys.path.insert(0, source_path)
+if source_path not in sys.path:
+    sys.path.insert(0, source_path)
 
 
 class Adapter:
     """
-    MCP Import-Mode adapter for the CVXOPT repository.
+    Import-mode MCP adapter for CVXOPT repository integration.
 
-    This adapter prioritizes direct module imports from the repository source tree.
-    If import fails (e.g., compiled extensions are unavailable), it falls back to
-    a graceful blackbox mode with actionable guidance.
+    This adapter is designed to:
+    1) Load CVXOPT modules from the local repository source tree.
+    2) Expose stable wrapper methods for identified functions/modules.
+    3) Return unified dictionary responses with status metadata.
+    4) Gracefully degrade to fallback mode if imports fail.
     """
 
+    # -------------------------------------------------------------------------
+    # Initialization and module management
+    # -------------------------------------------------------------------------
     def __init__(self) -> None:
+        """
+        Initialize adapter state and attempt import-based module loading.
+
+        Attributes:
+            mode (str): Adapter running mode ("import" or "fallback").
+            imports_ok (bool): Whether core module imports succeeded.
+            capabilities (dict): Available features detected at runtime.
+            modules (dict): Loaded module references.
+        """
         self.mode = "import"
-        self._modules: Dict[str, Any] = {}
-        self._import_error: Optional[str] = None
+        self.imports_ok = False
+        self.modules: Dict[str, Any] = {}
+        self.capabilities: Dict[str, Any] = {
+            "normal": False,
+            "uniform": False,
+            "setseed": False,
+            "modeling_max": False,
+            "modeling_min": False,
+            "solvers": False,
+            "backends": {
+                "glpk": False,
+                "mosek": False,
+                "dsdp": False,
+                "gsl": False,
+            },
+        }
+
         self._load_modules()
 
-    # -------------------------------------------------------------------------
-    # Internal helpers
-    # -------------------------------------------------------------------------
-    def _ok(self, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        result = {"status": "success", "mode": self.mode}
+    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "ok") -> Dict[str, Any]:
+        payload = {"status": "success", "mode": self.mode, "message": message}
         if data:
-            result.update(data)
-        return result
+            payload.update(data)
+        return payload
 
-    def _err(self, message: str, guidance: Optional[str] = None) -> Dict[str, Any]:
-        result = {"status": "error", "mode": self.mode, "error": message}
-        if guidance:
-            result["guidance"] = guidance
-        return result
+    def _err(self, message: str, hint: Optional[str] = None, exception: Optional[Exception] = None) -> Dict[str, Any]:
+        payload: Dict[str, Any] = {
+            "status": "error",
+            "mode": self.mode,
+            "message": message,
+        }
+        if hint:
+            payload["hint"] = hint
+        if exception is not None:
+            payload["error_type"] = type(exception).__name__
+            payload["error"] = str(exception)
+        return payload
 
     def _load_modules(self) -> None:
+        """
+        Load CVXOPT repository modules using full package paths from analysis.
+
+        Uses:
+            - src.python.__init__ for normal/uniform/setseed
+            - src.python.modeling for max/min
+            - src.python.solvers for LP/QP/SOCP/SDP/CONELP/CONEQP/GP wrappers
+            - optional modules for backend capability checks
+        """
         try:
-            import python as cvxopt_package
-            import python.solvers as solvers
-            import python.modeling as modeling
-            import python.coneprog as coneprog
-            import python.cvxprog as cvxprog
-            import python.misc as misc
-            import python.msk as msk
-            import python.printing as printing
-            import python.info as info
+            import src.python.__init__ as cvxopt_init
+            import src.python.modeling as cvxopt_modeling
+            import src.python.solvers as cvxopt_solvers
 
-            self._modules = {
-                "cvxopt_package": cvxopt_package,
-                "solvers": solvers,
-                "modeling": modeling,
-                "coneprog": coneprog,
-                "cvxprog": cvxprog,
-                "misc": misc,
-                "msk": msk,
-                "printing": printing,
-                "info": info,
-            }
+            self.modules["cvxopt_init"] = cvxopt_init
+            self.modules["cvxopt_modeling"] = cvxopt_modeling
+            self.modules["cvxopt_solvers"] = cvxopt_solvers
+
+            self.capabilities["normal"] = hasattr(cvxopt_init, "normal")
+            self.capabilities["uniform"] = hasattr(cvxopt_init, "uniform")
+            self.capabilities["setseed"] = hasattr(cvxopt_init, "setseed")
+            self.capabilities["modeling_max"] = hasattr(cvxopt_modeling, "max")
+            self.capabilities["modeling_min"] = hasattr(cvxopt_modeling, "min")
+            self.capabilities["solvers"] = True
+
+            # Optional backend detection
+            try:
+                import src.python.msk  # noqa: F401
+                self.capabilities["backends"]["mosek"] = True
+            except Exception:
+                self.capabilities["backends"]["mosek"] = False
+
+            try:
+                import importlib
+                glpk_mod = importlib.import_module("cvxopt.glpk")
+                self.capabilities["backends"]["glpk"] = glpk_mod is not None
+            except Exception:
+                self.capabilities["backends"]["glpk"] = False
+
+            self.imports_ok = True
             self.mode = "import"
-        except Exception as exc:
-            self.mode = "blackbox"
-            self._import_error = str(exc)
 
-    def health_check(self) -> Dict[str, Any]:
-        """
-        Report adapter health and import status.
+        except Exception:
+            self.imports_ok = False
+            self.mode = "fallback"
 
-        Returns:
-            dict: Unified status payload containing mode and module availability.
+    # -------------------------------------------------------------------------
+    # Health and capabilities
+    # -------------------------------------------------------------------------
+    def health(self) -> Dict[str, Any]:
         """
-        if self.mode == "import":
+        Return adapter health and import/capability diagnostics.
+        """
+        if self.imports_ok:
             return self._ok(
                 {
-                    "message": "CVXOPT modules loaded successfully from source.",
-                    "modules": sorted(self._modules.keys()),
-                }
+                    "imports_ok": True,
+                    "capabilities": self.capabilities,
+                    "source_path": source_path,
+                },
+                message="Adapter is ready in import mode.",
             )
         return self._err(
-            "Import mode is unavailable due to module import failure.",
-            guidance=(
-                "Ensure CVXOPT compiled extensions are built and runtime dependencies "
-                "(NumPy, BLAS/LAPACK, optional GLPK/DSDP/GSL/MOSEK) are available. "
-                f"Original import error: {self._import_error}"
+            "Import mode unavailable.",
+            hint=(
+                "Build CVXOPT native extensions in this repository context. "
+                "If build is not possible, run in blackbox/container fallback mode."
             ),
         )
 
     # -------------------------------------------------------------------------
-    # Package-level constructors / utilities
+    # Identified functions from src.python.__init__
     # -------------------------------------------------------------------------
-    def create_matrix(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Create a dense matrix using python.matrix."""
-        if self.mode != "import":
-            return self._err("matrix creation is not available in fallback mode.")
-        try:
-            matrix_ctor = getattr(self._modules["cvxopt_package"], "matrix")
-            return self._ok({"result": matrix_ctor(*args, **kwargs)})
-        except Exception as exc:
-            return self._err("Failed to create matrix.", guidance=str(exc))
-
-    def create_spmatrix(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Create a sparse matrix using python.spmatrix."""
-        if self.mode != "import":
-            return self._err("spmatrix creation is not available in fallback mode.")
-        try:
-            spmatrix_ctor = getattr(self._modules["cvxopt_package"], "spmatrix")
-            return self._ok({"result": spmatrix_ctor(*args, **kwargs)})
-        except Exception as exc:
-            return self._err("Failed to create sparse matrix.", guidance=str(exc))
-
-    # -------------------------------------------------------------------------
-    # Solvers module wrappers
-    # -------------------------------------------------------------------------
-    def call_lp(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call linear programming solver: python.solvers.lp."""
-        return self._call_solver_func("lp", *args, **kwargs)
-
-    def call_qp(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call quadratic programming solver: python.solvers.qp."""
-        return self._call_solver_func("qp", *args, **kwargs)
-
-    def call_socp(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call second-order cone programming solver: python.solvers.socp."""
-        return self._call_solver_func("socp", *args, **kwargs)
-
-    def call_sdp(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call semidefinite programming solver: python.solvers.sdp."""
-        return self._call_solver_func("sdp", *args, **kwargs)
-
-    def call_conelp(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call cone LP solver: python.solvers.conelp."""
-        return self._call_solver_func("conelp", *args, **kwargs)
-
-    def call_coneqp(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call cone QP solver: python.solvers.coneqp."""
-        return self._call_solver_func("coneqp", *args, **kwargs)
-
-    def _call_solver_func(self, name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err(
-                f"Solver function '{name}' is not available in fallback mode.",
-                guidance="Build CVXOPT extension modules and verify numerical backends.",
-            )
-        try:
-            fn = getattr(self._modules["solvers"], name)
-            return self._ok({"result": fn(*args, **kwargs)})
-        except AttributeError:
-            return self._err(
-                f"Solver function '{name}' not found.",
-                guidance="Check CVXOPT version and available solver interfaces.",
-            )
-        except Exception as exc:
-            return self._err(f"Solver '{name}' execution failed.", guidance=str(exc))
-
-    # -------------------------------------------------------------------------
-    # Modeling module wrappers
-    # -------------------------------------------------------------------------
-    def modeling_variable(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Instantiate modeling.variable."""
-        return self._instantiate_modeling("variable", *args, **kwargs)
-
-    def modeling_op(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Instantiate modeling.op."""
-        return self._instantiate_modeling("op", *args, **kwargs)
-
-    def modeling_max(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call modeling.max."""
-        return self._call_modeling_func("max", *args, **kwargs)
-
-    def modeling_min(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call modeling.min."""
-        return self._call_modeling_func("min", *args, **kwargs)
-
-    def modeling_sum(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call modeling.sum."""
-        return self._call_modeling_func("sum", *args, **kwargs)
-
-    def modeling_dot(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call modeling.dot."""
-        return self._call_modeling_func("dot", *args, **kwargs)
-
-    def _instantiate_modeling(self, name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err(f"Modeling class '{name}' is not available in fallback mode.")
-        try:
-            cls = getattr(self._modules["modeling"], name)
-            return self._ok({"result": cls(*args, **kwargs)})
-        except AttributeError:
-            return self._err(f"Modeling class '{name}' not found.")
-        except Exception as exc:
-            return self._err(f"Failed to instantiate modeling class '{name}'.", guidance=str(exc))
-
-    def _call_modeling_func(self, name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err(f"Modeling function '{name}' is not available in fallback mode.")
-        try:
-            fn = getattr(self._modules["modeling"], name)
-            return self._ok({"result": fn(*args, **kwargs)})
-        except AttributeError:
-            return self._err(f"Modeling function '{name}' not found.")
-        except Exception as exc:
-            return self._err(f"Modeling function '{name}' failed.", guidance=str(exc))
-
-    # -------------------------------------------------------------------------
-    # Generic module execution for full feature access
-    # -------------------------------------------------------------------------
-    def call_module_attr(self, module: str, attr: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call_normal(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Generic dispatcher to call any attribute from loaded modules.
+        Call src.python.__init__.normal(*args, **kwargs).
 
-        Args:
-            module: One of loaded module keys (e.g., 'solvers', 'modeling', 'coneprog').
-            attr: Function or callable attribute name to execute.
-            *args: Positional arguments.
-            **kwargs: Keyword arguments.
+        Parameters:
+            *args: Positional arguments forwarded to CVXOPT normal().
+            **kwargs: Keyword arguments forwarded to CVXOPT normal().
 
         Returns:
-            dict: Unified status payload with execution result or error details.
+            dict: Unified response with status and function result.
         """
-        if self.mode != "import":
+        if not self.imports_ok:
             return self._err(
-                "Generic module dispatch is not available in fallback mode.",
-                guidance="Resolve import issues and rebuild CVXOPT from source.",
-            )
-        if module not in self._modules:
-            return self._err(
-                f"Unknown module '{module}'.",
-                guidance=f"Available modules: {sorted(self._modules.keys())}",
+                "normal is unavailable in fallback mode.",
+                hint="Ensure CVXOPT modules import successfully before calling random helpers.",
             )
         try:
-            target = getattr(self._modules[module], attr)
-            if callable(target):
-                return self._ok({"result": target(*args, **kwargs)})
-            return self._ok({"result": target})
-        except AttributeError:
+            fn = self.modules["cvxopt_init"].normal
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result}, message="normal executed.")
+        except Exception as e:
             return self._err(
-                f"Attribute '{attr}' not found in module '{module}'.",
-                guidance="Inspect module members and verify API availability.",
+                "Failed to execute normal.",
+                hint="Verify argument types/shapes expected by CVXOPT normal().",
+                exception=e,
             )
-        except Exception as exc:
+
+    def call_uniform(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call src.python.__init__.uniform(*args, **kwargs).
+
+        Parameters:
+            *args: Positional arguments forwarded to CVXOPT uniform().
+            **kwargs: Keyword arguments forwarded to CVXOPT uniform().
+
+        Returns:
+            dict: Unified response with status and function result.
+        """
+        if not self.imports_ok:
             return self._err(
-                f"Execution failed for '{module}.{attr}'.",
-                guidance=str(exc),
+                "uniform is unavailable in fallback mode.",
+                hint="Ensure CVXOPT modules import successfully before calling random helpers.",
             )
+        try:
+            fn = self.modules["cvxopt_init"].uniform
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result}, message="uniform executed.")
+        except Exception as e:
+            return self._err(
+                "Failed to execute uniform.",
+                hint="Verify argument types/shapes expected by CVXOPT uniform().",
+                exception=e,
+            )
+
+    def call_setseed(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call src.python.__init__.setseed(*args, **kwargs).
+
+        Parameters:
+            *args: Positional arguments forwarded to CVXOPT setseed().
+            **kwargs: Keyword arguments forwarded to CVXOPT setseed().
+
+        Returns:
+            dict: Unified response with status and function result.
+        """
+        if not self.imports_ok:
+            return self._err(
+                "setseed is unavailable in fallback mode.",
+                hint="Ensure CVXOPT modules import successfully before setting RNG seed.",
+            )
+        try:
+            fn = self.modules["cvxopt_init"].setseed
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result}, message="setseed executed.")
+        except Exception as e:
+            return self._err(
+                "Failed to execute setseed.",
+                hint="Pass a valid integer seed supported by CVXOPT.",
+                exception=e,
+            )
+
+    # -------------------------------------------------------------------------
+    # Identified functions from src.python.modeling
+    # -------------------------------------------------------------------------
+    def call_modeling_max(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call src.python.modeling.max(*args, **kwargs).
+
+        Parameters:
+            *args: Modeling objects or numeric values accepted by CVXOPT DSL.
+            **kwargs: Extra keyword parameters for modeling.max.
+
+        Returns:
+            dict: Unified response with status and function result.
+        """
+        if not self.imports_ok:
+            return self._err(
+                "modeling.max is unavailable in fallback mode.",
+                hint="Enable import mode with built CVXOPT modules to use symbolic modeling.",
+            )
+        try:
+            fn = self.modules["cvxopt_modeling"].max
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result}, message="modeling.max executed.")
+        except Exception as e:
+            return self._err(
+                "Failed to execute modeling.max.",
+                hint="Check that arguments are valid CVXOPT modeling expressions.",
+                exception=e,
+            )
+
+    def call_modeling_min(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call src.python.modeling.min(*args, **kwargs).
+
+        Parameters:
+            *args: Modeling objects or numeric values accepted by CVXOPT DSL.
+            **kwargs: Extra keyword parameters for modeling.min.
+
+        Returns:
+            dict: Unified response with status and function result.
+        """
+        if not self.imports_ok:
+            return self._err(
+                "modeling.min is unavailable in fallback mode.",
+                hint="Enable import mode with built CVXOPT modules to use symbolic modeling.",
+            )
+        try:
+            fn = self.modules["cvxopt_modeling"].min
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result}, message="modeling.min executed.")
+        except Exception as e:
+            return self._err(
+                "Failed to execute modeling.min.",
+                hint="Check that arguments are valid CVXOPT modeling expressions.",
+                exception=e,
+            )
+
+    # -------------------------------------------------------------------------
+    # Solver wrappers (import strategy recommendation)
+    # -------------------------------------------------------------------------
+    def call_solver(self, solver_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Generic solver dispatcher for CVXOPT solvers module.
+
+        Supported solver names include:
+            lp, qp, socp, sdp, conelp, coneqp, gp
+
+        Parameters:
+            solver_name (str): Solver function name in src.python.solvers.
+            *args: Positional arguments for the selected solver.
+            **kwargs: Keyword arguments for the selected solver.
+
+        Returns:
+            dict: Unified response containing raw solver output when successful.
+        """
+        if not self.imports_ok:
+            return self._err(
+                "Solver calls are unavailable in fallback mode.",
+                hint="Use a prebuilt container/blackbox executor for lp/qp as a fallback path.",
+            )
+        try:
+            mod = self.modules["cvxopt_solvers"]
+            if not hasattr(mod, solver_name):
+                return self._err(
+                    f"Unknown solver '{solver_name}'.",
+                    hint="Use one of: lp, qp, socp, sdp, conelp, coneqp, gp.",
+                )
+            solver_fn = getattr(mod, solver_name)
+            result = solver_fn(*args, **kwargs)
+            return self._ok({"result": result, "solver": solver_name}, message=f"{solver_name} executed.")
+        except Exception as e:
+            return self._err(
+                f"Failed to execute solver '{solver_name}'.",
+                hint="Validate matrix dimensions/types and cone definitions.",
+                exception=e,
+            )
+
+    # -------------------------------------------------------------------------
+    # Fallback helper
+    # -------------------------------------------------------------------------
+    def fallback_plan(self) -> Dict[str, Any]:
+        """
+        Provide actionable fallback guidance when import mode cannot run.
+
+        Returns:
+            dict: Steps for blackbox/container fallback operation.
+        """
+        return self._ok(
+            {
+                "recommended_mode": "blackbox",
+                "steps": [
+                    "Build or use a prebuilt environment with CVXOPT native extensions.",
+                    "Expose a minimal JSON API for lp/qp first for reliability.",
+                    "Map JSON arrays to CVXOPT matrix/spmatrix in executor layer.",
+                    "Return normalized output fields: status, objective, x, y, z, iterations.",
+                ],
+            },
+            message="Fallback guidance generated.",
+        )
+
+    # -------------------------------------------------------------------------
+    # Utility
+    # -------------------------------------------------------------------------
+    def last_trace(self) -> Dict[str, Any]:
+        """
+        Return current traceback snapshot for debugging context.
+        """
+        return self._ok({"traceback": traceback.format_exc()}, message="Traceback snapshot generated.")

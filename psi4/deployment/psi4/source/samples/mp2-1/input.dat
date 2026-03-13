@@ -1,0 +1,23 @@
+#! All-electron MP2 6-31G** geometry optimization of water
+
+
+molecule h2o {
+  O
+  H 1 1.0
+  H 1 1.0 2 106.0
+}
+
+set {
+  basis 6-31G**
+  reference rhf
+  d_convergence 9
+  e_convergence 9
+  mp2_type conv
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") != "INTERNAL":
+    psi4.set_options({"e_convergence": 9, "d_convergence": 5e-8})
+
+optimized_energy = optimize('mp2')
+
+

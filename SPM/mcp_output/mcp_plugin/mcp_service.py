@@ -7,14 +7,40 @@ if source_path not in sys.path:
 
 from fastmcp import FastMCP
 
-# No imports available
+from scripts.SequencePatternMatching import loadUniprotDB, volumeScoring, peptideSearching
 
 mcp = FastMCP("unknown_service")
 
 
-    @mcp.tool(name="core", description="Default core function")
-    def core(*args, **kwargs):
-        return {"success": False, "result": None, "error": "no_import_available"}
+@mcp.tool(name="loadUniprotDB", description="Auto-wrapped function loadUniprotDB")
+def loadUniprotDB(payload: dict):
+    try:
+        if loadUniprotDB is None:
+            return {"success": False, "result": None, "error": "Function loadUniprotDB is not available"}
+        result = loadUniprotDB(**payload)
+        return {"success": True, "result": result, "error": None}
+    except Exception as e:
+        return {"success": False, "result": None, "error": str(e)}
+
+@mcp.tool(name="peptideSearching", description="Auto-wrapped function peptideSearching")
+def peptideSearching(payload: dict):
+    try:
+        if peptideSearching is None:
+            return {"success": False, "result": None, "error": "Function peptideSearching is not available"}
+        result = peptideSearching(**payload)
+        return {"success": True, "result": result, "error": None}
+    except Exception as e:
+        return {"success": False, "result": None, "error": str(e)}
+
+@mcp.tool(name="volumeScoring", description="Auto-wrapped function volumeScoring")
+def volumeScoring(payload: dict):
+    try:
+        if volumeScoring is None:
+            return {"success": False, "result": None, "error": "Function volumeScoring is not available"}
+        result = volumeScoring(**payload)
+        return {"success": True, "result": result, "error": None}
+    except Exception as e:
+        return {"success": False, "result": None, "error": str(e)}
 
 
 

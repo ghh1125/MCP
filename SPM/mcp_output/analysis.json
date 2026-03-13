@@ -17,7 +17,10 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.SPM.source",
+      "mcp_output.mcp_plugin"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
@@ -34,18 +37,37 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "scripts/SequencePatternMatching.py",
+        "package": "scripts",
         "module": "SequencePatternMatching",
-        "functions": [],
+        "functions": [
+          "loadUniprotDB",
+          "peptideSearching",
+          "volumeScoring"
+        ],
         "classes": [],
-        "description": "Single-script implementation of sequence pattern matching logic. Based on repository structure, this is the only executable core code file and should be treated as the primary functional module for MCP integration."
+        "function_signatures": {
+          "volumeScoring": [
+            "query_seq_volume",
+            "uniprot_info",
+            "db_seq"
+          ],
+          "loadUniprotDB": [
+            "db_fasta"
+          ],
+          "peptideSearching": [
+            "db_fasta",
+            "query_seq",
+            "output_file"
+          ]
+        },
+        "description": "Discovered via AST scan"
       }
     ],
     "cli_commands": [
       {
         "name": "python scripts/SequencePatternMatching.py",
-        "module": "scripts/SequencePatternMatching.py",
-        "description": "Likely script-style entry execution for running sequence pattern matching and producing ranked output files (e.g., output/test1_ranked.txt). No formal CLI metadata (console_scripts/argparse click declaration) was detected from scanned paths."
+        "module": "deployment.SPM.source.scripts.SequencePatternMatching",
+        "description": "Likely script-style execution entry for running sequence pattern matching against input data and producing ranked output; inferred from file naming and output/test1_ranked.txt artifact."
       }
     ],
     "import_strategy": {
@@ -55,12 +77,12 @@
     },
     "dependencies": {
       "required": [
-        "python (runtime, exact version unspecified)"
+        "python>=3.x"
       ],
       "optional": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.35,
+      "import_feasibility": 0.32,
       "intrusiveness_risk": "medium",
       "complexity": "simple"
     }
@@ -78,7 +100,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.35,
+    "import_feasibility": 0.32,
     "intrusiveness_risk": "medium",
     "complexity": "simple"
   }

@@ -1,0 +1,19 @@
+#! RHF-CC2-LR/cc-pVDZ static polarizabilities of HOF molecule.
+
+molecule hof {
+  0 1
+  O
+  H 1 0.97
+  F 1 0.97 2 103.0
+}
+
+set {
+  basis "cc-pVDZ"
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") != "INTERNAL":
+    psi4.set_options({"e_convergence": 9, "d_convergence": 3e-8})
+
+wfn = properties('cc2',properties=['polarizability'], return_wfn=True)[1]
+
+

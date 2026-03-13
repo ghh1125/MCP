@@ -1,7 +1,5 @@
 import os
 import sys
-import importlib
-import traceback
 from typing import Any, Dict, List, Optional, Tuple
 
 source_path = os.path.join(
@@ -13,357 +11,448 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import-Mode Adapter for TextBlob.
+    MCP Import-Mode adapter for TextBlob.
 
-    This adapter prioritizes direct Python imports from the local source tree.
-    If imports fail, it gracefully falls back to CLI guidance for corpus download.
-    All public methods return a unified response dictionary with a `status` field.
+    This adapter prefers direct Python imports from the repository source tree and
+    falls back to actionable guidance when runtime dependencies (for example NLTK
+    corpora) are missing.
+
+    Unified return format used by all methods:
+    {
+        "status": "success" | "error" | "fallback",
+        "mode": "import",
+        "data": ...,
+        "error": ...,
+        "guidance": ...
+    }
     """
 
     # -------------------------------------------------------------------------
-    # Lifecycle / Module Management
+    # Lifecycle / module management
     # -------------------------------------------------------------------------
     def __init__(self) -> None:
-        """
-        Initialize adapter in import mode and attempt to load core modules.
-
-        Returns:
-            None
-        """
         self.mode = "import"
-        self._loaded = False
-        self._import_errors: List[str] = []
-
-        self._mod_textblob = None
-        self._mod_blob = None
-        self._mod_classifiers = None
-        self._mod_tokenizers = None
-        self._mod_np_extractors = None
-        self._mod_taggers = None
-        self._mod_parsers = None
-        self._mod_sentiments = None
-        self._mod_formats = None
-        self._mod_inflect = None
-        self._mod_translate = None
-        self._mod_download_corpora = None
-
+        self._modules: Dict[str, Any] = {}
+        self._imports_ready: bool = False
+        self._import_error: Optional[str] = None
         self._load_modules()
 
-    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "success") -> Dict[str, Any]:
-        payload = {"status": "success", "mode": self.mode, "message": message}
-        if data:
-            payload.update(data)
-        return payload
+    def _ok(self, data: Any = None) -> Dict[str, Any]:
+        return {"status": "success", "mode": self.mode, "data": data}
 
-    def _err(self, message: str, guidance: Optional[str] = None, details: Optional[str] = None) -> Dict[str, Any]:
-        payload = {"status": "error", "mode": self.mode, "message": message}
-        if guidance:
-            payload["guidance"] = guidance
-        if details:
-            payload["details"] = details
-        return payload
+    def _err(self, message: str, guidance: Optional[str] = None) -> Dict[str, Any]:
+        return {
+            "status": "error",
+            "mode": self.mode,
+            "error": message,
+            "guidance": guidance
+            or "Check dependency installation and required NLTK corpora availability.",
+        }
+
+    def _fallback(self, message: str, guidance: str) -> Dict[str, Any]:
+        return {
+            "status": "fallback",
+            "mode": self.mode,
+            "error": message,
+            "guidance": guidance,
+        }
 
     def _load_modules(self) -> None:
-        modules = [
-            "textblob",
-            "textblob.blob",
-            "textblob.classifiers",
-            "textblob.tokenizers",
-            "textblob.np_extractors",
-            "textblob.taggers",
-            "textblob.parsers",
-            "textblob.sentiments",
-            "textblob.formats",
-            "textblob.inflect",
-            "textblob.translate",
-            "textblob.download_corpora",
-        ]
+        try:
+            import importlib
 
-        for mod_name in modules:
-            try:
-                mod = importlib.import_module(mod_name)
-                setattr(self, f"_mod_{mod_name.replace('.', '_')}", mod)
-            except Exception as e:
-                self._import_errors.append(f"{mod_name}: {e}")
-
-        self._mod_textblob = getattr(self, "_mod_textblob", None)
-        self._mod_blob = getattr(self, "_mod_textblob_blob", None)
-        self._mod_classifiers = getattr(self, "_mod_textblob_classifiers", None)
-        self._mod_tokenizers = getattr(self, "_mod_textblob_tokenizers", None)
-        self._mod_np_extractors = getattr(self, "_mod_textblob_np_extractors", None)
-        self._mod_taggers = getattr(self, "_mod_textblob_taggers", None)
-        self._mod_parsers = getattr(self, "_mod_textblob_parsers", None)
-        self._mod_sentiments = getattr(self, "_mod_textblob_sentiments", None)
-        self._mod_formats = getattr(self, "_mod_textblob_formats", None)
-        self._mod_inflect = getattr(self, "_mod_textblob_inflect", None)
-        self._mod_translate = getattr(self, "_mod_textblob_translate", None)
-        self._mod_download_corpora = getattr(self, "_mod_textblob_download_corpora", None)
-
-        self._loaded = self._mod_textblob is not None and self._mod_blob is not None
+            # Core package imports using full repository package paths (without "source." prefix)
+            self._modules["textblob"] = importlib.import_module("src.textblob")
+            self._modules["blob"] = importlib.import_module("src.textblob.blob")
+            self._modules["classifiers"] = importlib.import_module("src.textblob.classifiers")
+            self._modules["tokenizers"] = importlib.import_module("src.textblob.tokenizers")
+            self._modules["sentiments"] = importlib.import_module("src.textblob.sentiments")
+            self._modules["taggers"] = importlib.import_module("src.textblob.taggers")
+            self._modules["parsers"] = importlib.import_module("src.textblob.parsers")
+            self._modules["np_extractors"] = importlib.import_module("src.textblob.np_extractors")
+            self._modules["formats"] = importlib.import_module("src.textblob.formats")
+            self._modules["translate"] = importlib.import_module("src.textblob.translate")
+            self._modules["download_corpora"] = importlib.import_module("src.textblob.download_corpora")
+            self._imports_ready = True
+        except Exception as exc:
+            self._imports_ready = False
+            self._import_error = str(exc)
 
     def health_check(self) -> Dict[str, Any]:
         """
-        Report adapter health and import readiness.
+        Validate adapter import readiness.
 
         Returns:
-            dict: Unified response with import readiness and actionable guidance.
+            Dict with import status and available modules.
         """
-        if self._loaded:
-            return self._ok(
-                {
-                    "loaded": True,
-                    "import_errors": self._import_errors,
-                    "available_modules": [
-                        m for m in [
-                            "textblob",
-                            "textblob.blob",
-                            "textblob.classifiers",
-                            "textblob.tokenizers",
-                            "textblob.np_extractors",
-                            "textblob.taggers",
-                            "textblob.parsers",
-                            "textblob.sentiments",
-                            "textblob.formats",
-                            "textblob.inflect",
-                            "textblob.translate",
-                            "textblob.download_corpora",
-                        ] if importlib.util.find_spec(m) is not None
-                    ],
-                },
-                message="Adapter is healthy and import mode is active.",
+        if not self._imports_ready:
+            return self._fallback(
+                f"Import mode initialization failed: {self._import_error}",
+                "Ensure repository source exists under ./source and required dependency 'nltk' is installed.",
             )
-        return self._err(
-            "Import mode is not fully available.",
-            guidance=(
-                "Ensure source code is present under the expected 'source' directory, "
-                "and install runtime dependency 'nltk'. "
-                "Then run: python -m textblob.download_corpora"
-            ),
-            details="; ".join(self._import_errors) if self._import_errors else None,
+        return self._ok(
+            {
+                "imports_ready": True,
+                "modules": sorted(self._modules.keys()),
+                "recommended_cli": [
+                    "python -m textblob.download_corpora",
+                    "python -m textblob.download_corpora lite",
+                ],
+            }
         )
 
     # -------------------------------------------------------------------------
-    # Core Object Constructors (Class instance methods)
+    # Corpus / setup helpers
     # -------------------------------------------------------------------------
-    def create_textblob(self, text: str, **kwargs: Any) -> Dict[str, Any]:
+    def call_download_corpora(self, lite: bool = False) -> Dict[str, Any]:
         """
-        Create a textblob.blob.TextBlob instance.
+        Download TextBlob corpora via repository implementation.
 
-        Parameters:
-            text (str): Input text content.
-            **kwargs: Additional keyword arguments forwarded to TextBlob constructor.
+        Args:
+            lite: If True, download reduced corpus set equivalent to
+                  'python -m textblob.download_corpora lite'.
 
         Returns:
-            dict: status + created object or error details.
+            Unified status dictionary.
         """
-        if not self._mod_blob:
-            return self._err("textblob.blob is unavailable.", guidance="Run health_check() and verify imports.")
+        if not self._imports_ready:
+            return self._fallback(
+                "download_corpora module is unavailable in import mode.",
+                "Run: python -m textblob.download_corpora (or append 'lite') in a prepared runtime.",
+            )
         try:
-            cls = getattr(self._mod_blob, "TextBlob")
+            mod = self._modules["download_corpora"]
+            if lite and hasattr(mod, "download_lite"):
+                mod.download_lite()
+            elif hasattr(mod, "download_all"):
+                mod.download_all()
+            elif hasattr(mod, "main"):
+                # Best-effort fallback to module CLI entry.
+                mod.main(["lite"] if lite else [])
+            else:
+                return self._err(
+                    "No callable download entry found.",
+                    "Use CLI fallback: python -m textblob.download_corpora [lite].",
+                )
+            return self._ok({"lite": lite, "message": "Corpora download requested."})
+        except Exception as exc:
+            return self._fallback(
+                f"Corpora download failed: {exc}",
+                "Verify network access and NLTK data write permissions, then retry.",
+            )
+
+    # -------------------------------------------------------------------------
+    # Core object constructors (instance methods for classes)
+    # -------------------------------------------------------------------------
+    def instance_textblob(self, text: str, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create a TextBlob instance.
+
+        Args:
+            text: Input text.
+            **kwargs: Optional TextBlob constructor args (tokenizer, np_extractor, pos_tagger, analyzer, parser, classifier).
+
+        Returns:
+            Dict with created object metadata.
+        """
+        if not self._imports_ready:
+            return self._err("Imports are not ready.", "Call health_check and fix import issues first.")
+        try:
+            cls = getattr(self._modules["blob"], "TextBlob")
             obj = cls(text, **kwargs)
-            return self._ok({"object": obj}, message="TextBlob instance created.")
-        except Exception as e:
-            return self._err("Failed to create TextBlob instance.", details=str(e))
+            return self._ok({"type": "TextBlob", "object": obj, "string": str(obj)})
+        except Exception as exc:
+            return self._err(f"Failed to create TextBlob: {exc}", "Ensure required corpora are downloaded.")
 
-    def create_sentence(self, sentence: str, **kwargs: Any) -> Dict[str, Any]:
-        if not self._mod_blob:
-            return self._err("textblob.blob is unavailable.")
+    def instance_sentence(self, sentence: str, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create a Sentence instance.
+
+        Args:
+            sentence: Sentence text.
+            **kwargs: Optional constructor args.
+
+        Returns:
+            Unified status dictionary.
+        """
+        if not self._imports_ready:
+            return self._err("Imports are not ready.")
         try:
-            cls = getattr(self._mod_blob, "Sentence")
+            cls = getattr(self._modules["blob"], "Sentence")
             obj = cls(sentence, **kwargs)
-            return self._ok({"object": obj}, message="Sentence instance created.")
-        except Exception as e:
-            return self._err("Failed to create Sentence instance.", details=str(e))
+            return self._ok({"type": "Sentence", "object": obj, "string": str(obj)})
+        except Exception as exc:
+            return self._err(f"Failed to create Sentence: {exc}")
 
-    def create_word(self, word: str, **kwargs: Any) -> Dict[str, Any]:
-        if not self._mod_blob:
-            return self._err("textblob.blob is unavailable.")
-        try:
-            cls = getattr(self._mod_blob, "Word")
-            obj = cls(word, **kwargs)
-            return self._ok({"object": obj}, message="Word instance created.")
-        except Exception as e:
-            return self._err("Failed to create Word instance.", details=str(e))
+    def instance_word(self, word: str) -> Dict[str, Any]:
+        """
+        Create a Word instance.
 
-    def create_blobber(self, **kwargs: Any) -> Dict[str, Any]:
-        if not self._mod_blob:
-            return self._err("textblob.blob is unavailable.")
+        Args:
+            word: Token value.
+
+        Returns:
+            Unified status dictionary.
+        """
+        if not self._imports_ready:
+            return self._err("Imports are not ready.")
         try:
-            cls = getattr(self._mod_blob, "Blobber")
+            cls = getattr(self._modules["blob"], "Word")
+            obj = cls(word)
+            return self._ok({"type": "Word", "object": obj, "string": str(obj)})
+        except Exception as exc:
+            return self._err(f"Failed to create Word: {exc}")
+
+    def instance_blobber(self, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create a Blobber factory instance.
+
+        Args:
+            **kwargs: Blobber constructor args (tokenizer, pos_tagger, np_extractor, analyzer, parser, classifier).
+
+        Returns:
+            Unified status dictionary.
+        """
+        if not self._imports_ready:
+            return self._err("Imports are not ready.")
+        try:
+            cls = getattr(self._modules["blob"], "Blobber")
             obj = cls(**kwargs)
-            return self._ok({"object": obj}, message="Blobber instance created.")
-        except Exception as e:
-            return self._err("Failed to create Blobber instance.", details=str(e))
+            return self._ok({"type": "Blobber", "object": obj})
+        except Exception as exc:
+            return self._err(f"Failed to create Blobber: {exc}")
 
     # -------------------------------------------------------------------------
-    # Core NLP Operations
+    # Functional wrappers
     # -------------------------------------------------------------------------
-    def analyze_text(self, text: str) -> Dict[str, Any]:
+    def call_detect_language(self, text: str) -> Dict[str, Any]:
         """
-        Run common TextBlob NLP operations on input text.
+        Detect language for input text using TextBlob implementation.
 
-        Parameters:
-            text (str): Input text.
+        Args:
+            text: Input text.
 
         Returns:
-            dict: status + tokens, tags, noun_phrases, sentiment, polarity, subjectivity.
+            Unified status dictionary with detected language code.
         """
         try:
-            created = self.create_textblob(text)
-            if created["status"] != "success":
-                return created
-            blob = created["object"]
-            return self._ok(
-                {
-                    "words": [str(w) for w in blob.words],
-                    "sentences": [str(s) for s in blob.sentences],
-                    "noun_phrases": list(blob.noun_phrases),
-                    "tags": list(blob.tags),
-                    "sentiment": {"polarity": blob.sentiment.polarity, "subjectivity": blob.sentiment.subjectivity},
-                },
-                message="Text analysis complete.",
-            )
-        except Exception as e:
-            return self._err("Failed to analyze text.", details=str(e))
-
-    def detect_language(self, text: str) -> Dict[str, Any]:
-        try:
-            created = self.create_textblob(text)
-            if created["status"] != "success":
-                return created
-            lang = created["object"].detect_language()
-            return self._ok({"language": lang}, message="Language detection complete.")
-        except Exception as e:
-            return self._err(
-                "Language detection failed.",
-                guidance="This may require internet access and external service availability.",
-                details=str(e),
+            tb_res = self.instance_textblob(text)
+            if tb_res["status"] != "success":
+                return tb_res
+            obj = tb_res["data"]["object"]
+            lang = obj.detect_language()
+            return self._ok({"language": lang})
+        except Exception as exc:
+            return self._fallback(
+                f"Language detection failed: {exc}",
+                "This feature may require external service availability; check network access and retry.",
             )
 
-    def translate_text(self, text: str, to: str = "en", from_lang: Optional[str] = None) -> Dict[str, Any]:
+    def call_translate(self, text: str, to: str = "en", from_lang: Optional[str] = None) -> Dict[str, Any]:
+        """
+        Translate text.
+
+        Args:
+            text: Source text.
+            to: Target language code.
+            from_lang: Optional source language code.
+
+        Returns:
+            Unified status dictionary with translated text.
+        """
         try:
-            created = self.create_textblob(text)
-            if created["status"] != "success":
-                return created
-            translated = created["object"].translate(from_lang=from_lang, to=to)
-            return self._ok({"translated_text": str(translated)}, message="Translation complete.")
-        except Exception as e:
-            return self._err(
-                "Translation failed.",
-                guidance="Ensure internet access is available and retry later.",
-                details=str(e),
+            tb_res = self.instance_textblob(text)
+            if tb_res["status"] != "success":
+                return tb_res
+            obj = tb_res["data"]["object"]
+            translated = obj.translate(from_lang=from_lang, to=to) if from_lang else obj.translate(to=to)
+            return self._ok({"translated_text": str(translated), "to": to, "from": from_lang})
+        except Exception as exc:
+            return self._fallback(
+                f"Translation failed: {exc}",
+                "Check internet connectivity and translation service access; then retry.",
             )
 
-    # -------------------------------------------------------------------------
-    # Tokenization / Parsing / Tagging / Sentiment Components
-    # -------------------------------------------------------------------------
-    def tokenize_words(self, text: str) -> Dict[str, Any]:
-        try:
-            if not self._mod_tokenizers:
-                return self._err("textblob.tokenizers is unavailable.")
-            fn = getattr(self._mod_tokenizers, "word_tokenize")
-            return self._ok({"tokens": list(fn(text))}, message="Word tokenization complete.")
-        except Exception as e:
-            return self._err("Word tokenization failed.", details=str(e))
+    def call_sentiment(self, text: str) -> Dict[str, Any]:
+        """
+        Compute sentiment polarity and subjectivity.
 
-    def tokenize_sentences(self, text: str) -> Dict[str, Any]:
+        Args:
+            text: Input text.
+
+        Returns:
+            Unified status dictionary with sentiment metrics.
+        """
         try:
-            if not self._mod_tokenizers:
-                return self._err("textblob.tokenizers is unavailable.")
-            fn = getattr(self._mod_tokenizers, "sent_tokenize")
-            return self._ok({"sentences": list(fn(text))}, message="Sentence tokenization complete.")
-        except Exception as e:
-            return self._err("Sentence tokenization failed.", details=str(e))
+            tb_res = self.instance_textblob(text)
+            if tb_res["status"] != "success":
+                return tb_res
+            s = tb_res["data"]["object"].sentiment
+            return self._ok({"polarity": s.polarity, "subjectivity": s.subjectivity})
+        except Exception as exc:
+            return self._err(f"Sentiment analysis failed: {exc}", "Install corpora and verify TextBlob analyzer setup.")
+
+    def call_pos_tags(self, text: str) -> Dict[str, Any]:
+        """
+        Get POS tags.
+
+        Args:
+            text: Input text.
+
+        Returns:
+            Unified status dictionary with POS tags.
+        """
+        try:
+            tb_res = self.instance_textblob(text)
+            if tb_res["status"] != "success":
+                return tb_res
+            tags = tb_res["data"]["object"].tags
+            return self._ok({"tags": list(tags)})
+        except Exception as exc:
+            return self._err(f"POS tagging failed: {exc}", "Download required NLTK corpora and retry.")
+
+    def call_noun_phrases(self, text: str) -> Dict[str, Any]:
+        """
+        Extract noun phrases.
+
+        Args:
+            text: Input text.
+
+        Returns:
+            Unified status dictionary with noun phrases.
+        """
+        try:
+            tb_res = self.instance_textblob(text)
+            if tb_res["status"] != "success":
+                return tb_res
+            nps = list(tb_res["data"]["object"].noun_phrases)
+            return self._ok({"noun_phrases": nps})
+        except Exception as exc:
+            return self._err(f"Noun phrase extraction failed: {exc}", "Ensure corpora for NP extraction are installed.")
+
+    def call_tokenize_words(self, text: str) -> Dict[str, Any]:
+        """
+        Tokenize text into words using repository tokenizer path.
+
+        Args:
+            text: Input text.
+
+        Returns:
+            Unified status dictionary.
+        """
+        if not self._imports_ready:
+            return self._err("Imports are not ready.")
+        try:
+            fn = getattr(self._modules["tokenizers"], "word_tokenize")
+            return self._ok({"tokens": list(fn(text))})
+        except Exception as exc:
+            return self._err(f"Word tokenization failed: {exc}")
+
+    def call_tokenize_sentences(self, text: str) -> Dict[str, Any]:
+        """
+        Tokenize text into sentences using repository tokenizer path.
+
+        Args:
+            text: Input text.
+
+        Returns:
+            Unified status dictionary.
+        """
+        if not self._imports_ready:
+            return self._err("Imports are not ready.")
+        try:
+            fn = getattr(self._modules["tokenizers"], "sent_tokenize")
+            return self._ok({"sentences": list(fn(text))})
+        except Exception as exc:
+            return self._err(f"Sentence tokenization failed: {exc}")
 
     # -------------------------------------------------------------------------
-    # Classifier Support
+    # Classifier support
     # -------------------------------------------------------------------------
-    def create_naive_bayes_classifier(self, train_set: List[Tuple[str, str]]) -> Dict[str, Any]:
+    def instance_naive_bayes_classifier(self, train_set: List[Tuple[str, str]]) -> Dict[str, Any]:
+        """
+        Create and train a NaiveBayesClassifier.
+
+        Args:
+            train_set: List of (text, label) tuples.
+
+        Returns:
+            Unified status dictionary with classifier object.
+        """
+        if not self._imports_ready:
+            return self._err("Imports are not ready.")
         try:
-            if not self._mod_classifiers:
-                return self._err("textblob.classifiers is unavailable.")
-            cls = getattr(self._mod_classifiers, "NaiveBayesClassifier")
+            cls = getattr(self._modules["classifiers"], "NaiveBayesClassifier")
             obj = cls(train_set)
-            return self._ok({"object": obj}, message="NaiveBayesClassifier instance created.")
-        except Exception as e:
-            return self._err("Failed to create NaiveBayesClassifier.", details=str(e))
+            return self._ok({"type": "NaiveBayesClassifier", "object": obj})
+        except Exception as exc:
+            return self._err(f"Failed to create NaiveBayesClassifier: {exc}")
 
-    def classify_with_naive_bayes(self, train_set: List[Tuple[str, str]], text: str) -> Dict[str, Any]:
-        try:
-            created = self.create_naive_bayes_classifier(train_set)
-            if created["status"] != "success":
-                return created
-            clf = created["object"]
-            label = clf.classify(text)
-            prob_dist = clf.prob_classify(text)
-            probs = {lbl: prob_dist.prob(lbl) for lbl in prob_dist.samples()}
-            return self._ok({"label": label, "probabilities": probs}, message="Classification complete.")
-        except Exception as e:
-            return self._err("Classification failed.", details=str(e))
-
-    # -------------------------------------------------------------------------
-    # Corpora / CLI Fallback
-    # -------------------------------------------------------------------------
-    def download_corpora(self, lite: bool = False) -> Dict[str, Any]:
+    def call_classifier_classify(self, classifier: Any, text: str) -> Dict[str, Any]:
         """
-        Download TextBlob/NLTK corpora via import mode when possible.
-        Falls back to CLI guidance if import path is unavailable.
+        Classify text with a provided classifier instance.
 
-        Parameters:
-            lite (bool): Whether to run lite corpus download path if supported.
+        Args:
+            classifier: A TextBlob-compatible classifier instance.
+            text: Text to classify.
 
         Returns:
-            dict: status + execution metadata or fallback guidance.
+            Unified status dictionary with predicted label.
         """
         try:
-            if self._mod_download_corpora:
-                if lite and hasattr(self._mod_download_corpora, "download_lite"):
-                    self._mod_download_corpora.download_lite()
-                elif hasattr(self._mod_download_corpora, "download_all"):
-                    self._mod_download_corpora.download_all()
-                elif hasattr(self._mod_download_corpora, "main"):
-                    self._mod_download_corpora.main()
-                else:
-                    return self._err(
-                        "No callable download function found in textblob.download_corpora.",
-                        guidance="Run CLI: python -m textblob.download_corpora",
-                    )
-                return self._ok(message="Corpora download invoked successfully.")
-            return self._err(
-                "Import for textblob.download_corpora is unavailable.",
-                guidance="Run CLI fallback: python -m textblob.download_corpora",
-            )
-        except Exception as e:
-            return self._err(
-                "Corpora download failed.",
-                guidance="Try CLI fallback: python -m textblob.download_corpora",
-                details=str(e),
-            )
+            label = classifier.classify(text)
+            return self._ok({"label": label})
+        except Exception as exc:
+            return self._err(f"Classification failed: {exc}", "Provide a trained TextBlob classifier instance.")
 
     # -------------------------------------------------------------------------
-    # Generic Invocation Utilities
+    # Generic safe executor
     # -------------------------------------------------------------------------
-    def call_module_function(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call(self, operation: str, **kwargs: Any) -> Dict[str, Any]:
         """
-        Dynamically call a function from a TextBlob module path.
+        Generic operation dispatcher for MCP integration.
 
-        Parameters:
-            module_path (str): Full module path (e.g., 'textblob.tokenizers').
-            function_name (str): Function name in module.
-            *args: Positional args for function.
-            **kwargs: Keyword args for function.
+        Supported operations:
+            - health_check
+            - download_corpora
+            - download_corpora_lite
+            - sentiment
+            - pos_tags
+            - noun_phrases
+            - tokenize_words
+            - tokenize_sentences
+            - detect_language
+            - translate
+
+        Args:
+            operation: Operation name.
+            **kwargs: Operation parameters.
 
         Returns:
-            dict: status + result or detailed error.
+            Unified status dictionary.
         """
-        try:
-            mod = importlib.import_module(module_path)
-            fn = getattr(mod, function_name)
-            result = fn(*args, **kwargs)
-            return self._ok({"result": result}, message=f"Called {module_path}.{function_name} successfully.")
-        except Exception as e:
+        ops = {
+            "health_check": lambda: self.health_check(),
+            "download_corpora": lambda: self.call_download_corpora(lite=False),
+            "download_corpora_lite": lambda: self.call_download_corpora(lite=True),
+            "sentiment": lambda: self.call_sentiment(kwargs.get("text", "")),
+            "pos_tags": lambda: self.call_pos_tags(kwargs.get("text", "")),
+            "noun_phrases": lambda: self.call_noun_phrases(kwargs.get("text", "")),
+            "tokenize_words": lambda: self.call_tokenize_words(kwargs.get("text", "")),
+            "tokenize_sentences": lambda: self.call_tokenize_sentences(kwargs.get("text", "")),
+            "detect_language": lambda: self.call_detect_language(kwargs.get("text", "")),
+            "translate": lambda: self.call_translate(
+                text=kwargs.get("text", ""),
+                to=kwargs.get("to", "en"),
+                from_lang=kwargs.get("from_lang"),
+            ),
+        }
+        if operation not in ops:
             return self._err(
-                f"Failed to call function {module_path}.{function_name}.",
-                guidance="Verify module path, function name, and arguments.",
-                details=f"{e}\n{traceback.format_exc()}",
+                f"Unsupported operation: {operation}",
+                f"Supported operations: {', '.join(sorted(ops.keys()))}",
             )
+        try:
+            return ops[operation]()
+        except Exception as exc:
+            return self._err(f"Operation execution failed: {exc}")

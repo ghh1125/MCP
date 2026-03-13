@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773267828.960254,
-    "end_time": 1773268077.856278,
-    "duration": 248.89602398872375,
+    "start_time": 1773385398.2010088,
+    "end_time": 1773385550.430957,
+    "duration": 152.22994923591614,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 2,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,7 +53,10 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.gala.source",
+        "mcp_output.mcp_plugin"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
@@ -125,54 +128,42 @@
     {
       "node": "DownloadNode",
       "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/gala/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75001 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/gala/temp_clone'...\nfatal: unable to access 'https://github.com/adrn/gala/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 \n",
       "action_taken": "continue_with_empty"
     }
   ],
   "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/gala/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75001 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n"
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/gala/temp_clone'...\nfatal: unable to access 'https://github.com/adrn/gala/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 \n"
   ],
   "recommendations": [
-    "add a minimal smoke-test suite for generated MCP endpoints (import plugin",
-    "list tools",
-    "execute one call per core module) and run it in CI",
-    "tighten endpoint naming by converting generic/function-fragment labels into stable user-facing verbs (e.g.",
-    "`evaluate_potential`",
-    "`compute_force`",
-    "`integrate_orbit`) with backward-compatible aliases",
-    "generate strict Pydantic input/output schemas for every endpoint (units",
-    "array shapes",
-    "defaults",
-    "bounds) and validate at adapter boundaries",
-    "add explicit unit-normalization guards using `gala.units.UnitSystem` so all MCP I/O is deterministic and documented",
-    "include negative-path tests for invalid units/parameter ranges/non-serializable payloads and ensure errors are structured and actionable",
-    "pin and verify runtime dependencies for the MCP package (`gala`",
-    "`numpy`",
-    "`scipy`",
-    "`astropy`",
-    "`pyyaml`) instead of only `fastmcp`/`pydantic`",
-    "add capability detection + graceful degradation for optional deps (agama/galpy/matplotlib/compiled extensions) with clear tool-availability metadata",
-    "improve packaging metadata detection in the analyzer (it missed existing `pyproject.toml`/`setup.py`) to prevent false dependency reports",
-    "add performance benchmarks for high-frequency endpoints (potential eval",
-    "gradients",
-    "orbit integration) and set regression thresholds in CI",
-    "implement caching/memoization for repeated potential construction and serialization-heavy flows",
-    "add observability hooks (timings",
-    "endpoint success/error rates",
-    "payload-size logging with redaction) for MCP runtime diagnostics",
-    "harden serialization contracts by round-trip tests through `gala.potential.potential.io` (`to_dict`/`from_dict`",
-    "`load`/`save`) across builtin and composite potentials",
-    "document endpoint stability levels and versioning policy in `README_MCP.md` (experimental vs stable + deprecation windows)",
-    "add integration tests that compare MCP results against direct gala API calls for numeric parity tolerances",
-    "split very large source hotspots (e.g.",
-    "potential core/builtin core) behind thinner MCP facades to reduce coupling and future breakage risk",
-    "add example client workflows (construct potential → integrate orbit → compute diagnostics) with reproducible notebooks/scripts",
-    "enforce lint/type checks on generated plugin code (ruff + mypy/pyright) and gate merges on passing checks",
-    "add security limits for untrusted calls (max array sizes",
-    "timeout/cancellation",
-    "recursion/depth guards)",
-    "include deterministic seed controls where stochastic routines exist and expose seed in schemas",
-    "add a compatibility matrix in docs for Python/gala versions and optional backends supported by the MCP plugin"
+    "add a minimal MCP smoke test suite (server starts",
+    "each endpoint imports",
+    "one happy-path call per core endpoint)",
+    "tighten endpoint naming consistency to a single style (e.g.",
+    "snake_case only) and remove duplicates like UnitSystem/unitsystem",
+    "generate JSON schemas and richer docstrings for every endpoint input/output (especially astropy units/quantities) to reduce misuse",
+    "add robust error mapping in adapter layer (ValueError/TypeError/ImportError → structured MCP errors with actionable messages)",
+    "pin and validate packaging metadata discovery (current analysis says pyproject/setup not detected despite files existing) to avoid brittle import/deploy behavior",
+    "introduce CI for MCP plugin separately from upstream tests (lint",
+    "type-check",
+    "smoke tests",
+    "dependency install matrix)",
+    "add compatibility guards and explicit optional-dependency checks for galpy/agama/h5py/pyyaml with clear fallback responses",
+    "create a small set of deterministic numerical regression tests for key physics workflows (orbit integration",
+    "potential evaluation",
+    "unit conversions) exposed via MCP",
+    "add request-level validation constraints (array sizes",
+    "finite values",
+    "unit compatibility) before calling gala internals",
+    "implement lightweight caching for repeated static model construction (e.g.",
+    "common built-in potentials) to reduce endpoint latency",
+    "improve observability with structured logging + per-endpoint timing/error counters",
+    "document version compatibility policy (Python/numpy/scipy/astropy + gala release range) in README_MCP and enforce at startup",
+    "add security hardening for MCP execution (input size limits",
+    "timeout controls",
+    "safe temp-file handling for load/save)",
+    "provide canonical end-to-end examples in README_MCP (create potential → integrate orbit → serialize)",
+    "and add benchmark checks for high-cost endpoints to catch performance regressions early"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -204,33 +195,33 @@
   "execution_analysis": {
     "success_factors": [
       "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Resilience mechanism worked: clone failure was recovered via zip fallback, enabling repository analysis (188 files) and plugin generation.",
-      "Import-mode adapter strategy was feasible (import feasibility 0.93, low intrusiveness risk), allowing MCP scaffolding without invasive code changes.",
+      "Resilience mechanism worked: after git clone TLS failure, pipeline continued via zip/import fallback and still produced MCP artifacts.",
+      "Import-mode adapter strategy matched repository characteristics (high import feasibility 0.93, low intrusiveness risk).",
       "Generated MCP service started healthy over stdio, indicating baseline runtime viability."
     ],
     "failure_reasons": [
-      "Primary git clone failed due to network/connectivity timeout to github.com:443 (curl 28), causing incomplete/contradictory metadata in early pipeline outputs.",
-      "Analyzer metadata extraction reported false negatives for packaging files despite pyproject.toml and setup.py existing in fallback snapshot.",
-      "Validation depth was weak: no meaningful original-project test execution and no endpoint-level smoke/contract tests for generated tools."
+      "Primary source acquisition failed due to network/TLS issue (LibreSSL SSL_ERROR_SYSCALL to github.com:443).",
+      "Metadata detection inconsistency: analysis reported no pyproject/setup despite files present, reducing confidence in dependency/environment inference.",
+      "Validation depth is weak: original project tests not executed (reported failed with empty details) and MCP test coverage effectively smoke-level."
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Dominant delay source; ~75s lost to failed git RPC before fallback path. Reliability issue rather than compute issue.",
-      "analysis_time": "Moderate and effective after fallback; successfully mapped major modules and endpoints, but produced inconsistent dependency metadata.",
-      "generation_time": "Fast-to-moderate; scaffold files were created, but reported 0 LOC/0 size suggests instrumentation/accounting defects.",
-      "test_time": "Insufficiently exercised; MCP health passed, but original project tests and endpoint behavioral tests were effectively not run."
+      "download_time": "Download node encountered clone failure early; fallback path prevented hard stop. Time likely dominated by failed network handshake/retry behavior.",
+      "analysis_time": "Analysis completed quickly relative to repository size using fallback-ingested tree (188 files), but with shallow/partially inconsistent metadata extraction.",
+      "generation_time": "Generation was efficient (small output set: 7 files) and completed successfully; endpoint surface was created from identified core modules/classes.",
+      "test_time": "Runtime validation appears minimal (service health/startup checks). No substantive functional endpoint tests or upstream test execution."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown from telemetry (reported 0 MB). No evidence of pressure, but observability is inadequate.",
-      "cpu_efficiency": "Unknown from telemetry (reported 0%). Likely underutilized due to I/O/network-bound behavior.",
-      "disk_usage": "Generated artifacts exist, but size metrics are invalid (0), indicating missing or broken measurement hooks."
+      "memory_efficiency": "Undetermined from metrics (reported 0), but observed workload suggests low-to-moderate memory profile for generation/smoke run.",
+      "cpu_efficiency": "Undetermined from metrics (reported 0); pipeline likely CPU-light except for static analysis.",
+      "disk_usage": "Low generated artifact footprint (7 files), though reported size=0 indicates missing instrumentation rather than true zero usage."
     }
   },
   "technical_quality": {
-    "code_quality_score": 72,
+    "code_quality_score": 74,
     "architecture_score": 78,
-    "performance_score": 60,
-    "maintainability_score": 70,
+    "performance_score": 63,
+    "maintainability_score": 72,
     "security_score": 85,
     "scalability_score": 68
   }

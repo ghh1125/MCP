@@ -1,19 +1,19 @@
-# Difference Report — **climlab**
+# Difference Report — `climlab`
 
-**Generated:** 2026-03-12 09:50:32  
+**Generated:** 2026-03-13 14:48:26  
 **Repository:** `climlab`  
 **Project Type:** Python library  
 **Scope:** Basic functionality  
-**Intrusiveness:** None  
+**Change Intrusiveness:** None  
 **Workflow Status:** ✅ Success  
 **Test Status:** ❌ Failed  
-**File Changes:** 8 new files, 0 modified files
 
 ---
 
 ## 1) Project Overview
 
-This update introduces **new functionality through additive changes only** (no edits to existing files), indicating a low-risk integration pattern at the source level. The CI/workflow completed successfully, but test validation failed, which currently blocks confidence in release readiness.
+This update introduces **8 new files** with **no modifications to existing files**.  
+The change profile indicates a **non-intrusive additive update**, likely extending baseline library functionality, scaffolding, or support assets without altering current implementation paths.
 
 ---
 
@@ -25,122 +25,107 @@ This update introduces **new functionality through additive changes only** (no e
 | Modified files | 0 |
 | Deleted files | 0 (not reported) |
 | Intrusiveness | None |
-| Build/Workflow | Success |
-| Tests | Failed |
-
-### High-level interpretation
-- The change set is **non-invasive** to existing code paths (no modifications).
-- The newly added files likely introduce new modules/resources/tests/config/docs.
-- Despite successful workflow execution, **quality gate failure exists in testing**.
+| Functional risk | Low-to-moderate (additive only) |
+| Delivery quality gate | **Not met** (tests failed) |
 
 ---
 
 ## 3) Difference Analysis
 
-## 3.1 Structural impact
-- **Additive-only delta** reduces regression risk for existing behavior.
-- No direct alterations to established APIs are indicated from file-modification stats.
-- Potential risks are concentrated in:
-  - import path/packaging discovery,
-  - dependency/version constraints,
-  - test expectations for new functionality,
-  - environment-specific test assumptions.
+### What changed
+- Added 8 new files.
+- No in-place edits to existing source files.
+- No explicit refactor or behavior replacement identified from metadata.
 
-## 3.2 Functional impact (expected)
-Given “Basic functionality” scope:
-- Likely incremental feature exposure rather than architectural refactor.
-- Existing consumer code should remain stable unless:
-  - auto-discovery loads new modules at import time,
-  - side effects occur during package initialization,
-  - dependency graph changed via added config/setup artifacts.
+### What did not change
+- Existing code paths were not directly modified.
+- No direct indication of API-breaking changes through modified files.
 
-## 3.3 Quality signal
-- **Workflow success + test failure** suggests:
-  - pipeline infrastructure is healthy,
-  - but logical correctness, compatibility, or test configuration remains unresolved.
+### Impact interpretation
+- Since changes are additive, **regression risk to existing functionality is generally low**.
+- However, **failed tests indicate integration or configuration issues** that may still block release readiness.
 
 ---
 
 ## 4) Technical Analysis
 
-## 4.1 Risk profile
-**Overall risk: Low-to-Moderate**
-- **Low** for source disruption (no modified files).
-- **Moderate** for release confidence due to failed tests.
+## 4.1 Risk Assessment
+- **Code risk:** Low (no modified legacy files).
+- **Integration risk:** Medium (new files can affect imports, packaging, discovery, CI behavior).
+- **Release risk:** Medium-to-high due to failed test suite.
 
-## 4.2 Likely failure classes to investigate
-1. **New test files failing** due to unmet fixtures or baseline assumptions.
-2. **Import/runtime errors** from newly added modules not included in package metadata.
-3. **Dependency mismatch** (unpinned or incompatible versions).
-4. **Platform/version variance** (Python minor version differences).
-5. **Data/resource path issues** if new files rely on relative paths or external assets.
+## 4.2 Likely Failure Vectors (given additive changes)
+- Missing dependency declarations for newly introduced modules.
+- Test discovery including new files with unmet assumptions.
+- Incomplete fixtures/data for new functionality.
+- Packaging/init issues (`__init__.py`, module path exposure).
+- CI environment mismatch (Python version, optional extras, platform assumptions).
 
-## 4.3 Verification checklist
-- Confirm all 8 new files are included in packaging (`pyproject.toml` / MANIFEST rules if needed).
-- Re-run failing tests with verbose output (`-vv`, `-k`, `-x`) and isolate first failure.
-- Validate test markers (unit/integration/slow) and CI matrix compatibility.
-- Check import-time side effects in new modules.
-- Ensure lint/type/test configs recognize new paths.
+## 4.3 Quality Gate Status
+- CI/workflow executed successfully at pipeline level.
+- Unit/integration test gate failed, so **change set is not production-ready**.
 
 ---
 
 ## 5) Recommendations & Improvements
 
-## 5.1 Immediate actions (blocking)
-1. **Triage test failures** and classify root cause (test defect vs implementation defect).
-2. **Patch and re-run CI** across full supported Python matrix.
-3. **Add/adjust minimal regression tests** proving new basic functionality works as intended.
+## 5.1 Immediate Actions (blocking)
+1. **Triage failed tests by category**
+   - Import errors
+   - Assertion failures
+   - Environment/config failures
+2. **Map failures to the 8 new files**
+   - Confirm whether failures are directly introduced by new additions.
+3. **Fix and re-run full suite**
+   - Include local + CI parity run.
+4. **Require passing tests before merge/release**
 
-## 5.2 Near-term hardening
-- Add clear module-level docstrings and usage examples for new functionality.
-- If new dependencies were introduced, pin acceptable ranges and document rationale.
-- Improve failure diagnostics in CI (artifact upload: logs, coverage XML, junit report).
+## 5.2 Code/Project Hygiene
+- Ensure all new modules are covered by:
+  - Type checks (if used)
+  - Lint rules
+  - Minimal unit tests
+- Validate packaging/export behavior:
+  - Public API exposure where intended
+  - No accidental namespace pollution
+- Add/update docs for new functionality (usage + constraints).
 
-## 5.3 Process improvements
-- Enforce release gate: `workflow success AND tests pass`.
-- Add pre-merge checks for packaging integrity (`pip install .`, import smoke tests).
-- Track flaky tests separately and quarantine if non-deterministic.
+## 5.3 Process Improvements
+- Enforce branch protection requiring green tests.
+- Add smoke tests for basic library import and core runtime path.
+- Add CI matrix check for supported Python versions.
 
 ---
 
 ## 6) Deployment Information
 
-## Release readiness
-- **Current status:** ❌ **Not ready for production release** (tests failed).
-- **Go/No-Go recommendation:** **No-Go** until test suite passes.
+**Deployment Recommendation:** ⛔ **Do not deploy/release yet**
 
-## Deployment risk notes
-- Since no existing files changed, rollback complexity is low.
-- If deployment is urgent, consider feature-flagging/excluding new components until validation completes.
+### Rationale
+- Test status is failed; release confidence is insufficient.
+- Additive changes can still introduce runtime/import breakages.
+
+### Required Exit Criteria
+- All mandatory tests pass.
+- New files validated in packaging/install flow.
+- Basic feature verification completed in target runtime environments.
 
 ---
 
 ## 7) Future Planning
 
 1. **Stabilization milestone**
-   - Resolve all test failures.
-   - Achieve green CI across supported environments.
-2. **Validation milestone**
-   - Add acceptance-level checks for the new basic functionality.
-   - Confirm backward compatibility via smoke tests on existing public APIs.
-3. **Quality milestone**
-   - Raise coverage for newly added files.
-   - Add changelog and migration notes (if any user-facing behavior changed).
-4. **Release milestone**
-   - Tag release only after full gate pass and reproducible test success.
+   - Resolve all test failures and publish a clean CI run.
+2. **Coverage milestone**
+   - Add targeted tests for each new file/function introduced.
+3. **Reliability milestone**
+   - Add regression tests for core “basic functionality” use cases.
+4. **Release readiness milestone**
+   - Tag release only after quality gates pass and changelog is updated.
 
 ---
 
-## 8) Suggested Report Addendum (for next iteration)
+## 8) Executive Conclusion
 
-To improve precision of future difference reports, include:
-- list of exact file paths changed,
-- failing test names and error excerpts,
-- dependency diff (`pip freeze`/lockfile delta),
-- coverage delta and impacted modules.
-
----
-
-## 9) Executive Summary
-
-The `climlab` update is a **non-intrusive, additive change set** (8 new files, no modifications), which is structurally low risk. However, **failed tests are a hard quality blocker**. The project should **not be released** until failures are triaged and resolved, CI is fully green, and new functionality is covered by stable regression tests.
+The change set is structurally low-risk (additive, non-intrusive) but currently **fails quality gates** due to test failures.  
+From a governance perspective, this is a **hold**: complete test remediation and verification before deployment or release.

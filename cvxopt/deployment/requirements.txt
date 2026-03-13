@@ -2,6 +2,5 @@ fastmcp
 fastapi
 uvicorn[standard]
 pydantic>=2.0.0
-NumPy
-CVXOPT compiled extension modules (built from this repository)
-BLAS/LAPACK runtime
+numpy
+C extension modules built by cvxopt (base/blas/lapack/amd/cholmod/umfpack/etc. depending on build)

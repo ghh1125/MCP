@@ -2,111 +2,111 @@
 
 ## 1) Project Introduction
 
-SPM is a lightweight sequence pattern matching project centered on a single executable script:
+SPM is a lightweight sequence pattern matching utility focused on searching peptide/query sequences against a UniProt-style FASTA database and producing ranked results.  
+This MCP (Model Context Protocol) service wraps the repository’s core script logic to expose practical sequence-search capabilities for downstream automation.
 
-- `scripts/SequencePatternMatching.py`
+Main capabilities:
+- Load and parse UniProt FASTA data
+- Search query peptide/sequence patterns in a database
+- Score/rank matches by sequence volume-related logic
+- Export ranked output (example artifact: `output/test1_ranked.txt`)
 
-This MCP (Model Context Protocol) service wrapper is intended to expose that script as a practical developer-facing service for running sequence pattern matching and returning ranked results (for example, outputs similar to `output/test1_ranked.txt`).
-
-Main function of the service:
-
-- Execute sequence pattern matching jobs
-- Return ranked matching results
-- Support simple integration through MCP (Model Context Protocol) service endpoints
+Repository: https://github.com/YanLab-Westlake/SPM
 
 ---
 
 ## 2) Installation Method
 
-This repository does not include `requirements.txt`, `pyproject.toml`, or other package metadata.  
-Minimum known dependency is Python runtime.
+This repository does not provide `requirements.txt`, `pyproject.toml`, or `setup.py`. Use a minimal Python 3 environment.
 
 Recommended setup:
+1. Install Python 3.8+ (3.x required)
+2. Clone/download the repo
+3. (Optional) Create a virtual environment
+4. Run the script directly
 
-1. Install Python 3.9+ (3.10+ recommended)
-2. Clone repository
-3. (Optional) create virtual environment
-4. Run script directly
-
-Suggested commands:
-
-- `git clone https://github.com/YanLab-Westlake/SPM.git`
-- `cd SPM`
+Typical commands:
 - `python -m venv .venv`
 - `source .venv/bin/activate` (Linux/macOS) or `.venv\Scripts\activate` (Windows)
 - `python scripts/SequencePatternMatching.py`
 
-If runtime errors indicate missing libraries, install them with `pip install <package>` as needed.
+Notes:
+- No explicit third-party dependencies were detected.
+- If your environment differs, validate local Python path and file encodings.
 
 ---
 
 ## 3) Quick Start
 
-Because the project is script-first (not a packaged Python module), the most reliable integration path is CLI-style execution from your MCP (Model Context Protocol) service.
+Core module:
+- `scripts/SequencePatternMatching.py`
 
-Typical flow:
+Detected main functions:
+- `loadUniprotDB(db_fasta)`
+- `peptideSearching(db_fasta, query_seq, output_file)`
+- `volumeScoring(query_seq_volume, uniprot_info, db_seq)`
 
-1. Receive input sequence/pattern parameters in your MCP (Model Context Protocol) request
-2. Invoke `python scripts/SequencePatternMatching.py` (with your adapted arguments or input files)
-3. Parse generated ranked output (e.g., under `output/`)
-4. Return normalized JSON to clients
+Typical usage flow:
+1. Prepare a FASTA database file (`db_fasta`)
+2. Provide a query sequence (`query_seq`)
+3. Run `peptideSearching(...)` to generate ranked output
+4. (Optional) Use `loadUniprotDB(...)` and `volumeScoring(...)` for custom pipelines
 
-Minimal service usage pattern:
+Script-style execution:
+- `python scripts/SequencePatternMatching.py`
 
-- Input: sequence data + matching configuration
-- Processing: call script
-- Output: ranked match list, score, and metadata (file path, run time, status)
+Expected result:
+- Ranked match output similar to `output/test1_ranked.txt`
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Based on current repository contents, define MCP (Model Context Protocol) services like below:
+For this MCP (Model Context Protocol) service, expose the following service tools/endpoints:
 
-### `spm.run_match`
-Runs sequence pattern matching job via `scripts/SequencePatternMatching.py`.
+- `load_uniprot_db`
+  - Maps to: `loadUniprotDB(db_fasta)`
+  - Purpose: Load and parse UniProt FASTA records
 
-- Purpose: execute one matching task
-- Input: sequence/pattern payload (or file references), optional runtime parameters
-- Output: job status, ranked results (or output file reference)
+- `peptide_search`
+  - Maps to: `peptideSearching(db_fasta, query_seq, output_file)`
+  - Purpose: Run sequence pattern matching and write ranked results
 
-### `spm.get_ranked_output`
-Returns parsed ranked output from generated files (such as `output/test1_ranked.txt`).
+- `volume_score`
+  - Maps to: `volumeScoring(query_seq_volume, uniprot_info, db_seq)`
+  - Purpose: Compute score contribution for candidate sequence ranking
 
-- Purpose: read/parse result artifacts
-- Input: output file path or job id
-- Output: structured ranked entries
-
-### `spm.health`
-Basic health check endpoint for MCP (Model Context Protocol) service process.
-
-- Purpose: operational monitoring
-- Output: service status, Python runtime info, script path check
-
-Note: These are practical MCP (Model Context Protocol) service endpoint recommendations derived from repository structure; the upstream project does not ship formal API endpoints.
+- `run_sequence_pattern_matching` (wrapper endpoint)
+  - Maps to script-level flow in `SequencePatternMatching.py`
+  - Purpose: One-call execution from input FASTA/query to output ranking file
 
 ---
 
 ## 5) Common Issues and Notes
 
-- No formal dependency manifest is provided. Expect manual dependency resolution.
-- Import feasibility is low-to-moderate; prefer subprocess/CLI invocation over direct Python imports.
-- Script arguments are not formally documented in metadata; inspect `scripts/SequencePatternMatching.py` before production wiring.
-- Ensure write permissions for output directories (e.g., `output/`).
-- For large datasets, monitor execution time and memory usage in your MCP (Model Context Protocol) service runtime.
-- Add timeout/retry and clear error mapping in service layer to improve reliability.
+- Packaging metadata is missing  
+  No official installable package config is provided; run as script/module in-place.
+
+- Import feasibility is moderate  
+  Analysis indicates script-first design. Prefer CLI/script execution if direct imports fail in your runtime.
+
+- Input data quality matters  
+  Ensure FASTA format is valid and query sequence format matches expected logic.
+
+- File paths and permissions  
+  Provide writable output paths (for ranked result files).
+
+- Performance considerations  
+  Larger FASTA databases may increase runtime. Consider batching queries or pre-filtering databases.
+
+- MCP (Model Context Protocol) integration note  
+  Since native MCP descriptors are not included, define a thin adapter layer that maps MCP (Model Context Protocol) tool calls to the three core functions above.
 
 ---
 
 ## 6) Reference Links or Documentation
 
-- Repository: https://github.com/YanLab-Westlake/SPM
+- GitHub repository: https://github.com/YanLab-Westlake/SPM
 - Core script: `scripts/SequencePatternMatching.py`
-- Example output artifact: `output/test1_ranked.txt`
-- MCP (Model Context Protocol): https://modelcontextprotocol.io/
-
-If needed, create an internal service contract doc describing:
-- request/response schema
-- error codes
-- output ranking field definitions
-- operational limits (timeout, max input size)
+- Example output: `output/test1_ranked.txt`
+- Existing repository README: `README.md`

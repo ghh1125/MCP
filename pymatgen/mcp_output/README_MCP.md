@@ -2,109 +2,118 @@
 
 ## 1) Project Introduction
 
-This service wraps key `pymatgen` capabilities into MCP (Model Context Protocol) tools for materials-science workflows.  
-It is designed for LLM/tooling integration where users need structured operations such as:
+This service exposes core **pymatgen** capabilities through an MCP (Model Context Protocol) interface for materials science workflows.
 
-- Crystal/molecule parsing and conversion
-- VASP input/output parsing
-- Phase diagram and reaction analysis
-- Local environment analysis (coordination/nearest neighbors)
-- Remote data access (Materials Project, OPTIMADE)
+Primary goals:
+- Query materials data (Materials Project / OPTIMADE)
+- Parse and convert simulation files (especially VASP)
+- Run structured thermodynamic analyses (phase diagrams, Pourbaix diagrams)
+- Use canonical materials objects (`Structure`, `Composition`, etc.) as service I/O
 
-Target users: developers building scientific assistants, automation pipelines, or agentic research tools.
+Best-fit use cases:
+- AI agent tool-calling for materials retrieval and analysis
+- Automated DFT post-processing pipelines
+- Structure/data normalization across providers
 
 ---
 
 ## 2) Installation Method
 
-### Requirements
+### Prerequisites
+- Python 3.10+
+- Recommended: Linux/macOS, virtual environment
 
-Core Python dependencies commonly needed by `pymatgen`:
+### Core dependencies
+- numpy, scipy, monty, ruamel.yaml, spglib, networkx, pandas, matplotlib, sympy, requests, joblib, tabulate, tqdm, uncertainties
 
-- numpy, scipy, monty, ruamel.yaml
-- spglib, networkx
-- matplotlib, pandas, sympy
-- requests, tqdm
+### Optional dependencies (feature-based)
+- `mp-api` (Materials Project modern API)
+- `ase`, `phonopy`, `seekpath`
+- `h5py`, `pybtex`
+- `openbabel`, `rdkit`
+- `vtk`, `scikit-learn`
 
-Optional (feature-specific): `mp-api`, `ase`, `seekpath`, `phonopy`, `h5py`, `plotly`, `vtk`, `openbabel`, `rdkit`.
-
-### Install
-
-1. Create and activate a virtual environment.
-2. Install pymatgen:
-   pip install pymatgen
-3. (Optional) Install extra integrations as needed:
-   pip install mp-api ase seekpath phonopy h5py plotly
-
-If your MCP (Model Context Protocol) host runs the service in isolation, ensure the same environment is used by both the host and service process.
+### Install steps
+1. Create and activate a virtual environment  
+2. Install pymatgen and required extras via pip (according to your target endpoints)  
+3. If using Materials Project endpoints, set your API key in environment/config
 
 ---
 
 ## 3) Quick Start
 
-Typical MCP (Model Context Protocol) usage pattern:
+### Typical service flow
+1. Client sends crystal structure/composition or query parameters
+2. Service converts input to pymatgen core objects
+3. Service executes retrieval/parsing/analysis function
+4. Service returns structured JSON-serializable result
 
-1. Start the pymatgen MCP (Model Context Protocol) service.
-2. Call a tool endpoint with JSON-like arguments.
-3. Receive structured results (dict/list), then pass to downstream reasoning or plotting tools.
-
-Example workflows:
-
-- Parse a VASP `vasprun.xml` and extract final energy/structure.
-- Build a `PhaseDiagram` from entries and query decomposition/energy above hull.
-- Analyze local coordination around selected atomic sites with `CrystalNN`.
-- Balance a chemical reaction using reaction calculator utilities.
-- Query Materials Project with `MPRester` (requires API key).
+### Example usage patterns
+- **Materials query**: search by formula/system, return summarized entries
+- **VASP parsing**: ingest `vasprun.xml` / `OUTCAR`, return energies, band info, metadata
+- **Phase stability**: build `PhaseDiagram` from entries, return hull energy and stable phases
+- **Aqueous stability**: build `PourbaixDiagram`, return stable domains/species
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested core endpoints for this MCP (Model Context Protocol) service:
+Suggested MCP (Model Context Protocol) service endpoints:
+
+- `materials_project.search`
+  - Wrapper around `pymatgen.ext.matproj.MPRester`
+  - Query materials by formula, chemsys, IDs, properties
+
+- `optimade.search`
+  - Wrapper around `pymatgen.ext.optimade.OptimadeRester`
+  - Federated provider search with normalized filters
 
 - `structure.parse`
-  - Load structures/molecules from common formats (CIF, POSCAR, etc.).
+  - Parse structure text/file content into canonical `Structure`
+  - Supports normalization and validation-friendly output
+
 - `structure.convert`
-  - Convert structure representations and export to target format.
-- `vasp.inputs.read`
-  - Parse POSCAR/INCAR/KPOINTS/POTCAR metadata.
-- `vasp.outputs.read`
-  - Parse Vasprun/OUTCAR/OSZICAR/XDATCAR and extract key results.
-- `analysis.phase_diagram`
-  - Construct/query `PhaseDiagram`, `GrandPotentialPhaseDiagram`, etc.
-- `analysis.reaction.balance`
-  - Balance reactions and compute reaction energetics where data is available.
-- `analysis.local_env`
-  - Coordination analysis with `CrystalNN`, `VoronoiNN`, `MinimumDistanceNN`.
-- `ext.materials_project.query`
-  - Query MP data via `MPRester` (network/API-key dependent).
-- `ext.optimade.query`
-  - Federated OPTIMADE queries via `OptimadeRester`.
+  - Convert between common structure formats (CIF, POSCAR-like workflows, etc.)
+
+- `vasp.parse_vasprun`
+  - Parse VASP run outputs for energies, convergence, electronic metadata
+
+- `vasp.parse_outcar`
+  - Extract OUTCAR-derived quantities (magnetization, forces, run diagnostics)
+
+- `thermo.phase_diagram.compute`
+  - Use `PhaseDiagram`, `GrandPotentialPhaseDiagram`, `CompoundPhaseDiagram`
+  - Return stable entries, decomposition, energy-above-hull metrics
+
+- `electrochem.pourbaix.compute`
+  - Use `PourbaixDiagram`/`PourbaixEntry`
+  - Return stability regions and species information
+
+- `core.validate_object`
+  - Validate/roundtrip `Structure`, `Molecule`, `Composition`, `Element`, `Species`
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Version compatibility:
-  - Keep Python and `pymatgen` versions pinned in production.
-- Heavy parsing:
-  - Large VASP XML/output files can be memory-intensive; stream/process in batches where possible.
-- Optional dependency errors:
-  - Install only required extras for enabled endpoints to reduce conflicts.
-- API/network failures:
-  - For MP/OPTIMADE endpoints, handle retries, timeouts, and missing credentials.
-- Scientific reproducibility:
-  - Record `pymatgen` version, input files, and endpoint parameters in logs/artifacts.
-- Runtime performance:
-  - Neighbor finding and some thermodynamic analyses can be CPU-heavy for large structures.
+- **API authentication**: Materials Project endpoints require a valid API key.
+- **Optional dependency gaps**: some advanced endpoints fail unless extras are installed.
+- **Large file parsing**: VASP outputs can be large; prefer streaming/size checks/timeouts.
+- **Serialization**: use MSONable-compatible JSON for robust agent-to-service exchange.
+- **Performance**: phase/Pourbaix analysis can be expensive on large entry sets; cache results where possible.
+- **Environment reproducibility**: pin pymatgen + scientific stack versions in production.
+- **Import strategy**: direct Python import is preferred; CLI fallback (`pmg`) is possible for constrained environments.
 
 ---
 
-## 6) Reference Links or Documentation
+## 6) Reference Links / Documentation
 
 - Repository: https://github.com/materialsproject/pymatgen
-- Official docs index: https://pymatgen.org
-- Usage docs (repo): `docs/usage.md`
-- Installation docs (repo): `docs/installation.md`
-- CLI reference entry: `src/pymatgen/cli/pmg.py`
-- Security policy: `SECURITY.md`
+- Official docs index: `docs/index.md` in repo
+- Installation guide: `docs/installation.md`
+- Usage guide: `docs/usage.md`
+- API-heavy module docs: `docs/pymatgen.md`
+- CLI entrypoint reference: `src/pymatgen/cli/pmg.py`
+- Core external integrations:
+  - `src/pymatgen/ext/matproj.py`
+  - `src/pymatgen/ext/optimade.py`

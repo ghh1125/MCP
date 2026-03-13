@@ -2,146 +2,123 @@
 
 ## 1) Project Introduction
 
-This service exposes practical climate-modeling capabilities from the `climlab` Python library through MCP (Model Context Protocol).  
-It is designed for developers who want programmatic access to:
+This service wraps key `climlab` capabilities into MCP (Model Context Protocol)-friendly endpoints for climate modeling workflows.  
+It is designed for developers who want to:
 
-- Energy balance and column climate model workflows
-- Radiation and convection parameterizations
-- Insolation/orbital forcing calculations
-- Thermodynamic utility calculations
+- Build and run simple climate models (especially EBM and column models)
+- Compute insolation diagnostics
+- Access thermodynamic helper functions
+- Read core constants and model metadata
+- Orchestrate process-based simulations with `Process` / `TimeDependentProcess`
 
-Primary use cases include rapid climate experiments, sensitivity tests, and embedding scientific calculations into AI-agent workflows.
+Primary library: https://github.com/climlab/climlab
 
 ---
 
-## 2) Installation
+## 2) Installation Method
 
-### Requirements
-
+### System requirements
 - Python 3.9+ recommended
-- Required:
-  - `numpy`
-  - `scipy`
-- Optional but useful:
-  - `xarray`
-  - `matplotlib`
-  - `netCDF4`
-  - `numba`
-  - `pooch`
-  - `climlab-rrtmg` compiled extensions (for RRTMG radiation tools)
+- `numpy`, `scipy` required
+- Optional: `xarray`, `matplotlib`, `netCDF4`, `numba`
+- Optional advanced radiation: Fortran-compiled RRTMG extensions
 
-### Install commands
+### Install with pip
+- pip install climlab
 
-pip install climlab
+### Optional extras (as needed)
+- pip install xarray matplotlib netCDF4 numba
 
-Optional extras (example set):
-
-pip install xarray matplotlib netCDF4 numba pooch
-
-If using advanced radiation (RRTMG), ensure compiled extensions are installed and importable in your runtime environment.
+### For development setup (from source)
+- git clone https://github.com/climlab/climlab
+- cd climlab
+- pip install -e .
 
 ---
 
 ## 3) Quick Start
 
-### Basic import and insolation calculation
+### Typical MCP (Model Context Protocol) workflow
+1. Initialize the service runtime.
+2. Call model constructor endpoint (e.g., EBM or column model).
+3. Step model forward in time.
+4. Retrieve diagnostics/state fields.
+5. Optionally call utility endpoints (insolation, thermo, constants).
 
-import climlab
-from climlab.radiation.insolation import daily_insolation
-
-S = daily_insolation(lat=45, day=172)
-print(S)
-
-### Create a simple EBM model and step forward
-
-from climlab.model.ebm import EBM
-
-model = EBM()
-model.step_forward()
-print(model.global_mean_temperature)
-
-### Use thermodynamic utilities
-
-from climlab.utils.thermo import qsat
-
-q = qsat(T=300., p=1000.)
-print(q)
+### Minimal example flow
+- Create an EBM model instance
+- Integrate for N timesteps
+- Fetch temperature field and energy budget diagnostics
+- Compute reference insolation for given latitude/day
+- Compare model output against insolation/thermo helpers
 
 ---
 
-## 4) Available Tools and Endpoints
+## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) service endpoints mapped to core `climlab` modules:
+Recommended endpoint surface for this repository:
+
+- `models.create_ebm`
+  - Create `EBM`, `EBM_annual`, `EBM_seasonal`, or related variants.
+- `models.create_column`
+  - Create `GreyRadiationModel`, `RadiativeConvectiveModel`, or `BandRCModel`.
+- `models.step`
+  - Advance a model using `TimeDependentProcess` stepping.
+- `models.integrate`
+  - Run multi-step integration and return selected diagnostics.
+- `models.get_state`
+  - Return state variables (`Field`) with domain metadata.
+- `models.get_diagnostics`
+  - Return process diagnostics and energy-budget outputs.
 
 - `insolation.daily`
-  - Wrapper for daily insolation at latitude/day/orbital settings.
-- `insolation.instant`
-  - Instantaneous insolation for a specific geometry/time.
+  - Wrapper for daily insolation calculation.
 - `insolation.annual_mean`
-  - Annual-mean insolation diagnostic.
-- `insolation.solar_longitude`
-  - Solar longitude/orbital position helper.
+  - Wrapper for annual-mean insolation calculation.
 
-- `model.ebm.create`
-  - Create EBM-family models (`EBM`, `EBM_seasonal`, etc.).
-- `model.ebm.step`
-  - Advance EBM state by one or multiple timesteps.
-- `model.ebm.diagnostics`
-  - Return key diagnostics (e.g., global mean temperature, flux terms).
-
-- `model.column.create`
-  - Create column models (`GreyRadiationModel`, `RadiativeConvectiveModel`, `BandRCModel`).
-- `model.column.step`
-  - Advance column model.
-- `model.column.diagnostics`
-  - Return heating rates / flux outputs where available.
-
-- `radiation.greygas.compute`
-  - Run grey-gas SW/LW computations (`GreyGas`, `GreyGasSW`, `GreyGasLW`).
-- `radiation.cam3.compute`
-  - CAM3 radiation wrapper execution.
-- `radiation.rrtmg.compute`
-  - RRTMG radiation computation (requires compiled backend).
-
-- `thermo.qsat`
-  - Saturation specific humidity.
 - `thermo.clausius_clapeyron`
-  - Saturation vapor pressure relation.
-- `thermo.pseudoadiabat`
-  - Moist pseudoadiabatic profile helper.
+- `thermo.qsat`
+- `thermo.mixing_ratio_from_vapor_pressure`
 - `thermo.vapor_pressure_from_specific_humidity`
-  - Convert humidity to vapor pressure.
+  - Stateless thermodynamic utilities.
 
-- `domain.global_mean`
-  - Global mean for gridded fields.
-- `domain.to_latlon`
-  - Convert/reshape field to latitude-longitude representation.
+- `constants.list`
+  - Enumerate available physical constants.
+- `constants.get`
+  - Fetch constant value by name.
+
+- `domain.describe`
+  - Summarize axes/domains (`Axis`, `Domain`, atmosphere/ocean slabs).
+- `health.check`
+  - Verify import/runtime readiness, including optional modules.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Compiled dependency caveat:
-  - RRTMG-based tools may fail if native extensions are missing. Prefer grey-gas tools when portability matters.
-- Environment consistency:
-  - Use a clean virtual environment to avoid version conflicts with NumPy/SciPy.
-- Performance:
-  - Some process trees and radiation routines are computationally heavy; batch requests and cache repeated orbital/thermo calls.
-- Data model:
-  - `climlab` uses process/state abstractions (`Process`, `TimeDependentProcess`); endpoint outputs should be normalized to JSON-friendly diagnostics.
-- Reliability:
-  - Import feasibility is generally good, but optional modules may be unavailable depending on build/runtime platform.
+- RRTMG-related functionality may fail without compiled Fortran extensions.
+- Some scientific workflows expect `xarray` for richer labeled output.
+- Numerical performance can vary by grid size and subprocess complexity.
+- Insolation APIs exist in both `climlab.radiation.insolation` and `climlab.solar.insolation`; keep endpoint mapping explicit.
+- Keep model objects session-scoped; avoid unnecessary re-instantiation for repeated stepping.
+- If running in constrained environments, disable heavy optional endpoints first (RRTMG, plotting-related paths).
 
 ---
 
-## 6) References
+## 6) Reference Links / Documentation
 
 - Repository: https://github.com/climlab/climlab
-- Project docs (source in repo): `docs/source/`
-- Key modules:
-  - `climlab.process.process`
-  - `climlab.process.time_dependent_process`
-  - `climlab.model.ebm`
-  - `climlab.model.column`
-  - `climlab.radiation.insolation`
-  - `climlab.utils.thermo`
+- Package docs source: `docs/source` in repository
+- Core modules to review:
+  - `climlab/process/process.py`
+  - `climlab/process/time_dependent_process.py`
+  - `climlab/model/ebm.py`
+  - `climlab/model/column.py`
+  - `climlab/radiation/insolation.py`
+  - `climlab/utils/thermo.py`
+  - `climlab/utils/constants.py`
+- Tests for usage patterns:
+  - `climlab/tests/test_ebm.py`
+  - `climlab/tests/test_rcm.py`
+  - `climlab/tests/test_insolation.py`
+  - `climlab/tests/test_rrtm.py`

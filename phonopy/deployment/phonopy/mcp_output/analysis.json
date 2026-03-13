@@ -953,12 +953,16 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.phonopy.source",
+      "mcp_output.mcp_plugin",
+      "source.phonopy"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
-    "has_requirements_txt": false,
-    "pyproject": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
     "setup_cfg": false,
     "setup_py": false
   },
@@ -970,161 +974,177 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "phonopy",
-        "module": "phonopy.api_phonopy",
+        "package": "source.phonopy",
+        "module": "source.phonopy.api_phonopy",
         "functions": [],
         "classes": [
           "Phonopy"
         ],
-        "description": "Primary high-level API for phonon workflows (structure setup, displacements, force constants, band/mesh/DOS/thermal properties). Best core integration target."
+        "description": "Primary high-level API for phonon calculations (structure, displacements, force constants, band/mesh/thermal workflows). Best core integration surface."
       },
       {
-        "package": "phonopy",
-        "module": "phonopy.api_qha",
-        "functions": [],
-        "classes": [
-          "PhonopyQHA"
-        ],
-        "description": "Quasi-harmonic approximation API for EOS and thermodynamic properties vs volume/temperature."
-      },
-      {
-        "package": "phonopy",
-        "module": "phonopy.api_gruneisen",
-        "functions": [],
-        "classes": [
-          "PhonopyGruneisen"
-        ],
-        "description": "Gruneisen-parameter focused API for anharmonic indicators from harmonic force constants."
-      },
-      {
-        "package": "phonopy",
-        "module": "phonopy.cui.load",
+        "package": "source.phonopy",
+        "module": "source.phonopy.__init__",
         "functions": [
           "load"
         ],
         "classes": [],
-        "description": "Convenience loader used to initialize Phonopy objects from YAML/input files; useful for low-intrusion MCP wrappers."
+        "description": "Top-level loader utility; convenient entry for loading phonopy YAML/params into API objects."
       },
       {
-        "package": "phonopy",
-        "module": "phonopy.interface.calculator",
-        "functions": [
-          "get_default_physical_units",
-          "get_default_displacement_distance",
-          "read_crystal_structure",
-          "write_crystal_structure"
-        ],
-        "classes": [],
-        "description": "Calculator abstraction layer and I/O bridge for multiple DFT/MD ecosystems."
-      },
-      {
-        "package": "phonopy",
-        "module": "phonopy.interface.phonopy_yaml",
+        "package": "source.phonopy",
+        "module": "source.phonopy.api_gruneisen",
         "functions": [],
         "classes": [
-          "PhonopyYaml"
+          "PhonopyGruneisen"
         ],
-        "description": "YAML serialization/deserialization support for phonopy data exchange."
+        "description": "Gruneisen-parameter workflow API."
       },
       {
-        "package": "phonopy",
-        "module": "phonopy.file_IO",
+        "package": "source.phonopy",
+        "module": "source.phonopy.api_qha",
+        "functions": [],
+        "classes": [
+          "PhonopyQHA"
+        ],
+        "description": "Quasi-harmonic approximation workflow API."
+      },
+      {
+        "package": "source.phonopy",
+        "module": "source.phonopy.interface.calculator",
         "functions": [
-          "parse_BORN",
-          "parse_FORCE_SETS",
-          "parse_FORCE_CONSTANTS",
-          "write_FORCE_SETS",
-          "write_FORCE_CONSTANTS"
+          "read_crystal_structure",
+          "write_crystal_structure",
+          "get_default_physical_units",
+          "get_calc_dataset"
         ],
         "classes": [],
-        "description": "Core file parsers/writers for standard phonopy artifacts."
+        "description": "Calculator I/O abstraction layer (VASP/QE/ABINIT/CP2K/etc.) for interoperable structure and dataset handling."
+      },
+      {
+        "package": "source.phonopy",
+        "module": "source.phonopy.interface.phonopy_yaml",
+        "functions": [
+          "read_cell_yaml",
+          "load_yaml",
+          "write_phonopy_yaml"
+        ],
+        "classes": [
+          "PhonopyYaml",
+          "PhonopyYamlLoader"
+        ],
+        "description": "YAML serialization/deserialization of phonopy inputs/results; ideal for low-intrusion MCP file-based operations."
+      },
+      {
+        "package": "source.phonopy",
+        "module": "source.phonopy.file_IO",
+        "functions": [
+          "parse_FORCE_SETS",
+          "write_FORCE_SETS",
+          "parse_FORCE_CONSTANTS",
+          "write_FORCE_CONSTANTS",
+          "parse_BORN"
+        ],
+        "classes": [],
+        "description": "Canonical file parsers/writers for core phonopy artifacts."
+      },
+      {
+        "package": "source.phonopy",
+        "module": "source.phonopy.structure.atoms",
+        "functions": [],
+        "classes": [
+          "PhonopyAtoms"
+        ],
+        "description": "Core crystal structure container used across API and interfaces."
       }
     ],
     "cli_commands": [
       {
         "name": "phonopy",
-        "module": "phonopy.scripts.phonopy",
-        "description": "Main CLI entry for end-to-end phonon calculations and data generation."
+        "module": "source.phonopy.scripts.phonopy",
+        "description": "Main CLI entry point for full phonopy workflow."
       },
       {
         "name": "phonopy-load",
-        "module": "phonopy.scripts.phonopy_load",
-        "description": "CLI helper to load phonopy.yaml/params and run post-processing workflows."
+        "module": "source.phonopy.scripts.phonopy_load",
+        "description": "Load and process existing phonopy data files."
       },
       {
         "name": "phonopy-bandplot",
-        "module": "phonopy.scripts.phonopy_bandplot",
+        "module": "source.phonopy.scripts.phonopy_bandplot",
         "description": "Band structure plotting utility."
       },
       {
         "name": "phonopy-gruneisen",
-        "module": "phonopy.scripts.phonopy_gruneisen",
-        "description": "Compute Gruneisen-related outputs."
+        "module": "source.phonopy.scripts.phonopy_gruneisen",
+        "description": "CLI for Gruneisen workflows."
       },
       {
         "name": "phonopy-gruneisenplot",
-        "module": "phonopy.scripts.phonopy_gruneisenplot",
-        "description": "Plot Gruneisen results."
+        "module": "source.phonopy.scripts.phonopy_gruneisenplot",
+        "description": "Plot Gruneisen calculation outputs."
       },
       {
         "name": "phonopy-qha",
-        "module": "phonopy.scripts.phonopy_qha",
-        "description": "QHA workflow CLI."
-      },
-      {
-        "name": "phonopy-qe-born",
-        "module": "phonopy.scripts.phonopy_qe_born",
-        "description": "Generate/convert QE Born effective charge related data."
-      },
-      {
-        "name": "phonopy-vasp-born",
-        "module": "phonopy.scripts.phonopy_vasp_born",
-        "description": "Generate/convert VASP Born effective charge related data."
-      },
-      {
-        "name": "phonopy-vasp-efe",
-        "module": "phonopy.scripts.phonopy_vasp_efe",
-        "description": "VASP electronic free-energy related helper."
-      },
-      {
-        "name": "phonopy-calc-convert",
-        "module": "phonopy.scripts.phonopy_calc_convert",
-        "description": "Converter between calculator formats."
+        "module": "source.phonopy.scripts.phonopy_qha",
+        "description": "QHA analysis command."
       },
       {
         "name": "phonopy-pdosplot",
-        "module": "phonopy.scripts.phonopy_pdosplot",
-        "description": "Projected DOS plotting tool."
+        "module": "source.phonopy.scripts.phonopy_pdosplot",
+        "description": "Projected DOS plotting utility."
       },
       {
         "name": "phonopy-propplot",
-        "module": "phonopy.scripts.phonopy_propplot",
-        "description": "General property plotting tool."
+        "module": "source.phonopy.scripts.phonopy_propplot",
+        "description": "Thermal property plotting utility."
       },
       {
         "name": "phonopy-tdplot",
-        "module": "phonopy.scripts.phonopy_tdplot",
-        "description": "Thermal displacement plotting tool."
+        "module": "source.phonopy.scripts.phonopy_tdplot",
+        "description": "Thermal displacement plotting utility."
+      },
+      {
+        "name": "phonopy-calc-convert",
+        "module": "source.phonopy.scripts.phonopy_calc_convert",
+        "description": "Calculator-format conversion helper."
+      },
+      {
+        "name": "phonopy-qe-born",
+        "module": "source.phonopy.scripts.phonopy_qe_born",
+        "description": "Generate/read QE Born effective charge related data."
+      },
+      {
+        "name": "phonopy-vasp-born",
+        "module": "source.phonopy.scripts.phonopy_vasp_born",
+        "description": "Extract/process VASP Born effective charge data."
+      },
+      {
+        "name": "phonopy-vasp-efe",
+        "module": "source.phonopy.scripts.phonopy_vasp_efe",
+        "description": "VASP EFE helper workflow."
       }
     ],
     "import_strategy": {
       "primary": "import",
       "fallback": "cli",
-      "confidence": 0.9
+      "confidence": 0.92
     },
     "dependencies": {
       "required": [
-        "python>=3.x",
         "numpy",
         "PyYAML",
+        "h5py",
+        "spglib",
         "matplotlib"
       ],
       "optional": [
-        "h5py",
-        "spglib",
+        "scipy",
         "symfc",
+        "ALM",
         "pypolymlp",
-        "calculator-specific external tools (VASP/QE/CP2K/ABINIT/LAMMPS/etc.)"
+        "seekpath",
+        "calculator-specific external DFT tools"
       ]
     },
     "risk_assessment": {

@@ -1,0 +1,21 @@
+#! RHF-CCSD-LR/cc-pVDZ static polarizability of HOF
+
+molecule hof {
+          O          -0.947809457408    -0.132934425181     0.000000000000
+          H          -1.513924046286     1.610489987673     0.000000000000
+          F           0.878279174340     0.026485523618     0.000000000000
+unit bohr
+noreorient
+}
+
+set {
+   basis cc-pVDZ
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") != "INTERNAL":
+    psi4.set_options({"e_convergence": 9, "d_convergence": 2e-8})
+
+wfn = properties('ccsd', properties=['polarizability'], return_wfn=True)[1]
+
+
+

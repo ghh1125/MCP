@@ -173,12 +173,17 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.TextBlob.source",
+      "mcp_output.mcp_plugin",
+      "source.src.textblob",
+      "source.tests"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
     "setup_py": false
   },
@@ -190,21 +195,22 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "textblob/blob.py",
-        "module": "textblob.blob",
+        "package": "source.src.textblob",
+        "module": "blob",
         "functions": [],
         "classes": [
-          "BaseBlob",
           "TextBlob",
           "Sentence",
           "Word",
-          "WordList"
+          "WordList",
+          "BaseBlob",
+          "Blobber"
         ],
-        "description": "Primary high-level NLP API: tokenization, tagging, noun phrase extraction, sentiment, parsing, n-grams, and text container abstractions."
+        "description": "Primary high-level NLP API: tokenization, tagging, noun phrase extraction, sentiment, parsing, n-grams, inflection, and convenience wrappers over taggers/parsers/sentiment analyzers."
       },
       {
-        "package": "textblob/classifiers.py",
-        "module": "textblob.classifiers",
+        "package": "source.src.textblob",
+        "module": "classifiers",
         "functions": [],
         "classes": [
           "BaseClassifier",
@@ -214,105 +220,127 @@
           "PositiveNaiveBayesClassifier",
           "MaxEntClassifier"
         ],
-        "description": "Training/inference wrappers for NLTK-based text classification workflows."
+        "description": "Text classification abstractions and concrete NLTK-backed classifier implementations, including training and evaluation helpers."
       },
       {
-        "package": "textblob/tokenizers.py",
-        "module": "textblob.tokenizers",
-        "functions": [],
+        "package": "source.src.textblob",
+        "module": "tokenizers",
+        "functions": [
+          "sent_tokenize",
+          "word_tokenize"
+        ],
         "classes": [
           "BaseTokenizer",
           "WordTokenizer",
           "SentenceTokenizer"
         ],
-        "description": "Tokenization primitives used by TextBlob and related components."
+        "description": "Sentence and word tokenization utilities used by TextBlob core objects."
       },
       {
-        "package": "textblob/en/sentiments.py",
-        "module": "textblob.en.sentiments",
-        "functions": [],
-        "classes": [
-          "PatternAnalyzer",
-          "NaiveBayesAnalyzer"
-        ],
-        "description": "English sentiment analyzers (pattern-based polarity/subjectivity and Naive Bayes variants)."
-      },
-      {
-        "package": "textblob/en/np_extractors.py",
-        "module": "textblob.en.np_extractors",
-        "functions": [],
-        "classes": [
-          "ConllExtractor",
-          "FastNPExtractor"
-        ],
-        "description": "Noun phrase extraction implementations."
-      },
-      {
-        "package": "textblob/en/taggers.py",
-        "module": "textblob.en.taggers",
-        "functions": [],
-        "classes": [
-          "NLTKTagger"
-        ],
-        "description": "Part-of-speech tagging adapter(s) for English."
-      },
-      {
-        "package": "textblob/formats.py",
-        "module": "textblob.formats",
+        "package": "source.src.textblob",
+        "module": "formats",
         "functions": [],
         "classes": [
           "BaseFormat",
           "DelimitedFormat",
           "CSV",
-          "JSON",
-          "TSV"
+          "TSV",
+          "JSON"
         ],
-        "description": "Dataset I/O format abstractions used by classifier training and corpus ingestion."
+        "description": "Dataset format adapters for classifier training data ingestion."
       },
       {
-        "package": "textblob/translate.py",
-        "module": "textblob.translate",
+        "package": "source.src.textblob",
+        "module": "en.sentiments",
+        "functions": [],
+        "classes": [
+          "PatternAnalyzer",
+          "NaiveBayesAnalyzer"
+        ],
+        "description": "English sentiment analyzers, including pattern-based polarity/subjectivity and Naive Bayes sentiment."
+      },
+      {
+        "package": "source.src.textblob",
+        "module": "en.np_extractors",
+        "functions": [],
+        "classes": [
+          "ConllExtractor",
+          "FastNPExtractor"
+        ],
+        "description": "English noun phrase extraction strategies."
+      },
+      {
+        "package": "source.src.textblob",
+        "module": "en.taggers",
+        "functions": [],
+        "classes": [
+          "PatternTagger",
+          "NLTKTagger"
+        ],
+        "description": "English POS tagger implementations."
+      },
+      {
+        "package": "source.src.textblob",
+        "module": "en.inflect",
+        "functions": [
+          "singularize",
+          "pluralize",
+          "lemma"
+        ],
+        "classes": [],
+        "description": "English inflection and morphology helpers."
+      },
+      {
+        "package": "source.src.textblob",
+        "module": "translate",
         "functions": [],
         "classes": [
           "Translator"
         ],
-        "description": "Translation/detection utility class (network-dependent)."
+        "description": "Translation and language detection helper (network-backed behavior depending on runtime environment)."
       },
       {
-        "package": "textblob/download_corpora.py",
-        "module": "textblob.download_corpora",
+        "package": "source.src.textblob",
+        "module": "download_corpora",
         "functions": [
           "download_lite",
-          "download_all"
+          "download_all",
+          "main"
         ],
         "classes": [],
-        "description": "Bootstrap helpers to download required NLTK corpora resources."
+        "description": "Corpora bootstrap utility for NLTK/TextBlob runtime resources."
       }
     ],
     "cli_commands": [
       {
         "name": "python -m textblob.download_corpora",
-        "module": "textblob.download_corpora",
-        "description": "Module-style command to download corpora needed by TextBlob/NLTK-backed features."
+        "module": "source.src.textblob.download_corpora",
+        "description": "Downloads required/optional corpora for TextBlob features."
+      },
+      {
+        "name": "python -m textblob.download_corpora lite",
+        "module": "source.src.textblob.download_corpora",
+        "description": "Downloads a reduced corpus set for lighter installs."
       }
     ],
     "import_strategy": {
       "primary": "import",
       "fallback": "cli",
-      "confidence": 0.9
+      "confidence": 0.93
     },
     "dependencies": {
       "required": [
         "nltk"
       ],
       "optional": [
-        "pattern (or pattern3-compatible runtime for PatternAnalyzer behavior, depending on environment)",
-        "pyyaml (only if external integrations use it; not core)",
-        "internet access for textblob.translate and corpora download operations"
+        "pattern (or pattern3-compatible provider for pattern-based features)",
+        "numpy/scipy stack (indirect, depending on classifier/tagger runtime paths)",
+        "network access for translation features",
+        "NLTK corpora datasets (punkt, averaged_perceptron_tagger, wordnet, movie_reviews, etc.)"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.93,
+      "import_feasibility": 0.9,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -330,7 +358,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.93,
+    "import_feasibility": 0.9,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

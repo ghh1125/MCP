@@ -1,0 +1,39 @@
+#! DCT calculation for the triplet O2 using ODC-06 and ODC-12 functionals. 
+#! Only simultaneous algorithm is tested.
+
+
+# ODC-06
+
+
+molecule OO {
+0 3
+O
+O 1 R
+
+units bohr
+R = 2.000
+}
+
+set {
+    r_convergence 12
+    d_convergence 12
+    ao_basis    disk
+    algorithm   simultaneous
+    basis       cc-pvdz
+    reference   uhf
+}
+
+if psi4.core.get_option("scf", "orbital_optimizer_package") == "INTERNAL":
+    dct_tol = 10
+else:
+    dct_tol = 5e-9
+    psi4.set_options({"e_convergence": 9, "d_convergence": 1e-8})
+
+set dct_functional odc-06
+energy('dct')
+
+
+set dct_functional odc-12
+energy('dct')
+
+

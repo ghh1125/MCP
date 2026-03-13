@@ -1,318 +1,382 @@
 import os
 import sys
+import inspect
 import traceback
-import runpy
-import shlex
-import subprocess
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional, List
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "source",
 )
-sys.path.insert(0, source_path)
+if source_path not in sys.path:
+    sys.path.insert(0, source_path)
+
+# =============================================================================
+# Adapter Module: Import-mode MCP adapter for SPM
+# Repository: https://github.com/YanLab-Westlake/SPM
+# Primary module target:
+#   deployment.SPM.source.scripts.SequencePatternMatching
+# Fallback mode:
+#   CLI-style guidance for "python scripts/SequencePatternMatching.py"
+# =============================================================================
 
 
 class Adapter:
     """
-    MCP Import Mode Adapter for repository: YanLab-Westlake/SPM
+    MCP Import Mode Adapter for SPM Sequence Pattern Matching.
 
-    This adapter attempts to use direct import mode first. Based on the repository scan,
-    no formal package exports were discovered and the practical entry appears to be:
+    This adapter attempts to import and execute repository-native functions:
+    - loadUniprotDB
+    - peptideSearching
+    - volumeScoring
 
-        python scripts/SequencePatternMatching.py
-
-    Therefore, this adapter provides:
-    1) Import-attempt pathway for scripts.SequencePatternMatching
-    2) Graceful fallback to script execution (CLI-style)
-    3) Unified status dictionary outputs for MCP plugin integration
+    If import fails, the adapter gracefully falls back to guidance mode (CLI-like).
+    All public methods return a unified dictionary format with at least:
+    - status: "success" | "error" | "fallback"
     """
 
     # -------------------------------------------------------------------------
-    # Initialization and module management
+    # Lifecycle / Initialization
     # -------------------------------------------------------------------------
     def __init__(self) -> None:
         """
-        Initialize adapter in import mode and attempt to load repository modules.
+        Initialize adapter in import mode and attempt dynamic import binding.
 
         Attributes:
-            mode (str): Adapter mode, fixed to "import".
-            module_sequence_pattern_matching (Any): Imported module object if available.
-            import_errors (List[str]): Collected import error messages.
+            mode (str): Adapter operating mode. Defaults to "import".
+            module_path (str): Full target module path inferred from analysis.
+            module (Any): Imported module object when available.
+            import_ready (bool): Whether import-mode execution is available.
+            import_error (str): Last import error, if any.
         """
-        self.mode = "import"
-        self.module_sequence_pattern_matching = None
-        self.import_errors: List[str] = []
+        self.mode: str = "import"
+        self.module_path: str = "deployment.SPM.source.scripts.SequencePatternMatching"
+        self.module: Optional[Any] = None
+        self.import_ready: bool = False
+        self.import_error: Optional[str] = None
+
+        self._fn_load_uniprot_db = None
+        self._fn_peptide_searching = None
+        self._fn_volume_scoring = None
+
         self._initialize_imports()
 
     def _initialize_imports(self) -> None:
-        """
-        Attempt to import known repository modules using full path discovered by analysis.
-        """
+        """Attempt import and bind required repository functions."""
         try:
-            import scripts.SequencePatternMatching as sequence_pattern_matching_module
-            self.module_sequence_pattern_matching = sequence_pattern_matching_module
+            module = __import__(self.module_path, fromlist=["*"])
+            self.module = module
+
+            self._fn_load_uniprot_db = getattr(module, "loadUniprotDB", None)
+            self._fn_peptide_searching = getattr(module, "peptideSearching", None)
+            self._fn_volume_scoring = getattr(module, "volumeScoring", None)
+
+            missing = []
+            if self._fn_load_uniprot_db is None:
+                missing.append("loadUniprotDB")
+            if self._fn_peptide_searching is None:
+                missing.append("peptideSearching")
+            if self._fn_volume_scoring is None:
+                missing.append("volumeScoring")
+
+            if missing:
+                self.import_ready = False
+                self.import_error = (
+                    f"Imported module but missing expected functions: {', '.join(missing)}. "
+                    f"Please verify repository version and function names in {self.module_path}."
+                )
+            else:
+                self.import_ready = True
+                self.import_error = None
+
         except Exception as exc:
-            self.import_errors.append(
-                f"Failed to import scripts.SequencePatternMatching. "
-                f"Please verify source layout and dependencies. Details: {exc}"
+            self.import_ready = False
+            self.import_error = (
+                f"Failed to import module '{self.module_path}'. "
+                f"Ensure source path is correct and dependencies are available. "
+                f"Details: {exc}"
             )
 
     # -------------------------------------------------------------------------
-    # Unified response helpers
+    # Unified Response Helpers
     # -------------------------------------------------------------------------
-    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "Success") -> Dict[str, Any]:
-        payload = {"status": "success", "mode": self.mode, "message": message}
-        if data:
-            payload.update(data)
+    def _ok(self, message: str, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        return {
+            "status": "success",
+            "mode": self.mode,
+            "message": message,
+            "data": data or {},
+        }
+
+    def _fallback(self, message: str, guidance: Optional[List[str]] = None) -> Dict[str, Any]:
+        return {
+            "status": "fallback",
+            "mode": self.mode,
+            "message": message,
+            "guidance": guidance or [
+                "Run the script directly: python scripts/SequencePatternMatching.py",
+                "Confirm source path points to repository root containing scripts/SequencePatternMatching.py",
+                "Check Python 3 environment and local file inputs required by the script.",
+            ],
+            "import_error": self.import_error,
+        }
+
+    def _error(self, message: str, exception: Optional[Exception] = None) -> Dict[str, Any]:
+        payload = {
+            "status": "error",
+            "mode": self.mode,
+            "message": message,
+        }
+        if exception is not None:
+            payload["error"] = str(exception)
+            payload["traceback"] = traceback.format_exc()
         return payload
 
-    def _error(self, message: str, details: Optional[str] = None) -> Dict[str, Any]:
-        payload = {"status": "error", "mode": self.mode, "message": message}
-        if details:
-            payload["details"] = details
-        return payload
-
     # -------------------------------------------------------------------------
-    # Capability and diagnostics
+    # Module / Capability Management
     # -------------------------------------------------------------------------
     def health_check(self) -> Dict[str, Any]:
         """
-        Check adapter readiness and module import state.
+        Check adapter readiness and imported function availability.
 
         Returns:
-            dict: Unified status dictionary with import diagnostics.
-        """
-        imported = self.module_sequence_pattern_matching is not None
-        return self._ok(
-            data={
-                "import_ready": imported,
-                "import_errors": self.import_errors,
-                "available_module": "scripts.SequencePatternMatching" if imported else None,
-                "recommended_entry": "python scripts/SequencePatternMatching.py",
-            },
-            message="Adapter health check completed.",
-        )
-
-    def get_repository_summary(self) -> Dict[str, Any]:
-        """
-        Return repository analysis summary embedded in adapter for runtime introspection.
-
-        Returns:
-            dict: Unified status dictionary containing summarized metadata.
-        """
-        return self._ok(
-            data={
-                "repository_url": "https://github.com/YanLab-Westlake/SPM",
-                "import_feasibility": 0.35,
-                "intrusiveness_risk": "medium",
-                "complexity": "simple",
-                "primary_strategy": "import",
-                "fallback_strategy": "cli",
-                "known_entry_command": "python scripts/SequencePatternMatching.py",
-                "known_files": [
-                    "README.md",
-                    "output/test1_ranked.txt",
-                    "scripts/SequencePatternMatching.py",
-                ],
-            },
-            message="Repository summary loaded.",
-        )
-
-    # -------------------------------------------------------------------------
-    # Import-mode execution methods (module-level, best-effort)
-    # -------------------------------------------------------------------------
-    def run_sequence_pattern_matching_module(
-        self,
-        init_globals: Optional[Dict[str, Any]] = None,
-        run_name: str = "__main__",
-    ) -> Dict[str, Any]:
-        """
-        Execute scripts.SequencePatternMatching through Python module runner semantics.
-
-        Parameters:
-            init_globals (dict, optional): Initial globals passed into runpy.run_module.
-            run_name (str): Execution name, default "__main__".
-
-        Returns:
-            dict: Unified status dictionary with execution results or actionable errors.
+            dict: Unified status payload with import readiness, function list,
+                  module path, and optional import error guidance.
         """
         try:
-            result_globals = runpy.run_module(
-                "scripts.SequencePatternMatching",
-                init_globals=init_globals,
-                run_name=run_name,
-            )
-            return self._ok(
-                data={
-                    "execution": "run_module",
-                    "module": "scripts.SequencePatternMatching",
-                    "result_keys": sorted(list(result_globals.keys()))[:50],
-                },
-                message="Module executed successfully via import mode.",
-            )
-        except Exception as exc:
-            return self._error(
-                "Module execution failed in import mode. Use CLI fallback with explicit script path and arguments.",
-                details=f"{exc}\n{traceback.format_exc()}",
-            )
-
-    def call_module_attribute(
-        self,
-        attribute_name: str,
-        args: Optional[List[Any]] = None,
-        kwargs: Optional[Dict[str, Any]] = None,
-    ) -> Dict[str, Any]:
-        """
-        Dynamically call an attribute from scripts.SequencePatternMatching if callable.
-
-        This method is provided because static analysis did not expose explicit function/class
-        signatures from the scanned result. It allows full utilization of discovered module
-        functionality when attributes are known at runtime.
-
-        Parameters:
-            attribute_name (str): Name of module attribute to invoke.
-            args (list, optional): Positional arguments for the callable.
-            kwargs (dict, optional): Keyword arguments for the callable.
-
-        Returns:
-            dict: Unified status dictionary with call results or guidance.
-        """
-        args = args or []
-        kwargs = kwargs or {}
-
-        if self.module_sequence_pattern_matching is None:
-            return self._error(
-                "Import mode module is unavailable. Run health_check and then use CLI fallback.",
-                details="scripts.SequencePatternMatching failed to import.",
-            )
-
-        try:
-            if not hasattr(self.module_sequence_pattern_matching, attribute_name):
-                return self._error(
-                    f"Attribute '{attribute_name}' not found in scripts.SequencePatternMatching.",
-                    details="Check exact attribute name in scripts/SequencePatternMatching.py.",
-                )
-
-            target = getattr(self.module_sequence_pattern_matching, attribute_name)
-            if not callable(target):
+            functions = {
+                "loadUniprotDB": self._fn_load_uniprot_db is not None,
+                "peptideSearching": self._fn_peptide_searching is not None,
+                "volumeScoring": self._fn_volume_scoring is not None,
+            }
+            if self.import_ready:
                 return self._ok(
-                    data={"attribute_name": attribute_name, "value": target},
-                    message=f"Attribute '{attribute_name}' retrieved successfully (not callable).",
+                    "Adapter is ready in import mode.",
+                    data={
+                        "import_ready": True,
+                        "module_path": self.module_path,
+                        "functions": functions,
+                    },
+                )
+            return self._fallback(
+                "Adapter is not ready for import-mode execution.",
+                guidance=[
+                    "Verify the repository is mounted at deployment/SPM/source.",
+                    f"Expected import module: {self.module_path}",
+                    "If import remains unavailable, execute via CLI: python scripts/SequencePatternMatching.py",
+                ],
+            )
+        except Exception as exc:
+            return self._error("Health check failed unexpectedly.", exc)
+
+    def describe_module(self) -> Dict[str, Any]:
+        """
+        Provide introspection details for the target module and bound functions.
+
+        Returns:
+            dict: Module metadata including function signatures where available.
+        """
+        try:
+            if not self.import_ready or self.module is None:
+                return self._fallback(
+                    "Cannot describe module because import mode is unavailable."
                 )
 
-            result = target(*args, **kwargs)
+            signatures = {}
+            for fn_name, fn_obj in [
+                ("loadUniprotDB", self._fn_load_uniprot_db),
+                ("peptideSearching", self._fn_peptide_searching),
+                ("volumeScoring", self._fn_volume_scoring),
+            ]:
+                try:
+                    signatures[fn_name] = str(inspect.signature(fn_obj))
+                except Exception:
+                    signatures[fn_name] = "signature unavailable"
+
             return self._ok(
-                data={"attribute_name": attribute_name, "result": result},
-                message=f"Callable attribute '{attribute_name}' executed successfully.",
+                "Module description retrieved successfully.",
+                data={
+                    "module_path": self.module_path,
+                    "module_file": getattr(self.module, "__file__", None),
+                    "functions": signatures,
+                    "doc": getattr(self.module, "__doc__", None),
+                },
+            )
+        except Exception as exc:
+            return self._error("Failed to describe target module.", exc)
+
+    # -------------------------------------------------------------------------
+    # Wrapped Repository Functions
+    # -------------------------------------------------------------------------
+    def call_loadUniprotDB(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call SequencePatternMatching.loadUniprotDB.
+
+        Parameters:
+            *args: Positional arguments forwarded to the original function.
+            **kwargs: Keyword arguments forwarded to the original function.
+
+        Returns:
+            dict: Unified status payload containing function result in data.result.
+
+        Notes:
+            - Exact parameter contract depends on repository implementation.
+            - Use describe_module() to inspect callable signature when available.
+        """
+        try:
+            if not self.import_ready or self._fn_load_uniprot_db is None:
+                return self._fallback(
+                    "loadUniprotDB is unavailable in import mode.",
+                    guidance=[
+                        "Check function existence in scripts/SequencePatternMatching.py",
+                        "Run module directly for script-style workflow: python scripts/SequencePatternMatching.py",
+                    ],
+                )
+
+            result = self._fn_load_uniprot_db(*args, **kwargs)
+            return self._ok(
+                "loadUniprotDB executed successfully.",
+                data={"result": result},
             )
         except Exception as exc:
             return self._error(
-                f"Failed to execute attribute '{attribute_name}'.",
-                details=f"{exc}\n{traceback.format_exc()}",
+                "loadUniprotDB execution failed. Verify input file paths and parameter types.",
+                exc,
+            )
+
+    def call_peptideSearching(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call SequencePatternMatching.peptideSearching.
+
+        Parameters:
+            *args: Positional arguments forwarded to the original function.
+            **kwargs: Keyword arguments forwarded to the original function.
+
+        Returns:
+            dict: Unified status payload containing function result in data.result.
+
+        Notes:
+            - Intended for sequence pattern matching search operations.
+            - Ensure sequence/query format aligns with repository expectations.
+        """
+        try:
+            if not self.import_ready or self._fn_peptide_searching is None:
+                return self._fallback(
+                    "peptideSearching is unavailable in import mode.",
+                    guidance=[
+                        "Confirm function name and repository version.",
+                        "Fallback execution: python scripts/SequencePatternMatching.py",
+                    ],
+                )
+
+            result = self._fn_peptide_searching(*args, **kwargs)
+            return self._ok(
+                "peptideSearching executed successfully.",
+                data={"result": result},
+            )
+        except Exception as exc:
+            return self._error(
+                "peptideSearching execution failed. Check peptide/query inputs and database loading steps.",
+                exc,
+            )
+
+    def call_volumeScoring(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call SequencePatternMatching.volumeScoring.
+
+        Parameters:
+            *args: Positional arguments forwarded to the original function.
+            **kwargs: Keyword arguments forwarded to the original function.
+
+        Returns:
+            dict: Unified status payload containing function result in data.result.
+
+        Notes:
+            - Typically used to score/rank matched sequence results.
+            - Validate scoring inputs are correctly preprocessed.
+        """
+        try:
+            if not self.import_ready or self._fn_volume_scoring is None:
+                return self._fallback(
+                    "volumeScoring is unavailable in import mode.",
+                    guidance=[
+                        "Ensure prior search outputs are valid before scoring.",
+                        "Use CLI fallback if import path cannot be resolved.",
+                    ],
+                )
+
+            result = self._fn_volume_scoring(*args, **kwargs)
+            return self._ok(
+                "volumeScoring executed successfully.",
+                data={"result": result},
+            )
+        except Exception as exc:
+            return self._error(
+                "volumeScoring execution failed. Verify scoring inputs and numeric data validity.",
+                exc,
             )
 
     # -------------------------------------------------------------------------
-    # CLI fallback methods
+    # Orchestration Convenience
     # -------------------------------------------------------------------------
-    def run_cli_fallback(
+    def run_pipeline(
         self,
-        script_relative_path: str = os.path.join("scripts", "SequencePatternMatching.py"),
-        script_args: Optional[List[str]] = None,
-        cwd: Optional[str] = None,
-        timeout: Optional[int] = None,
+        load_args: Optional[List[Any]] = None,
+        load_kwargs: Optional[Dict[str, Any]] = None,
+        search_args: Optional[List[Any]] = None,
+        search_kwargs: Optional[Dict[str, Any]] = None,
+        score_args: Optional[List[Any]] = None,
+        score_kwargs: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         """
-        Execute repository script via subprocess as a fallback when import mode is limited.
+        Execute a simple 3-step pipeline:
+        1) loadUniprotDB
+        2) peptideSearching
+        3) volumeScoring
 
         Parameters:
-            script_relative_path (str): Script path relative to source directory.
-            script_args (list[str], optional): CLI arguments passed to script.
-            cwd (str, optional): Working directory for subprocess.
-            timeout (int, optional): Process timeout in seconds.
+            load_args/load_kwargs: Arguments for loadUniprotDB.
+            search_args/search_kwargs: Arguments for peptideSearching.
+            score_args/score_kwargs: Arguments for volumeScoring.
 
         Returns:
-            dict: Unified status dictionary with stdout/stderr and return code.
-        """
-        script_args = script_args or []
-        script_abs_path = os.path.join(source_path, script_relative_path)
+            dict: Unified status payload with per-step execution results.
 
-        if not os.path.exists(script_abs_path):
-            return self._error(
-                "CLI fallback script was not found.",
-                details=(
-                    f"Expected path: {script_abs_path}. "
-                    "Ensure repository files are correctly mounted under source/."
-                ),
-            )
-
-        cmd = [sys.executable, script_abs_path] + script_args
-        try:
-            completed = subprocess.run(
-                cmd,
-                cwd=cwd or source_path,
-                capture_output=True,
-                text=True,
-                timeout=timeout,
-                check=False,
-            )
-            status = "success" if completed.returncode == 0 else "error"
-            return {
-                "status": status,
-                "mode": self.mode,
-                "message": "CLI fallback execution completed." if status == "success" else "CLI fallback execution failed.",
-                "command": cmd,
-                "returncode": completed.returncode,
-                "stdout": completed.stdout,
-                "stderr": completed.stderr,
-            }
-        except subprocess.TimeoutExpired as exc:
-            return self._error(
-                "CLI fallback timed out.",
-                details=f"Increase timeout value or reduce input size. Details: {exc}",
-            )
-        except Exception as exc:
-            return self._error(
-                "CLI fallback execution encountered an unexpected error.",
-                details=f"{exc}\n{traceback.format_exc()}",
-            )
-
-    def run_cli_command_string(self, command: str, cwd: Optional[str] = None, timeout: Optional[int] = None) -> Dict[str, Any]:
-        """
-        Run an arbitrary CLI command string safely tokenized with shlex.
-
-        Parameters:
-            command (str): Raw command string, e.g. "python scripts/SequencePatternMatching.py".
-            cwd (str, optional): Working directory.
-            timeout (int, optional): Timeout in seconds.
-
-        Returns:
-            dict: Unified status dictionary with process output.
+        Important:
+            This method does not auto-wire outputs between steps because original
+            function contracts may vary by repository version. Pass explicit args.
         """
         try:
-            parts = shlex.split(command)
-            if not parts:
-                return self._error("Empty command string provided.", details="Provide a valid command.")
-            completed = subprocess.run(
-                parts,
-                cwd=cwd or source_path,
-                capture_output=True,
-                text=True,
-                timeout=timeout,
-                check=False,
+            if not self.import_ready:
+                return self._fallback(
+                    "Pipeline cannot run because import mode is unavailable."
+                )
+
+            load_resp = self.call_loadUniprotDB(*(load_args or []), **(load_kwargs or {}))
+            if load_resp.get("status") != "success":
+                return self._error(
+                    "Pipeline stopped at loadUniprotDB. Resolve the previous error and retry."
+                )
+
+            search_resp = self.call_peptideSearching(*(search_args or []), **(search_kwargs or {}))
+            if search_resp.get("status") != "success":
+                return self._error(
+                    "Pipeline stopped at peptideSearching. Resolve the previous error and retry."
+                )
+
+            score_resp = self.call_volumeScoring(*(score_args or []), **(score_kwargs or {}))
+            if score_resp.get("status") != "success":
+                return self._error(
+                    "Pipeline stopped at volumeScoring. Resolve the previous error and retry."
+                )
+
+            return self._ok(
+                "Pipeline executed successfully.",
+                data={
+                    "loadUniprotDB": load_resp.get("data", {}).get("result"),
+                    "peptideSearching": search_resp.get("data", {}).get("result"),
+                    "volumeScoring": score_resp.get("data", {}).get("result"),
+                },
             )
-            status = "success" if completed.returncode == 0 else "error"
-            return {
-                "status": status,
-                "mode": self.mode,
-                "message": "Command executed." if status == "success" else "Command failed.",
-                "command": parts,
-                "returncode": completed.returncode,
-                "stdout": completed.stdout,
-                "stderr": completed.stderr,
-            }
         except Exception as exc:
-            return self._error(
-                "Failed to run command string.",
-                details=f"{exc}\n{traceback.format_exc()}",
-            )
+            return self._error("Pipeline execution failed unexpectedly.", exc)

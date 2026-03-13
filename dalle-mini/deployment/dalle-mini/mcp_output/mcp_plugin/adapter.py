@@ -1,10 +1,12 @@
 import os
 import sys
-import runpy
-import traceback
 import importlib
-from typing import Any, Dict, List, Optional
+import traceback
+from typing import Any, Dict, Optional
 
+# -----------------------------------------------------------------------------
+# Path setup (required)
+# -----------------------------------------------------------------------------
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "source",
@@ -14,13 +16,15 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    Import-mode adapter for the borisdayma/dalle-mini repository.
+    Import-mode MCP adapter for the dalle-mini repository.
 
-    This adapter focuses on:
-    - Safe imports from repository modules
-    - Lazy loading with graceful fallback
-    - Exposing practical methods for known entry points and core modules
-    - Unified response format for all method calls
+    This adapter is intentionally resilient because repository preprocessing failed,
+    and no concrete callable symbols were discovered from static analysis.
+    It provides:
+      - structured import checks for discovered package paths
+      - graceful fallback guidance when imports fail
+      - uniform dictionary responses with status
+      - extensible wrappers for likely generation workflows
     """
 
     # -------------------------------------------------------------------------
@@ -28,405 +32,381 @@ class Adapter:
     # -------------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
+        self._packages = [
+            "deployment.dalle-mini.source",
+            "mcp_output.mcp_plugin",
+        ]
         self._modules: Dict[str, Any] = {}
         self._import_errors: Dict[str, str] = {}
-        self._module_map = {
-            "dalle_init": "dalle_mini.__init__",
-            "data": "dalle_mini.data",
-            "model_init": "dalle_mini.model.__init__",
-            "configuration": "dalle_mini.model.configuration",
-            "modeling": "dalle_mini.model.modeling",
-            "partitions": "dalle_mini.model.partitions",
-            "processor": "dalle_mini.model.processor",
-            "text": "dalle_mini.model.text",
-            "tokenizer": "dalle_mini.model.tokenizer",
-            "utils": "dalle_mini.model.utils",
-            "gradio_app": "app.gradio.app",
-            "gradio_backend": "app.gradio.backend",
-            "streamlit_app": "app.streamlit.app",
-            "streamlit_backend": "app.streamlit.backend",
-            "train_script_module_style": "tools.train.train",
-        }
 
     # -------------------------------------------------------------------------
     # Internal helpers
     # -------------------------------------------------------------------------
-    def _ok(self, **data: Any) -> Dict[str, Any]:
-        payload = {"status": "success"}
-        payload.update(data)
-        return payload
+    def _ok(self, message: str, **data: Any) -> Dict[str, Any]:
+        result = {"status": "success", "mode": self.mode, "message": message}
+        result.update(data)
+        return result
 
-    def _err(self, message: str, **data: Any) -> Dict[str, Any]:
-        payload = {"status": "error", "error": message}
-        payload.update(data)
-        return payload
+    def _fail(self, message: str, **data: Any) -> Dict[str, Any]:
+        result = {"status": "error", "mode": self.mode, "message": message}
+        result.update(data)
+        return result
 
-    def _import_module(self, key: str) -> Dict[str, Any]:
-        if key not in self._module_map:
-            return self._err(
-                f"Unknown module key '{key}'. Check available module keys via get_capabilities()."
-            )
-        if key in self._modules:
-            return self._ok(module_key=key, module=self._modules[key], cached=True)
-
-        module_path = self._module_map[key]
-        try:
-            module = importlib.import_module(module_path)
-            self._modules[key] = module
-            return self._ok(module_key=key, module=module, cached=False)
-        except Exception as exc:
-            tb = traceback.format_exc()
-            self._import_errors[key] = f"{exc}\n{tb}"
-            return self._err(
-                f"Failed to import module '{module_path}'. Ensure repository dependencies are installed and compatible.",
-                module_key=key,
-                module_path=module_path,
-                details=str(exc),
-            )
-
-    def _get_attr_callable(self, module_key: str, func_name: str) -> Dict[str, Any]:
-        mod_res = self._import_module(module_key)
-        if mod_res["status"] != "success":
-            return mod_res
-
-        module = mod_res["module"]
-        if not hasattr(module, func_name):
-            return self._err(
-                f"Function '{func_name}' not found in module '{self._module_map[module_key]}'.",
-                module_key=module_key,
-                function=func_name,
-            )
-
-        target = getattr(module, func_name)
-        if not callable(target):
-            return self._err(
-                f"Attribute '{func_name}' exists but is not callable in module '{self._module_map[module_key]}'.",
-                module_key=module_key,
-                function=func_name,
-            )
-        return self._ok(callable=target, module_key=module_key, function=func_name)
-
-    def _get_attr_class(self, module_key: str, class_name: str) -> Dict[str, Any]:
-        mod_res = self._import_module(module_key)
-        if mod_res["status"] != "success":
-            return mod_res
-
-        module = mod_res["module"]
-        if not hasattr(module, class_name):
-            return self._err(
-                f"Class '{class_name}' not found in module '{self._module_map[module_key]}'.",
-                module_key=module_key,
-                class_name=class_name,
-            )
-
-        cls = getattr(module, class_name)
-        if not isinstance(cls, type):
-            return self._err(
-                f"Attribute '{class_name}' exists but is not a class in module '{self._module_map[module_key]}'.",
-                module_key=module_key,
-                class_name=class_name,
-            )
-        return self._ok(cls=cls, module_key=module_key, class_name=class_name)
+    def _fallback_guidance(self) -> str:
+        return (
+            "Import mode is unavailable for one or more required modules. "
+            "Verify repository source files exist under the configured source path, "
+            "confirm Python version >=3.8, and install likely runtime dependencies "
+            "(jax, flax, transformers, Pillow)."
+        )
 
     # -------------------------------------------------------------------------
-    # Adapter metadata and health
+    # Module management
     # -------------------------------------------------------------------------
-    def get_capabilities(self) -> Dict[str, Any]:
+    def initialize(self) -> Dict[str, Any]:
         """
-        Return adapter capabilities derived from analysis.
+        Initialize adapter by importing known package paths from analysis.
 
         Returns:
-            Dict[str, Any]: Unified status response including supported modules,
-            known CLI entry points, dependencies, and risk profile.
+            dict: Unified status payload with imported modules and errors.
         """
+        self._modules.clear()
+        self._import_errors.clear()
+
+        for package_name in self._packages:
+            try:
+                self._modules[package_name] = importlib.import_module(package_name)
+            except Exception as exc:
+                self._import_errors[package_name] = f"{exc.__class__.__name__}: {exc}"
+
+        if self._import_errors:
+            return self._fail(
+                "Initialization completed with import failures.",
+                imported=list(self._modules.keys()),
+                failed=self._import_errors,
+                guidance=self._fallback_guidance(),
+            )
+
         return self._ok(
-            mode=self.mode,
-            import_strategy={"primary": "import", "fallback": "import", "confidence": 0.9},
-            modules=list(self._module_map.values()),
-            cli_commands=[
-                "python tools/train/train.py",
-                "streamlit run app/streamlit/app.py",
-                "python app/gradio/app.py",
-            ],
-            dependencies={
-                "required": [
-                    "jax",
-                    "flax",
-                    "transformers",
-                    "numpy",
-                    "Pillow",
-                    "datasets",
-                    "sentencepiece",
-                    "tokenizers",
-                ],
-                "optional": [
-                    "gradio",
-                    "streamlit",
-                    "wandb",
-                    "scalable-shampoo related training extras",
-                    "torch (possibly indirect/tooling)",
-                ],
-            },
-            risk={
-                "import_feasibility": 0.56,
-                "intrusiveness_risk": "medium",
-                "complexity": "complex",
-            },
+            "Initialization successful.",
+            imported=list(self._modules.keys()),
         )
 
     def health_check(self) -> Dict[str, Any]:
         """
-        Perform a lightweight import health check of core modules.
+        Report adapter health and import readiness.
 
         Returns:
-            Dict[str, Any]: Unified status with per-module import results.
+            dict: Health status, imported modules, and actionable guidance if needed.
         """
-        checks = {}
-        failures = 0
-        for key in ["dalle_init", "data", "configuration", "modeling", "processor", "text", "utils"]:
-            res = self._import_module(key)
-            checks[key] = {
-                "status": res["status"],
-                "module_path": self._module_map[key],
-                "error": res.get("error"),
-                "details": res.get("details"),
-            }
-            if res["status"] != "success":
-                failures += 1
+        if not self._modules and not self._import_errors:
+            init_result = self.initialize()
+            if init_result.get("status") == "error":
+                return init_result
 
-        if failures:
-            return self._err(
-                "One or more core modules failed to import. Install missing dependencies and verify Python/JAX compatibility.",
-                checks=checks,
-                failure_count=failures,
+        if self._import_errors:
+            return self._fail(
+                "Adapter is degraded due to import errors.",
+                imported=list(self._modules.keys()),
+                failed=self._import_errors,
+                guidance=self._fallback_guidance(),
             )
-        return self._ok(checks=checks, failure_count=0)
 
-    # -------------------------------------------------------------------------
-    # Generic module/function/class access
-    # -------------------------------------------------------------------------
-    def import_module(self, module_key: str) -> Dict[str, Any]:
-        """
-        Import a known repository module by logical key.
-
-        Args:
-            module_key (str): Key in internal module map (see get_capabilities()).
-
-        Returns:
-            Dict[str, Any]: Unified status with module metadata.
-        """
-        res = self._import_module(module_key)
-        if res["status"] != "success":
-            return res
-        module = res["module"]
         return self._ok(
-            module_key=module_key,
-            module_path=self._module_map[module_key],
-            module_name=getattr(module, "__name__", None),
-            cached=res.get("cached", False),
+            "Adapter is healthy.",
+            imported=list(self._modules.keys()),
         )
 
-    def call_function(self, module_key: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def list_modules(self) -> Dict[str, Any]:
         """
-        Call a function from a known module dynamically.
-
-        Args:
-            module_key (str): Internal module key.
-            function_name (str): Target function name.
-            *args: Positional arguments for function.
-            **kwargs: Keyword arguments for function.
+        List expected and currently imported modules.
 
         Returns:
-            Dict[str, Any]: Unified status with function result.
+            dict: Expected module list, imported module list, and import errors.
         """
-        target_res = self._get_attr_callable(module_key, function_name)
-        if target_res["status"] != "success":
-            return target_res
-        try:
-            result = target_res["callable"](*args, **kwargs)
-            return self._ok(
-                module_key=module_key,
-                function=function_name,
-                result=result,
+        return self._ok(
+            "Module listing generated.",
+            expected=self._packages,
+            imported=list(self._modules.keys()),
+            failed=self._import_errors,
+        )
+
+    def get_module(self, module_path: str) -> Dict[str, Any]:
+        """
+        Retrieve an imported module by full package path.
+
+        Args:
+            module_path (str): Full module path (e.g., 'deployment.dalle-mini.source').
+
+        Returns:
+            dict: Status with module object when available.
+        """
+        if module_path in self._modules:
+            return self._ok("Module retrieved.", module=self._modules[module_path])
+
+        if module_path in self._import_errors:
+            return self._fail(
+                "Module is unavailable due to a previous import failure.",
+                module_path=module_path,
+                error=self._import_errors[module_path],
+                guidance=self._fallback_guidance(),
             )
+
+        try:
+            mod = importlib.import_module(module_path)
+            self._modules[module_path] = mod
+            return self._ok("Module imported and retrieved.", module=mod)
         except Exception as exc:
-            return self._err(
-                f"Function call failed for '{function_name}'. Review input arguments and dependency/runtime requirements.",
-                module_key=module_key,
-                function=function_name,
-                details=str(exc),
+            msg = f"{exc.__class__.__name__}: {exc}"
+            self._import_errors[module_path] = msg
+            return self._fail(
+                "Failed to import requested module.",
+                module_path=module_path,
+                error=msg,
+                guidance=self._fallback_guidance(),
             )
 
-    def create_instance(self, module_key: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    # -------------------------------------------------------------------------
+    # Dynamic symbol utilities (fallback-safe wrappers)
+    # -------------------------------------------------------------------------
+    def instantiate_class(
+        self,
+        module_path: str,
+        class_name: str,
+        *args: Any,
+        **kwargs: Any,
+    ) -> Dict[str, Any]:
         """
-        Instantiate a class from a known module dynamically.
+        Dynamically instantiate a class from a module.
 
         Args:
-            module_key (str): Internal module key.
-            class_name (str): Class name to instantiate.
-            *args: Positional constructor args.
-            **kwargs: Keyword constructor args.
+            module_path (str): Full module path.
+            class_name (str): Name of class to instantiate.
+            *args: Positional args for class constructor.
+            **kwargs: Keyword args for class constructor.
 
         Returns:
-            Dict[str, Any]: Unified status with created instance.
+            dict: Status with created instance or error details.
         """
-        cls_res = self._get_attr_class(module_key, class_name)
-        if cls_res["status"] != "success":
-            return cls_res
         try:
-            instance = cls_res["cls"](*args, **kwargs)
+            module_result = self.get_module(module_path)
+            if module_result.get("status") != "success":
+                return module_result
+
+            module = module_result["module"]
+            if not hasattr(module, class_name):
+                return self._fail(
+                    "Class not found in module.",
+                    module_path=module_path,
+                    class_name=class_name,
+                    guidance="Confirm class name spelling and module contents.",
+                )
+
+            cls = getattr(module, class_name)
+            instance = cls(*args, **kwargs)
             return self._ok(
-                module_key=module_key,
+                "Class instance created.",
+                module_path=module_path,
                 class_name=class_name,
                 instance=instance,
             )
         except Exception as exc:
-            return self._err(
-                f"Failed to instantiate class '{class_name}'. Verify constructor parameters and environment dependencies.",
-                module_key=module_key,
+            return self._fail(
+                "Class instantiation failed.",
+                module_path=module_path,
                 class_name=class_name,
-                details=str(exc),
+                error=f"{exc.__class__.__name__}: {exc}",
+                traceback=traceback.format_exc(),
             )
 
-    # -------------------------------------------------------------------------
-    # Repository entrypoint methods
-    # -------------------------------------------------------------------------
-    def run_train_script(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
+    def call_function(
+        self,
+        module_path: str,
+        function_name: str,
+        *args: Any,
+        **kwargs: Any,
+    ) -> Dict[str, Any]:
         """
-        Execute tools/train/train.py as a script entrypoint.
+        Dynamically call a function from a module.
 
         Args:
-            argv (Optional[List[str]]): CLI arguments excluding script name.
-                Example: ["--help"] or training flags expected by the script.
+            module_path (str): Full module path.
+            function_name (str): Name of function to call.
+            *args: Positional args for function.
+            **kwargs: Keyword args for function.
 
         Returns:
-            Dict[str, Any]: Unified status with execution metadata.
+            dict: Status with function output or error details.
         """
-        script_rel = os.path.join("tools", "train", "train.py")
-        script_abs = os.path.join(source_path, script_rel)
-        if not os.path.exists(script_abs):
-            return self._err(
-                "Training script not found. Ensure repository is extracted under the expected source directory.",
-                script_path=script_abs,
-            )
-        old_argv = sys.argv[:]
         try:
-            sys.argv = [script_abs] + (argv or [])
-            runpy.run_path(script_abs, run_name="__main__")
-            return self._ok(
-                script=script_rel,
-                argv=argv or [],
-                message="Training script executed.",
-            )
-        except SystemExit as exc:
-            code = getattr(exc, "code", 0)
-            if code in (0, None):
-                return self._ok(
-                    script=script_rel,
-                    argv=argv or [],
-                    message="Training script exited cleanly.",
-                    exit_code=code,
+            module_result = self.get_module(module_path)
+            if module_result.get("status") != "success":
+                return module_result
+
+            module = module_result["module"]
+            if not hasattr(module, function_name):
+                return self._fail(
+                    "Function not found in module.",
+                    module_path=module_path,
+                    function_name=function_name,
+                    guidance="Confirm function name spelling and module contents.",
                 )
-            return self._err(
-                "Training script exited with a non-zero status.",
-                script=script_rel,
-                argv=argv or [],
-                exit_code=code,
+
+            fn = getattr(module, function_name)
+            output = fn(*args, **kwargs)
+            return self._ok(
+                "Function executed successfully.",
+                module_path=module_path,
+                function_name=function_name,
+                output=output,
             )
         except Exception as exc:
-            return self._err(
-                "Training script execution failed. Verify runtime dependencies (JAX/Flax/Transformers) and script arguments.",
-                script=script_rel,
-                argv=argv or [],
-                details=str(exc),
+            return self._fail(
+                "Function execution failed.",
+                module_path=module_path,
+                function_name=function_name,
+                error=f"{exc.__class__.__name__}: {exc}",
+                traceback=traceback.format_exc(),
             )
-        finally:
-            sys.argv = old_argv
-
-    def run_gradio_app(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
-        """
-        Execute app/gradio/app.py as a script entrypoint.
-
-        Args:
-            argv (Optional[List[str]]): Optional CLI args passed to script.
-
-        Returns:
-            Dict[str, Any]: Unified status with execution metadata.
-        """
-        script_rel = os.path.join("app", "gradio", "app.py")
-        script_abs = os.path.join(source_path, script_rel)
-        if not os.path.exists(script_abs):
-            return self._err(
-                "Gradio app script not found. Ensure repository files are present.",
-                script_path=script_abs,
-            )
-        old_argv = sys.argv[:]
-        try:
-            sys.argv = [script_abs] + (argv or [])
-            runpy.run_path(script_abs, run_name="__main__")
-            return self._ok(script=script_rel, argv=argv or [], message="Gradio app executed.")
-        except Exception as exc:
-            return self._err(
-                "Failed to run Gradio app. Install optional dependency 'gradio' and verify model/runtime setup.",
-                script=script_rel,
-                argv=argv or [],
-                details=str(exc),
-            )
-        finally:
-            sys.argv = old_argv
-
-    def run_streamlit_app(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
-        """
-        Execute app/streamlit/app.py as a script entrypoint.
-
-        Args:
-            argv (Optional[List[str]]): Optional CLI args passed to script.
-
-        Returns:
-            Dict[str, Any]: Unified status with execution metadata.
-        """
-        script_rel = os.path.join("app", "streamlit", "app.py")
-        script_abs = os.path.join(source_path, script_rel)
-        if not os.path.exists(script_abs):
-            return self._err(
-                "Streamlit app script not found. Ensure repository files are present.",
-                script_path=script_abs,
-            )
-        old_argv = sys.argv[:]
-        try:
-            sys.argv = [script_abs] + (argv or [])
-            runpy.run_path(script_abs, run_name="__main__")
-            return self._ok(script=script_rel, argv=argv or [], message="Streamlit app executed.")
-        except Exception as exc:
-            return self._err(
-                "Failed to run Streamlit app. Install optional dependency 'streamlit' and verify runtime setup.",
-                script=script_rel,
-                argv=argv or [],
-                details=str(exc),
-            )
-        finally:
-            sys.argv = old_argv
 
     # -------------------------------------------------------------------------
-    # Module-specific convenience methods
+    # Repository-oriented convenience methods (best-effort)
     # -------------------------------------------------------------------------
-    def load_data_module(self) -> Dict[str, Any]:
-        return self.import_module("data")
+    def create_pipeline_instance(self, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Best-effort helper to instantiate a likely pipeline/model class from known packages.
 
-    def load_configuration_module(self) -> Dict[str, Any]:
-        return self.import_module("configuration")
+        Args:
+            class_name (str): Target class name.
+            *args: Constructor positional args.
+            **kwargs: Constructor keyword args.
 
-    def load_modeling_module(self) -> Dict[str, Any]:
-        return self.import_module("modeling")
+        Returns:
+            dict: Success with instance or consolidated error.
+        """
+        errors = {}
+        for module_path in self._packages:
+            result = self.instantiate_class(module_path, class_name, *args, **kwargs)
+            if result.get("status") == "success":
+                return result
+            errors[module_path] = result.get("message")
+        return self._fail(
+            "Unable to instantiate class from known packages.",
+            class_name=class_name,
+            attempted_modules=self._packages,
+            errors=errors,
+            guidance="Inspect repository modules and provide the exact module path.",
+        )
 
-    def load_processor_module(self) -> Dict[str, Any]:
-        return self.import_module("processor")
+    def run_generation(self, function_name: str = "generate", *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Best-effort helper to call a likely image generation function.
 
-    def load_text_module(self) -> Dict[str, Any]:
-        return self.import_module("text")
+        Args:
+            function_name (str): Function name to invoke, default 'generate'.
+            *args: Function positional args.
+            **kwargs: Function keyword args.
 
-    def load_tokenizer_module(self) -> Dict[str, Any]:
-        return self.import_module("tokenizer")
+        Returns:
+            dict: Success with output or consolidated failure details.
+        """
+        errors = {}
+        for module_path in self._packages:
+            result = self.call_function(module_path, function_name, *args, **kwargs)
+            if result.get("status") == "success":
+                return result
+            errors[module_path] = result.get("message")
+        return self._fail(
+            "Unable to execute generation function from known packages.",
+            function_name=function_name,
+            attempted_modules=self._packages,
+            errors=errors,
+            guidance=(
+                "The repository structure could not be fully analyzed. "
+                "Provide exact module path and callable name for generation."
+            ),
+        )
 
-    def load_utils_module(self) -> Dict[str, Any]:
-        return self.import_module("utils")
+    # -------------------------------------------------------------------------
+    # MCP plugin integration surface
+    # -------------------------------------------------------------------------
+    def execute(self, action: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """
+        Generic MCP execution entrypoint.
+
+        Supported actions:
+            - initialize
+            - health_check
+            - list_modules
+            - get_module
+            - instantiate_class
+            - call_function
+            - create_pipeline_instance
+            - run_generation
+
+        Args:
+            action (str): Operation name.
+            params (dict, optional): Parameters for action.
+
+        Returns:
+            dict: Unified status response.
+        """
+        params = params or {}
+
+        try:
+            if action == "initialize":
+                return self.initialize()
+            if action == "health_check":
+                return self.health_check()
+            if action == "list_modules":
+                return self.list_modules()
+            if action == "get_module":
+                return self.get_module(params.get("module_path", ""))
+            if action == "instantiate_class":
+                return self.instantiate_class(
+                    params.get("module_path", ""),
+                    params.get("class_name", ""),
+                    *(params.get("args", []) or []),
+                    **(params.get("kwargs", {}) or {}),
+                )
+            if action == "call_function":
+                return self.call_function(
+                    params.get("module_path", ""),
+                    params.get("function_name", ""),
+                    *(params.get("args", []) or []),
+                    **(params.get("kwargs", {}) or {}),
+                )
+            if action == "create_pipeline_instance":
+                return self.create_pipeline_instance(
+                    params.get("class_name", ""),
+                    *(params.get("args", []) or []),
+                    **(params.get("kwargs", {}) or {}),
+                )
+            if action == "run_generation":
+                return self.run_generation(
+                    params.get("function_name", "generate"),
+                    *(params.get("args", []) or []),
+                    **(params.get("kwargs", {}) or {}),
+                )
+
+            return self._fail(
+                "Unsupported action requested.",
+                action=action,
+                supported_actions=[
+                    "initialize",
+                    "health_check",
+                    "list_modules",
+                    "get_module",
+                    "instantiate_class",
+                    "call_function",
+                    "create_pipeline_instance",
+                    "run_generation",
+                ],
+            )
+        except Exception as exc:
+            return self._fail(
+                "Unexpected adapter execution error.",
+                action=action,
+                error=f"{exc.__class__.__name__}: {exc}",
+                traceback=traceback.format_exc(),
+            )

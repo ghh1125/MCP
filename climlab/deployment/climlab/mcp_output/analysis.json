@@ -323,14 +323,28 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.climlab.source",
+      "mcp_output.mcp_plugin",
+      "source.climlab",
+      "source.climlab.convection",
+      "source.climlab.domain",
+      "source.climlab.dynamics",
+      "source.climlab.model",
+      "source.climlab.process",
+      "source.climlab.radiation",
+      "source.climlab.solar",
+      "source.climlab.surface",
+      "source.climlab.tests",
+      "source.climlab.utils"
+    ]
   },
   "dependencies": {
-    "has_environment_yml": false,
+    "has_environment_yml": true,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -340,147 +354,123 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "climlab/process/process.py",
-        "module": "climlab.process.process",
+        "package": "source.climlab.process",
+        "module": "process",
         "functions": [],
         "classes": [
           "Process"
         ],
-        "description": "Core process-tree abstraction for model components, state handling, diagnostics, and subprocess composition."
+        "description": "Core process tree abstraction for climlab components; manages state, subprocess composition, diagnostics, and coupling scaffolding."
       },
       {
-        "package": "climlab/process/time_dependent_process.py",
-        "module": "climlab.process.time_dependent_process",
+        "package": "source.climlab.process",
+        "module": "time_dependent_process",
         "functions": [],
         "classes": [
           "TimeDependentProcess"
         ],
-        "description": "Time integration framework built on Process; central for stepping models forward and orchestrating tendencies."
+        "description": "Primary time-stepping engine used by most models; orchestrates tendencies, diagnostics, and subprocess stepping."
       },
       {
-        "package": "climlab/model/ebm.py",
-        "module": "climlab.model.ebm",
+        "package": "source.climlab.domain",
+        "module": "field",
+        "functions": [],
+        "classes": [
+          "Field"
+        ],
+        "description": "State container class used throughout climlab for model variables associated with domains and axes."
+      },
+      {
+        "package": "source.climlab.domain",
+        "module": "domain",
+        "functions": [],
+        "classes": [
+          "Domain",
+          "Atmosphere",
+          "Ocean",
+          "SlabOcean"
+        ],
+        "description": "Grid/domain definitions and helpers used to construct model geometry and dimensional metadata."
+      },
+      {
+        "package": "source.climlab.domain",
+        "module": "axis",
+        "functions": [],
+        "classes": [
+          "Axis"
+        ],
+        "description": "Axis metadata (lat, lev, depth, etc.) and coordinate handling used by Domain/Field."
+      },
+      {
+        "package": "source.climlab.model",
+        "module": "ebm",
         "functions": [],
         "classes": [
           "EBM",
-          "EBM_seasonal",
           "EBM_annual",
-          "EBM_fixediceline",
-          "EBM_water_vapor"
+          "EBM_seasonal",
+          "EBM_aquaplanet",
+          "EBM_water_vapor",
+          "EBM_clouds"
         ],
-        "description": "Energy balance model family; high-value entry point for 1D climate simulations and sensitivity experiments."
+        "description": "High-level energy balance model constructors; useful as stable user-facing entry points for MCP workflows."
       },
       {
-        "package": "climlab/model/column.py",
-        "module": "climlab.model.column",
+        "package": "source.climlab.model",
+        "module": "column",
         "functions": [],
         "classes": [
           "GreyRadiationModel",
           "RadiativeConvectiveModel",
           "BandRCModel"
         ],
-        "description": "Column model constructors combining radiation/convection processes for vertical climate experiments."
+        "description": "Column model families combining radiation/convection and process coupling."
       },
       {
-        "package": "climlab/domain/field.py",
-        "module": "climlab.domain.field",
-        "functions": [
-          "to_latlon",
-          "global_mean"
-        ],
-        "classes": [
-          "Field"
-        ],
-        "description": "State-variable container and utilities for gridded climate fields."
-      },
-      {
-        "package": "climlab/domain/domain.py",
-        "module": "climlab.domain.domain",
-        "functions": [
-          "single_column",
-          "zonal_mean_surface",
-          "surface_2D"
-        ],
-        "classes": [
-          "_Domain",
-          "Atmosphere",
-          "Ocean",
-          "SlabOcean",
-          "BoxDomain"
-        ],
-        "description": "Spatial domain/grid definitions and helpers used throughout model/process initialization."
-      },
-      {
-        "package": "climlab/radiation/rrtm/rrtmg.py",
-        "module": "climlab.radiation.rrtm.rrtmg",
-        "functions": [],
-        "classes": [
-          "RRTMG"
-        ],
-        "description": "Combined longwave/shortwave RRTMG radiative transfer wrapper (compiled backend dependent)."
-      },
-      {
-        "package": "climlab/radiation/cam3.py",
-        "module": "climlab.radiation.cam3",
-        "functions": [],
-        "classes": [
-          "CAM3"
-        ],
-        "description": "CAM3 radiation parameterization wrapper."
-      },
-      {
-        "package": "climlab/radiation/greygas.py",
-        "module": "climlab.radiation.greygas",
-        "functions": [],
-        "classes": [
-          "GreyGas",
-          "GreyGasSW",
-          "GreyGasLW"
-        ],
-        "description": "Pure-Python grey-gas radiation components with fewer compiled dependencies."
-      },
-      {
-        "package": "climlab/radiation/insolation.py",
-        "module": "climlab.radiation.insolation",
+        "package": "source.climlab.radiation",
+        "module": "insolation",
         "functions": [
           "daily_insolation",
-          "instant_insolation",
-          "annual_mean_insolation",
-          "solar_longitude"
+          "annual_mean_insolation"
         ],
         "classes": [],
-        "description": "Orbital/insolation forcing utilities; useful as lightweight callable scientific tools."
+        "description": "Frequently used standalone scientific utilities for insolation calculations; low-friction callable tools."
       },
       {
-        "package": "climlab/solar/insolation.py",
-        "module": "climlab.solar.insolation",
+        "package": "source.climlab.solar",
+        "module": "insolation",
         "functions": [
           "daily_insolation",
-          "instant_insolation",
-          "annual_mean_insolation",
-          "solar_longitude"
+          "annual_mean_insolation"
         ],
         "classes": [],
-        "description": "Solar insolation API mirror/implementation for orbital forcing calculations."
+        "description": "Solar/orbital insolation utilities (overlapping API surface with radiation.insolation in many climlab versions)."
       },
       {
-        "package": "climlab/utils/thermo.py",
-        "module": "climlab.utils.thermo",
+        "package": "source.climlab.utils",
+        "module": "thermo",
         "functions": [
           "clausius_clapeyron",
           "qsat",
-          "vapor_pressure_from_specific_humidity",
-          "pseudoadiabat"
+          "mixing_ratio_from_vapor_pressure",
+          "vapor_pressure_from_specific_humidity"
         ],
         "classes": [],
-        "description": "Thermodynamic helper functions frequently used independently from full model stacks."
+        "description": "Thermodynamic helper functions suitable for stateless MCP tool exposure."
+      },
+      {
+        "package": "source.climlab.utils",
+        "module": "constants",
+        "functions": [],
+        "classes": [],
+        "description": "Physical constants used across model components; useful read-only data access endpoint."
       }
     ],
     "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.93
     },
     "dependencies": {
       "required": [
@@ -492,12 +482,11 @@
         "matplotlib",
         "netCDF4",
         "numba",
-        "pooch",
-        "climlab-rrtmg compiled extensions"
+        "Fortran-compiled RRTMG extensions (for source.climlab.radiation.rrtm)"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.86,
+      "import_feasibility": 0.91,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -515,7 +504,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.86,
+    "import_feasibility": 0.91,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }
