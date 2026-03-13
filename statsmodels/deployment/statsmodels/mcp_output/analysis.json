@@ -328,7 +328,7 @@
         "size": 3030
       },
       "examples/python/interactions_anova.py": {
-        "size": 11301
+        "size": 11321
       },
       "examples/python/kernel_density.py": {
         "size": 8790
@@ -427,7 +427,7 @@
         "size": 16875
       },
       "examples/python/statespace_sarimax_internet.py": {
-        "size": 5933
+        "size": 5953
       },
       "examples/python/statespace_sarimax_pymc3.py": {
         "size": 15882
@@ -481,7 +481,7 @@
         "size": 10463
       },
       "requirements-dev.txt": {
-        "size": 373
+        "size": 380
       },
       "requirements-doc.txt": {
         "size": 373
@@ -1042,7 +1042,7 @@
         "size": 317
       },
       "statsmodels/emplike/descriptive.py": {
-        "size": 38822
+        "size": 39067
       },
       "statsmodels/emplike/elanova.py": {
         "size": 3659
@@ -1069,7 +1069,7 @@
         "size": 862
       },
       "statsmodels/emplike/tests/test_descriptive.py": {
-        "size": 4314
+        "size": 4591
       },
       "statsmodels/emplike/tests/test_origin.py": {
         "size": 1442
@@ -1987,7 +1987,7 @@
         "size": 69462
       },
       "statsmodels/robust/norms.py": {
-        "size": 35695
+        "size": 36427
       },
       "statsmodels/robust/resistant_linear_model.py": {
         "size": 8888
@@ -2032,7 +2032,7 @@
         "size": 2636
       },
       "statsmodels/robust/tools.py": {
-        "size": 17029
+        "size": 16989
       },
       "statsmodels/sandbox/__init__.py": {
         "size": 107
@@ -2554,7 +2554,7 @@
         "size": 134
       },
       "statsmodels/stats/anova.py": {
-        "size": 22782
+        "size": 22841
       },
       "statsmodels/stats/api.py": {
         "size": 7496
@@ -2800,7 +2800,7 @@
         "size": 2730
       },
       "statsmodels/stats/tests/test_power.py": {
-        "size": 29573
+        "size": 29670
       },
       "statsmodels/stats/tests/test_proportion.py": {
         "size": 45166
@@ -3007,7 +3007,7 @@
         "size": 2722
       },
       "statsmodels/tsa/ar_model.py": {
-        "size": 79857
+        "size": 81160
       },
       "statsmodels/tsa/ardl/__init__.py": {
         "size": 332
@@ -3355,7 +3355,7 @@
         "size": 54280
       },
       "statsmodels/tsa/statespace/dynamic_factor_mq.py": {
-        "size": 197171
+        "size": 197123
       },
       "statsmodels/tsa/statespace/exponential_smoothing.py": {
         "size": 30610
@@ -3661,7 +3661,7 @@
         "size": 1810
       },
       "statsmodels/tsa/tests/test_ar.py": {
-        "size": 43716
+        "size": 43641
       },
       "statsmodels/tsa/tests/test_arima_process.py": {
         "size": 17184
@@ -4270,7 +4270,7 @@
         "size": 3674
       },
       "statsmodels/tsa/vector_ar/tests/test_var.py": {
-        "size": 31572
+        "size": 31607
       },
       "statsmodels/tsa/vector_ar/tests/test_var_jmulti.py": {
         "size": 25236
@@ -4331,12 +4331,43 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.statsmodels.source",
+      "mcp_output.mcp_plugin",
+      "source.statsmodels",
+      "source.statsmodels._build",
+      "source.statsmodels.base",
+      "source.statsmodels.compat",
+      "source.statsmodels.datasets",
+      "source.statsmodels.discrete",
+      "source.statsmodels.distributions",
+      "source.statsmodels.duration",
+      "source.statsmodels.emplike",
+      "source.statsmodels.formula",
+      "source.statsmodels.gam",
+      "source.statsmodels.genmod",
+      "source.statsmodels.graphics",
+      "source.statsmodels.imputation",
+      "source.statsmodels.includes",
+      "source.statsmodels.iolib",
+      "source.statsmodels.miscmodels",
+      "source.statsmodels.multivariate",
+      "source.statsmodels.nonparametric",
+      "source.statsmodels.othermod",
+      "source.statsmodels.regression",
+      "source.statsmodels.robust",
+      "source.statsmodels.sandbox",
+      "source.statsmodels.stats",
+      "source.statsmodels.tests",
+      "source.statsmodels.tools",
+      "source.statsmodels.treatment",
+      "source.statsmodels.tsa"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
-    "has_requirements_txt": false,
-    "pyproject": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
     "setup_cfg": false,
     "setup_py": false
   },
@@ -4348,117 +4379,108 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "statsmodels",
-        "module": "statsmodels/api.py",
+        "package": "source.statsmodels",
+        "module": "api",
         "functions": [],
         "classes": [],
-        "description": "Top-level public API aggregator exposing major modeling families and utilities; best primary import surface for MCP wrapping."
+        "description": "Primary public aggregation module exposing high-level statsmodels functionality through stable imports."
       },
       {
-        "package": "statsmodels",
-        "module": "statsmodels/formula/api.py",
+        "package": "source.statsmodels.regression",
+        "module": "linear_model",
         "functions": [],
-        "classes": [],
-        "description": "Formula interface entrypoint (patsy-backed) for user-friendly model construction; useful for high-level MCP tools."
-      },
-      {
-        "package": "statsmodels",
-        "module": "statsmodels/regression/linear_model.py",
-        "functions": [
-          "yule_walker"
-        ],
         "classes": [
           "OLS",
           "WLS",
           "GLS",
           "GLSAR",
-          "RegressionResults",
-          "RegressionResultsWrapper"
+          "RegressionResults"
         ],
-        "description": "Core linear regression stack and result objects; stable, widely used modeling foundation."
+        "description": "Core linear regression estimators and result objects; one of the most commonly used entry modules."
       },
       {
-        "package": "statsmodels",
-        "module": "statsmodels/genmod/generalized_linear_model.py",
+        "package": "source.statsmodels.genmod",
+        "module": "generalized_linear_model",
         "functions": [],
         "classes": [
           "GLM",
-          "GLMResults",
-          "GLMResultsWrapper"
+          "GLMResults"
         ],
-        "description": "Generalized Linear Models implementation (families/links integration), central for non-Gaussian regression workflows."
+        "description": "Generalized Linear Models framework with families/links support."
       },
       {
-        "package": "statsmodels",
-        "module": "statsmodels/discrete/discrete_model.py",
+        "package": "source.statsmodels.discrete",
+        "module": "discrete_model",
         "functions": [],
         "classes": [
           "Logit",
           "Probit",
           "MNLogit",
           "Poisson",
-          "NegativeBinomial",
-          "DiscreteResults",
-          "BinaryResults",
-          "MultinomialResults"
+          "NegativeBinomial"
         ],
-        "description": "Discrete response models including binary, multinomial, and count families."
+        "description": "Discrete response models used heavily for classification/count modeling."
       },
       {
-        "package": "statsmodels",
-        "module": "statsmodels/tsa/api.py",
+        "package": "source.statsmodels.tsa",
+        "module": "api",
         "functions": [],
         "classes": [],
-        "description": "Time-series API aggregator exposing ARIMA, state space, exponential smoothing, VAR/VECM and related utilities."
+        "description": "High-level time-series API surface for ARIMA, state space, VAR, decomposition, and diagnostics."
       },
       {
-        "package": "statsmodels",
-        "module": "statsmodels/tsa/arima/model.py",
+        "package": "source.statsmodels.tsa.arima",
+        "module": "model",
         "functions": [],
         "classes": [
           "ARIMA",
-          "ARIMAResults",
-          "ARIMAResultsWrapper"
+          "ARIMAResults"
         ],
-        "description": "Modern ARIMA interface for univariate time-series modeling and forecasting."
+        "description": "Modern ARIMA interface and fitting/prediction workflow."
       },
       {
-        "package": "statsmodels",
-        "module": "statsmodels/tsa/statespace/sarimax.py",
+        "package": "source.statsmodels.tsa.statespace",
+        "module": "sarimax",
         "functions": [],
         "classes": [
           "SARIMAX",
-          "SARIMAXResults",
-          "SARIMAXResultsWrapper"
+          "SARIMAXResults"
         ],
-        "description": "State-space SARIMAX implementation for seasonal/exogenous ARIMA-class models."
+        "description": "State space seasonal ARIMA with exogenous regressors, central for forecasting use-cases."
       },
       {
-        "package": "statsmodels",
-        "module": "statsmodels/stats/api.py",
+        "package": "source.statsmodels.stats",
+        "module": "api",
         "functions": [],
         "classes": [],
-        "description": "Statistical tests/effect-size/power/diagnostics API surface suitable for test-oriented MCP tools."
+        "description": "Statistical testing and inference API aggregator (power, proportions, diagnostics, multicomp, etc.)."
       },
       {
-        "package": "statsmodels",
-        "module": "statsmodels/datasets/__init__.py",
+        "package": "source.statsmodels.formula",
+        "module": "api",
         "functions": [],
         "classes": [],
-        "description": "Bundled dataset loaders; useful for deterministic examples and smoke tests in MCP integration."
+        "description": "Formula-based model constructors integrating patsy-style syntax."
+      },
+      {
+        "package": "source.statsmodels.datasets",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Built-in dataset loaders useful for demos/tests and MCP quickstart flows."
       }
     ],
     "cli_commands": [
       {
         "name": "python -m statsmodels.tools.print_version",
-        "module": "statsmodels/tools/print_version.py",
-        "description": "Environment/version diagnostic module; practical lightweight CLI-style entry for health checks."
+        "module": "source.statsmodels.tools.print_version",
+        "description": "Print environment/version information; useful diagnostic utility but not a full product CLI."
       }
     ],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.94
     },
     "dependencies": {
       "required": [
@@ -4473,13 +4495,13 @@
         "cvxopt",
         "joblib",
         "pytest",
-        "x13as (external binary for statsmodels.tsa.x13 workflows)"
+        "x13as (external binary for x13 module)"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.9,
+      "import_feasibility": 0.95,
       "intrusiveness_risk": "low",
-      "complexity": "complex"
+      "complexity": "medium"
     }
   },
   "deepwiki_analysis": {
@@ -4495,8 +4517,8 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.9,
+    "import_feasibility": 0.95,
     "intrusiveness_risk": "low",
-    "complexity": "complex"
+    "complexity": "medium"
   }
 }

@@ -2,7 +2,7 @@ import os
 import sys
 import traceback
 import importlib
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, Optional, List
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -13,249 +13,291 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import-Mode Adapter for poliastro repository.
+    MCP Import-mode adapter for poliastro repository source code.
 
-    This adapter attempts direct imports from the in-repo source tree first
-    and gracefully falls back with actionable messages if imports fail.
+    This adapter tries to import repository modules directly from local source checkout,
+    exposes structured helper methods for key modules, and provides graceful fallback
+    behavior if imports fail.
     """
 
+    # -------------------------------------------------------------------------
+    # Initialization and module management
+    # -------------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
         self._modules: Dict[str, Any] = {}
         self._import_errors: Dict[str, str] = {}
-        self._load_modules()
+        self._load_core_modules()
 
-    # ---------------------------------------------------------------------
-    # Internal helpers
-    # ---------------------------------------------------------------------
-    def _ok(self, data: Any = None, message: str = "Success") -> Dict[str, Any]:
-        return {"status": "success", "mode": self.mode, "message": message, "data": data}
+    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "ok") -> Dict[str, Any]:
+        result = {"status": "success", "mode": self.mode, "message": message}
+        if data:
+            result.update(data)
+        return result
 
-    def _fail(self, message: str, error: Optional[Exception] = None) -> Dict[str, Any]:
-        payload: Dict[str, Any] = {"status": "error", "mode": self.mode, "message": message}
+    def _fail(self, message: str, error: Optional[Exception] = None, hint: Optional[str] = None) -> Dict[str, Any]:
+        payload = {"status": "error", "mode": self.mode, "message": message}
         if error is not None:
             payload["error"] = str(error)
             payload["traceback"] = traceback.format_exc()
+        if hint:
+            payload["hint"] = hint
         return payload
 
-    def _fallback(self, message: str) -> Dict[str, Any]:
-        return {
-            "status": "fallback",
-            "mode": self.mode,
-            "message": message,
-            "guidance": "Verify repository source is present under the expected 'source' path and required dependencies are installed.",
-        }
+    def _import_module(self, module_path: str) -> Optional[Any]:
+        try:
+            mod = importlib.import_module(module_path)
+            self._modules[module_path] = mod
+            return mod
+        except Exception as exc:
+            self._import_errors[module_path] = str(exc)
+            return None
 
-    def _load_modules(self) -> None:
-        module_names = [
-            "poliastro",
-            "poliastro.bodies",
-            "poliastro.constants",
-            "poliastro.ephem",
-            "poliastro.io",
-            "poliastro.maneuver",
-            "poliastro.sensors",
-            "poliastro.spacecraft",
-            "poliastro.spheroid_location",
-            "poliastro.util",
-            "poliastro.earth",
-            "poliastro.earth.util",
-            "poliastro.earth.atmosphere",
-            "poliastro.frames",
-            "poliastro.iod.izzo",
-            "poliastro.iod.vallado",
-            "poliastro.plotting",
-            "poliastro.plotting.misc",
-            "poliastro.plotting.gabbard",
-            "poliastro.plotting.porkchop",
-            "poliastro.plotting.tisserand",
-            "poliastro.threebody.flybys",
-            "poliastro.threebody.restricted",
-            "poliastro.threebody.soi",
-            "poliastro.threebody.cr3bp_char_quant",
-            "poliastro.twobody.angles",
-            "poliastro.twobody.elements",
-            "poliastro.twobody.events",
-            "poliastro.twobody.mean_elements",
-            "poliastro.twobody.sampling",
-            "poliastro.twobody.states",
-            "poliastro.twobody.orbit.scalar",
-            "poliastro.twobody.orbit.creation",
-            "poliastro.twobody.propagation",
-            "poliastro.twobody.thrust",
+    def _load_core_modules(self) -> None:
+        candidates = [
+            "src.poliastro",
+            "src.poliastro.bodies",
+            "src.poliastro.constants",
+            "src.poliastro.ephem",
+            "src.poliastro.io",
+            "src.poliastro.maneuver",
+            "src.poliastro.util",
+            "src.poliastro.examples",
+            "src.poliastro.frames",
+            "src.poliastro.plotting",
+            "src.poliastro.earth",
+            "src.poliastro.sensors",
+            "src.poliastro.spheroid_location",
+            "src.poliastro.threebody",
+            "src.poliastro.twobody",
+            "src.poliastro.twobody.orbit.scalar",
+            "src.poliastro.twobody.orbit.creation",
+            "src.poliastro.twobody.propagation",
+            "src.poliastro.iod.izzo",
+            "src.poliastro.iod.vallado",
         ]
-        for name in module_names:
-            try:
-                self._modules[name] = importlib.import_module(name)
-            except Exception as exc:
-                self._import_errors[name] = f"{type(exc).__name__}: {exc}"
+        for mod in candidates:
+            self._import_module(mod)
 
-    def healthcheck(self) -> Dict[str, Any]:
-        if not self._modules:
-            return self._fallback("No modules were imported.")
-        return self._ok(
-            {
-                "imported_count": len(self._modules),
-                "failed_count": len(self._import_errors),
-                "failed_modules": self._import_errors,
-            },
-            "Adapter initialized with import-mode module scan.",
-        )
-
-    # ---------------------------------------------------------------------
-    # Generic module/class/function accessors
-    # ---------------------------------------------------------------------
-    def list_available_modules(self) -> Dict[str, Any]:
-        return self._ok(
-            {
-                "available": sorted(self._modules.keys()),
-                "failed": self._import_errors,
-            }
-        )
-
-    def instantiate_class(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    # -------------------------------------------------------------------------
+    # Adapter diagnostics
+    # -------------------------------------------------------------------------
+    def health(self) -> Dict[str, Any]:
         """
-        Instantiate a class from a fully qualified poliastro module.
+        Return adapter health information.
+
+        Returns:
+            dict: Unified status payload with loaded modules and import errors.
+        """
+        return self._ok(
+            {
+                "loaded_modules": sorted(list(self._modules.keys())),
+                "import_errors": self._import_errors,
+                "import_ready": len(self._modules) > 0,
+            },
+            message="Adapter health check completed",
+        )
+
+    def list_modules(self) -> Dict[str, Any]:
+        """
+        List all modules currently loaded by this adapter.
+
+        Returns:
+            dict: Unified status payload with module list.
+        """
+        return self._ok({"modules": sorted(self._modules.keys())}, message="Loaded module list")
+
+    # -------------------------------------------------------------------------
+    # Generic dynamic invocation helpers
+    # -------------------------------------------------------------------------
+    def create_instance(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Dynamically create an instance of a class from a given module.
 
         Parameters:
-        - module_path: Full module path (e.g., 'poliastro.spacecraft')
-        - class_name: Class name in the module
-        - *args, **kwargs: Constructor arguments
+            module_path (str): Full module path, e.g. 'src.poliastro.twobody.orbit.scalar'.
+            class_name (str): Name of class to instantiate.
+            *args: Positional arguments forwarded to class constructor.
+            **kwargs: Keyword arguments forwarded to class constructor.
+
+        Returns:
+            dict: Unified status payload with instance object on success.
         """
         try:
-            module = self._modules.get(module_path) or importlib.import_module(module_path)
-            cls = getattr(module, class_name)
+            mod = self._modules.get(module_path) or self._import_module(module_path)
+            if mod is None:
+                return self._fail(
+                    f"Module import failed: {module_path}",
+                    hint="Verify repository source is present under the local 'source' directory.",
+                )
+            if not hasattr(mod, class_name):
+                return self._fail(
+                    f"Class '{class_name}' not found in module '{module_path}'.",
+                    hint="Check class name spelling and module path.",
+                )
+            cls = getattr(mod, class_name)
             instance = cls(*args, **kwargs)
-            return self._ok({"module": module_path, "class": class_name, "instance": instance})
+            return self._ok({"instance": instance}, message=f"Instance created: {module_path}.{class_name}")
         except Exception as exc:
             return self._fail(
-                f"Failed to instantiate class '{class_name}' from module '{module_path}'. "
-                f"Check class name and constructor arguments.",
-                exc,
+                f"Failed to create instance for {module_path}.{class_name}",
+                error=exc,
+                hint="Review constructor arguments and required dependencies.",
             )
 
     def call_function(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Call a function from a fully qualified poliastro module.
+        Dynamically call a function from a given module.
 
         Parameters:
-        - module_path: Full module path (e.g., 'poliastro.iod.izzo')
-        - function_name: Function name in the module
-        - *args, **kwargs: Function arguments
+            module_path (str): Full module path.
+            function_name (str): Function name in target module.
+            *args: Positional args for function.
+            **kwargs: Keyword args for function.
+
+        Returns:
+            dict: Unified status payload with function result on success.
         """
         try:
-            module = self._modules.get(module_path) or importlib.import_module(module_path)
-            fn = getattr(module, function_name)
+            mod = self._modules.get(module_path) or self._import_module(module_path)
+            if mod is None:
+                return self._fail(
+                    f"Module import failed: {module_path}",
+                    hint="Check source path configuration and local repository contents.",
+                )
+            if not hasattr(mod, function_name):
+                return self._fail(
+                    f"Function '{function_name}' not found in module '{module_path}'.",
+                    hint="Inspect module API and update function name accordingly.",
+                )
+            fn = getattr(mod, function_name)
             result = fn(*args, **kwargs)
-            return self._ok({"module": module_path, "function": function_name, "result": result})
+            return self._ok({"result": result}, message=f"Function call succeeded: {module_path}.{function_name}")
         except Exception as exc:
             return self._fail(
-                f"Failed to call function '{function_name}' from module '{module_path}'. "
-                f"Validate function name and argument compatibility.",
-                exc,
+                f"Failed to call {module_path}.{function_name}",
+                error=exc,
+                hint="Validate parameters and ensure optional dependencies are installed.",
             )
 
-    # ---------------------------------------------------------------------
-    # High-level poliastro feature wrappers
-    # ---------------------------------------------------------------------
-    def create_orbit(self, creation_method: str = "from_classical", *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    # -------------------------------------------------------------------------
+    # Repository-oriented wrappers (high-value modules from analysis)
+    # -------------------------------------------------------------------------
+    def create_orbit_instance(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Create an orbit using poliastro.twobody.orbit.scalar.Orbit classmethod.
+        Create an Orbit-related class instance from twobody orbit scalar module.
 
         Parameters:
-        - creation_method: Orbit classmethod name (e.g., from_classical, from_vectors)
-        - *args, **kwargs: Parameters expected by selected classmethod
-        """
-        try:
-            mod = self._modules.get("poliastro.twobody.orbit.scalar")
-            if mod is None:
-                return self._fallback("Orbit module not available for import mode.")
-            Orbit = getattr(mod, "Orbit")
-            method = getattr(Orbit, creation_method)
-            orbit = method(*args, **kwargs)
-            return self._ok({"orbit": orbit, "creation_method": creation_method})
-        except Exception as exc:
-            return self._fail(
-                f"Failed to create orbit via '{creation_method}'. Ensure body, epoch, units, and orbital elements are valid.",
-                exc,
-            )
+            *args: Constructor positional arguments.
+            **kwargs: Constructor keyword arguments.
 
-    def propagate_orbit(self, orbit: Any, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        Returns:
+            dict: Unified status payload with instance.
         """
-        Propagate an Orbit object using Orbit.propagate API.
+        return self.create_instance("src.poliastro.twobody.orbit.scalar", "Orbit", *args, **kwargs)
+
+    def call_maneuver(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call a function from src.poliastro.maneuver module.
 
         Parameters:
-        - orbit: poliastro Orbit instance
-        - *args, **kwargs: Arguments forwarded to orbit.propagate
-        """
-        try:
-            propagated = orbit.propagate(*args, **kwargs)
-            return self._ok({"orbit": propagated})
-        except Exception as exc:
-            return self._fail(
-                "Failed to propagate orbit. Verify time-of-flight units and selected propagator arguments.",
-                exc,
-            )
+            function_name (str): Maneuver function to call.
+            *args: Positional args.
+            **kwargs: Keyword args.
 
-    def create_maneuver(self, maneuver_method: str = "hohmann", *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        Returns:
+            dict: Unified status payload with result.
         """
-        Create a maneuver using poliastro.maneuver.Maneuver classmethods.
+        return self.call_function("src.poliastro.maneuver", function_name, *args, **kwargs)
+
+    def call_ephem(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call a function from src.poliastro.ephem module.
 
         Parameters:
-        - maneuver_method: Classmethod name (e.g., hohmann, bielliptic, lambert)
-        - *args, **kwargs: Parameters for selected method
+            function_name (str): Ephemeris function name.
+            *args: Positional args.
+            **kwargs: Keyword args.
+
+        Returns:
+            dict: Unified status payload.
         """
-        try:
-            mod = self._modules.get("poliastro.maneuver")
-            if mod is None:
-                return self._fallback("Maneuver module not available for import mode.")
-            Maneuver = getattr(mod, "Maneuver")
-            method = getattr(Maneuver, maneuver_method)
-            maneuver = method(*args, **kwargs)
-            return self._ok({"maneuver": maneuver, "method": maneuver_method})
-        except Exception as exc:
-            return self._fail(
-                f"Failed to build maneuver '{maneuver_method}'. Check orbit inputs and unit consistency.",
-                exc,
-            )
+        return self.call_function("src.poliastro.ephem", function_name, *args, **kwargs)
 
-    def solve_lambert_izzo(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            return self.call_function("poliastro.iod.izzo", "lambert", *args, **kwargs)
-        except Exception as exc:
-            return self._fail("Lambert Izzo solver execution failed.", exc)
+    def call_io(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call a function from src.poliastro.io module.
 
-    def solve_lambert_vallado(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            return self.call_function("poliastro.iod.vallado", "lambert", *args, **kwargs)
-        except Exception as exc:
-            return self._fail("Lambert Vallado solver execution failed.", exc)
+        Parameters:
+            function_name (str): IO utility function.
+            *args: Positional args.
+            **kwargs: Keyword args.
 
-    def get_ephem(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            mod = self._modules.get("poliastro.ephem")
-            if mod is None:
-                return self._fallback("Ephemerides module not available for import mode.")
-            Ephem = getattr(mod, "Ephem")
-            if hasattr(Ephem, "from_body"):
-                obj = Ephem.from_body(*args, **kwargs)
-                return self._ok({"ephem": obj, "constructor": "from_body"})
-            return self._fallback("Ephem.from_body is unavailable in this source version.")
-        except Exception as exc:
-            return self._fail("Failed to compute ephemerides.", exc)
+        Returns:
+            dict: Unified status payload.
+        """
+        return self.call_function("src.poliastro.io", function_name, *args, **kwargs)
 
-    def create_spacecraft(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.instantiate_class("poliastro.spacecraft", "Spacecraft", *args, **kwargs)
+    def call_util(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call a function from src.poliastro.util module.
 
-    def get_body(self, body_name: str) -> Dict[str, Any]:
-        try:
-            mod = self._modules.get("poliastro.bodies")
-            if mod is None:
-                return self._fallback("Bodies module not available for import mode.")
-            body = getattr(mod, body_name)
-            return self._ok({"body": body})
-        except Exception as exc:
-            return self._fail(
-                f"Body '{body_name}' not found. Use valid symbols like Earth, Mars, Sun, Moon.",
-                exc,
-            )
+        Parameters:
+            function_name (str): Utility function name.
+            *args: Positional args.
+            **kwargs: Keyword args.
+
+        Returns:
+            dict: Unified status payload.
+        """
+        return self.call_function("src.poliastro.util", function_name, *args, **kwargs)
+
+    def call_izzo(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call a function from Lambert IOD implementation module src.poliastro.iod.izzo.
+
+        Parameters:
+            function_name (str): Function name in izzo module.
+            *args: Positional args.
+            **kwargs: Keyword args.
+
+        Returns:
+            dict: Unified status payload.
+        """
+        return self.call_function("src.poliastro.iod.izzo", function_name, *args, **kwargs)
+
+    def call_vallado(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call a function from IOD Vallado module src.poliastro.iod.vallado.
+
+        Parameters:
+            function_name (str): Function name in vallado module.
+            *args: Positional args.
+            **kwargs: Keyword args.
+
+        Returns:
+            dict: Unified status payload.
+        """
+        return self.call_function("src.poliastro.iod.vallado", function_name, *args, **kwargs)
+
+    def fallback_guidance(self) -> Dict[str, Any]:
+        """
+        Provide actionable fallback guidance when import mode is partially unavailable.
+
+        Returns:
+            dict: Unified status payload with remediation instructions.
+        """
+        hints: List[str] = [
+            "Ensure repository root contains the 'source/src/poliastro' package tree.",
+            "Install required dependencies: numpy, astropy, scipy.",
+            "Install optional dependencies if needed: matplotlib, plotly, numba, astroquery, jplephem, pandas.",
+            "Verify runtime Python version is compatible with repository pyproject settings.",
+        ]
+        return self._ok(
+            {
+                "import_errors": self._import_errors,
+                "guidance": hints,
+                "fallback_mode": "blackbox-compatible",
+            },
+            message="Fallback guidance generated",
+        )

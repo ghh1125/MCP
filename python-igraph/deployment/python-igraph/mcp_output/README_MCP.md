@@ -2,137 +2,122 @@
 
 ## 1) Project Introduction
 
-This service exposes practical graph analytics capabilities from `python-igraph` through MCP (Model Context Protocol) endpoints.  
-It is designed for LLM/tooling workflows that need fast graph creation, transformation, analysis, community detection, layout generation, and safe serialization.
+This MCP (Model Context Protocol) service provides graph analytics capabilities powered by `python-igraph`.  
+It is designed for LLM/tooling workflows that need fast graph creation, mutation, analysis, layout, summary, and file I/O.
 
 Main capabilities:
-- Build graphs from tuples, dicts, files, or generators
-- Run core analytics (connectivity, shortest paths, centrality, flow, components)
-- Detect communities and return structured clustering outputs
-- Export summaries and tabular-like representations for downstream agents
-- Read/write common graph formats
+- Build and edit graphs (vertices/edges, directed/undirected)
+- Run core network analysis (connectivity, paths, centrality, communities, matching, flow)
+- Generate graph summaries for inspection
+- Read/write graphs in common formats
+- Compute layouts for visualization pipelines
 
 ---
 
 ## 2) Installation Method
 
-### System/runtime requirements
-- Python 3.9+ (recommended)
-- `python-igraph` (includes bindings to igraph C core)
-- `texttable` (required by python-igraph output formatting)
+### Requirements
+- Python 3.x
+- `python-igraph` (includes igraph C core binding at runtime)
 
-### Install minimal runtime
-pip install python-igraph texttable
+Optional (feature-dependent):
+- `matplotlib` (plotting)
+- `plotly` (interactive plotting)
+- `pycairo` or `cairocffi` (Cairo backend)
+- `texttable` (formatted summaries/tables)
 
-### Optional extras (depending on endpoints you expose)
-pip install matplotlib plotly cairocffi numpy pandas scipy networkx
+### Install
+- pip install python-igraph
+- Optional extras:
+  - pip install matplotlib plotly cairocffi texttable
 
-Notes:
-- Cairo-based rendering may require OS-level Cairo libraries.
-- If running in containers, prefer slim analytics-first images unless visualization is required.
+If your MCP (Model Context Protocol) host is separate, also install your host runtime and register this service in host configuration.
 
 ---
 
 ## 3) Quick Start
 
-### Service bootstrap (conceptual)
-1. Start MCP (Model Context Protocol) server process.
-2. Register graph services/endpoints (create/read/analyze/community/layout/export).
-3. Route incoming tool calls to `igraph.Graph` APIs and wrapper helpers.
-
 ### Minimal usage flow
-- Create graph from edge tuples
-- Compute summary + basic metrics
-- Run community detection
-- Return JSON-safe result payload
+- Import `igraph`
+- Create a `Graph`
+- Run analysis (e.g., degree, shortest paths, components)
+- Return compact results to MCP (Model Context Protocol) clients
 
-Example call sequence:
-1. `graph.create_from_tuple_list`
-2. `graph.summary`
-3. `graph.metrics.centrality`
-4. `graph.community.multilevel`
-5. `graph.export.dict_list`
+Example workflow:
+1. `Graph.Erdos_Renyi(n=100, p=0.05)`
+2. Compute:
+   - vertex/edge counts
+   - average degree
+   - connected components
+   - centrality metrics
+3. Optionally call summary helpers (`summary`) for human-readable output
+4. For visualization-oriented clients, compute layout (`layout_auto`/layout methods) and return coordinates
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Recommended endpoint set for this repository:
+Recommended MCP (Model Context Protocol) service endpoint design:
 
-- `graph.create_from_tuple_list`  
-  Build graph from `(source, target)` tuples (+ optional attrs).
+- `graph.create`
+  - Create graph from edge list, adjacency data, or generators (Erdős-Rényi, etc.)
 
-- `graph.create_from_dict_list`  
-  Build graph from node/edge dictionaries.
+- `graph.mutate`
+  - Add/remove vertices and edges, clear graph, update attributes
 
-- `graph.read_file`  
-  Load graph from file via format dispatch (`igraph.io.files`).
+- `graph.analyze.basic`
+  - Counts, degree stats, density, components, diameter, clustering coefficients
 
-- `graph.write_file`  
-  Save graph to supported graph file formats.
+- `graph.analyze.paths`
+  - Shortest paths/distances, reachability, path extraction
 
-- `graph.summary`  
-  Return compact graph summary (`_get_graph_summary`).
+- `graph.analyze.centrality`
+  - Betweenness, closeness, PageRank, eigenvector centrality
 
-- `graph.vertices.table`  
-  Export vertex table-like structure (`_get_vertex_dataframe`-style output).
+- `graph.analyze.community`
+  - Community detection and membership output
 
-- `graph.edges.table`  
-  Export edge table-like structure (`_get_edge_dataframe`-style output).
+- `graph.analyze.flow_matching`
+  - Max flow / min cut / bipartite matching
 
-- `graph.metrics.basic`  
-  Degree, components, density, diameter, transitivity, etc.
+- `graph.layout.compute`
+  - Auto/manual layout generation; returns coordinate arrays
 
-- `graph.paths.shortest`  
-  Shortest path / distance queries.
+- `graph.summary`
+  - Structured and textual graph/vertex/edge summaries
 
-- `graph.community.fastgreedy`  
-  Fast greedy community detection.
+- `graph.io.read`
+  - Load graph from supported file formats
 
-- `graph.community.multilevel`  
-  Louvain-style multilevel optimization.
+- `graph.io.write`
+  - Persist graph to file formats
 
-- `graph.community.infomap`  
-  Infomap community detection.
-
-- `graph.community.walktrap`  
-  Walktrap community detection.
-
-- `graph.community.compare`  
-  Compare clustering outputs (`_compare_communities`, split-join distance).
-
-- `graph.layout.auto`  
-  Auto layout coordinate generation (`_layout_auto`).
-
-- `graph.layout.compute`  
-  Explicit layout selection (`_layout`).
-
-- `graph.export.tuple_list`  
-  Serialize graph to tuple-list boundary format.
-
-- `graph.export.dict_list`  
-  Serialize graph to dict-list boundary format (MCP-safe payloads).
-
-- `service.health`  
-  Runtime check (imports, optional backend availability).
+- `service.health`
+  - Runtime/dependency health check
 
 ---
 
 ## 5) Common Issues and Notes
 
-- **Binary/backend issues**: `python-igraph` relies on compiled components; use official wheels where possible.
-- **Visualization dependencies**: Plot endpoints may fail if Cairo/Matplotlib/Plotly extras are missing.
-- **Large graph performance**: Prefer summary/stat endpoints over full table exports for very large graphs.
-- **Serialization size**: Dict-list exports can become large; add pagination or sampling endpoints.
-- **Determinism**: Community/layout algorithms may involve randomness; expose seed parameters.
-- **Environment parity**: Keep dev/prod Python and dependency versions aligned to avoid layout or IO differences.
+- Binary/runtime dependency:
+  - `python-igraph` depends on compiled components; use supported wheels for your platform.
+- Plotting backends:
+  - Missing `matplotlib`/`plotly`/Cairo packages will disable related drawing features.
+- Large graphs:
+  - Centrality/community algorithms can be expensive; add size guards and timeout limits in endpoints.
+- Determinism:
+  - Randomized algorithms/layouts should expose a seed parameter.
+- Serialization:
+  - Return compact JSON-friendly structures (lists, dicts, numeric arrays), not raw Python objects.
+- Environment isolation:
+  - Use virtual environments to avoid backend/version conflicts.
 
 ---
 
 ## 6) Reference Links / Documentation
 
 - Repository: https://github.com/igraph/python-igraph
-- python-igraph docs: https://igraph.org/python/
-- API reference (Graph methods): https://igraph.org/python/doc/
-- Project README: https://github.com/igraph/python-igraph/blob/main/README.md
-- Changelog: https://github.com/igraph/python-igraph/blob/main/CHANGELOG.md
+- Official docs: https://igraph.org/python/
+- API reference (`igraph` module, `Graph`, layouts, I/O): see official docs
+- Examples (gallery in repo): `doc/examples_sphinx-gallery/`
+- Changelog: `CHANGELOG.md` in repository

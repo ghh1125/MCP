@@ -545,14 +545,20 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.python-igraph.source",
+      "mcp_output.mcp_plugin",
+      "source.src.igraph",
+      "source.tests",
+      "source.tests.drawing"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -562,88 +568,52 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "src/igraph/__init__.py",
-        "module": "igraph (top-level API aggregator)",
+        "package": "source.src.igraph",
+        "module": "__init__",
         "functions": [
           "plot",
-          "read",
-          "write",
-          "load"
+          "set_progress_handler",
+          "set_status_handler",
+          "summary"
         ],
         "classes": [
           "Graph",
+          "Vertex",
+          "Edge",
           "VertexSeq",
           "EdgeSeq",
-          "VertexClustering",
-          "Dendrogram",
           "Configuration"
         ],
-        "description": "Primary import surface for python-igraph; re-exports core graph types, IO helpers, plotting entry points, and algorithm accessors from submodules."
+        "description": "Primary public API aggregation module; exposes core graph types and top-level helper functions used by most consumers."
       },
       {
-        "package": "src/igraph/basic.py",
-        "module": "igraph.basic",
+        "package": "source.src.igraph",
+        "module": "basic",
         "functions": [
           "_add_edge",
           "_add_edges",
           "_add_vertex",
-          "_add_vertices"
+          "_add_vertices",
+          "_delete_edges",
+          "_delete_vertices",
+          "_clear"
         ],
         "classes": [],
-        "description": "Core graph mutation helper methods used by Graph API bindings."
+        "description": "Core mutation helpers for graph construction/editing. These are foundational internals used by Graph methods."
       },
       {
-        "package": "src/igraph/io/files.py",
-        "module": "igraph.io.files",
+        "package": "source.src.igraph",
+        "module": "io.files",
         "functions": [
           "_construct_graph_from_file",
           "_write_graph_to_file"
         ],
         "classes": [],
-        "description": "Central file-based graph IO dispatch (read/write by format)."
+        "description": "Central file I/O bridge for reading/writing graphs in supported formats."
       },
       {
-        "package": "src/igraph/io/objects.py",
-        "module": "igraph.io.objects",
-        "functions": [
-          "_construct_graph_from_dict_list",
-          "_construct_graph_from_tuple_list",
-          "_export_graph_to_dict_list",
-          "_export_graph_to_tuple_list"
-        ],
-        "classes": [],
-        "description": "Object/list/dict conversion layer useful for MCP-safe serialization boundaries."
-      },
-      {
-        "package": "src/igraph/community.py",
-        "module": "igraph.community",
-        "functions": [
-          "_community_fastgreedy",
-          "_community_multilevel",
-          "_community_infomap",
-          "_community_walktrap"
-        ],
-        "classes": [],
-        "description": "Community detection wrappers exposed through Graph methods; high-value analytics endpoints."
-      },
-      {
-        "package": "src/igraph/clustering.py",
-        "module": "igraph.clustering",
-        "functions": [
-          "_compare_communities",
-          "_split_join_distance"
-        ],
-        "classes": [
-          "Clustering",
-          "VertexClustering",
-          "Cover",
-          "VertexDendrogram"
-        ],
-        "description": "Cluster result containers and utilities; critical for returning structured algorithm outputs."
-      },
-      {
-        "package": "src/igraph/layout.py",
-        "module": "igraph.layout",
+        "package": "source.src.igraph",
+        "module": "layout",
         "functions": [
           "_layout",
           "_layout_auto"
@@ -651,25 +621,36 @@
         "classes": [
           "Layout"
         ],
-        "description": "Graph layout orchestration for visualization and coordinate generation."
+        "description": "Graph layout computation utilities and layout container class; relevant for visualization-focused MCP tools."
       },
       {
-        "package": "src/igraph/summary.py",
-        "module": "igraph.summary",
+        "package": "source.src.igraph",
+        "module": "summary",
         "functions": [
-          "_get_graph_summary",
-          "_get_vertex_dataframe",
-          "_get_edge_dataframe"
+          "_graph_summary",
+          "_vertex_summary",
+          "_edge_summary"
+        ],
+        "classes": [
+          "GraphSummary"
+        ],
+        "description": "Human-readable and structured summary generation for graph entities; useful for low-intrusion inspection tools."
+      },
+      {
+        "package": "source.src.igraph",
+        "module": "app.shell",
+        "functions": [
+          "main"
         ],
         "classes": [],
-        "description": "Human-readable and tabular summaries; useful for low-intrusion MCP inspection tools."
+        "description": "Interactive shell launcher module; likely the only explicit CLI-style entry implementation in scanned sources."
       }
     ],
     "cli_commands": [
       {
-        "name": "igraph.app.shell",
-        "module": "src/igraph/app/shell.py",
-        "description": "Interactive shell application module; appears to be the only CLI-like component in scanned paths."
+        "name": "igraph-shell (module-invoked shell main)",
+        "module": "source.src.igraph.app.shell",
+        "description": "Starts an interactive igraph-oriented shell environment; no explicit console_scripts entry point was identified from scanned metadata."
       }
     ],
     "import_strategy": {
@@ -679,21 +660,18 @@
     },
     "dependencies": {
       "required": [
-        "igraph C core (python-igraph runtime backend)",
-        "texttable"
+        "python (3.x)",
+        "igraph C core binding (packaged dependency for python-igraph runtime)"
       ],
       "optional": [
         "matplotlib",
         "plotly",
         "pycairo/cairocffi",
-        "numpy",
-        "pandas",
-        "scipy",
-        "networkx"
+        "texttable"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.9,
+      "import_feasibility": 0.92,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -711,7 +689,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.9,
+    "import_feasibility": 0.92,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

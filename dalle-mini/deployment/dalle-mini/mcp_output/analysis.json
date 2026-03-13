@@ -1,25 +1,130 @@
 {
   "summary": {
     "repository_url": "https://github.com/borisdayma/dalle-mini",
-    "summary": "Unable to preprocess repository: https://github.com/borisdayma/dalle-mini",
-    "file_tree": {},
-    "content": {},
-    "processed_by": "fallback",
-    "success": false,
-    "error": "zip download failed: <urlopen error EOF occurred in violation of protocol (_ssl.c:997)>"
+    "summary": "Imported via zip fallback, file count: 35",
+    "file_tree": {
+      ".github/FUNDING.yml": {
+        "size": 21
+      },
+      ".github/workflows/check_size.yml": {
+        "size": 362
+      },
+      ".github/workflows/pypi_release.yml": {
+        "size": 847
+      },
+      ".github/workflows/style.yml": {
+        "size": 397
+      },
+      ".github/workflows/sync_to_hub_debug.yml": {
+        "size": 444
+      },
+      "Docker/README.md": {
+        "size": 715
+      },
+      "README.md": {
+        "size": 10627
+      },
+      "app/gradio/app.py": {
+        "size": 1854
+      },
+      "app/gradio/backend.py": {
+        "size": 863
+      },
+      "app/streamlit/app.py": {
+        "size": 3571
+      },
+      "app/streamlit/backend.py": {
+        "size": 863
+      },
+      "pyproject.toml": {
+        "size": 30
+      },
+      "setup.cfg": {
+        "size": 1079
+      },
+      "setup.py": {
+        "size": 69
+      },
+      "src/dalle_mini/__init__.py": {
+        "size": 72
+      },
+      "src/dalle_mini/data.py": {
+        "size": 17784
+      },
+      "src/dalle_mini/model/__init__.py": {
+        "size": 198
+      },
+      "src/dalle_mini/model/configuration.py": {
+        "size": 7947
+      },
+      "src/dalle_mini/model/modeling.py": {
+        "size": 70641
+      },
+      "src/dalle_mini/model/partitions.py": {
+        "size": 2506
+      },
+      "src/dalle_mini/model/processor.py": {
+        "size": 2038
+      },
+      "src/dalle_mini/model/text.py": {
+        "size": 7392
+      },
+      "src/dalle_mini/model/tokenizer.py": {
+        "size": 198
+      },
+      "src/dalle_mini/model/utils.py": {
+        "size": 1028
+      },
+      "tools/train/config/mega/config.json": {
+        "size": 1287
+      },
+      "tools/train/config/micro/config.json": {
+        "size": 751
+      },
+      "tools/train/config/mini/config.json": {
+        "size": 737
+      },
+      "tools/train/config/mini_glu/config.json": {
+        "size": 758
+      },
+      "tools/train/scalable_shampoo/README.md": {
+        "size": 264
+      },
+      "tools/train/scalable_shampoo/distributed_shampoo.py": {
+        "size": 96206
+      },
+      "tools/train/scalable_shampoo/quantization_utils.py": {
+        "size": 4585
+      },
+      "tools/train/scalable_shampoo/sm3.py": {
+        "size": 6157
+      },
+      "tools/train/scalable_shampoo/symmetric_matrices/symmetric_matrices.py": {
+        "size": 14470
+      },
+      "tools/train/sweep.yaml": {
+        "size": 883
+      },
+      "tools/train/train.py": {
+        "size": 65368
+      }
+    },
+    "processed_by": "zip_fallback",
+    "success": true
   },
   "structure": {
     "packages": [
       "deployment.dalle-mini.source",
-      "mcp_output.mcp_plugin"
+      "mcp_output.mcp_plugin",
+      "source.src.dalle_mini"
     ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
-    "setup_cfg": false,
-    "setup_py": false
+    "pyproject": true,
+    "setup_cfg": true,
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -29,42 +134,159 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "deployment.dalle-mini.source",
+        "package": "source.src.dalle_mini",
         "module": "__init__",
         "functions": [],
         "classes": [],
-        "description": "Scanned package path is present, but repository content could not be fetched and no importable symbols were discovered from available metadata."
+        "description": "Package initializer; likely exposes version/metadata and lightweight top-level imports."
       },
       {
-        "package": "mcp_output.mcp_plugin",
-        "module": "__init__",
+        "package": "source.src.dalle_mini",
+        "module": "data",
+        "functions": [
+          "dataset preprocessing helpers (module-level utilities)",
+          "data loading/transformation routines for training"
+        ],
+        "classes": [
+          "dataset/datamodule-style configuration holders (if defined in module)"
+        ],
+        "description": "Core data pipeline module for dataset ingestion, filtering, preprocessing, and batching logic used by training."
+      },
+      {
+        "package": "source.src.dalle_mini",
+        "module": "model.configuration",
         "functions": [],
+        "classes": [
+          "DalleBartConfig",
+          "DalleBartEncoderConfig",
+          "DalleBartDecoderConfig"
+        ],
+        "description": "Model configuration definitions for DALL·E Mini/BART-style architecture."
+      },
+      {
+        "package": "source.src.dalle_mini",
+        "module": "model.modeling",
+        "functions": [
+          "generation/inference helper functions",
+          "attention/masking utility functions"
+        ],
+        "classes": [
+          "DalleBart",
+          "DalleBartEncoder",
+          "DalleBartDecoder",
+          "DalleBartForConditionalGeneration"
+        ],
+        "description": "Primary model implementation (Flax/JAX Transformer stack), forward pass, and generation logic."
+      },
+      {
+        "package": "source.src.dalle_mini",
+        "module": "model.processor",
+        "functions": [],
+        "classes": [
+          "DalleBartProcessor"
+        ],
+        "description": "Input/output processor bridging tokenizer/text/image codebook processing for inference/training."
+      },
+      {
+        "package": "source.src.dalle_mini",
+        "module": "model.text",
+        "functions": [
+          "text normalization helpers",
+          "caption preprocessing utilities"
+        ],
         "classes": [],
-        "description": "Likely MCP integration/output package from scan context; no concrete symbols could be resolved from provided data."
+        "description": "Text cleaning and normalization utilities used before tokenization."
+      },
+      {
+        "package": "source.src.dalle_mini",
+        "module": "model.utils",
+        "functions": [
+          "general model utility helpers"
+        ],
+        "classes": [],
+        "description": "Small shared utility functions used across modeling/configuration code."
+      },
+      {
+        "package": "source.src.dalle_mini",
+        "module": "model.partitions",
+        "functions": [
+          "parameter partitioning rules/helpers"
+        ],
+        "classes": [],
+        "description": "JAX/Flax parameter partitioning utilities for distributed training/inference."
+      },
+      {
+        "package": "deployment.dalle-mini.source",
+        "module": "app.gradio.backend",
+        "functions": [
+          "predict/generate backend wrapper for Gradio app"
+        ],
+        "classes": [],
+        "description": "Thin application backend that wraps model loading and image generation for web UI."
+      },
+      {
+        "package": "deployment.dalle-mini.source",
+        "module": "app.streamlit.backend",
+        "functions": [
+          "predict/generate backend wrapper for Streamlit app"
+        ],
+        "classes": [],
+        "description": "Thin application backend mirroring Gradio backend behavior for Streamlit deployment."
+      },
+      {
+        "package": "deployment.dalle-mini.source",
+        "module": "tools.train.train",
+        "functions": [
+          "main training entry routine",
+          "training/evaluation loop helpers",
+          "checkpoint/logging helpers"
+        ],
+        "classes": [],
+        "description": "Main training pipeline script with optimizer setup, distributed logic, and experiment orchestration."
       }
     ],
-    "cli_commands": [],
+    "cli_commands": [
+      {
+        "name": "python tools/train/train.py",
+        "module": "deployment.dalle-mini.source.tools.train.train",
+        "description": "Primary training command (script-style entrypoint). No explicit console_scripts entrypoint detected in provided metadata."
+      },
+      {
+        "name": "python app/gradio/app.py",
+        "module": "deployment.dalle-mini.source.app.gradio.app",
+        "description": "Runs Gradio demo application for text-to-image inference."
+      },
+      {
+        "name": "python app/streamlit/app.py",
+        "module": "deployment.dalle-mini.source.app.streamlit.app",
+        "description": "Runs Streamlit demo application for text-to-image inference."
+      }
+    ],
     "import_strategy": {
       "primary": "import",
-      "fallback": "import",
-      "confidence": 0.9
+      "fallback": "blackbox",
+      "confidence": 0.77
     },
     "dependencies": {
       "required": [
-        "python>=3.8",
-        "jax (likely, for model execution)",
-        "flax (likely, for model definitions)",
-        "transformers (likely, tokenizer/model utilities)",
-        "Pillow (likely, image I/O)"
+        "jax",
+        "flax",
+        "transformers",
+        "numpy",
+        "Pillow",
+        "datasets",
+        "tokenizers"
       ],
       "optional": [
-        "gradio (likely, demo UI)",
-        "torch (possible auxiliary tooling)",
-        "sentencepiece (possible tokenizer backend)"
+        "gradio",
+        "streamlit",
+        "wandb",
+        "tensorflow (dataset ecosystem compatibility)",
+        "scalable_shampoo custom optimizer modules"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.2,
+      "import_feasibility": 0.72,
       "intrusiveness_risk": "medium",
       "complexity": "complex"
     }
@@ -82,7 +304,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.2,
+    "import_feasibility": 0.72,
     "intrusiveness_risk": "medium",
     "complexity": "complex"
   }

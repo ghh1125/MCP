@@ -509,14 +509,18 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.whoosh.source",
+      "mcp_output.mcp_plugin",
+      "source.src.whoosh"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
     "pyproject": false,
-    "setup_cfg": false,
-    "setup_py": false
+    "setup_cfg": true,
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -526,151 +530,2895 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "src/whoosh/index.py",
-        "module": "whoosh.index",
+        "package": "setup",
+        "module": "setup",
+        "functions": [],
+        "classes": [
+          "PyTest"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "benchmark",
+        "module": "enron",
+        "functions": [],
+        "classes": [
+          "Enron"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "benchmark",
+        "module": "marc21",
         "functions": [
-          "create_in",
-          "open_dir",
-          "exists_in",
-          "exists"
+          "author",
+          "getfields",
+          "isbn",
+          "joinsubfields",
+          "location",
+          "make_index",
+          "parse_record",
+          "physical",
+          "print_record",
+          "publisher",
+          "pubyear",
+          "read_file",
+          "read_record",
+          "search",
+          "subfield",
+          "subjects",
+          "title",
+          "uni",
+          "uniform_title"
         ],
-        "classes": [
-          "Index",
-          "FileIndex"
-        ],
-        "description": "Primary index lifecycle API (create/open/existence checks) used as the canonical entry point for storage-backed indexes."
+        "classes": [],
+        "function_signatures": {
+          "read_file": [
+            "dbfile",
+            "tags"
+          ],
+          "read_record": [
+            "filename",
+            "pos",
+            "tags"
+          ],
+          "parse_record": [
+            "data",
+            "tags"
+          ],
+          "subfield": [
+            "vs",
+            "code"
+          ],
+          "joinsubfields": [
+            "vs"
+          ],
+          "getfields": [
+            "d"
+          ],
+          "title": [
+            "d"
+          ],
+          "isbn": [
+            "d"
+          ],
+          "author": [
+            "d"
+          ],
+          "uniform_title": [
+            "d"
+          ],
+          "subjects": [
+            "d"
+          ],
+          "physical": [
+            "d"
+          ],
+          "location": [
+            "d"
+          ],
+          "publisher": [
+            "d"
+          ],
+          "pubyear": [
+            "d"
+          ],
+          "uni": [
+            "v"
+          ],
+          "make_index": [
+            "basedir",
+            "ixdir",
+            "procs",
+            "limitmb",
+            "multisegment",
+            "glob"
+          ],
+          "print_record": [
+            "no",
+            "basedir",
+            "filename",
+            "pos"
+          ],
+          "search": [
+            "qstring",
+            "ixdir",
+            "basedir",
+            "limit",
+            "optimize",
+            "scores"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "src/whoosh/fields.py",
-        "module": "whoosh.fields",
+        "package": "benchmark",
+        "module": "reuters",
         "functions": [],
         "classes": [
-          "Schema",
-          "TEXT",
-          "KEYWORD",
-          "ID",
-          "NUMERIC",
-          "DATETIME",
-          "BOOLEAN"
+          "Reuters"
         ],
-        "description": "Schema and field-type definitions for index structure, analyzers, storage behavior, and query-time semantics."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "src/whoosh/writing.py",
-        "module": "whoosh.writing",
+        "package": "benchmark",
+        "module": "dictionary",
         "functions": [],
         "classes": [
-          "IndexWriter",
-          "AsyncWriter",
-          "BufferedWriter"
+          "VulgarTongue"
         ],
-        "description": "Document ingestion/update/delete pipeline and commit behavior."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "src/whoosh/searching.py",
-        "module": "whoosh.searching",
+        "package": "stress",
+        "module": "test_bigsort",
+        "functions": [
+          "test_bigsort"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_bigsort": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "stress",
+        "module": "test_hugeindex",
+        "functions": [
+          "test_huge_postfile"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_huge_postfile": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "stress",
+        "module": "test_bigindex",
+        "functions": [
+          "test_20000_batch",
+          "test_20000_buffered",
+          "test_20000_single"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_20000_single": [],
+          "test_20000_buffered": [],
+          "test_20000_batch": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "stress",
+        "module": "test_threading",
+        "functions": [
+          "test_readwrite"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_readwrite": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "stress",
+        "module": "test_update",
+        "functions": [
+          "test_many_updates"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_many_updates": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "stress",
+        "module": "test_bigtable",
+        "functions": [
+          "test_bigtable"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "test_bigtable": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "searching",
         "functions": [],
         "classes": [
-          "Searcher",
+          "Hit",
+          "NoTermsException",
           "Results",
-          "Hit"
+          "ResultsPage",
+          "SearchContext",
+          "Searcher",
+          "TimeLimit"
         ],
-        "description": "Query execution, ranking, paging, result objects, and high-level search orchestration."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "src/whoosh/qparser/default.py",
-        "module": "whoosh.qparser.default",
+        "package": "src.whoosh",
+        "module": "spelling",
         "functions": [],
         "classes": [
-          "QueryParser",
+          "Correction",
+          "Corrector",
+          "ListCorrector",
+          "MultiCorrector",
+          "QueryCorrector",
+          "ReaderCorrector",
+          "SimpleQueryCorrector"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "collectors",
+        "functions": [
+          "ilen"
+        ],
+        "classes": [
+          "CollapseCollector",
+          "Collector",
+          "FacetCollector",
+          "FilterCollector",
+          "ScoredCollector",
+          "SortingCollector",
+          "TermsCollector",
+          "TimeLimitCollector",
+          "TopCollector",
+          "UnlimitedCollector",
+          "UnsortedCollector",
+          "WrappingCollector"
+        ],
+        "function_signatures": {
+          "ilen": [
+            "iterator"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "externalsort",
+        "functions": [
+          "sort"
+        ],
+        "classes": [
+          "SortingPool"
+        ],
+        "function_signatures": {
+          "sort": [
+            "items",
+            "maxsize",
+            "tempdir",
+            "maxfiles"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "idsets",
+        "functions": [],
+        "classes": [
+          "BaseBitSet",
+          "BitSet",
+          "DocIdSet",
+          "MultiIdSet",
+          "OnDiskBitSet",
+          "ReverseIdSet",
+          "RoaringIdSet",
+          "SortedIntSet"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "compat",
+        "functions": [
+          "htmlescape"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "htmlescape": [
+            "s",
+            "quote"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "legacy",
+        "functions": [
+          "load_110_toc"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "load_110_toc": [
+            "stream",
+            "gen",
+            "schema",
+            "version"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "fields",
+        "functions": [
+          "ensure_schema",
+          "merge_fielddict",
+          "merge_schema",
+          "merge_schemas"
+        ],
+        "classes": [
+          "BOOLEAN",
+          "COLUMN",
+          "DATETIME",
+          "FieldConfigurationError",
+          "FieldType",
+          "FieldWrapper",
+          "ID",
+          "IDLIST",
+          "KEYWORD",
+          "MetaSchema",
+          "NGRAM",
+          "NGRAMWORDS",
+          "NUMERIC",
+          "ReverseField",
+          "STORED",
+          "Schema",
+          "SchemaClass",
+          "SpellField",
+          "TEXT",
+          "UnknownFieldError"
+        ],
+        "function_signatures": {
+          "ensure_schema": [
+            "schema"
+          ],
+          "merge_fielddict": [
+            "d1",
+            "d2"
+          ],
+          "merge_schema": [
+            "s1",
+            "s2"
+          ],
+          "merge_schemas": [
+            "schemas"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "writing",
+        "functions": [
+          "CLEAR",
+          "MERGE_SMALL",
+          "NO_MERGE",
+          "OPTIMIZE",
+          "add_spelling",
+          "groupmanager"
+        ],
+        "classes": [
+          "AsyncWriter",
+          "BufferedWriter",
+          "IndexWriter",
+          "IndexingError",
+          "PostingPool",
+          "SegmentWriter"
+        ],
+        "function_signatures": {
+          "groupmanager": [
+            "writer"
+          ],
+          "NO_MERGE": [
+            "writer",
+            "segments"
+          ],
+          "MERGE_SMALL": [
+            "writer",
+            "segments"
+          ],
+          "OPTIMIZE": [
+            "writer",
+            "segments"
+          ],
+          "CLEAR": [
+            "writer",
+            "segments"
+          ],
+          "add_spelling": [
+            "ix",
+            "fieldnames",
+            "commit"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "index",
+        "functions": [
+          "clean_files",
+          "create_in",
+          "exists",
+          "exists_in",
+          "open_dir",
+          "version",
+          "version_in"
+        ],
+        "classes": [
+          "EmptyIndexError",
+          "FileIndex",
+          "Index",
+          "IndexError",
+          "IndexVersionError",
+          "LockError",
+          "OutOfDateError",
+          "TOC"
+        ],
+        "function_signatures": {
+          "create_in": [
+            "dirname",
+            "schema",
+            "indexname"
+          ],
+          "open_dir": [
+            "dirname",
+            "indexname",
+            "readonly",
+            "schema"
+          ],
+          "exists_in": [
+            "dirname",
+            "indexname"
+          ],
+          "exists": [
+            "storage",
+            "indexname"
+          ],
+          "version_in": [
+            "dirname",
+            "indexname"
+          ],
+          "version": [
+            "storage",
+            "indexname"
+          ],
+          "clean_files": [
+            "storage",
+            "indexname",
+            "gen",
+            "segments"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "classify",
+        "functions": [
+          "hamming_distance",
+          "kmeans",
+          "shingles",
+          "simhash",
+          "swin",
+          "two_pass_variance",
+          "weighted_incremental_variance"
+        ],
+        "classes": [
+          "Bo1Model",
+          "Bo2Model",
+          "Expander",
+          "ExpansionModel",
+          "KLModel"
+        ],
+        "function_signatures": {
+          "shingles": [
+            "input",
+            "size"
+          ],
+          "simhash": [
+            "features",
+            "hashbits"
+          ],
+          "hamming_distance": [
+            "first_hash",
+            "other_hash",
+            "hashbits"
+          ],
+          "kmeans": [
+            "data",
+            "k",
+            "t",
+            "distfun",
+            "maxiter",
+            "centers"
+          ],
+          "two_pass_variance": [
+            "data"
+          ],
+          "weighted_incremental_variance": [
+            "data_weight_pairs"
+          ],
+          "swin": [
+            "data",
+            "size"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "scoring",
+        "functions": [
+          "bm25",
+          "dfree",
+          "pl2"
+        ],
+        "classes": [
+          "BM25F",
+          "BM25FScorer",
+          "BaseScorer",
+          "DFree",
+          "DFreeScorer",
+          "DebugModel",
+          "DebugScorer",
+          "Frequency",
+          "FunctionWeighting",
+          "MultiWeighting",
+          "PL2",
+          "PL2Scorer",
+          "ReverseWeighting",
+          "TF_IDF",
+          "TF_IDFScorer",
+          "WeightLengthScorer",
+          "WeightScorer",
+          "Weighting",
+          "WeightingModel"
+        ],
+        "function_signatures": {
+          "bm25": [
+            "idf",
+            "tf",
+            "fl",
+            "avgfl",
+            "B",
+            "K1"
+          ],
+          "dfree": [
+            "tf",
+            "cf",
+            "qf",
+            "dl",
+            "fl"
+          ],
+          "pl2": [
+            "tf",
+            "cf",
+            "qf",
+            "dc",
+            "fl",
+            "avgfl",
+            "c"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "sorting",
+        "functions": [
+          "add_sortable"
+        ],
+        "classes": [
+          "Best",
+          "Categorizer",
+          "ColumnCategorizer",
+          "Count",
+          "DateRangeFacet",
+          "FacetMap",
+          "FacetType",
+          "Facets",
+          "FieldFacet",
+          "FunctionFacet",
+          "MultiFacet",
+          "OrderedList",
+          "OverlappingCategorizer",
+          "PostingCategorizer",
+          "QueryFacet",
+          "RangeFacet",
+          "ReversedColumnCategorizer",
+          "ScoreFacet",
+          "StoredFieldFacet",
+          "TranslateFacet",
+          "UnorderedList"
+        ],
+        "function_signatures": {
+          "add_sortable": [
+            "writer",
+            "fieldname",
+            "facet",
+            "column"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "reading",
+        "functions": [
+          "combine_terminfos"
+        ],
+        "classes": [
+          "EmptyReader",
+          "IndexReader",
+          "MultiCursor",
+          "MultiReader",
+          "ReaderClosed",
+          "SegmentReader",
+          "TermInfo",
+          "TermNotFound"
+        ],
+        "function_signatures": {
+          "combine_terminfos": [
+            "tis"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src",
+        "module": "whoosh",
+        "functions": [
+          "versionstring"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "versionstring": [
+            "build",
+            "extra"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "columns",
+        "functions": [],
+        "classes": [
+          "BitColumn",
+          "ClampedNumericColumn",
+          "Column",
+          "ColumnReader",
+          "ColumnWriter",
+          "CompressedBlockColumn",
+          "CompressedBytesColumn",
+          "EmptyColumnReader",
+          "FixedBytesColumn",
+          "FixedBytesListColumn",
+          "ListColumn",
+          "ListColumnReader",
+          "MultiColumnReader",
+          "NumericColumn",
+          "PickleColumn",
+          "RefBytesColumn",
+          "StructColumn",
+          "TranslatingColumnReader",
+          "VarBytesColumn",
+          "VarBytesListColumn",
+          "WrappedColumn",
+          "WrappedColumnReader",
+          "WrappedColumnWriter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "formats",
+        "functions": [
+          "tokens"
+        ],
+        "classes": [
+          "CharacterBoosts",
+          "Characters",
+          "Existence",
+          "Format",
+          "Frequency",
+          "PositionBoosts",
+          "Positions"
+        ],
+        "function_signatures": {
+          "tokens": [
+            "value",
+            "analyzer",
+            "kwargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "highlight",
+        "functions": [
+          "FIRST",
+          "LONGER",
+          "SCORE",
+          "SHORTER",
+          "get_text",
+          "highlight",
+          "mkfrag",
+          "set_matched_filter",
+          "set_matched_filter_phrases",
+          "top_fragments"
+        ],
+        "classes": [
+          "BasicFragmentScorer",
+          "ContextFragmenter",
+          "Formatter",
+          "Fragment",
+          "FragmentScorer",
+          "Fragmenter",
+          "GenshiFormatter",
+          "Highlighter",
+          "HtmlFormatter",
+          "NullFormatter",
+          "PinpointFragmenter",
+          "SentenceFragmenter",
+          "UppercaseFormatter",
+          "WholeFragmenter"
+        ],
+        "function_signatures": {
+          "mkfrag": [
+            "text",
+            "tokens",
+            "startchar",
+            "endchar",
+            "charsbefore",
+            "charsafter"
+          ],
+          "set_matched_filter": [
+            "tokens",
+            "termset"
+          ],
+          "set_matched_filter_phrases": [
+            "tokens",
+            "text",
+            "terms",
+            "phrases"
+          ],
+          "SCORE": [
+            "fragment"
+          ],
+          "FIRST": [
+            "fragment"
+          ],
+          "LONGER": [
+            "fragment"
+          ],
+          "SHORTER": [
+            "fragment"
+          ],
+          "get_text": [
+            "original",
+            "token",
+            "replace"
+          ],
+          "top_fragments": [
+            "fragments",
+            "count",
+            "scorer",
+            "order",
+            "minscore"
+          ],
+          "highlight": [
+            "text",
+            "terms",
+            "analyzer",
+            "fragmenter",
+            "formatter",
+            "top",
+            "scorer",
+            "minscore",
+            "order",
+            "mode"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "multiproc",
+        "functions": [
+          "finish_subsegment"
+        ],
+        "classes": [
+          "MpWriter",
+          "MultiSegmentWriter",
+          "SerialMpWriter",
+          "SubWriterTask"
+        ],
+        "function_signatures": {
+          "finish_subsegment": [
+            "writer",
+            "k"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.matching",
+        "module": "binary",
+        "functions": [],
+        "classes": [
+          "AdditiveBiMatcher",
+          "AndMaybeMatcher",
+          "AndNotMatcher",
+          "BiMatcher",
+          "DisjunctionMaxMatcher",
+          "IntersectionMatcher",
+          "UnionMatcher"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.matching",
+        "module": "wrappers",
+        "functions": [
+          "ExcludeMatcher"
+        ],
+        "classes": [
+          "ConstantScoreWrapperMatcher",
+          "CoordMatcher",
+          "FilterMatcher",
+          "InverseMatcher",
+          "MultiMatcher",
+          "RequireMatcher",
+          "SingleTermMatcher",
+          "WrappingMatcher"
+        ],
+        "function_signatures": {
+          "ExcludeMatcher": [
+            "child",
+            "excluded",
+            "boost"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.matching",
+        "module": "mcore",
+        "functions": [],
+        "classes": [
+          "ConstantScoreMatcher",
+          "LeafMatcher",
+          "ListMatcher",
+          "Matcher",
+          "NoQualityAvailable",
+          "NullMatcherClass",
+          "ReadTooFar"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.matching",
+        "module": "combo",
+        "functions": [],
+        "classes": [
+          "ArrayUnionMatcher",
+          "CombinationMatcher",
+          "PreloadedUnionMatcher"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.automata",
+        "module": "lev",
+        "functions": [
+          "levenshtein_automaton"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "levenshtein_automaton": [
+            "term",
+            "k",
+            "prefix"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.automata",
+        "module": "fsa",
+        "functions": [
+          "add_suffix",
+          "basic_nfa",
+          "charset_nfa",
+          "choice_nfa",
+          "concat_nfa",
+          "dot_nfa",
+          "epsilon_nfa",
+          "find_all_matches",
+          "intersection",
+          "optional_nfa",
+          "plus_nfa",
+          "product",
+          "renumber_dfa",
+          "reverse_nfa",
+          "star_nfa",
+          "string_nfa",
+          "strings_dfa",
+          "u_to_utf8",
+          "union"
+        ],
+        "classes": [
+          "DFA",
+          "DMNode",
+          "FSA",
+          "Marker",
+          "NFA"
+        ],
+        "function_signatures": {
+          "renumber_dfa": [
+            "dfa",
+            "base"
+          ],
+          "u_to_utf8": [
+            "dfa",
+            "base"
+          ],
+          "find_all_matches": [
+            "dfa",
+            "lookup_func",
+            "first"
+          ],
+          "reverse_nfa": [
+            "n"
+          ],
+          "product": [
+            "dfa1",
+            "op",
+            "dfa2"
+          ],
+          "intersection": [
+            "dfa1",
+            "dfa2"
+          ],
+          "union": [
+            "dfa1",
+            "dfa2"
+          ],
+          "epsilon_nfa": [],
+          "dot_nfa": [],
+          "basic_nfa": [
+            "label"
+          ],
+          "charset_nfa": [
+            "labels"
+          ],
+          "string_nfa": [
+            "string"
+          ],
+          "choice_nfa": [
+            "n1",
+            "n2"
+          ],
+          "concat_nfa": [
+            "n1",
+            "n2"
+          ],
+          "star_nfa": [
+            "n"
+          ],
+          "plus_nfa": [
+            "n"
+          ],
+          "optional_nfa": [
+            "n"
+          ],
+          "strings_dfa": [
+            "strings"
+          ],
+          "add_suffix": [
+            "dfa",
+            "nodes",
+            "last",
+            "downto",
+            "seen"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.automata",
+        "module": "glob",
+        "functions": [
+          "glob_automaton",
+          "parse_glob"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "parse_glob": [
+            "pattern",
+            "_glob_multi",
+            "_glob_single",
+            "_glob_range1",
+            "_glob_range2"
+          ],
+          "glob_automaton": [
+            "pattern"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.automata",
+        "module": "reg",
+        "functions": [
+          "parse"
+        ],
+        "classes": [
+          "RegexBuilder"
+        ],
+        "function_signatures": {
+          "parse": [
+            "pattern"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.automata",
+        "module": "nfa",
+        "functions": [
+          "advance",
+          "alt",
+          "concat",
+          "fixup",
+          "one_or_more",
+          "regex_limit",
+          "run",
+          "zero_or_more",
+          "zero_or_one"
+        ],
+        "classes": [
+          "Any",
+          "Char",
+          "Instruction",
+          "Jmp",
+          "Label",
+          "Lit",
+          "Match",
+          "Split",
+          "Thread",
+          "ThreadList"
+        ],
+        "function_signatures": {
+          "concat": [
+            "e1",
+            "e2"
+          ],
+          "alt": [
+            "e1",
+            "e2"
+          ],
+          "zero_or_one": [
+            "e"
+          ],
+          "zero_or_more": [
+            "e"
+          ],
+          "one_or_more": [
+            "e"
+          ],
+          "fixup": [
+            "program"
+          ],
+          "advance": [
+            "thread",
+            "arc",
+            "c"
+          ],
+          "run": [
+            "graph",
+            "program",
+            "address"
+          ],
+          "regex_limit": [
+            "graph",
+            "mode",
+            "program",
+            "address"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.analysis",
+        "module": "analyzers",
+        "functions": [
+          "FancyAnalyzer",
+          "IDAnalyzer",
+          "KeywordAnalyzer",
+          "LanguageAnalyzer",
+          "RegexAnalyzer",
+          "SimpleAnalyzer",
+          "StandardAnalyzer",
+          "StemmingAnalyzer"
+        ],
+        "classes": [
+          "Analyzer",
+          "CompositeAnalyzer"
+        ],
+        "function_signatures": {
+          "IDAnalyzer": [
+            "lowercase"
+          ],
+          "KeywordAnalyzer": [
+            "lowercase",
+            "commas"
+          ],
+          "RegexAnalyzer": [
+            "expression",
+            "gaps"
+          ],
+          "SimpleAnalyzer": [
+            "expression",
+            "gaps"
+          ],
+          "StandardAnalyzer": [
+            "expression",
+            "stoplist",
+            "minsize",
+            "maxsize",
+            "gaps"
+          ],
+          "StemmingAnalyzer": [
+            "expression",
+            "stoplist",
+            "minsize",
+            "maxsize",
+            "gaps",
+            "stemfn",
+            "ignore",
+            "cachesize"
+          ],
+          "FancyAnalyzer": [
+            "expression",
+            "stoplist",
+            "minsize",
+            "maxsize",
+            "gaps",
+            "splitwords",
+            "splitnums",
+            "mergewords",
+            "mergenums"
+          ],
+          "LanguageAnalyzer": [
+            "lang",
+            "expression",
+            "gaps",
+            "cachesize"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.analysis",
+        "module": "ngrams",
+        "functions": [
+          "NgramAnalyzer",
+          "NgramWordAnalyzer"
+        ],
+        "classes": [
+          "NgramFilter",
+          "NgramTokenizer"
+        ],
+        "function_signatures": {
+          "NgramAnalyzer": [
+            "minsize",
+            "maxsize"
+          ],
+          "NgramWordAnalyzer": [
+            "minsize",
+            "maxsize",
+            "tokenizer",
+            "at"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.analysis",
+        "module": "morph",
+        "functions": [],
+        "classes": [
+          "DoubleMetaphoneFilter",
+          "PyStemmerFilter",
+          "StemFilter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.analysis",
+        "module": "acore",
+        "functions": [
+          "entoken",
+          "unstopped"
+        ],
+        "classes": [
+          "Composable",
+          "CompositionError",
+          "Token"
+        ],
+        "function_signatures": {
+          "unstopped": [
+            "tokenstream"
+          ],
+          "entoken": [
+            "textstream",
+            "positions",
+            "chars",
+            "start_pos",
+            "start_char"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.analysis",
+        "module": "intraword",
+        "functions": [],
+        "classes": [
+          "BiWordFilter",
+          "CompoundWordFilter",
+          "IntraWordFilter",
+          "ShingleFilter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.analysis",
+        "module": "filters",
+        "functions": [],
+        "classes": [
+          "CharsetFilter",
+          "DelimitedAttributeFilter",
+          "Filter",
+          "LoggingFilter",
+          "LowercaseFilter",
+          "MultiFilter",
+          "PassFilter",
+          "ReverseTextFilter",
+          "StopFilter",
+          "StripFilter",
+          "SubstitutionFilter",
+          "TeeFilter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.analysis",
+        "module": "tokenizers",
+        "functions": [
+          "CommaSeparatedTokenizer",
+          "SpaceSeparatedTokenizer"
+        ],
+        "classes": [
+          "CharsetTokenizer",
+          "IDTokenizer",
+          "PathTokenizer",
+          "RegexTokenizer",
+          "Tokenizer"
+        ],
+        "function_signatures": {
+          "SpaceSeparatedTokenizer": [],
+          "CommaSeparatedTokenizer": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.util",
+        "module": "varints",
+        "functions": [
+          "decode_signed_varint",
+          "read_varint",
+          "signed_varint",
+          "varint",
+          "varint_to_int"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "varint": [
+            "i"
+          ],
+          "varint_to_int": [
+            "vi"
+          ],
+          "signed_varint": [
+            "i"
+          ],
+          "decode_signed_varint": [
+            "i"
+          ],
+          "read_varint": [
+            "readfn"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.util",
+        "module": "loading",
+        "functions": [
+          "find_object"
+        ],
+        "classes": [
+          "RenamingUnpickler"
+        ],
+        "function_signatures": {
+          "find_object": [
+            "name",
+            "blacklist",
+            "whitelist"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.util",
+        "module": "cache",
+        "functions": [
+          "lfu_cache",
+          "unbound_cache"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "unbound_cache": [
+            "func"
+          ],
+          "lfu_cache": [
+            "maxsize"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "util",
+        "functions": [
+          "fib",
+          "make_binary_tree",
+          "make_weighted_tree",
+          "random_bytes",
+          "random_name",
+          "synchronized",
+          "unclosed"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "random_name": [
+            "size"
+          ],
+          "random_bytes": [
+            "size"
+          ],
+          "make_binary_tree": [
+            "fn",
+            "args"
+          ],
+          "make_weighted_tree": [
+            "fn",
+            "ls"
+          ],
+          "fib": [
+            "n"
+          ],
+          "synchronized": [
+            "func"
+          ],
+          "unclosed": [
+            "method"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.util",
+        "module": "times",
+        "functions": [
+          "ceil",
+          "datetime_to_long",
+          "fill_in",
+          "fix",
+          "floor",
+          "has_no_date",
+          "has_no_time",
+          "is_ambiguous",
+          "is_void",
+          "long_to_datetime",
+          "relative_days",
+          "timedelta_to_usecs"
+        ],
+        "classes": [
+          "TimeError",
+          "adatetime",
+          "timespan"
+        ],
+        "function_signatures": {
+          "relative_days": [
+            "current_wday",
+            "wday",
+            "dir"
+          ],
+          "timedelta_to_usecs": [
+            "td"
+          ],
+          "datetime_to_long": [
+            "dt"
+          ],
+          "long_to_datetime": [
+            "x"
+          ],
+          "floor": [
+            "at"
+          ],
+          "ceil": [
+            "at"
+          ],
+          "fill_in": [
+            "at",
+            "basedate",
+            "units"
+          ],
+          "has_no_date": [
+            "at"
+          ],
+          "has_no_time": [
+            "at"
+          ],
+          "is_ambiguous": [
+            "at"
+          ],
+          "is_void": [
+            "at"
+          ],
+          "fix": [
+            "at"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.util",
+        "module": "filelock",
+        "functions": [
+          "try_for"
+        ],
+        "classes": [
+          "FcntlLock",
+          "LockBase",
+          "MsvcrtLock"
+        ],
+        "function_signatures": {
+          "try_for": [
+            "fn",
+            "timeout",
+            "delay"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.util",
+        "module": "text",
+        "functions": [
+          "first_diff",
+          "natural_key",
+          "prefix_decode_all",
+          "prefix_encode",
+          "prefix_encode_all",
+          "rcompile"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "first_diff": [
+            "a",
+            "b"
+          ],
+          "prefix_encode": [
+            "a",
+            "b"
+          ],
+          "prefix_encode_all": [
+            "ls"
+          ],
+          "prefix_decode_all": [
+            "ls"
+          ],
+          "natural_key": [
+            "s"
+          ],
+          "rcompile": [
+            "pattern",
+            "flags",
+            "verbose"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.util",
+        "module": "numeric",
+        "functions": [
+          "bits_required",
+          "byte_to_float",
+          "bytes_for_bits",
+          "float_to_byte",
+          "float_to_sortable_long",
+          "from_sortable",
+          "length_to_byte",
+          "max_value",
+          "sortable_long_to_float",
+          "split_ranges",
+          "tiered_ranges",
+          "to_sortable",
+          "typecode_required"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "bits_required": [
+            "maxnum"
+          ],
+          "typecode_required": [
+            "maxnum"
+          ],
+          "max_value": [
+            "bitcount"
+          ],
+          "bytes_for_bits": [
+            "bitcount"
+          ],
+          "to_sortable": [
+            "numtype",
+            "intsize",
+            "signed",
+            "x"
+          ],
+          "from_sortable": [
+            "numtype",
+            "intsize",
+            "signed",
+            "x"
+          ],
+          "float_to_sortable_long": [
+            "x",
+            "signed"
+          ],
+          "sortable_long_to_float": [
+            "x",
+            "signed"
+          ],
+          "split_ranges": [
+            "intsize",
+            "step",
+            "start",
+            "end"
+          ],
+          "tiered_ranges": [
+            "numtype",
+            "intsize",
+            "signed",
+            "start",
+            "end",
+            "shift_step",
+            "startexcl",
+            "endexcl"
+          ],
+          "float_to_byte": [
+            "value",
+            "mantissabits",
+            "zeroexp"
+          ],
+          "byte_to_float": [
+            "b",
+            "mantissabits",
+            "zeroexp"
+          ],
+          "length_to_byte": [
+            "length"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.util",
+        "module": "versions",
+        "functions": [],
+        "classes": [
+          "BaseVersion",
+          "SimpleVersion"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.util",
+        "module": "testing",
+        "functions": [
+          "check_abstract_methods",
+          "is_abstract_method",
+          "timing"
+        ],
+        "classes": [
+          "TempDir",
+          "TempIndex",
+          "TempStorage"
+        ],
+        "function_signatures": {
+          "is_abstract_method": [
+            "attr"
+          ],
+          "check_abstract_methods": [
+            "base",
+            "subclass"
+          ],
+          "timing": [
+            "name"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.util",
+        "module": "numlists",
+        "functions": [
+          "delta_decode",
+          "delta_encode"
+        ],
+        "classes": [
+          "ByteEncoding",
+          "FixedEncoding",
+          "GInts",
+          "GrowableArray",
+          "NumberEncoding",
+          "Simple16",
+          "UIntEncoding",
+          "UShortEncoding",
+          "Varints"
+        ],
+        "function_signatures": {
+          "delta_encode": [
+            "nums"
+          ],
+          "delta_decode": [
+            "nums"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.qparser",
+        "module": "plugins",
+        "functions": [],
+        "classes": [
+          "BoostPlugin",
+          "CopyFieldPlugin",
+          "EveryPlugin",
+          "FieldAliasPlugin",
+          "FieldsPlugin",
+          "FunctionPlugin",
+          "FuzzyTermPlugin",
+          "GroupPlugin",
+          "GtLtPlugin",
+          "MultifieldPlugin",
+          "OperatorsPlugin",
+          "PhrasePlugin",
+          "Plugin",
+          "PlusMinusPlugin",
+          "PrefixPlugin",
+          "PseudoFieldPlugin",
+          "RangePlugin",
+          "RegexPlugin",
+          "SequencePlugin",
+          "SingleQuotePlugin",
+          "TaggingPlugin",
+          "WhitespacePlugin",
+          "WildcardPlugin"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.qparser",
+        "module": "default",
+        "functions": [
+          "DisMaxParser",
           "MultifieldParser",
           "SimpleParser"
         ],
-        "description": "User query string parsing into Whoosh query objects."
+        "classes": [
+          "QueryParser"
+        ],
+        "function_signatures": {
+          "MultifieldParser": [
+            "fieldnames",
+            "schema",
+            "fieldboosts"
+          ],
+          "SimpleParser": [
+            "fieldname",
+            "schema"
+          ],
+          "DisMaxParser": [
+            "fieldboosts",
+            "schema",
+            "tiebreak"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "src/whoosh/query/terms.py",
-        "module": "whoosh.query.terms",
+        "package": "src.whoosh.qparser",
+        "module": "taggers",
         "functions": [],
         "classes": [
-          "Term",
-          "Prefix",
-          "Wildcard",
-          "FuzzyTerm",
-          "Phrase"
+          "FnTagger",
+          "RegexTagger",
+          "Tagger"
         ],
-        "description": "Term-level query objects used directly or produced by parser plugins."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "src/whoosh/scoring.py",
-        "module": "whoosh.scoring",
-        "functions": [],
-        "classes": [
-          "Weighting",
-          "BM25F",
-          "TF_IDF",
-          "Frequency"
-        ],
-        "description": "Ranking/weighting models used by Searcher for score computation."
-      },
-      {
-        "package": "src/whoosh/analysis/analyzers.py",
-        "module": "whoosh.analysis.analyzers",
-        "functions": [],
-        "classes": [
-          "Analyzer",
-          "StandardAnalyzer",
-          "KeywordAnalyzer",
-          "LanguageAnalyzer",
-          "NgramAnalyzer"
-        ],
-        "description": "Text analysis/tokenization chains for indexing and querying."
-      },
-      {
-        "package": "src/whoosh/highlight.py",
-        "module": "whoosh.highlight",
+        "package": "src.whoosh.qparser",
+        "module": "common",
         "functions": [
-          "highlight"
+          "attach",
+          "get_single_text",
+          "print_debug"
         ],
         "classes": [
-          "Highlighter",
-          "Formatter",
-          "Fragmenter"
+          "QueryParserError"
         ],
-        "description": "Snippet generation and matched-term highlighting."
+        "function_signatures": {
+          "get_single_text": [
+            "field",
+            "text"
+          ],
+          "attach": [
+            "q",
+            "stxnode"
+          ],
+          "print_debug": [
+            "level",
+            "msg",
+            "out"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "src/whoosh/sorting.py",
-        "module": "whoosh.sorting",
-        "functions": [],
-        "classes": [
-          "FieldFacet",
-          "ScoreFacet",
-          "MultiFacet"
+        "package": "src.whoosh.qparser",
+        "module": "syntax",
+        "functions": [
+          "to_word"
         ],
-        "description": "Sorting and faceting primitives integrated with search results."
+        "classes": [
+          "AndGroup",
+          "AndMaybeGroup",
+          "AndNotGroup",
+          "BinaryGroup",
+          "DisMaxGroup",
+          "ErrorNode",
+          "FieldnameNode",
+          "GroupNode",
+          "InfixOperator",
+          "MarkerNode",
+          "NotGroup",
+          "Operator",
+          "OrGroup",
+          "OrderedGroup",
+          "PostfixOperator",
+          "PrefixOperator",
+          "RangeNode",
+          "RequireGroup",
+          "SyntaxNode",
+          "TextNode",
+          "Whitespace",
+          "WordNode",
+          "Wrapper"
+        ],
+        "function_signatures": {
+          "to_word": [
+            "n"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "src/whoosh/spelling.py",
-        "module": "whoosh.spelling",
+        "package": "src.whoosh.qparser",
+        "module": "dateparse",
+        "functions": [
+          "print_debug"
+        ],
+        "classes": [
+          "Bag",
+          "Choice",
+          "Combo",
+          "DateParseError",
+          "DateParser",
+          "DateParserPlugin",
+          "DateRangeNode",
+          "DateTagger",
+          "DateTimeNode",
+          "Daynames",
+          "English",
+          "Month",
+          "MultiBase",
+          "Optional",
+          "ParserBase",
+          "PlusMinus",
+          "Props",
+          "Regex",
+          "Sequence",
+          "Time12",
+          "ToEnd"
+        ],
+        "function_signatures": {
+          "print_debug": [
+            "level",
+            "msg"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.codec",
+        "module": "memory",
         "functions": [],
         "classes": [
-          "SpellChecker",
-          "ReaderCorrector"
+          "MemFieldWriter",
+          "MemPerDocReader",
+          "MemPerDocWriter",
+          "MemSegment",
+          "MemTermsReader",
+          "MemWriter",
+          "MemoryCodec"
         ],
-        "description": "Spell correction/suggestion support based on indexed terms."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.codec",
+        "module": "plaintext",
+        "functions": [],
+        "classes": [
+          "LineReader",
+          "LineWriter",
+          "PlainFieldWriter",
+          "PlainPerDocReader",
+          "PlainPerDocWriter",
+          "PlainSegment",
+          "PlainTermsReader",
+          "PlainTextCodec"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "codec",
+        "functions": [
+          "default_codec"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "default_codec": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.codec",
+        "module": "base",
+        "functions": [],
+        "classes": [
+          "Automata",
+          "Codec",
+          "EmptyCursor",
+          "FieldCursor",
+          "FieldWriter",
+          "MultiPerDocumentReader",
+          "OutOfOrderError",
+          "PerDocWriterWithColumns",
+          "PerDocumentReader",
+          "PerDocumentWriter",
+          "PostingsWriter",
+          "Segment",
+          "TermsReader",
+          "WrappingCodec",
+          "WrappingSegment"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.codec",
+        "module": "whoosh3",
+        "functions": [],
+        "classes": [
+          "W3Codec",
+          "W3FieldCursor",
+          "W3FieldWriter",
+          "W3LeafMatcher",
+          "W3PerDocReader",
+          "W3PerDocWriter",
+          "W3PostingsWriter",
+          "W3Segment",
+          "W3TermInfo",
+          "W3TermsReader"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang",
+        "module": "morph_en",
+        "functions": [
+          "variations"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "variations": [
+            "word"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh",
+        "module": "lang",
+        "functions": [
+          "has_stemmer",
+          "has_stopwords",
+          "stemmer_for_language",
+          "stopwords_for_language",
+          "two_letter_code"
+        ],
+        "classes": [
+          "NoStemmer",
+          "NoStopWords"
+        ],
+        "function_signatures": {
+          "two_letter_code": [
+            "name"
+          ],
+          "has_stemmer": [
+            "lang"
+          ],
+          "has_stopwords": [
+            "lang"
+          ],
+          "stemmer_for_language": [
+            "lang"
+          ],
+          "stopwords_for_language": [
+            "lang"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang",
+        "module": "isri",
+        "functions": [],
+        "classes": [
+          "ISRIStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang",
+        "module": "lovins",
+        "functions": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z",
+          "a",
+          "b",
+          "c",
+          "fix_ending",
+          "remove_ending",
+          "stem"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "A": [
+            "base"
+          ],
+          "B": [
+            "base"
+          ],
+          "C": [
+            "base"
+          ],
+          "D": [
+            "base"
+          ],
+          "E": [
+            "base"
+          ],
+          "F": [
+            "base"
+          ],
+          "G": [
+            "base"
+          ],
+          "H": [
+            "base"
+          ],
+          "I": [
+            "base"
+          ],
+          "J": [
+            "base"
+          ],
+          "K": [
+            "base"
+          ],
+          "L": [
+            "base"
+          ],
+          "M": [
+            "base"
+          ],
+          "N": [
+            "base"
+          ],
+          "O": [
+            "base"
+          ],
+          "P": [
+            "base"
+          ],
+          "Q": [
+            "base"
+          ],
+          "R": [
+            "base"
+          ],
+          "S": [
+            "base"
+          ],
+          "T": [
+            "base"
+          ],
+          "U": [
+            "base"
+          ],
+          "V": [
+            "base"
+          ],
+          "W": [
+            "base"
+          ],
+          "X": [
+            "base"
+          ],
+          "Y": [
+            "base"
+          ],
+          "Z": [
+            "base"
+          ],
+          "a": [
+            "base"
+          ],
+          "b": [
+            "base"
+          ],
+          "c": [
+            "base"
+          ],
+          "remove_ending": [
+            "word"
+          ],
+          "fix_ending": [
+            "word"
+          ],
+          "stem": [
+            "word"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang",
+        "module": "paicehusk",
+        "functions": [],
+        "classes": [
+          "PaiceHuskStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang",
+        "module": "dmetaphone",
+        "functions": [
+          "double_metaphone"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "double_metaphone": [
+            "text"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang",
+        "module": "porter2",
+        "functions": [
+          "capitalize_consonant_ys",
+          "ends_with_double",
+          "ends_with_short_syllable",
+          "get_r1",
+          "get_r2",
+          "is_short_word",
+          "normalize_ys",
+          "remove_initial_apostrophe",
+          "stem",
+          "step_0",
+          "step_1a",
+          "step_1b",
+          "step_1b_helper",
+          "step_1c",
+          "step_2",
+          "step_2_helper",
+          "step_3",
+          "step_3_helper",
+          "step_4",
+          "step_5"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "get_r1": [
+            "word"
+          ],
+          "get_r2": [
+            "word"
+          ],
+          "ends_with_short_syllable": [
+            "word"
+          ],
+          "is_short_word": [
+            "word"
+          ],
+          "remove_initial_apostrophe": [
+            "word"
+          ],
+          "capitalize_consonant_ys": [
+            "word"
+          ],
+          "step_0": [
+            "word"
+          ],
+          "step_1a": [
+            "word"
+          ],
+          "ends_with_double": [
+            "word"
+          ],
+          "step_1b_helper": [
+            "word"
+          ],
+          "step_1b": [
+            "word",
+            "r1"
+          ],
+          "step_1c": [
+            "word"
+          ],
+          "step_2_helper": [
+            "word",
+            "r1",
+            "end",
+            "repl",
+            "prev"
+          ],
+          "step_2": [
+            "word",
+            "r1"
+          ],
+          "step_3_helper": [
+            "word",
+            "r1",
+            "r2",
+            "end",
+            "repl",
+            "r2_necessary"
+          ],
+          "step_3": [
+            "word",
+            "r1",
+            "r2"
+          ],
+          "step_4": [
+            "word",
+            "r2"
+          ],
+          "step_5": [
+            "word",
+            "r1",
+            "r2"
+          ],
+          "normalize_ys": [
+            "word"
+          ],
+          "stem": [
+            "word"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang",
+        "module": "porter",
+        "functions": [
+          "stem"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "stem": [
+            "w"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang",
+        "module": "phonetic",
+        "functions": [
+          "soundex_ar",
+          "soundex_en",
+          "soundex_esp"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "soundex_en": [
+            "word"
+          ],
+          "soundex_esp": [
+            "word"
+          ],
+          "soundex_ar": [
+            "word"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang",
+        "module": "wordnet",
+        "functions": [
+          "make_index",
+          "parse_file",
+          "synonyms"
+        ],
+        "classes": [
+          "Thesaurus"
+        ],
+        "function_signatures": {
+          "parse_file": [
+            "f"
+          ],
+          "make_index": [
+            "storage",
+            "indexname",
+            "word2nums",
+            "num2words"
+          ],
+          "synonyms": [
+            "word2nums",
+            "num2words",
+            "word"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "spanish",
+        "functions": [],
+        "classes": [
+          "SpanishStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "swedish",
+        "functions": [],
+        "classes": [
+          "SwedishStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "hungarian",
+        "functions": [],
+        "classes": [
+          "HungarianStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "finnish",
+        "functions": [],
+        "classes": [
+          "FinnishStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "russian",
+        "functions": [],
+        "classes": [
+          "RussianStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "norwegian",
+        "functions": [],
+        "classes": [
+          "NorwegianStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "romanian",
+        "functions": [],
+        "classes": [
+          "RomanianStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "french",
+        "functions": [],
+        "classes": [
+          "FrenchStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "english",
+        "functions": [],
+        "classes": [
+          "EnglishStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "dutch",
+        "functions": [],
+        "classes": [
+          "DutchStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "italian",
+        "functions": [],
+        "classes": [
+          "ItalianStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "german",
+        "functions": [],
+        "classes": [
+          "GermanStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "portugese",
+        "functions": [],
+        "classes": [
+          "PortugueseStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.lang.snowball",
+        "module": "danish",
+        "functions": [],
+        "classes": [
+          "DanishStemmer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.support",
+        "module": "relativedelta",
+        "functions": [],
+        "classes": [
+          "relativedelta",
+          "weekday"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.support",
+        "module": "unicode",
+        "functions": [
+          "blockname",
+          "blocknum"
+        ],
+        "classes": [
+          "blocks"
+        ],
+        "function_signatures": {
+          "blockname": [
+            "ch"
+          ],
+          "blocknum": [
+            "ch"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.support",
+        "module": "bench",
+        "functions": [],
+        "classes": [
+          "Bench",
+          "Module",
+          "NucularModule",
+          "SolrModule",
+          "Spec",
+          "WhooshModule",
+          "XapianModule",
+          "XappyModule",
+          "ZcatalogModule"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.support",
+        "module": "charset",
+        "functions": [
+          "charset_table_to_dict",
+          "charspec_to_int"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "charspec_to_int": [
+            "string"
+          ],
+          "charset_table_to_dict": [
+            "tablestring"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.support",
+        "module": "levenshtein",
+        "functions": [
+          "damerau_levenshtein",
+          "levenshtein",
+          "relative"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "levenshtein": [
+            "seq1",
+            "seq2",
+            "limit"
+          ],
+          "damerau_levenshtein": [
+            "seq1",
+            "seq2",
+            "limit"
+          ],
+          "relative": [
+            "a",
+            "b"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.support",
+        "module": "base85",
+        "functions": [
+          "b85decode",
+          "b85encode",
+          "from_base85",
+          "to_base85"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "to_base85": [
+            "x",
+            "islong"
+          ],
+          "from_base85": [
+            "text"
+          ],
+          "b85encode": [
+            "text",
+            "pad"
+          ],
+          "b85decode": [
+            "text"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.filedb",
+        "module": "structfile",
+        "functions": [],
+        "classes": [
+          "BufferFile",
+          "ChecksumFile",
+          "StructFile"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.filedb",
+        "module": "gae",
+        "functions": [],
+        "classes": [
+          "DatastoreFile",
+          "DatastoreStorage",
+          "MemcacheLock"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.filedb",
+        "module": "compound",
+        "functions": [],
+        "classes": [
+          "CompoundStorage",
+          "CompoundWriter",
+          "SubFile"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.filedb",
+        "module": "filestore",
+        "functions": [
+          "copy_storage",
+          "copy_to_ram"
+        ],
+        "classes": [
+          "FileStorage",
+          "OverlayStorage",
+          "RamStorage",
+          "ReadOnlyError",
+          "Storage",
+          "StorageError"
+        ],
+        "function_signatures": {
+          "copy_storage": [
+            "sourcestore",
+            "deststore"
+          ],
+          "copy_to_ram": [
+            "storage"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.filedb",
+        "module": "filetables",
+        "functions": [
+          "cdb_hash",
+          "crc_hash",
+          "md5_hash"
+        ],
+        "classes": [
+          "FieldedOrderedHashReader",
+          "FieldedOrderedHashWriter",
+          "FileFormatError",
+          "HashReader",
+          "HashWriter",
+          "OrderedHashReader",
+          "OrderedHashWriter"
+        ],
+        "function_signatures": {
+          "cdb_hash": [
+            "key"
+          ],
+          "md5_hash": [
+            "key"
+          ],
+          "crc_hash": [
+            "key"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.query",
+        "module": "terms",
+        "functions": [],
+        "classes": [
+          "ExpandingTerm",
+          "FuzzyTerm",
+          "MultiTerm",
+          "PatternQuery",
+          "Prefix",
+          "Regex",
+          "Term",
+          "Variations",
+          "Wildcard"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.query",
+        "module": "spans",
+        "functions": [
+          "bisect_spans"
+        ],
+        "classes": [
+          "Span",
+          "SpanBefore",
+          "SpanBiMatcher",
+          "SpanBiQuery",
+          "SpanCondition",
+          "SpanContains",
+          "SpanFirst",
+          "SpanNear",
+          "SpanNear2",
+          "SpanNot",
+          "SpanOr",
+          "SpanQuery",
+          "SpanWrappingMatcher",
+          "WrappingSpan"
+        ],
+        "function_signatures": {
+          "bisect_spans": [
+            "spans",
+            "start"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.query",
+        "module": "ranges",
+        "functions": [],
+        "classes": [
+          "DateRange",
+          "NumericRange",
+          "RangeMixin",
+          "TermRange"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.query",
+        "module": "compound",
+        "functions": [
+          "BooleanQuery"
+        ],
+        "classes": [
+          "And",
+          "AndMaybe",
+          "AndNot",
+          "BinaryQuery",
+          "CompoundQuery",
+          "DefaultOr",
+          "DisjunctionMax",
+          "Or",
+          "Otherwise",
+          "PreloadedOr",
+          "Require",
+          "SplitOr"
+        ],
+        "function_signatures": {
+          "BooleanQuery": [
+            "required",
+            "should",
+            "prohibited"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.query",
+        "module": "qcolumns",
+        "functions": [],
+        "classes": [
+          "ColumnMatcher",
+          "ColumnQuery"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.query",
+        "module": "wrappers",
+        "functions": [],
+        "classes": [
+          "ConstantScoreQuery",
+          "Not",
+          "WeightingQuery",
+          "WrappingQuery"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.query",
+        "module": "qcore",
+        "functions": [
+          "error_query",
+          "token_lists"
+        ],
+        "classes": [
+          "Every",
+          "Highest",
+          "Lowest",
+          "Query",
+          "QueryError"
+        ],
+        "function_signatures": {
+          "error_query": [
+            "msg",
+            "q"
+          ],
+          "token_lists": [
+            "q",
+            "phrases"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.query",
+        "module": "nested",
+        "functions": [],
+        "classes": [
+          "NestedChildren",
+          "NestedParent"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "src.whoosh.query",
+        "module": "positional",
+        "functions": [],
+        "classes": [
+          "Ordered",
+          "Phrase",
+          "Sequence"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       }
     ],
     "cli_commands": [
       {
-        "name": "make_checkpoint.py",
-        "module": "scripts/make_checkpoint.py",
-        "description": "Utility script for generating checkpoint artifacts (project maintenance/testing support)."
-      },
-      {
-        "name": "read_checkpoint.py",
-        "module": "scripts/read_checkpoint.py",
-        "description": "Utility script for reading/inspecting checkpoint artifacts."
+        "name": "None detected",
+        "module": "N/A",
+        "description": "No explicit console_scripts entry points or standalone CLI modules identified in scanned paths; treat repository as import-first library."
       }
     ],
     "import_strategy": {
@@ -680,10 +3428,13 @@
     },
     "dependencies": {
       "required": [
-        "Python standard library"
+        "Python standard library",
+        "setuptools (packaging/install)"
       ],
       "optional": [
-        "none clearly required from scanned paths; optional runtime extras not evidenced by setup metadata in provided scan"
+        "PyStemmer (for faster stemming, if used by specific analyzers)",
+        "chardet/cchardet-like charset helpers (environment-dependent, non-core)",
+        "dateutil-like parsing helpers (only if host integrations add them; core Whoosh includes internal date parsing)"
       ]
     },
     "risk_assessment": {

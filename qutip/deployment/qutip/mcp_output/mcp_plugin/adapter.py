@@ -1,8 +1,8 @@
 import os
 import sys
-import traceback
 import importlib
-from typing import Any, Dict, Optional, List
+import traceback
+from typing import Any, Dict, List, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -13,239 +13,259 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import-Mode Adapter for the qutip repository.
+    MCP Import-Mode adapter for the QuTiP source tree.
 
-    Design goals:
-    - Primary mode: import from repository source tree.
-    - Fallback mode: graceful blackbox response when import/use is unavailable.
-    - Unified return shape for all methods.
-    - Modular organization for maintainability.
-
-    Unified response format:
-    {
-        "status": "success" | "error" | "fallback",
-        "mode": "import" | "blackbox",
-        "action": "<method_name>",
-        "data": <any>,
-        "error": <str or None>,
-        "guidance": <str or None>
-    }
+    This adapter prefers direct import from the local `source` directory and
+    gracefully falls back to a non-import mode when unavailable.
     """
 
     # -------------------------------------------------------------------------
-    # Lifecycle / Core Utilities
+    # Lifecycle
     # -------------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
-        self._modules: Dict[str, Any] = {}
-        self._import_errors: List[str] = []
-        self._init_imports()
+        self._loaded = False
+        self._errors: List[str] = []
+        self.modules: Dict[str, Any] = {}
+        self.functions: Dict[str, Any] = {}
+        self.classes: Dict[str, Any] = {}
+        self._initialize()
 
     def _result(
         self,
-        action: str,
         status: str,
-        data: Any = None,
-        error: Optional[str] = None,
-        guidance: Optional[str] = None,
+        message: str,
+        data: Optional[Any] = None,
+        hint: Optional[str] = None,
     ) -> Dict[str, Any]:
-        return {
-            "status": status,
-            "mode": self.mode,
-            "action": action,
-            "data": data,
-            "error": error,
-            "guidance": guidance,
-        }
+        result = {"status": status, "message": message}
+        if data is not None:
+            result["data"] = data
+        if hint:
+            result["hint"] = hint
+        if self._errors:
+            result["errors"] = self._errors[-5:]
+        return result
 
-    def _safe_import(self, module_path: str) -> Optional[Any]:
-        try:
-            module = importlib.import_module(module_path)
-            self._modules[module_path] = module
-            return module
-        except Exception as exc:
-            self._import_errors.append(f"{module_path}: {exc}")
-            return None
-
-    def _init_imports(self) -> None:
-        candidates = [
+    def _initialize(self) -> None:
+        target_modules = [
             "qutip",
-            "qutip.core",
+            "qutip.about",
+            "qutip.settings",
             "qutip.core.operators",
             "qutip.core.states",
             "qutip.core.tensor",
             "qutip.core.expect",
-            "qutip.core.gates",
             "qutip.solver.mesolve",
             "qutip.solver.sesolve",
             "qutip.solver.mcsolve",
             "qutip.solver.steadystate",
-            "qutip.visualization",
             "qutip.wigner",
-            "qutip.bloch",
-            "qutip.random_objects",
-            "qutip.entropy",
+            "qutip.visualization",
             "qutip.measurement",
-            "qutip.tomography",
-            "qutip.utilities",
+            "qutip.entropy",
+            "qutip.random_objects",
+            "qutip.core.qobj",
         ]
-        success_count = 0
-        for mod in candidates:
-            if self._safe_import(mod) is not None:
-                success_count += 1
 
-        if success_count == 0:
-            self.mode = "blackbox"
+        for mod_name in target_modules:
+            try:
+                self.modules[mod_name] = importlib.import_module(mod_name)
+            except Exception as exc:
+                self._errors.append(f"Failed to import {mod_name}: {exc}")
 
+        try:
+            qutip = self.modules.get("qutip")
+            if qutip is not None:
+                # Common public API functions/classes in qutip.__init__.
+                for name in [
+                    "Qobj",
+                    "basis",
+                    "coherent",
+                    "fock",
+                    "destroy",
+                    "create",
+                    "qeye",
+                    "sigmax",
+                    "sigmay",
+                    "sigmaz",
+                    "tensor",
+                    "expect",
+                    "mesolve",
+                    "sesolve",
+                    "mcsolve",
+                    "steadystate",
+                    "wigner",
+                    "rand_ket",
+                    "rand_dm",
+                    "entropy_vn",
+                    "fidelity",
+                ]:
+                    if hasattr(qutip, name):
+                        obj = getattr(qutip, name)
+                        if isinstance(obj, type):
+                            self.classes[name] = obj
+                        else:
+                            self.functions[name] = obj
+        except Exception as exc:
+            self._errors.append(f"Failed to map QuTiP API symbols: {exc}")
+
+        self._loaded = bool(self.modules.get("qutip")) and len(self._errors) < len(target_modules)
+        if not self._loaded:
+            self.mode = "fallback"
+
+    # -------------------------------------------------------------------------
+    # Status and diagnostics
+    # -------------------------------------------------------------------------
     def health(self) -> Dict[str, Any]:
         """
-        Return adapter health and import diagnostics.
+        Report adapter health and import status.
+
+        Returns:
+            dict: Unified status payload.
         """
+        if self._loaded:
+            return self._result(
+                "ok",
+                "Adapter initialized in import mode.",
+                data={
+                    "mode": self.mode,
+                    "loaded_modules": sorted(self.modules.keys()),
+                    "available_functions": sorted(self.functions.keys()),
+                    "available_classes": sorted(self.classes.keys()),
+                },
+            )
         return self._result(
-            action="health",
-            status="success" if self.mode == "import" else "fallback",
-            data={
-                "loaded_modules": sorted(self._modules.keys()),
-                "import_errors": self._import_errors,
-            },
-            guidance=(
-                None
-                if self.mode == "import"
-                else "Repository import failed. Verify that source/qutip exists and dependencies are installed: numpy, scipy, packaging."
-            ),
+            "degraded",
+            "Adapter is running in fallback mode due to import failures.",
+            data={"mode": self.mode},
+            hint="Ensure local source tree exists and includes the qutip package under the source directory.",
         )
 
     # -------------------------------------------------------------------------
-    # Module Management
+    # Internal helpers
     # -------------------------------------------------------------------------
-    def get_module(self, module_path: str) -> Dict[str, Any]:
-        """
-        Dynamically retrieve or import a module from qutip source.
-        """
+    def _require_symbol(self, name: str, symbol_type: str = "function") -> Dict[str, Any]:
+        if not self._loaded:
+            return self._result(
+                "error",
+                "Import mode is unavailable.",
+                hint="Fix imports first: verify source path and repository contents.",
+            )
+        table = self.functions if symbol_type == "function" else self.classes
+        if name not in table:
+            return self._result(
+                "error",
+                f"Requested {symbol_type} '{name}' is not available.",
+                hint=f"Check compatibility of the local qutip source with symbol '{name}'.",
+            )
+        return {"status": "ok", "symbol": table[name]}
+
+    def _invoke_function(self, name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        sym = self._require_symbol(name, "function")
+        if sym.get("status") != "ok":
+            return sym
         try:
-            if module_path in self._modules:
-                return self._result("get_module", "success", data={"module_path": module_path})
-            mod = self._safe_import(module_path)
-            if mod is None:
-                return self._result(
-                    "get_module",
-                    "error",
-                    error=f"Failed to import module: {module_path}",
-                    guidance="Confirm module path and ensure repository source is available on sys.path.",
-                )
-            return self._result("get_module", "success", data={"module_path": module_path})
+            result = sym["symbol"](*args, **kwargs)
+            return self._result("ok", f"Function '{name}' executed successfully.", data=result)
         except Exception as exc:
             return self._result(
-                "get_module",
                 "error",
-                error=str(exc),
-                guidance="Check module path and runtime environment.",
+                f"Function '{name}' failed: {exc}",
+                data={"traceback": traceback.format_exc(limit=3)},
+                hint="Validate function arguments and object dimensions/types.",
+            )
+
+    def _instantiate_class(self, name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        sym = self._require_symbol(name, "class")
+        if sym.get("status") != "ok":
+            return sym
+        try:
+            instance = sym["symbol"](*args, **kwargs)
+            return self._result("ok", f"Class '{name}' instantiated successfully.", data=instance)
+        except Exception as exc:
+            return self._result(
+                "error",
+                f"Class '{name}' instantiation failed: {exc}",
+                data={"traceback": traceback.format_exc(limit=3)},
+                hint="Verify constructor arguments and compatibility with current QuTiP version.",
             )
 
     # -------------------------------------------------------------------------
-    # Core Constructors and Functions
+    # Class instance methods
     # -------------------------------------------------------------------------
-    def create_qobj(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def create_qobj_instance(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
         Create a qutip.Qobj instance.
 
         Parameters:
-        - *args, **kwargs: forwarded to qutip.Qobj constructor.
-        """
-        try:
-            if self.mode != "import":
-                return self._result(
-                    "create_qobj",
-                    "fallback",
-                    error="Import mode unavailable.",
-                    guidance="Install required dependencies and ensure qutip source is present.",
-                )
-            qutip_mod = self._modules.get("qutip") or importlib.import_module("qutip")
-            obj = qutip_mod.Qobj(*args, **kwargs)
-            return self._result("create_qobj", "success", data={"repr": repr(obj)})
-        except Exception as exc:
-            return self._result("create_qobj", "error", error=str(exc), guidance=traceback.format_exc())
+            *args: Positional arguments forwarded to Qobj constructor.
+            **kwargs: Keyword arguments forwarded to Qobj constructor.
 
+        Returns:
+            dict: Unified status payload containing the instance on success.
+        """
+        return self._instantiate_class("Qobj", *args, **kwargs)
+
+    # -------------------------------------------------------------------------
+    # Function call methods (mapped from identified API symbols)
+    # -------------------------------------------------------------------------
     def call_basis(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            qutip_mod = self._modules.get("qutip") or importlib.import_module("qutip")
-            out = qutip_mod.basis(*args, **kwargs)
-            return self._result("call_basis", "success", data={"repr": repr(out)})
-        except Exception as exc:
-            return self._result("call_basis", "error", error=str(exc), guidance="Validate dimensions and basis index.")
+        return self._invoke_function("basis", *args, **kwargs)
+
+    def call_coherent(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("coherent", *args, **kwargs)
+
+    def call_fock(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("fock", *args, **kwargs)
+
+    def call_destroy(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("destroy", *args, **kwargs)
+
+    def call_create(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("create", *args, **kwargs)
+
+    def call_qeye(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("qeye", *args, **kwargs)
+
+    def call_sigmax(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("sigmax", *args, **kwargs)
+
+    def call_sigmay(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("sigmay", *args, **kwargs)
+
+    def call_sigmaz(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("sigmaz", *args, **kwargs)
 
     def call_tensor(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            qutip_mod = self._modules.get("qutip") or importlib.import_module("qutip")
-            out = qutip_mod.tensor(*args, **kwargs)
-            return self._result("call_tensor", "success", data={"repr": repr(out)})
-        except Exception as exc:
-            return self._result("call_tensor", "error", error=str(exc), guidance="Pass valid Qobj operands.")
+        return self._invoke_function("tensor", *args, **kwargs)
 
     def call_expect(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            qutip_mod = self._modules.get("qutip") or importlib.import_module("qutip")
-            out = qutip_mod.expect(*args, **kwargs)
-            return self._result("call_expect", "success", data={"value": out})
-        except Exception as exc:
-            return self._result("call_expect", "error", error=str(exc), guidance="Check operator/state compatibility.")
+        return self._invoke_function("expect", *args, **kwargs)
 
-    # -------------------------------------------------------------------------
-    # Solver Wrappers
-    # -------------------------------------------------------------------------
     def call_mesolve(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call qutip.mesolve with pass-through arguments.
-        """
-        try:
-            qutip_mod = self._modules.get("qutip") or importlib.import_module("qutip")
-            res = qutip_mod.mesolve(*args, **kwargs)
-            return self._result("call_mesolve", "success", data={"result_type": type(res).__name__})
-        except Exception as exc:
-            return self._result("call_mesolve", "error", error=str(exc), guidance="Validate Hamiltonian, state, and time list inputs.")
+        return self._invoke_function("mesolve", *args, **kwargs)
 
     def call_sesolve(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            qutip_mod = self._modules.get("qutip") or importlib.import_module("qutip")
-            res = qutip_mod.sesolve(*args, **kwargs)
-            return self._result("call_sesolve", "success", data={"result_type": type(res).__name__})
-        except Exception as exc:
-            return self._result("call_sesolve", "error", error=str(exc), guidance="Use valid Schrödinger equation inputs.")
+        return self._invoke_function("sesolve", *args, **kwargs)
 
     def call_mcsolve(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            qutip_mod = self._modules.get("qutip") or importlib.import_module("qutip")
-            res = qutip_mod.mcsolve(*args, **kwargs)
-            return self._result("call_mcsolve", "success", data={"result_type": type(res).__name__})
-        except Exception as exc:
-            return self._result("call_mcsolve", "error", error=str(exc), guidance="Check collapse operators and trajectory settings.")
+        return self._invoke_function("mcsolve", *args, **kwargs)
 
     def call_steadystate(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            qutip_mod = self._modules.get("qutip") or importlib.import_module("qutip")
-            res = qutip_mod.steadystate(*args, **kwargs)
-            return self._result("call_steadystate", "success", data={"repr": repr(res)})
-        except Exception as exc:
-            return self._result("call_steadystate", "error", error=str(exc), guidance="Verify Liouvillian/Hamiltonian input.")
-
-    # -------------------------------------------------------------------------
-    # Visualization / Analysis Wrappers
-    # -------------------------------------------------------------------------
-    def create_bloch(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Create qutip.Bloch visualization object.
-        """
-        try:
-            qutip_mod = self._modules.get("qutip") or importlib.import_module("qutip")
-            bloch_obj = qutip_mod.Bloch(*args, **kwargs)
-            return self._result("create_bloch", "success", data={"repr": repr(bloch_obj)})
-        except Exception as exc:
-            return self._result("create_bloch", "error", error=str(exc), guidance="Install matplotlib for Bloch visualization.")
+        return self._invoke_function("steadystate", *args, **kwargs)
 
     def call_wigner(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            qutip_mod = self._modules.get("qutip") or importlib.import_module("qutip")
-            out = qutip_mod.wigner(*args, **kwargs)
-            return self._result("call_wigner", "success", data={"type": type(out).__name__})
-        except Exception as exc:
-            return self._result("call_wigner", "error", error=str(exc), guidance="Provide valid state and phase-space grids.")
+        return self._invoke_function("wigner", *args, **kwargs)
+
+    def call_rand_ket(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("rand_ket", *args, **kwargs)
+
+    def call_rand_dm(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("rand_dm", *args, **kwargs)
+
+    def call_entropy_vn(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("entropy_vn", *args, **kwargs)
+
+    def call_fidelity(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        return self._invoke_function("fidelity", *args, **kwargs)

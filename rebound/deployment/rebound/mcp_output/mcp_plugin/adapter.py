@@ -13,314 +13,386 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import Mode Adapter for the `rebound` repository.
+    MCP Import-mode adapter for the REBOUND repository.
 
-    This adapter prioritizes direct imports from the local source tree and provides
-    graceful fallback behavior when imports are unavailable.
+    This adapter attempts to import the source package directly from the local
+    `source` directory and exposes practical wrapper methods with unified
+    dictionary responses.
     """
 
-    # ---------------------------------------------------------------------
-    # Initialization and module management
-    # ---------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
+        self._loaded = False
+        self._import_error: Optional[str] = None
         self._modules: Dict[str, Any] = {}
-        self._import_errors: Dict[str, str] = {}
-        self._load_modules()
+        self._symbols: Dict[str, Any] = {}
+        self._initialize_imports()
 
-    def _result(self, status: str, **kwargs: Any) -> Dict[str, Any]:
-        payload = {"status": status}
-        payload.update(kwargs)
+    # ---------------------------------------------------------------------
+    # Internal utilities
+    # ---------------------------------------------------------------------
+    def _ok(self, data: Any = None, message: str = "Success") -> Dict[str, Any]:
+        return {"status": "success", "mode": self.mode, "message": message, "data": data}
+
+    def _fail(self, message: str, error: Optional[Exception] = None) -> Dict[str, Any]:
+        payload = {"status": "error", "mode": self.mode, "message": message}
+        if error is not None:
+            payload["error"] = str(error)
         return payload
 
-    def _load_module(self, module_path: str) -> None:
+    def _import_module(self, module_path: str) -> Optional[Any]:
         try:
-            self._modules[module_path] = importlib.import_module(module_path)
-        except Exception as e:
-            self._import_errors[module_path] = f"{type(e).__name__}: {e}"
+            module = importlib.import_module(module_path)
+            self._modules[module_path] = module
+            return module
+        except Exception:
+            return None
 
-    def _load_modules(self) -> None:
-        module_paths = [
-            "rebound",
-            "rebound.simulation",
-            "rebound.particle",
-            "rebound.particles",
-            "rebound.orbit",
-            "rebound.rotation",
-            "rebound.vectors",
-            "rebound.variation",
-            "rebound.units",
-            "rebound.tools",
-            "rebound.hash",
-            "rebound.data",
-            "rebound.plotting",
-            "rebound.widget",
-            "rebound.horizons",
-            "rebound.frequency_analysis",
-            "rebound.simulationarchive",
-            "rebound.binary_field_descriptor",
-            "rebound.citations",
-            "rebound.integrators.bs",
-            "rebound.integrators.custom",
-            "rebound.integrators.eos",
-            "rebound.integrators.ias15",
-            "rebound.integrators.janus",
-            "rebound.integrators.leapfrog",
-            "rebound.integrators.mercurius",
-            "rebound.integrators.saba",
-            "rebound.integrators.sei",
-            "rebound.integrators.trace",
-            "rebound.integrators.whfast",
-            "rebound.integrators.whfast512",
-        ]
-        for p in module_paths:
-            self._load_module(p)
-
-    def get_health(self) -> Dict[str, Any]:
+    def _initialize_imports(self) -> None:
         """
-        Report adapter import health and fallback state.
+        Import primary REBOUND modules from source package path.
+
+        Fallback behavior:
+        - Keeps adapter usable in degraded mode.
+        - Returns actionable guidance in method calls.
+        """
+        try:
+            core_mod = self._import_module("rebound")
+            sim_mod = self._import_module("rebound.simulation")
+            particle_mod = self._import_module("rebound.particle")
+            orbit_mod = self._import_module("rebound.orbit")
+            rot_mod = self._import_module("rebound.rotation")
+            vectors_mod = self._import_module("rebound.vectors")
+            units_mod = self._import_module("rebound.units")
+            sa_mod = self._import_module("rebound.simulationarchive")
+            plotting_mod = self._import_module("rebound.plotting")
+            data_mod = self._import_module("rebound.data")
+            horizons_mod = self._import_module("rebound.horizons")
+            freq_mod = self._import_module("rebound.frequency_analysis")
+            tools_mod = self._import_module("rebound.tools")
+            hash_mod = self._import_module("rebound.hash")
+            variation_mod = self._import_module("rebound.variation")
+
+            modules_for_state = [
+                core_mod, sim_mod, particle_mod, orbit_mod, rot_mod, vectors_mod,
+                units_mod, sa_mod, plotting_mod, data_mod, horizons_mod, freq_mod,
+                tools_mod, hash_mod, variation_mod
+            ]
+
+            self._loaded = any(m is not None for m in modules_for_state)
+
+            if core_mod is not None:
+                for name in [
+                    "Simulation",
+                    "Particle",
+                    "Orbit",
+                    "Rotation",
+                    "Vec3d",
+                    "Simulationarchive",
+                ]:
+                    if hasattr(core_mod, name):
+                        self._symbols[name] = getattr(core_mod, name)
+
+            if sim_mod is not None and hasattr(sim_mod, "Simulation"):
+                self._symbols["Simulation"] = getattr(sim_mod, "Simulation")
+            if particle_mod is not None and hasattr(particle_mod, "Particle"):
+                self._symbols["Particle"] = getattr(particle_mod, "Particle")
+            if orbit_mod is not None and hasattr(orbit_mod, "Orbit"):
+                self._symbols["Orbit"] = getattr(orbit_mod, "Orbit")
+            if rot_mod is not None and hasattr(rot_mod, "Rotation"):
+                self._symbols["Rotation"] = getattr(rot_mod, "Rotation")
+            if vectors_mod is not None and hasattr(vectors_mod, "Vec3d"):
+                self._symbols["Vec3d"] = getattr(vectors_mod, "Vec3d")
+            if sa_mod is not None and hasattr(sa_mod, "Simulationarchive"):
+                self._symbols["Simulationarchive"] = getattr(sa_mod, "Simulationarchive")
+
+            if not self._loaded:
+                self._import_error = (
+                    "Unable to import REBOUND source modules. "
+                    "Ensure compiled extension artifacts are available and source path is correct."
+                )
+        except Exception as e:
+            self._loaded = False
+            self._import_error = f"Import initialization failed: {e}"
+
+    def _check_loaded(self) -> Optional[Dict[str, Any]]:
+        if self._loaded:
+            return None
+        return self._fail(
+            "Adapter is in fallback mode because import failed. "
+            "Verify local source checkout, build native extension, and retry.",
+            Exception(self._import_error or "Unknown import failure"),
+        )
+
+    def _safe_call(self, fn, *args, **kwargs) -> Dict[str, Any]:
+        try:
+            result = fn(*args, **kwargs)
+            return self._ok(result)
+        except Exception as e:
+            return self._fail("Call failed. Check parameters and object state.", e)
+
+    # ---------------------------------------------------------------------
+    # Adapter status and diagnostics
+    # ---------------------------------------------------------------------
+    def health_check(self) -> Dict[str, Any]:
+        """
+        Check adapter import state and available modules.
 
         Returns:
-            dict: Unified response with loaded modules, failed modules, and actionable guidance.
+            dict: Unified status dictionary with import diagnostics.
         """
-        return self._result(
-            "success" if len(self._import_errors) == 0 else "partial",
-            mode=self.mode,
-            loaded_modules=sorted(list(self._modules.keys())),
-            failed_modules=self._import_errors,
-            guidance=(
-                "If imports fail, ensure the local repository exists under 'source/' "
-                "and native build artifacts for rebound are available."
-            ),
+        info = {
+            "loaded": self._loaded,
+            "import_error": self._import_error,
+            "modules": sorted(self._modules.keys()),
+            "symbols": sorted(self._symbols.keys()),
+        }
+        return self._ok(info) if self._loaded else self._fail(
+            "Import mode is unavailable. Adapter running in fallback mode.",
+            Exception(self._import_error or "No modules loaded"),
         )
 
     # ---------------------------------------------------------------------
-    # Generic invocation helpers
+    # Class instance factories
     # ---------------------------------------------------------------------
-    def _get_attr(self, module_path: str, attr_name: str) -> Dict[str, Any]:
-        mod = self._modules.get(module_path)
+    def create_simulation(self, **kwargs) -> Dict[str, Any]:
+        """
+        Create a REBOUND Simulation instance.
+
+        Parameters:
+            **kwargs: Optional constructor arguments passed to Simulation().
+
+        Returns:
+            dict: {status, mode, message, data} where data is Simulation instance.
+        """
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        cls = self._symbols.get("Simulation")
+        if cls is None:
+            return self._fail("Simulation class not available. Verify module import integrity.")
+        return self._safe_call(cls, **kwargs)
+
+    def create_particle(self, **kwargs) -> Dict[str, Any]:
+        """
+        Create a REBOUND Particle instance.
+
+        Parameters:
+            **kwargs: Particle constructor fields (e.g., m, x, y, z, vx, vy, vz, a, e, inc).
+
+        Returns:
+            dict: Unified status dictionary with created Particle.
+        """
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        cls = self._symbols.get("Particle")
+        if cls is None:
+            return self._fail("Particle class not available. Verify module import integrity.")
+        return self._safe_call(cls, **kwargs)
+
+    def create_orbit(self, **kwargs) -> Dict[str, Any]:
+        """
+        Create an Orbit instance, when directly constructible.
+
+        Parameters:
+            **kwargs: Orbit constructor arguments.
+
+        Returns:
+            dict: Unified status dictionary.
+        """
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        cls = self._symbols.get("Orbit")
+        if cls is None:
+            return self._fail("Orbit class not available in current build.")
+        return self._safe_call(cls, **kwargs)
+
+    def create_rotation(self, **kwargs) -> Dict[str, Any]:
+        """
+        Create a Rotation instance.
+
+        Parameters:
+            **kwargs: Rotation constructor arguments.
+
+        Returns:
+            dict: Unified status dictionary with Rotation object.
+        """
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        cls = self._symbols.get("Rotation")
+        if cls is None:
+            return self._fail("Rotation class not available in current build.")
+        return self._safe_call(cls, **kwargs)
+
+    def create_vec3d(self, **kwargs) -> Dict[str, Any]:
+        """
+        Create a Vec3d vector instance.
+
+        Parameters:
+            **kwargs: Vector constructor arguments.
+
+        Returns:
+            dict: Unified status dictionary.
+        """
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        cls = self._symbols.get("Vec3d")
+        if cls is None:
+            return self._fail("Vec3d class not available in current build.")
+        return self._safe_call(cls, **kwargs)
+
+    def create_simulationarchive(self, *args, **kwargs) -> Dict[str, Any]:
+        """
+        Create a Simulationarchive instance from file path or stream.
+
+        Parameters:
+            *args: Positional arguments for Simulationarchive constructor.
+            **kwargs: Keyword arguments for constructor.
+
+        Returns:
+            dict: Unified status dictionary.
+        """
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        cls = self._symbols.get("Simulationarchive")
+        if cls is None:
+            return self._fail("Simulationarchive class not available in current build.")
+        return self._safe_call(cls, *args, **kwargs)
+
+    # ---------------------------------------------------------------------
+    # Simulation operations
+    # ---------------------------------------------------------------------
+    def simulation_add_particle(self, simulation: Any, **particle_kwargs) -> Dict[str, Any]:
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        if simulation is None:
+            return self._fail("Simulation instance is required.")
+        try:
+            simulation.add(**particle_kwargs)
+            return self._ok(simulation, "Particle added.")
+        except Exception as e:
+            return self._fail("Failed to add particle. Validate orbital/cartesian parameters.", e)
+
+    def simulation_integrate(self, simulation: Any, tmax: float, exact_finish_time: int = 1) -> Dict[str, Any]:
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        if simulation is None:
+            return self._fail("Simulation instance is required.")
+        try:
+            simulation.integrate(tmax, exact_finish_time=exact_finish_time)
+            return self._ok({"t": getattr(simulation, "t", None)}, "Integration completed.")
+        except Exception as e:
+            return self._fail("Integration failed. Check integrator settings and timestep stability.", e)
+
+    def simulation_orbits(self, simulation: Any, **kwargs) -> Dict[str, Any]:
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        if simulation is None:
+            return self._fail("Simulation instance is required.")
+        try:
+            result = simulation.orbits(**kwargs)
+            return self._ok(result)
+        except Exception as e:
+            return self._fail("Failed to compute orbits. Ensure enough particles and valid reference frame.", e)
+
+    # ---------------------------------------------------------------------
+    # Module function calls
+    # ---------------------------------------------------------------------
+    def call_horizons_query(self, *args, **kwargs) -> Dict[str, Any]:
+        """
+        Call a Horizons utility function when available.
+
+        Notes:
+            This method probes common callable names in rebound.horizons.
+        """
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        mod = self._modules.get("rebound.horizons")
         if mod is None:
-            err = self._import_errors.get(module_path, "Module not loaded.")
-            return self._result(
-                "error",
-                error=f"Module '{module_path}' unavailable: {err}",
-                guidance="Validate source path and build native extensions before retrying.",
-            )
-        if not hasattr(mod, attr_name):
-            return self._result(
-                "error",
-                error=f"Attribute '{attr_name}' not found in module '{module_path}'.",
-                guidance="Check repository version and available public API members.",
-            )
-        return self._result("success", obj=getattr(mod, attr_name))
-
-    def _instantiate(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Instantiate a class from a module.
-
-        Parameters:
-            module_path: Full module path in repository package.
-            class_name: Class attribute name.
-            *args/**kwargs: Constructor arguments.
-
-        Returns:
-            dict: status + instance or error details.
-        """
-        got = self._get_attr(module_path, class_name)
-        if got["status"] != "success":
-            return got
-        try:
-            instance = got["obj"](*args, **kwargs)
-            return self._result("success", instance=instance, class_name=class_name, module=module_path)
-        except Exception as e:
-            return self._result(
-                "error",
-                error=f"Failed to instantiate {module_path}.{class_name}: {type(e).__name__}: {e}",
-                traceback=traceback.format_exc(),
-                guidance="Verify constructor arguments and runtime dependencies.",
-            )
-
-    def _call(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call a function from a module.
-
-        Parameters:
-            module_path: Full module path in repository package.
-            function_name: Function attribute name.
-            *args/**kwargs: Call arguments.
-
-        Returns:
-            dict: status + result or error details.
-        """
-        got = self._get_attr(module_path, function_name)
-        if got["status"] != "success":
-            return got
-        try:
-            value = got["obj"](*args, **kwargs)
-            return self._result("success", result=value, function=function_name, module=module_path)
-        except Exception as e:
-            return self._result(
-                "error",
-                error=f"Failed to call {module_path}.{function_name}: {type(e).__name__}: {e}",
-                traceback=traceback.format_exc(),
-                guidance="Validate function arguments and input object types.",
-            )
-
-    # ---------------------------------------------------------------------
-    # Core rebound classes and constructors
-    # ---------------------------------------------------------------------
-    def create_simulation(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Create rebound.simulation.Simulation instance."""
-        return self._instantiate("rebound.simulation", "Simulation", *args, **kwargs)
-
-    def create_particle(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Create rebound.particle.Particle instance."""
-        return self._instantiate("rebound.particle", "Particle", *args, **kwargs)
-
-    def create_orbit(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Create rebound.orbit.Orbit instance."""
-        return self._instantiate("rebound.orbit", "Orbit", *args, **kwargs)
-
-    def create_rotation(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Create rebound.rotation.Rotation instance."""
-        return self._instantiate("rebound.rotation", "Rotation", *args, **kwargs)
-
-    def create_vectors(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Create vector-like class if available in rebound.vectors."""
-        candidates = ["Vec3d", "Vector", "Vectors"]
-        for name in candidates:
-            res = self._instantiate("rebound.vectors", name, *args, **kwargs)
-            if res["status"] == "success":
-                return res
-        return self._result(
-            "error",
-            error="No supported vector class found in rebound.vectors.",
-            guidance="Inspect rebound.vectors API for available class names.",
+            return self._fail("rebound.horizons module is unavailable.")
+        for name in ["query_horizons_for_particle", "get_particle", "query"]:
+            fn = getattr(mod, name, None)
+            if callable(fn):
+                return self._safe_call(fn, *args, **kwargs)
+        return self._fail(
+            "No supported Horizons callable found. Inspect rebound.horizons for available API names."
         )
 
-    def create_variation(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Create rebound.variation.Variation instance if present."""
-        return self._instantiate("rebound.variation", "Variation", *args, **kwargs)
-
-    def create_simulationarchive(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Create rebound.simulationarchive.SimulationArchive instance."""
-        return self._instantiate("rebound.simulationarchive", "SimulationArchive", *args, **kwargs)
-
-    # ---------------------------------------------------------------------
-    # Functional wrappers for key modules
-    # ---------------------------------------------------------------------
-    def call_horizons(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call primary horizons helper.
-
-        Tries common entry points in rebound.horizons to maximize compatibility.
-        """
-        for fn in ["get_particle", "query_horizons_for_particle", "horizons"]:
-            res = self._call("rebound.horizons", fn, *args, **kwargs)
-            if res["status"] == "success":
-                return res
-        return self._result(
-            "error",
-            error="No supported horizons call found in rebound.horizons.",
-            guidance="Check the horizons module API and provide valid query arguments.",
-        )
-
-    def call_frequency_analysis(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call frequency analysis helper from rebound.frequency_analysis."""
-        for fn in ["frequency_analysis", "calculate_frequency", "compute_frequency"]:
-            res = self._call("rebound.frequency_analysis", fn, *args, **kwargs)
-            if res["status"] == "success":
-                return res
-        return self._result(
-            "error",
-            error="No supported function found in rebound.frequency_analysis.",
-            guidance="Inspect module functions and pass expected time-series inputs.",
-        )
-
-    def call_units_convert(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call a unit conversion helper from rebound.units."""
-        for fn in ["convert_units", "convert", "units_convert"]:
-            res = self._call("rebound.units", fn, *args, **kwargs)
-            if res["status"] == "success":
-                return res
-        return self._result(
-            "error",
-            error="No supported unit conversion function found in rebound.units.",
-            guidance="Use documented unit utilities in rebound.units.",
-        )
-
-    def call_plotting(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """Call plotting helper from rebound.plotting."""
-        for fn in ["OrbitPlot", "plot_orbits", "plot"]:
-            got = self._get_attr("rebound.plotting", fn)
-            if got["status"] != "success":
-                continue
-            try:
-                out = got["obj"](*args, **kwargs)
-                return self._result("success", result=out, function=fn, module="rebound.plotting")
-            except Exception:
-                continue
-        return self._result(
-            "error",
-            error="No supported plotting callable succeeded in rebound.plotting.",
-            guidance="Install matplotlib and provide a valid simulation object.",
-        )
-
-    # ---------------------------------------------------------------------
-    # Integrator module access
-    # ---------------------------------------------------------------------
-    def get_integrator_module(self, name: str) -> Dict[str, Any]:
-        """
-        Retrieve an integrator module by short name.
-
-        Supported names:
-            bs, custom, eos, ias15, janus, leapfrog, mercurius, saba, sei, trace, whfast, whfast512
-        """
-        module_path = f"rebound.integrators.{name}"
-        mod = self._modules.get(module_path)
+    def call_frequency_analysis(self, *args, **kwargs) -> Dict[str, Any]:
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        mod = self._modules.get("rebound.frequency_analysis")
         if mod is None:
-            err = self._import_errors.get(module_path, "Integrator module not loaded.")
-            return self._result(
-                "error",
-                error=f"Integrator module '{module_path}' unavailable: {err}",
-                guidance="Ensure this integrator exists in the current repository version.",
-            )
-        return self._result("success", module=mod, module_path=module_path)
+            return self._fail("rebound.frequency_analysis module is unavailable.")
+        for name in ["frequency", "find_frequency", "spectral_analysis"]:
+            fn = getattr(mod, name, None)
+            if callable(fn):
+                return self._safe_call(fn, *args, **kwargs)
+        return self._fail(
+            "No known frequency-analysis callable found. Verify module version and function names."
+        )
+
+    def call_plot_orbits(self, *args, **kwargs) -> Dict[str, Any]:
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        mod = self._modules.get("rebound.plotting")
+        if mod is None:
+            return self._fail("rebound.plotting module is unavailable.")
+        for name in ["OrbitPlot", "plot_orbits"]:
+            fn = getattr(mod, name, None)
+            if callable(fn):
+                return self._safe_call(fn, *args, **kwargs)
+        return self._fail("No plotting callable found. Install matplotlib and verify plotting module API.")
 
     # ---------------------------------------------------------------------
-    # Generic advanced API
+    # Generic invocation helper
     # ---------------------------------------------------------------------
-    def call_module_function(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def invoke(self, module_path: str, callable_name: str, *args, **kwargs) -> Dict[str, Any]:
         """
-        Generic dispatcher to call any function in imported modules.
+        Generic dynamic invocation for any loaded REBOUND submodule callable.
 
         Parameters:
-            module_path: Full module path, e.g. 'rebound.tools'
-            function_name: Function or callable attribute name
-        """
-        return self._call(module_path, function_name, *args, **kwargs)
-
-    def create_class_instance(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Generic dispatcher to instantiate any class in imported modules.
-
-        Parameters:
-            module_path: Full module path, e.g. 'rebound.simulation'
-            class_name: Class attribute name
-        """
-        return self._instantiate(module_path, class_name, *args, **kwargs)
-
-    def list_available_api(self) -> Dict[str, Any]:
-        """
-        List available top-level attributes from loaded modules for discovery.
+            module_path (str): Full module path (e.g., 'rebound.tools').
+            callable_name (str): Function/class/callable name in that module.
+            *args, **kwargs: Call parameters.
 
         Returns:
-            dict: status and per-module public attribute names.
+            dict: Unified status dictionary.
         """
-        api: Dict[str, List[str]] = {}
-        for mod_name, mod in self._modules.items():
-            try:
-                api[mod_name] = [x for x in dir(mod) if not x.startswith("_")]
-            except Exception:
-                api[mod_name] = []
-        return self._result("success", api=api, failed_modules=self._import_errors)
+        failed = self._check_loaded()
+        if failed:
+            return failed
+        try:
+            module = self._modules.get(module_path) or importlib.import_module(module_path)
+            target = getattr(module, callable_name, None)
+            if target is None or not callable(target):
+                return self._fail(
+                    f"Callable '{callable_name}' not found in module '{module_path}'. "
+                    "Check module path and symbol name."
+                )
+            return self._safe_call(target, *args, **kwargs)
+        except Exception as e:
+            return self._fail(
+                "Dynamic invocation failed. Validate module path, callable name, and arguments.",
+                e,
+            )
+
+    def get_traceback(self) -> Dict[str, Any]:
+        """
+        Return current traceback snapshot for diagnostics.
+
+        Returns:
+            dict: Unified status dictionary containing traceback text.
+        """
+        return self._ok({"traceback": traceback.format_exc()})

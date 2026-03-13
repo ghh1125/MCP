@@ -2,7 +2,7 @@
 set -euo pipefail
 cd "$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 mcp_entry_name="${MCP_ENTRY_NAME:-vaderSentiment}"
-mcp_entry_url="${MCP_ENTRY_URL:-http://localhost:7999/mcp}"
+mcp_entry_url="${MCP_ENTRY_URL:-http://localhost:7966/mcp}"
 mcp_dir="${HOME}/.cursor"
 mcp_path="${mcp_dir}/mcp.json"
 mkdir -p "${mcp_dir}"
@@ -72,4 +72,4 @@ elif command -v jq >/dev/null 2>&1; then
   fi
 fi
 docker build -t vaderSentiment-mcp .
-docker run --rm -p 7999:7860 vaderSentiment-mcp
+docker run --rm -p 7966:7860 vaderSentiment-mcp

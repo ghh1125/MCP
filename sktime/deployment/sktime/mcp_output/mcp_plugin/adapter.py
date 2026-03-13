@@ -1,8 +1,8 @@
 import os
 import sys
-import importlib
 import traceback
-from typing import Any, Dict, List, Optional
+import inspect
+from typing import Any, Dict, List, Optional, Tuple
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -13,350 +13,362 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    Import-mode MCP adapter for the sktime repository.
+    MCP import-mode adapter for the sktime repository.
 
-    This adapter focuses on robust, low-intrusion runtime integration:
-    - Attempts direct imports from repository code available under `source/`
-    - Exposes practical high-value constructors/calls inferred from analysis
-    - Provides consistent structured responses with status and diagnostics
-    - Falls back gracefully when optional dependencies are missing
+    This adapter prioritizes direct in-repo imports and provides a graceful fallback
+    mode when imports are unavailable or partially broken in the runtime environment.
     """
 
-    # -------------------------------------------------------------------------
-    # Lifecycle and module management
-    # -------------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
-        self._modules: Dict[str, Any] = {}
-        self._import_errors: Dict[str, str] = {}
-        self._bootstrap_imports()
+        self._loaded = {}
+        self._errors = {}
+        self._init_imports()
 
+    # -------------------------------------------------------------------------
+    # Internal utilities
+    # -------------------------------------------------------------------------
     def _result(
         self,
         status: str,
         message: str,
         data: Optional[Dict[str, Any]] = None,
-        error: Optional[str] = None,
         guidance: Optional[str] = None,
     ) -> Dict[str, Any]:
-        return {
-            "status": status,
-            "mode": self.mode,
-            "message": message,
-            "data": data or {},
-            "error": error,
-            "guidance": guidance,
+        payload = {"status": status, "message": message}
+        if data is not None:
+            payload["data"] = data
+        if guidance:
+            payload["guidance"] = guidance
+        return payload
+
+    def _safe_import(self, import_path: str, attr: Optional[str] = None) -> Tuple[bool, Any, str]:
+        try:
+            module = __import__(import_path, fromlist=[attr] if attr else [])
+            if attr:
+                if not hasattr(module, attr):
+                    return False, None, f"Attribute '{attr}' not found in '{import_path}'."
+                return True, getattr(module, attr), ""
+            return True, module, ""
+        except Exception as e:
+            return False, None, f"Failed to import '{import_path}': {e}"
+
+    def _init_imports(self) -> None:
+        """
+        Import selected high-value modules/classes/functions inferred from analysis.
+        """
+        targets = {
+            "show_versions": ("sktime.utils._maint._show_versions", "show_versions"),
+            "all_estimators": ("sktime.registry", "all_estimators"),
+            "load_airline": ("sktime.datasets.forecasting.airline", "load_airline"),
+            "load_lynx": ("sktime.datasets.forecasting.lynx", "load_lynx"),
+            "NaiveForecaster": ("sktime.forecasting.naive", "NaiveForecaster"),
+            "temporal_train_test_split": ("sktime.split", "temporal_train_test_split"),
+            "ForecastingHorizon": ("sktime.forecasting.base", "ForecastingHorizon"),
+            "make_reduction": ("sktime.forecasting.compose", "make_reduction"),
+            "ExponentTransformer": ("sktime.transformations.series.exponent", "ExponentTransformer"),
+            "BoxCoxTransformer": ("sktime.transformations.series.boxcox", "BoxCoxTransformer"),
+            "make_pipeline": ("sktime.pipeline", "make_pipeline"),
+            "mean_absolute_percentage_error": (
+                "sktime.performance_metrics.forecasting",
+                "mean_absolute_percentage_error",
+            ),
         }
 
-    def _safe_import(self, module_path: str) -> None:
-        try:
-            self._modules[module_path] = importlib.import_module(module_path)
-        except Exception as exc:
-            self._import_errors[module_path] = f"{type(exc).__name__}: {exc}"
+        failures = 0
+        for key, (mod, attr) in targets.items():
+            ok, obj, err = self._safe_import(mod, attr)
+            if ok:
+                self._loaded[key] = obj
+            else:
+                self._errors[key] = err
+                failures += 1
 
-    def _bootstrap_imports(self) -> None:
-        core_modules = [
-            "sktime",
-            "sktime.registry",
-            "sktime.forecasting.naive",
-            "sktime.forecasting.arima",
-            "sktime.forecasting.ets",
-            "sktime.forecasting.exp_smoothing",
-            "sktime.forecasting.theta",
-            "sktime.datasets",
-            "sktime.performance_metrics.forecasting",
-            "sktime.split",
-            "sktime.transformations.series.boxcox",
-            "sktime.transformations.series.difference",
-            "sktime.classification.dummy",
-            "sktime.regression.dummy",
-            "sktime.clustering.k_means",
-            "sktime.detection.dummy",
-        ]
-        for mod in core_modules:
-            self._safe_import(mod)
+        if failures > 0 and failures == len(targets):
+            self.mode = "fallback"
 
-    def health(self) -> Dict[str, Any]:
-        """
-        Return adapter health and import diagnostics.
-
-        Returns:
-            dict: Unified status dictionary including loaded module count and
-            import failures with actionable guidance.
-        """
-        if self._import_errors:
-            return self._result(
-                status="degraded",
-                message="Adapter initialized with partial imports.",
-                data={
-                    "loaded_modules": sorted(self._modules.keys()),
-                    "failed_imports": self._import_errors,
-                },
-                guidance=(
-                    "Install optional dependencies required by the failed modules "
-                    "or restrict calls to successfully loaded components."
-                ),
+    def _require(self, key: str) -> Tuple[bool, Any, Dict[str, Any]]:
+        if self.mode != "import":
+            return False, None, self._result(
+                "error",
+                "Adapter is running in fallback mode.",
+                guidance="Ensure repository source path is mounted and dependencies are installed.",
             )
+        if key not in self._loaded:
+            msg = self._errors.get(key, f"Component '{key}' is unavailable.")
+            return False, None, self._result(
+                "error",
+                msg,
+                guidance="Install optional dependencies required by sktime and retry.",
+            )
+        return True, self._loaded[key], {}
+
+    # -------------------------------------------------------------------------
+    # Health and diagnostics
+    # -------------------------------------------------------------------------
+    def get_status(self) -> Dict[str, Any]:
         return self._result(
-            status="ok",
-            message="Adapter initialized successfully.",
-            data={"loaded_modules": sorted(self._modules.keys())},
+            "success",
+            "Adapter status retrieved.",
+            data={
+                "mode": self.mode,
+                "loaded_components": sorted(self._loaded.keys()),
+                "failed_components": self._errors,
+            },
         )
+
+    def show_versions(self) -> Dict[str, Any]:
+        ok, fn, err = self._require("show_versions")
+        if not ok:
+            return err
+        try:
+            info = fn()
+            return self._result("success", "Version information collected.", data={"versions": info})
+        except Exception:
+            return self._result(
+                "error",
+                "Failed to collect version information.",
+                data={"traceback": traceback.format_exc()},
+                guidance="Verify core dependencies (numpy, pandas, scipy, scikit-learn) are importable.",
+            )
 
     # -------------------------------------------------------------------------
     # Registry / discovery
     # -------------------------------------------------------------------------
     def list_estimators(self, estimator_types: Optional[List[str]] = None) -> Dict[str, Any]:
         """
-        List estimators via sktime registry.
+        List sktime estimators from the registry.
 
-        Args:
-            estimator_types: Optional list of scitype strings to filter estimators.
+        Parameters:
+        - estimator_types: optional list of estimator type filters.
 
         Returns:
-            dict: Status with estimator names or error diagnostics.
+        - Unified status dictionary with estimator metadata.
         """
+        ok, fn, err = self._require("all_estimators")
+        if not ok:
+            return err
         try:
-            reg = importlib.import_module("sktime.registry")
-            all_estimators = getattr(reg, "all_estimators", None)
-            if all_estimators is None:
-                return self._result(
-                    status="error",
-                    message="Registry API not available.",
-                    guidance="Ensure sktime.registry exposes all_estimators in this repository version.",
-                )
-            result = all_estimators(estimator_types=estimator_types) if estimator_types else all_estimators()
+            kwargs = {}
+            if estimator_types:
+                kwargs["estimator_types"] = estimator_types
+            estimators = fn(**kwargs)
+            serial = [str(e) for e in estimators]
+            return self._result("success", "Estimators listed.", data={"count": len(serial), "items": serial})
+        except Exception:
             return self._result(
-                status="ok",
-                message="Estimators listed successfully.",
-                data={"estimators": result},
-            )
-        except Exception as exc:
-            return self._result(
-                status="error",
-                message="Failed to list estimators.",
-                error=f"{type(exc).__name__}: {exc}",
-                guidance="Verify repository version compatibility and optional dependencies.",
+                "error",
+                "Failed to list estimators.",
+                data={"traceback": traceback.format_exc()},
+                guidance="Check estimator filter names and installed optional dependencies.",
             )
 
     # -------------------------------------------------------------------------
-    # Dataset access functions
+    # Dataset loaders
     # -------------------------------------------------------------------------
-    def call_load_airline(self) -> Dict[str, Any]:
-        """
-        Call `sktime.datasets.load_airline`.
-
-        Returns:
-            dict: Loaded time series or actionable error details.
-        """
+    def load_airline(self) -> Dict[str, Any]:
+        ok, fn, err = self._require("load_airline")
+        if not ok:
+            return err
         try:
-            mod = importlib.import_module("sktime.datasets")
-            fn = getattr(mod, "load_airline")
             y = fn()
-            return self._result(status="ok", message="Dataset loaded.", data={"y": y})
-        except Exception as exc:
-            return self._result(
-                status="error",
-                message="Failed to load airline dataset.",
-                error=f"{type(exc).__name__}: {exc}",
-                guidance="Check dataset packaging in source and pandas dependency availability.",
-            )
+            return self._result("success", "Airline dataset loaded.", data={"type": str(type(y)), "length": len(y)})
+        except Exception:
+            return self._result("error", "Failed to load airline dataset.", data={"traceback": traceback.format_exc()})
 
-    def call_load_longley(self) -> Dict[str, Any]:
+    def load_lynx(self) -> Dict[str, Any]:
+        ok, fn, err = self._require("load_lynx")
+        if not ok:
+            return err
         try:
-            mod = importlib.import_module("sktime.datasets")
-            fn = getattr(mod, "load_longley")
-            out = fn()
-            return self._result(status="ok", message="Dataset loaded.", data={"dataset": out})
-        except Exception as exc:
-            return self._result(
-                status="error",
-                message="Failed to load longley dataset.",
-                error=f"{type(exc).__name__}: {exc}",
-                guidance="Ensure forecasting dataset loaders are available in current repository snapshot.",
-            )
+            y = fn()
+            return self._result("success", "Lynx dataset loaded.", data={"type": str(type(y)), "length": len(y)})
+        except Exception:
+            return self._result("error", "Failed to load lynx dataset.", data={"traceback": traceback.format_exc()})
 
     # -------------------------------------------------------------------------
-    # Forecaster class instance methods
+    # Class instance methods
     # -------------------------------------------------------------------------
-    def instance_naive_forecaster(self, strategy: str = "last", sp: int = 1) -> Dict[str, Any]:
+    def instance_naive_forecaster(self, **kwargs: Any) -> Dict[str, Any]:
         """
-        Create an instance of `sktime.forecasting.naive.NaiveForecaster`.
+        Create an instance of sktime.forecasting.naive.NaiveForecaster.
 
-        Args:
-            strategy: Forecasting strategy (e.g., 'last', 'mean', 'drift').
-            sp: Seasonal periodicity.
+        Parameters:
+        - **kwargs: constructor arguments for NaiveForecaster.
 
         Returns:
-            dict: Status and created estimator instance.
+        - Unified status dictionary containing instance metadata.
         """
+        ok, cls, err = self._require("NaiveForecaster")
+        if not ok:
+            return err
         try:
-            mod = importlib.import_module("sktime.forecasting.naive")
-            cls = getattr(mod, "NaiveForecaster")
-            obj = cls(strategy=strategy, sp=sp)
-            return self._result(status="ok", message="NaiveForecaster instance created.", data={"instance": obj})
-        except Exception as exc:
-            return self._result(
-                status="error",
-                message="Failed to create NaiveForecaster.",
-                error=f"{type(exc).__name__}: {exc}",
-                guidance="Validate arguments and ensure sktime forecasting module imports cleanly.",
-            )
-
-    def instance_auto_arima(self, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Create an instance of `sktime.forecasting.arima.AutoARIMA`.
-
-        Args:
-            **kwargs: Constructor parameters forwarded to AutoARIMA.
-
-        Returns:
-            dict: Status and created estimator instance.
-        """
-        try:
-            mod = importlib.import_module("sktime.forecasting.arima")
-            cls = getattr(mod, "AutoARIMA")
             obj = cls(**kwargs)
-            return self._result(status="ok", message="AutoARIMA instance created.", data={"instance": obj})
-        except Exception as exc:
             return self._result(
-                status="error",
-                message="Failed to create AutoARIMA.",
-                error=f"{type(exc).__name__}: {exc}",
-                guidance="Install optional dependency pmdarima and retry.",
+                "success",
+                "NaiveForecaster instance created.",
+                data={"class": obj.__class__.__name__, "module": obj.__class__.__module__, "params": kwargs},
+            )
+        except Exception:
+            return self._result(
+                "error",
+                "Failed to create NaiveForecaster instance.",
+                data={"traceback": traceback.format_exc()},
+                guidance="Validate constructor parameters against sktime NaiveForecaster signature.",
             )
 
-    def instance_theta_forecaster(self, **kwargs: Any) -> Dict[str, Any]:
+    def instance_forecasting_horizon(self, values: Any, is_relative: bool = True) -> Dict[str, Any]:
+        ok, cls, err = self._require("ForecastingHorizon")
+        if not ok:
+            return err
         try:
-            mod = importlib.import_module("sktime.forecasting.theta")
-            cls = getattr(mod, "ThetaForecaster")
+            obj = cls(values, is_relative=is_relative)
+            return self._result(
+                "success",
+                "ForecastingHorizon instance created.",
+                data={"class": obj.__class__.__name__, "is_relative": is_relative, "values": list(values)},
+            )
+        except Exception:
+            return self._result(
+                "error",
+                "Failed to create ForecastingHorizon instance.",
+                data={"traceback": traceback.format_exc()},
+                guidance="Use array-like forecast horizon values and correct relative/absolute mode.",
+            )
+
+    def instance_exponent_transformer(self, **kwargs: Any) -> Dict[str, Any]:
+        ok, cls, err = self._require("ExponentTransformer")
+        if not ok:
+            return err
+        try:
             obj = cls(**kwargs)
-            return self._result(status="ok", message="ThetaForecaster instance created.", data={"instance": obj})
-        except Exception as exc:
-            return self._result(
-                status="error",
-                message="Failed to create ThetaForecaster.",
-                error=f"{type(exc).__name__}: {exc}",
-                guidance="Check statsmodels availability and parameter validity.",
-            )
+            return self._result("success", "ExponentTransformer instance created.", data={"params": kwargs})
+        except Exception:
+            return self._result("error", "Failed to create ExponentTransformer.", data={"traceback": traceback.format_exc()})
 
-    # -------------------------------------------------------------------------
-    # Metrics and split utilities
-    # -------------------------------------------------------------------------
-    def call_mean_absolute_percentage_error(self, y_true: Any, y_pred: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call `sktime.performance_metrics.forecasting.mean_absolute_percentage_error`.
-
-        Args:
-            y_true: Ground-truth values.
-            y_pred: Predicted values.
-            **kwargs: Additional metric parameters.
-
-        Returns:
-            dict: Status and metric value.
-        """
+    def instance_boxcox_transformer(self, **kwargs: Any) -> Dict[str, Any]:
+        ok, cls, err = self._require("BoxCoxTransformer")
+        if not ok:
+            return err
         try:
-            mod = importlib.import_module("sktime.performance_metrics.forecasting")
-            fn = getattr(mod, "mean_absolute_percentage_error")
-            value = fn(y_true, y_pred, **kwargs)
-            return self._result(status="ok", message="MAPE computed.", data={"value": value})
-        except Exception as exc:
-            return self._result(
-                status="error",
-                message="Failed to compute MAPE.",
-                error=f"{type(exc).__name__}: {exc}",
-                guidance="Ensure y_true and y_pred are aligned and coercible to supported sktime formats.",
-            )
+            obj = cls(**kwargs)
+            return self._result("success", "BoxCoxTransformer instance created.", data={"params": kwargs})
+        except Exception:
+            return self._result("error", "Failed to create BoxCoxTransformer.", data={"traceback": traceback.format_exc()})
 
+    # -------------------------------------------------------------------------
+    # Function call methods
+    # -------------------------------------------------------------------------
     def call_temporal_train_test_split(self, y: Any, **kwargs: Any) -> Dict[str, Any]:
+        ok, fn, err = self._require("temporal_train_test_split")
+        if not ok:
+            return err
         try:
-            mod = importlib.import_module("sktime.split")
-            fn = getattr(mod, "temporal_train_test_split")
             split = fn(y, **kwargs)
-            return self._result(status="ok", message="Temporal split completed.", data={"split": split})
-        except Exception as exc:
             return self._result(
-                status="error",
-                message="Failed to perform temporal train/test split.",
-                error=f"{type(exc).__name__}: {exc}",
-                guidance="Validate forecasting index type and split configuration parameters.",
+                "success",
+                "Temporal train-test split completed.",
+                data={"parts": len(split), "types": [str(type(p)) for p in split]},
+            )
+        except Exception:
+            return self._result(
+                "error",
+                "Failed to perform temporal train-test split.",
+                data={"traceback": traceback.format_exc()},
+                guidance="Provide valid time-indexed series and compatible split arguments.",
+            )
+
+    def call_make_reduction(self, estimator: Any, strategy: str = "recursive", window_length: int = 10, **kwargs: Any) -> Dict[str, Any]:
+        ok, fn, err = self._require("make_reduction")
+        if not ok:
+            return err
+        try:
+            forecaster = fn(estimator=estimator, strategy=strategy, window_length=window_length, **kwargs)
+            return self._result(
+                "success",
+                "Reduction forecaster created.",
+                data={"class": forecaster.__class__.__name__, "strategy": strategy, "window_length": window_length},
+            )
+        except Exception:
+            return self._result(
+                "error",
+                "Failed to create reduction forecaster.",
+                data={"traceback": traceback.format_exc()},
+                guidance="Check estimator compatibility with sktime make_reduction.",
+            )
+
+    def call_make_pipeline(self, *steps: Any) -> Dict[str, Any]:
+        ok, fn, err = self._require("make_pipeline")
+        if not ok:
+            return err
+        try:
+            pipe = fn(*steps)
+            return self._result(
+                "success",
+                "Pipeline created.",
+                data={"class": pipe.__class__.__name__, "n_steps": len(steps)},
+            )
+        except Exception:
+            return self._result(
+                "error",
+                "Failed to create pipeline.",
+                data={"traceback": traceback.format_exc()},
+                guidance="Ensure all steps implement compatible sktime estimator interfaces.",
+            )
+
+    def call_mean_absolute_percentage_error(self, y_true: Any, y_pred: Any, **kwargs: Any) -> Dict[str, Any]:
+        ok, fn, err = self._require("mean_absolute_percentage_error")
+        if not ok:
+            return err
+        try:
+            score = fn(y_true, y_pred, **kwargs)
+            return self._result("success", "MAPE computed.", data={"score": float(score)})
+        except Exception:
+            return self._result(
+                "error",
+                "Failed to compute MAPE.",
+                data={"traceback": traceback.format_exc()},
+                guidance="Ensure y_true and y_pred are aligned and numeric.",
             )
 
     # -------------------------------------------------------------------------
     # Generic execution helpers
     # -------------------------------------------------------------------------
-    def call_module_function(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call_component(self, name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Generic function caller for any importable module function.
-
-        Args:
-            module_path: Full module path (e.g., 'sktime.datasets').
-            function_name: Function symbol to call from module.
-            *args: Positional function arguments.
-            **kwargs: Keyword function arguments.
-
-        Returns:
-            dict: Status and call result or structured error.
+        Dynamically call any loaded callable component by registered name.
         """
-        try:
-            module = importlib.import_module(module_path)
-            fn = getattr(module, function_name, None)
-            if fn is None or not callable(fn):
-                return self._result(
-                    status="error",
-                    message="Function not found.",
-                    guidance="Check module path and function name for this repository version.",
-                )
-            result = fn(*args, **kwargs)
-            return self._result(status="ok", message="Function call succeeded.", data={"result": result})
-        except Exception as exc:
+        if name not in self._loaded:
             return self._result(
-                status="error",
-                message="Function call failed.",
-                error=f"{type(exc).__name__}: {exc}",
-                guidance="Inspect arguments and dependency requirements for the target function.",
+                "error",
+                f"Component '{name}' is not loaded.",
+                guidance="Check adapter status and use a valid component name.",
+            )
+        target = self._loaded[name]
+        if not callable(target):
+            return self._result("error", f"Component '{name}' is not callable.")
+        try:
+            out = target(*args, **kwargs)
+            return self._result("success", f"Component '{name}' executed.", data={"output_type": str(type(out)), "output": out})
+        except Exception:
+            return self._result(
+                "error",
+                f"Execution failed for component '{name}'.",
+                data={"traceback": traceback.format_exc()},
+                guidance="Validate input arguments against the callable signature.",
             )
 
-    def instance_class(self, module_path: str, class_name: str, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Generic class instantiation helper for import-mode usage.
-
-        Args:
-            module_path: Full module path containing the class.
-            class_name: Class symbol to instantiate.
-            **kwargs: Constructor keyword arguments.
-
-        Returns:
-            dict: Status and created object or structured error details.
-        """
+    def describe_component(self, name: str) -> Dict[str, Any]:
+        if name not in self._loaded:
+            return self._result("error", f"Component '{name}' is not loaded.")
+        obj = self._loaded[name]
         try:
-            module = importlib.import_module(module_path)
-            cls = getattr(module, class_name, None)
-            if cls is None:
-                return self._result(
-                    status="error",
-                    message="Class not found.",
-                    guidance="Verify class name and module path against repository source.",
-                )
-            obj = cls(**kwargs)
-            return self._result(status="ok", message="Class instance created.", data={"instance": obj})
-        except Exception as exc:
+            sig = str(inspect.signature(obj)) if callable(obj) else None
+            doc = inspect.getdoc(obj)
             return self._result(
-                status="error",
-                message="Class instantiation failed.",
-                error=f"{type(exc).__name__}: {exc}",
-                guidance="Check constructor parameters and install any optional dependencies.",
+                "success",
+                f"Component '{name}' described.",
+                data={"type": str(type(obj)), "signature": sig, "doc": doc},
             )
-
-    def debug_traceback(self) -> Dict[str, Any]:
-        """
-        Return current traceback snapshot for adapter-level diagnostics.
-
-        Returns:
-            dict: Status and traceback string. Useful for MCP orchestration debug.
-        """
-        return self._result(
-            status="ok",
-            message="Traceback snapshot generated.",
-            data={"traceback": traceback.format_exc()},
-        )
+        except Exception:
+            return self._result("error", f"Failed to describe component '{name}'.", data={"traceback": traceback.format_exc()})

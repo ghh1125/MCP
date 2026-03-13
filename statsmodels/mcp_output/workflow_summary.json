@@ -10,13 +10,13 @@
     "forks": 0,
     "language": "Python",
     "last_updated": "",
-    "complexity": "complex",
+    "complexity": "medium",
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773243770.07306,
-    "end_time": 1773244566.140846,
-    "duration": 796.0677859783173,
+    "start_time": 1773410486.756045,
+    "end_time": 1773410695.732192,
+    "duration": 208.97614693641663,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 30,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,12 +53,43 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.statsmodels.source",
+        "mcp_output.mcp_plugin",
+        "source.statsmodels",
+        "source.statsmodels._build",
+        "source.statsmodels.base",
+        "source.statsmodels.compat",
+        "source.statsmodels.datasets",
+        "source.statsmodels.discrete",
+        "source.statsmodels.distributions",
+        "source.statsmodels.duration",
+        "source.statsmodels.emplike",
+        "source.statsmodels.formula",
+        "source.statsmodels.gam",
+        "source.statsmodels.genmod",
+        "source.statsmodels.graphics",
+        "source.statsmodels.imputation",
+        "source.statsmodels.includes",
+        "source.statsmodels.iolib",
+        "source.statsmodels.miscmodels",
+        "source.statsmodels.multivariate",
+        "source.statsmodels.nonparametric",
+        "source.statsmodels.othermod",
+        "source.statsmodels.regression",
+        "source.statsmodels.robust",
+        "source.statsmodels.sandbox",
+        "source.statsmodels.stats",
+        "source.statsmodels.tests",
+        "source.statsmodels.tools",
+        "source.statsmodels.treatment",
+        "source.statsmodels.tsa"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
-      "has_requirements_txt": false,
-      "pyproject": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
       "setup_cfg": false,
       "setup_py": false
     },
@@ -68,9 +99,9 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.9,
+      "import_feasibility": 0.95,
       "intrusiveness_risk": "low",
-      "complexity": "complex"
+      "complexity": "medium"
     },
     "deepwiki_analysis": {
       "repo_url": "https://github.com/statsmodels/statsmodels",
@@ -121,40 +152,33 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Command '['git', 'clone', 'https://github.com/statsmodels/statsmodels', '/Users/ghh/Documents/Code/Code2MCP-private/workspace/statsmodels/temp_clone']' timed out after 600 seconds",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Command '['git', 'clone', 'https://github.com/statsmodels/statsmodels', '/Users/ghh/Documents/Code/Code2MCP-private/workspace/statsmodels/temp_clone']' timed out after 600 seconds"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "Add a minimal smoke test suite for all generated MCP endpoints (import + one no-op call per endpoint)",
-    "prioritize function-based endpoints over raw result/wrapper classes (e.g.",
-    "expose fit/predict workflows for OLS/GLM/Logit/ARIMA/SARIMAX instead of `*Results*` constructors)",
-    "implement strict Pydantic request/response schemas with numpy/pandas serialization guards",
-    "add robust error mapping (ValueError/LinAlgError/ConvergenceWarning) to structured MCP error codes",
-    "pin and validate runtime dependencies in `mcp_output/requirements.txt` against statsmodels’ real build requirements",
-    "add CI workflow to run plugin tests on Linux/macOS with multiple Python versions",
-    "introduce endpoint-level timeouts and resource limits for heavy models (especially statespace/time-series fits)",
-    "add deterministic fixture datasets (via `statsmodels.datasets`) for reproducible MCP tests",
-    "expand README_MCP with per-endpoint examples and expected input shapes",
-    "add logging/telemetry hooks (request id",
-    "endpoint",
-    "duration",
-    "failure class) for observability",
-    "create a compatibility matrix documenting supported statsmodels/numpy/scipy/pandas versions",
-    "add contract tests to detect upstream API drift in statsmodels class signatures",
-    "implement graceful fallback for optional dependencies/features (e.g.",
-    "x13-related paths)",
-    "include security hardening checks (input size caps",
-    "forbidden object deserialization",
-    "path safety)",
-    "and add a small benchmark suite tracking latency and memory per endpoint over time"
+    "add a minimal smoke test suite for MCP endpoints (fit/predict roundtrips for OLS/GLM/ARIMA/SARIMAX) since test status is empty",
+    "add input/output pydantic schemas per endpoint (typed params",
+    "defaults",
+    "validation errors) to reduce runtime misuse",
+    "pin and sync dependency ranges between root `pyproject.toml` and `mcp_output/requirements.txt` (including compatible numpy/scipy/pandas windows)",
+    "implement robust exception mapping in `mcp_service.py` (user error vs numerical convergence vs internal error) with consistent error payloads",
+    "add timeout and resource guards for heavy models (especially SARIMAX/ARIMA) to prevent long-running MCP calls",
+    "include deterministic tiny built-in datasets/fixtures for endpoint tests to avoid flaky external dependencies",
+    "add CI workflow specifically for `mcp_output` (lint",
+    "type-check",
+    "unit tests",
+    "import test against released statsmodels)",
+    "expand endpoint coverage beyond class constructors to practical operations (`fit`",
+    "`summary`",
+    "`predict`",
+    "`get_prediction`) as explicit tools",
+    "create version compatibility checks at server startup (report statsmodels/numpy/scipy versions and warn on unsupported combos)",
+    "add structured logging and request IDs in adapter/service layers for debuggability",
+    "document endpoint parameter conventions and common gotchas in `README_MCP.md` with copy-paste examples",
+    "introduce mypy/ruff on plugin code to catch interface drift early",
+    "add contract tests that compare MCP outputs to direct statsmodels calls for the same seed/data",
+    "implement graceful degradation for optional features (e.g.",
+    "x13-dependent functionality) with clear capability flags",
+    "add basic performance benchmarks for key endpoints (latency/memory on small/medium datasets) and track regressions in CI"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -185,36 +209,36 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal status `success` and executed all planned nodes (`download`, `analysis`, `env`, `generate`, `run`, `review`, `finalize`).",
-      "Resilience mechanism worked: after git clone timeout, pipeline continued via zip fallback and still analyzed ~1441 files.",
-      "MCP plugin startup/health check passed (`service_health: healthy`, `transport_mode: stdio`).",
-      "Low intrusiveness import-based adapter strategy (confidence 0.9) fit statsmodels’ API-oriented structure."
+      "End-to-end workflow status is success, and all planned nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy was feasible for statsmodels (import feasibility ~0.95), reducing integration friction.",
+      "Generated MCP service started healthy over stdio transport, indicating baseline runtime viability.",
+      "Repository analysis correctly identified core modules and generated endpoint set aligned with common statsmodels classes (OLS/GLM/Logit/ARIMA/SARIMAX)."
     ],
     "failure_reasons": [
-      "Primary repository acquisition path failed: `git clone` timed out after 600s (DownloadNode CloneFailed).",
-      "Observability/metrics quality is poor: many fields show zeros/unknowns (LLM calls, file counters, performance metrics), reducing diagnostic confidence.",
-      "Generated artifact metadata is internally inconsistent (e.g., `tool_endpoints: 0` while service info lists 24 endpoints).",
-      "Original project tests were not validated (`passed: false`, no test files/details), so compatibility with real statsmodels runtime is unproven."
+      "No hard workflow failure occurred.",
+      "Validation depth is insufficient: original project tests show passed=false with empty details, and MCP tests are effectively absent (no concrete endpoint test evidence).",
+      "Observability gaps (resource metrics all zero/empty, generated LOC/size recorded as zero) indicate instrumentation/reporting defects.",
+      "DeepWiki analysis failed, reducing external semantic enrichment for generation confidence."
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Slow and unstable. Download node consumed most risk budget and hit 600s timeout on git clone; fallback succeeded.",
-      "analysis_time": "Functionally successful via fallback path; large monorepo-scale analysis (1441 files) completed but timing granularity missing.",
-      "generation_time": "Completed and produced expected skeleton files; endpoint generation appears partial/metadata-misaligned.",
-      "test_time": "Only plugin health smoke appears executed; no substantive endpoint contract/performance testing observed."
+      "download_time": "Completed successfully; likely moderate due to large repo (1441 files) imported via zip fallback.",
+      "analysis_time": "Completed successfully with broad structural/dependency mapping; likely the dominant step given repository size and package breadth.",
+      "generation_time": "Completed successfully; plugin scaffold and core service files created, but metadata quality is weak (0 LOC/size/tool endpoint counts).",
+      "test_time": "Service health check passed, but functional test coverage is effectively missing; quality signal is low despite green status."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown due to missing telemetry (reported 0 MB is non-credible).",
-      "cpu_efficiency": "Unknown due to missing telemetry (reported 0% is non-credible).",
-      "disk_usage": "Likely moderate-high because full repo fallback import occurred; generated plugin footprint appears small."
+      "memory_efficiency": "Not assessable from provided metrics (reported as 0). Add real memory profiling during analysis/generation/run.",
+      "cpu_efficiency": "Not assessable from provided metrics (reported as 0). Capture per-node CPU utilization and hotspots.",
+      "disk_usage": "Repo is large; generated artifact footprint appears underreported (size=0). Add artifact size accounting and cache usage stats."
     }
   },
   "technical_quality": {
-    "code_quality_score": 68,
-    "architecture_score": 74,
-    "performance_score": 52,
-    "maintainability_score": 66,
+    "code_quality_score": 72,
+    "architecture_score": 78,
+    "performance_score": 60,
+    "maintainability_score": 70,
     "security_score": 85,
-    "scalability_score": 61
+    "scalability_score": 68
   }
 }

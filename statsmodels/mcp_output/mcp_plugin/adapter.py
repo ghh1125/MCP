@@ -1,6 +1,8 @@
 import os
 import sys
-from typing import Any, Dict, Optional
+import traceback
+import importlib
+from typing import Any, Dict, List, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -11,245 +13,269 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import Mode Adapter for statsmodels repository integration.
+    Import-mode adapter for the statsmodels repository.
 
-    This adapter favors direct imports from repository source code and provides
-    graceful fallback behavior when import/runtime conditions are not met.
+    This adapter attempts to load modules from the local source tree (source/statsmodels).
+    It exposes utility methods that wrap commonly useful entry points identified in analysis:
+    - statsmodels.api
+    - statsmodels.formula.api
+    - statsmodels.tsa.api
+    - statsmodels.stats.api
+    - statsmodels.graphics.api
+    - statsmodels.tools.print_version (diagnostic module)
+
+    All methods return a unified dictionary format:
+    {
+        "status": "success" | "error" | "fallback",
+        "message": str,
+        ...additional fields...
+    }
     """
 
-    mode = "import"
-
-    # -------------------------------------------------------------------------
-    # Lifecycle and internal helpers
-    # -------------------------------------------------------------------------
     def __init__(self) -> None:
+        self.mode = "import"
         self._modules: Dict[str, Any] = {}
-        self._load_errors: Dict[str, str] = {}
+        self._import_errors: Dict[str, str] = {}
         self._initialize_imports()
 
-    def _ok(self, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        result = {"status": "success", "mode": self.mode}
-        if data:
-            result.update(data)
-        return result
+    # -------------------------------------------------------------------------
+    # Internal helpers
+    # -------------------------------------------------------------------------
+    def _ok(self, message: str, **kwargs: Any) -> Dict[str, Any]:
+        payload = {"status": "success", "message": message}
+        payload.update(kwargs)
+        return payload
 
-    def _err(self, message: str, guidance: Optional[str] = None, extra: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        result = {
-            "status": "error",
-            "mode": self.mode,
-            "error": message,
-        }
-        if guidance:
-            result["guidance"] = guidance
-        if extra:
-            result.update(extra)
-        return result
+    def _err(self, message: str, **kwargs: Any) -> Dict[str, Any]:
+        payload = {"status": "error", "message": message}
+        payload.update(kwargs)
+        return payload
+
+    def _fallback(self, message: str, **kwargs: Any) -> Dict[str, Any]:
+        payload = {"status": "fallback", "message": message}
+        payload.update(kwargs)
+        return payload
+
+    def _safe_import(self, module_path: str, alias: str) -> None:
+        try:
+            self._modules[alias] = importlib.import_module(module_path)
+        except Exception as exc:
+            self._modules[alias] = None
+            self._import_errors[alias] = f"{type(exc).__name__}: {exc}"
 
     def _initialize_imports(self) -> None:
-        targets = {
-            "print_version": "statsmodels.tools.print_version",
-            "api": "statsmodels.api",
-            "tsa_api": "statsmodels.tsa.api",
-            "stats_api": "statsmodels.stats.api",
-            "iolib_api": "statsmodels.iolib.api",
-            "graphics_api": "statsmodels.graphics.api",
-            "formula_api": "statsmodels.formula.api",
-        }
-        for key, module_path in targets.items():
-            try:
-                self._modules[key] = __import__(module_path, fromlist=["*"])
-            except Exception as exc:
-                self._load_errors[key] = f"{type(exc).__name__}: {exc}"
+        self._safe_import("statsmodels", "statsmodels_root")
+        self._safe_import("statsmodels.api", "sm_api")
+        self._safe_import("statsmodels.formula.api", "smf_api")
+        self._safe_import("statsmodels.tsa.api", "tsa_api")
+        self._safe_import("statsmodels.stats.api", "stats_api")
+        self._safe_import("statsmodels.graphics.api", "graphics_api")
+        self._safe_import("statsmodels.tools.print_version", "print_version_mod")
 
-    # -------------------------------------------------------------------------
-    # Health and diagnostics
-    # -------------------------------------------------------------------------
-    def get_status(self) -> Dict[str, Any]:
-        """
-        Return adapter status and import diagnostics.
-
-        Returns:
-            dict: Unified status payload with loaded modules and load errors.
-        """
-        return self._ok(
-            {
-                "loaded_modules": sorted(list(self._modules.keys())),
-                "import_errors": self._load_errors,
-                "source_path": source_path,
-            }
+    def _require_module(self, alias: str, guidance: Optional[str] = None) -> Dict[str, Any]:
+        mod = self._modules.get(alias)
+        if mod is not None:
+            return self._ok("Module is available.", module=alias)
+        msg = self._import_errors.get(alias, "Module import failed for unknown reasons.")
+        help_msg = guidance or "Verify local source path and required dependencies are installed."
+        return self._fallback(
+            f"Module '{alias}' is unavailable. {msg}",
+            guidance=help_msg,
+            import_error=msg,
+            module=alias,
         )
 
-    def run_print_version(self) -> Dict[str, Any]:
-        """
-        Execute statsmodels environment/version diagnostics.
+    # -------------------------------------------------------------------------
+    # Health / diagnostics
+    # -------------------------------------------------------------------------
+    def health_check(self) -> Dict[str, Any]:
+        available = [k for k, v in self._modules.items() if v is not None]
+        unavailable = {k: self._import_errors.get(k, "Unknown error") for k, v in self._modules.items() if v is None}
+        return self._ok(
+            "Adapter initialized.",
+            mode=self.mode,
+            source_path=source_path,
+            available_modules=available,
+            unavailable_modules=unavailable,
+        )
 
-        Uses:
-            statsmodels.tools.print_version
+    def get_version(self) -> Dict[str, Any]:
+        mod = self._modules.get("statsmodels_root")
+        if mod is None:
+            return self._require_module("statsmodels_root", "Ensure source/statsmodels is present and importable.")
+        version = getattr(mod, "__version__", None)
+        return self._ok("Version retrieved.", version=version)
+
+    def call_print_version_module(self) -> Dict[str, Any]:
+        check = self._require_module("print_version_mod", "Try importing statsmodels.tools.print_version directly.")
+        if check["status"] != "success":
+            return check
+        mod = self._modules["print_version_mod"]
+        attrs = [a for a in dir(mod) if not a.startswith("_")]
+        return self._ok(
+            "Diagnostic module loaded.",
+            module="statsmodels.tools.print_version",
+            public_attributes=attrs,
+            note="This module is intended for environment/version diagnostics.",
+        )
+
+    # -------------------------------------------------------------------------
+    # API module accessors
+    # -------------------------------------------------------------------------
+    def instance_statsmodels_api(self) -> Dict[str, Any]:
+        return self._require_module("sm_api", "Install required dependencies: numpy, scipy, pandas, patsy, packaging.")
+
+    def instance_formula_api(self) -> Dict[str, Any]:
+        return self._require_module("smf_api", "Ensure patsy is installed for formula support.")
+
+    def instance_tsa_api(self) -> Dict[str, Any]:
+        return self._require_module("tsa_api", "Ensure time-series dependencies are available (numpy/scipy/pandas).")
+
+    def instance_stats_api(self) -> Dict[str, Any]:
+        return self._require_module("stats_api", "Ensure core scientific dependencies are available.")
+
+    def instance_graphics_api(self) -> Dict[str, Any]:
+        return self._require_module("graphics_api", "Install matplotlib for plotting-related features.")
+
+    # -------------------------------------------------------------------------
+    # Dynamic class/function execution utilities
+    # -------------------------------------------------------------------------
+    def create_instance(self, module_alias: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create an instance of a class from an imported module alias.
+
+        Parameters:
+            module_alias: One of the imported aliases (e.g., 'sm_api', 'tsa_api').
+            class_name: Exact class name to instantiate.
+            *args, **kwargs: Constructor parameters.
 
         Returns:
-            dict: Unified status payload.
+            Unified status dictionary with created instance (if successful).
         """
-        mod = self._modules.get("print_version")
-        if mod is None:
-            return self._err(
-                "Failed to import statsmodels.tools.print_version.",
-                "Ensure repository source dependencies are installed: numpy, scipy, pandas, patsy, packaging.",
-                {"import_errors": self._load_errors},
-            )
+        check = self._require_module(module_alias)
+        if check["status"] != "success":
+            return check
+        mod = self._modules[module_alias]
         try:
-            if hasattr(mod, "show_versions"):
-                mod.show_versions()
-                return self._ok({"message": "show_versions executed."})
-            if hasattr(mod, "main"):
-                mod.main()
-                return self._ok({"message": "print_version main executed."})
+            cls = getattr(mod, class_name)
+            instance = cls(*args, **kwargs)
+            return self._ok(
+                "Class instance created.",
+                module_alias=module_alias,
+                class_name=class_name,
+                instance=instance,
+            )
+        except AttributeError:
             return self._err(
-                "No executable entry point found in statsmodels.tools.print_version.",
-                "Use module attributes to inspect available diagnostic functions.",
+                f"Class '{class_name}' was not found in module alias '{module_alias}'.",
+                guidance="Verify class name and module alias.",
             )
         except Exception as exc:
             return self._err(
-                f"Diagnostics execution failed: {type(exc).__name__}: {exc}",
-                "Check optional runtime dependencies and Python environment compatibility.",
+                f"Failed to instantiate class '{class_name}'.",
+                error=f"{type(exc).__name__}: {exc}",
+                traceback=traceback.format_exc(),
             )
 
-    # -------------------------------------------------------------------------
-    # API accessors (module-level handles for downstream MCP tools)
-    # -------------------------------------------------------------------------
-    def get_statsmodels_api(self) -> Dict[str, Any]:
+    def call_function(self, module_alias: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Retrieve statsmodels.api module handle.
+        Call a function from an imported module alias.
+
+        Parameters:
+            module_alias: One of the imported aliases (e.g., 'sm_api', 'smf_api', 'tsa_api').
+            function_name: Function name to call.
+            *args, **kwargs: Function parameters.
 
         Returns:
-            dict: Contains module object on success.
+            Unified status dictionary with function result.
         """
-        mod = self._modules.get("api")
-        if mod is None:
-            return self._err(
-                "Failed to import statsmodels.api.",
-                "Install required dependencies and verify source path configuration.",
-                {"import_errors": self._load_errors},
-            )
-        return self._ok({"module": mod})
-
-    def get_tsa_api(self) -> Dict[str, Any]:
-        """
-        Retrieve statsmodels.tsa.api module handle.
-
-        Returns:
-            dict: Contains module object on success.
-        """
-        mod = self._modules.get("tsa_api")
-        if mod is None:
-            return self._err(
-                "Failed to import statsmodels.tsa.api.",
-                "Ensure time-series dependencies are available and source is intact.",
-                {"import_errors": self._load_errors},
-            )
-        return self._ok({"module": mod})
-
-    def get_stats_api(self) -> Dict[str, Any]:
-        """
-        Retrieve statsmodels.stats.api module handle.
-
-        Returns:
-            dict: Contains module object on success.
-        """
-        mod = self._modules.get("stats_api")
-        if mod is None:
-            return self._err(
-                "Failed to import statsmodels.stats.api.",
-                "Validate base dependencies and statsmodels source integrity.",
-                {"import_errors": self._load_errors},
-            )
-        return self._ok({"module": mod})
-
-    def get_iolib_api(self) -> Dict[str, Any]:
-        """
-        Retrieve statsmodels.iolib.api module handle.
-
-        Returns:
-            dict: Contains module object on success.
-        """
-        mod = self._modules.get("iolib_api")
-        if mod is None:
-            return self._err(
-                "Failed to import statsmodels.iolib.api.",
-                "Check statsmodels source files and import path setup.",
-                {"import_errors": self._load_errors},
-            )
-        return self._ok({"module": mod})
-
-    def get_graphics_api(self) -> Dict[str, Any]:
-        """
-        Retrieve statsmodels.graphics.api module handle.
-
-        Returns:
-            dict: Contains module object on success.
-        """
-        mod = self._modules.get("graphics_api")
-        if mod is None:
-            return self._err(
-                "Failed to import statsmodels.graphics.api.",
-                "Install optional plotting dependency matplotlib if required.",
-                {"import_errors": self._load_errors},
-            )
-        return self._ok({"module": mod})
-
-    def get_formula_api(self) -> Dict[str, Any]:
-        """
-        Retrieve statsmodels.formula.api module handle.
-
-        Returns:
-            dict: Contains module object on success.
-        """
-        mod = self._modules.get("formula_api")
-        if mod is None:
-            return self._err(
-                "Failed to import statsmodels.formula.api.",
-                "Ensure patsy is installed for formula-based modeling.",
-                {"import_errors": self._load_errors},
-            )
-        return self._ok({"module": mod})
-
-    # -------------------------------------------------------------------------
-    # Generic utility execution helpers
-    # -------------------------------------------------------------------------
-    def call_module_attr(self, module_key: str, attr_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call any callable attribute from a preloaded module key.
-
-        Args:
-            module_key (str): One of internal module keys loaded by adapter.
-            attr_name (str): Callable attribute name to invoke.
-            *args: Positional arguments for callable.
-            **kwargs: Keyword arguments for callable.
-
-        Returns:
-            dict: Unified status payload with callable return value.
-        """
-        mod = self._modules.get(module_key)
-        if mod is None:
-            return self._err(
-                f"Module key '{module_key}' is not loaded.",
-                "Use get_status() to inspect available modules and import errors.",
-            )
-        if not hasattr(mod, attr_name):
-            return self._err(
-                f"Attribute '{attr_name}' not found in module '{module_key}'.",
-                "Verify attribute name and module API compatibility.",
-            )
-        fn = getattr(mod, attr_name)
-        if not callable(fn):
-            return self._err(
-                f"Attribute '{attr_name}' in module '{module_key}' is not callable.",
-                "Use module inspection to access non-callable attributes directly.",
-            )
+        check = self._require_module(module_alias)
+        if check["status"] != "success":
+            return check
+        mod = self._modules[module_alias]
         try:
-            value = fn(*args, **kwargs)
-            return self._ok({"result": value})
+            fn = getattr(mod, function_name)
+            result = fn(*args, **kwargs)
+            return self._ok(
+                "Function executed successfully.",
+                module_alias=module_alias,
+                function_name=function_name,
+                result=result,
+            )
+        except AttributeError:
+            return self._err(
+                f"Function '{function_name}' was not found in module alias '{module_alias}'.",
+                guidance="Verify function name and module alias.",
+            )
         except Exception as exc:
             return self._err(
-                f"Callable execution failed: {type(exc).__name__}: {exc}",
-                "Validate input arguments and dependency availability.",
+                f"Function '{function_name}' execution failed.",
+                error=f"{type(exc).__name__}: {exc}",
+                traceback=traceback.format_exc(),
             )
+
+    # -------------------------------------------------------------------------
+    # Convenience wrappers for common statsmodels usage
+    # -------------------------------------------------------------------------
+    def list_public_members(self, module_alias: str) -> Dict[str, Any]:
+        check = self._require_module(module_alias)
+        if check["status"] != "success":
+            return check
+        mod = self._modules[module_alias]
+        public = [a for a in dir(mod) if not a.startswith("_")]
+        return self._ok("Public members listed.", module_alias=module_alias, members=public)
+
+    def run_module_function(self, full_module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Import any module by full path and execute one function.
+
+        Parameters:
+            full_module_path: e.g., 'statsmodels.tools.print_version'
+            function_name: function to call inside module
+            *args, **kwargs: function arguments
+
+        Returns:
+            Unified status dictionary.
+        """
+        try:
+            mod = importlib.import_module(full_module_path)
+            fn = getattr(mod, function_name)
+            result = fn(*args, **kwargs)
+            return self._ok(
+                "Module function executed successfully.",
+                module=full_module_path,
+                function=function_name,
+                result=result,
+            )
+        except ModuleNotFoundError:
+            return self._fallback(
+                f"Module '{full_module_path}' could not be imported.",
+                guidance="Check source path and ensure repository source files are available.",
+            )
+        except AttributeError:
+            return self._err(
+                f"Function '{function_name}' was not found in module '{full_module_path}'.",
+                guidance="Verify function name and module path.",
+            )
+        except Exception as exc:
+            return self._err(
+                f"Execution failed for '{full_module_path}.{function_name}'.",
+                error=f"{type(exc).__name__}: {exc}",
+                traceback=traceback.format_exc(),
+            )
+
+    def supported_modules(self) -> Dict[str, Any]:
+        return self._ok(
+            "Supported module aliases returned.",
+            aliases={
+                "statsmodels_root": "statsmodels",
+                "sm_api": "statsmodels.api",
+                "smf_api": "statsmodels.formula.api",
+                "tsa_api": "statsmodels.tsa.api",
+                "stats_api": "statsmodels.stats.api",
+                "graphics_api": "statsmodels.graphics.api",
+                "print_version_mod": "statsmodels.tools.print_version",
+            },
+            required_dependencies=["numpy", "scipy", "pandas", "patsy", "packaging"],
+            optional_dependencies=["matplotlib", "cvxopt", "joblib", "pytest", "x13as external binary"],
+        )

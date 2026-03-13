@@ -1522,13 +1522,19 @@
   "structure": {
     "packages": [
       "deployment.pymatgen.source",
-      "mcp_output.mcp_plugin"
+      "mcp_output.mcp_plugin",
+      "source.tests",
+      "source.tests.analysis",
+      "source.tests.apps",
+      "source.tests.cli",
+      "source.tests.ext",
+      "source.tests.vis"
     ]
   },
   "dependencies": {
     "has_environment_yml": false,
-    "has_requirements_txt": false,
-    "pyproject": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
     "setup_cfg": false,
     "setup_py": false
   },
@@ -1541,151 +1547,162 @@
     "core_modules": [
       {
         "package": "deployment.pymatgen.source",
-        "module": "src/pymatgen/ext/matproj.py",
-        "functions": [
-          "legacy MPRester-style query/helper functions (module-level helpers)"
-        ],
-        "classes": [
-          "MPRester"
-        ],
-        "description": "Primary external API integration point for Materials Project access; best MCP surface for retrieval-style tools and structured materials queries."
-      },
-      {
-        "package": "deployment.pymatgen.source",
-        "module": "src/pymatgen/ext/optimade.py",
-        "functions": [
-          "provider query translation helpers"
-        ],
-        "classes": [
-          "OptimadeRester"
-        ],
-        "description": "Cross-provider OPTIMADE client wrapper; suitable for federated materials search MCP tools."
-      },
-      {
-        "package": "deployment.pymatgen.source",
-        "module": "src/pymatgen/core (package)",
-        "functions": [
-          "structure/composition serialization helpers (via MSONable ecosystem)"
-        ],
+        "module": "source.pymatgen.core.structure",
+        "functions": [],
         "classes": [
           "Structure",
+          "IStructure",
           "Molecule",
-          "Lattice",
-          "Composition",
-          "Element",
-          "Species"
+          "IMolecule"
         ],
-        "description": "Foundational domain models for nearly all pymatgen workflows; ideal canonical input/output schema for MCP tools."
+        "description": "Primary crystal/molecular data models used throughout pymatgen; best foundational import surface for MCP tools that accept/return structures."
       },
       {
         "package": "deployment.pymatgen.source",
-        "module": "src/pymatgen/analysis/phase_diagram.py",
-        "functions": [
-          "entry processing and phase stability utilities"
+        "module": "source.pymatgen.core.composition",
+        "functions": [],
+        "classes": [
+          "Composition",
+          "ChemicalPotential"
         ],
+        "description": "Composition parsing and chemistry utilities; useful for lightweight formula/stoichiometry tools."
+      },
+      {
+        "package": "deployment.pymatgen.source",
+        "module": "source.pymatgen.analysis.phase_diagram",
+        "functions": [],
         "classes": [
           "PhaseDiagram",
-          "PDPlotter",
+          "PDEntry",
           "GrandPotentialPhaseDiagram",
           "CompoundPhaseDiagram"
         ],
-        "description": "High-value thermodynamics engine; good candidate for compute-oriented MCP tools with structured inputs."
+        "description": "Thermodynamic phase diagram construction and analysis; high-value analysis endpoint for MCP."
       },
       {
         "package": "deployment.pymatgen.source",
-        "module": "src/pymatgen/analysis/pourbaix_diagram.py",
-        "functions": [
-          "aqueous stability processing helpers"
-        ],
+        "module": "source.pymatgen.analysis.reaction_calculator",
+        "functions": [],
         "classes": [
-          "PourbaixDiagram",
-          "PourbaixPlotter",
-          "PourbaixEntry"
+          "Reaction",
+          "ComputedReaction",
+          "BalancedReaction"
         ],
-        "description": "Electrochemical stability workflows; suitable for specialized MCP endpoints."
+        "description": "Reaction balancing and energetics tools suitable for deterministic API-style MCP calls."
       },
       {
         "package": "deployment.pymatgen.source",
-        "module": "src/pymatgen/io/vasp (package)",
-        "functions": [
-          "VASP input/output parsing helpers"
-        ],
+        "module": "source.pymatgen.analysis.structure_matcher",
+        "functions": [],
         "classes": [
-          "Vasprun",
-          "Outcar",
+          "StructureMatcher",
+          "ElementComparator",
+          "FrameworkComparator"
+        ],
+        "description": "Robust structure equivalence/matching utilities; good for compare/deduplicate tools."
+      },
+      {
+        "package": "deployment.pymatgen.source",
+        "module": "source.pymatgen.ext.matproj",
+        "functions": [],
+        "classes": [
+          "MPRester"
+        ],
+        "description": "Materials Project API integration layer; optional network-backed MCP tools."
+      },
+      {
+        "package": "deployment.pymatgen.source",
+        "module": "source.pymatgen.ext.optimade",
+        "functions": [],
+        "classes": [
+          "OptimadeRester"
+        ],
+        "description": "OPTIMADE client utilities for federated materials queries."
+      },
+      {
+        "package": "deployment.pymatgen.source",
+        "module": "source.pymatgen.io.vasp.inputs / source.pymatgen.io.vasp.outputs",
+        "functions": [],
+        "classes": [
           "Incar",
-          "Kpoints",
           "Poscar",
-          "Potcar"
+          "Kpoints",
+          "Potcar",
+          "Vasprun",
+          "Outcar"
         ],
-        "description": "Robust parser/writer surface for file-to-JSON conversion MCP tools."
+        "description": "High-demand DFT I/O module family for parsing/generating VASP artifacts in MCP workflows."
       }
     ],
     "cli_commands": [
       {
         "name": "pmg",
-        "module": "deployment.pymatgen.source:src/pymatgen/cli/pmg.py",
-        "description": "Main pymatgen command-line entrypoint with subcommands for config, structure ops, analysis, and plotting."
+        "module": "source.pymatgen.cli.pmg",
+        "description": "Main pymatgen CLI entry with subcommands for configuration, analysis, plotting, and structure operations."
       },
       {
-        "name": "pmg analyze",
-        "module": "deployment.pymatgen.source:src/pymatgen/cli/pmg_analyze.py",
-        "description": "CLI-oriented post-processing/analysis utilities."
+        "name": "pmg_analyze",
+        "module": "source.pymatgen.cli.pmg_analyze",
+        "description": "CLI analysis helpers for common VASP/materials post-processing tasks."
       },
       {
-        "name": "pmg plot",
-        "module": "deployment.pymatgen.source:src/pymatgen/cli/pmg_plot.py",
-        "description": "Plotting-oriented CLI helper."
+        "name": "pmg_config",
+        "module": "source.pymatgen.cli.pmg_config",
+        "description": "CLI configuration management (e.g., setup paths, external tool config)."
       },
       {
-        "name": "pmg structure",
-        "module": "deployment.pymatgen.source:src/pymatgen/cli/pmg_structure.py",
-        "description": "Structure manipulation and conversion commands."
+        "name": "pmg_plot",
+        "module": "source.pymatgen.cli.pmg_plot",
+        "description": "Plot-focused CLI wrappers for selected analysis outputs."
       },
       {
-        "name": "pmg config",
-        "module": "deployment.pymatgen.source:src/pymatgen/cli/pmg_config.py",
-        "description": "Environment/config setup tooling (including external code integrations)."
+        "name": "pmg_structure",
+        "module": "source.pymatgen.cli.pmg_structure",
+        "description": "Structure conversion/manipulation CLI commands."
+      },
+      {
+        "name": "get_environment",
+        "module": "source.pymatgen.cli.get_environment",
+        "description": "Chemical environment CLI utility based on chemenv functionality."
       }
     ],
     "import_strategy": {
       "primary": "import",
       "fallback": "cli",
-      "confidence": 0.9
+      "confidence": 0.93
     },
     "dependencies": {
       "required": [
-        "python>=3.10",
         "numpy",
         "scipy",
         "monty",
         "ruamel.yaml",
         "spglib",
         "networkx",
+        "sympy",
         "pandas",
         "matplotlib",
-        "sympy",
-        "requests",
-        "joblib",
         "tabulate",
+        "uncertainties",
+        "joblib",
         "tqdm",
-        "uncertainties"
+        "requests"
       ],
       "optional": [
         "mp-api",
         "ase",
-        "phonopy",
-        "seekpath",
-        "pybtex",
-        "h5py",
-        "openbabel",
-        "rdkit",
+        "plotly",
         "vtk",
-        "scikit-learn"
+        "seekpath",
+        "phonopy",
+        "h5py",
+        "scikit-learn",
+        "openbabel",
+        "rdkit"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.88,
+      "import_feasibility": 0.9,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -1703,7 +1720,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.88,
+    "import_feasibility": 0.9,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

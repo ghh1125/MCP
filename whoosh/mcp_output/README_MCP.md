@@ -2,130 +2,111 @@
 
 ## 1) Project Introduction
 
-This project exposes core Whoosh full-text search capabilities as an MCP (Model Context Protocol) service for AI/tooling workflows.  
-It focuses on practical indexing and query operations:
+This service wraps the **Whoosh** full-text search library and exposes practical search/index capabilities through MCP (Model Context Protocol).
 
-- Create/open indexes
-- Define schemas and analyzers
+Main goals:
+- Create and open indexes
+- Define schemas and field types
 - Add/update/delete documents
-- Parse user query strings
-- Execute ranked search
-- Sort/facet results
-- Highlight snippets
-- Provide spelling suggestions
+- Run parsed queries and structured queries
+- Return ranked results, sorting/faceting, highlighting, and spelling suggestions
 
-Core Whoosh modules used include `whoosh.index`, `whoosh.fields`, `whoosh.writing`, `whoosh.searching`, `whoosh.qparser`, `whoosh.query`, `whoosh.scoring`, `whoosh.highlight`, `whoosh.sorting`, and `whoosh.spelling`.
+Repository analyzed: https://github.com/mchaput/whoosh
 
 ---
 
-## 2) Installation Method
+## 2) Installation
 
 ### Requirements
 - Python 3.x
-- Standard library dependencies (no clearly required third-party runtime package identified from scanned metadata)
+- `setuptools` (packaging/install)
+- Optional: `PyStemmer` (faster stemming in some analyzers)
 
-### Install from source
-- Clone repository: `https://github.com/mchaput/whoosh`
-- Install locally (editable): `pip install -e .`
-- Or standard install: `pip install .`
+### Install commands
+- Install from PyPI:
+  `pip install whoosh`
+- Or from source repository:
+  `pip install .`
 
-### Verify
-- Run tests (optional): `pytest`
-- Import check: `import whoosh`
+Notes:
+- No dedicated `pyproject.toml` was detected in this scan; `setup.py` / `setup.cfg` are present.
+- This project is primarily an import-first library (no explicit console entry points detected).
 
 ---
 
 ## 3) Quick Start
 
-Typical MCP (Model Context Protocol) workflow:
+### Minimal flow
+1. Create schema (`whoosh.fields.Schema`, `TEXT`, `ID`, etc.)
+2. Create index (`whoosh.index.create_in`)
+3. Write documents (`ix.writer().add_document(...)`)
+4. Search (`ix.searcher().search(...)`)
 
-1. Create or open an index (`whoosh.index.create_in`, `open_dir`)
-2. Define schema (`whoosh.fields.Schema` + field types like `TEXT`, `ID`, `NUMERIC`)
-3. Write documents (`IndexWriter` / `AsyncWriter` / `BufferedWriter`)
-4. Parse query text (`QueryParser` / `MultifieldParser`)
-5. Search (`Searcher.search`) with optional ranking (`BM25F`), sorting/faceting, highlighting
-6. Return structured results to MCP (Model Context Protocol) clients
-
-Main callable APIs:
-- Index lifecycle: `create_in`, `open_dir`, `exists_in`
-- Query parsing: `QueryParser`, `MultifieldParser`, `SimpleParser`
-- Query objects: `Term`, `Phrase`, `Wildcard`, `FuzzyTerm`
-- Scoring: `BM25F`, `TF_IDF`
-- Results handling: `Results`, `Hit`
-- Highlighting: `Highlighter` / `highlight`
-- Sorting/faceting: `FieldFacet`, `ScoreFacet`, `MultiFacet`
-- Spelling: `SpellChecker`, `ReaderCorrector`
+### Typical core APIs
+- Index management: `whoosh.index.create_in`, `open_dir`, `exists_in`
+- Writing: `whoosh.writing.IndexWriter`, `BufferedWriter`, `AsyncWriter`
+- Query parsing: `whoosh.qparser.QueryParser`, `MultifieldParser`
+- Searching: `whoosh.searching.Searcher`, `Results`
+- Scoring: `whoosh.scoring.BM25F`, `TF_IDF`
+- Sorting/faceting: `whoosh.sorting.FieldFacet`, `Facets`
+- Highlighting: `whoosh.highlight.Highlighter`
+- Spelling correction: `whoosh.spelling.Corrector` and related classes
 
 ---
 
-## 4) Available Tools and Endpoints List
+## 4) Available Tools and Endpoints
 
-Recommended MCP (Model Context Protocol) service endpoints:
+Since this repository is a library, MCP (Model Context Protocol) endpoints are typically defined by your wrapper service. Recommended endpoint set:
 
-- `index.create`  
-  Create a new index directory with a schema.
-
-- `index.open`  
-  Open an existing index.
-
-- `index.exists`  
-  Check whether an index exists at a path.
-
-- `documents.add`  
-  Add one or more documents and commit.
-
-- `documents.update`  
-  Update documents by unique key field(s).
-
-- `documents.delete`  
-  Delete documents by term/query.
-
-- `query.parse`  
-  Convert user query string into Whoosh query object.
-
-- `search.execute`  
-  Run query, return ranked hits, total count, optional pagination.
-
-- `search.sort`  
-  Execute search with sorting/facet options.
-
-- `search.highlight`  
-  Return highlighted snippets for matched fields.
-
-- `spelling.suggest`  
-  Return spelling corrections/suggestions from index terms.
-
-- `maintenance.make_checkpoint`  
-  Wrapper around `scripts/make_checkpoint.py` for checkpoint generation.
-
-- `maintenance.read_checkpoint`  
-  Wrapper around `scripts/read_checkpoint.py` for checkpoint inspection.
+- `index.create`
+  - Create a new index directory with schema.
+- `index.open`
+  - Open an existing index.
+- `index.exists`
+  - Check if index exists.
+- `documents.add`
+  - Add one or many documents.
+- `documents.update`
+  - Update documents by unique field.
+- `documents.delete`
+  - Delete by term/query.
+- `documents.commit`
+  - Commit pending writer changes.
+- `search.query`
+  - Parse query string and return ranked hits.
+- `search.advanced`
+  - Execute structured query objects, filters, limits.
+- `search.sort`
+  - Run search with sortable fields/facets.
+- `search.highlight`
+  - Return snippets with matched terms highlighted.
+- `spelling.suggest`
+  - Return correction suggestions for terms/query text.
+- `index.optimize` (optional)
+  - Force segment merge/optimization when needed.
+- `health.ping`
+  - Basic service liveness/readiness check.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Schema stability matters: changing field definitions after indexing can require reindexing.
-- Writer lifecycle: always commit/close writers to avoid lock/file consistency issues.
-- Concurrency: use `AsyncWriter`/`BufferedWriter` carefully in multi-threaded ingestion workloads.
-- Query parser behavior: user-entered syntax can produce unexpected query trees; validate and sanitize inputs.
-- Performance:
-  - Prefer batch writes over frequent single-doc commits.
-  - Tune analyzer choice and scoring model (`BM25F` is a common default).
-  - Large indexes may need facet/sort design optimization.
-- Environment:
-  - Local filesystem permissions must allow index file creation and locking.
-  - Keep Python runtime version consistent across indexing/search nodes.
-- Dependency metadata in scan was incomplete; validate packaging/install behavior in your target environment.
+- **Locking / concurrent writes**: use one writer per index at a time; prefer `AsyncWriter`/`BufferedWriter` patterns in high-throughput scenarios.
+- **Schema stability**: changing schema on existing data can cause compatibility issues; plan migrations carefully.
+- **Performance**:
+  - Batch writes and commit strategically.
+  - Use appropriate analyzers (stemming/stopwords) for your language.
+  - Enable sorting/faceting fields explicitly when needed.
+- **Memory vs file storage**: file-backed indexes are standard; RAM/memory codecs can help tests and some workloads.
+- **Query complexity**: wildcard/fuzzy/regex queries can be expensive on large indexes.
+- **Optional dependencies**: stemming speed/behavior may vary if optional stemmer libraries are installed.
 
 ---
 
-## 6) Reference Links / Documentation
+## 6) References
 
-- Repository: https://github.com/mchaput/whoosh
-- Source package root: `src/whoosh/`
-- Tests/examples: `tests/`, `benchmark/`, `stress/`
-- Maintenance scripts:
-  - `scripts/make_checkpoint.py`
-  - `scripts/read_checkpoint.py`
-- Original project README: `README.md` in repository root
+- Upstream repository: https://github.com/mchaput/whoosh
+- Package metadata/build files: `setup.py`, `setup.cfg`
+- Core source package: `src/whoosh/`
+- Tests for usage patterns: `tests/`
+- Existing project README: `README.md`

@@ -2,15 +2,15 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service wraps the `vaderSentiment` library to provide fast, rule-based sentiment analysis for short to medium English text (e.g., chat, social posts, reviews).
+This service wraps **VADER Sentiment** for fast, rule-based sentiment scoring of short text (social posts, comments, messages, headlines, etc.).  
+It provides a lightweight MCP (Model Context Protocol) service interface around the core `SentimentIntensityAnalyzer` so clients can submit text and receive polarity scores:
 
-Main capabilities:
-- Polarity scoring: `positive`, `neutral`, `negative`, and `compound`
-- Handles emphasis patterns (ALL CAPS, punctuation like `!!!`, `??`)
-- Includes slang/idiom and emoji-aware lexicon behavior from VADER resources
+- `neg` (negative)
+- `neu` (neutral)
+- `pos` (positive)
+- `compound` (normalized overall sentiment, `-1` to `1`)
 
-Core runtime module: `vaderSentiment/vaderSentiment.py`  
-Primary class: `SentimentIntensityAnalyzer`
+Best fit: real-time sentiment enrichment, moderation pipelines, analytics preprocessing, and simple text scoring without heavy ML dependencies.
 
 ---
 
@@ -18,86 +18,100 @@ Primary class: `SentimentIntensityAnalyzer`
 
 ### Requirements
 - Python 3.8+ recommended
-- No external runtime dependencies beyond Python standard library
-
-### Install from PyPI
-pip install vaderSentiment
+- No external runtime dependencies required (stdlib-based core)
 
 ### Install from source
 1. Clone repository:
-   `https://github.com/cjhutto/vaderSentiment`
+   - `git clone https://github.com/cjhutto/vaderSentiment.git`
 2. Install:
-   `pip install .`
+   - `pip install .`
+   - or editable mode: `pip install -e .`
 
-### MCP (Model Context Protocol) service integration
-In your MCP (Model Context Protocol) host, register this service as an import-based Python service that initializes one shared `SentimentIntensityAnalyzer` instance for request handling.
+### Verify import
+- `from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer`
 
 ---
 
 ## 3) Quick Start
 
-### Basic usage flow
-1. Create analyzer instance
-2. Call polarity scoring on input text
-3. Return JSON-like score object
+### Basic sentiment scoring flow
+1. Initialize analyzer once.
+2. Call polarity scoring for each input text.
+3. Return JSON-like MCP (Model Context Protocol) response payload.
 
-Example call pattern:
-- Input: `"VADER is smart, handsome, and funny!"`
-- Output fields:
-  - `neg`: negative ratio
-  - `neu`: neutral ratio
-  - `pos`: positive ratio
-  - `compound`: normalized aggregate score in `[-1, 1]`
+Example usage logic:
+- Create `SentimentIntensityAnalyzer()`
+- Run `polarity_scores("VADER is very smart, handsome, and funny.")`
+- Return scores to caller
 
-Suggested interpretation:
-- `compound >= 0.05` → positive
-- `compound <= -0.05` → negative
-- otherwise → neutral
+Expected output shape:
+- `{"neg": 0.xx, "neu": 0.xx, "pos": 0.xx, "compound": 0.xx}`
 
-For MCP (Model Context Protocol), expose this as a simple text-in / score-out endpoint.
+### Typical service behavior
+- Input: raw text string
+- Output: sentiment score object
+- Optional: batch handling by iterating over an array of texts and returning per-item results
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Recommended MCP (Model Context Protocol) service endpoints:
+Suggested MCP (Model Context Protocol) service tools/endpoints for this repository:
 
 - `analyze_sentiment`
-  - Purpose: Score one text string with VADER
-  - Input: `text` (string)
-  - Output: `{neg, neu, pos, compound}`
+  - Purpose: score one text input
+  - Input: `text: string`
+  - Output: `neg, neu, pos, compound`
 
-- `analyze_batch`
-  - Purpose: Score multiple texts in one request
-  - Input: `texts` (string array)
-  - Output: list of `{neg, neu, pos, compound}` in input order
+- `analyze_sentiment_batch`
+  - Purpose: score multiple texts in one request
+  - Input: `texts: string[]`
+  - Output: array of sentiment score objects in input order
 
 - `health_check`
-  - Purpose: Verify service readiness
-  - Output: status + analyzer initialization state
+  - Purpose: service readiness/liveness check
+  - Input: none
+  - Output: status and version info
 
 - `service_info`
-  - Purpose: Return version and model metadata
-  - Output: library version, lexicon availability, runtime info
+  - Purpose: expose analyzer/service metadata
+  - Input: none
+  - Output: model name (`VADER`), lexicon presence, runtime version
+
+Notes:
+- Repository has no built-in CLI entry points discovered.
+- Core implementation is in `vaderSentiment/vaderSentiment.py`.
+- Lexicons used:
+  - `vaderSentiment/vader_lexicon.txt`
+  - `vaderSentiment/emoji_utf8_lexicon.txt`
 
 ---
 
 ## 5) Common Issues and Notes
 
-- English-focused heuristics: results may degrade on non-English text.
-- Lexicon files required at runtime:
-  - `vader_lexicon.txt`
-  - `emoji_utf8_lexicon.txt`
-- Packaging note: analysis detected setup metadata files in repo; ensure your deployment includes resource files.
-- Performance: lightweight and fast for real-time calls; reuse analyzer instance instead of recreating per request.
-- Input limits: for very large documents, chunking is recommended.
-- Determinism: rule-based engine (non-LLM), outputs are stable for identical input.
+- **Lexicon files must be packaged correctly**  
+  Ensure both lexicon files are available in runtime environment; missing files will break analyzer initialization.
+
+- **Text domain limitations**  
+  VADER is optimized for social/media-style English text and may underperform on domain-specific jargon or multilingual input.
+
+- **Throughput tips**  
+  Reuse a single `SentimentIntensityAnalyzer` instance instead of recreating per request.
+
+- **Interpretation caution**  
+  `compound` is useful as a single score, but thresholding should be tuned for your application.
+
+- **Environment/setup**  
+  This project provides `setup.py` and `setup.cfg`; no `requirements.txt` or `pyproject.toml` detected.
 
 ---
 
 ## 6) Reference Links / Documentation
 
 - Repository: https://github.com/cjhutto/vaderSentiment
-- Core implementation: `vaderSentiment/vaderSentiment.py`
-- License: `LICENSE.txt`
-- Original package name: `vaderSentiment`
+- License: `LICENSE.txt` in repository root
+- Core module: `vaderSentiment/vaderSentiment.py`
+- Packaging config: `setup.py`, `setup.cfg`
+- Lexicons:
+  - `vaderSentiment/vader_lexicon.txt`
+  - `vaderSentiment/emoji_utf8_lexicon.txt`

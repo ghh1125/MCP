@@ -742,13 +742,14 @@
   "structure": {
     "packages": [
       "deployment.poliastro.source",
-      "mcp_output.mcp_plugin"
+      "mcp_output.mcp_plugin",
+      "source.src.poliastro"
     ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
     "setup_py": false
   },
@@ -760,24 +761,31 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "deployment.poliastro.source",
-        "module": "poliastro.twobody.orbit.scalar",
+        "package": "source.src.poliastro",
+        "module": "source.src.poliastro.twobody.orbit.scalar",
         "functions": [],
         "classes": [
           "Orbit"
         ],
-        "description": "Primary high-level orbital state object for two-body dynamics; central abstraction for creation, propagation, transformation, and maneuver workflows."
+        "description": "Primary high-level two-body orbit object; central API for creation, propagation, frame conversion, and orbital analysis workflows."
       },
       {
-        "package": "deployment.poliastro.source",
-        "module": "poliastro.twobody.orbit.creation",
-        "functions": [],
+        "package": "source.src.poliastro",
+        "module": "source.src.poliastro.twobody.orbit.creation",
+        "functions": [
+          "from_vectors",
+          "from_classical",
+          "from_equinoctial",
+          "from_ephem",
+          "circular",
+          "stationary"
+        ],
         "classes": [],
-        "description": "Orbit construction helpers/factories used to create Orbit instances from classical elements, vectors, ephemerides, and other initial-condition representations."
+        "description": "Orbit factory/constructor helpers used to instantiate Orbit objects from different parameterizations and data sources."
       },
       {
-        "package": "deployment.poliastro.source",
-        "module": "poliastro.twobody.propagation",
+        "package": "source.src.poliastro",
+        "module": "source.src.poliastro.twobody.propagation",
         "functions": [],
         "classes": [
           "CowellPropagator",
@@ -790,68 +798,57 @@
           "RecseriesPropagator",
           "ValladoPropagator"
         ],
-        "description": "Two-body propagation strategy layer exposing multiple analytical/numerical propagators selectable by accuracy/performance tradeoffs."
+        "description": "Propagation algorithm family for two-body dynamics; key extension surface for simulation tools."
       },
       {
-        "package": "deployment.poliastro.source",
-        "module": "poliastro.maneuver",
+        "package": "source.src.poliastro",
+        "module": "source.src.poliastro.iod",
+        "functions": [],
+        "classes": [],
+        "description": "Initial orbit determination namespace (Lambert solvers via Izzo/Vallado implementations)."
+      },
+      {
+        "package": "source.src.poliastro",
+        "module": "source.src.poliastro.maneuver",
         "functions": [],
         "classes": [
           "Maneuver"
         ],
-        "description": "Impulse maneuver representation and utilities (e.g., transfer maneuver construction) integrated with Orbit workflows."
+        "description": "Impulsive maneuver representation and transfer construction utilities (e.g., Hohmann/bi-elliptic style workflows)."
       },
       {
-        "package": "deployment.poliastro.source",
-        "module": "poliastro.bodies",
-        "functions": [],
-        "classes": [
-          "Body"
-        ],
-        "description": "Solar-system body constants and body abstractions (Earth, Mars, Sun, etc.) used by orbit initialization and propagation."
-      },
-      {
-        "package": "deployment.poliastro.source",
-        "module": "poliastro.ephem",
+        "package": "source.src.poliastro",
+        "module": "source.src.poliastro.ephem",
         "functions": [],
         "classes": [
           "Ephem"
         ],
-        "description": "Ephemerides interface for time-dependent state retrieval and interoperability with astropy coordinate/time systems."
+        "description": "Ephemerides generation/access abstraction used by orbit creation, plotting, and mission-analysis flows."
       },
       {
-        "package": "deployment.poliastro.source",
-        "module": "poliastro.iod.izzo",
-        "functions": [
-          "lambert"
+        "package": "source.src.poliastro",
+        "module": "source.src.poliastro.bodies",
+        "functions": [],
+        "classes": [
+          "Body"
         ],
-        "classes": [],
-        "description": "Lambert solver (Izzo method) for transfer orbit determination from boundary conditions."
+        "description": "Celestial body definitions and constants (Sun, planets, moons) used across all dynamics calculations."
       },
       {
-        "package": "deployment.poliastro.source",
-        "module": "poliastro.iod.vallado",
-        "functions": [
-          "lambert"
-        ],
-        "classes": [],
-        "description": "Alternative Lambert solver implementation (Vallado) for robustness/cross-validation."
-      },
-      {
-        "package": "deployment.poliastro.source",
-        "module": "poliastro.plotting.orbit.plotter",
+        "package": "source.src.poliastro",
+        "module": "source.src.poliastro.plotting.orbit.plotter",
         "functions": [],
         "classes": [
           "OrbitPlotter"
         ],
-        "description": "High-level orbit visualization frontend with backend abstraction (Matplotlib/Plotly)."
+        "description": "High-level orbit visualization API; useful for optional MCP rendering endpoints."
       }
     ],
     "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.93
     },
     "dependencies": {
       "required": [
@@ -863,13 +860,13 @@
         "matplotlib",
         "plotly",
         "numba",
-        "jplephem",
         "astroquery",
+        "jplephem",
         "pandas"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.95,
+      "import_feasibility": 0.92,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -887,7 +884,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.95,
+    "import_feasibility": 0.92,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

@@ -1,7 +1,7 @@
 {
   "summary": {
     "repository_url": "https://github.com/sktime/sktime",
-    "summary": "Imported via zip fallback, file count: 1612",
+    "summary": "Imported via zip fallback, file count: 1618",
     "file_tree": {
       ".codecov.yml": {
         "size": 522
@@ -529,7 +529,7 @@
         "size": 3767
       },
       "sktime/classification/deep_learning/__init__.py": {
-        "size": 1626
+        "size": 1705
       },
       "sktime/classification/deep_learning/_pytorch.py": {
         "size": 9852
@@ -558,8 +558,14 @@
       "sktime/classification/deep_learning/gru.py": {
         "size": 15865
       },
-      "sktime/classification/deep_learning/inceptiontime.py": {
+      "sktime/classification/deep_learning/inceptiontime/__init__.py": {
+        "size": 471
+      },
+      "sktime/classification/deep_learning/inceptiontime/_inceptiontime_tf.py": {
         "size": 12233
+      },
+      "sktime/classification/deep_learning/inceptiontime/_inceptiontime_torch.py": {
+        "size": 10510
       },
       "sktime/classification/deep_learning/lstmfcn/__init__.py": {
         "size": 413
@@ -601,7 +607,7 @@
         "size": 377
       },
       "sktime/classification/deep_learning/rnn/_rnn_tf.py": {
-        "size": 11180
+        "size": 11450
       },
       "sktime/classification/deep_learning/rnn/_rnn_torch.py": {
         "size": 12891
@@ -1605,6 +1611,9 @@
       "sktime/detection/lof.py": {
         "size": 9541
       },
+      "sktime/detection/momentfm.py": {
+        "size": 23512
+      },
       "sktime/detection/naive/__init__.py": {
         "size": 184
       },
@@ -2185,7 +2194,7 @@
         "size": 10154
       },
       "sktime/forecasting/ets.py": {
-        "size": 19644
+        "size": 21121
       },
       "sktime/forecasting/exp_smoothing.py": {
         "size": 10490
@@ -2943,8 +2952,14 @@
       "sktime/networks/gru.py": {
         "size": 11797
       },
-      "sktime/networks/inceptiontime.py": {
+      "sktime/networks/inceptiontime/__init__.py": {
+        "size": 411
+      },
+      "sktime/networks/inceptiontime/_inceptiontime_tf.py": {
         "size": 5620
+      },
+      "sktime/networks/inceptiontime/_inceptiontime_torch.py": {
+        "size": 14933
       },
       "sktime/networks/lstmfcn/__init__.py": {
         "size": 287
@@ -3460,7 +3475,7 @@
         "size": 26176
       },
       "sktime/regression/deep_learning/__init__.py": {
-        "size": 1167
+        "size": 1244
       },
       "sktime/regression/deep_learning/base/__init__.py": {
         "size": 311
@@ -3480,8 +3495,14 @@
       "sktime/regression/deep_learning/fcn.py": {
         "size": 7623
       },
-      "sktime/regression/deep_learning/inceptiontime.py": {
+      "sktime/regression/deep_learning/inceptiontime/__init__.py": {
+        "size": 457
+      },
+      "sktime/regression/deep_learning/inceptiontime/_inceptiontime_tf.py": {
         "size": 8404
+      },
+      "sktime/regression/deep_learning/inceptiontime/_inceptiontime_torch.py": {
+        "size": 9147
       },
       "sktime/regression/deep_learning/lstmfcn/__init__.py": {
         "size": 390
@@ -3694,7 +3715,7 @@
         "size": 31
       },
       "sktime/tests/_config.py": {
-        "size": 12599
+        "size": 12356
       },
       "sktime/tests/_test_vm.py": {
         "size": 1909
@@ -4618,10 +4639,10 @@
         "size": 1976
       },
       "sktime/utils/dependencies/__init__.py": {
-        "size": 746
+        "size": 798
       },
       "sktime/utils/dependencies/_dependencies.py": {
-        "size": 29305
+        "size": 3407
       },
       "sktime/utils/dependencies/_isinstance.py": {
         "size": 1281
@@ -4629,17 +4650,14 @@
       "sktime/utils/dependencies/_placeholder.py": {
         "size": 3764
       },
-      "sktime/utils/dependencies/_safe_import.py": {
-        "size": 4357
-      },
       "sktime/utils/dependencies/tests/__init__.py": {
         "size": 38
       },
       "sktime/utils/dependencies/tests/test_dependencies.py": {
-        "size": 3037
+        "size": 1778
       },
       "sktime/utils/dependencies/tests/test_safe_import.py": {
-        "size": 2815
+        "size": 569
       },
       "sktime/utils/estimator_checks.py": {
         "size": 9669
@@ -4844,13 +4862,41 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.sktime.source",
+      "mcp_output.mcp_plugin",
+      "source.sktime",
+      "source.sktime._contrib",
+      "source.sktime.alignment",
+      "source.sktime.base",
+      "source.sktime.benchmarking",
+      "source.sktime.catalogues",
+      "source.sktime.classification",
+      "source.sktime.clustering",
+      "source.sktime.datasets",
+      "source.sktime.datatypes",
+      "source.sktime.detection",
+      "source.sktime.distances",
+      "source.sktime.dists_kernels",
+      "source.sktime.forecasting",
+      "source.sktime.libs",
+      "source.sktime.networks",
+      "source.sktime.param_est",
+      "source.sktime.performance_metrics",
+      "source.sktime.pipeline",
+      "source.sktime.registry",
+      "source.sktime.regression",
+      "source.sktime.split",
+      "source.sktime.tests",
+      "source.sktime.transformations",
+      "source.sktime.utils"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
-    "setup_cfg": false,
+    "pyproject": true,
+    "setup_cfg": true,
     "setup_py": false
   },
   "entry_points": {
@@ -4861,104 +4907,71 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "sktime/forecasting/base/_base.py",
-        "module": "BaseForecaster",
-        "functions": [
-          "fit",
-          "predict",
-          "update",
-          "predict_interval",
-          "predict_quantiles",
-          "predict_proba",
-          "score"
-        ],
+        "package": "source.sktime.forecasting.base",
+        "module": "_base",
+        "functions": [],
         "classes": [
           "BaseForecaster"
         ],
-        "description": "Primary forecasting estimator interface and lifecycle methods; central abstraction for forecasting plugins."
+        "description": "Primary forecasting estimator interface (fit/predict/update/predict_interval/predict_quantiles) and lifecycle hooks; central abstraction for most forecasting functionality."
       },
       {
-        "package": "sktime/transformations/base.py",
-        "module": "BaseTransformer",
-        "functions": [
-          "fit",
-          "transform",
-          "fit_transform",
-          "inverse_transform",
-          "update"
-        ],
+        "package": "source.sktime.transformations",
+        "module": "base",
+        "functions": [],
         "classes": [
           "BaseTransformer"
         ],
-        "description": "Core transformer API across series/panel/hierarchical data, useful for generic transformation MCP tools."
+        "description": "Core transformer API for time-series transformations used across pipelines and composite estimators."
       },
       {
-        "package": "sktime/classification/base.py",
-        "module": "BaseClassifier",
-        "functions": [
-          "fit",
-          "predict",
-          "predict_proba",
-          "score"
-        ],
+        "package": "source.sktime.classification",
+        "module": "base",
+        "functions": [],
         "classes": [
           "BaseClassifier"
         ],
-        "description": "Unified time-series classification base interface."
+        "description": "Core time-series classification API and estimator contract."
       },
       {
-        "package": "sktime/regression/base.py",
-        "module": "BaseRegressor",
-        "functions": [
-          "fit",
-          "predict",
-          "score"
-        ],
+        "package": "source.sktime.regression",
+        "module": "base",
+        "functions": [],
         "classes": [
           "BaseRegressor"
         ],
-        "description": "Unified time-series regression base interface."
+        "description": "Core time-series regression API and estimator contract."
       },
       {
-        "package": "sktime/clustering/base.py",
-        "module": "BaseClusterer",
-        "functions": [
-          "fit",
-          "predict",
-          "fit_predict",
-          "score"
-        ],
+        "package": "source.sktime.clustering",
+        "module": "base",
+        "functions": [],
         "classes": [
           "BaseClusterer"
         ],
-        "description": "Core clustering interface for time-series clusterers."
+        "description": "Core clustering abstraction for panel/time-series clustering estimators."
       },
       {
-        "package": "sktime/detection/base/_base.py",
-        "module": "BaseDetector",
-        "functions": [
-          "fit",
-          "predict",
-          "update",
-          "transform"
-        ],
+        "package": "source.sktime.detection.base",
+        "module": "_base",
+        "functions": [],
         "classes": [
           "BaseDetector"
         ],
-        "description": "Base interface for anomaly/changepoint/segmentation style detectors."
+        "description": "Base API for anomaly/change-point/segmentation detection estimators."
       },
       {
-        "package": "sktime/registry/_lookup.py",
-        "module": "registry lookup utilities",
+        "package": "source.sktime.registry",
+        "module": "_lookup",
         "functions": [
           "all_estimators"
         ],
         "classes": [],
-        "description": "Dynamic estimator discovery entrypoint; key for MCP-side model listing without hard-coding modules."
+        "description": "Estimator discovery/registry lookup; best entry point for dynamic MCP tool generation and capability introspection."
       },
       {
-        "package": "sktime/datasets/__init__.py",
-        "module": "dataset loaders",
+        "package": "source.sktime.datasets",
+        "module": "__init__",
         "functions": [
           "load_airline",
           "load_longley",
@@ -4967,19 +4980,31 @@
           "load_basic_motions",
           "load_gunpoint",
           "load_italy_power_demand",
-          "load_osuleaf",
           "load_arrow_head",
-          "load_acsf1",
+          "load_osuleaf",
           "load_japanese_vowels",
-          "load_plaid",
-          "load_tecator"
+          "load_PBS_dataset"
         ],
         "classes": [],
-        "description": "Convenient built-in datasets for zero-friction MCP examples/tests."
+        "description": "Built-in dataset loader surface for fast MCP examples/testing without extra integration code."
       },
       {
-        "package": "sktime/performance_metrics/forecasting/__init__.py",
-        "module": "forecasting metrics",
+        "package": "source.sktime.forecasting.model_selection",
+        "module": "__init__",
+        "functions": [
+          "temporal_train_test_split"
+        ],
+        "classes": [
+          "ExpandingWindowSplitter",
+          "SlidingWindowSplitter",
+          "ForecastingGridSearchCV",
+          "ForecastingRandomizedSearchCV"
+        ],
+        "description": "Forecasting evaluation and tuning primitives suitable for high-value MCP tools."
+      },
+      {
+        "package": "source.sktime.performance_metrics.forecasting",
+        "module": "__init__",
         "functions": [
           "mean_absolute_error",
           "mean_squared_error",
@@ -4987,75 +5012,54 @@
           "mean_absolute_scaled_error"
         ],
         "classes": [],
-        "description": "Evaluation metrics for forecasting outputs."
+        "description": "Forecasting metric functions for evaluation-oriented MCP endpoints."
       },
       {
-        "package": "sktime/split/__init__.py",
-        "module": "temporal splitters",
-        "functions": [
-          "temporal_train_test_split"
-        ],
+        "package": "source.sktime.pipeline",
+        "module": "pipeline",
+        "functions": [],
         "classes": [
-          "SlidingWindowSplitter",
-          "ExpandingWindowSplitter",
-          "SingleWindowSplitter",
-          "CutoffSplitter"
+          "Pipeline",
+          "Step"
         ],
-        "description": "Time-series cross-validation and holdout split interfaces."
+        "description": "Composable workflow primitives enabling single-call end-to-end fit/predict tools."
       }
     ],
-    "cli_commands": [
-      {
-        "name": "No first-class end-user CLI detected",
-        "module": "N/A",
-        "description": "Repository does not expose clear console_scripts entrypoints in provided scan; build_tools scripts are maintainer utilities."
-      },
-      {
-        "name": "python build_tools/make_release.py",
-        "module": "build_tools/make_release.py",
-        "description": "Release automation utility (project maintenance, not MCP runtime target)."
-      },
-      {
-        "name": "python build_tools/changelog.py",
-        "module": "build_tools/changelog.py",
-        "description": "Changelog generation utility (maintenance only)."
-      }
-    ],
+    "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.95
     },
     "dependencies": {
       "required": [
-        "python>=3.10",
+        "python>=3.9",
         "numpy",
         "pandas",
         "scikit-learn",
         "scipy",
-        "packaging"
+        "joblib"
       ],
       "optional": [
         "statsmodels",
         "pmdarima",
-        "prophet/fbprophet",
+        "prophet",
+        "tbats",
         "darts",
         "neuralforecast",
-        "pytorch-forecasting",
-        "torch",
+        "pytorch",
         "tensorflow",
         "tslearn",
         "pyts",
         "numba",
-        "mlflow",
-        "polars",
-        "dask",
         "gluonts",
-        "tbats",
-        "arch",
-        "skopt",
         "optuna",
-        "hyperactive"
+        "skopt",
+        "mlflow",
+        "temporian",
+        "tsfresh",
+        "tsfel",
+        "huggingface/transformers"
       ]
     },
     "risk_assessment": {

@@ -1,150 +1,145 @@
 # sktime Difference Report
 
-**Generated:** 2026-03-12 11:29:14  
-**Repository:** `sktime`  
-**Project Type:** Python library  
-**Change Scope:** Basic functionality  
-**Intrusiveness:** None  
-**Workflow Status:** ✅ Success  
-**Test Status:** ❌ Failed  
-
----
-
 ## 1) Project Overview
-
-This update for `sktime` appears to be a **non-intrusive addition-only change set** focused on basic functionality, with:
-
-- **New files:** 8  
-- **Modified files:** 0  
-
-The CI/workflow pipeline completed successfully, but test execution failed, indicating integration or correctness issues likely introduced by newly added artifacts or missing adaptation in existing test expectations.
+- **Repository:** `sktime`
+- **Project type:** Python library
+- **Scope indicated:** Basic functionality
+- **Report timestamp:** 2026-03-13 22:00:21
+- **Change intrusiveness:** None (non-intrusive)
+- **File change summary:**  
+  - **New files:** 8  
+  - **Modified files:** 0
+- **Workflow status:** ✅ Success
+- **Test status:** ❌ Failed
 
 ---
 
-## 2) High-Level Difference Summary
-
-| Metric | Value |
-|---|---|
-| Files Added | 8 |
-| Files Modified | 0 |
-| Files Deleted | 0 (not reported) |
-| Intrusiveness | None |
-| Build/Workflow | Success |
-| Test Suite | Failed |
-
-### Interpretation
-- The change is structurally safe (no edits to existing files), reducing regression risk to legacy logic.
-- Despite non-intrusive scope, the failed tests suggest:
-  - new files are not fully compatible with existing interfaces/contracts, or
-  - tests were introduced/triggered without complete implementation wiring, or
-  - environment/dependency assumptions differ from CI runtime.
+## 2) Executive Summary
+This update appears to be an **additive-only change set** (8 new files, no edits to existing files), suggesting low direct regression risk to existing code paths.  
+However, despite successful workflow execution, the **test suite failed**, which blocks production confidence and indicates either:
+1. Newly added files introduced unmet dependencies/configuration assumptions, or  
+2. Existing test expectations are incompatible with the new additions, or  
+3. Test infrastructure/environment mismatch.
 
 ---
 
 ## 3) Difference Analysis
 
-## 3.1 Change Pattern
-Because only new files were added and no existing files were modified, this resembles one of the following patterns:
+### 3.1 Change Footprint
+| Metric | Value | Interpretation |
+|---|---:|---|
+| New files | 8 | Additive extension (likely new modules/tests/docs/config) |
+| Modified files | 0 | No direct mutation of existing implementation |
+| Intrusiveness | None | Minimal intended disruption to current architecture |
 
-1. **Feature extension via additive modules** (new estimator/transformer/utility components)
-2. **Scaffolding/documentation/config additions** that nonetheless trigger tests
-3. **New tests without corresponding implementation hooks** (or vice versa)
+### 3.2 Risk Profile
+- **Code-level regression risk:** Low (no modified files).
+- **Integration risk:** Medium (new files may affect import discovery, test collection, packaging, CI behavior).
+- **Release readiness risk:** High until tests pass.
 
-## 3.2 Risk Profile
-- **Low risk** to existing production pathways (no direct code edits).
-- **Medium risk** to release readiness due to failing tests.
-- **Potential hidden risk** if newly added files are auto-discovered (e.g., plugin/registry patterns), affecting runtime behavior without explicit modification of old files.
+### 3.3 Likely File Categories (in absence of path-level diff)
+Given Python library conventions, new files commonly fall into:
+- new estimator/module implementations,
+- test modules,
+- docs/examples,
+- config/metadata additions (e.g., plugin registration, package init, CI helpers).
+
+Each category can impact test outcomes differently (e.g., test discovery failures, missing fixtures, dependency pinning).
 
 ---
 
 ## 4) Technical Analysis
 
-## 4.1 CI vs Test Discrepancy
-Workflow success with test failure usually means:
-- lint/build/package steps passed,
-- but runtime/assertion-level validation failed.
+## 4.1 CI/Workflow Outcome Interpretation
+- **Workflow Success + Tests Failed** indicates the pipeline itself is operational (jobs run), but quality gate failed on assertions/errors.
+- This is typically a **functional or environment issue**, not a CI orchestration failure.
 
-Common root causes in Python libraries:
-- Missing optional dependencies in test environment
-- Incorrect imports/package paths in new modules
-- API contract mismatch with sktime base classes
-- Incomplete parametrization for estimator checks
-- Metadata/tags not aligned with sktime testing framework
-- Edge-case failures in time series input shape/frequency/index handling
+## 4.2 Probable Failure Classes to Investigate
+1. **Import/Test Collection Errors**
+   - New files not aligned with package structure (`__init__.py`, naming conventions).
+   - Circular imports or optional dependency import at module import time.
 
-## 4.2 sktime-Specific Considerations
-For `sktime`, newly added estimators/components should typically satisfy:
-- Base class inheritance and required methods (`fit`, `predict`, etc. as applicable)
-- Correct estimator tags/capabilities
-- Compatibility with sktime’s estimator test suite/check utilities
-- Deterministic behavior under fixed random state
-- Proper handling of panel/hierarchical/time index formats where relevant
+2. **Dependency/Environment Issues**
+   - Missing optional extras required by new components.
+   - Version incompatibility with pinned scientific stack (numpy/pandas/scikit-learn).
 
----
+3. **Contract Violations in sktime APIs**
+   - New estimators not satisfying base class interface expectations.
+   - Tag/config metadata incomplete for automated checks.
 
-## 5) Recommendations and Improvements
+4. **Test Design Issues**
+   - Brittle assertions dependent on local environment/time/randomness.
+   - Unregistered fixtures or wrong test markers.
 
-## 5.1 Immediate Actions (High Priority)
-1. **Inspect failed test logs first**  
-   - Isolate failing modules and error types (ImportError, AssertionError, TypeError, etc.).
-2. **Run targeted local tests**  
-   - Reproduce with minimal command (e.g., specific test file/class/function).
-3. **Validate interface compliance**  
-   - Ensure all added classes conform to sktime base API and tags.
-4. **Check dependency matrix**  
-   - Confirm optional/extra dependencies used by new files are declared and available in CI.
-5. **Add/align unit tests for new files**  
-   - Cover expected behavior, edge conditions, and integration with estimator checks.
-
-## 5.2 Quality Improvements (Medium Priority)
-- Add pre-commit/static checks for newly introduced modules (imports, typing, docstyle).
-- Include smoke tests for object instantiation and minimal fit/predict cycle.
-- Ensure changelog/release notes mention newly added components and dependency implications.
-
-## 5.3 Process Improvements (Low/Medium Priority)
-- Introduce a PR checklist for additive features:
-  - [ ] Base class and tags validated  
-  - [ ] Estimator checks pass  
-  - [ ] Dependency declarations updated  
-  - [ ] Minimal docs/examples included
+5. **Packaging/Discovery Side Effects**
+   - New files accidentally included/excluded causing mismatch between local and CI runs.
 
 ---
 
-## 6) Deployment Information
-
-## 6.1 Current Readiness
-**Not release-ready** due to failed tests.
-
-## 6.2 Deployment Decision
-- **Recommended status:** Hold deployment/merge-to-release branch until test suite is green.
-- **Allowed exception:** Only if failures are proven unrelated/flaky and formally waived (not recommended for library core branches).
-
-## 6.3 Rollback/Recovery
-Since changes are additive:
-- rollback is straightforward (remove/revert newly added files),
-- minimal impact on existing code paths expected.
+## 5) Quality and Compliance Assessment
+- **Change control quality:** Good (isolated additive changes).
+- **Verification quality:** Incomplete (failed tests prevent acceptance).
+- **Operational safety:** Not ready for merge/release without remediation.
 
 ---
 
-## 7) Future Planning
+## 6) Recommendations & Improvements
 
-## 7.1 Short-Term (Next 1–2 iterations)
-- Fix failing tests and re-run full matrix.
-- Add regression tests to prevent recurrence.
-- Verify compatibility across supported Python versions and dependency pins.
+## 6.1 Immediate Actions (Priority)
+1. **Collect failing test artifacts**: stack traces, failing module list, first-failure root cause.
+2. **Classify failures**: import error vs assertion failure vs environment/setup.
+3. **Run targeted local reproduction**:
+   - `pytest -k <failing_area> -vv`
+   - Re-run in clean environment matching CI.
+4. **Fix root cause** and validate with:
+   - targeted tests,
+   - full test suite,
+   - lint/type checks (if enabled).
 
-## 7.2 Mid-Term
-- Strengthen contract tests for new component categories.
-- Improve CI observability (failure summaries/artifacts for faster triage).
-- Add validation tooling for sktime tag consistency and estimator compliance.
+## 6.2 Hardening Actions
+- Add/extend tests for new files to cover:
+  - API contract compliance,
+  - edge cases,
+  - dependency-optional behavior (skip markers where appropriate).
+- Ensure deterministic tests (fixed seeds, tolerance-aware numeric checks).
+- Validate package inclusion rules (MANIFEST/build backend config).
 
-## 7.3 Long-Term
-- Standardize additive feature templates for `sktime` modules.
-- Expand automated API conformance checks before merge.
-- Track test flakiness and quarantine unstable tests with follow-up SLA.
+## 6.3 Process Improvements
+- Introduce **pre-merge gate** requiring:
+  - all tests pass,
+  - no new import-time dependency errors,
+  - minimum coverage threshold for newly added modules.
 
 ---
 
-## 8) Executive Summary
+## 7) Deployment Information
 
-This change set is a **safe-structure, additive update** (8 new files, no modifications), but **quality gates are not yet satisfied** due to test failures. The primary next step is **failure triage and API/test alignment** for newly added components. Once tests pass consistently, the change should be low-risk to integrate.
+## 7.1 Current Deployment Readiness
+- **Status:** 🚫 Not deployment-ready (test gate failed).
+
+## 7.2 Release Decision
+- **Recommended:** Hold release/merge until test failures are resolved and CI is green.
+
+## 7.3 Post-fix Validation Checklist
+- [ ] All previously failing tests pass.
+- [ ] No new flaky tests across at least 2 consecutive CI runs.
+- [ ] New files properly packaged and importable.
+- [ ] Changelog/release notes updated (if applicable).
+
+---
+
+## 8) Future Planning
+1. **Short term (next commit)**
+   - Resolve failing tests and add regression tests for identified root cause.
+2. **Mid term**
+   - Improve CI matrix to catch dependency-variant issues earlier.
+   - Add smoke tests for new module registration/import.
+3. **Long term**
+   - Establish differential testing policy for additive changes (new-file quality gates).
+   - Track failure taxonomy to reduce recurring CI issues.
+
+---
+
+## 9) Conclusion
+The change set is structurally low-intrusive (8 new files, no modifications), but **quality gates are not met due to test failures**.  
+Proceed with focused failure triage and remediation, then re-run full validation before approving merge or deployment.

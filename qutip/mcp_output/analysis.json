@@ -319,7 +319,7 @@
         "size": 7438
       },
       "qutip/solver/integrator/krylov.py": {
-        "size": 8880
+        "size": 12410
       },
       "qutip/solver/integrator/qutip_integrator.py": {
         "size": 7586
@@ -337,7 +337,7 @@
         "size": 24555
       },
       "qutip/solver/krylovsolve.py": {
-        "size": 4995
+        "size": 5617
       },
       "qutip/solver/mcsolve.py": {
         "size": 38509
@@ -571,7 +571,7 @@
         "size": 11999
       },
       "qutip/tests/solver/test_integrator.py": {
-        "size": 7655
+        "size": 7714
       },
       "qutip/tests/solver/test_lindblad_matrix_form.py": {
         "size": 4310
@@ -580,7 +580,7 @@
         "size": 27009
       },
       "qutip/tests/solver/test_mesolve.py": {
-        "size": 35000
+        "size": 36422
       },
       "qutip/tests/solver/test_nm_mcsolve.py": {
         "size": 29732
@@ -604,7 +604,7 @@
         "size": 3435
       },
       "qutip/tests/solver/test_sesolve.py": {
-        "size": 13126
+        "size": 13228
       },
       "qutip/tests/solver/test_sode_method.py": {
         "size": 7060
@@ -716,14 +716,25 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.qutip.source",
+      "mcp_output.mcp_plugin",
+      "source.qutip",
+      "source.qutip._mkl",
+      "source.qutip.core",
+      "source.qutip.legacy",
+      "source.qutip.piqs",
+      "source.qutip.solver",
+      "source.qutip.tests",
+      "source.qutip.ui"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
-    "has_requirements_txt": false,
-    "pyproject": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -733,62 +744,49 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "qutip/core/qobj.py",
-        "module": "qutip.core.qobj",
-        "functions": [],
+        "package": "source.qutip.core",
+        "module": "qobj",
+        "functions": [
+          "Qobj.__init__",
+          "Qobj.dag",
+          "Qobj.tr",
+          "Qobj.expm",
+          "Qobj.eigenstates"
+        ],
         "classes": [
           "Qobj"
         ],
-        "description": "Core quantum object abstraction used across nearly all QuTiP operations (states, operators, superoperators, algebra, metadata such as dimensions)."
+        "description": "Central quantum object representation and linear-algebraic operations used across almost all QuTiP subsystems."
       },
       {
-        "package": "qutip/core/operators.py",
-        "module": "qutip.core.operators",
+        "package": "source.qutip.core",
+        "module": "operators",
         "functions": [
           "destroy",
           "create",
           "qeye",
           "sigmax",
           "sigmay",
-          "sigmaz",
-          "num"
+          "sigmaz"
         ],
         "classes": [],
-        "description": "Factory functions for common quantum operators and identities used to build Hamiltonians and collapse operators."
+        "description": "Factory functions for standard quantum operators and identities."
       },
       {
-        "package": "qutip/core/states.py",
-        "module": "qutip.core.states",
+        "package": "source.qutip.core",
+        "module": "states",
         "functions": [
           "basis",
-          "coherent",
+          "ket2dm",
           "fock",
-          "ket2dm"
+          "coherent"
         ],
         "classes": [],
-        "description": "State-construction utilities for pure and mixed states in finite/infinite-dimensional Hilbert spaces."
+        "description": "State-construction utilities for kets, density matrices, and common canonical states."
       },
       {
-        "package": "qutip/core/tensor.py",
-        "module": "qutip.core.tensor",
-        "functions": [
-          "tensor"
-        ],
-        "classes": [],
-        "description": "Tensor-product construction and subsystem composition utilities."
-      },
-      {
-        "package": "qutip/core/expect.py",
-        "module": "qutip.core.expect",
-        "functions": [
-          "expect"
-        ],
-        "classes": [],
-        "description": "Expectation value routines for operators on states and density matrices."
-      },
-      {
-        "package": "qutip/solver/mesolve.py",
-        "module": "qutip.solver.mesolve",
+        "package": "source.qutip.solver",
+        "module": "mesolve",
         "functions": [
           "mesolve"
         ],
@@ -796,79 +794,61 @@
         "description": "Master-equation time evolution solver for open quantum systems."
       },
       {
-        "package": "qutip/solver/sesolve.py",
-        "module": "qutip.solver.sesolve",
+        "package": "source.qutip.solver",
+        "module": "sesolve",
         "functions": [
           "sesolve"
         ],
         "classes": [],
-        "description": "Schrödinger-equation time evolution solver for closed systems."
+        "description": "Schrödinger-equation solver for closed-system evolution."
       },
       {
-        "package": "qutip/solver/mcsolve.py",
-        "module": "qutip.solver.mcsolve",
+        "package": "source.qutip.solver",
+        "module": "mcsolve",
         "functions": [
           "mcsolve"
         ],
         "classes": [],
-        "description": "Monte-Carlo trajectory solver for stochastic unravelings of open-system dynamics."
+        "description": "Monte Carlo trajectory solver for stochastic unravelings."
       },
       {
-        "package": "qutip/solver/steadystate.py",
-        "module": "qutip.solver.steadystate",
+        "package": "source.qutip.solver",
+        "module": "steadystate",
         "functions": [
           "steadystate"
         ],
         "classes": [],
-        "description": "Steady-state solvers for Lindbladian systems."
+        "description": "Steady-state solvers for Lindblad/open-system models."
       },
       {
-        "package": "qutip/solver/propagator.py",
-        "module": "qutip.solver.propagator",
-        "functions": [
-          "propagator"
-        ],
-        "classes": [],
-        "description": "Propagator construction for time evolution operators/channels."
-      },
-      {
-        "package": "qutip/solver/result.py",
-        "module": "qutip.solver.result",
-        "functions": [],
-        "classes": [
-          "Result"
-        ],
-        "description": "Container for simulation outputs (states, expectation values, metadata)."
-      },
-      {
-        "package": "qutip/visualization.py",
-        "module": "qutip.visualization",
+        "package": "source.qutip",
+        "module": "visualization",
         "functions": [
           "hinton",
           "matrix_histogram",
           "plot_wigner"
         ],
         "classes": [],
-        "description": "Visualization utilities for states/operators and phase-space plots."
+        "description": "Visualization helpers for operators and phase-space objects."
       },
       {
-        "package": "qutip/bloch.py",
-        "module": "qutip.bloch",
+        "package": "source.qutip",
+        "module": "bloch",
         "functions": [],
         "classes": [
           "Bloch"
         ],
-        "description": "Bloch-sphere plotting and animation support for qubit states."
+        "description": "Bloch-sphere visualization and interaction class."
       },
       {
-        "package": "qutip/wigner.py",
-        "module": "qutip.wigner",
+        "package": "source.qutip",
+        "module": "wigner",
         "functions": [
           "wigner",
           "qfunc"
         ],
         "classes": [],
-        "description": "Phase-space quasiprobability distribution calculations."
+        "description": "Phase-space quasiprobability distribution computations."
       }
     ],
     "cli_commands": [],
@@ -880,19 +860,21 @@
     "dependencies": {
       "required": [
         "numpy",
-        "scipy",
-        "packaging"
+        "scipy"
       ],
       "optional": [
         "matplotlib",
         "cython",
-        "pytest",
+        "packaging",
+        "tqdm",
         "mpi4py",
-        "MKL-related acceleration stack"
+        "numexpr",
+        "sympy",
+        "pillow"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.91,
+      "import_feasibility": 0.92,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -910,7 +892,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.91,
+    "import_feasibility": 0.92,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

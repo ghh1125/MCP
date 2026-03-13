@@ -2,153 +2,115 @@
 
 ## 1) Project Introduction
 
-This service wraps core capabilities of the `gala` astronomy dynamics library for use through MCP (Model Context Protocol).  
-It is designed for developer workflows that need:
+This service wraps core capabilities from the `gala` astrophysics library into MCP (Model Context Protocol)-friendly tools for:
 
-- Galactic potential modeling (analytic and composite models)
-- Orbit integration and trajectory analysis
-- Hamiltonian-based dynamics workflows
-- Unit-safe numerical operations and serialization of models
+- Defining gravitational potentials (e.g., Plummer, Hernquist, NFW, Miyamoto-Nagai)
+- Managing physical unit systems consistently
+- Integrating orbits with numerical integrators (Leapfrog, DOPRI853)
+- Returning orbit trajectories and basic derived diagnostics
 
-Main exposed areas are based on:
-
-- `gala.potential.potential.core` (`PotentialBase`, `CompositePotential`, load/save, symbolic conversion)
-- `gala.potential.potential.builtin.core` (built-in models like Kepler, NFW, Plummer, etc.)
-- `gala.dynamics.orbit` (`Orbit`)
-- `gala.integrate.core` (`Integrator`)
-- `gala.potential.hamiltonian` (`Hamiltonian`)
-- `gala.units` (`UnitSystem`, `DimensionlessUnitSystem`)
+It is aimed at developer workflows where an LLM or external client needs structured access to orbit-dynamics computations.
 
 ---
 
 ## 2) Installation Method
 
-### Requirements
+### Prerequisites
+- Python 3.10+ (recommended)
+- `numpy`, `scipy`, `astropy`, `pyyaml`
 
-- Python 3.9+ (recommended 3.10+)
-- Required packages:
-  - `numpy`
-  - `scipy`
-  - `astropy`
-- Optional packages (feature-dependent):
-  - `matplotlib` (plotting)
-  - `pyyaml` (YAML I/O)
-  - `h5py` (HDF5 I/O)
-  - `galpy`, `agama` (interop workflows)
+### Core install
+- `pip install gala`
+- `pip install mcp` (or your MCP (Model Context Protocol) runtime package)
 
-### Install
+### Optional dependencies
+- `matplotlib` for plotting/debug visualization
+- `h5py` for data IO extensions
+- `galpy` / `agama` for interoperability features
+- C/Cython toolchain for compiled-performance paths
 
-- Install core runtime:
-  - `pip install numpy scipy astropy`
-- Install gala:
-  - `pip install gala`
-- If running this as a local MCP (Model Context Protocol) service, also install your MCP runtime/framework package and register this service in your MCP host configuration.
+### Service setup (typical)
+- Install this MCP (Model Context Protocol) service package in your environment
+- Configure your MCP (Model Context Protocol) host/client to launch the service entry module
+- Verify imports: `gala`, `astropy`, and integrator modules load successfully
 
 ---
 
 ## 3) Quick Start
 
 ### Typical flow
+1. Create/select a `UnitSystem`
+2. Build a potential (e.g., `PlummerPotential`)
+3. Choose an integrator (`LeapfrogIntegrator` for robust default)
+4. Parse or provide time specification
+5. Run integration and return orbit samples
 
-1. Create/select a unit system  
-2. Build a potential (e.g., Plummer/NFW/composite)  
-3. Wrap in a Hamiltonian (optional but common)  
-4. Integrate orbits with an integrator  
-5. Inspect `Orbit` outputs (positions, velocities, energies, etc.)
+### Minimal usage pattern
+- Input: potential type + parameters, initial phase-space state, time grid/spec
+- Tool call: `integrate_orbit`
+- Output: positions/velocities over time (Orbit-like structured result)
 
-### Minimal Python usage example
-
-import gala.potential as gp
-import gala.dynamics as gd
-from gala.units import galactic
-
-pot = gp.PlummerPotential(m=1e11, b=5.0, units=galactic)
-w0 = gd.PhaseSpacePosition(pos=[8., 0, 0], vel=[0, 220, 0])
-orbit = pot.integrate_orbit(w0, dt=1.0, n_steps=1000)
-
-### Composite potential example
-
-disk = gp.MiyamotoNagaiPotential(m=6e10, a=6.5, b=0.26, units=galactic)
-halo = gp.NFWPotential(m=1e12, r_s=20, units=galactic)
-mw = gp.CompositePotential(disk=disk, halo=halo)
-
-### Serialize/deserialize potential
-
-mw.save("mw_model.yml")
-mw2 = gp.load("mw_model.yml")
+### Recommended defaults
+- Integrator: `LeapfrogIntegrator` for Hamiltonian/symplectic-friendly tasks
+- Adaptive alternative: `DOPRI853Integrator` for non-symplectic or accuracy-focused runs
+- Keep units explicit (avoid silent unit mismatch)
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Recommended MCP (Model Context Protocol) service endpoints (developer-facing contract):
+Suggested MCP (Model Context Protocol) service endpoints for this repository:
 
-- `potential.list_builtin`
-  - List built-in potential classes (Kepler, Hernquist, NFW, Plummer, etc.)
+- `health_check`
+  - Confirms service readiness and dependency import status.
 
-- `potential.create`
-  - Create a potential instance from model name + parameters + unit system
+- `list_potentials`
+  - Returns supported built-in potential models (Plummer, Hernquist, NFW, Miyamoto-Nagai, Isochrone, Kepler, Logarithmic, HarmonicOscillator, etc.).
 
-- `potential.compose`
-  - Build a `CompositePotential` from multiple named components
+- `create_potential`
+  - Creates a potential from model name + parameter dictionary + units.
 
-- `potential.evaluate`
-  - Evaluate potential/gradient/density at coordinates
+- `compose_potential`
+  - Builds a `CompositePotential` from multiple components.
 
-- `potential.serialize`
-  - Save potential definition to YAML/HDF5-compatible formats
+- `set_unit_system`
+  - Configures/validates `UnitSystem` or dimensionless mode.
 
-- `potential.deserialize`
-  - Load potential from serialized file/content
+- `parse_time_spec`
+  - Uses gala time parsing logic to normalize integration time input.
 
-- `hamiltonian.create`
-  - Construct `Hamiltonian` from potential (and optional frame)
+- `integrate_orbit`
+  - Main compute endpoint: integrates orbit from initial conditions under a selected potential/integrator.
 
-- `orbit.integrate`
-  - Integrate orbit from initial phase-space state and time grid/integration settings
+- `orbit_summary`
+  - Returns lightweight diagnostics from integrated orbit (shape, time range, basic invariants/metadata).
 
-- `orbit.analyze`
-  - Return derived trajectory diagnostics (energy, angular momentum, basic summaries)
-
-- `units.list` / `units.create`
-  - Inspect built-in unit systems or define custom `UnitSystem`
-
-Note: exact endpoint names depend on your MCP host conventions; the above is the practical mapping to gala core APIs.
+- `potential_serialize` / `potential_deserialize`
+  - Converts potential objects to/from dictionary form (`to_dict` / `from_dict`) for reproducible workflows.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Units are critical:
-  - Most runtime errors come from inconsistent units or missing `units=` when creating potentials.
-- Optional dependency gaps:
-  - Missing `pyyaml`/`h5py` may break some serialization paths.
-  - Missing `matplotlib` only affects plotting.
-- Numerical stability/performance:
-  - Choose integrator/time step carefully (`dt`, `n_steps`).
-  - Very long integrations or dense sampling can be expensive.
-- Interop modules:
-  - `galpy`/`agama` integrations require those libraries installed separately.
-- Environment:
-  - Prefer isolated virtual environments for reproducibility.
-- Risk profile from analysis:
-  - Import feasibility is high, intrusiveness risk is low, overall complexity is medium.
+- Unit mismatches are the most common source of incorrect results.
+  - Always provide explicit units for position, velocity, mass, and time.
+- Performance depends on integrator and time grid density.
+  - Start with coarse grids, then refine.
+- Pure-Python integrators are easiest to deploy; compiled paths may need extra build tooling.
+- Optional interop (`galpy`, `agama`) may require separate installation and compatible versions.
+- For long integrations, monitor numerical stability and conservation behavior.
+- Use repository tests (especially integrator tests) as smoke-test references for your service behavior.
 
 ---
 
-## 6) Reference Links / Documentation
+## 6) Reference Links or Documentation
 
-- Upstream repository: https://github.com/adrn/gala
-- Official documentation (project docs in repository): `docs/`
-- Paper overview: `paper/paper.md`
-- High-value source modules:
-  - `src/gala/potential/potential/core.py`
-  - `src/gala/potential/potential/builtin/core.py`
-  - `src/gala/dynamics/orbit.py`
-  - `src/gala/integrate/core.py`
-  - `src/gala/potential/hamiltonian/`
-  - `src/gala/units.py`
-- Tests for usage patterns:
-  - `tests/potential/`
-  - `tests/dynamics/`
-  - `tests/integrate/`
+- Repository: https://github.com/adrn/gala
+- Main package source: `src/gala`
+- Potentials core: `src/gala/potential/potential/core.py`
+- Built-in potentials: `src/gala/potential/potential/builtin/core.py`
+- Orbit object: `src/gala/dynamics/orbit.py`
+- Integrators:
+  - `src/gala/integrate/pyintegrators/leapfrog.py`
+  - `src/gala/integrate/pyintegrators/dopri853.py`
+- Tests for validation patterns: `tests/` (notably `tests/integrate/` and `tests/dynamics/`)

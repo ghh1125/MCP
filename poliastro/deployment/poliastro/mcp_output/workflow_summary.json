@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773387513.5395782,
-    "end_time": 1773387664.826732,
-    "duration": 151.2871537208557,
+    "start_time": 1773407877.385246,
+    "end_time": 1773408161.840519,
+    "duration": 284.4552729129791,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 2,
+    "total_files_processed": 3,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -55,13 +55,14 @@
     "structure": {
       "packages": [
         "deployment.poliastro.source",
-        "mcp_output.mcp_plugin"
+        "mcp_output.mcp_plugin",
+        "source.src.poliastro"
       ]
     },
     "dependencies": {
       "has_environment_yml": false,
       "has_requirements_txt": false,
-      "pyproject": false,
+      "pyproject": true,
       "setup_cfg": false,
       "setup_py": false
     },
@@ -71,7 +72,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.95,
+      "import_feasibility": 0.92,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -124,52 +125,39 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/poliastro/temp_clone'...\nfatal: unable to access 'https://github.com/poliastro/poliastro/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 \n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/poliastro/temp_clone'...\nfatal: unable to access 'https://github.com/poliastro/poliastro/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 \n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "add and run an MCP smoke/integration test suite (current test status is empty) that validates each generated endpoint (`orbit`",
-    "propagators",
-    "`maneuver`",
-    "`body`",
-    "`ephem`",
-    "`lambert`",
-    "`orbitplotter`) end-to-end",
-    "deduplicate the two `lambert` endpoints by renaming to method-specific tools (e.g.",
-    "`lambert_izzo`",
-    "`lambert_vallado`) to avoid API ambiguity",
-    "improve packaging detection/build metadata in the importer (analysis incorrectly reports missing `pyproject.toml` despite it existing) to make dependency resolution reliable",
-    "pin and align MCP plugin/runtime dependencies with the upstream project (numpy/astropy/scipy compatibility matrix + optional extras for plotting) and document supported versions",
-    "add strict input/output schemas for astropy quantities and time types in the adapter (units",
-    "frames",
-    "epochs) with clear serialization rules to prevent runtime conversion errors",
-    "implement robust error mapping in MCP service (domain exceptions -> structured MCP errors with actionable messages)",
-    "create a minimal “golden examples” test set from existing docs notebooks to verify MCP outputs against known orbit/lambert/propagation results",
-    "add CI workflow for `mcp_output` (lint",
-    "type-check",
-    "tests",
-    "startup check) and publish artifacts/health status badges in `README_MCP.md`",
-    "add lightweight performance benchmarks for heavy paths (Cowell propagation",
-    "Lambert solves",
-    "plotting data prep) with regression thresholds",
-    "strengthen observability by adding structured logging and per-endpoint timing/failed-call metrics",
-    "reduce surface-area risk by exposing a curated stable endpoint layer instead of direct class-level mirrors where possible",
-    "add contract tests for adapter mode `import` plus fallback behavior to ensure resilience when optional dependencies are missing",
-    "improve documentation with endpoint-by-endpoint request/response examples and common failure cases (units mismatch",
-    "invalid epochs",
-    "unavailable ephemerides)",
-    "add security hardening for MCP server execution (input size limits",
-    "timeout guards for long propagations",
-    "safe defaults)",
-    "track technical debt in `contrib/` by explicitly excluding non-production modules from MCP auto-exposure and documenting rationale"
+    "add a minimal MCP smoke test suite (server start",
+    "import health",
+    "one call per endpoint) and run it in CI",
+    "pin and sync dependencies between `pyproject.toml` and `mcp_output/requirements.txt` (or generate one from the other) to avoid drift",
+    "improve endpoint naming consistency by exposing user-facing snake_case aliases (while keeping backward-compatible names)",
+    "add strict input/output schemas for units-aware parameters (especially vectors",
+    "epochs",
+    "frames) with clear validation errors",
+    "implement structured error mapping in the adapter so Astropy/NumPy exceptions become actionable API errors",
+    "add contract tests for high-value APIs (`Orbit`",
+    "propagation methods",
+    "`Maneuver`",
+    "`Ephem`) to detect upstream breaking changes early",
+    "introduce optional lazy imports for heavy plotting/ephemeris dependencies to reduce startup latency",
+    "add benchmark cases for common propagation workloads and track regressions over time",
+    "expand documentation with an MCP-focused quickstart plus example requests/responses for each endpoint",
+    "add observability hooks (request logging",
+    "timing",
+    "endpoint-level success/error counters)",
+    "define version-compatibility policy (supported poliastro/astropy/python ranges) and enforce via CI matrix",
+    "add property-based tests for constructor endpoints (`from_vectors`",
+    "`from_classical`",
+    "etc.) to validate invariants and edge cases",
+    "include a fallback/degradation strategy test when optional dependencies (plotly",
+    "astroquery",
+    "jplephem) are absent",
+    "add security hardening for the service layer (input size limits",
+    "timeout guards",
+    "safe exception redaction)",
+    "and generate endpoint docs automatically from code metadata to prevent README drift"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -200,38 +188,37 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Zip fallback ingestion succeeded after git clone failure, allowing repository analysis (244 files discovered).",
-      "Import-mode adapter strategy was feasible (import feasibility 0.95) for a Python library with low intrusiveness risk.",
-      "MCP plugin startup/health checks passed (service healthy over stdio).",
-      "Core endpoint surface was generated for major poliastro domains (orbit, propagators, maneuvers, bodies, ephemerides, Lambert, plotting)."
+      "End-to-end workflow status is success with all expected nodes executed (download, analysis, env, generate, run, review, finalize)",
+      "Import-based adapter strategy was suitable for this Python library (import feasibility ~0.92)",
+      "Generated MCP service passed plugin health/startup checks (healthy, stdio transport)",
+      "Low intrusiveness risk and medium code complexity supported rapid integration",
+      "Repository ingestion fallback (zip import) succeeded despite DeepWiki analysis failure"
     ],
     "failure_reasons": [
-      "Primary source acquisition failed at DownloadNode due to TLS/network error (LibreSSL SSL_ERROR_SYSCALL to github.com:443).",
-      "Dependency/packaging detection is incorrect (reported no pyproject/requirements despite pyproject.toml present), reducing build reliability.",
-      "Validation quality is weak: original project tests did not run (passed=false, empty details) and MCP integration tests are effectively absent.",
-      "Generated metadata is inconsistent (total LOC/files size/tool endpoint counts reported as 0 while files/endpoints exist).",
-      "DeepWiki augmentation failed, reducing analysis depth."
+      "No hard workflow failure detected",
+      "DeepWiki analysis failed (non-blocking) and reduced external contextual enrichment",
+      "Original project test execution is marked as not passed/empty details, indicating baseline validation gap",
+      "Telemetry quality is low (0-valued memory/cpu/response metrics), limiting diagnostic confidence"
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Download path partially failed (git clone), then recovered via zip fallback; reliability concern outweighs speed.",
-      "analysis_time": "Completed successfully with broad repository scan; detected structure and core modules, but packaging inference errors indicate parser quality gaps.",
-      "generation_time": "Generated MCP scaffold and endpoint set successfully; however duplicate lambert endpoint and zeroed generation metrics indicate post-processing/reporting defects.",
-      "test_time": "MCP health test passed quickly, but no meaningful endpoint-level or regression test execution; test confidence is low."
+      "download_time": "Completed successfully; exact per-node timing not provided. Zip fallback import indicates robust but potentially slower retrieval path.",
+      "analysis_time": "Completed successfully with structural/dependency/risk outputs; DeepWiki substep failed but local LLM-direct analysis compensated.",
+      "generation_time": "Completed successfully; MCP scaffold and adapter files created with expected entrypoint and requirements.",
+      "test_time": "MCP plugin health test passed, but original project test stage appears effectively unexecuted/underdocumented, reducing confidence."
     },
     "resource_usage": {
-      "memory_efficiency": "No usable telemetry (reported 0 MB); cannot validate efficiency. Add runtime instrumentation.",
-      "cpu_efficiency": "No usable telemetry (reported 0%); profiling data missing.",
-      "disk_usage": "Generated artifacts are small scaffold files, but reported size=0 is inconsistent; disk accounting is currently unreliable."
+      "memory_efficiency": "Undetermined from run data (reported as 0 MB); instrumentation likely missing rather than truly zero usage.",
+      "cpu_efficiency": "Undetermined from run data (reported as 0%); add runtime profiling hooks for meaningful analysis.",
+      "disk_usage": "Likely low-to-moderate for generated artifacts (few files), but reported generated size is 0, suggesting metrics collection defect."
     }
   },
   "technical_quality": {
-    "code_quality_score": 72,
-    "architecture_score": 78,
-    "performance_score": 60,
-    "maintainability_score": 74,
+    "code_quality_score": 78,
+    "architecture_score": 82,
+    "performance_score": 70,
+    "maintainability_score": 76,
     "security_score": 85,
-    "scalability_score": 68
+    "scalability_score": 74
   }
 }

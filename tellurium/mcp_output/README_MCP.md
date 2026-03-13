@@ -2,185 +2,155 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service wraps core Tellurium capabilities for systems biology modeling and simulation.  
-It is designed for developer workflows that need to:
+This MCP (Model Context Protocol) service wraps core **Tellurium** capabilities for computational biology workflows, including:
 
-- Load and simulate biochemical models (Antimony/SBML)
-- Run SED-ML and COMBINE/OMEX simulation experiments
-- Convert between model and archive formats
-- Perform parameter scans and steady-state analyses
-- Produce plots via configurable plotting backends
+- Loading and simulating models (Antimony, SBML, CellML)
+- Converting between model formats
+- Running SED-ML and COMBINE/OMEX archives
+- Parameter scan and stochastic/sensitivity analysis helpers
+- Plotting and result export utilities
 
-Core modules used by this service include:
-
-- `tellurium/tellurium.py` (high-level API: `loada`, `loads`, `loadSBMLModel`, etc.)
-- `tellurium/roadrunner/extended_roadrunner.py` (`ExtendedRoadRunner`)
-- `tellurium/sedml/tesedml.py` (`executeSEDML`, `executeCombineArchive`)
-- `tellurium/teconverters/*` (Antimony/SBML and OMEX conversions)
-- `tellurium/analysis/parameterscan.py` (`ParameterScan`, `SteadyStateScan`)
+Repository: https://github.com/sys-bio/tellurium
 
 ---
 
-## 2) Installation Method
+## 2) Installation
 
-### Prerequisites
+### Requirements
 
-- Python 3.x
-- Scientific stack: `numpy`, `scipy`, `matplotlib`, `pandas`
-- Modeling/simulation libs: `libroadrunner`, `antimony`, `phrasedml`, `python-libsbml`
-- Optional: `plotly`, `ipywidgets`, `jupyter`
+Core Python dependencies (from repository analysis):
 
-### Recommended install
+- numpy
+- scipy
+- matplotlib
+- pandas
+- libroadrunner
+- antimony
+- phrasedml
+- python-libsbml
+- python-libsedml
 
-1. Create and activate a virtual environment
-2. Install Tellurium and dependencies with pip
+Optional:
 
-Example package set:
+- plotly (interactive plotting)
+- ipywidgets (notebook UI helpers)
 
-- `tellurium`
-- `numpy`
-- `scipy`
-- `matplotlib`
-- `pandas`
-- `plotly` (optional)
+### Install Steps
 
-If binary dependencies (e.g., RoadRunner/libSBML) fail to build, prefer platform wheels/conda packages.
+1. Create and activate a virtual environment.
+2. Install Tellurium and required scientific stack.
+3. If needed, install optional plotting/notebook packages.
+
+Typical commands:
+
+- `pip install tellurium`
+- or from source repo: `pip install -r requirements.txt && pip install -e .`
 
 ---
 
 ## 3) Quick Start
 
-### Load and simulate a model
+### Basic model load + simulation
 
-Use Tellurium high-level API (`loada`) to load Antimony text, then simulate and inspect results.
+Use core Tellurium APIs exposed by the service:
 
-Typical flow:
+- `loada(antimony_str)` / `loadAntimonyModel(antimony_str)`
+- `loadSBMLModel(sbml_str)`
+- `simulate(...)` on returned RoadRunner model
+- `plotArray(result)` or plotting API
 
-1. Import `tellurium as te`
-2. `rr = te.loada(<antimony_model_text>)`
-3. `result = rr.simulate(start, end, points)`
-4. Plot via `te.plot(...)` or `rr.plot()`
+Example flow:
 
-### Run SED-ML / OMEX execution
+1. Send Antimony model text to `loada`.
+2. Simulate time course (`model.simulate(0, 100, 1000)`).
+3. Return numeric result and optional figure output.
 
-Use:
+### Format conversion
 
-- `executeSEDML(...)` for SED-ML documents
-- `executeCombineArchive(...)` for COMBINE archives
+Common conversions:
 
-This enables reproducible experiment execution directly from standards-based files.
+- `antimonyToSBML`
+- `sbmlToAntimony`
+- `antimonyToCellML`
+- `cellmlToSBML`
 
-### Convert formats
+### SED-ML / COMBINE archive execution
 
-Use converter utilities:
-
-- `antimonyToSBML(...)`
-- `sbmlToAntimony(...)`
-- `inlineOmexToCombineArchive(...)`
-- `combineArchiveToInlineOmex(...)`
+- `executeSEDML(inputStr, workingDir, ...)`
+- `executeCombineArchive(omexPath, ...)`
+- `convertCombineArchive(location)` / `convertAndExecuteCombineArchive(location)`
 
 ---
 
-## 4) Available Tools and Endpoints List
+## 4) Available Tools and Endpoints
 
-Suggested MCP (Model Context Protocol) service endpoints:
+Recommended MCP (Model Context Protocol) service endpoints (mapped to Tellurium functions):
 
-- `model.load_antimony`
-  - Wraps `te.loada`
-  - Input: Antimony string
-  - Output: model/session handle + metadata
+- `health`
+  - Liveness/readiness check, version info.
 
-- `model.load_sbml`
-  - Wraps `te.loadSBMLModel`
-  - Input: SBML string/path
-  - Output: model/session handle
+- `version_info`
+  - Returns `getTelluriumVersion()` and dependency/runtime details.
 
-- `simulation.run_timecourse`
-  - Uses `ExtendedRoadRunner.simulate`
-  - Input: model handle, start/end/points, selected variables
-  - Output: simulation matrix/JSON series
+- `load_model`
+  - Inputs: `format` (`antimony|sbml|cellml`), `content`
+  - Uses: `loada`, `loadSBMLModel`, `loadCellMLModel`
 
-- `simulation.steady_state`
-  - Uses RoadRunner steady-state routines
-  - Input: model handle
-  - Output: steady-state values/status
+- `simulate_timecourse`
+  - Inputs: model handle, start/end/points, selections
+  - Runs model simulation and returns table/series output.
 
-- `sedml.execute`
-  - Wraps `executeSEDML`
-  - Input: SED-ML path/content + referenced models
-  - Output: execution reports and datasets
+- `convert_model`
+  - Inputs: source format + content, target format
+  - Uses conversion APIs (`antimonyToSBML`, `sbmlToAntimony`, etc.).
 
-- `omex.execute`
-  - Wraps `executeCombineArchive`
-  - Input: OMEX archive path/bytes
-  - Output: experiment outputs, logs, status
+- `run_sedml`
+  - Inputs: SED-ML content/path + working directory/options
+  - Uses: `executeSEDML`
 
-- `convert.antimony_to_sbml`
-  - Wraps `antimonyToSBML`
-  - Input: Antimony
-  - Output: SBML
+- `run_omex`
+  - Inputs: OMEX path/options
+  - Uses: `executeCombineArchive`, `convertCombineArchive`
 
-- `convert.sbml_to_antimony`
-  - Wraps `sbmlToAntimony`
-  - Input: SBML
-  - Output: Antimony
+- `parameter_scan`
+  - Uses Tellurium analysis classes (`ParameterScan`, `ParameterScan2D`, `SteadyStateScan`).
 
-- `convert.inline_omex_to_archive`
-  - Wraps `inlineOmexToCombineArchive`
-  - Input: inline OMEX text
-  - Output: OMEX archive artifact
+- `stochastic_simulation`
+  - Uses stochastic helpers (`StochasticSimulationModel`, distributed helpers).
 
-- `convert.archive_to_inline_omex`
-  - Wraps `combineArchiveToInlineOmex`
-  - Input: OMEX archive
-  - Output: inline OMEX text
+- `sensitivity_analysis`
+  - Uses `SensitivityAnalysis` utilities.
 
-- `analysis.parameter_scan`
-  - Wraps `ParameterScan`
-  - Input: model handle + parameter ranges
-  - Output: scan results/plots
+- `plot_results`
+  - Uses plotting APIs (`plotArray`, plotting engine abstractions).
+  - Supports matplotlib by default; plotly optional.
 
-- `analysis.steady_state_scan`
-  - Wraps `SteadyStateScan`
-  - Input: model handle + scan definition
-  - Output: scan report
-
-- `plot.render`
-  - Wraps plotting API (`plot`, `show`, `nextFigure`)
-  - Input: datasets + backend options
-  - Output: figure object or serialized plot artifact
+- `archive_utils`
+  - COMBINE archive utilities:
+  - `extractFileFromCombineArchive`, `addFileToCombineArchive`, `createCombineArchive`
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Binary dependency issues  
-  `libroadrunner`, `antimony`, and `python-libsbml` may require compatible wheels/system libs.
-
-- Environment consistency  
-  Use isolated virtual environments; pin versions for reproducible behavior.
-
-- Headless/server runtime  
-  Configure matplotlib backend for non-GUI environments.
-
-- Large OMEX/SED-ML workloads  
-  Execution time and memory use can grow significantly; enforce resource/time limits in service layer.
-
-- Input validation and safety  
-  Validate uploaded model/archive content and file paths. Treat external archives as untrusted input.
-
-- Import feasibility  
-  Project analysis indicates good import feasibility, but medium complexity/intrusiveness for deep integration.
+- Native/scientific dependencies can be the hardest part (`libroadrunner`, `libsbml`, `libsedml`).
+- Prefer isolated environments (venv/conda) to avoid binary conflicts.
+- Some advanced notebook utilities require Jupyter/ipywidgets.
+- Plotting backend differences:
+  - headless servers may need non-interactive backends.
+- Large OMEX/SED-ML workflows can be memory/CPU heavy; set execution limits in MCP (Model Context Protocol) host.
+- Repo includes legacy/deprecated modules under `tellurium/dev/deprecated`; avoid for new integrations.
+- AST scan shows no dedicated CLI entry points; service integration should be Python API-driven.
 
 ---
 
-## 6) Reference Links / Documentation
+## 6) References
 
-- Repository: https://github.com/sys-bio/tellurium
-- Main package docs/source: `tellurium/`
-- Examples:
+- Main repository: https://github.com/sys-bio/tellurium
+- Root README: `README.md` in repo
+- Documentation folder: `docs/`
+- SED-ML notes: `docs/sedml.md`
+- Tests/examples for behavior reference:
+  - `tellurium/tests/`
   - `examples/notebooks-py/`
   - `examples/tellurium-files/`
-- SED-ML module: `tellurium/sedml/tesedml.py`
-- Converters: `tellurium/teconverters/`
-- Tests: `tellurium/tests/`

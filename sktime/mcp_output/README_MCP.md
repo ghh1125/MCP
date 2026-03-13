@@ -2,126 +2,132 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service wraps the `sktime` ecosystem to provide practical time-series capabilities through standardized tools/endpoints.
+This MCP (Model Context Protocol) service exposes practical time-series capabilities from [`sktime`](https://github.com/sktime/sktime) as callable developer tools.
 
-Main functions:
-- Forecasting (fit/predict/update, intervals, quantiles, probabilistic outputs)
-- Transformation pipelines (fit/transform/inverse_transform)
-- Classification, regression, clustering for time series
-- Detection (anomaly/changepoint/segmentation)
-- Dataset loading for demos/tests
-- Estimator discovery via registry (no hard-coded model lists)
-- Evaluation with forecasting metrics and temporal splitters
+Main goals:
+- Discover available estimators dynamically
+- Load built-in datasets quickly for testing
+- Train and run forecasting pipelines
+- Evaluate models with standard forecasting metrics
+- Support split/tuning workflows for production-like experiments
+
+Core sktime abstractions behind this service:
+- `BaseForecaster`, `BaseTransformer`, `BaseClassifier`, `BaseRegressor`, `BaseClusterer`, `BaseDetector`
+- Estimator registry via `all_estimators`
+- Dataset loaders (`load_airline`, `load_longley`, etc.)
+- Model selection (`temporal_train_test_split`, window splitters, forecasting CV search)
+- Forecast metrics (`MAE`, `MSE`, `MAPE`, `MASE`)
 
 ---
 
 ## 2) Installation Method
 
 ### Requirements
-- Python >= 3.10
-- Core: `numpy`, `pandas`, `scikit-learn`, `scipy`, `packaging`
-- Optional (feature-dependent): `statsmodels`, `pmdarima`, `prophet`, `darts`, `neuralforecast`, `pytorch-forecasting`, `torch`, `tensorflow`, `tslearn`, `pyts`, `numba`, `mlflow`, `polars`, `dask`, `gluonts`, `tbats`, `arch`, `skopt`, `optuna`, `hyperactive`
+- Python `>=3.9`
+- Core dependencies: `numpy`, `pandas`, `scikit-learn`, `scipy`, `joblib`
+- `sktime` package
 
-### Install
-- `pip install sktime`
-- If your MCP (Model Context Protocol) service has extras, install those per your deployment profile (forecasting DL, probabilistic, optimization, etc.).
+### Install (minimal)
+pip install -U sktime
+
+### Optional extras (only if needed by selected estimators)
+- statsmodels, pmdarima, prophet, tbats
+- darts, neuralforecast
+- pytorch, tensorflow
+- tslearn, pyts, numba
+- optuna, scikit-optimize, mlflow
+- tsfresh, tsfel, temporian, transformers
+
+Tip: keep a lean environment first, then install optional dependencies based on tool failures/warnings.
 
 ---
 
 ## 3) Quick Start
 
 Typical MCP (Model Context Protocol) workflow:
-1. List available estimators with registry lookup (`all_estimators`)
-2. Load a built-in dataset (e.g., `load_airline`, `load_longley`, `load_gunpoint`)
-3. Create estimator instance (forecaster/transformer/classifier/etc.)
-4. Run lifecycle methods:
-   - Forecasting: `fit`, `predict`, `update`, `predict_interval`, `predict_quantiles`, `predict_proba`, `score`
-   - Transformation: `fit`, `transform`, `fit_transform`, `inverse_transform`, `update`
-   - Classification/Regression/Clustering/Detection: standard `fit/predict/...`
-5. Evaluate with metrics (e.g., MAE/MSE/MAPE/MASE) and temporal splitters (`temporal_train_test_split`, sliding/expanding windows)
+1. Call `list_estimators` to discover compatible estimators by task (forecasting/classification/etc.)
+2. Call `load_dataset` (e.g., airline) to get sample data
+3. Call `train_forecaster` with estimator name + params
+4. Call `predict_forecast` for horizon-based predictions
+5. Call `evaluate_forecast` to compute metrics (MAE/MSE/MAPE/MASE)
+
+Example flow (conceptual):
+- `load_dataset(name="airline")`
+- `temporal_split(test_size=24)`
+- `train_forecaster(estimator="NaiveForecaster", params={"strategy":"last"})`
+- `predict_forecast(fh=[1,2,...,24])`
+- `evaluate_forecast(metrics=["mae","mape"])`
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Recommended MCP (Model Context Protocol) endpoints for this service:
+- `health_check`  
+  Verifies service is running and dependencies are importable.
 
-- `list_estimators`
-  - Uses `sktime.registry.all_estimators`
-  - Returns estimators filtered by task/scitype/tags
+- `list_estimators`  
+  Uses sktime registry discovery (`all_estimators`) to return available estimators and metadata/tags.
 
-- `load_dataset`
-  - Built-in loaders from `sktime.datasets`
-  - Examples: airline, lynx, shampoo_sales, basic_motions, gunpoint, tecator
+- `get_estimator_info`  
+  Returns constructor signature, task type, dependency hints, and capabilities for a specific estimator.
 
-- `forecast_fit_predict`
-  - Fits a `BaseForecaster`-compatible model and returns forecasts
+- `load_dataset`  
+  Loads built-in datasets (forecasting/classification/regression) for quick experiments.
 
-- `forecast_predict_interval`
-  - Returns prediction intervals for fitted forecasters
+- `temporal_split`  
+  Time-aware train/test split helper for forecasting datasets.
 
-- `forecast_predict_quantiles`
-  - Returns quantile forecasts
+- `create_splitter`  
+  Build window splitters (expanding/sliding) for backtesting.
 
-- `forecast_predict_proba`
-  - Returns probabilistic forecast outputs (distribution-like predictions)
+- `train_forecaster`  
+  Fit a forecasting estimator on training data.
 
-- `transform_fit_transform`
-  - Applies `BaseTransformer` pipeline to input data
+- `predict_forecast`  
+  Produce point forecasts (and optionally intervals/quantiles if supported).
 
-- `transform_inverse`
-  - Runs inverse transformations where supported
+- `evaluate_forecast`  
+  Compute metrics such as MAE, MSE, MAPE, MASE.
 
-- `classify_fit_predict`
-  - Time-series classification via `BaseClassifier`
+- `forecasting_grid_search`  
+  Hyperparameter tuning via forecasting CV.
 
-- `regress_fit_predict`
-  - Time-series regression via `BaseRegressor`
+- `forecasting_random_search`  
+  Randomized hyperparameter tuning for faster exploration.
 
-- `cluster_fit_predict`
-  - Time-series clustering via `BaseClusterer`
-
-- `detect_fit_predict`
-  - Detection tasks via `BaseDetector` (anomaly/changepoint/segmentation)
-
-- `split_temporal`
-  - Time-aware train/test split and CV splitter generation
-
-- `evaluate_forecast`
-  - Forecast metric computation (MAE, MSE, MAPE, MASE, etc.)
+- `build_pipeline`  
+  Compose transformations + estimator into a single runnable pipeline.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Optional dependency errors are expected for some estimators.
-  - Fix by installing task-specific packages (e.g., `torch`, `statsmodels`, `tslearn`).
-- No first-class end-user CLI is exposed by default.
-  - `build_tools/*` scripts are maintainer utilities, not runtime MCP (Model Context Protocol) endpoints.
-- Performance:
-  - Large panel/hierarchical data can be expensive; prefer windowed evaluation and lightweight models first.
-  - Enable `numba`-accelerated paths when available.
-- Data shape/type mismatches are common.
-  - Use `sktime`-compatible series/panel/hierarchical formats and validate before inference.
-- Reproducibility:
-  - Set random seeds in estimator params where available.
-- Environment:
-  - Python 3.10+ strongly recommended to avoid compatibility issues.
+- Optional dependency errors are normal  
+  Many sktime estimators require extra libraries. Install only what your chosen estimator needs.
+
+- Estimator availability varies by environment  
+  `list_estimators` output depends on installed optional packages.
+
+- Data format matters  
+  sktime supports multiple scientific types (series/panel/hierarchical). Use service-provided conversion/validation paths if available.
+
+- Performance considerations  
+  Some models (deep learning, large-search tuning) are compute-heavy. Start with small datasets and short horizons.
+
+- Reproducibility  
+  Pass `random_state` where possible for deterministic results.
+
+- Version compatibility  
+  Prefer recent stable versions of Python + sktime + scikit-learn to reduce API mismatch.
 
 ---
 
-## 6) Reference Links / Documentation
+## 6) Reference Links or Documentation
 
-- Repository: https://github.com/sktime/sktime
-- Main docs and usage guidance (from repo README/docs): `README.md`, `docs/source/*`
-- Estimator discovery: `sktime/registry/_lookup.py` (`all_estimators`)
-- Core APIs:
-  - Forecasting base: `sktime/forecasting/base/_base.py`
-  - Transformer base: `sktime/transformations/base.py`
-  - Classifier base: `sktime/classification/base.py`
-  - Regressor base: `sktime/regression/base.py`
-  - Clusterer base: `sktime/clustering/base.py`
-  - Detector base: `sktime/detection/base/_base.py`
-- Datasets: `sktime/datasets/__init__.py`
-- Forecast metrics: `sktime/performance_metrics/forecasting/__init__.py`
-- Temporal splitting: `sktime/split/__init__.py`
+- sktime repository: https://github.com/sktime/sktime  
+- sktime docs: https://www.sktime.net  
+- Estimator overview: `ESTIMATOR_OVERVIEW.md` (in repository)  
+- Forecasting base API (`BaseForecaster`): `sktime/forecasting/base/_base.py`  
+- Transformer base API (`BaseTransformer`): `sktime/transformations/base.py`  
+- Registry lookup (`all_estimators`): `sktime/registry/_lookup.py`  
+- Forecasting metrics: `sktime/performance_metrics/forecasting/`

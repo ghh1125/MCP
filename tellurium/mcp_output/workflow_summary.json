@@ -14,9 +14,9 @@
     "intrusiveness_risk": "medium"
   },
   "execution": {
-    "start_time": 1773288475.252241,
-    "end_time": 1773288791.2103412,
-    "duration": 315.9581003189087,
+    "start_time": 1773411340.3525288,
+    "end_time": 1773411525.3966222,
+    "duration": 185.04409503936768,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 16,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,14 +53,31 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.tellurium.source",
+        "mcp_output.mcp_plugin",
+        "source.examples",
+        "source.examples.tellurium-files",
+        "source.tellurium",
+        "source.tellurium.analysis",
+        "source.tellurium.dev",
+        "source.tellurium.notebooks",
+        "source.tellurium.plotting",
+        "source.tellurium.roadrunner",
+        "source.tellurium.sedml",
+        "source.tellurium.teconverters",
+        "source.tellurium.teio",
+        "source.tellurium.tests",
+        "source.tellurium.utils",
+        "source.tellurium.visualization"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
-      "has_requirements_txt": false,
+      "has_requirements_txt": true,
       "pyproject": false,
       "setup_cfg": false,
-      "setup_py": false
+      "setup_py": true
     },
     "entry_points": {
       "imports": [],
@@ -68,7 +85,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.86,
+      "import_feasibility": 0.72,
       "intrusiveness_risk": "medium",
       "complexity": "medium"
     },
@@ -121,49 +138,41 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/tellurium/temp_clone'...\nerror: RPC failed; curl 16 Error in the HTTP2 framing layer\nfatal: expected flush after ref listing\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/tellurium/temp_clone'...\nerror: RPC failed; curl 16 Error in the HTTP2 framing layer\nfatal: expected flush after ref listing\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "add a modern `pyproject.toml` (keep `setup.py` compatibility if needed) and clearly declare core vs optional extras (`plotly`",
-    "`jupyter`",
-    "`widgets`",
-    "`dev/test/docs`)",
-    "restore and standardize dependency metadata detection in tooling (current analysis falsely reports missing `requirements/setup.py` despite files existing)",
-    "set up GitHub Actions CI matrix (Linux/macOS/Windows",
-    "multiple Python versions) to replace legacy `.travis.yml` and run unit/integration tests for SED-ML/OMEX paths",
-    "add contract tests for generated MCP endpoints (input/output schema validation",
-    "error behavior",
-    "and smoke tests for all exposed tools)",
-    "introduce typed API boundaries for MCP adapter layer using Pydantic models and consistent exception-to-MCP error mapping",
-    "prioritize decomposition of very large modules (`tellurium/sedml/tesedml.py`",
-    "`tellurium/tellurium.py`) into smaller testable units",
-    "add backend-agnostic plotting regression tests across matplotlib/plotly/null engines",
-    "formalize deprecation policy and isolate/remove `dev/deprecated` and bundled `spyder_mod` variants from core release artifacts",
-    "improve package structure discovery (analysis found empty package list) by ensuring explicit package config and namespace clarity",
-    "add reproducible environment lockfiles for dev/docs/tests and document platform-specific binary dependency setup (`libroadrunner`",
-    "`antimony`",
-    "`libsbml`)",
-    "expand performance benchmarking for key workflows (model load/simulate",
-    "archive conversion",
-    "SED-ML execution) with baseline thresholds in CI",
-    "strengthen documentation with a single “quickstart + architecture + API surface” map and MCP usage examples tied to exposed endpoints",
-    "add security/robustness checks for archive extraction and file I/O paths (zip-slip/path traversal guards",
-    "safe temp handling)",
-    "include static quality gates (ruff/flake8",
-    "black",
-    "mypy or pyright where feasible) and enforce via pre-commit + CI",
-    "publish a minimal compatibility matrix (Python",
-    "OS",
-    "major dependency versions) and expected feature availability by optional extras"
+    "Define a strict endpoint allowlist to exclude vendored `spyder_mod/*` symbols from MCP export",
+    "Add automated endpoint de-duplication and naming normalization (many repeated `main`",
+    "`mainwindow`",
+    "etc.)",
+    "Add smoke/integration tests for generated MCP tools (current test status is empty)",
+    "Introduce `pyproject.toml` and modernize packaging while keeping `setup.py` compatibility",
+    "Split heavyweight modules (e.g.",
+    "`tellurium/sedml/tesedml.py`",
+    "`tellurium/tellurium.py`) into smaller units to reduce maintenance risk",
+    "Add type hints plus mypy/pyright checks for public APIs",
+    "Establish CI matrix for supported Python/dependency versions and optional extras",
+    "Pin and separate core vs optional dependencies more clearly (runtime vs notebooks/plotting)",
+    "Add structured logging and error taxonomy for converter/execution paths (OMEX/SED-ML)",
+    "Improve import safety by avoiding side-effectful imports in adapter discovery",
+    "Add CLI entry points for common workflows (e.g.",
+    "execute OMEX",
+    "convert SED-ML) and document them",
+    "Strengthen docs with an API surface map and “stable vs experimental/deprecated” labels",
+    "Add regression tests for archive handling edge cases (path traversal",
+    "malformed manifests",
+    "duplicate entries)",
+    "Add benchmark suite for simulation/plotting/conversion hotspots",
+    "Add security/dependency scanning (pip-audit/Safety + SBOM)",
+    "Consolidate legacy CI/config files (`.travis.yml`",
+    "tox",
+    "RTD) into a single maintained pipeline",
+    "Add coverage reporting with minimum thresholds and prioritize low-covered core modules",
+    "Create a deprecation roadmap for `tellurium/dev/deprecated/*` and communicate migration paths",
+    "Add pre-commit hooks (ruff/black/isort) to enforce style and reduce review churn",
+    "Improve plugin README with minimal quickstart",
+    "endpoint curation guidance",
+    "and troubleshooting for missing native libs"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -194,36 +203,37 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Robust fallback behavior: after git clone failure, pipeline continued via zip-based repository import and still completed generation.",
-      "MCP plugin startup/health checks passed (service_health=healthy, transport=stdio), indicating runnable generated service skeleton.",
-      "Reasonable import feasibility (0.86) enabled adapter_mode=import and endpoint mapping from core Tellurium APIs."
+      "Workflow completed all planned nodes (download, analysis, env, generate, run, review, finalize) with overall status=success.",
+      "Import-based adapter strategy succeeded despite moderate import feasibility (0.72).",
+      "MCP plugin runtime health check passed (service_health=healthy, stdio transport).",
+      "Repository ingestion fallback (zip_fallback) successfully processed a large codebase (223 files discovered).",
+      "No runtime errors or warnings were emitted by the workflow engine."
     ],
     "failure_reasons": [
-      "Primary source acquisition failed due to Git transport/network issue (HTTP2 framing/RPC failure during clone).",
-      "Metadata/analysis inconsistency: dependency and package discovery reported empty/missing despite repository containing setup.py and requirements.txt.",
-      "Validation depth was limited (original project tests marked failed/empty execution, no meaningful runtime verification of mapped scientific endpoints).",
-      "Observability gaps: node-level timings, resource metrics, and generated code size/LOC were recorded as zero/unknown."
+      "No hard workflow failure occurred.",
+      "Quality gap: generated MCP metadata indicates 0 LOC / 0 endpoints in generation summary, while service endpoint list is large and noisy—suggesting inconsistent reporting/instrumentation.",
+      "DeepWiki enrichment failed, reducing contextual analysis depth.",
+      "Original project test execution did not run meaningfully (passed=false with empty details), so compatibility confidence is limited."
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Download node encountered clone failure early; recovery through zip fallback was successful but indicates unstable primary fetch path.",
-      "analysis_time": "Analysis completed, but quality degraded by false negatives (empty package/dependency detection) and DeepWiki failure.",
-      "generation_time": "Generation completed and produced expected MCP scaffold files quickly; however, reported LOC/size/tool_count metrics are inconsistent with actual outputs.",
-      "test_time": "MCP health test passed, but project-level test execution was effectively absent; functional confidence remains moderate-to-low."
+      "download_time": "Completed successfully; repository was imported via zip fallback. No node-level timing provided, but total pipeline duration (185s) is reasonable for 223 files.",
+      "analysis_time": "Likely dominant phase due to broad AST scan across core code plus vendored Spyder trees; endpoint over-discovery indicates heavy analysis scope.",
+      "generation_time": "Fast enough to complete in pipeline budget; generated scaffold files are present, but generation metrics appear incomplete/inaccurate.",
+      "test_time": "MCP plugin health/startup checks passed quickly; original project tests effectively not executed (empty result), leaving a verification blind spot."
     },
     "resource_usage": {
-      "memory_efficiency": "Not assessable from provided telemetry (0/unknown metrics). Likely acceptable for scaffold generation workload.",
-      "cpu_efficiency": "Not assessable from provided telemetry (0/unknown metrics). No evidence of CPU saturation or heavy computation in this run.",
-      "disk_usage": "Repository footprint appears moderate (223 files via zip import). Generated MCP artifacts are small, but exact size metrics were not captured."
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB), indicating missing instrumentation rather than true zero usage.",
+      "cpu_efficiency": "Unknown from telemetry (reported 0%), likely uncollected metrics.",
+      "disk_usage": "Low-to-moderate for generated plugin artifacts, but analysis scope inflated by vendored spyder_mod content increases scan/storage overhead."
     }
   },
   "technical_quality": {
-    "code_quality_score": 72,
-    "architecture_score": 78,
-    "performance_score": 64,
-    "maintainability_score": 68,
+    "code_quality_score": 68,
+    "architecture_score": 72,
+    "performance_score": 60,
+    "maintainability_score": 64,
     "security_score": 85,
-    "scalability_score": 70
+    "scalability_score": 66
   }
 }

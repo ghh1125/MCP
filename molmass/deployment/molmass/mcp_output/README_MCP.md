@@ -2,116 +2,127 @@
 
 ## 1) Project Introduction
 
-This service wraps the `molmass` library as an MCP (Model Context Protocol) service for molecular formula analysis.
+This service wraps the `molmass` chemistry engine to provide mass/formula analysis through MCP (Model Context Protocol).  
+It is designed for developer use cases such as:
 
-Primary capabilities:
-- Parse molecular formulas (including charge handling)
-- Compute average/monoisotopic mass
-- Generate elemental composition
-- Estimate isotopic/spectrum-related outputs
-- Support formula construction from strings, sequences, or fractions
+- Molecular formula parsing and validation
+- Monoisotopic, average, and nominal mass calculation
+- Elemental composition reporting
+- Isotopic spectrum generation
+- Sequence/oligo/peptide-derived formula conversion
 
-Core engine module: `molmass.molmass`  
-Data model module: `molmass.elements`  
-Optional HTTP adapter: `molmass.web`
+Primary integration target: `source.molmass.molmass` (or `deployment.molmass.source.molmass` in alternate runtime layouts).
 
 ---
 
-## 2) Installation Method
+## 2) Installation
 
 ### Requirements
 - Python 3.x
-- Core runtime is pure Python (standard library based)
+- Standard library only for core functionality
 - Optional:
-  - `tkinter` for GUI-related module usage (`elements_gui`)
-  - Web runtime context only if exposing `molmass.web` as HTTP endpoint
+  - `tkinter` for GUI module (`elements_gui.py`)
+  - CGI/web runtime for `web.py`
 
-### Install with pip
-- From PyPI:
-  pip install molmass
+### Install from PyPI
+pip install molmass
 
-- From source repository:
-  pip install git+https://github.com/cgohlke/molmass.git
+### Install from source
+git clone https://github.com/cgohlke/molmass.git  
+cd molmass  
+pip install .
 
 ---
 
 ## 3) Quick Start
 
-### Basic import and analysis flow
-Use the core API from `molmass.molmass`:
-- `analyze(formula_str)` for one-shot analysis output
-- `Formula(...)` for object-oriented operations
-- `from_string`, `from_sequence`, `from_fractions` for structured construction
+### Recommended imports
+from source.molmass.molmass import analyze, Formula, from_string, from_sequence, from_peptide, from_oligo
 
-### Example workflow (conceptual)
-1. Accept formula input (for example: `C8H10N4O2`)
-2. Build formula object via `Formula` or `from_string`
-3. Return:
-   - molecular mass
-   - composition breakdown
-   - optional spectrum/isotope details
+### Typical usage patterns
+- Parse and analyze a formula string:
+  - `analyze("C8H10N4O2")`
+- Create a formula object and compute masses/composition:
+  - `Formula("H2O")`
+- Build formulas from biological sequences:
+  - `from_sequence(...)`, `from_peptide(...)`, `from_oligo(...)`
+- Build from generic text input:
+  - `from_string(...)`
 
-### CLI usage
-- `python -m molmass`  
-Useful fallback path when direct import integration is not desired.
+### CLI execution
+python -m source.molmass
+
+(Depending on packaging/runtime, module path may be `molmass` or `deployment.molmass.source.molmass`.)
 
 ---
 
-## 4) Available Tools and Endpoints List
+## 4) Available Tools and Endpoints
 
-Recommended MCP (Model Context Protocol) service tools to expose:
+For MCP (Model Context Protocol) service design, expose these practical endpoints:
 
 - `analyze_formula`
-  - Backed by: `molmass.molmass.analyze`
+  - Backed by: `analyze`, `Formula`
   - Input: formula string
-  - Output: parsed formula analysis summary (mass/composition/spectrum-oriented info)
+  - Output: parsed formula details, masses, composition, optional spectrum summary
 
-- `build_formula_from_string`
-  - Backed by: `from_string`
+- `parse_formula`
+  - Backed by: `read_formula`, `split_formula`, `split_parts`, `split_charge`
   - Input: formula string
-  - Output: normalized/internal formula representation
+  - Output: normalized/parsed structure, charge handling, validation errors
 
-- `build_formula_from_sequence`
-  - Backed by: `from_sequence`
-  - Input: sequence-style composition
-  - Output: formula object/result
+- `calculate_mass`
+  - Backed by: `Formula` properties/methods
+  - Input: formula string
+  - Output: monoisotopic/average/nominal masses
 
-- `build_formula_from_fractions`
-  - Backed by: `from_fractions`
-  - Input: fractional elemental data
-  - Output: inferred/constructed formula result
+- `composition_from_formula`
+  - Backed by: `Formula`, `Composition`
+  - Input: formula string
+  - Output: element counts and relative contributions
 
-- `format_or_parse_charge`
-  - Backed by: `split_charge`, `join_charge`, `format_charge`
-  - Input: charged formula or charge components
-  - Output: normalized charge/formula formatting
+- `spectrum_from_formula`
+  - Backed by: `Spectrum`, `SpectrumEntry`
+  - Input: formula string, optional limits/precision
+  - Output: isotope peaks and intensities
 
-- `periodic_element_lookup` (optional)
-  - Backed by: `molmass.elements` data structures (`Element`, `Isotope`, `Elements`)
-  - Input: atomic symbol/number
-  - Output: periodic/isotope metadata
+- `formula_from_sequence`
+  - Backed by: `from_sequence`, `from_peptide`, `from_oligo`
+  - Input: sequence + mode/options
+  - Output: derived molecular formula and optional mass results
 
-Optional web endpoint layer (if enabled through `molmass.web`):
-- `main`, `response`, `analyze`, `favicon`
+- `formula_from_elements_or_fractions`
+  - Backed by: `from_elements`, `from_fractions`
+  - Input: element map or mass fractions
+  - Output: reconstructed/estimated formula
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Dependency detection in automated scans may appear incomplete; this project includes `setup.py`/`pyproject.toml` in repo snapshots.
-- Prefer direct Python import integration for MCP (Model Context Protocol) services; it is low-risk and simple.
-- Use CLI (`python -m molmass`) as fallback integration mode.
-- GUI module (`elements_gui`) is optional and not required for server-side MCP (Model Context Protocol) service deployments.
-- Validate user input and surface `FormulaError` cleanly in tool responses.
-- For large batch analysis, cache parsed formula objects where practical.
+- Import path differences:
+  - Prefer `source.molmass.*`
+  - Fallback to `deployment.molmass.source.*` if required by environment
+
+- Error handling:
+  - Catch `FormulaError` for invalid syntax or unsupported input
+
+- Precision/output formatting:
+  - Use helper behavior such as `precision_digits`, `join_charge`, `hill_sorted` where needed for consistent output
+
+- Optional modules:
+  - `elements_gui.py` requires GUI support (`tkinter`)
+  - `web.py` is useful as interface reference but not the preferred core MCP (Model Context Protocol) hook
+
+- Performance:
+  - Core operations are lightweight for typical formula queries
+  - Isotopic spectrum generation can be heavier for large molecules
 
 ---
 
-## 6) Reference Links / Documentation
+## 6) Reference Links
 
 - Repository: https://github.com/cgohlke/molmass
-- Package entry module: `molmass.__main__`
-- Core engine: `molmass.molmass`
-- Periodic table/isotope data: `molmass.elements`
-- Optional web adapter: `molmass.web`
-- Tests/examples of behavior: `tests/test_molmass.py`
+- Core engine module: `molmass/molmass.py`
+- Element data: `molmass/elements.py`
+- Web adapter reference: `molmass/web.py`
+- Tests/examples: `tests/test_molmass.py`

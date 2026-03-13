@@ -2,15 +2,20 @@
 
 ## 1) Project Introduction
 
-This service wraps the REBOUND N-body simulation library as an MCP (Model Context Protocol) service so LLM clients can create, run, inspect, and persist gravitational simulations programmatically.
+This service wraps the REBOUND N-body simulation library as an MCP (Model Context Protocol) service for agent/tool use.
 
-Primary capabilities:
-- Build and configure `Simulation` objects
-- Add/manage particles (`Particle`, `Particles`)
-- Integrate forward in time with selectable integrators
-- Compute orbital/diagnostic outputs
-- Save/load runs via `Simulationarchive`
-- Optional ephemeris initialization via JPL Horizons helpers
+It is designed for:
+- Building and evolving gravitational simulations
+- Managing particles and orbital elements
+- Choosing integrators (IAS15, WHFast, Mercurius, TRACE, etc.)
+- Saving/loading long runs via Simulationarchive
+- Optional analysis utilities (units, variation, horizons bootstrap, plotting)
+
+Primary core objects exposed by the service:
+- `Simulation`
+- `Particle` / `Particles`
+- `Orbit`
+- `Simulationarchive`
 
 ---
 
@@ -19,126 +24,112 @@ Primary capabilities:
 ### Requirements
 - Python 3.x
 - `numpy`
-- Build tooling: `setuptools`, `wheel`
+- REBOUND package (includes native C extension)
 - Optional:
   - `matplotlib` (plotting)
-  - Jupyter/ipywidgets stack (notebook widgets)
-  - Network access for Horizons-based initialization
-  - MPI runtime for MPI workflows
+  - Jupyter/ipywidgets (notebook/widget usage)
+  - MPI runtime + `mpi4py` (MPI workflows)
+  - HTTP access for Horizons-based initialization
 
-### Install REBOUND
-- `pip install rebound`
-
-If building from source:
-- Clone repository, then install in editable mode:
+### Install
+- Install from PyPI:
+  - `pip install rebound`
+- For development/service wiring:
   - `pip install -e .`
+- Verify import:
+  - `python -c "import rebound; print(rebound.__version__)"`
 
 ---
 
 ## 3) Quick Start
 
-### Typical flow in this MCP (Model Context Protocol) service
-1. Create simulation  
-2. Add bodies (mass + state or orbital elements)  
-3. Choose integrator and timestep  
-4. Integrate to target time  
-5. Query particles/orbits/diagnostics  
-6. Persist or reload archive
+Create a minimal simulation workflow in your MCP (Model Context Protocol) service handler:
 
-### Minimal usage example (service-level workflow)
-- `simulation.create` with units/integrator config
-- `particles.add` for star/planets/test particles
-- `simulation.integrate` to time `t_end`
-- `simulation.state` or `orbits.compute` for results
-- `archive.save` for reproducibility
+1. Create `Simulation`
+2. Add bodies (`sim.add(...)`)
+3. Select integrator (`sim.integrator = "ias15"` or `"whfast"`)
+4. Integrate to target time (`sim.integrate(t_end)`)
+5. Read particle states (`sim.particles[i].x`, `y`, `z`, etc.)
+6. Optionally persist with `Simulationarchive`
+
+Typical use cases:
+- Two/three-body orbital evolution
+- Stability/chaos experiments (with variation/frequency tools)
+- Batch integrations with archive checkpoints and restart
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Recommended MCP (Model Context Protocol) service endpoints:
+Recommended MCP (Model Context Protocol) service endpoints (developer-oriented surface):
 
-- `simulation.create`  
-  Create a new REBOUND `Simulation` session with base config (integrator, timestep, units).
+- `simulation.create`
+  - Create a new simulation with optional units, timestep, and integrator defaults.
 
-- `simulation.configure`  
-  Update simulation settings (gravity options, boundary/collision modes, reference frame options).
+- `simulation.add_particle`
+  - Add particle by Cartesian state or orbital elements.
 
-- `particles.add`  
-  Add one or many particles by Cartesian state or orbital elements.
+- `simulation.remove_particle`
+  - Remove particle by index/hash.
 
-- `particles.list`  
-  Return particle inventory and key fields (mass, position, velocity, hash/index).
+- `simulation.configure_integrator`
+  - Configure integrator type and integrator-specific options (`ias15`, `whfast`, `mercurius`, `trace`, etc.).
 
-- `particles.update`  
-  Modify particle properties or orbital parameters.
+- `simulation.integrate`
+  - Advance simulation to target time; optionally stream diagnostics.
 
-- `particles.remove`  
-  Remove particle(s) by index/hash.
+- `simulation.state`
+  - Return current simulation time, particle count, and particle states.
 
-- `simulation.integrate`  
-  Advance simulation to a target time; optionally stream checkpoints.
+- `simulation.orbits`
+  - Return derived orbital elements for selected particles.
 
-- `simulation.state`  
-  Fetch current simulation time, energy/diagnostics, and selected particle states.
+- `simulation.save_archive`
+  - Write simulation snapshots to Simulationarchive file.
 
-- `orbits.compute`  
-  Compute osculating orbital elements from current particle states.
+- `simulation.load_archive`
+  - Load/restart from Simulationarchive.
 
-- `variation.enable` / `variation.metrics`  
-  Enable variational equations and expose chaos indicators (e.g., MEGNO-related workflows).
+- `analysis.variation` (optional)
+  - Run variational/sensitivity computations for chaos/stability workflows.
 
-- `archive.save`  
-  Persist run snapshots via `Simulationarchive`.
+- `analysis.units_convert` (optional)
+  - Unit conversion/helper endpoint.
 
-- `archive.load`  
-  Reload prior archives for replay/inspection.
+- `data.horizons_fetch` (optional)
+  - Initialize particles from JPL Horizons data.
 
-- `archive.sample`  
-  Query archived states at specific times/indices.
-
-- `analysis.frequency`  
-  Run frequency-analysis utilities on trajectory data.
-
-- `horizons.resolve`  
-  Initialize objects from JPL Horizons data (network-dependent).
-
-- `units.convert`  
-  Convert and validate units for safer user-facing calls.
-
-- `health.ping`  
-  Basic service liveness/readiness check.
+- `visualization.plot` (optional)
+  - Generate plots when matplotlib is available.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Native build requirements: some environments need compiler toolchains for scientific packages.
+- Native extension build/import:
+  - If install fails, ensure compiler toolchain and Python headers are available.
 - Integrator choice matters:
-  - Long-term orbital stability studies often use symplectic methods (e.g., WHFast family).
-  - High-accuracy close-encounter cases may prefer IAS15/BS-style workflows.
-- Horizons calls require internet access and may fail in restricted environments.
-- Large particle counts can be CPU/memory intensive; prefer archive checkpoints over full in-memory history.
-- Keep units explicit to avoid subtle interpretation errors.
-- For reproducibility, store:
-  - integrator + timestep
-  - initial conditions
-  - random seeds (if used)
-  - archive files and REBOUND version
+  - `ias15` for high-accuracy adaptive integration.
+  - `whfast` for long-term symplectic performance in appropriate regimes.
+- Performance:
+  - Large N-body runs can be CPU-heavy; prefer batch integration and archive checkpoints.
+- Reproducibility:
+  - Fix initial conditions, units, and integrator parameters.
+- Horizons/network:
+  - External ephemeris calls require network availability and may be rate-limited.
+- MPI:
+  - Only enable MPI endpoints in environments with configured runtime and `mpi4py`.
 
 ---
 
-## 6) Reference Links / Documentation
+## 6) Reference Links or Documentation
 
 - Repository: https://github.com/hannorein/rebound
 - Main docs index: `docs/index.md`
 - API overview: `docs/api.md`
 - Integrators: `docs/integrators.md`
-- Simulation variables/reference: `docs/simulationvariables.md`
-- Simulation archive: `docs/simulationarchive.md`
-- Quickstart install: `docs/quickstart_installation.md`
-- Examples:
-  - `python_examples/`
-  - `docs/examples.md`
-
-If you want, I can also provide a production-ready `tools` schema (JSON-style input/output contracts) for each MCP (Model Context Protocol) service endpoint above.
+- Quickstart installation: `docs/quickstart_installation.md`
+- First example: `docs/quickstart_firstexample.md`
+- Simulationarchive docs: `docs/simulationarchive.md`
+- Python examples: `python_examples/`
+- Tests (behavior references): `rebound/tests/`

@@ -677,14 +677,31 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.tellurium.source",
+      "mcp_output.mcp_plugin",
+      "source.examples",
+      "source.examples.tellurium-files",
+      "source.tellurium",
+      "source.tellurium.analysis",
+      "source.tellurium.dev",
+      "source.tellurium.notebooks",
+      "source.tellurium.plotting",
+      "source.tellurium.roadrunner",
+      "source.tellurium.sedml",
+      "source.tellurium.teconverters",
+      "source.tellurium.teio",
+      "source.tellurium.tests",
+      "source.tellurium.utils",
+      "source.tellurium.visualization"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
-    "has_requirements_txt": false,
+    "has_requirements_txt": true,
     "pyproject": false,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -694,89 +711,1652 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "tellurium",
-        "module": "tellurium/tellurium.py",
+        "package": "spyder_mod.Spyder 6.0.4.site-packages.spyder.app",
+        "module": "mainwindow",
         "functions": [
-          "loada",
-          "loads",
-          "loadSBMLModel",
-          "saveToFile",
-          "readFromFile",
-          "runTool",
-          "getVersionInfo"
+          "main"
         ],
-        "classes": [],
-        "description": "Primary high-level API surface for loading models, utility I/O helpers, tool invocation, and version/runtime helpers."
+        "classes": [
+          "MainWindow"
+        ],
+        "function_signatures": {
+          "main": [
+            "options",
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "tellurium/roadrunner",
-        "module": "tellurium/roadrunner/extended_roadrunner.py",
+        "package": "spyder_mod.Spyder 6.0.4.site-packages.spyder.app",
+        "module": "restart",
+        "functions": [
+          "is_pid_running",
+          "main"
+        ],
+        "classes": [
+          "Restarter"
+        ],
+        "function_signatures": {
+          "is_pid_running": [
+            "pid"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 6.0.4.site-packages.spyder.app",
+        "module": "utils",
+        "functions": [
+          "create_application",
+          "create_splash_screen",
+          "create_window",
+          "delete_debug_log_files",
+          "get_python_doc_path",
+          "qt_message_handler",
+          "set_links_color",
+          "set_opengl_implementation",
+          "setup_logging"
+        ],
+        "classes": [
+          "Spy"
+        ],
+        "function_signatures": {
+          "get_python_doc_path": [],
+          "set_opengl_implementation": [
+            "option"
+          ],
+          "setup_logging": [
+            "cli_options"
+          ],
+          "delete_debug_log_files": [],
+          "qt_message_handler": [
+            "msg_type",
+            "msg_log_context",
+            "msg_string"
+          ],
+          "create_splash_screen": [
+            "use_previous_factor"
+          ],
+          "set_links_color": [
+            "app"
+          ],
+          "create_application": [],
+          "create_window": [
+            "WindowClass",
+            "app",
+            "splash",
+            "options",
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 6.0.4.site-packages.spyder.plugins.editor.widgets",
+        "module": "main_widget",
+        "functions": [],
+        "classes": [
+          "EditorMainWidget",
+          "EditorWidgetActions",
+          "EditorWidgetMenus"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 4.2.1.site-packages.spyder.app",
+        "module": "mainwindow",
+        "functions": [
+          "create_application",
+          "create_window",
+          "main"
+        ],
+        "classes": [
+          "MainWindow"
+        ],
+        "function_signatures": {
+          "create_application": [],
+          "create_window": [
+            "app",
+            "splash",
+            "options",
+            "args"
+          ],
+          "main": [
+            "options",
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 4.2.1.site-packages.spyder.app",
+        "module": "restart",
+        "functions": [
+          "is_pid_running",
+          "main"
+        ],
+        "classes": [
+          "Restarter"
+        ],
+        "function_signatures": {
+          "is_pid_running": [
+            "pid"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 4.2.1.site-packages.spyder.app",
+        "module": "utils",
+        "functions": [
+          "create_splash_screen",
+          "delete_lsp_log_files",
+          "get_python_doc_path",
+          "qt_message_handler",
+          "set_opengl_implementation",
+          "setup_logging"
+        ],
+        "classes": [
+          "Spy"
+        ],
+        "function_signatures": {
+          "get_python_doc_path": [],
+          "set_opengl_implementation": [
+            "option"
+          ],
+          "setup_logging": [
+            "cli_options"
+          ],
+          "delete_lsp_log_files": [],
+          "qt_message_handler": [
+            "msg_type",
+            "msg_log_context",
+            "msg_string"
+          ],
+          "create_splash_screen": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 4.2.1.site-packages.spyder.plugins.editor",
+        "module": "plugin",
+        "functions": [],
+        "classes": [
+          "Editor"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 5.1.5.site-packages.spyder.app",
+        "module": "mainwindow",
+        "functions": [
+          "main"
+        ],
+        "classes": [
+          "MainWindow"
+        ],
+        "function_signatures": {
+          "main": [
+            "options",
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 5.1.5.site-packages.spyder.app",
+        "module": "restart",
+        "functions": [
+          "is_pid_running",
+          "main"
+        ],
+        "classes": [
+          "Restarter"
+        ],
+        "function_signatures": {
+          "is_pid_running": [
+            "pid"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 5.1.5.site-packages.spyder.app",
+        "module": "utils",
+        "functions": [
+          "create_application",
+          "create_splash_screen",
+          "create_window",
+          "delete_debug_log_files",
+          "get_python_doc_path",
+          "qt_message_handler",
+          "set_links_color",
+          "set_opengl_implementation",
+          "setup_logging"
+        ],
+        "classes": [
+          "Spy"
+        ],
+        "function_signatures": {
+          "get_python_doc_path": [],
+          "set_opengl_implementation": [
+            "option"
+          ],
+          "setup_logging": [
+            "cli_options"
+          ],
+          "delete_debug_log_files": [],
+          "qt_message_handler": [
+            "msg_type",
+            "msg_log_context",
+            "msg_string"
+          ],
+          "create_splash_screen": [],
+          "set_links_color": [
+            "app"
+          ],
+          "create_application": [],
+          "create_window": [
+            "WindowClass",
+            "app",
+            "splash",
+            "options",
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 5.1.5.site-packages.spyder.plugins.editor",
+        "module": "plugin",
+        "functions": [],
+        "classes": [
+          "Editor"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 4.1.3.site-packages.spyder.app",
+        "module": "mainwindow",
+        "functions": [
+          "initialize",
+          "main",
+          "run_spyder"
+        ],
+        "classes": [
+          "MainWindow",
+          "Spy"
+        ],
+        "function_signatures": {
+          "initialize": [],
+          "run_spyder": [
+            "app",
+            "options",
+            "args"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 4.1.3.site-packages.spyder.app",
+        "module": "restart",
+        "functions": [
+          "is_pid_running",
+          "main"
+        ],
+        "classes": [
+          "Restarter"
+        ],
+        "function_signatures": {
+          "is_pid_running": [
+            "pid"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 4.1.3.site-packages.spyder.app",
+        "module": "utils",
+        "functions": [
+          "create_splash_screen",
+          "delete_lsp_log_files",
+          "get_python_doc_path",
+          "qt_message_handler",
+          "set_opengl_implementation",
+          "setup_logging"
+        ],
+        "classes": [
+          "Spy"
+        ],
+        "function_signatures": {
+          "get_python_doc_path": [],
+          "set_opengl_implementation": [
+            "option"
+          ],
+          "setup_logging": [
+            "cli_options"
+          ],
+          "delete_lsp_log_files": [],
+          "qt_message_handler": [
+            "msg_type",
+            "msg_log_context",
+            "msg_string"
+          ],
+          "create_splash_screen": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 4.1.3.site-packages.spyder.plugins.editor",
+        "module": "plugin",
+        "functions": [],
+        "classes": [
+          "Editor"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 3.3.6.site-packages.spyder.app",
+        "module": "mainwindow",
+        "functions": [
+          "get_python_doc_path",
+          "initialize",
+          "main",
+          "run_spyder",
+          "set_opengl_implementation"
+        ],
+        "classes": [
+          "MainWindow",
+          "Spy"
+        ],
+        "function_signatures": {
+          "get_python_doc_path": [],
+          "set_opengl_implementation": [
+            "option"
+          ],
+          "initialize": [],
+          "run_spyder": [
+            "app",
+            "options",
+            "args"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 3.3.6.site-packages.spyder.app",
+        "module": "restart",
+        "functions": [
+          "is_pid_running",
+          "main"
+        ],
+        "classes": [
+          "Restarter"
+        ],
+        "function_signatures": {
+          "is_pid_running": [
+            "pid"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 3.3.6.site-packages.spyder.plugins",
+        "module": "editor",
+        "functions": [
+          "clear_all_breakpoints",
+          "clear_breakpoint",
+          "load_breakpoints",
+          "save_breakpoints"
+        ],
+        "classes": [
+          "Editor",
+          "EditorConfigPage"
+        ],
+        "function_signatures": {
+          "load_breakpoints": [
+            "filename"
+          ],
+          "save_breakpoints": [
+            "filename",
+            "breakpoints"
+          ],
+          "clear_all_breakpoints": [],
+          "clear_breakpoint": [
+            "filename",
+            "lineno"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 3.3.0.spyder.app",
+        "module": "mainwindow",
+        "functions": [
+          "get_python_doc_path",
+          "initialize",
+          "main",
+          "run_spyder"
+        ],
+        "classes": [
+          "MainWindow",
+          "Spy"
+        ],
+        "function_signatures": {
+          "get_python_doc_path": [],
+          "initialize": [],
+          "run_spyder": [
+            "app",
+            "options",
+            "args"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 3.3.0.spyder.app",
+        "module": "restart",
+        "functions": [
+          "is_pid_running",
+          "main"
+        ],
+        "classes": [
+          "Restarter"
+        ],
+        "function_signatures": {
+          "is_pid_running": [
+            "pid"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 3.3.0.spyder.plugins",
+        "module": "editor",
+        "functions": [
+          "clear_all_breakpoints",
+          "clear_breakpoint",
+          "load_breakpoints",
+          "save_breakpoints"
+        ],
+        "classes": [
+          "Editor",
+          "EditorConfigPage"
+        ],
+        "function_signatures": {
+          "load_breakpoints": [
+            "filename"
+          ],
+          "save_breakpoints": [
+            "filename",
+            "breakpoints"
+          ],
+          "clear_all_breakpoints": [],
+          "clear_breakpoint": [
+            "filename",
+            "lineno"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 3.2.2.spyder.app",
+        "module": "mainwindow",
+        "functions": [
+          "get_focus_python_shell",
+          "get_python_doc_path",
+          "initialize",
+          "main",
+          "run_spyder"
+        ],
+        "classes": [
+          "MainWindow",
+          "Spy"
+        ],
+        "function_signatures": {
+          "get_python_doc_path": [],
+          "get_focus_python_shell": [],
+          "initialize": [],
+          "run_spyder": [
+            "app",
+            "options",
+            "args"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 3.2.2.spyder.app",
+        "module": "restart",
+        "functions": [
+          "is_pid_running",
+          "main"
+        ],
+        "classes": [
+          "Restarter"
+        ],
+        "function_signatures": {
+          "is_pid_running": [
+            "pid"
+          ],
+          "main": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "spyder_mod.Spyder 3.2.2.spyder.plugins",
+        "module": "editor",
+        "functions": [
+          "clear_all_breakpoints",
+          "clear_breakpoint",
+          "load_breakpoints",
+          "save_breakpoints"
+        ],
+        "classes": [
+          "Editor",
+          "EditorConfigPage"
+        ],
+        "function_signatures": {
+          "load_breakpoints": [
+            "filename"
+          ],
+          "save_breakpoints": [
+            "filename",
+            "breakpoints"
+          ],
+          "clear_all_breakpoints": [],
+          "clear_breakpoint": [
+            "filename",
+            "lineno"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "docs",
+        "module": "conf",
+        "functions": [],
+        "classes": [
+          "Mock"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium",
+        "module": "temiriam",
+        "functions": [
+          "getSBMLFromBiomodelsURN"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "getSBMLFromBiomodelsURN": [
+            "urn"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium",
+        "module": "tellurium",
+        "functions": [
+          "DumpJSONInfo",
+          "RoadRunner",
+          "VersionDict",
+          "addFileToCombineArchive",
+          "addFilesToCombineArchive",
+          "antimonyToCellML",
+          "antimonyToSBML",
+          "antimonyTosbml",
+          "cellmlToAntimony",
+          "cellmlToSBML",
+          "colorCycle",
+          "convertAndExecuteCombineArchive",
+          "convertCombineArchive",
+          "createCombineArchive",
+          "custom_plot",
+          "disablePlotting",
+          "distributed_parameter_scanning",
+          "distributed_sensitivity_analysis",
+          "distributed_stochastic_simulation",
+          "executeInlineOmex",
+          "executeInlineOmexFromFile",
+          "exportInlineOmex",
+          "extractFileFromCombineArchive",
+          "getAppDir",
+          "getDefaultPlottingEngine",
+          "getEigenvalues",
+          "getLastReport",
+          "getPlottingEngine",
+          "getPlottingEngineFactory",
+          "getTelluriumVersion",
+          "getTestModel",
+          "getVersionInfo",
+          "inIPython",
+          "listTestModels",
+          "loadAntimonyModel",
+          "loadCellMLModel",
+          "loadSBMLModel",
+          "loadTestModel",
+          "loada",
+          "loads",
+          "model",
+          "noticesOff",
+          "noticesOn",
+          "perform_sampling",
+          "plotArray",
+          "plotImage",
+          "plotWithLegend",
+          "plot_distributed_stochastic",
+          "plot_stochastic_result",
+          "printVersionInfo",
+          "sample_plot",
+          "sbmlToAntimony",
+          "sbmlToCellML",
+          "setDefaultPlottingEngine",
+          "setLastReport",
+          "setSavePlotsToPDF"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "inIPython": [],
+          "getDefaultPlottingEngine": [],
+          "setDefaultPlottingEngine": [
+            "engine"
+          ],
+          "disablePlotting": [],
+          "setSavePlotsToPDF": [
+            "value"
+          ],
+          "getPlottingEngineFactory": [
+            "engine"
+          ],
+          "getPlottingEngine": [
+            "engine"
+          ],
+          "getVersionInfo": [],
+          "printVersionInfo": [],
+          "getTelluriumVersion": [],
+          "noticesOff": [],
+          "noticesOn": [],
+          "model": [
+            "model_name"
+          ],
+          "colorCycle": [
+            "color",
+            "polyNumber"
+          ],
+          "sample_plot": [
+            "result"
+          ],
+          "plotImage": [
+            "img"
+          ],
+          "custom_plot": [
+            "x",
+            "y",
+            "min_y",
+            "max_y",
+            "label_name"
+          ],
+          "plot_stochastic_result": [
+            "result"
+          ],
+          "distributed_stochastic_simulation": [
+            "sc",
+            "stochastic_model_object",
+            "num_simulations",
+            "model_type"
+          ],
+          "plot_distributed_stochastic": [
+            "plot_data"
+          ],
+          "distributed_parameter_scanning": [
+            "sc",
+            "list_of_models",
+            "function_name",
+            "antimony"
+          ],
+          "distributed_sensitivity_analysis": [
+            "sc",
+            "senitivity_analysis_model",
+            "calculation"
+          ],
+          "perform_sampling": [
+            "mesh"
+          ],
+          "loada": [
+            "ant"
+          ],
+          "loadAntimonyModel": [
+            "ant"
+          ],
+          "loads": [
+            "ant"
+          ],
+          "loadSBMLModel": [
+            "sbml"
+          ],
+          "loadCellMLModel": [
+            "cellml"
+          ],
+          "antimonyTosbml": [
+            "ant"
+          ],
+          "antimonyToSBML": [
+            "ant"
+          ],
+          "antimonyToCellML": [
+            "ant"
+          ],
+          "sbmlToAntimony": [
+            "sbml",
+            "removeFunctionDefinitions"
+          ],
+          "sbmlToCellML": [
+            "sbml"
+          ],
+          "cellmlToAntimony": [
+            "cellml"
+          ],
+          "cellmlToSBML": [
+            "cellml"
+          ],
+          "exportInlineOmex": [
+            "inline_omex",
+            "export_location"
+          ],
+          "executeInlineOmex": [
+            "inline_omex",
+            "comp"
+          ],
+          "executeInlineOmexFromFile": [
+            "filepath"
+          ],
+          "convertCombineArchive": [
+            "location"
+          ],
+          "convertAndExecuteCombineArchive": [
+            "location"
+          ],
+          "extractFileFromCombineArchive": [
+            "archive_path",
+            "entry_location"
+          ],
+          "addFileToCombineArchive": [
+            "archive_path",
+            "file_name",
+            "entry_location",
+            "file_format",
+            "master",
+            "out_archive_path"
+          ],
+          "addFilesToCombineArchive": [
+            "archive_path",
+            "file_names",
+            "entry_locations",
+            "file_formats",
+            "master_attributes",
+            "out_archive_path"
+          ],
+          "createCombineArchive": [
+            "archive_path",
+            "file_names",
+            "entry_locations",
+            "file_formats",
+            "master_attributes",
+            "description"
+          ],
+          "getEigenvalues": [
+            "m"
+          ],
+          "plotArray": [
+            "result",
+            "loc",
+            "legendOutside",
+            "show",
+            "resetColorCycle",
+            "xlabel",
+            "ylabel",
+            "title",
+            "xlim",
+            "ylim",
+            "xscale",
+            "yscale",
+            "grid",
+            "labels"
+          ],
+          "plotWithLegend": [
+            "r",
+            "result",
+            "loc",
+            "show"
+          ],
+          "loadTestModel": [
+            "string"
+          ],
+          "getTestModel": [
+            "string"
+          ],
+          "listTestModels": [],
+          "RoadRunner": [],
+          "VersionDict": [],
+          "DumpJSONInfo": [],
+          "getAppDir": [],
+          "setLastReport": [
+            "report"
+          ],
+          "getLastReport": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium",
+        "module": "testcases",
+        "functions": [
+          "getSupportedTestCases"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "getSupportedTestCases": [
+            "begin",
+            "end"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.visualization",
+        "module": "sbmldiagram",
+        "functions": [],
+        "classes": [
+          "SBMLDiagram"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.analysis",
+        "module": "parameterestimation",
+        "functions": [],
+        "classes": [
+          "ParameterEstimation"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.analysis",
+        "module": "simulator",
+        "functions": [],
+        "classes": [
+          "Simulator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.analysis",
+        "module": "parameterscan",
+        "functions": [],
+        "classes": [
+          "ParameterScan",
+          "ParameterScan2D",
+          "SteadyStateScan"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.analysis",
+        "module": "annotations",
+        "functions": [
+          "getChebiId",
+          "getMatchingReactions",
+          "getMatchingSpecies",
+          "getResourceUris",
+          "matchSpeciesChebi",
+          "printMatchingSpecies"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "getResourceUris": [
+            "item"
+          ],
+          "getChebiId": [
+            "item"
+          ],
+          "matchSpeciesChebi": [
+            "s1",
+            "s2",
+            "logging"
+          ],
+          "getMatchingSpecies": [
+            "m1",
+            "m2",
+            "logging"
+          ],
+          "printMatchingSpecies": [
+            "matches"
+          ],
+          "getMatchingReactions": [
+            "modelOrList",
+            "idToMatch"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.analysis",
+        "module": "stochasticmodel",
+        "functions": [],
+        "classes": [
+          "StochasticSimulationModel"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.analysis",
+        "module": "sensitivityanalysis",
+        "functions": [],
+        "classes": [
+          "SensitivityAnalysis"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.utils",
+        "module": "matrix",
+        "functions": [
+          "nullspace",
+          "rank",
+          "rref"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "rank": [
+            "A",
+            "atol",
+            "rtol"
+          ],
+          "nullspace": [
+            "A",
+            "atol",
+            "rtol"
+          ],
+          "rref": [
+            "A"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.utils",
+        "module": "misc",
+        "functions": [
+          "deprecated",
+          "getODEsFromModel",
+          "getODEsFromSBMLFile",
+          "getODEsFromSBMLString",
+          "listFiles",
+          "readFromFile",
+          "runTool",
+          "saveToFile"
+        ],
+        "classes": [
+          "Accumulator",
+          "ODEExtractor"
+        ],
+        "function_signatures": {
+          "saveToFile": [
+            "filePath",
+            "str"
+          ],
+          "readFromFile": [
+            "filePath"
+          ],
+          "listFiles": [
+            "wildcardstr"
+          ],
+          "deprecated": [
+            "func"
+          ],
+          "runTool": [
+            "toolFileName"
+          ],
+          "getODEsFromSBMLFile": [
+            "fileName"
+          ],
+          "getODEsFromSBMLString": [
+            "sbmlStr"
+          ],
+          "getODEsFromModel": [
+            "roadrunnerModel"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.utils",
+        "module": "omex",
+        "functions": [
+          "addEntriesToCombineArchive",
+          "combineArchiveFromDirectory",
+          "combineArchiveFromEntries",
+          "extractCombineArchive",
+          "getLocationsByFormat",
+          "listContents",
+          "printContents"
+        ],
+        "classes": [
+          "Creator",
+          "Entry"
+        ],
+        "function_signatures": {
+          "combineArchiveFromDirectory": [
+            "directory",
+            "omexPath",
+            "creators",
+            "creators_for_all"
+          ],
+          "combineArchiveFromEntries": [
+            "omexPath",
+            "entries",
+            "workingDir"
+          ],
+          "addEntriesToCombineArchive": [
+            "omexPath",
+            "entries",
+            "workingDir"
+          ],
+          "extractCombineArchive": [
+            "omexPath",
+            "directory",
+            "method"
+          ],
+          "getLocationsByFormat": [
+            "omexPath",
+            "formatKey",
+            "method"
+          ],
+          "listContents": [
+            "omexPath",
+            "method"
+          ],
+          "printContents": [
+            "omexPath"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.utils",
+        "module": "uncertainty",
+        "functions": [
+          "UncertaintyAllP",
+          "UncertaintySingleP"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "UncertaintySingleP": [
+            "model",
+            "variables",
+            "runType",
+            "parameters",
+            "simulation",
+            "degreeofVariability",
+            "excludedParameters",
+            "sizeofEnsemble",
+            "ConfidenceInterval",
+            "limitc",
+            "midc",
+            "fillc",
+            "barc",
+            "limitw",
+            "midw",
+            "fontsize",
+            "callback",
+            "datasave",
+            "imagesave"
+          ],
+          "UncertaintyAllP": [
+            "model",
+            "variables",
+            "runType",
+            "parameters",
+            "simulation",
+            "degreeofVariability",
+            "excludedParameters",
+            "sizeofEnsemble",
+            "ConfidenceInterval",
+            "limitc",
+            "midc",
+            "fillc",
+            "barc",
+            "errorc",
+            "limitw",
+            "midw",
+            "figtitle",
+            "xlabel",
+            "ylabel",
+            "fontsize",
+            "callback",
+            "datasave",
+            "imagesave"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.teconverters",
+        "module": "antimony_regex",
+        "functions": [
+          "getFunctionSBORegex",
+          "getFunctionStartRegex",
+          "getModelEndRegex",
+          "getModelStartRegex",
+          "getSBORegex"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "getModelStartRegex": [],
+          "getFunctionStartRegex": [],
+          "getModelEndRegex": [],
+          "getSBORegex": [],
+          "getFunctionSBORegex": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.teconverters",
+        "module": "antimony_sbo",
+        "functions": [
+          "filterIfEmpty"
+        ],
+        "classes": [
+          "SBOError",
+          "antimonySBOConverter",
+          "antimonySBOParser"
+        ],
+        "function_signatures": {
+          "filterIfEmpty": [
+            "l"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.teconverters",
+        "module": "convert_antimony",
+        "functions": [],
+        "classes": [
+          "antimonyConverter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.teconverters",
+        "module": "convert_omex",
+        "functions": [
+          "readCreator"
+        ],
+        "classes": [
+          "Omex",
+          "OmexAsset",
+          "OmexFormatDetector",
+          "SbmlAsset",
+          "SedmlAsset",
+          "inlineOmexImporter"
+        ],
+        "function_signatures": {
+          "readCreator": [
+            "file"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.plotting",
+        "module": "engine_null",
+        "functions": [],
+        "classes": [
+          "NullEngine",
+          "NullFigure",
+          "PlotlyLowerTriFigure",
+          "PlotlyTiledFigure"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.plotting",
+        "module": "factory",
+        "functions": [
+          "getEngines",
+          "getPlottingEngineFactory"
+        ],
+        "classes": [
+          "PlottingEngineFactory"
+        ],
+        "function_signatures": {
+          "getEngines": [],
+          "getPlottingEngineFactory": [
+            "engine"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.plotting",
+        "module": "api",
+        "functions": [
+          "clearTiledFigure",
+          "newLowerTriFigure",
+          "newTiledFigure",
+          "nextFigure",
+          "plot",
+          "plot_text",
+          "show",
+          "tiledFigure"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "plot": [
+            "x",
+            "y",
+            "show"
+          ],
+          "plot_text": [
+            "x",
+            "y",
+            "text",
+            "show"
+          ],
+          "show": [
+            "reset"
+          ],
+          "nextFigure": [],
+          "newTiledFigure": [],
+          "newLowerTriFigure": [],
+          "tiledFigure": [],
+          "clearTiledFigure": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.plotting",
+        "module": "engine_mpl",
+        "functions": [],
+        "classes": [
+          "MatplotlibEngine",
+          "MatplotlibFigure"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.plotting",
+        "module": "engine_plotly",
+        "functions": [],
+        "classes": [
+          "PlotlyEngine",
+          "PlotlyFigure",
+          "PlotlyLowerTriFigure",
+          "PlotlyStackedFigure",
+          "PlotlyTiledFigure"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.plotting",
+        "module": "engine",
+        "functions": [
+          "filterWithSelections"
+        ],
+        "classes": [
+          "LowerTriFigure",
+          "PlottingEngine",
+          "PlottingFigure",
+          "PlottingLayout",
+          "TiledFigure"
+        ],
+        "function_signatures": {
+          "filterWithSelections": [
+            "self",
+            "name",
+            "selections"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.dev.deprecated",
+        "module": "tephrasedml",
+        "functions": [],
+        "classes": [
+          "experiment"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.dev.deprecated",
+        "module": "tecombine",
+        "functions": [
+          "combine"
+        ],
+        "classes": [
+          "Asset",
+          "CombineArchive",
+          "OpenCombine"
+        ],
+        "function_signatures": {
+          "combine": [
+            "combinePath"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.sedml",
+        "module": "tesedml",
+        "functions": [
+          "combineArchiveToPython",
+          "executeCombineArchive",
+          "executeSEDML",
+          "fix_endpoints",
+          "getKisaoStringFromVal",
+          "getKisaoValFromString",
+          "process_trace",
+          "sedmlToPython",
+          "terminate_trace"
+        ],
+        "classes": [
+          "SEDMLCodeFactory",
+          "SEDMLTools"
+        ],
+        "function_signatures": {
+          "getKisaoValFromString": [
+            "id"
+          ],
+          "getKisaoStringFromVal": [
+            "val"
+          ],
+          "sedmlToPython": [
+            "inputStr",
+            "workingDir"
+          ],
+          "executeSEDML": [
+            "inputStr",
+            "workingDir",
+            "createOutputs",
+            "saveOutputs",
+            "outputDir",
+            "plottingEngine"
+          ],
+          "combineArchiveToPython": [
+            "omexPath"
+          ],
+          "executeCombineArchive": [
+            "omexPath",
+            "workingDir",
+            "printPython",
+            "createOutputs",
+            "saveOutputs",
+            "outputDir",
+            "plottingEngine"
+          ],
+          "process_trace": [
+            "trace"
+          ],
+          "terminate_trace": [
+            "trace"
+          ],
+          "fix_endpoints": [
+            "x",
+            "y",
+            "color",
+            "tag",
+            "fig"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.sedml",
+        "module": "mathml",
+        "functions": [
+          "evaluableMathML",
+          "evaluateMathML",
+          "piecewise",
+          "product",
+          "renameNPFuncs",
+          "root",
+          "sqr",
+          "xor"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "product": [],
+          "sqr": [
+            "x"
+          ],
+          "root": [
+            "a",
+            "b"
+          ],
+          "xor": [],
+          "piecewise": [],
+          "renameNPFuncs": [
+            "astnode"
+          ],
+          "evaluableMathML": [
+            "astnode",
+            "variables",
+            "array"
+          ],
+          "evaluateMathML": [
+            "astnode",
+            "variables",
+            "array"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.sedml",
+        "module": "utils",
+        "functions": [
+          "run_case"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "run_case": [
+            "call_file",
+            "antimony_str",
+            "phrasedml_str",
+            "py_code",
+            "working_dir"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.sedml",
+        "module": "data",
+        "functions": [],
+        "classes": [
+          "DataDescriptionParser"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.notebooks",
+        "module": "speciessearch",
+        "functions": [],
+        "classes": [
+          "SearchBySpeciesForm"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.notebooks",
+        "module": "notebooktools",
+        "functions": [
+          "find_notebook",
+          "loadNotebooksAsModules",
+          "sideBySideOutput"
+        ],
+        "classes": [
+          "NotebookFinder",
+          "NotebookLoader"
+        ],
+        "function_signatures": {
+          "find_notebook": [
+            "fullname",
+            "path"
+          ],
+          "loadNotebooksAsModules": [],
+          "sideBySideOutput": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.notebooks",
+        "module": "ontologysearch",
+        "functions": [],
+        "classes": [
+          "OntologySearch"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.notebooks",
+        "module": "parameterslider",
+        "functions": [
+          "simulateAndPlot"
+        ],
+        "classes": [
+          "ParameterSlider"
+        ],
+        "function_signatures": {
+          "simulateAndPlot": [
+            "r"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.teio",
+        "module": "latex",
+        "functions": [],
+        "classes": [
+          "LatexExport"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tellurium.roadrunner",
+        "module": "extended_roadrunner",
         "functions": [],
         "classes": [
           "ExtendedRoadRunner"
         ],
-        "description": "Core simulation runtime wrapper extending roadrunner behavior; likely central for simulation, steady-state, and model execution workflows."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "tellurium/sedml",
-        "module": "tellurium/sedml/tesedml.py",
+        "package": "examples.tellurium-files.events",
+        "module": "events",
         "functions": [
-          "executeSEDML",
-          "executeCombineArchive"
+          "onEvent",
+          "onEventAssignment",
+          "onEventTrigger",
+          "onTimeStep",
+          "testEvents",
+          "testMultiStepIntegrator"
         ],
         "classes": [],
-        "description": "SED-ML and COMBINE archive execution engine; key for reproducible simulation experiment workflows."
+        "function_signatures": {
+          "onEventTrigger": [
+            "model",
+            "eventIndex",
+            "eventId"
+          ],
+          "onEventAssignment": [
+            "model",
+            "eventIndex",
+            "eventId"
+          ],
+          "testEvents": [
+            "filePath"
+          ],
+          "onTimeStep": [
+            "integrator",
+            "model",
+            "time"
+          ],
+          "onEvent": [
+            "integrator",
+            "model",
+            "time"
+          ],
+          "testMultiStepIntegrator": [
+            "filePath",
+            "t0",
+            "tf",
+            "dt",
+            "minStep",
+            "maxStep"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "tellurium/teconverters",
-        "module": "tellurium/teconverters/convert_omex.py",
+        "package": "scripts",
+        "module": "download_count",
         "functions": [
-          "inlineOmexToCombineArchive",
-          "combineArchiveToInlineOmex"
+          "get_git_releases_json",
+          "parse_release_json",
+          "plot_release_df"
         ],
         "classes": [],
-        "description": "Conversion utilities between inline OMEX representations and COMBINE archives."
-      },
-      {
-        "package": "tellurium/teconverters",
-        "module": "tellurium/teconverters/convert_antimony.py",
-        "functions": [
-          "antimonyToSBML",
-          "sbmlToAntimony"
-        ],
-        "classes": [],
-        "description": "Model format interconversion between Antimony and SBML."
-      },
-      {
-        "package": "tellurium/plotting",
-        "module": "tellurium/plotting/api.py",
-        "functions": [
-          "plot",
-          "show",
-          "nextFigure"
-        ],
-        "classes": [],
-        "description": "Public plotting API abstraction over matplotlib/plotly/null backends."
-      },
-      {
-        "package": "tellurium/analysis",
-        "module": "tellurium/analysis/parameterscan.py",
-        "functions": [],
-        "classes": [
-          "ParameterScan",
-          "SteadyStateScan"
-        ],
-        "description": "Analysis utilities for parameter sweeps and steady-state scans."
-      },
-      {
-        "package": "tellurium/utils",
-        "module": "tellurium/utils/omex.py",
-        "functions": [
-          "extractCombineArchive",
-          "createCombineArchive"
-        ],
-        "classes": [],
-        "description": "Lower-level OMEX archive utility support for archive handling."
+        "function_signatures": {
+          "get_git_releases_json": [
+            "url",
+            "params"
+          ],
+          "parse_release_json": [
+            "data"
+          ],
+          "plot_release_df": [
+            "df"
+          ]
+        },
+        "description": "Discovered via AST scan"
       }
     ],
     "cli_commands": [],
@@ -787,7 +2367,6 @@
     },
     "dependencies": {
       "required": [
-        "python",
         "numpy",
         "scipy",
         "matplotlib",
@@ -795,18 +2374,19 @@
         "libroadrunner",
         "antimony",
         "phrasedml",
-        "python-libsbml"
+        "python-libsbml",
+        "python-libsedml"
       ],
       "optional": [
         "plotly",
         "ipywidgets",
-        "jupyter",
+        "sbml2matlab",
         "tesbml",
-        "tesedml-related extras"
+        "tecombine"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.86,
+      "import_feasibility": 0.72,
       "intrusiveness_risk": "medium",
       "complexity": "medium"
     }
@@ -824,7 +2404,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.86,
+    "import_feasibility": 0.72,
     "intrusiveness_risk": "medium",
     "complexity": "medium"
   }

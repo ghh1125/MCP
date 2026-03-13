@@ -2,7 +2,16 @@ fastmcp
 fastapi
 uvicorn[standard]
 pydantic>=2.0.0
-jax (likely, for model execution)
-flax (likely, for model definitions)
-transformers (likely, tokenizer/model utilities)
-Pillow (likely, image I/O)
+transformers==4.25.1
+einops
+unidecode
+ftfy
+emoji
+pillow
+jax==0.3.25
+flax==0.6.3
+orbax==0.0.23
+wandb
+numpy
+datasets
+tokenizers

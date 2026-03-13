@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773385398.2010088,
-    "end_time": 1773385550.430957,
-    "duration": 152.22994923591614,
+    "start_time": 1773407150.27133,
+    "end_time": 1773407337.106821,
+    "duration": 186.83549165725708,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 2,
+    "total_files_processed": 4,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -55,15 +55,17 @@
     "structure": {
       "packages": [
         "deployment.gala.source",
-        "mcp_output.mcp_plugin"
+        "mcp_output.mcp_plugin",
+        "source.src.gala",
+        "source.tests.integrate"
       ]
     },
     "dependencies": {
       "has_environment_yml": false,
       "has_requirements_txt": false,
-      "pyproject": false,
+      "pyproject": true,
       "setup_cfg": false,
-      "setup_py": false
+      "setup_py": true
     },
     "entry_points": {
       "imports": [],
@@ -124,46 +126,29 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/gala/temp_clone'...\nfatal: unable to access 'https://github.com/adrn/gala/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 \n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/gala/temp_clone'...\nfatal: unable to access 'https://github.com/adrn/gala/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 \n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "add a minimal MCP smoke test suite (server starts",
-    "each endpoint imports",
-    "one happy-path call per core endpoint)",
-    "tighten endpoint naming consistency to a single style (e.g.",
-    "snake_case only) and remove duplicates like UnitSystem/unitsystem",
-    "generate JSON schemas and richer docstrings for every endpoint input/output (especially astropy units/quantities) to reduce misuse",
-    "add robust error mapping in adapter layer (ValueError/TypeError/ImportError → structured MCP errors with actionable messages)",
-    "pin and validate packaging metadata discovery (current analysis says pyproject/setup not detected despite files existing) to avoid brittle import/deploy behavior",
-    "introduce CI for MCP plugin separately from upstream tests (lint",
-    "type-check",
-    "smoke tests",
-    "dependency install matrix)",
-    "add compatibility guards and explicit optional-dependency checks for galpy/agama/h5py/pyyaml with clear fallback responses",
-    "create a small set of deterministic numerical regression tests for key physics workflows (orbit integration",
-    "potential evaluation",
-    "unit conversions) exposed via MCP",
-    "add request-level validation constraints (array sizes",
-    "finite values",
-    "unit compatibility) before calling gala internals",
-    "implement lightweight caching for repeated static model construction (e.g.",
-    "common built-in potentials) to reduce endpoint latency",
-    "improve observability with structured logging + per-endpoint timing/error counters",
-    "document version compatibility policy (Python/numpy/scipy/astropy + gala release range) in README_MCP and enforce at startup",
-    "add security hardening for MCP execution (input size limits",
-    "timeout controls",
-    "safe temp-file handling for load/save)",
-    "provide canonical end-to-end examples in README_MCP (create potential → integrate orbit → serialize)",
-    "and add benchmark checks for high-cost endpoints to catch performance regressions early"
+    "define and run a minimal MCP smoke-test suite (import package",
+    "instantiate a built-in potential",
+    "run a short Orbit integration) in CI since Test status is empty",
+    "remove test-derived endpoints (`test_leapfrog`",
+    "`test_rk5`",
+    "`test_dopri853`) from the public MCP API and keep only stable library surfaces",
+    "add strict input/output schemas and unit-aware validation (Astropy Quantity coercion + clear errors) for endpoints like `from_dict`",
+    "`to_dict`",
+    "and integrators",
+    "implement endpoint naming/versioning conventions (e.g.",
+    "`gala.potential.PlummerPotential@v1`) to avoid mixed casing and future breakage",
+    "add dependency profiles in `mcp_output/requirements.txt` (core vs optional extras for `galpy`/`agama`/plotting) and graceful capability detection at runtime",
+    "create integration tests for adapter import mode to verify behavior across Python/numpy/astropy version matrix",
+    "add performance benchmarks for high-cost paths (potential evaluation and orbit integration) with regression thresholds in CI",
+    "improve observability in `mcp_service.py` with structured logs",
+    "timing",
+    "and error categories for failed imports/validation/runtime",
+    "document binary-extension expectations and fallback behavior (pure-Python integrators vs cython paths) in `README_MCP.md`",
+    "add security hardening for dict-driven constructors (`from_dict`) with allowed-class allowlists and size/shape limits to prevent unsafe or pathological inputs",
+    "reduce API surface to high-value domain workflows (build potential → integrate orbit → summarize diagnostics) instead of exposing many low-level classes directly"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -194,35 +179,35 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Resilience mechanism worked: after git clone TLS failure, pipeline continued via zip/import fallback and still produced MCP artifacts.",
-      "Import-mode adapter strategy matched repository characteristics (high import feasibility 0.93, low intrusiveness risk).",
-      "Generated MCP service started healthy over stdio, indicating baseline runtime viability."
+      "End-to-end workflow reached finalize with workflow_status=success and no runtime errors/warnings.",
+      "Import-based adapter strategy was appropriate for a Python-first library with high import feasibility (0.93).",
+      "Core MCP scaffold files were generated consistently (entrypoint, service, adapter, main, README, requirements).",
+      "Service health check passed (healthy over stdio), indicating baseline operability of the generated MCP plugin."
     ],
     "failure_reasons": [
-      "Primary source acquisition failed due to network/TLS issue (LibreSSL SSL_ERROR_SYSCALL to github.com:443).",
-      "Metadata detection inconsistency: analysis reported no pyproject/setup despite files present, reducing confidence in dependency/environment inference.",
-      "Validation depth is weak: original project tests not executed (reported failed with empty details) and MCP test coverage effectively smoke-level."
+      "No hard workflow failure occurred; however, validation depth was weak because original project tests were not executed successfully and MCP test details are empty.",
+      "Quality blind spot: generated metadata shows 0 LOC / 0 file size / 0 tool_endpoints despite endpoint list existing, indicating instrumentation/reporting inconsistency.",
+      "DeepWiki enrichment failed, reducing external architectural/contextual confidence."
     ],
     "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Download node encountered clone failure early; fallback path prevented hard stop. Time likely dominated by failed network handshake/retry behavior.",
-      "analysis_time": "Analysis completed quickly relative to repository size using fallback-ingested tree (188 files), but with shallow/partially inconsistent metadata extraction.",
-      "generation_time": "Generation was efficient (small output set: 7 files) and completed successfully; endpoint surface was created from identified core modules/classes.",
-      "test_time": "Runtime validation appears minimal (service health/startup checks). No substantive functional endpoint tests or upstream test execution."
+      "download_time": "Repository ingestion succeeded via zip fallback; robust but likely slower and less metadata-rich than direct clone. Exact node timing unavailable.",
+      "analysis_time": "Static/package analysis completed and identified core modules/dependencies with medium complexity; timing not separately reported.",
+      "generation_time": "Code generation completed quickly enough within total 186.84s workflow duration, producing 7 output files; generation metrics are incomplete.",
+      "test_time": "MCP health test passed, but comprehensive functional tests/smoke tests were effectively absent (empty details, 0 execution times), so confidence is limited."
     },
     "resource_usage": {
-      "memory_efficiency": "Undetermined from metrics (reported 0), but observed workload suggests low-to-moderate memory profile for generation/smoke run.",
-      "cpu_efficiency": "Undetermined from metrics (reported 0); pipeline likely CPU-light except for static analysis.",
-      "disk_usage": "Low generated artifact footprint (7 files), though reported size=0 indicates missing instrumentation rather than true zero usage."
+      "memory_efficiency": "Unknown from telemetry (reported as 0 MB), implying missing instrumentation rather than true zero usage.",
+      "cpu_efficiency": "Unknown from telemetry (0%), suggesting metrics pipeline gap.",
+      "disk_usage": "Low-to-moderate expected (small MCP scaffold), but reported generated size=0 indicates observability inconsistency."
     }
   },
   "technical_quality": {
     "code_quality_score": 74,
     "architecture_score": 78,
-    "performance_score": 63,
-    "maintainability_score": 72,
+    "performance_score": 62,
+    "maintainability_score": 76,
     "security_score": 85,
-    "scalability_score": 68
+    "scalability_score": 70
   }
 }

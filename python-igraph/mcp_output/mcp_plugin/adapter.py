@@ -1,422 +1,197 @@
 import os
 import sys
-import traceback
-import importlib
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "source",
 )
-sys.path.insert(0, source_path)
+if source_path not in sys.path:
+    sys.path.insert(0, source_path)
 
 
 class Adapter:
     """
-    MCP Import Mode Adapter for python-igraph repository.
+    MCP import-mode adapter for python-igraph repository integration.
 
-    This adapter attempts to import project modules directly from the local source tree.
-    It provides:
-    - module-level health checks
-    - safe wrappers around key runtime functionality
-    - graceful fallback responses when imports are unavailable
+    This adapter prioritizes importing repository-local modules using full package paths
+    derived from the analysis result, and exposes a structured API with unified status
+    dictionaries for robust MCP plugin integration.
     """
 
-    # =========================
-    # Initialization & Utilities
-    # =========================
-
+    # -------------------------------------------------------------------------
+    # Lifecycle
+    # -------------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
-        self._modules: Dict[str, Any] = {}
-        self._import_errors: Dict[str, str] = {}
-        self._load_modules()
+        self._available = False
+        self._import_error: Optional[str] = None
+        self._Graph = None
+        self._shell_module = None
+        self._initialize_imports()
 
-    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "success") -> Dict[str, Any]:
-        payload = {"status": "success", "mode": self.mode, "message": message}
-        if data:
-            payload.update(data)
-        return payload
+    def _initialize_imports(self) -> None:
+        try:
+            from src.igraph import Graph  # full path from analysis-derived source tree
+            from src.igraph.app import shell as shell_module  # cli-related module
 
-    def _err(self, message: str, guidance: str = "", error: Optional[Exception] = None) -> Dict[str, Any]:
-        payload = {
-            "status": "error",
-            "mode": self.mode,
-            "message": message,
-        }
-        if guidance:
-            payload["guidance"] = guidance
+            self._Graph = Graph
+            self._shell_module = shell_module
+            self._available = True
+            self._import_error = None
+        except Exception as exc:
+            self._available = False
+            self._import_error = (
+                f"Failed to import python-igraph repository modules. "
+                f"Verify repository source is present under '{source_path}' and compatible runtime "
+                f"dependencies are installed. Details: {exc}"
+            )
+
+    # -------------------------------------------------------------------------
+    # Unified response helpers
+    # -------------------------------------------------------------------------
+    def _ok(self, data: Any = None, message: str = "Success") -> Dict[str, Any]:
+        return {"status": "success", "mode": self.mode, "message": message, "data": data}
+
+    def _err(self, message: str, error: Optional[str] = None, data: Any = None) -> Dict[str, Any]:
+        payload: Dict[str, Any] = {"status": "error", "mode": self.mode, "message": message}
         if error is not None:
-            payload["error_type"] = type(error).__name__
-            payload["error"] = str(error)
+            payload["error"] = error
+        if data is not None:
+            payload["data"] = data
         return payload
 
-    def _load_modules(self) -> None:
-        targets = {
-            "igraph": "igraph",
-            "igraph_app_shell": "igraph.app.shell",
-            "igraph_drawing_matplotlib_graph": "igraph.drawing.matplotlib.graph",
-            "igraph_drawing_plotly_graph": "igraph.drawing.plotly.graph",
-            "igraph_drawing_cairo_graph": "igraph.drawing.cairo.graph",
-        }
-        for key, module_path in targets.items():
-            try:
-                self._modules[key] = importlib.import_module(module_path)
-            except Exception as exc:
-                self._import_errors[key] = f"{type(exc).__name__}: {exc}"
-
-    def health(self) -> Dict[str, Any]:
-        """
-        Return adapter and import health status.
-
-        Returns:
-            dict: Unified status dictionary containing loaded modules and import errors.
-        """
-        loaded = sorted(self._modules.keys())
-        return self._ok(
-            {
-                "loaded_modules": loaded,
-                "import_errors": self._import_errors,
-                "source_path": source_path,
+    def _unavailable(self) -> Dict[str, Any]:
+        return self._err(
+            message="Import mode is unavailable.",
+            error=self._import_error
+            or "Repository modules could not be imported. Check source path and dependencies.",
+            data={
+                "guidance": [
+                    "Ensure the repository source directory is mounted at the expected path.",
+                    "Install runtime dependencies for python-igraph, including binary components.",
+                    "Retry initialization after environment setup.",
+                ]
             },
-            message="adapter initialized",
         )
 
-    # =========================
-    # Fallback & Guards
-    # =========================
+    # -------------------------------------------------------------------------
+    # Health / diagnostics
+    # -------------------------------------------------------------------------
+    def health_check(self) -> Dict[str, Any]:
+        """
+        Check adapter readiness and import-mode availability.
 
-    def _require(self, key: str, module_hint: str) -> Optional[Dict[str, Any]]:
-        if key not in self._modules:
-            details = self._import_errors.get(key, "module not loaded")
+        Returns:
+            dict: Unified status dictionary with adapter health details.
+        """
+        if self._available:
+            return self._ok(
+                data={
+                    "available": True,
+                    "import_strategy": "import",
+                    "intrusiveness_risk": "low",
+                    "complexity": "medium",
+                },
+                message="Adapter is ready in import mode.",
+            )
+        return self._unavailable()
+
+    # -------------------------------------------------------------------------
+    # Class instance methods (identified class: Graph)
+    # -------------------------------------------------------------------------
+    def create_graph_instance(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create a new igraph Graph instance.
+
+        Parameters:
+            *args: Positional arguments forwarded to src.igraph.Graph constructor.
+            **kwargs: Keyword arguments forwarded to src.igraph.Graph constructor.
+
+        Returns:
+            dict: Unified status dictionary with created Graph object in `data`.
+                  On failure, includes actionable error guidance.
+        """
+        if not self._available:
+            return self._unavailable()
+        try:
+            graph_obj = self._Graph(*args, **kwargs)
+            return self._ok(data={"graph": graph_obj}, message="Graph instance created.")
+        except Exception as exc:
             return self._err(
-                message=f"Required module '{module_hint}' is unavailable.",
-                guidance=(
-                    "Ensure the repository source exists under the configured 'source' directory, "
-                    "and required runtime dependencies are installed. Verify compiled igraph backend availability."
+                message="Failed to create Graph instance.",
+                error=f"Check constructor arguments passed to Graph. Details: {exc}",
+            )
+
+    # -------------------------------------------------------------------------
+    # CLI-related call methods (identified module: src.igraph.app.shell)
+    # -------------------------------------------------------------------------
+    def call_igraph_shell_main(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Invoke igraph shell entry behavior from src.igraph.app.shell when available.
+
+        Parameters:
+            *args: Positional arguments forwarded to shell.main if present.
+            **kwargs: Keyword arguments forwarded to shell.main if present.
+
+        Returns:
+            dict: Unified status dictionary with execution result or fallback guidance.
+        """
+        if not self._available:
+            return self._unavailable()
+
+        try:
+            main_fn = getattr(self._shell_module, "main", None)
+            if callable(main_fn):
+                result = main_fn(*args, **kwargs)
+                return self._ok(
+                    data={"result": result},
+                    message="igraph shell main executed.",
+                )
+
+            return self._err(
+                message="igraph shell main is not exposed by module.",
+                error=(
+                    "The module 'src.igraph.app.shell' does not provide a callable 'main'. "
+                    "Inspect module attributes or use interactive shell integration directly."
                 ),
-                error=RuntimeError(details),
-            )
-        return None
-
-    # =========================
-    # Core igraph constructors
-    # =========================
-
-    def instance_graph(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Create an igraph.Graph instance.
-
-        Parameters:
-            *args: Positional arguments forwarded to igraph.Graph(...)
-            **kwargs: Keyword arguments forwarded to igraph.Graph(...)
-
-        Returns:
-            dict: status + graph metadata, and graph object under 'instance'.
-        """
-        pre = self._require("igraph", "igraph")
-        if pre:
-            return pre
-        try:
-            Graph = getattr(self._modules["igraph"], "Graph")
-            g = Graph(*args, **kwargs)
-            return self._ok(
-                {
-                    "instance": g,
-                    "vertex_count": g.vcount(),
-                    "edge_count": g.ecount(),
-                    "is_directed": g.is_directed(),
-                },
-                message="Graph instance created",
-            )
-        except Exception as exc:
-            return self._err("Failed to create Graph instance.", "Check Graph constructor arguments.", exc)
-
-    def instance_configuration(self) -> Dict[str, Any]:
-        """
-        Create an igraph.Configuration instance.
-
-        Returns:
-            dict: status + configuration object.
-        """
-        pre = self._require("igraph", "igraph")
-        if pre:
-            return pre
-        try:
-            Configuration = getattr(self._modules["igraph"], "Configuration", None)
-            if Configuration is None:
-                return self._err(
-                    "Configuration class not found in igraph module.",
-                    "Verify repository version exports Configuration in igraph.__init__.",
-                )
-            cfg = Configuration.instance() if hasattr(Configuration, "instance") else Configuration()
-            return self._ok({"instance": cfg}, message="Configuration instance created")
-        except Exception as exc:
-            return self._err("Failed to create Configuration instance.", "Check igraph runtime installation.", exc)
-
-    # =========================
-    # Core graph operations
-    # =========================
-
-    def call_graph_factory(self, factory_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call a Graph factory/class method dynamically (e.g., Erdos_Renyi, Ring, Full, Tree, etc.).
-
-        Parameters:
-            factory_name (str): Name of igraph.Graph class method.
-            *args, **kwargs: Passed to selected factory.
-
-        Returns:
-            dict: status + graph metadata + graph object.
-        """
-        pre = self._require("igraph", "igraph")
-        if pre:
-            return pre
-        try:
-            Graph = getattr(self._modules["igraph"], "Graph")
-            if not hasattr(Graph, factory_name):
-                return self._err(
-                    f"Graph factory '{factory_name}' is not available.",
-                    "Use a valid Graph class method name from your repository version.",
-                )
-            fn = getattr(Graph, factory_name)
-            g = fn(*args, **kwargs)
-            return self._ok(
-                {
-                    "graph": g,
-                    "factory": factory_name,
-                    "vertex_count": g.vcount(),
-                    "edge_count": g.ecount(),
-                    "is_directed": g.is_directed(),
-                },
-                message="Graph factory call executed",
             )
         except Exception as exc:
             return self._err(
-                f"Failed to execute Graph factory '{factory_name}'.",
-                "Validate factory arguments and method name.",
-                exc,
+                message="Failed to execute igraph shell main.",
+                error=f"Shell execution failed. Verify environment compatibility. Details: {exc}",
             )
 
-    def call_graph_method(self, graph: Any, method_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    # -------------------------------------------------------------------------
+    # General module management and fallback support
+    # -------------------------------------------------------------------------
+    def reload_imports(self) -> Dict[str, Any]:
         """
-        Call any method on an existing Graph instance safely.
-
-        Parameters:
-            graph: igraph.Graph instance.
-            method_name (str): Target method to invoke.
-            *args, **kwargs: Forwarded to graph method.
+        Re-attempt repository module imports.
 
         Returns:
-            dict: status + method result.
+            dict: Unified status dictionary indicating whether imports were restored.
         """
-        try:
-            if graph is None:
-                return self._err("Graph instance is required.", "Provide a valid igraph.Graph object.")
-            if not hasattr(graph, method_name):
-                return self._err(
-                    f"Graph method '{method_name}' does not exist.",
-                    "Check method spelling and repository API compatibility.",
-                )
-            result = getattr(graph, method_name)(*args, **kwargs)
-            return self._ok({"result": result, "method": method_name}, message="Graph method executed")
-        except Exception as exc:
-            return self._err(
-                f"Failed to execute graph method '{method_name}'.",
-                "Inspect argument types and graph state before retrying.",
-                exc,
-            )
+        self._initialize_imports()
+        if self._available:
+            return self._ok(message="Imports reloaded successfully.", data={"available": True})
+        return self._unavailable()
 
-    # =========================
-    # Drawing backends (optional)
-    # =========================
-
-    def call_plot(self, graph: Any, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def metadata(self) -> Dict[str, Any]:
         """
-        Call igraph.plot(...) helper.
-
-        Parameters:
-            graph: igraph.Graph instance.
-            *args, **kwargs: plotting parameters (backend-specific).
+        Return adapter metadata derived from analysis signals.
 
         Returns:
-            dict: status + plot object/result when available.
+            dict: Unified status dictionary with repository and capability metadata.
         """
-        pre = self._require("igraph", "igraph")
-        if pre:
-            return pre
-        try:
-            plot_fn = getattr(self._modules["igraph"], "plot")
-            out = plot_fn(graph, *args, **kwargs)
-            return self._ok({"result": out}, message="Plot executed")
-        except Exception as exc:
-            return self._err(
-                "Failed to plot graph.",
-                "Install optional drawing dependencies (matplotlib, plotly, or cairo backend) and verify parameters.",
-                exc,
-            )
-
-    # =========================
-    # CLI-like component wrapper
-    # =========================
-
-    def call_shell_main(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
-        """
-        Attempt to invoke igraph.app.shell main-like entry.
-
-        Parameters:
-            argv (list[str] | None): Optional argument vector.
-
-        Returns:
-            dict: status + execution result.
-        """
-        pre = self._require("igraph_app_shell", "igraph.app.shell")
-        if pre:
-            return pre
-        try:
-            mod = self._modules["igraph_app_shell"]
-            # Best-effort entry resolution
-            for candidate in ("main", "run", "start"):
-                if hasattr(mod, candidate):
-                    fn = getattr(mod, candidate)
-                    result = fn(argv) if argv is not None else fn()
-                    return self._ok(
-                        {"entry": candidate, "result": result},
-                        message="Shell entry executed",
-                    )
-            return self._err(
-                "No callable shell entry point found.",
-                "Expected one of: main, run, start in igraph.app.shell.",
-            )
-        except Exception as exc:
-            return self._err(
-                "Failed to execute igraph shell module.",
-                "Review shell module API and pass compatible arguments.",
-                exc,
-            )
-
-    # =========================
-    # Generic dynamic access
-    # =========================
-
-    def call_module_function(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Dynamically import a module and call a function by name.
-
-        Parameters:
-            module_path (str): Full import path under repository source (e.g., 'igraph.io.files').
-            function_name (str): Function to call.
-            *args, **kwargs: Arguments for function call.
-
-        Returns:
-            dict: status + function call result.
-        """
-        try:
-            module = importlib.import_module(module_path)
-            if not hasattr(module, function_name):
-                return self._err(
-                    f"Function '{function_name}' not found in module '{module_path}'.",
-                    "Verify module path and exported symbol name.",
-                )
-            fn = getattr(module, function_name)
-            result = fn(*args, **kwargs)
-            return self._ok(
-                {
-                    "module": module_path,
-                    "function": function_name,
-                    "result": result,
-                },
-                message="Dynamic function call executed",
-            )
-        except Exception as exc:
-            return self._err(
-                f"Failed to call '{function_name}' from '{module_path}'.",
-                "Check dependency availability and function arguments.",
-                exc,
-            )
-
-    def call_module_class(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Dynamically import a module and instantiate a class by name.
-
-        Parameters:
-            module_path (str): Full import path under repository source.
-            class_name (str): Class to instantiate.
-            *args, **kwargs: Constructor arguments.
-
-        Returns:
-            dict: status + class instance.
-        """
-        try:
-            module = importlib.import_module(module_path)
-            if not hasattr(module, class_name):
-                return self._err(
-                    f"Class '{class_name}' not found in module '{module_path}'.",
-                    "Verify class name and module export.",
-                )
-            cls = getattr(module, class_name)
-            instance = cls(*args, **kwargs)
-            return self._ok(
-                {
-                    "module": module_path,
-                    "class": class_name,
-                    "instance": instance,
-                },
-                message="Dynamic class instantiation executed",
-            )
-        except Exception as exc:
-            return self._err(
-                f"Failed to instantiate '{class_name}' from '{module_path}'.",
-                "Validate constructor arguments and module dependencies.",
-                exc,
-            )
-
-    # =========================
-    # Diagnostics
-    # =========================
-
-    def diagnostics(self) -> Dict[str, Any]:
-        """
-        Provide detailed diagnostics for troubleshooting import-mode execution.
-
-        Returns:
-            dict: status + traceback-safe environment summary.
-        """
-        try:
-            return self._ok(
-                {
-                    "python_executable": sys.executable,
-                    "python_version": sys.version,
-                    "sys_path_head": sys.path[:5],
-                    "source_path_exists": os.path.isdir(source_path),
-                    "loaded_modules": list(self._modules.keys()),
-                    "import_errors": self._import_errors,
-                },
-                message="Diagnostics collected",
-            )
-        except Exception as exc:
-            return self._err(
-                "Failed to collect diagnostics.",
-                "Retry in a clean environment and verify file-system permissions.",
-                exc,
-            )
-
-    def last_exception_trace(self, error: Exception) -> Dict[str, Any]:
-        """
-        Convert an exception into a unified trace payload.
-
-        Parameters:
-            error (Exception): Exception object.
-
-        Returns:
-            dict: status + concise traceback information.
-        """
-        try:
-            tb = "".join(traceback.format_exception(type(error), error, error.__traceback__))
-            return self._ok({"traceback": tb}, message="Traceback captured")
-        except Exception as exc:
-            return self._err(
-                "Failed to serialize traceback.",
-                "Pass a valid Exception instance.",
-                exc,
-            )
+        return self._ok(
+            data={
+                "repository_url": "https://github.com/igraph/python-igraph",
+                "mode": self.mode,
+                "primary_module": "src.igraph",
+                "identified_class": "Graph",
+                "identified_cli_module": "src.igraph.app.shell",
+                "optional_dependencies": ["matplotlib", "plotly", "pycairo/cairocffi", "texttable"],
+            },
+            message="Adapter metadata retrieved.",
+        )

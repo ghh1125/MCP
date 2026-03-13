@@ -464,14 +464,20 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.rebound.source",
+      "mcp_output.mcp_plugin",
+      "source.rebound",
+      "source.rebound.integrators",
+      "source.rebound.tests"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
-    "has_requirements_txt": false,
-    "pyproject": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -481,110 +487,149 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "rebound",
-        "module": "rebound/simulation.py",
+        "package": "source.rebound",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level package initializer; likely re-exports core API symbols (Simulation, Particle, Orbit, units/tools helpers) for import-first integration."
+      },
+      {
+        "package": "source.rebound",
+        "module": "simulation",
         "functions": [],
         "classes": [
           "Simulation"
         ],
-        "description": "Primary high-level simulation API (N-body setup, integration control, configuration, serialization hooks). This is the central integration point for an MCP plugin."
+        "description": "Primary simulation orchestration module; central object lifecycle, particle management, integrator selection, stepping/integration, callbacks, diagnostics, serialization hooks."
       },
       {
-        "package": "rebound",
-        "module": "rebound/particle.py",
+        "package": "source.rebound",
+        "module": "particle",
         "functions": [],
         "classes": [
           "Particle"
         ],
-        "description": "Particle state representation and orbital/property manipulation. Core object used by Simulation."
+        "description": "Particle data model and orbital/state transformations; core for add/remove/update body operations."
       },
       {
-        "package": "rebound",
-        "module": "rebound/particles.py",
+        "package": "source.rebound",
+        "module": "particles",
         "functions": [],
         "classes": [
           "Particles"
         ],
-        "description": "Container-style interface for particle collections exposed by Simulation."
+        "description": "Container/access layer for simulation particles; indexing, iteration, convenience access."
       },
       {
-        "package": "rebound",
-        "module": "rebound/orbit.py",
+        "package": "source.rebound",
+        "module": "orbit",
         "functions": [],
         "classes": [
           "Orbit"
         ],
-        "description": "Orbital element representation and conversion helpers used in analysis workflows."
+        "description": "Orbital-element representation and conversion utilities used by particle/simulation workflows."
       },
       {
-        "package": "rebound",
-        "module": "rebound/simulationarchive.py",
+        "package": "source.rebound",
+        "module": "simulationarchive",
         "functions": [],
         "classes": [
           "Simulationarchive"
         ],
-        "description": "Persistent archive I/O and replay access for simulations; useful for MCP stateful workflows."
+        "description": "Persistent archive IO for long integrations; snapshot loading, replay, restart workflows."
       },
       {
-        "package": "rebound",
-        "module": "rebound/variation.py",
-        "functions": [],
-        "classes": [
-          "Variation"
-        ],
-        "description": "Variational equation support and chaos/MEGNO-related workflows."
-      },
-      {
-        "package": "rebound",
-        "module": "rebound/frequency_analysis.py",
+        "package": "source.rebound",
+        "module": "horizons",
         "functions": [],
         "classes": [],
-        "description": "Frequency-analysis utilities for post-processing trajectories."
+        "description": "JPL Horizons integration utilities for ephemerides/bootstrap of initial conditions."
       },
       {
-        "package": "rebound",
-        "module": "rebound/horizons.py",
+        "package": "source.rebound.integrators",
+        "module": "ias15",
         "functions": [],
         "classes": [],
-        "description": "JPL Horizons integration helpers (network-dependent) for ephemeris initialization."
+        "description": "IAS15 integrator configuration/adapter module."
       },
       {
-        "package": "rebound",
-        "module": "rebound/units.py",
+        "package": "source.rebound.integrators",
+        "module": "whfast",
         "functions": [],
         "classes": [],
-        "description": "Unit conversion/system helpers for safe user-facing MCP tool interfaces."
+        "description": "WHFast integrator configuration/adapter module."
       },
       {
-        "package": "rebound",
-        "module": "rebound/plotting.py",
+        "package": "source.rebound.integrators",
+        "module": "mercurius",
         "functions": [],
         "classes": [],
-        "description": "Visualization helpers (optional for MCP, typically secondary)."
+        "description": "Mercurius hybrid integrator configuration/adapter module."
+      },
+      {
+        "package": "source.rebound.integrators",
+        "module": "trace",
+        "functions": [],
+        "classes": [],
+        "description": "TRACE integrator configuration/adapter module."
+      },
+      {
+        "package": "source.rebound",
+        "module": "units",
+        "functions": [],
+        "classes": [],
+        "description": "Unit conversion/constants helpers used by simulation setup."
+      },
+      {
+        "package": "source.rebound",
+        "module": "tools",
+        "functions": [],
+        "classes": [],
+        "description": "Misc utility helpers; suitable for lightweight MCP utility tools."
+      },
+      {
+        "package": "source.rebound",
+        "module": "plotting",
+        "functions": [],
+        "classes": [],
+        "description": "Visualization helpers; useful as optional MCP tool surface, non-core for compute workflows."
+      },
+      {
+        "package": "source.rebound",
+        "module": "data",
+        "functions": [],
+        "classes": [],
+        "description": "Data/bootstrap convenience module (example/reference datasets)."
+      },
+      {
+        "package": "source.rebound",
+        "module": "variation",
+        "functions": [],
+        "classes": [],
+        "description": "Variational equations/sensitivity support for chaos and stability analysis workflows."
       }
     ],
     "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.95
     },
     "dependencies": {
       "required": [
         "python>=3.x",
-        "setuptools",
-        "wheel",
-        "numpy"
+        "numpy",
+        "rebound native extension (built C core packaged with source.rebound)"
       ],
       "optional": [
-        "matplotlib (plotting)",
-        "ipywidgets/jupyter stack (widget.py, notebook usage)",
-        "requests or urllib-based network stack for horizons usage",
-        "mpi runtime/tooling for MPI-related workflows (docs/mpi.md, CI mpi jobs)"
+        "matplotlib (plotting/visualization)",
+        "jupyter/ipywidgets stack (widget/notebook usage)",
+        "requests/HTTP stack for Horizons access (if not using stdlib urllib path)",
+        "mpi runtime + mpi4py (MPI-related workflows)"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.95,
+      "import_feasibility": 0.94,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -602,7 +647,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.95,
+    "import_feasibility": 0.94,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

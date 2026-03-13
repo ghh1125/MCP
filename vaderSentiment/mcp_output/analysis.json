@@ -38,14 +38,19 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.vaderSentiment.source",
+      "mcp_output.mcp_plugin",
+      "source",
+      "source.vaderSentiment"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
     "pyproject": false,
-    "setup_cfg": false,
-    "setup_py": false
+    "setup_cfg": true,
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -55,43 +60,76 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "vaderSentiment/vaderSentiment.py",
+        "package": "setup",
+        "module": "setup",
+        "functions": [
+          "read"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "read": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "vaderSentiment",
         "module": "vaderSentiment",
         "functions": [
+          "allcap_differential",
           "negated",
           "normalize",
-          "allcap_differential",
-          "scalar_inc_dec",
-          "SentiText",
-          "sentiment_valence",
-          "_least_check",
-          "_but_check",
-          "_idioms_check",
-          "_never_check",
-          "_punctuation_emphasis",
-          "_amplify_ep",
-          "_amplify_qm",
-          "_sift_sentiment_scores",
-          "score_valence"
+          "scalar_inc_dec"
         ],
         "classes": [
+          "SentiText",
           "SentimentIntensityAnalyzer"
         ],
-        "description": "Primary sentiment analysis implementation. Contains lexicon loading, token-level valence heuristics, punctuation/caps modifiers, idiom handling, and final polarity scoring (pos/neu/neg/compound). This is the core integration target for an MCP plugin."
+        "function_signatures": {
+          "negated": [
+            "input_words",
+            "include_nt"
+          ],
+          "normalize": [
+            "score",
+            "alpha"
+          ],
+          "allcap_differential": [
+            "words"
+          ],
+          "scalar_inc_dec": [
+            "word",
+            "valence",
+            "is_cap_diff"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "additional_resources/build_emoji_lexicon.py",
+        "package": "additional_resources",
         "module": "build_emoji_lexicon",
-        "functions": [],
+        "functions": [
+          "append_to_file",
+          "get_list_from_file",
+          "pad_ref",
+          "squeeze_whitespace"
+        ],
         "classes": [],
-        "description": "Auxiliary resource-generation script for emoji lexicon preparation; not required for runtime sentiment inference."
-      },
-      {
-        "package": "setup.py",
-        "module": "setup",
-        "functions": [],
-        "classes": [],
-        "description": "Packaging metadata/install script; useful for dependency and distribution behavior, not for runtime scoring logic."
+        "function_signatures": {
+          "get_list_from_file": [
+            "file_name"
+          ],
+          "append_to_file": [
+            "file_name",
+            "line_data"
+          ],
+          "squeeze_whitespace": [
+            "text"
+          ],
+          "pad_ref": [
+            "reference_code"
+          ]
+        },
+        "description": "Discovered via AST scan"
       }
     ],
     "cli_commands": [],
@@ -102,12 +140,12 @@
     },
     "dependencies": {
       "required": [
-        "Python standard library (codecs, json, math, os, re, string, itertools)"
+        "python (stdlib: os, re, math, string, itertools, codecs)"
       ],
       "optional": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.97,
+      "import_feasibility": 0.96,
       "intrusiveness_risk": "low",
       "complexity": "simple"
     }
@@ -125,7 +163,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.97,
+    "import_feasibility": 0.96,
     "intrusiveness_risk": "low",
     "complexity": "simple"
   }

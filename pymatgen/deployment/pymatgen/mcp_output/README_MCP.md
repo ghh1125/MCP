@@ -2,57 +2,65 @@
 
 ## 1) Project Introduction
 
-This service exposes core **pymatgen** capabilities through an MCP (Model Context Protocol) interface for materials science workflows.
+This service exposes high-value `pymatgen` capabilities through MCP (Model Context Protocol) endpoints for materials science workflows.
 
-Primary goals:
-- Query materials data (Materials Project / OPTIMADE)
-- Parse and convert simulation files (especially VASP)
-- Run structured thermodynamic analyses (phase diagrams, Pourbaix diagrams)
-- Use canonical materials objects (`Structure`, `Composition`, etc.) as service I/O
+Main goals:
+- Parse and manipulate crystal/molecular structures
+- Compute composition and chemistry utilities
+- Build/analyze phase diagrams and reactions
+- Compare/deduplicate structures
+- Parse/generate VASP input/output artifacts
+- Optionally query external materials APIs (Materials Project, OPTIMADE)
 
-Best-fit use cases:
-- AI agent tool-calling for materials retrieval and analysis
-- Automated DFT post-processing pipelines
-- Structure/data normalization across providers
+Recommended usage style:
+- **Primary:** direct Python imports (fast, deterministic)
+- **Fallback:** wrap existing `pymatgen` CLI commands for selected tasks
 
 ---
 
 ## 2) Installation Method
 
 ### Prerequisites
-- Python 3.10+
-- Recommended: Linux/macOS, virtual environment
+- Python 3.10+ (recommended)
+- `pip`
 
-### Core dependencies
-- numpy, scipy, monty, ruamel.yaml, spglib, networkx, pandas, matplotlib, sympy, requests, joblib, tabulate, tqdm, uncertainties
+### Install core package
+pip install pymatgen
 
-### Optional dependencies (feature-based)
-- `mp-api` (Materials Project modern API)
-- `ase`, `phonopy`, `seekpath`
-- `h5py`, `pybtex`
-- `openbabel`, `rdkit`
-- `vtk`, `scikit-learn`
+### Optional extras (as needed by endpoints)
+pip install mp-api ase plotly vtk seekpath phonopy h5py scikit-learn openbabel rdkit
 
-### Install steps
-1. Create and activate a virtual environment  
-2. Install pymatgen and required extras via pip (according to your target endpoints)  
-3. If using Materials Project endpoints, set your API key in environment/config
+### Typical required runtime libraries
+- numpy, scipy, monty, ruamel.yaml, spglib, networkx, sympy, pandas
+- matplotlib, tabulate, uncertainties, joblib, tqdm, requests
 
 ---
 
 ## 3) Quick Start
 
-### Typical service flow
-1. Client sends crystal structure/composition or query parameters
-2. Service converts input to pymatgen core objects
-3. Service executes retrieval/parsing/analysis function
-4. Service returns structured JSON-serializable result
+### A. Structure parsing/manipulation
+- Input: CIF/POSCAR/string payload
+- Output: normalized structure, composition, lattice/site summary
 
-### Example usage patterns
-- **Materials query**: search by formula/system, return summarized entries
-- **VASP parsing**: ingest `vasprun.xml` / `OUTCAR`, return energies, band info, metadata
-- **Phase stability**: build `PhaseDiagram` from entries, return hull energy and stable phases
-- **Aqueous stability**: build `PourbaixDiagram`, return stable domains/species
+Example flow:
+1. Create/load `Structure` or `Molecule`
+2. Return formula, reduced composition, volume, site count
+
+### B. Phase diagram analysis
+- Input: list of entries (`PDEntry`-like payloads)
+- Output: hull energies, stable/unstable phases, decomposition info
+
+### C. Reaction balancing
+- Input: reactant/product formulas (optionally energies)
+- Output: balanced coefficients and reaction representation (`BalancedReaction` / `Reaction`)
+
+### D. Structure matching
+- Input: two structures
+- Output: equivalent/not equivalent + matcher diagnostics (`StructureMatcher`)
+
+### E. VASP I/O
+- Input: INCAR/POSCAR/KPOINTS/POTCAR or vasprun.xml/OUTCAR content/path
+- Output: parsed parameters/results in JSON-friendly format
 
 ---
 
@@ -60,60 +68,60 @@ Best-fit use cases:
 
 Suggested MCP (Model Context Protocol) service endpoints:
 
-- `materials_project.search`
-  - Wrapper around `pymatgen.ext.matproj.MPRester`
-  - Query materials by formula, chemsys, IDs, properties
-
-- `optimade.search`
-  - Wrapper around `pymatgen.ext.optimade.OptimadeRester`
-  - Federated provider search with normalized filters
-
 - `structure.parse`
-  - Parse structure text/file content into canonical `Structure`
-  - Supports normalization and validation-friendly output
+  - Parse structure text/files into canonical structure object summary.
 
-- `structure.convert`
-  - Convert between common structure formats (CIF, POSCAR-like workflows, etc.)
+- `structure.summarize`
+  - Return lattice, species, formula, density, symmetry-ready metadata.
 
-- `vasp.parse_vasprun`
-  - Parse VASP run outputs for energies, convergence, electronic metadata
+- `composition.analyze`
+  - Formula parsing, reduced formula, element fractions, oxidation hints.
 
-- `vasp.parse_outcar`
-  - Extract OUTCAR-derived quantities (magnetization, forces, run diagnostics)
+- `phase_diagram.build`
+  - Build `PhaseDiagram` from entries and return stability map.
 
-- `thermo.phase_diagram.compute`
-  - Use `PhaseDiagram`, `GrandPotentialPhaseDiagram`, `CompoundPhaseDiagram`
-  - Return stable entries, decomposition, energy-above-hull metrics
+- `phase_diagram.decompose`
+  - Decompose composition onto hull and report energy above hull.
 
-- `electrochem.pourbaix.compute`
-  - Use `PourbaixDiagram`/`PourbaixEntry`
-  - Return stability regions and species information
+- `reaction.balance`
+  - Balance reactions using `BalancedReaction`/`Reaction`.
 
-- `core.validate_object`
-  - Validate/roundtrip `Structure`, `Molecule`, `Composition`, `Element`, `Species`
+- `structure.match`
+  - Compare two structures using `StructureMatcher` and tolerances.
+
+- `vasp.inputs.parse`
+  - Parse `Incar`, `Poscar`, `Kpoints`, `Potcar`.
+
+- `vasp.outputs.parse`
+  - Parse `Vasprun`, `Outcar` summaries (energies, bands, ionic steps, etc.).
+
+- `external.matproj.query` (optional)
+  - Materials Project lookups via `MPRester` (requires API key and `mp-api`).
+
+- `external.optimade.query` (optional)
+  - Federated OPTIMADE queries via `OptimadeRester`.
+
+- `system.health`
+  - Dependency/version checks and feature availability report.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- **API authentication**: Materials Project endpoints require a valid API key.
-- **Optional dependency gaps**: some advanced endpoints fail unless extras are installed.
-- **Large file parsing**: VASP outputs can be large; prefer streaming/size checks/timeouts.
-- **Serialization**: use MSONable-compatible JSON for robust agent-to-service exchange.
-- **Performance**: phase/Pourbaix analysis can be expensive on large entry sets; cache results where possible.
-- **Environment reproducibility**: pin pymatgen + scientific stack versions in production.
-- **Import strategy**: direct Python import is preferred; CLI fallback (`pmg`) is possible for constrained environments.
+- **Large import surface:** `pymatgen` is broad; lazy-load heavy modules in endpoints.
+- **Optional dependency gaps:** some endpoints should be disabled gracefully if extras are missing.
+- **API-backed tools:** external query endpoints need credentials/network; return clear auth errors.
+- **Performance:** phase diagram and structure matching can be costly on large batches—support pagination/chunking.
+- **Serialization:** convert complex pymatgen objects to JSON-safe payloads before MCP responses.
+- **Reproducibility:** pin `pymatgen` + scientific stack versions in production.
 
 ---
 
 ## 6) Reference Links / Documentation
 
 - Repository: https://github.com/materialsproject/pymatgen
-- Official docs index: `docs/index.md` in repo
-- Installation guide: `docs/installation.md`
-- Usage guide: `docs/usage.md`
+- Main docs index: https://pymatgen.org
+- Installation guide (repo docs): `docs/installation.md`
+- Usage guide (repo docs): `docs/usage.md`
 - API-heavy module docs: `docs/pymatgen.md`
-- CLI entrypoint reference: `src/pymatgen/cli/pmg.py`
-- Core external integrations:
-  - `src/pymatgen/ext/matproj.py`
-  - `src/pymatgen/ext/optimade.py`
+- Security policy: `SECURITY.md`

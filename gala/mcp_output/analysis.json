@@ -574,15 +574,17 @@
   "structure": {
     "packages": [
       "deployment.gala.source",
-      "mcp_output.mcp_plugin"
+      "mcp_output.mcp_plugin",
+      "source.src.gala",
+      "source.tests.integrate"
     ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -592,96 +594,126 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "deployment.gala.source",
-        "module": "gala.potential.potential.core",
+        "package": "source.src.gala",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level package initializer; exposes package namespace and version-level metadata patterns, but not a dedicated execution entrypoint."
+      },
+      {
+        "package": "source.src.gala",
+        "module": "units",
         "functions": [
-          "load",
-          "save",
-          "to_sympy"
+          "UnitSystem",
+          "DimensionlessUnitSystem"
+        ],
+        "classes": [
+          "UnitSystem",
+          "DimensionlessUnitSystem"
+        ],
+        "description": "Core unit handling layer used across potentials/dynamics; central for consistent physical quantity handling."
+      },
+      {
+        "package": "source.src.gala",
+        "module": "potential.potential.core",
+        "functions": [
+          "replace_units",
+          "from_dict",
+          "to_dict"
         ],
         "classes": [
           "PotentialBase",
           "CompositePotential",
           "CCompositePotential"
         ],
-        "description": "Primary gravitational potential abstraction layer; central for defining, combining, serializing, and evaluating potentials."
+        "description": "Primary gravitational potential abstraction and evaluation APIs; likely the most MCP-relevant computational surface."
       },
       {
-        "package": "deployment.gala.source",
-        "module": "gala.potential.potential.builtin.core",
+        "package": "source.src.gala",
+        "module": "potential.potential.builtin.core",
         "functions": [],
         "classes": [
-          "KeplerPotential",
-          "HernquistPotential",
-          "MiyamotoNagaiPotential",
-          "NFWPotential",
           "PlummerPotential",
+          "HernquistPotential",
+          "NFWPotential",
+          "MiyamotoNagaiPotential",
           "IsochronePotential",
+          "KeplerPotential",
           "LogarithmicPotential",
           "HarmonicOscillatorPotential"
         ],
-        "description": "Built-in analytic potential models used as the main user-facing model library."
+        "description": "Built-in astrophysical potential models; high-value stable domain objects for plugin exposure."
       },
       {
-        "package": "deployment.gala.source",
-        "module": "gala.dynamics.orbit",
+        "package": "source.src.gala",
+        "module": "dynamics.orbit",
         "functions": [],
         "classes": [
           "Orbit"
         ],
-        "description": "Orbit container and analysis utilities for integrated trajectories."
+        "description": "Orbit container and analysis utilities; central downstream object produced by integration workflows."
       },
       {
-        "package": "deployment.gala.source",
-        "module": "gala.integrate.core",
-        "functions": [],
+        "package": "source.src.gala",
+        "module": "integrate.core",
+        "functions": [
+          "parse_time_specification"
+        ],
         "classes": [
           "Integrator"
         ],
-        "description": "Integrator base API and integration flow used by dynamics/potential modules."
+        "description": "Integration framework base abstractions; orchestration layer for numerical orbit integration."
       },
       {
-        "package": "deployment.gala.source",
-        "module": "gala.potential.hamiltonian",
+        "package": "source.src.gala",
+        "module": "integrate.pyintegrators.leapfrog",
         "functions": [],
         "classes": [
-          "Hamiltonian"
+          "LeapfrogIntegrator"
         ],
-        "description": "High-level coupling of potential + frame for orbit integration workflows."
+        "description": "Pure-Python symplectic integrator option; good MCP default due to fewer binary/runtime constraints."
       },
       {
-        "package": "deployment.gala.source",
-        "module": "gala.units",
-        "functions": [
-          "UnitSystem",
-          "DimensionlessUnitSystem"
-        ],
+        "package": "source.src.gala",
+        "module": "integrate.pyintegrators.dopri853",
+        "functions": [],
         "classes": [
-          "UnitSystem",
-          "DimensionlessUnitSystem"
+          "DOPRI853Integrator"
         ],
-        "description": "Unit-system management foundational to safe numerical use across all dynamics/potential APIs."
+        "description": "High-order adaptive pure-Python integrator; suitable fallback for non-symplectic problems."
+      },
+      {
+        "package": "source.src.gala",
+        "module": "source.tests.integrate.test_pyintegrators",
+        "functions": [
+          "test_leapfrog",
+          "test_rk5",
+          "test_dopri853"
+        ],
+        "classes": [],
+        "description": "Validation reference for expected integration behavior; useful for MCP smoke-test baselines."
       }
     ],
     "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.94
     },
     "dependencies": {
       "required": [
         "python",
         "numpy",
         "scipy",
-        "astropy"
+        "astropy",
+        "pyyaml"
       ],
       "optional": [
         "matplotlib",
-        "pyyaml",
         "h5py",
         "galpy",
-        "agama"
+        "agama",
+        "cython-compiled extension toolchain"
       ]
     },
     "risk_assessment": {

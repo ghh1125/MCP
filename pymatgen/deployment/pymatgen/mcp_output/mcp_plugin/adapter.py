@@ -2,7 +2,7 @@ import os
 import sys
 import traceback
 import importlib
-from typing import Any, Dict, Optional, List
+from typing import Any, Dict, List, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -13,264 +13,289 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP import-mode adapter for pymatgen.
+    Import-mode adapter for pymatgen MCP integration.
 
-    This adapter prioritizes direct module import usage and provides a graceful
-    CLI fallback mode when import is unavailable.
+    This adapter prefers direct Python imports from the local repository source tree.
+    If imports are unavailable, methods return actionable fallback guidance and can
+    optionally provide CLI invocation hints.
     """
+
+    # -------------------------------------------------------------------------
+    # Lifecycle and module registry
+    # -------------------------------------------------------------------------
 
     def __init__(self) -> None:
         self.mode = "import"
-        self._imports: Dict[str, Any] = {}
+        self._modules: Dict[str, Any] = {}
         self._import_errors: Dict[str, str] = {}
-        self._bootstrap()
+        self._load_modules()
 
-    # -------------------------------------------------------------------------
-    # Internal utilities
-    # -------------------------------------------------------------------------
-    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "ok") -> Dict[str, Any]:
-        payload = {"status": "success", "mode": self.mode, "message": message}
-        if data:
-            payload.update(data)
-        return payload
-
-    def _err(self, message: str, error: Optional[Exception] = None) -> Dict[str, Any]:
-        details = str(error) if error else ""
-        guidance = (
-            "Ensure the repository source is available at '../source' and dependencies are installed. "
-            "If import mode is unavailable, use CLI fallback via the `pmg` command."
-        )
+    def _result(
+        self,
+        status: str,
+        message: str,
+        data: Optional[Dict[str, Any]] = None,
+        error: Optional[str] = None,
+        guidance: Optional[str] = None,
+    ) -> Dict[str, Any]:
         return {
-            "status": "error",
+            "status": status,
             "mode": self.mode,
             "message": message,
-            "error": details,
+            "data": data or {},
+            "error": error,
             "guidance": guidance,
         }
 
-    def _bootstrap(self) -> None:
-        targets = {
-            "pmg_cli": "pymatgen.cli.pmg",
-            "pmg_analyze": "pymatgen.cli.pmg_analyze",
-            "pmg_plot": "pymatgen.cli.pmg_plot",
-            "pmg_structure": "pymatgen.cli.pmg_structure",
-            "pmg_config": "pymatgen.cli.pmg_config",
-        }
-        for key, mod in targets.items():
-            try:
-                self._imports[key] = importlib.import_module(mod)
-            except Exception as e:
-                self._import_errors[key] = f"{type(e).__name__}: {e}"
-
-        if not self._imports:
-            self.mode = "cli"
-
-    def _safe_call(self, func: Any, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def _safe_import(self, module_path: str) -> None:
         try:
-            result = func(*args, **kwargs)
-            return self._ok({"result": result})
-        except Exception as e:
-            return self._err(
-                "Function call failed. Verify parameters and runtime dependencies.",
-                e,
-            )
+            self._modules[module_path] = importlib.import_module(module_path)
+        except Exception as exc:
+            self._import_errors[module_path] = f"{type(exc).__name__}: {exc}"
+
+    def _load_modules(self) -> None:
+        # CLI modules identified by LLM analysis
+        module_paths = [
+            "pymatgen.cli.pmg",
+            "pymatgen.cli.pmg_analyze",
+            "pymatgen.cli.pmg_config",
+            "pymatgen.cli.pmg_plot",
+            "pymatgen.cli.pmg_structure",
+            "pymatgen.cli.get_environment",
+            # commonly used extension modules from analysis file tree
+            "pymatgen.ext.matproj",
+            "pymatgen.ext.cod",
+            "pymatgen.ext.optimade",
+        ]
+        for p in module_paths:
+            self._safe_import(p)
 
     # -------------------------------------------------------------------------
     # Status and diagnostics
     # -------------------------------------------------------------------------
-    def health(self) -> Dict[str, Any]:
+
+    def health_check(self) -> Dict[str, Any]:
         """
-        Get adapter health information.
+        Check adapter readiness and imported module availability.
 
         Returns:
-            dict: Unified status dictionary including mode, loaded modules, and import errors.
+            dict: Unified status dictionary with loaded modules and import failures.
         """
-        return self._ok(
-            {
-                "loaded_modules": list(self._imports.keys()),
-                "import_errors": self._import_errors,
-            },
-            message="adapter initialized",
+        loaded = sorted(self._modules.keys())
+        failed = dict(self._import_errors)
+        if loaded:
+            return self._result(
+                status="success",
+                message="Adapter initialized with import mode.",
+                data={"loaded_modules": loaded, "failed_modules": failed},
+                guidance="You can call module-specific methods. Check failed_modules for unavailable features.",
+            )
+        return self._result(
+            status="error",
+            message="No target modules could be imported.",
+            error="Import initialization failed for all known modules.",
+            data={"failed_modules": failed},
+            guidance="Verify repository source path and Python dependencies from requirements.txt/pyproject.toml.",
         )
 
     # -------------------------------------------------------------------------
-    # CLI module instances (identified modules from analysis)
+    # Generic invocation helpers
     # -------------------------------------------------------------------------
-    def instance_pmg_cli(self) -> Dict[str, Any]:
+
+    def call_module_function(
+        self, module_path: str, function_name: str, *args: Any, **kwargs: Any
+    ) -> Dict[str, Any]:
         """
-        Return imported pymatgen main CLI module instance.
+        Call a function from a loaded module dynamically.
+
+        Args:
+            module_path: Full module path (e.g., 'pymatgen.cli.pmg').
+            function_name: Callable name inside the module.
+            *args: Positional args passed to callable.
+            **kwargs: Keyword args passed to callable.
 
         Returns:
-            dict: Unified status dictionary with module object if available.
+            dict: Unified status dictionary with function result.
         """
-        mod = self._imports.get("pmg_cli")
-        if mod is None:
-            return self._err("pymatgen.cli.pmg is not available in import mode.")
-        return self._ok({"module": mod}, "pymatgen.cli.pmg loaded")
+        try:
+            mod = self._modules.get(module_path)
+            if mod is None:
+                if module_path in self._import_errors:
+                    return self._result(
+                        status="error",
+                        message=f"Module '{module_path}' is not available.",
+                        error=self._import_errors[module_path],
+                        guidance="Install missing dependencies and ensure local source is importable.",
+                    )
+                return self._result(
+                    status="error",
+                    message=f"Module '{module_path}' was not registered.",
+                    guidance="Use health_check() to inspect available modules.",
+                )
 
-    def instance_pmg_analyze(self) -> Dict[str, Any]:
-        """
-        Return imported pymatgen analyze CLI helper module instance.
+            fn = getattr(mod, function_name, None)
+            if fn is None or not callable(fn):
+                return self._result(
+                    status="error",
+                    message=f"Function '{function_name}' not found in '{module_path}'.",
+                    guidance="Inspect module attributes or update function name.",
+                )
 
-        Returns:
-            dict: Unified status dictionary with module object if available.
-        """
-        mod = self._imports.get("pmg_analyze")
-        if mod is None:
-            return self._err("pymatgen.cli.pmg_analyze is not available in import mode.")
-        return self._ok({"module": mod}, "pymatgen.cli.pmg_analyze loaded")
-
-    def instance_pmg_plot(self) -> Dict[str, Any]:
-        """
-        Return imported pymatgen plot CLI helper module instance.
-
-        Returns:
-            dict: Unified status dictionary with module object if available.
-        """
-        mod = self._imports.get("pmg_plot")
-        if mod is None:
-            return self._err("pymatgen.cli.pmg_plot is not available in import mode.")
-        return self._ok({"module": mod}, "pymatgen.cli.pmg_plot loaded")
-
-    def instance_pmg_structure(self) -> Dict[str, Any]:
-        """
-        Return imported pymatgen structure CLI helper module instance.
-
-        Returns:
-            dict: Unified status dictionary with module object if available.
-        """
-        mod = self._imports.get("pmg_structure")
-        if mod is None:
-            return self._err("pymatgen.cli.pmg_structure is not available in import mode.")
-        return self._ok({"module": mod}, "pymatgen.cli.pmg_structure loaded")
-
-    def instance_pmg_config(self) -> Dict[str, Any]:
-        """
-        Return imported pymatgen config CLI helper module instance.
-
-        Returns:
-            dict: Unified status dictionary with module object if available.
-        """
-        mod = self._imports.get("pmg_config")
-        if mod is None:
-            return self._err("pymatgen.cli.pmg_config is not available in import mode.")
-        return self._ok({"module": mod}, "pymatgen.cli.pmg_config loaded")
-
-    # -------------------------------------------------------------------------
-    # Callable wrappers for identified CLI-oriented entry behaviors
-    # -------------------------------------------------------------------------
-    def call_pmg_main(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
-        """
-        Invoke pymatgen main CLI entry logic when available.
-
-        Parameters:
-            argv (list[str] | None): Optional argument vector for CLI-style invocation.
-
-        Returns:
-            dict: Unified status dictionary with execution result.
-        """
-        mod = self._imports.get("pmg_cli")
-        if mod is None:
-            return self._err(
-                "Import mode unavailable for pymatgen.cli.pmg. Use CLI fallback: `pmg <subcommand>`."
+            result = fn(*args, **kwargs)
+            return self._result(
+                status="success",
+                message=f"Function '{function_name}' executed successfully.",
+                data={"result": result},
+            )
+        except Exception as exc:
+            return self._result(
+                status="error",
+                message=f"Function call failed: {module_path}.{function_name}",
+                error=f"{type(exc).__name__}: {exc}",
+                data={"traceback": traceback.format_exc()},
+                guidance="Validate input arguments and module compatibility with current pymatgen version.",
             )
 
-        candidate_names = ["main", "run", "cli"]
-        for name in candidate_names:
-            fn = getattr(mod, name, None)
-            if callable(fn):
-                if argv is None:
-                    return self._safe_call(fn)
-                return self._safe_call(fn, argv)
+    def create_instance(
+        self, module_path: str, class_name: str, *args: Any, **kwargs: Any
+    ) -> Dict[str, Any]:
+        """
+        Create an instance of a class from a loaded module dynamically.
 
-        return self._err(
-            "No callable entrypoint found in pymatgen.cli.pmg. Try running external CLI command `pmg`."
+        Args:
+            module_path: Full module path.
+            class_name: Class name to instantiate.
+            *args: Positional constructor args.
+            **kwargs: Keyword constructor args.
+
+        Returns:
+            dict: Unified status dictionary with created instance.
+        """
+        try:
+            mod = self._modules.get(module_path)
+            if mod is None:
+                return self._result(
+                    status="error",
+                    message=f"Module '{module_path}' not available for instantiation.",
+                    error=self._import_errors.get(module_path),
+                    guidance="Run health_check() and install required dependencies.",
+                )
+
+            cls = getattr(mod, class_name, None)
+            if cls is None:
+                return self._result(
+                    status="error",
+                    message=f"Class '{class_name}' not found in '{module_path}'.",
+                    guidance="Confirm class name from the target module API.",
+                )
+
+            instance = cls(*args, **kwargs)
+            return self._result(
+                status="success",
+                message=f"Instance of '{class_name}' created successfully.",
+                data={"instance": instance},
+            )
+        except Exception as exc:
+            return self._result(
+                status="error",
+                message=f"Failed to create instance: {module_path}.{class_name}",
+                error=f"{type(exc).__name__}: {exc}",
+                data={"traceback": traceback.format_exc()},
+                guidance="Check constructor arguments and optional dependency requirements.",
+            )
+
+    # -------------------------------------------------------------------------
+    # CLI module wrappers (identified by analysis)
+    # -------------------------------------------------------------------------
+
+    def pmg(self, args: Optional[List[str]] = None) -> Dict[str, Any]:
+        """
+        Execute pymatgen main CLI entry.
+
+        Args:
+            args: Optional list of CLI-like arguments.
+
+        Returns:
+            dict: Unified status dictionary with execution outcome.
+        """
+        args = args or []
+        return self.call_module_function("pymatgen.cli.pmg", "main", args)
+
+    def pmg_analyze(self, args: Optional[List[str]] = None) -> Dict[str, Any]:
+        args = args or []
+        return self.call_module_function("pymatgen.cli.pmg_analyze", "main", args)
+
+    def pmg_config(self, args: Optional[List[str]] = None) -> Dict[str, Any]:
+        args = args or []
+        return self.call_module_function("pymatgen.cli.pmg_config", "main", args)
+
+    def pmg_plot(self, args: Optional[List[str]] = None) -> Dict[str, Any]:
+        args = args or []
+        return self.call_module_function("pymatgen.cli.pmg_plot", "main", args)
+
+    def pmg_structure(self, args: Optional[List[str]] = None) -> Dict[str, Any]:
+        args = args or []
+        return self.call_module_function("pymatgen.cli.pmg_structure", "main", args)
+
+    def get_environment(self, args: Optional[List[str]] = None) -> Dict[str, Any]:
+        args = args or []
+        return self.call_module_function("pymatgen.cli.get_environment", "main", args)
+
+    # -------------------------------------------------------------------------
+    # Extension module wrappers (useful import-mode features)
+    # -------------------------------------------------------------------------
+
+    def matproj_create_rester(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Instantiate MPRester from pymatgen.ext.matproj.
+
+        Returns:
+            dict: Unified status dictionary containing MPRester instance.
+        """
+        return self.create_instance("pymatgen.ext.matproj", "MPRester", *args, **kwargs)
+
+    def cod_create_rester(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Instantiate COD from pymatgen.ext.cod if available.
+        """
+        # class names may vary by version; try a few
+        for cls_name in ("COD", "CODRester"):
+            res = self.create_instance("pymatgen.ext.cod", cls_name, *args, **kwargs)
+            if res["status"] == "success":
+                return res
+        return self._result(
+            status="error",
+            message="Unable to instantiate COD client.",
+            guidance="Inspect pymatgen.ext.cod for available class names in this version.",
         )
 
-    def call_pmg_analyze(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def optimade_create_rester(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Invoke analyze helper entrypoint if exposed by pymatgen.cli.pmg_analyze.
+        Instantiate OptimadeRester from pymatgen.ext.optimade.
+        """
+        return self.create_instance(
+            "pymatgen.ext.optimade", "OptimadeRester", *args, **kwargs
+        )
 
-        Parameters:
-            *args: Positional arguments passed to discovered callable.
-            **kwargs: Keyword arguments passed to discovered callable.
+    # -------------------------------------------------------------------------
+    # Fallback helper
+    # -------------------------------------------------------------------------
+
+    def fallback_hint(self, command: str) -> Dict[str, Any]:
+        """
+        Provide graceful fallback guidance when import mode features are unavailable.
+
+        Args:
+            command: Desired command name, e.g. 'pmg', 'pmg_plot'.
 
         Returns:
-            dict: Unified status dictionary with execution result.
+            dict: Unified status dictionary with actionable guidance.
         """
-        mod = self._imports.get("pmg_analyze")
-        if mod is None:
-            return self._err(
-                "Import mode unavailable for pymatgen.cli.pmg_analyze. Use CLI fallback: `pmg analyze`."
-            )
-        for name in ["main", "analyze", "run"]:
-            fn = getattr(mod, name, None)
-            if callable(fn):
-                return self._safe_call(fn, *args, **kwargs)
-        return self._err("No callable analyze entrypoint found in pymatgen.cli.pmg_analyze.")
-
-    def call_pmg_plot(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Invoke plot helper entrypoint if exposed by pymatgen.cli.pmg_plot.
-
-        Parameters:
-            *args: Positional arguments passed to discovered callable.
-            **kwargs: Keyword arguments passed to discovered callable.
-
-        Returns:
-            dict: Unified status dictionary with execution result.
-        """
-        mod = self._imports.get("pmg_plot")
-        if mod is None:
-            return self._err(
-                "Import mode unavailable for pymatgen.cli.pmg_plot. Use CLI fallback: `pmg plot`."
-            )
-        for name in ["main", "plot", "run"]:
-            fn = getattr(mod, name, None)
-            if callable(fn):
-                return self._safe_call(fn, *args, **kwargs)
-        return self._err("No callable plot entrypoint found in pymatgen.cli.pmg_plot.")
-
-    def call_pmg_structure(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Invoke structure helper entrypoint if exposed by pymatgen.cli.pmg_structure.
-
-        Parameters:
-            *args: Positional arguments passed to discovered callable.
-            **kwargs: Keyword arguments passed to discovered callable.
-
-        Returns:
-            dict: Unified status dictionary with execution result.
-        """
-        mod = self._imports.get("pmg_structure")
-        if mod is None:
-            return self._err(
-                "Import mode unavailable for pymatgen.cli.pmg_structure. Use CLI fallback: `pmg structure`."
-            )
-        for name in ["main", "structure", "run"]:
-            fn = getattr(mod, name, None)
-            if callable(fn):
-                return self._safe_call(fn, *args, **kwargs)
-        return self._err("No callable structure entrypoint found in pymatgen.cli.pmg_structure.")
-
-    def call_pmg_config(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Invoke config helper entrypoint if exposed by pymatgen.cli.pmg_config.
-
-        Parameters:
-            *args: Positional arguments passed to discovered callable.
-            **kwargs: Keyword arguments passed to discovered callable.
-
-        Returns:
-            dict: Unified status dictionary with execution result.
-        """
-        mod = self._imports.get("pmg_config")
-        if mod is None:
-            return self._err(
-                "Import mode unavailable for pymatgen.cli.pmg_config. Use CLI fallback: `pmg config`."
-            )
-        for name in ["main", "configure", "run"]:
-            fn = getattr(mod, name, None)
-            if callable(fn):
-                return self._safe_call(fn, *args, **kwargs)
-        return self._err("No callable config entrypoint found in pymatgen.cli.pmg_config.")
+        return self._result(
+            status="error",
+            message=f"Requested feature '{command}' is unavailable in import mode.",
+            guidance=(
+                f"Try CLI fallback: run '{command} --help'. "
+                "If command is missing, install dependencies and ensure source path is correct."
+            ),
+        )

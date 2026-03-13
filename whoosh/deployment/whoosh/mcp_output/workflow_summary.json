@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773286574.3103418,
-    "end_time": 1773286809.274598,
-    "duration": 234.96425604820251,
+    "start_time": 1773412030.3178182,
+    "end_time": 1773412191.0827572,
+    "duration": 160.76493906974792,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 3,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,14 +53,18 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.whoosh.source",
+        "mcp_output.mcp_plugin",
+        "source.src.whoosh"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
       "has_requirements_txt": false,
       "pyproject": false,
-      "setup_cfg": false,
-      "setup_py": false
+      "setup_cfg": true,
+      "setup_py": true
     },
     "entry_points": {
       "imports": [],
@@ -121,44 +125,45 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/whoosh/temp_clone'...\nfatal: unable to access 'https://github.com/mchaput/whoosh/': Recv failure: Operation timed out\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/whoosh/temp_clone'...\nfatal: unable to access 'https://github.com/mchaput/whoosh/': Recv failure: Operation timed out\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "add a minimal smoke test suite for the generated MCP plugin (startup",
-    "tool listing",
-    "and one call per high-value endpoint)",
-    "add robust input/output validation and clearer error mapping in `mcp_plugin/adapter.py` (Whoosh exceptions → structured MCP errors)",
-    "create a version/compatibility matrix (Python × Whoosh × fastmcp/pydantic) and enforce it in CI",
-    "modernize packaging metadata detection (current analysis missed `setup.py/setup.cfg`) by adding/validating `pyproject.toml` and explicit dependency declarations",
-    "implement endpoint curation to reduce unsafe/low-value class exposure (favor factory functions and wrapped operations over raw class constructors)",
-    "add timeout and resource guards for expensive operations (wildcard/fuzzy/phrase-heavy queries",
-    "large result windows)",
-    "include deterministic benchmark scenarios (index build/search/highlight/sort) and track regressions with thresholds",
-    "strengthen documentation with task-oriented MCP examples (create index",
-    "add docs",
+    "add a minimal smoke test suite and report pass/fail status (current test status is empty)",
+    "reduce MCP surface area by exposing only stable/public APIs instead of hundreds of internal classes/functions",
+    "introduce an allowlist/denylist for endpoint generation to avoid unsafe or low-value exports (e.g.",
+    "stress tests",
+    "internal helpers)",
+    "fix naming collisions and duplicates in endpoints (e.g.",
+    "repeated names like `column`",
+    "`dfree`",
+    "`print_debug`",
+    "`stem`)",
+    "add endpoint namespacing (`whoosh.searching.Searcher`-style) to improve discoverability and avoid clashes",
+    "migrate packaging to `pyproject.toml` with explicit build-system/dependencies and keep `setup.py` as thin shim if needed",
+    "add `requirements-dev.txt`/lockfile and CI matrix for supported Python versions",
+    "modernize CI from legacy `.travis.yml` to GitHub Actions with lint/type/test jobs",
+    "add type hints for MCP adapter/service boundaries and run mypy/pyright in CI",
+    "add structured logging and error mapping in MCP service for clearer runtime diagnostics",
+    "implement request validation/timeouts/resource limits for heavy operations (`make_index`",
+    "large searches",
+    "stress endpoints)",
+    "add benchmark gates for core hot paths (searching/sorting/writing) and track regressions",
+    "document supported/unsupported modules in `README_MCP.md` with examples for top workflows (index",
     "query",
-    "highlight",
-    "spellcheck) plus failure cases",
-    "add observability hooks (structured logs",
-    "per-endpoint latency",
-    "error counts) in `mcp_service.py`",
-    "improve security posture by validating filesystem paths for `create_in/open_dir` and restricting writable locations",
-    "add concurrency tests for writer/searcher interactions and AsyncWriter edge cases",
-    "add contract tests for serialized response schemas to prevent breaking MCP clients",
-    "provide graceful degradation when optional features fail (e.g.",
-    "highlighting/spelling) with partial-result responses",
-    "reduce API surface naming ambiguity by normalizing endpoint names/casing and documenting aliases",
-    "add release automation (tag→build→publish plugin artifact + changelog generation)",
-    "and include a maintenance checklist for legacy Whoosh compatibility risks and deprecation handling"
+    "highlight)",
+    "add security review for dynamic loading/reflection paths (`find_object`",
+    "plugin wiring) and restrict unsafe imports",
+    "create contract tests for generated endpoints to ensure signatures/docs stay synced with source AST scanning",
+    "split very large modules incrementally (`searching.py`",
+    "`fields.py`",
+    "`writing.py`) behind compatibility layers to improve maintainability",
+    "add deprecation policy and versioned MCP API to prevent breaking downstream clients",
+    "include fuzz/property tests for parser-heavy components (`qparser`",
+    "date parsing",
+    "automata)",
+    "and add performance-safe defaults (pagination",
+    "result limits",
+    "cancellation) for search-related endpoints"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -189,36 +194,35 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Resilient repository acquisition: zip fallback succeeded after git clone timeout, enabling analysis and generation continuity.",
-      "Import-based adapter strategy was feasible (import feasibility 0.94, low intrusiveness risk).",
-      "Generated MCP plugin started healthy over stdio transport.",
-      "Core Whoosh modules were identified and mapped into endpoints, enabling immediate baseline service exposure."
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter mode matched repository profile (library-first Python package, high import feasibility 0.94, low intrusiveness risk).",
+      "Repository ingestion succeeded via zip fallback despite DeepWiki failure, allowing AST/module discovery to proceed.",
+      "MCP plugin started healthy over stdio, indicating baseline runtime viability of generated service scaffold."
     ],
     "failure_reasons": [
-      "Primary download path failed due to network timeout during git clone (Recv failure: Operation timed out).",
-      "Metadata detection inconsistency: analysis reported setup.py/setup.cfg missing despite file tree containing both, indicating parser/detector reliability issue.",
-      "Validation depth was limited: original project tests did not run, plugin tests were minimal/no measurable execution timing.",
-      "DeepWiki analysis failed, reducing external contextual validation."
+      "No hard execution failure occurred.",
+      "Quality gaps: original project test result is effectively unknown/empty despite a reported field value; no validated compatibility baseline.",
+      "DeepWiki analysis failed, reducing external semantic context and increasing reliance on static local scan.",
+      "Generated endpoint surface appears over-broad and collision-prone, which is a functional/design risk rather than a pipeline crash."
     ],
     "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Primary clone failed; fallback path succeeded. Download reliability is moderate due to network sensitivity and fallback dependence.",
-      "analysis_time": "Completed successfully with substantial file discovery (167 files), but structural/dependency extraction quality was inconsistent.",
-      "generation_time": "Successful and fast enough within total runtime; created expected MCP scaffold and endpoint set.",
-      "test_time": "Insufficiently exercised: plugin health check passed, but original project tests were effectively not executed and timing metrics were zero."
+      "download_time": "Completed successfully as part of a 160.76s total run; zip fallback worked and imported ~167 files. No per-node timing provided.",
+      "analysis_time": "Successful static analysis and AST extraction over medium-complexity codebase; discovered extensive symbols/endpoints. No per-node timing provided.",
+      "generation_time": "Generation succeeded and produced expected MCP files and startup entrypoint, but metadata reports 0 LOC/0 size (instrumentation inconsistency).",
+      "test_time": "MCP service health check passed; original project tests were not meaningfully executed/reported, so confidence in behavioral correctness is limited."
     },
     "resource_usage": {
-      "memory_efficiency": "No reliable telemetry captured (reported 0 MB); cannot validate real memory profile.",
-      "cpu_efficiency": "No reliable telemetry captured (reported 0%); CPU efficiency unknown.",
-      "disk_usage": "Low-to-moderate expected footprint from generated files; reported generated size=0 indicates instrumentation gap rather than true zero usage."
+      "memory_efficiency": "Undetermined due to missing metrics (reported as 0). Pipeline likely lightweight-medium, but no empirical evidence.",
+      "cpu_efficiency": "Undetermined due to missing metrics (reported as 0).",
+      "disk_usage": "Low-to-moderate expected; generated artifact set is small, but reported generated size=0 indicates telemetry/reporting gap."
     }
   },
   "technical_quality": {
-    "code_quality_score": 72,
-    "architecture_score": 76,
-    "performance_score": 61,
-    "maintainability_score": 70,
+    "code_quality_score": 74,
+    "architecture_score": 72,
+    "performance_score": 58,
+    "maintainability_score": 69,
     "security_score": 85,
     "scalability_score": 64
   }

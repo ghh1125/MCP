@@ -31,7 +31,7 @@
         "size": 862
       },
       ".github/workflows/emscripten.yml": {
-        "size": 6694
+        "size": 6740
       },
       ".github/workflows/nightly-wheels.yml": {
         "size": 1375
@@ -40,7 +40,7 @@
         "size": 7130
       },
       ".github/workflows/runtests.yml": {
-        "size": 16155
+        "size": 16417
       },
       "CODE_OF_CONDUCT.md": {
         "size": 3267
@@ -259,7 +259,7 @@
         "size": 3752
       },
       "requirements-dev.txt": {
-        "size": 289
+        "size": 147
       },
       "setup.py": {
         "size": 11641
@@ -4925,14 +4925,58 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.sympy.source",
+      "mcp_output.mcp_plugin",
+      "source.sympy",
+      "source.sympy.algebras",
+      "source.sympy.assumptions",
+      "source.sympy.benchmarks",
+      "source.sympy.calculus",
+      "source.sympy.categories",
+      "source.sympy.codegen",
+      "source.sympy.combinatorics",
+      "source.sympy.concrete",
+      "source.sympy.core",
+      "source.sympy.crypto",
+      "source.sympy.diffgeom",
+      "source.sympy.discrete",
+      "source.sympy.external",
+      "source.sympy.functions",
+      "source.sympy.geometry",
+      "source.sympy.holonomic",
+      "source.sympy.integrals",
+      "source.sympy.interactive",
+      "source.sympy.liealgebras",
+      "source.sympy.logic",
+      "source.sympy.matrices",
+      "source.sympy.multipledispatch",
+      "source.sympy.ntheory",
+      "source.sympy.parsing",
+      "source.sympy.physics",
+      "source.sympy.plotting",
+      "source.sympy.polys",
+      "source.sympy.printing",
+      "source.sympy.sandbox",
+      "source.sympy.series",
+      "source.sympy.sets",
+      "source.sympy.simplify",
+      "source.sympy.solvers",
+      "source.sympy.stats",
+      "source.sympy.strategies",
+      "source.sympy.tensor",
+      "source.sympy.testing",
+      "source.sympy.unify",
+      "source.sympy.utilities",
+      "source.sympy.vector"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -4942,142 +4986,129 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "sympy/core",
-        "module": "sympy/core/sympify.py",
+        "package": "source.sympy.core",
+        "module": "symbol",
+        "functions": [
+          "symbols",
+          "var"
+        ],
+        "classes": [
+          "Symbol",
+          "Dummy",
+          "Wild"
+        ],
+        "description": "Core symbolic atom creation and symbol utilities; foundational for nearly all SymPy workflows."
+      },
+      {
+        "package": "source.sympy.core",
+        "module": "sympify",
         "functions": [
           "sympify"
         ],
         "classes": [],
-        "description": "String/object to SymPy expression conversion; safest canonical entry for user input."
+        "description": "Canonical conversion layer from Python/native inputs into SymPy expressions."
       },
       {
-        "package": "sympy/simplify",
-        "module": "sympy/simplify/simplify.py",
+        "package": "source.sympy.parsing",
+        "module": "sympy_parser",
+        "functions": [
+          "parse_expr"
+        ],
+        "classes": [],
+        "description": "Safe/controlled text-to-expression parsing entrypoint for MCP tool inputs."
+      },
+      {
+        "package": "source.sympy.simplify",
+        "module": "simplify",
         "functions": [
           "simplify"
         ],
         "classes": [],
-        "description": "General symbolic simplification orchestrator across many algebraic transforms."
+        "description": "General-purpose algebraic simplification orchestrator."
       },
       {
-        "package": "sympy/integrals",
-        "module": "sympy/integrals/integrals.py",
+        "package": "source.sympy.solvers",
+        "module": "solvers",
         "functions": [
-          "integrate"
-        ],
-        "classes": [
-          "Integral"
-        ],
-        "description": "Symbolic integration API and unevaluated integral representation."
-      },
-      {
-        "package": "sympy/series",
-        "module": "sympy/series/limits.py",
-        "functions": [
-          "limit"
+          "solve",
+          "nsolve"
         ],
         "classes": [],
-        "description": "Limit computation for symbolic expressions."
+        "description": "Classical equation solving interface for symbolic and numeric roots."
       },
       {
-        "package": "sympy/series",
-        "module": "sympy/series/series.py",
-        "functions": [
-          "series"
-        ],
-        "classes": [],
-        "description": "Series expansion interface."
-      },
-      {
-        "package": "sympy/solvers",
-        "module": "sympy/solvers/solvers.py",
-        "functions": [
-          "solve"
-        ],
-        "classes": [],
-        "description": "General algebraic equation solving interface."
-      },
-      {
-        "package": "sympy/solvers",
-        "module": "sympy/solvers/solveset.py",
+        "package": "source.sympy.solvers",
+        "module": "solveset",
         "functions": [
           "solveset",
           "linsolve",
           "nonlinsolve"
         ],
         "classes": [],
-        "description": "Set-oriented solving APIs for robust symbolic solution handling."
+        "description": "Set-oriented and system-solving APIs with clearer mathematical semantics."
       },
       {
-        "package": "sympy/matrices",
-        "module": "sympy/matrices/matrices.py",
+        "package": "source.sympy.integrals",
+        "module": "integrals",
         "functions": [
-          "zeros",
-          "ones",
-          "eye"
+          "integrate"
         ],
+        "classes": [
+          "Integral"
+        ],
+        "description": "Symbolic integration front door and unevaluated integral representation."
+      },
+      {
+        "package": "source.sympy",
+        "module": "__init__",
+        "functions": [
+          "diff",
+          "limit",
+          "series",
+          "factor",
+          "expand",
+          "lambdify"
+        ],
+        "classes": [
+          "Eq",
+          "Matrix"
+        ],
+        "description": "Public facade exporting high-value APIs used by most downstream users."
+      },
+      {
+        "package": "source.sympy.matrices",
+        "module": "matrices",
+        "functions": [],
         "classes": [
           "Matrix"
         ],
-        "description": "Core dense matrix construction and linear algebra operations."
+        "description": "Linear algebra primitives and matrix expression operations."
       },
       {
-        "package": "sympy/parsing",
-        "module": "sympy/parsing/sympy_parser.py",
-        "functions": [
-          "parse_expr"
-        ],
-        "classes": [],
-        "description": "Configurable parser for mathematical strings into SymPy expressions."
-      },
-      {
-        "package": "sympy/printing",
-        "module": "sympy/printing/latex.py",
+        "package": "source.sympy.printing",
+        "module": "latex",
         "functions": [
           "latex"
         ],
         "classes": [],
-        "description": "LaTeX conversion for symbolic expressions."
-      },
-      {
-        "package": "sympy/printing",
-        "module": "sympy/printing/str.py",
-        "functions": [
-          "sstr"
-        ],
-        "classes": [],
-        "description": "Readable string formatting for expressions."
-      },
-      {
-        "package": "sympy/utilities",
-        "module": "sympy/utilities/lambdify.py",
-        "functions": [
-          "lambdify"
-        ],
-        "classes": [],
-        "description": "Compile symbolic expressions into numeric Python-callable functions."
+        "description": "Expression rendering to LaTeX for rich MCP responses."
       }
     ],
     "cli_commands": [
       {
         "name": "isympy",
-        "module": "isympy.py",
-        "description": "Interactive SymPy shell entry script."
-      },
-      {
-        "name": "sympy.test runner (module invocation)",
-        "module": "sympy/testing/runtests.py",
-        "description": "Internal test runner used by project tooling; not ideal as MCP primary interface."
+        "module": "source.sympy.interactive.session",
+        "description": "Interactive SymPy shell/session bootstrap; useful as a human CLI but not ideal as MCP primary transport."
       }
     ],
     "import_strategy": {
       "primary": "import",
-      "fallback": "cli",
-      "confidence": 0.9
+      "fallback": "blackbox",
+      "confidence": 0.95
     },
     "dependencies": {
       "required": [
-        "python",
+        "python>=3.8",
         "mpmath"
       ],
       "optional": [
@@ -5085,14 +5116,13 @@
         "scipy",
         "matplotlib",
         "gmpy2",
-        "antlr4-python3-runtime",
-        "lark",
         "pycosat",
-        "z3-solver"
+        "antlr4-python3-runtime",
+        "lark"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.97,
+      "import_feasibility": 0.94,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -5110,7 +5140,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.97,
+    "import_feasibility": 0.94,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

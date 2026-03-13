@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773388326.15067,
-    "end_time": 1773388492.858019,
-    "duration": 166.70734906196594,
+    "start_time": 1773408353.474123,
+    "end_time": 1773408644.73503,
+    "duration": 291.26090812683105,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 2,
+    "total_files_processed": 8,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -55,13 +55,19 @@
     "structure": {
       "packages": [
         "deployment.pymatgen.source",
-        "mcp_output.mcp_plugin"
+        "mcp_output.mcp_plugin",
+        "source.tests",
+        "source.tests.analysis",
+        "source.tests.apps",
+        "source.tests.cli",
+        "source.tests.ext",
+        "source.tests.vis"
       ]
     },
     "dependencies": {
       "has_environment_yml": false,
-      "has_requirements_txt": false,
-      "pyproject": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
       "setup_cfg": false,
       "setup_py": false
     },
@@ -71,7 +77,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.88,
+      "import_feasibility": 0.9,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -124,50 +130,27 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/pymatgen/temp_clone'...\nfatal: unable to access 'https://github.com/materialsproject/pymatgen/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 \n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/pymatgen/temp_clone'...\nfatal: unable to access 'https://github.com/materialsproject/pymatgen/': LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 \n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "add a minimal smoke test suite in `mcp_output/tests_mcp` that imports the plugin and exercises 3–5 high-value endpoints (`MPRester`",
-    "`Structure`",
-    "`PhaseDiagram`",
-    "`PourbaixDiagram`",
+    "add a minimal smoke-test suite for all generated MCP endpoints (including import + one happy-path call per endpoint)",
+    "pin and constrain dependency versions in `mcp_output/requirements.txt` (and document a compatibility matrix against pymatgen releases)",
+    "implement graceful degradation for optional/network-backed tools (`MPRester`",
+    "`OptimadeRester`",
+    "`Potcar`) with clear error messages and capability flags",
+    "add schema-level input validation and size/time guards for heavy objects (e.g.",
+    "large `Structure`/`PhaseDiagram`) to prevent runaway calls",
+    "introduce endpoint-level timeouts/retries and structured exception mapping in `adapter.py`/`mcp_service.py`",
+    "add CI for the MCP plugin itself (lint + type-check + tests) separate from upstream pymatgen CI",
+    "expose explicit endpoint docs in `README_MCP.md` with request/response examples and required optional deps",
+    "add observability hooks (structured logs",
+    "per-endpoint latency/error counters)",
+    "create contract tests for serialization/deserialization round-trips of core classes (`Structure`",
+    "`Composition`",
     "`Vasprun`)",
-    "add CI for the MCP plugin (lint + tests) instead of relying only on upstream pymatgen workflows",
-    "fix dependency detection mismatch (analysis says no `pyproject/requirements` while files exist) to improve adapter generation reliability",
-    "pin and validate compatible version ranges for heavy scientific deps (`numpy/scipy/spglib/pandas/matplotlib`) in `mcp_output/requirements.txt`",
-    "add graceful optional-dependency guards for `mp-api`",
-    "`openbabel`",
-    "`rdkit`",
-    "`vtk`",
-    "and `phonopy` with actionable error messages",
-    "define explicit MCP endpoint schemas (input/output Pydantic models) for each exposed class/function to avoid ambiguous tool contracts",
-    "reduce exposed surface by curating endpoints to stable/public APIs only (avoid “legacy helper” internals)",
-    "add request timeouts/retries/backoff for external API clients (`MPRester`",
-    "`OptimadeRester`) to improve robustness",
-    "implement structured error mapping in `adapter.py`/`mcp_service.py` (validation vs dependency vs runtime vs upstream API errors)",
-    "add caching for expensive/repeated computations (phase diagram construction",
-    "repeated structure parsing) with cache invalidation controls",
-    "add payload size limits and streaming/chunking strategy for very large structures/JSON test assets",
-    "add observability (per-endpoint latency",
-    "error rate",
-    "payload size logs) and a debug flag in `start_mcp.py`",
-    "document supported Python/version matrix and optional feature flags in `README_MCP.md`",
-    "add security hardening: secret handling for MP API keys",
-    "input sanitization for file-path based parsers",
-    "and safe defaults for network access",
-    "create golden-file contract tests for serialization round-trips of `Structure/Molecule/Lattice/Composition` to ensure stable MCP outputs",
-    "split large monolithic analysis modules into focused adapter wrappers to lower complexity and improve maintainability",
-    "add a deprecation policy and semantic versioning plan for MCP endpoint names",
-    "include quick benchmark scripts for key endpoints and set baseline performance thresholds in CI"
+    "harden security posture by documenting secret handling for MP API keys and disabling unsafe file/network operations by default",
+    "reduce initial surface area by marking advanced/heavy endpoints as “experimental” and enabling via feature flags",
+    "add fallback behavior tests for zip-import mode to verify reliability in non-standard packaging environments"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -198,36 +181,36 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Robust fallback behavior: after git clone SSL failure, pipeline continued via zip fallback and still analyzed ~504 files.",
-      "Import-based adapter strategy matched repository characteristics (high import feasibility: 0.88, low intrusiveness risk).",
-      "Generated MCP service passed plugin health/startup checks over stdio transport."
+      "Workflow reached terminal status `success` with all planned nodes executed: download, analysis, env, generate, run, review, finalize.",
+      "Import-first adapter strategy was appropriate for pymatgen (import feasibility 0.9, low intrusiveness risk).",
+      "Generated MCP plugin started healthy over stdio, indicating baseline runtime viability.",
+      "Repository ingestion succeeded via zip fallback despite non-ideal import path handling."
     ],
     "failure_reasons": [
-      "Primary repository acquisition failed due to TLS/network issue (LibreSSL SSL_connect SYSCALL to github.com:443).",
-      "Quality signals are partially unreliable because observability metrics are zero/unknown (LLM calls, deepwiki calls, CPU/memory, generated LOC).",
-      "Dependency detection subsystem produced false negatives (reported no pyproject/requirements despite files present), risking incomplete generation.",
-      "Original project tests were not actually validated (passed=false with empty details and no test files)."
+      "No hard workflow failure occurred.",
+      "Quality-gate gap: original project tests were marked not passed while simultaneously reporting 100% coverage with zero test files, indicating test instrumentation inconsistency.",
+      "DeepWiki analysis failed, reducing confidence in architecture/context enrichment.",
+      "Generated artifact metrics are inconsistent (`total_lines_of_code` and file sizes reported as 0 despite files being created), indicating telemetry/reporting defects."
     ],
     "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Initial clone failed quickly; recovery via zip fallback enabled continued execution. Download node behavior is resilient but network-fragile.",
-      "analysis_time": "Moderate-to-heavy analysis implied by 504-file scan and module identification across large scientific codebase.",
-      "generation_time": "Generation completed successfully and emitted core MCP scaffold files; endpoint metadata suggests broad surface exposure.",
-      "test_time": "MCP plugin smoke health passed, but upstream/original test validation effectively absent; test depth is insufficient."
+      "download_time": "Completed within total 291.26s run budget; exact per-node timing unavailable. Zip fallback added resilience and likely modest overhead.",
+      "analysis_time": "Static analysis completed successfully across a large codebase (~504 files observed), suggesting acceptable analyzer throughput.",
+      "generation_time": "Generation succeeded and produced expected MCP scaffold files; endpoint inventory indicates broad class exposure.",
+      "test_time": "MCP plugin health check passed quickly, but substantive endpoint smoke/contract testing appears missing."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown/insufficient data (reported 0 MB). Cannot confirm runtime memory profile.",
-      "cpu_efficiency": "Unknown/insufficient data (reported 0%). No CPU efficiency conclusion possible.",
-      "disk_usage": "Likely efficient for generation itself, but metrics are missing (generated size reported 0 despite files created), indicating telemetry defects."
+      "memory_efficiency": "Unknown from metrics (reported as 0 MB). Need real instrumentation; likely moderate due to pymatgen import graph.",
+      "cpu_efficiency": "Unknown from metrics (reported as 0%). Static analysis and import-based generation likely CPU-moderate.",
+      "disk_usage": "Low incremental output (7 generated files), but source/test corpus is large; disk impact mainly from repository checkout."
     }
   },
   "technical_quality": {
-    "code_quality_score": 73,
+    "code_quality_score": 74,
     "architecture_score": 78,
-    "performance_score": 62,
-    "maintainability_score": 70,
+    "performance_score": 63,
+    "maintainability_score": 72,
     "security_score": 85,
-    "scalability_score": 68
+    "scalability_score": 70
   }
 }

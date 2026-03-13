@@ -2,16 +2,20 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service wraps core QuTiP capabilities so LLM agents and developer tools can run common quantum simulation tasks through stable service endpoints.
+This service wraps core QuTiP capabilities for quantum simulation workflows through MCP (Model Context Protocol)-style callable tools.
 
-Main capabilities:
-- Build quantum objects (`Qobj`), operators, and states
-- Run time evolution for closed/open systems (`sesolve`, `mesolve`, `mcsolve`)
-- Compute steady states and propagators
-- Calculate expectations and phase-space functions (Wigner/Q)
-- Generate visualization-ready outputs (Bloch, matrix/state plots)
+Primary service goals:
+- Build and manipulate quantum objects (`Qobj`)
+- Create common operators and states
+- Run core dynamics solvers (Schrödinger, master equation, Monte Carlo)
+- Compute steady states
+- Generate common quantum visualizations and phase-space functions
 
-Target users: developers integrating quantum simulation into automation workflows, assistants, and internal tooling.
+Main mapped QuTiP areas:
+- `qutip.core.qobj` (quantum object operations)
+- `qutip.core.operators`, `qutip.core.states`
+- `qutip.solver.sesolve`, `mesolve`, `mcsolve`, `steadystate`
+- `qutip.visualization`, `qutip.bloch`, `qutip.wigner`
 
 ---
 
@@ -19,119 +23,94 @@ Target users: developers integrating quantum simulation into automation workflow
 
 ### Requirements
 - Python 3.9+ recommended
-- Required packages:
-  - `numpy`
-  - `scipy`
-  - `packaging`
-- Optional (feature-dependent):
-  - `matplotlib` (visualization)
-  - `cython` (build/perf extensions)
-  - `mpi4py` (parallel/distributed workloads)
-  - MKL stack (accelerated sparse operations)
+- Required: `numpy`, `scipy`
+- Optional but useful: `matplotlib`, `cython`, `packaging`, `tqdm`, `mpi4py`, `numexpr`, `sympy`, `pillow`
 
-### Install QuTiP
-- `pip install qutip`
+### Install
+- Install QuTiP:
+  - `pip install qutip`
+- Or install from source repository:
+  - `pip install .`
 
-### For development/testing
-- `pip install -e .`
-- `pip install pytest`
+If you enable visualization endpoints, also install:
+- `pip install matplotlib pillow`
 
 ---
 
 ## 3) Quick Start
 
-Minimal workflow:
-1. Create operators/states (`sigmax`, `basis`, `ket2dm`, etc.)
-2. Define Hamiltonian and optional collapse operators
-3. Call solver endpoint (`sesolve` or `mesolve`)
-4. Read `Result` payload (`states`, expectation values, metadata)
+Typical MCP (Model Context Protocol) service flow:
+1. Create operators/states (`destroy`, `create`, `basis`, `ket2dm`)
+2. Build Hamiltonian/collapse operators
+3. Run solver (`sesolve`/`mesolve`/`mcsolve`)
+4. Post-process (`expect`, Wigner/Q-function, plots)
 
-Example flow (conceptual):
-- Build a qubit Hamiltonian with Pauli operators
-- Evolve over a time grid with `sesolve`
-- Request expectation values via `expect`
-- Return structured JSON-compatible result for downstream tools
-
-Common high-value functions:
-- `qutip.core.operators`: `destroy`, `create`, `qeye`, `sigmax`, `sigmay`, `sigmaz`, `num`
-- `qutip.core.states`: `basis`, `fock`, `coherent`, `ket2dm`
-- `qutip.core.tensor`: `tensor`
-- `qutip.solver`: `sesolve`, `mesolve`, `mcsolve`, `steadystate`, `propagator`
+Example workflow (conceptual):
+- Define a two-level system Hamiltonian using Pauli operators.
+- Define initial state with `basis(...)`.
+- Call `sesolve` for closed dynamics or `mesolve` with collapse operators for open dynamics.
+- Return expectation values and optionally generate Bloch/Wigner visual outputs.
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) service endpoints for this repository:
+Suggested MCP (Model Context Protocol) service endpoints:
 
-- `qobj.create`
-  - Create/validate `Qobj` payloads (state/operator/superoperator metadata).
+- `qobj_create`
+  - Create/load a `Qobj` and validate dimensions/type.
 
-- `operators.generate`
-  - Build common operators (`qeye`, Pauli, ladder, number operators).
+- `qobj_ops`
+  - Common `Qobj` operations: dagger (`dag`), trace (`tr`), matrix exponential (`expm`), eigenstates.
 
-- `states.generate`
-  - Build basis/Fock/coherent states and density matrices.
+- `operators_standard`
+  - Generate standard operators: `destroy`, `create`, `qeye`, `sigmax`, `sigmay`, `sigmaz`.
 
-- `tensor.compose`
-  - Compose multipartite systems via tensor products.
+- `states_standard`
+  - Generate states: `basis`, `fock`, `coherent`, `ket2dm`.
 
-- `simulation.se_solve`
-  - Closed-system Schrödinger evolution (`sesolve`).
+- `solve_se`
+  - Closed-system evolution via `sesolve`.
 
-- `simulation.me_solve`
-  - Open-system master equation evolution (`mesolve`).
+- `solve_me`
+  - Open-system Lindblad/master-equation evolution via `mesolve`.
 
-- `simulation.mc_solve`
-  - Monte Carlo trajectory evolution (`mcsolve`).
+- `solve_mc`
+  - Monte Carlo trajectories via `mcsolve`.
 
-- `simulation.steady_state`
-  - Compute Lindbladian steady states (`steadystate`).
+- `solve_steadystate`
+  - Compute steady states via `steadystate`.
 
-- `simulation.propagator`
-  - Generate propagators/channels over time (`propagator`).
+- `phase_space`
+  - Compute `wigner` and `qfunc`.
 
-- `analysis.expectation`
-  - Compute expectation values (`expect`) on returned states.
-
-- `analysis.wigner`
-  - Compute Wigner/Q functions (`wigner`, `qfunc`).
-
-- `visualization.bloch`
-  - Produce Bloch-sphere plotting data/instructions.
-
-- `visualization.matrix`
-  - Matrix histograms/Hinton-friendly data for UI rendering.
+- `visualize_quantum`
+  - Plot helpers: `hinton`, `matrix_histogram`, `plot_wigner`, Bloch sphere rendering (`Bloch`).
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Version/environment mismatches:
-  - Use a clean virtual environment.
-  - Pin `numpy/scipy/qutip` for reproducibility.
-
+- Version/environment mismatch:
+  - Ensure `numpy`/`scipy` versions are compatible with your QuTiP version.
 - Performance:
-  - Large Hilbert spaces scale quickly in memory/time.
-  - Prefer sparse-friendly formulations when possible.
-  - Consider MKL/parallel options for heavy workloads.
-
-- Numerical stability:
-  - Validate dimensions and Hermiticity where expected.
-  - Use solver options/tolerances suited to stiff dynamics.
-
+  - Large Hilbert spaces are expensive; prefer sparse operators and minimal truncation sizes.
+- Parallel/stochastic solvers:
+  - `mcsolve` and parallel workflows may require extra runtime configuration.
 - Visualization in headless environments:
-  - Configure non-interactive matplotlib backend if rendering on servers/CI.
-
-- Monte Carlo runs:
-  - Set random seeds and trajectory counts explicitly for reproducible statistics.
+  - Use non-interactive matplotlib backend (for servers/CI).
+- Optional acceleration:
+  - Cython/OpenMP/MKL-related speedups may depend on platform/toolchain availability.
+- Import feasibility is high and risk is low according to analysis, but solver complexity is medium; validate endpoint inputs carefully.
 
 ---
 
-## 6) Reference Links or Documentation
+## 6) Reference Links / Documentation
 
-- Repository: https://github.com/qutip/qutip
-- QuTiP main docs: https://qutip.org/docs/latest/
-- Repository README: https://github.com/qutip/qutip/blob/master/README.md
-- Contribution guide: https://github.com/qutip/qutip/blob/master/CONTRIBUTING.md
-- License: https://github.com/qutip/qutip/blob/master/LICENSE.txt
+- QuTiP repository: https://github.com/qutip/qutip
+- QuTiP main README (project overview): `README.md` in repo root
+- QuTiP docs source: `doc/README.md` and `doc/conf.py`
+- Packaging and dependencies:
+  - `pyproject.toml`
+  - `setup.py`
+  - `requirements.txt`

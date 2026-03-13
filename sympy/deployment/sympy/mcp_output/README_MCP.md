@@ -2,149 +2,111 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service wraps core SymPy capabilities so LLM agents can perform reliable symbolic math operations through structured service calls.
+This service exposes **SymPy** capabilities through MCP (Model Context Protocol) for symbolic math tasks in LLM workflows.
 
-Main capabilities:
-- Parse math strings into symbolic expressions
-- Simplify symbolic expressions
-- Solve equations/systems
-- Compute integrals, limits, and series expansions
-- Run matrix operations
-- Export expressions (LaTeX / readable string)
-- Convert symbolic expressions to numeric callables (`lambdify`)
+Main functions:
+- Parse math expressions from text (`parse_expr`, `sympify`)
+- Algebraic simplification (`simplify`, `factor`, `expand`)
+- Calculus (`diff`, `integrate`, `limit`, `series`)
+- Equation solving (`solve`, `nsolve`, `solveset`, `linsolve`, `nonlinsolve`)
+- Linear algebra (`Matrix`)
+- Output formatting (`latex`)
 
-Repository source: https://github.com/sympy/sympy
+Best for: AI assistants, coding agents, and backend services that need reliable symbolic computation.
 
 ---
 
 ## 2) Installation Method
 
 ### Requirements
-- Python 3.10+ (recommended)
-- Required runtime dependency: `mpmath`
-- Optional but useful: `numpy`, `scipy`, `matplotlib`, `gmpy2`, `antlr4-python3-runtime`, `lark`, `pycosat`, `z3-solver`
+- Python `>=3.8`
+- Required package: `sympy` (includes `mpmath` dependency in standard install)
 
 ### Install
-pip install sympy mpmath
+pip install sympy
 
-Optional extras:
-pip install numpy scipy matplotlib gmpy2 antlr4-python3-runtime lark pycosat z3-solver
-
-Verify:
-python -c "import sympy; print(sympy.__version__)"
+### Optional extras (recommended for broader functionality/performance)
+pip install numpy scipy matplotlib gmpy2 pycosat antlr4-python3-runtime lark
 
 ---
 
 ## 3) Quick Start
 
-Typical service-backed operations map to these SymPy APIs:
-
-from sympy import symbols, simplify, integrate, limit, series, solve, Matrix, latex
+### Minimal usage in your MCP (Model Context Protocol) service layer
+from sympy import symbols, Eq, simplify, diff, integrate, solve, latex
 from sympy.parsing.sympy_parser import parse_expr
-from sympy.utilities.lambdify import lambdify
 
 x = symbols('x')
+expr = parse_expr("x**2 + 2*x + 1")
+result_simplify = simplify(expr)           # (x + 1)**2
+result_diff = diff(expr, x)                # 2*x + 2
+result_integral = integrate(expr, x)       # x**3/3 + x**2 + x
+result_solve = solve(Eq(expr, 0), x)       # [-1]
+result_latex = latex(result_simplify)      # "\\left(x + 1\\right)^{2}"
 
-expr = parse_expr("sin(x)**2 + cos(x)**2")
-print(simplify(expr))                     # 1
-
-print(integrate(x**2, x))                 # x**3/3
-print(limit((x**2 - 1)/(x - 1), x, 1))    # 2
-print(series(1/(1-x), x, 0, 5))           # 1 + x + x**2 + x**3 + x**4 + O(x**5)
-print(solve(x**2 - 4, x))                 # [-2, 2]
-
-A = Matrix([[1, 2], [3, 4]])
-print(A.det())                            # -2
-print(latex(A))                           # LaTeX output
-
-f = lambdify(x, x**2 + 1, "numpy")
-print(f(3))                               # 10
+### Suggested MCP (Model Context Protocol) request flow
+1. Accept user expression and task type.
+2. Parse with `parse_expr` or `sympify`.
+3. Route to target operation (`simplify`, `solve`, `integrate`, etc.).
+4. Return both machine form (`str(expr)`) and presentation form (`latex(expr)`).
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) service endpoints:
+Recommended service endpoints (names are suggestions):
 
 - `parse_expression`
-  - Uses: `sympy.parsing.sympy_parser.parse_expr`
-  - Converts text math input to SymPy expressions.
-
-- `sympify_expression`
-  - Uses: `sympy.sympify`
-  - Safer canonical conversion from Python/string objects.
+  - Convert user text into a SymPy expression.
+  - Core APIs: `parse_expr`, `sympify`.
 
 - `simplify_expression`
-  - Uses: `sympy.simplify`
-  - General simplification pipeline.
+  - Perform general symbolic simplification.
+  - Core APIs: `simplify`, optional `factor`/`expand`.
 
-- `solve_equation`
-  - Uses: `sympy.solve`
-  - Algebraic equation solving.
-
-- `solve_set`
-  - Uses: `sympy.solveset`, `linsolve`, `nonlinsolve`
-  - Set-oriented solving and system solving.
+- `differentiate_expression`
+  - Compute symbolic derivatives.
+  - Core API: `diff`.
 
 - `integrate_expression`
-  - Uses: `sympy.integrate`, `Integral`
-  - Symbolic integration (evaluated or unevaluated).
+  - Compute symbolic antiderivatives/definite integrals.
+  - Core API: `integrate` (returns `Integral` if unevaluated).
 
-- `compute_limit`
-  - Uses: `sympy.limit`
-  - Symbolic limits.
+- `solve_equation`
+  - Solve algebraic equations (symbolic/numeric).
+  - Core APIs: `solve`, `nsolve`.
 
-- `expand_series`
-  - Uses: `sympy.series`
-  - Taylor/Laurent-style expansions.
+- `solve_set`
+  - Set-based solving and systems.
+  - Core APIs: `solveset`, `linsolve`, `nonlinsolve`.
 
 - `matrix_operations`
-  - Uses: `Matrix`, `zeros`, `ones`, `eye`
   - Matrix creation and linear algebra operations.
+  - Core class/API: `Matrix`.
 
-- `to_latex`
-  - Uses: `sympy.latex`
-  - Expression-to-LaTeX conversion.
-
-- `to_string`
-  - Uses: `sympy.printing.str.sstr`
-  - Stable readable string output.
-
-- `lambdify_expression`
-  - Uses: `sympy.lambdify`
-  - Numeric function generation for NumPy/SciPy backends.
-
-Optional operational endpoint:
-- `health_check`
-  - Validates import of `sympy` and key optional backends.
+- `render_latex`
+  - Convert expressions to LaTeX.
+  - Core API: `latex`.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Parsing safety:
-  - Prefer controlled parsing/sympification paths; avoid unrestricted `eval`.
-- Optional dependency gaps:
-  - Some features (advanced parsing, SAT/SMT, numeric backends) require optional packages.
-- Performance:
-  - Symbolic solve/integrate/simplify can be expensive on large expressions.
-  - Add timeouts, operation limits, and expression-size guards in service handlers.
-- Determinism:
-  - Some simplification/solve outputs may vary in form; normalize with `sstr` or sorted outputs.
-- Testing:
-  - SymPy has extensive tests, but your MCP (Model Context Protocol) service should add endpoint-level tests and input validation.
-- CLI note:
-  - `isympy` exists for interactive shell usage, but service integration should primarily use imports/APIs.
+- **Parsing safety**: Prefer controlled parsing (`parse_expr` with restricted transformations/locals) for untrusted input.
+- **Unevaluated results**: Some operations may return symbolic containers (e.g., `Integral`) when closed forms are unavailable.
+- **Numeric solving**: `nsolve` needs good initial guesses; poor seeds may fail.
+- **Performance**: Large expressions can be expensive. Add timeouts, expression size limits, and caching in the service layer.
+- **Optional dependency behavior**: Some advanced features improve with `numpy/scipy/gmpy2/pycosat/antlr4/lark`.
+- **Environment consistency**: Pin SymPy version in production to avoid behavior drift across releases.
 
 ---
 
-## 6) Reference Links / Documentation
+## 6) Reference Links or Documentation
 
 - SymPy repository: https://github.com/sympy/sympy
 - SymPy main docs: https://docs.sympy.org/
-- Parsing docs (`parse_expr`): https://docs.sympy.org/latest/modules/parsing.html
+- Parsing docs (`sympy_parser`): https://docs.sympy.org/latest/modules/parsing.html
 - Solvers docs: https://docs.sympy.org/latest/modules/solvers/solvers.html
 - Integrals docs: https://docs.sympy.org/latest/modules/integrals/integrals.html
 - Matrices docs: https://docs.sympy.org/latest/modules/matrices/index.html
-- Printing docs (LaTeX/string): https://docs.sympy.org/latest/modules/printing.html
-- Lambdify docs: https://docs.sympy.org/latest/modules/utilities/lambdify.html
+- Printing/LaTeX docs: https://docs.sympy.org/latest/modules/printing.html

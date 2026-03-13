@@ -1,9 +1,10 @@
-# Difference Report — **molmass**  
-**Generated:** 2026-03-13 15:27:14  
+# Difference Report — `molmass`
+
+**Generated:** 2026-03-13 21:17:16  
 **Repository:** `molmass`  
 **Project Type:** Python library  
 **Scope:** Basic functionality  
-**Change Intrusiveness:** None (additive only)  
+**Change Intrusiveness:** None  
 **Workflow Status:** ✅ Success  
 **Test Status:** ❌ Failed  
 
@@ -11,148 +12,126 @@
 
 ## 1) Project Overview
 
-This update appears to be a **non-intrusive, additive change set** for the `molmass` Python library, with:
+`molmass` is a Python library focused on molecular mass/formula-related calculations.  
+This change set appears to be **additive only**, with no edits to existing files.
 
+### Change Summary
 - **New files:** 8  
 - **Modified files:** 0  
-- **Deleted files:** 0 (implied)
+- **Deleted files:** 0 (not reported)
 
-Given no existing files were modified, the release risk to current runtime behavior is likely low. However, the failed test status indicates either:
-1. New files introduced failing tests, or  
-2. Existing test pipeline/environment issues were surfaced.
+The update is likely low-risk structurally (no in-place modifications), but current test failures indicate unresolved integration or quality issues.
 
 ---
 
-## 2) High-Level Difference Summary
+## 2) Difference Analysis
 
-| Category | Count | Notes |
-|---|---:|---|
-| New files | 8 | Additive expansion |
-| Modified files | 0 | No direct impact to existing code paths |
-| Workflow | Success | CI workflow completed without infrastructure failure |
-| Tests | Failed | Functional or integration quality gate not met |
+## File-level Delta
+- **Added:** 8 files
+- **Changed:** none
+- **Removed:** none
 
-**Interpretation:**  
-The pipeline infrastructure is healthy, but quality validation is currently blocked by failing tests.
+## Impact Characteristics
+- **Codebase disruption:** Low (non-intrusive additions only)
+- **Backward compatibility risk:** Likely low, assuming no runtime import side effects
+- **Operational readiness:** Blocked by failed tests
 
----
-
-## 3) Difference Analysis
-
-### 3.1 Change Pattern
-- The patch is structurally **add-only**.
-- This suggests likely introduction of one or more of:
-  - new modules/utilities,
-  - tests,
-  - docs/examples,
-  - packaging/config support files.
-
-### 3.2 Risk Profile
-Even with no modified files, risk is **not zero**:
-- New files can be imported by discovery mechanisms and alter behavior indirectly.
-- Test failures indicate unresolved incompatibility, assertion mismatch, or environment dependency issues.
-
-### 3.3 Functional Impact
-- Existing “basic functionality” should remain untouched in code terms.
-- Release readiness is currently **not acceptable** until test failures are triaged and resolved.
+Because no existing files were modified, any regressions are likely due to:
+1. New tests introducing failing assertions
+2. New modules with unmet dependencies
+3. Packaging/configuration interactions triggered by added files
+4. CI environment mismatch vs local assumptions
 
 ---
 
-## 4) Technical Analysis
+## 3) Technical Analysis
 
-## 4.1 CI/QA Signal
-- **Workflow success + test failure** generally means:
-  - runner setup and job orchestration are correct,
-  - but at least one test stage returned non-zero exit.
+## CI/Workflow
+- **Pipeline execution:** Successful (build steps likely completed)
+- **Quality gate:** Failed at test stage
 
-## 4.2 Likely Failure Sources
-Given additive-only changes, common root causes include:
-1. **New tests failing** due to incorrect expectations.
-2. **Missing test dependencies** declared in requirements/pyproject extras.
-3. **Version-specific behavior** (Python/NumPy/locale differences).
-4. **Path/import issues** from newly added package/test structure.
-5. **Data fixture mismatch** in newly introduced assets.
+This indicates infrastructure and automation are generally healthy, while functional correctness or environment assumptions remain unresolved.
 
-## 4.3 Packaging/Library Considerations
-For Python libraries, additive files can still affect:
-- package discovery (`setuptools.find_packages`, `pyproject.toml` include patterns),
-- test collection (`pytest` auto-discovery),
-- static checks (ruff/mypy if wired in CI).
+## Risk Assessment
+- **Runtime risk:** Medium (unknown until tests pass)
+- **Release risk:** High for immediate release due to red test status
+- **Maintenance risk:** Low–Medium, depending on added file purpose (feature vs tooling/docs/tests)
 
----
-
-## 5) Recommendations & Improvements
-
-## 5.1 Immediate Actions (Priority)
-1. **Collect failing test logs** and identify first failing test as primary root-cause lead.
-2. **Classify failure type**: test logic vs environment/setup.
-3. **Apply minimal corrective patch**:
-   - fix assertions or expected values, or
-   - add missing dev/test dependency declarations.
-4. **Re-run matrix locally and in CI** to verify stability.
-
-## 5.2 Quality Gate Enhancements
-- Enforce staged checks:
-  1. lint/static analysis,
-  2. unit tests,
-  3. integration tests (if any).
-- Add clear CI artifact upload for:
-  - JUnit XML,
-  - coverage reports,
-  - failed test logs.
-
-## 5.3 Reliability Improvements
-- Pin/constraint key test dependencies for deterministic runs.
-- Add `tox`/`nox` or equivalent for consistent local-vs-CI execution.
-- If files include examples/docs, separate doc-tests from core unit tests in CI jobs.
+## Likely Failure Domains
+Given additive changes only:
+- **Unit/integration tests** for new feature behavior
+- **Import paths/module discovery** (`__init__.py`, package layout)
+- **Version pinning/dependency availability** in CI
+- **Data/resource file references** if new files expect runtime assets
 
 ---
 
-## 6) Deployment Information
+## 4) Recommendations & Improvements
 
-## 6.1 Release Readiness
-- **Current readiness:** 🔴 **Not deployable** (tests failed).
+## Immediate Actions (Priority 1)
+1. **Triage failing tests quickly**
+   - Identify exact failing test names and stack traces
+   - Classify into: logic error, environment issue, flaky behavior, expectation mismatch
+2. **Reproduce in clean environment**
+   - Use same Python version and dependency lock as CI
+3. **Confirm packaging integrity**
+   - Ensure newly added modules/resources are included in package metadata
+4. **Gate merge/release on green tests**
+   - Do not publish while test status is failed
 
-## 6.2 Deployment Risk
-- **Code-change risk:** Low (additive only)
-- **Operational risk:** Medium (quality gate failure)
-- **Recommended status:** Hold release until CI tests are green.
+## Short-term Improvements (Priority 2)
+- Add or refine **targeted unit tests** for newly added functionality
+- Introduce **pre-commit validation** (lint, type checks, minimal test subset)
+- Strengthen **CI matrix** for supported Python versions
 
-## 6.3 Suggested Release Criteria
-- 100% pass on required test jobs.
-- No unresolved regressions in core molecular mass calculation paths.
-- Optional: minimum coverage threshold maintained.
-
----
-
-## 7) Future Planning
-
-1. **Short term (next patch):**
-   - Fix failing tests.
-   - Re-run full CI matrix.
-   - Publish patch release notes with root-cause summary.
-
-2. **Mid term:**
-   - Improve test diagnostics and reproducibility.
-   - Add pre-merge checks mirroring release pipeline.
-
-3. **Long term:**
-   - Strengthen backward compatibility checks for public APIs.
-   - Automate changelog generation and semantic release validation.
+## Quality Enhancements (Priority 3)
+- Add **change notes** per new file (purpose, owner, expected behavior)
+- Ensure **docstrings/API docs** for any new public interfaces
+- If failures are non-deterministic, add **flakiness detection/retry policy** only as temporary mitigation
 
 ---
 
-## 8) Suggested Report Addendum (when file list/logs are available)
+## 5) Deployment Information
 
-To produce a deeper, file-level diff report, include:
-- list of the 8 new file paths,
-- failing test names and stack traces,
-- Python version(s) and OS in CI matrix,
-- dependency lock/constraints used during test run.
+## Current Deployment Readiness
+- **Ready for deployment:** ❌ No
+- **Blocking condition:** Test suite failure
+
+## Suggested Deployment Path
+1. Fix failing tests
+2. Re-run full CI pipeline
+3. Tag as releasable only when:
+   - Tests pass
+   - Packaging/install checks pass
+   - Basic smoke usage of core `molmass` API succeeds
+
+## Release Controls
+- Require mandatory status checks before merge
+- Attach test report artifact to release PR
+- Optionally run post-build smoke test (`pip install` + minimal formula/mass calculation)
 
 ---
 
-## 9) Executive Conclusion
+## 6) Future Planning
 
-This change set is **structurally safe** (no existing files modified) but **operationally blocked** by failed tests.  
-Recommendation: **Do not release yet**. Perform focused test-failure triage, apply minimal fixes, and require a fully green CI before deployment.
+## Near-term (next iteration)
+- Stabilize the current additive changes and ensure deterministic test outcomes
+- Add a **regression test** for each identified failure cause
+- Document any new feature flags or usage patterns introduced by added files
+
+## Mid-term
+- Improve observability of CI failures (grouped reports, faster diagnostics)
+- Maintain compatibility validation across supported Python versions and dependency ranges
+- Establish a lightweight release checklist for library updates
+
+## Long-term
+- Adopt stricter quality gates (coverage thresholds, type-check baseline)
+- Periodically audit additive changes to avoid dead modules/resources
+- Track reliability metrics (pass rate, flaky rate, mean time to fix)
+
+---
+
+## 7) Executive Conclusion
+
+This update is structurally conservative (**8 new files, 0 modified**) and therefore likely easy to isolate and fix. However, the **failed test status is a hard release blocker**.  
+Primary recommendation: **resolve test failures, validate packaging/runtime behavior, and rerun CI to green before deployment.**

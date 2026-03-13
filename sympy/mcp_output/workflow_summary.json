@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773259262.742178,
-    "end_time": 1773259524.634996,
-    "duration": 261.8928179740906,
+    "start_time": 1773410884.8918169,
+    "end_time": 1773411157.4166842,
+    "duration": 272.5248672962189,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 43,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,14 +53,58 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.sympy.source",
+        "mcp_output.mcp_plugin",
+        "source.sympy",
+        "source.sympy.algebras",
+        "source.sympy.assumptions",
+        "source.sympy.benchmarks",
+        "source.sympy.calculus",
+        "source.sympy.categories",
+        "source.sympy.codegen",
+        "source.sympy.combinatorics",
+        "source.sympy.concrete",
+        "source.sympy.core",
+        "source.sympy.crypto",
+        "source.sympy.diffgeom",
+        "source.sympy.discrete",
+        "source.sympy.external",
+        "source.sympy.functions",
+        "source.sympy.geometry",
+        "source.sympy.holonomic",
+        "source.sympy.integrals",
+        "source.sympy.interactive",
+        "source.sympy.liealgebras",
+        "source.sympy.logic",
+        "source.sympy.matrices",
+        "source.sympy.multipledispatch",
+        "source.sympy.ntheory",
+        "source.sympy.parsing",
+        "source.sympy.physics",
+        "source.sympy.plotting",
+        "source.sympy.polys",
+        "source.sympy.printing",
+        "source.sympy.sandbox",
+        "source.sympy.series",
+        "source.sympy.sets",
+        "source.sympy.simplify",
+        "source.sympy.solvers",
+        "source.sympy.stats",
+        "source.sympy.strategies",
+        "source.sympy.tensor",
+        "source.sympy.testing",
+        "source.sympy.unify",
+        "source.sympy.utilities",
+        "source.sympy.vector"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
       "has_requirements_txt": false,
-      "pyproject": false,
+      "pyproject": true,
       "setup_cfg": false,
-      "setup_py": false
+      "setup_py": true
     },
     "entry_points": {
       "imports": [],
@@ -68,7 +112,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.97,
+      "import_feasibility": 0.94,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -121,44 +165,40 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/sympy/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Operation timed out\nerror: 104 bytes of body are still expected\nfatal: expected flush after ref listing\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/sympy/temp_clone'...\nerror: RPC failed; curl 56 Recv failure: Operation timed out\nerror: 104 bytes of body are still expected\nfatal: expected flush after ref listing\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "Add contract tests for each exposed MCP endpoint (`sympify`",
-    "`simplify`",
-    "`integrate`",
-    "`solve`",
-    "`solveset`",
-    "`matrix`",
-    "etc.) with golden input/output fixtures",
-    "implement strict input schemas and output normalization (especially for `solve/solveset` set-vs-list behavior) using Pydantic validators",
-    "introduce per-endpoint timeout and resource guards to prevent pathological symbolic computations",
-    "add structured error mapping from SymPy exceptions to stable MCP error codes/messages",
-    "pin and verify runtime dependencies in `mcp_output/requirements.txt` (including compatible SymPy/mpmath ranges) and add a lockfile",
-    "create CI for the plugin folder that runs lint/type-check/tests independently from upstream SymPy",
-    "add performance smoke benchmarks for heavy endpoints (`integrate`",
-    "`simplify`",
+    "add a minimal smoke test suite for all exposed MCP endpoints (success + expected failure cases)",
+    "add contract/schema tests for adapter I/O types and error payloads",
+    "deduplicate endpoint naming collisions (e.g.",
+    "matrix listed twice) and enforce unique route registration checks at startup",
+    "implement centralized exception mapping (SymPy/parse/runtime errors → stable MCP error codes/messages)",
+    "add input guards and resource limits (expression size/depth",
+    "solve timeout",
+    "recursion limits) to prevent pathological workloads",
+    "add deterministic parsing/sandbox defaults for `parse_expr` (restricted transformations and symbol policy)",
+    "introduce caching for repeated pure operations (`sympify`/`simplify`/`latex`) with bounded LRU and cache metrics",
+    "add endpoint-level latency and failure telemetry plus health/readiness endpoints",
+    "create a CI workflow for the MCP plugin (lint",
+    "type-check",
+    "unit",
+    "integration against pinned SymPy versions)",
+    "pin and test a compatibility matrix for Python/SymPy/FastMCP versions",
+    "strengthen `README_MCP.md` with per-endpoint request/response examples and known limitations",
+    "add structured logging with request IDs and redaction for large/sensitive payloads",
+    "add property-based tests for parser/simplifier roundtrips and solver invariants",
+    "include performance regression benchmarks for high-cost endpoints (`solve`",
     "`nonlinsolve`",
-    "`lambdify`) with regression thresholds",
-    "improve observability with structured logs and optional tracing for endpoint latency/failures",
-    "add security hardening for parsing endpoints (`parse_expr`) by restricting transformations and documenting safe/unsafe modes",
-    "expand README_MCP with endpoint-specific examples and caveats (unevaluated `Integral`",
-    "symbolic assumptions",
-    "domain handling)",
-    "add fallback strategy tests for optional deps (numpy/scipy/lark/antlr/z3) and clear capability reporting at startup",
-    "implement result-size limits and serialization guards for huge expressions/matrices",
-    "add deterministic-mode options (seed/control for randomized internals where relevant) to improve reproducibility",
-    "include compatibility tests across multiple Python versions and major SymPy versions",
-    "and add an end-to-end MCP integration test that boots `start_mcp.py` and exercises all advertised endpoints"
+    "`integrate`",
+    "`lambdify`)",
+    "split heavy endpoints into optional feature flags/dependency groups (numpy/scipy/lark/antlr) with graceful degradation messages",
+    "add startup self-checks validating optional dependency availability and endpoint enablement",
+    "improve adapter maintainability by generating endpoint wrappers from a declarative registry instead of manual duplication",
+    "add golden tests for `latex` rendering stability across versions",
+    "provide safer defaults for symbolic variable creation (`symbols`/`var`) to avoid namespace surprises",
+    "and document operational runbooks (timeouts",
+    "memory tuning",
+    "failure triage) for production MCP deployment"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -189,35 +229,36 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal status `success` and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Robust fallback behavior: after git clone timeout, pipeline continued via zip import fallback and still analyzed ~1639 files.",
-      "Import-based adapter strategy was appropriate for SymPy (`import_feasibility`: 0.97, low intrusiveness risk).",
-      "MCP plugin boot/health checks passed (`service_health`: healthy, transport: stdio)."
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy was appropriate for SymPy (import feasibility 0.94, low intrusiveness risk).",
+      "Generated MCP service started healthy over stdio transport, indicating baseline runtime viability.",
+      "Repository analysis correctly identified high-value SymPy entry points for tool wrapping."
     ],
     "failure_reasons": [
-      "Primary source acquisition failed in DownloadNode due to network/RPC timeout during git clone (`curl 56 Recv failure`, `expected flush after ref listing`).",
-      "Observability gaps in metrics collection (0 for memory/cpu/throughput/response) and empty code review reduced confidence in measured quality.",
-      "Inconsistent counters (e.g., `total_files_processed`: 0 vs detailed analysis showing 1639 files) indicate instrumentation/reporting defects."
+      "No hard workflow failure occurred.",
+      "Quality gaps: original project test result is marked failed/unknown despite test_coverage='100%' and empty test files, indicating inconsistent test telemetry.",
+      "DeepWiki analysis failed and fell back to direct LLM analysis, reducing external knowledge enrichment.",
+      "Generated metadata is inconsistent (tool_endpoints=0 while endpoint list contains many tools; LOC/size=0 while files were created)."
     ],
     "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Download phase was degraded by clone timeout; fallback preserved continuity but likely dominated early latency.",
-      "analysis_time": "Analysis completed successfully on a large codebase (1639 files), indicating acceptable throughput despite missing per-node timings.",
-      "generation_time": "Generation completed quickly enough within total runtime (261.9s), producing expected MCP scaffold and endpoint set.",
-      "test_time": "Plugin smoke/health tests passed; original project tests were not meaningfully executed (reported failed with empty details)."
+      "download_time": "Completed successfully using zip fallback; likely efficient for this run, but git-native clone would improve provenance and incremental sync.",
+      "analysis_time": "Completed and comprehensive (large file-tree and module discovery). Most of total runtime likely spent here due to repository size.",
+      "generation_time": "Completed quickly enough to produce plugin scaffolding and endpoint mappings; however metrics instrumentation for generated output is incomplete.",
+      "test_time": "Service health test passed, but endpoint-level functional tests were effectively absent; confidence in behavior under edge cases remains limited."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown in practice due to missing telemetry; reported 0 MB is non-credible and should be treated as unavailable.",
-      "cpu_efficiency": "Unknown due to missing telemetry; reported 0% indicates metrics pipeline failure rather than true usage.",
-      "disk_usage": "Repository footprint is substantial (large SymPy tree), but generated plugin footprint appears minimal; reported generated size 0 suggests reporting issue."
+      "memory_efficiency": "Not measurable from provided metrics (reported as 0), so efficiency cannot be validated; add real memory profiling.",
+      "cpu_efficiency": "Not measurable from provided metrics (reported as 0); likely acceptable for generation phase but unknown for heavy symbolic runtime paths.",
+      "disk_usage": "Reasonable for generated plugin artifacts, but reported generated_files_size=0 indicates missing or broken disk accounting."
     }
   },
   "technical_quality": {
     "code_quality_score": 72,
-    "architecture_score": 80,
-    "performance_score": 58,
-    "maintainability_score": 70,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 68,
     "security_score": 85,
-    "scalability_score": 68
+    "scalability_score": 66
   }
 }
