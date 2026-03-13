@@ -437,12 +437,31 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.aizynthfinder.source",
+      "mcp_output.mcp_plugin",
+      "source.aizynthfinder",
+      "source.aizynthfinder.analysis",
+      "source.aizynthfinder.chem",
+      "source.aizynthfinder.context",
+      "source.aizynthfinder.interfaces",
+      "source.aizynthfinder.search",
+      "source.aizynthfinder.tools",
+      "source.aizynthfinder.utils",
+      "source.tests",
+      "source.tests.breadth_first",
+      "source.tests.chem",
+      "source.tests.context",
+      "source.tests.dfpn",
+      "source.tests.mcts",
+      "source.tests.retrostar",
+      "source.tests.utils"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
     "setup_py": false
   },
@@ -454,140 +473,132 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "aizynthfinder",
+        "package": "source.aizynthfinder",
         "module": "aizynthfinder.aizynthfinder",
         "functions": [],
         "classes": [
           "AiZynthFinder"
         ],
-        "description": "Primary orchestration class for retrosynthesis setup, search execution, and route extraction; best central integration point for MCP tool wrapping."
+        "description": "Top-level orchestration class for retrosynthesis setup, search execution, and route/result handling; best primary integration point for MCP wrapping."
       },
       {
-        "package": "aizynthfinder.interfaces",
-        "module": "aizynthfinder.interfaces.aizynthcli",
-        "functions": [],
-        "classes": [],
-        "description": "CLI interface module for running retrosynthesis workflows from configuration files and command-line parameters."
-      },
-      {
-        "package": "aizynthfinder.interfaces",
-        "module": "aizynthfinder.interfaces.aizynthapp",
-        "functions": [],
-        "classes": [],
-        "description": "Application-level interface for higher-level execution patterns; useful if exposing app-style workflows in MCP."
-      },
-      {
-        "package": "aizynthfinder.context",
+        "package": "source.aizynthfinder.context",
         "module": "aizynthfinder.context.config",
         "functions": [],
         "classes": [
           "Configuration"
         ],
-        "description": "Configuration loader/container used to initialize policies, stocks, and scorers; key for non-intrusive programmatic bootstrapping."
+        "description": "Loads and validates runtime configuration (policies, stock, scorers, search settings); critical for constructing finder instances non-intrusively."
       },
       {
-        "package": "aizynthfinder.analysis",
-        "module": "aizynthfinder.analysis.tree_analysis",
+        "package": "source.aizynthfinder.context",
+        "module": "aizynthfinder.context.policy.expansion_strategies",
         "functions": [],
         "classes": [
-          "TreeAnalysis"
+          "ExpansionStrategy",
+          "MultiExpansionStrategy",
+          "TemplateBasedExpansionStrategy"
         ],
-        "description": "Post-search route/tree analysis and scoring access point for MCP read/query tools."
+        "description": "Expansion policy abstraction and concrete implementations; natural MCP extension point for custom model-backed expansion plugins."
       },
       {
-        "package": "aizynthfinder.search.mcts",
+        "package": "source.aizynthfinder.context",
+        "module": "aizynthfinder.context.policy.filter_strategies",
+        "functions": [],
+        "classes": [
+          "FilterStrategy",
+          "QuickKerasFilter",
+          "ReactantsCountFilter"
+        ],
+        "description": "Filter policy layer for reaction proposal pruning; suitable optional MCP tool hooks for quality/performance tradeoffs."
+      },
+      {
+        "package": "source.aizynthfinder.search",
         "module": "aizynthfinder.search.mcts.search",
         "functions": [],
         "classes": [
           "MctsSearchTree"
         ],
-        "description": "Default/major search implementation module (MCTS), useful for advanced MCP tools if direct search control is needed."
+        "description": "Primary search algorithm backend (MCTS); key execution engine if exposing search-step or debug-level MCP operations."
       },
       {
-        "package": "aizynthfinder.search.retrostar",
-        "module": "aizynthfinder.search.retrostar.search_tree",
+        "package": "source.aizynthfinder.analysis",
+        "module": "aizynthfinder.analysis.tree_analysis",
         "functions": [],
         "classes": [
-          "RetroStarSearchTree"
+          "TreeAnalysis"
         ],
-        "description": "Alternative search backend; include as optional MCP capability when config selects Retro*."
+        "description": "Post-search route extraction, ranking, and analytics; ideal for MCP read-only analysis tools."
       },
       {
-        "package": "aizynthfinder.search.breadth_first",
-        "module": "aizynthfinder.search.breadth_first.search_tree",
+        "package": "source.aizynthfinder.interfaces",
+        "module": "aizynthfinder.interfaces.aizynthcli",
         "functions": [],
-        "classes": [
-          "BreadthFirstSearchTree"
-        ],
-        "description": "Breadth-first search backend available for specialized or debugging workflows."
+        "classes": [],
+        "description": "CLI interface module for batch execution; useful fallback integration path when direct imports are constrained."
       },
       {
-        "package": "aizynthfinder.search.dfpn",
-        "module": "aizynthfinder.search.dfpn.search_tree",
+        "package": "source.aizynthfinder.interfaces",
+        "module": "aizynthfinder.interfaces.aizynthapp",
         "functions": [],
-        "classes": [
-          "DFPNSearchTree"
-        ],
-        "description": "DFPN search backend; optional algorithmic path for MCP-exposed strategy selection."
+        "classes": [],
+        "description": "Application-facing interface layer; secondary entry path for interactive workflows."
       },
       {
-        "package": "aizynthfinder.reactiontree",
-        "module": "aizynthfinder.reactiontree",
+        "package": "source.aizynthfinder.tools",
+        "module": "aizynthfinder.tools.make_stock",
         "functions": [],
-        "classes": [
-          "ReactionTree"
-        ],
-        "description": "Route/reaction-tree representation object for serialization and downstream inspection."
+        "classes": [],
+        "description": "Utility tooling for creating stock data artifacts; operational support tool relevant to MCP setup/admin commands."
       }
     ],
     "cli_commands": [
       {
         "name": "aizynthcli",
-        "module": "aizynthfinder.interfaces.aizynthcli",
-        "description": "Main command-line entry for retrosynthesis runs, config-driven execution, and output generation."
-      },
-      {
-        "name": "cat_aizynth_output",
-        "module": "aizynthfinder.tools.cat_output",
-        "description": "Utility command to inspect/concatenate generated AiZynthFinder output artifacts."
+        "module": "source.aizynthfinder.interfaces.aizynthcli",
+        "description": "Primary command-line interface for running retrosynthesis jobs from config and target molecules."
       },
       {
         "name": "download_public_data",
-        "module": "aizynthfinder.tools.download_public_data",
-        "description": "Command to download public model/data assets required for running retrosynthesis."
+        "module": "source.aizynthfinder.tools.download_public_data",
+        "description": "Downloads public model/data assets used by default workflows."
       },
       {
         "name": "make_stock",
-        "module": "aizynthfinder.tools.make_stock",
-        "description": "Command to build stock files/databases used by stock availability checks."
+        "module": "source.aizynthfinder.tools.make_stock",
+        "description": "Builds stock databases/files from molecular input sources."
+      },
+      {
+        "name": "cat_output",
+        "module": "source.aizynthfinder.tools.cat_output",
+        "description": "Utility command for concatenating/inspecting generated output artifacts."
       }
     ],
     "import_strategy": {
       "primary": "import",
       "fallback": "cli",
-      "confidence": 0.9
+      "confidence": 0.88
     },
     "dependencies": {
       "required": [
-        "python>=3.10",
+        "python>=3.9",
+        "rdkit",
         "numpy",
         "pandas",
-        "PyYAML",
         "networkx",
-        "rdkit",
+        "pyyaml",
+        "scipy",
         "onnxruntime"
       ],
       "optional": [
-        "tensorflow",
-        "rdchiral",
-        "pymongo",
-        "paretoset",
-        "ipywidgets",
-        "jupyter"
+        "tensorflow/keras (for some policy/filter model backends)",
+        "pymongo (mongo utilities)",
+        "jupyter/ipywidgets stack (GUI/app usage)",
+        "matplotlib/plotting-related packages (analysis/visual helpers)"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.88,
+      "import_feasibility": 0.86,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -605,7 +616,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.88,
+    "import_feasibility": 0.86,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

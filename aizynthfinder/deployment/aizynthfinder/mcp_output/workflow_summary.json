@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773261316.682074,
-    "end_time": 1773261633.633095,
-    "duration": 316.95102095603943,
+    "start_time": 1773377051.3863308,
+    "end_time": 1773377231.0826921,
+    "duration": 179.69636130332947,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 18,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,12 +53,31 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.aizynthfinder.source",
+        "mcp_output.mcp_plugin",
+        "source.aizynthfinder",
+        "source.aizynthfinder.analysis",
+        "source.aizynthfinder.chem",
+        "source.aizynthfinder.context",
+        "source.aizynthfinder.interfaces",
+        "source.aizynthfinder.search",
+        "source.aizynthfinder.tools",
+        "source.aizynthfinder.utils",
+        "source.tests",
+        "source.tests.breadth_first",
+        "source.tests.chem",
+        "source.tests.context",
+        "source.tests.dfpn",
+        "source.tests.mcts",
+        "source.tests.retrostar",
+        "source.tests.utils"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
       "has_requirements_txt": false,
-      "pyproject": false,
+      "pyproject": true,
       "setup_cfg": false,
       "setup_py": false
     },
@@ -68,7 +87,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.88,
+      "import_feasibility": 0.86,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -121,38 +140,41 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/aizynthfinder/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75004 ms: Couldn't connect to server\nfatal: expected 'packfile'\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/aizynthfinder/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75004 ms: Couldn't connect to server\nfatal: expected 'packfile'\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "define and run an MCP-focused test suite (unit + smoke + minimal integration) for all exposed endpoints",
-    "add strict input/output schemas and validation for each endpoint (especially config/search parameters and serialized trees)",
-    "implement robust error mapping with actionable messages for common dependency/runtime failures (RDKit/ONNX/model files)",
-    "add CI workflow for MCP plugin (lint",
-    "type-check",
-    "tests",
-    "packaging check) and publish artifacts",
-    "pin and align dependencies in `mcp_output/requirements.txt` with core project compatibility constraints",
-    "add timeout/cancellation and concurrency guards around long-running search calls",
-    "introduce structured logging + request IDs + basic telemetry hooks for search runs",
-    "cache loaded models/configs safely to reduce startup latency while avoiding cross-request state leakage",
-    "add endpoint-level docs with concrete request/response examples and failure cases in `README_MCP.md`",
-    "include health/readiness endpoints that verify critical runtime dependencies and model availability",
-    "harden security by limiting dynamic loading/module paths and validating file-system inputs",
-    "add regression fixtures using existing repository test data (route/tree JSON) to verify serialization compatibility",
-    "provide versioned API contract for MCP endpoints to avoid breaking clients",
-    "add fallback behavior when optional backends (tensorflow/rdchiral/pymongo) are missing",
-    "and add lightweight performance benchmarks for key workflows (single-target search",
-    "batch runs",
-    "tree analysis) with thresholds in CI"
+    "Add a minimal smoke-test suite for the MCP plugin (server startup",
+    "tool listing",
+    "one call per endpoint)",
+    "Wire MCP tests into CI (`.github/workflows/tests.yml`) with a matrix for Python 3.9–3.12 and optional deps toggles (onnx/tensorflow extras)",
+    "Define strict Pydantic request/response schemas per endpoint (especially `aizynthfinder`",
+    "`configuration`",
+    "`mctssearchtree`",
+    "`treeanalysis`) with explicit validation errors",
+    "Add integration tests that execute a tiny end-to-end retrosynthesis run from fixture config through `TreeAnalysis` and assert deterministic output shape",
+    "Improve dependency packaging by exposing extras in `pyproject.toml` (e.g. `mcp`",
+    "`ml-tf`",
+    "`mongo`",
+    "`gui`) and keeping `mcp_output/requirements.txt` synchronized or generated",
+    "Add graceful degradation paths and clear messages when optional backends (TensorFlow/Keras",
+    "ONNXRuntime",
+    "RDKit-related features) are unavailable",
+    "Introduce structured logging and correlation IDs across MCP calls plus configurable log level via env vars",
+    "Add timeout/cancellation controls and resource guards for search-heavy endpoints to prevent runaway MCTS jobs",
+    "Cache immutable heavy artifacts (models/config/stock handles) in the adapter layer to reduce repeated initialization overhead",
+    "Add endpoint-level auth/rate-limit hooks (even if optional) for safer remote deployment",
+    "Expand `README_MCP.md` with concrete examples (local run",
+    "sample JSON-RPC/tool payloads",
+    "troubleshooting missing models/data)",
+    "Add contract tests to ensure endpoint names and signatures remain stable across releases",
+    "Pin and document supported aizynthfinder version ranges for the MCP plugin to avoid API drift",
+    "Add basic benchmarking scripts for latency/memory of key endpoints (`aizynthfinder`",
+    "`mctssearchtree`",
+    "`treeanalysis`) and track regressions in CI",
+    "Improve error taxonomy by mapping domain exceptions to consistent MCP error codes/messages",
+    "Validate plugin import mode fallback to CLI mode in tests for environments where direct imports fail",
+    "Add pre-commit hooks (ruff/black/isort/mypy) and enforce them in CI for both source and `mcp_output`",
+    "Generate API docs for exposed MCP tools from schema/docstrings to keep docs aligned with implementation"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -183,35 +205,36 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal status 'success' and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Resilience mechanism worked: clone failure was handled via fallback ingestion (zip fallback), enabling analysis and generation to continue.",
-      "MCP scaffold generation completed with runnable entrypoint and plugin structure.",
-      "Generated service passed basic MCP plugin health/startup checks (stdio transport healthy)."
+      "Workflow completed all planned nodes (download, analysis, env, generate, run, review, finalize) with overall status=success.",
+      "Low-intrusiveness import strategy was feasible (import feasibility 0.86), enabling adapter_mode=import.",
+      "Repository structure was analyzable despite SCM fallback; zip_fallback still produced full file inventory and module map.",
+      "MCP plugin artifacts were generated coherently (entrypoint, adapter, service, requirements, README) and service health reported healthy."
     ],
     "failure_reasons": [
-      "Primary repository clone failed due to network connectivity timeout to github.com:443 (curl 28), causing incomplete/contradictory execution metadata.",
-      "Quality signals are weakened by missing instrumentation: llm_calls=0, deepwiki failure, empty code_review, zeroed performance metrics.",
-      "Testing evidence is shallow: original project tests reported as not passed with zero execution time; MCP tests indicate health only, not functional endpoint validation."
+      "No hard workflow failure occurred.",
+      "Quality-validation gap: original project tests were not executed successfully (passed=false, execution_time=0), so compatibility confidence is incomplete.",
+      "Observability gap: node-level timings, resource metrics, and plugin LOC/size are effectively missing (0/unknown), limiting diagnostic fidelity.",
+      "DeepWiki analysis failed, reducing external semantic enrichment for architecture/behavior validation."
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Dominant delay source; clone attempt stalled ~75s before failure, then fallback processing proceeded. Indicates external network bottleneck rather than internal compute.",
-      "analysis_time": "Moderate and successful via fallback content; however metadata inconsistency (e.g., packages/dependencies empty despite file tree presence) suggests parser/reporting quality issues.",
-      "generation_time": "Fast scaffold generation; produced expected files and import-mode adapter, but reported LOC/filesize/tool counts as zero indicates post-generation metrics bug.",
-      "test_time": "Very limited; MCP health check passed quickly, but no meaningful endpoint/unit/integration coverage recorded."
+      "download_time": "Completed successfully; exact duration unavailable. Zip fallback import indicates resilient but potentially slower retrieval path.",
+      "analysis_time": "Completed successfully with medium complexity assessment and dependency/entry-point extraction; exact timing unavailable.",
+      "generation_time": "Completed successfully; 7 MCP files produced and endpoint surface identified. Exact generation duration unavailable.",
+      "test_time": "Plugin health check passed quickly (startup_time=0 reported), but no substantive endpoint/contract/integration test execution captured."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown due to missing telemetry (reported 0 MB). No evidence of memory pressure, but observability gap is high.",
-      "cpu_efficiency": "Unknown due to missing telemetry (reported 0%). Likely low-to-moderate CPU usage for scaffold-only generation.",
-      "disk_usage": "Low-to-moderate; repository content (~143 files) plus MCP output generated, but size metrics reported as 0 indicate measurement gap."
+      "memory_efficiency": "Undetermined due to missing telemetry (reported 0 MB). Needs real measurement instrumentation.",
+      "cpu_efficiency": "Undetermined due to missing telemetry (reported 0%).",
+      "disk_usage": "Low-to-moderate expected (small generated plugin footprint), but generated_files_size=0 indicates metrics collection issue."
     }
   },
   "technical_quality": {
-    "code_quality_score": 68,
-    "architecture_score": 74,
-    "performance_score": 55,
-    "maintainability_score": 70,
+    "code_quality_score": 74,
+    "architecture_score": 80,
+    "performance_score": 62,
+    "maintainability_score": 76,
     "security_score": 85,
-    "scalability_score": 64
+    "scalability_score": 68
   }
 }

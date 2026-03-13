@@ -1,9 +1,8 @@
 import os
 import sys
-import traceback
 import importlib
-import subprocess
-from typing import Any, Dict, List, Optional
+import traceback
+from typing import Any, Dict, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -14,426 +13,362 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import-Mode Adapter for the aizynthfinder repository.
+    Import-mode adapter for the aizynthfinder repository.
 
-    This adapter prefers direct Python imports and provides a CLI fallback path.
-    It exposes methods for key modules and commands identified in repository analysis:
-    - aizynthfinder.interfaces.aizynthcli
-    - aizynthfinder.tools.cat_output
-    - aizynthfinder.tools.download_public_data
-    - aizynthfinder.tools.make_stock
-    - aizynthfinder.aizynthfinder (programmatic entry module)
-
-    All public methods return a unified dictionary format:
-    {
-        "status": "success" | "error" | "fallback",
-        ...
-    }
+    This adapter prioritizes direct Python imports from the local source tree and
+    provides a CLI fallback path if import-mode operations cannot proceed.
     """
 
     # -------------------------------------------------------------------------
-    # Initialization and module management
+    # Lifecycle
     # -------------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
         self._modules: Dict[str, Any] = {}
-        self._module_paths = {
-            "aizynthcli": "aizynthfinder.interfaces.aizynthcli",
-            "cat_output": "aizynthfinder.tools.cat_output",
-            "download_public_data": "aizynthfinder.tools.download_public_data",
-            "make_stock": "aizynthfinder.tools.make_stock",
-            "finder": "aizynthfinder.aizynthfinder",
-        }
-        self._import_errors: Dict[str, str] = {}
+        self._import_error: Optional[str] = None
         self._load_modules()
 
-    def _result(self, status: str, **kwargs: Any) -> Dict[str, Any]:
-        payload = {"status": status}
-        payload.update(kwargs)
+    def _ok(self, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        out = {"status": "success", "mode": self.mode}
+        if data:
+            out.update(data)
+        return out
+
+    def _fail(self, message: str, hint: Optional[str] = None, error: Optional[Exception] = None) -> Dict[str, Any]:
+        payload: Dict[str, Any] = {
+            "status": "error",
+            "mode": self.mode,
+            "message": message,
+        }
+        if hint:
+            payload["hint"] = hint
+        if error is not None:
+            payload["error_type"] = type(error).__name__
+            payload["error"] = str(error)
         return payload
 
     def _load_modules(self) -> None:
-        for key, module_path in self._module_paths.items():
-            try:
-                self._modules[key] = importlib.import_module(module_path)
-            except Exception as exc:
-                self._modules[key] = None
-                self._import_errors[key] = (
-                    f"Failed to import '{module_path}'. "
-                    f"Ensure project dependencies are installed (e.g., rdkit, onnxruntime, numpy, pandas, PyYAML, networkx). "
-                    f"Original error: {exc}"
-                )
+        """
+        Attempt to import key modules discovered by analysis.
+        Uses full package paths rooted in local source tree.
+        """
+        targets = {
+            "aizynthfinder_main": "aizynthfinder.aizynthfinder",
+            "analysis_routes": "aizynthfinder.analysis.routes",
+            "analysis_tree_analysis": "aizynthfinder.analysis.tree_analysis",
+            "analysis_utils": "aizynthfinder.analysis.utils",
+            "interfaces_cli": "aizynthfinder.interfaces.aizynthcli",
+            "interfaces_app": "aizynthfinder.interfaces.aizynthapp",
+            "tool_download_public_data": "aizynthfinder.tools.download_public_data",
+            "tool_make_stock": "aizynthfinder.tools.make_stock",
+            "tool_cat_output": "aizynthfinder.tools.cat_output",
+            "reactiontree": "aizynthfinder.reactiontree",
+        }
 
+        failed = {}
+        for key, mod_path in targets.items():
+            try:
+                self._modules[key] = importlib.import_module(mod_path)
+            except Exception as exc:
+                failed[key] = f"{type(exc).__name__}: {exc}"
+
+        if failed:
+            self._import_error = (
+                "Some modules failed to import. Import mode is partially available. "
+                "Use CLI fallback methods where needed."
+            )
+            self._modules["__failed__"] = failed
+
+    # -------------------------------------------------------------------------
+    # Status and diagnostics
+    # -------------------------------------------------------------------------
     def health_check(self) -> Dict[str, Any]:
         """
-        Check adapter readiness and import availability.
-
-        Returns:
-            dict: Unified status payload with loaded modules, missing modules, and actionable hints.
+        Return adapter health details, including loaded and failed modules.
         """
-        loaded = [k for k, v in self._modules.items() if v is not None]
-        missing = [k for k, v in self._modules.items() if v is None]
-        status = "success" if not missing else "fallback"
-        return self._result(
-            status,
-            mode=self.mode,
-            loaded_modules=loaded,
-            missing_modules=missing,
-            import_errors=self._import_errors,
-            guidance=(
-                "Install required dependencies and verify source path mapping if modules are missing."
-                if missing
-                else "All key modules imported successfully."
-            ),
+        failed = self._modules.get("__failed__", {})
+        return self._ok(
+            {
+                "loaded_modules": sorted([k for k in self._modules.keys() if not k.startswith("__")]),
+                "failed_modules": failed,
+                "import_warning": self._import_error,
+            }
         )
 
     # -------------------------------------------------------------------------
-    # Internal execution helpers
+    # Core import-mode entrypoint wrappers
     # -------------------------------------------------------------------------
-    def _run_subprocess(self, cmd: List[str], timeout: int = 3600) -> Dict[str, Any]:
-        try:
-            proc = subprocess.run(
-                cmd,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-                timeout=timeout,
-                check=False,
+    def run_aizynthfinder(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Execute the main aizynthfinder module in import mode.
+
+        Parameters:
+            *args: Positional args forwarded to discovered callable.
+            **kwargs: Keyword args forwarded to discovered callable.
+
+        Returns:
+            Unified status dictionary with execution details or actionable error.
+        """
+        mod = self._modules.get("aizynthfinder_main")
+        if not mod:
+            return self._fail(
+                "Main module is unavailable in import mode.",
+                hint="Try CLI fallback using call_aizynthcli().",
             )
-            if proc.returncode == 0:
-                return self._result(
-                    "success",
-                    command=cmd,
-                    returncode=proc.returncode,
-                    stdout=proc.stdout,
-                    stderr=proc.stderr,
+
+        try:
+            for candidate in ("main", "run", "execute"):
+                fn = getattr(mod, candidate, None)
+                if callable(fn):
+                    result = fn(*args, **kwargs)
+                    return self._ok({"result": result, "callable": candidate, "module": mod.__name__})
+            return self._fail(
+                "No callable entrypoint (main/run/execute) found in main module.",
+                hint="Inspect module API or use call_aizynthcli() fallback.",
+            )
+        except Exception as exc:
+            return self._fail("Failed to execute main module.", hint="Check config/model paths and dependencies.", error=exc)
+
+    def call_aizynthcli(self, argv: Optional[list] = None) -> Dict[str, Any]:
+        """
+        Invoke CLI module entrypoint in-process as fallback.
+
+        Parameters:
+            argv: Optional list of CLI-like arguments.
+
+        Returns:
+            Unified status dictionary.
+        """
+        mod = self._modules.get("interfaces_cli")
+        if not mod:
+            return self._fail(
+                "CLI module could not be imported.",
+                hint="Verify local source path and required dependencies.",
+            )
+
+        try:
+            for candidate in ("main", "run_cli", "cli"):
+                fn = getattr(mod, candidate, None)
+                if callable(fn):
+                    result = fn(argv) if argv is not None else fn()
+                    return self._ok({"result": result, "callable": candidate, "module": mod.__name__})
+            return self._fail(
+                "No CLI callable found (main/run_cli/cli).",
+                hint="Check aizynthfinder.interfaces.aizynthcli for the current entrypoint function.",
+            )
+        except Exception as exc:
+            return self._fail(
+                "CLI execution failed.",
+                hint="Validate CLI arguments and data/model file availability.",
+                error=exc,
+            )
+
+    # -------------------------------------------------------------------------
+    # Tools wrappers
+    # -------------------------------------------------------------------------
+    def call_download_public_data(self, argv: Optional[list] = None) -> Dict[str, Any]:
+        """
+        Call the public-data download tool module.
+
+        Parameters:
+            argv: Optional argument list forwarded to tool entrypoint.
+
+        Returns:
+            Unified status dictionary.
+        """
+        return self._call_tool_module("tool_download_public_data", argv)
+
+    def call_make_stock(self, argv: Optional[list] = None) -> Dict[str, Any]:
+        """
+        Call the make_stock tool module.
+
+        Parameters:
+            argv: Optional argument list forwarded to tool entrypoint.
+
+        Returns:
+            Unified status dictionary.
+        """
+        return self._call_tool_module("tool_make_stock", argv)
+
+    def call_cat_output(self, argv: Optional[list] = None) -> Dict[str, Any]:
+        """
+        Call the cat_output tool module.
+
+        Parameters:
+            argv: Optional argument list forwarded to tool entrypoint.
+
+        Returns:
+            Unified status dictionary.
+        """
+        return self._call_tool_module("tool_cat_output", argv)
+
+    def _call_tool_module(self, module_key: str, argv: Optional[list]) -> Dict[str, Any]:
+        mod = self._modules.get(module_key)
+        if not mod:
+            return self._fail(
+                f"Tool module '{module_key}' could not be imported.",
+                hint="Check source path and optional dependencies.",
+            )
+        try:
+            for candidate in ("main", "run", "cli"):
+                fn = getattr(mod, candidate, None)
+                if callable(fn):
+                    result = fn(argv) if argv is not None else fn()
+                    return self._ok({"result": result, "callable": candidate, "module": mod.__name__})
+            return self._fail(
+                f"No callable entrypoint found in module '{mod.__name__}'.",
+                hint="Expected one of: main, run, cli.",
+            )
+        except Exception as exc:
+            return self._fail(
+                f"Execution failed for module '{mod.__name__}'.",
+                hint="Review input arguments and file paths.",
+                error=exc,
+            )
+
+    # -------------------------------------------------------------------------
+    # Analysis helpers
+    # -------------------------------------------------------------------------
+    def call_analysis_routes(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call a function from aizynthfinder.analysis.routes by name.
+        """
+        return self._call_module_function("analysis_routes", function_name, *args, **kwargs)
+
+    def call_analysis_tree_analysis(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call a function from aizynthfinder.analysis.tree_analysis by name.
+        """
+        return self._call_module_function("analysis_tree_analysis", function_name, *args, **kwargs)
+
+    def call_analysis_utils(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call a function from aizynthfinder.analysis.utils by name.
+        """
+        return self._call_module_function("analysis_utils", function_name, *args, **kwargs)
+
+    def _call_module_function(self, module_key: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        mod = self._modules.get(module_key)
+        if not mod:
+            return self._fail(
+                f"Module '{module_key}' is unavailable.",
+                hint="Run health_check() and use CLI fallback if needed.",
+            )
+        try:
+            fn = getattr(mod, function_name, None)
+            if not callable(fn):
+                return self._fail(
+                    f"Function '{function_name}' not found or not callable in '{mod.__name__}'.",
+                    hint="Check module function names and signatures.",
                 )
-            return self._result(
-                "error",
-                command=cmd,
-                returncode=proc.returncode,
-                stdout=proc.stdout,
-                stderr=proc.stderr,
-                message="CLI command failed. Review stderr for corrective action.",
-            )
-        except subprocess.TimeoutExpired:
-            return self._result(
-                "error",
-                command=cmd,
-                message="CLI command timed out. Increase timeout or reduce workload.",
-            )
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result, "module": mod.__name__, "function": function_name})
         except Exception as exc:
-            return self._result(
-                "error",
-                command=cmd,
-                message=f"Failed to execute CLI command: {exc}",
+            return self._fail(
+                f"Failed while calling '{function_name}' in '{mod.__name__}'.",
+                hint="Validate provided arguments against function signature.",
+                error=exc,
             )
 
-    def _call_module_main(self, module_key: str, argv: Optional[List[str]] = None) -> Dict[str, Any]:
-        argv = argv or []
-        module = self._modules.get(module_key)
-        if module is None:
-            return self._result(
-                "fallback",
-                message=self._import_errors.get(module_key, "Module import unavailable."),
-                guidance="Using subprocess fallback is recommended.",
-            )
+    # -------------------------------------------------------------------------
+    # Class instance factory methods (generic + targeted)
+    # -------------------------------------------------------------------------
+    def create_instance(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create an instance from any class via dynamic import.
 
-        candidates = ["main", "cli", "run"]
-        for name in candidates:
-            func = getattr(module, name, None)
-            if callable(func):
-                try:
-                    result = func(argv) if self._accepts_argv(func) else func()
-                    return self._result(
-                        "success",
-                        module=self._module_paths[module_key],
-                        called=name,
-                        result=result,
-                    )
-                except SystemExit as exc:
-                    return self._result(
-                        "success" if int(getattr(exc, "code", 0) or 0) == 0 else "error",
-                        module=self._module_paths[module_key],
-                        called=name,
-                        exit_code=getattr(exc, "code", None),
-                        message="Module executed with SystemExit.",
-                    )
-                except Exception as exc:
-                    return self._result(
-                        "error",
-                        module=self._module_paths[module_key],
-                        called=name,
-                        message=f"Imported module execution failed: {exc}",
-                        traceback=traceback.format_exc(),
-                    )
+        Parameters:
+            module_path: Full import path, e.g. 'aizynthfinder.context.config'
+            class_name: Class name to instantiate.
+            *args/**kwargs: Constructor arguments.
 
-        return self._result(
-            "fallback",
-            module=self._module_paths[module_key],
-            message="No callable entrypoint found in imported module.",
-            guidance="Use CLI fallback method with explicit arguments.",
-        )
-
-    def _accepts_argv(self, func: Any) -> bool:
+        Returns:
+            Unified status dictionary with created instance or error guidance.
+        """
         try:
-            import inspect
-            sig = inspect.signature(func)
-            return len(sig.parameters) > 0
-        except Exception:
-            return False
-
-    # -------------------------------------------------------------------------
-    # Instance methods for imported modules (as requested)
-    # -------------------------------------------------------------------------
-    def instance_aizynthcli(self) -> Dict[str, Any]:
-        """
-        Return metadata and readiness for `aizynthfinder.interfaces.aizynthcli`.
-
-        Returns:
-            dict: status payload containing module availability and path.
-        """
-        key = "aizynthcli"
-        mod = self._modules.get(key)
-        if mod is None:
-            return self._result(
-                "error",
-                module=self._module_paths[key],
-                message=self._import_errors.get(key, "Module not available."),
+            mod = importlib.import_module(module_path)
+            cls = getattr(mod, class_name, None)
+            if cls is None:
+                return self._fail(
+                    f"Class '{class_name}' was not found in module '{module_path}'.",
+                    hint="Verify class name and module path from repository source.",
+                )
+            instance = cls(*args, **kwargs)
+            return self._ok({"instance": instance, "module": module_path, "class": class_name})
+        except Exception as exc:
+            return self._fail(
+                f"Failed to create instance '{class_name}' from '{module_path}'.",
+                hint="Check constructor parameters and required dependencies.",
+                error=exc,
             )
-        return self._result("success", module=self._module_paths[key], instance=repr(mod))
 
-    def instance_cat_output(self) -> Dict[str, Any]:
+    def create_reaction_tree_instance(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Return metadata and readiness for `aizynthfinder.tools.cat_output`.
+        Create a class instance from aizynthfinder.reactiontree module.
 
-        Returns:
-            dict: status payload containing module availability and path.
+        Note:
+            Because class names can vary across versions, this method can use:
+            - kwargs['class_name'] to explicitly choose a class.
+            - default class candidates when omitted.
         """
-        key = "cat_output"
-        mod = self._modules.get(key)
-        if mod is None:
-            return self._result(
-                "error",
-                module=self._module_paths[key],
-                message=self._import_errors.get(key, "Module not available."),
-            )
-        return self._result("success", module=self._module_paths[key], instance=repr(mod))
-
-    def instance_download_public_data(self) -> Dict[str, Any]:
-        """
-        Return metadata and readiness for `aizynthfinder.tools.download_public_data`.
-
-        Returns:
-            dict: status payload containing module availability and path.
-        """
-        key = "download_public_data"
-        mod = self._modules.get(key)
-        if mod is None:
-            return self._result(
-                "error",
-                module=self._module_paths[key],
-                message=self._import_errors.get(key, "Module not available."),
-            )
-        return self._result("success", module=self._module_paths[key], instance=repr(mod))
-
-    def instance_make_stock(self) -> Dict[str, Any]:
-        """
-        Return metadata and readiness for `aizynthfinder.tools.make_stock`.
-
-        Returns:
-            dict: status payload containing module availability and path.
-        """
-        key = "make_stock"
-        mod = self._modules.get(key)
-        if mod is None:
-            return self._result(
-                "error",
-                module=self._module_paths[key],
-                message=self._import_errors.get(key, "Module not available."),
-            )
-        return self._result("success", module=self._module_paths[key], instance=repr(mod))
-
-    def instance_finder_module(self) -> Dict[str, Any]:
-        """
-        Return metadata and readiness for `aizynthfinder.aizynthfinder`.
-
-        Returns:
-            dict: status payload containing module availability and path.
-        """
-        key = "finder"
-        mod = self._modules.get(key)
-        if mod is None:
-            return self._result(
-                "error",
-                module=self._module_paths[key],
-                message=self._import_errors.get(key, "Module not available."),
-            )
-        return self._result("success", module=self._module_paths[key], instance=repr(mod))
-
-    # -------------------------------------------------------------------------
-    # Call methods for identified CLI functions/commands
-    # -------------------------------------------------------------------------
-    def call_aizynthcli(self, args: Optional[List[str]] = None, use_cli_fallback: bool = True) -> Dict[str, Any]:
-        """
-        Execute the main retrosynthesis CLI workflow.
-
-        Args:
-            args: List of command-line style arguments for aizynthcli.
-            use_cli_fallback: If True, fallback to subprocess invocation when import execution is unavailable.
-
-        Returns:
-            dict: Unified status payload with execution result.
-        """
-        args = args or []
-        imported_run = self._call_module_main("aizynthcli", args)
-        if imported_run["status"] in {"success", "error"} or not use_cli_fallback:
-            return imported_run
-        return self._run_subprocess(["aizynthcli"] + args)
-
-    def call_cat_aizynth_output(self, args: Optional[List[str]] = None, use_cli_fallback: bool = True) -> Dict[str, Any]:
-        """
-        Execute output concatenation/inspection utility.
-
-        Args:
-            args: List of command-line style arguments for cat_aizynth_output.
-            use_cli_fallback: If True, fallback to subprocess command.
-
-        Returns:
-            dict: Unified status payload.
-        """
-        args = args or []
-        imported_run = self._call_module_main("cat_output", args)
-        if imported_run["status"] in {"success", "error"} or not use_cli_fallback:
-            return imported_run
-        return self._run_subprocess(["cat_aizynth_output"] + args)
-
-    def call_download_public_data(self, args: Optional[List[str]] = None, use_cli_fallback: bool = True) -> Dict[str, Any]:
-        """
-        Download public model and data assets used by AiZynthFinder.
-
-        Args:
-            args: List of command-line style arguments for download_public_data.
-            use_cli_fallback: If True, fallback to subprocess command.
-
-        Returns:
-            dict: Unified status payload.
-        """
-        args = args or []
-        imported_run = self._call_module_main("download_public_data", args)
-        if imported_run["status"] in {"success", "error"} or not use_cli_fallback:
-            return imported_run
-        return self._run_subprocess(["download_public_data"] + args)
-
-    def call_make_stock(self, args: Optional[List[str]] = None, use_cli_fallback: bool = True) -> Dict[str, Any]:
-        """
-        Build stock artifacts/databases for stock availability checks.
-
-        Args:
-            args: List of command-line style arguments for make_stock.
-            use_cli_fallback: If True, fallback to subprocess command.
-
-        Returns:
-            dict: Unified status payload.
-        """
-        args = args or []
-        imported_run = self._call_module_main("make_stock", args)
-        if imported_run["status"] in {"success", "error"} or not use_cli_fallback:
-            return imported_run
-        return self._run_subprocess(["make_stock"] + args)
-
-    # -------------------------------------------------------------------------
-    # Programmatic finder entry (best-effort import mode)
-    # -------------------------------------------------------------------------
-    def call_finder_entry(self, method_name: str = "main", kwargs: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        """
-        Attempt to call an entry method in `aizynthfinder.aizynthfinder`.
-
-        Args:
-            method_name: Name of callable attribute in the module.
-            kwargs: Keyword arguments for the target callable.
-
-        Returns:
-            dict: Unified status payload.
-        """
-        kwargs = kwargs or {}
-        module = self._modules.get("finder")
-        if module is None:
-            return self._result(
-                "error",
-                module=self._module_paths["finder"],
-                message=self._import_errors.get("finder", "Finder module unavailable."),
-            )
-        func = getattr(module, method_name, None)
-        if not callable(func):
-            return self._result(
-                "error",
-                module=self._module_paths["finder"],
-                message=f"Method '{method_name}' not found or not callable.",
-                guidance="Use an existing callable in aizynthfinder.aizynthfinder or switch to CLI mode.",
+        mod = self._modules.get("reactiontree")
+        if not mod:
+            return self._fail(
+                "Reaction tree module is unavailable.",
+                hint="Run health_check() and verify source import path.",
             )
         try:
-            result = func(**kwargs)
-            return self._result(
-                "success",
-                module=self._module_paths["finder"],
-                called=method_name,
-                result=result,
+            class_name = kwargs.pop("class_name", None)
+            candidates = [class_name] if class_name else ["ReactionTree", "RouteCollection", "TreeAnalysis"]
+            candidates = [c for c in candidates if c]
+            for name in candidates:
+                cls = getattr(mod, name, None)
+                if cls is not None:
+                    instance = cls(*args, **kwargs)
+                    return self._ok({"instance": instance, "module": mod.__name__, "class": name})
+            return self._fail(
+                "No known class found in reactiontree module.",
+                hint="Pass class_name explicitly to create_reaction_tree_instance().",
             )
         except Exception as exc:
-            return self._result(
-                "error",
-                module=self._module_paths["finder"],
-                called=method_name,
-                message=f"Finder call failed: {exc}",
-                traceback=traceback.format_exc(),
+            return self._fail(
+                "Failed to instantiate class from reactiontree module.",
+                hint="Check constructor arguments and class_name.",
+                error=exc,
             )
 
     # -------------------------------------------------------------------------
-    # Generic dispatcher
+    # Fallback utilities
     # -------------------------------------------------------------------------
-    def call(self, command: str, args: Optional[List[str]] = None, kwargs: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    def fallback_cli_guidance(self) -> Dict[str, Any]:
         """
-        Generic command dispatcher.
-
-        Supported commands:
-            - "aizynthcli"
-            - "cat_aizynth_output"
-            - "download_public_data"
-            - "make_stock"
-            - "finder_entry"
-
-        Args:
-            command: Command key.
-            args: CLI-style args for command methods.
-            kwargs: Extra kwargs (used by finder_entry).
-
-        Returns:
-            dict: Unified status payload.
+        Provide concise actionable fallback guidance.
         """
-        args = args or []
-        kwargs = kwargs or {}
-
-        if command == "aizynthcli":
-            return self.call_aizynthcli(args=args)
-        if command == "cat_aizynth_output":
-            return self.call_cat_aizynth_output(args=args)
-        if command == "download_public_data":
-            return self.call_download_public_data(args=args)
-        if command == "make_stock":
-            return self.call_make_stock(args=args)
-        if command == "finder_entry":
-            method_name = kwargs.pop("method_name", "main")
-            return self.call_finder_entry(method_name=method_name, kwargs=kwargs)
-
-        return self._result(
-            "error",
-            message=f"Unsupported command '{command}'.",
-            supported_commands=[
-                "aizynthcli",
-                "cat_aizynth_output",
-                "download_public_data",
-                "make_stock",
-                "finder_entry",
-            ],
+        return self._ok(
+            {
+                "message": "Import mode is unavailable or partial. Use CLI fallbacks.",
+                "recommended_calls": [
+                    "call_aizynthcli(argv=[...])",
+                    "call_download_public_data(argv=[...])",
+                    "call_make_stock(argv=[...])",
+                    "call_cat_output(argv=[...])",
+                ],
+            }
         )
+
+    def debug_trace(self) -> Dict[str, Any]:
+        """
+        Return captured import errors and traceback context for diagnostics.
+        """
+        try:
+            failed = self._modules.get("__failed__", {})
+            return self._ok(
+                {
+                    "import_error_summary": self._import_error,
+                    "failed_modules": failed,
+                    "traceback_note": "Runtime tracebacks are returned per method on failure.",
+                    "stack": traceback.format_exc(),
+                }
+            )
+        except Exception as exc:
+            return self._fail("Failed to build debug trace.", error=exc)

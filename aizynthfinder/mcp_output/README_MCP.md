@@ -3,159 +3,126 @@
 ## 1) Project Introduction
 
 This service wraps **AiZynthFinder** as an MCP (Model Context Protocol) backend for retrosynthesis workflows.  
-It provides practical tools to:
+It provides developer-friendly tools to:
 
-- Load AiZynthFinder configuration and models
-- Run retrosynthesis search for a target molecule (SMILES)
-- Retrieve and analyze routes/reaction trees
-- Export outputs for downstream LLM or application workflows
+- Run retrosynthesis search from a target molecule (SMILES)
+- Analyze and rank routes after search
+- Manage stock and model-related operational tasks
+- Optionally use CLI-based fallback when direct Python imports are constrained
 
-Core integration points in the codebase:
+Primary integration points in AiZynthFinder:
 
-- `aizynthfinder.aizynthfinder.AiZynthFinder` (main orchestrator)
-- `aizynthfinder.context.config.Configuration` (config bootstrap)
-- `aizynthfinder.analysis.tree_analysis.TreeAnalysis` (post-search analysis)
-- Search backends: MCTS, Retro*, Breadth-first, DFPN
+- `AiZynthFinder` (orchestration)
+- `Configuration` (runtime config loading)
+- `MctsSearchTree` (search engine)
+- `TreeAnalysis` (route extraction and scoring)
 
 ---
 
 ## 2) Installation Method
 
-### Prerequisites
+### Requirements
 
-- Python `>=3.10`
-- Recommended system stack for chemistry/ML:
-  - `rdkit`
-  - `onnxruntime`
-  - `numpy`, `pandas`, `PyYAML`, `networkx`
-
-Optional (feature-dependent): `tensorflow`, `rdchiral`, `pymongo`, `paretoset`, `ipywidgets`, `jupyter`.
+- Python `>=3.9`
+- Core libs: `rdkit`, `numpy`, `pandas`, `networkx`, `pyyaml`, `scipy`, `onnxruntime`
+- Optional:
+  - `tensorflow/keras` (some expansion/filter backends)
+  - `pymongo` (Mongo utilities)
+  - notebook/GUI plotting stack for interactive usage
 
 ### Install
 
-1. Create and activate a virtual environment.
-2. Install AiZynthFinder and runtime dependencies.
-3. Download/build required model and stock data.
+1. Install AiZynthFinder from source or package.
+2. Install MCP (Model Context Protocol) server runtime dependencies.
+3. Ensure model/data assets are available (local paths or downloaded public data).
 
-Typical commands:
+Typical operational commands in this ecosystem:
 
-- `pip install aizynthfinder`
+- `aizynthcli` (batch retrosynthesis)
 - `download_public_data` (fetch public assets)
-- `make_stock ...` (prepare stock input if needed)
-
-If you are packaging this as an MCP (Model Context Protocol) server, add your MCP runtime package (for example, FastMCP/SDK of choice) in the same environment.
+- `make_stock` (build stock artifacts)
+- `cat_output` (inspect/merge outputs)
 
 ---
 
 ## 3) Quick Start
 
-### Minimal service flow
+### Minimal workflow
 
-1. Load configuration (`Configuration`).
-2. Initialize `AiZynthFinder`.
+1. Load AiZynthFinder configuration (policies, stock, scorers, search settings).
+2. Create an `AiZynthFinder` instance.
 3. Set target SMILES.
-4. Run tree search.
-5. Collect routes and analysis (`TreeAnalysis`).
+4. Run search (MCTS by default).
+5. Use `TreeAnalysis` to extract/rank routes.
+6. Return structured results via MCP (Model Context Protocol) tool responses.
 
-Example workflow (conceptual):
+### Example MCP (Model Context Protocol) usage flow
 
-- Initialize with YAML config
-- Run search for one molecule
-- Return:
-  - solved status
-  - top-N routes
-  - route scores
-  - serialized reaction trees (JSON-ready)
-
-Recommended MCP (Model Context Protocol) pattern:
-
-- Keep a per-request “session” object in memory
-- Expose separate tools for:
-  - config/session initialization
-  - run search
-  - list routes
-  - inspect route details
-- Return compact JSON payloads for LLM consumption
+- `health_check` → verify runtime/dependencies
+- `load_config` → parse config and validate resources
+- `run_retrosynthesis` with target SMILES and limits (iterations/time)
+- `analyze_routes` for ranking/summary
+- `export_results` to JSON/CSV-like artifacts
 
 ---
 
 ## 4) Available Tools and Endpoints
 
-Suggested MCP (Model Context Protocol) tools/endpoints for this service:
+Recommended MCP (Model Context Protocol) tool set:
 
-- `health_check`
-  - Verify service readiness, dependency availability, and model paths.
+- `health_check`  
+  Validate Python/runtime, key imports, and model/stock path availability.
 
-- `init_session`
-  - Inputs: config path or config object, optional backend override.
-  - Output: session ID + loaded policy/stock/scorer summary.
+- `load_config`  
+  Load and validate AiZynthFinder configuration.
 
-- `run_retro_search`
-  - Inputs: session ID, target SMILES, optional search limits.
-  - Output: solved flag, iteration stats, route count.
+- `run_retrosynthesis`  
+  Execute search for a target molecule; returns route candidates and search metadata.
 
-- `get_routes`
-  - Inputs: session ID, top_k, sort/scoring preference.
-  - Output: ranked route list with summary metrics.
+- `analyze_routes`  
+  Run post-processing with route ranking, scores, and route statistics.
 
-- `get_route_tree`
-  - Inputs: session ID, route ID/index.
-  - Output: serialized `ReactionTree` (nodes/reactions/metadata).
+- `get_search_status`  
+  Return progress/status for long-running jobs.
 
-- `analyze_tree`
-  - Inputs: session ID, analysis options.
-  - Output: `TreeAnalysis` metrics, route quality indicators.
+- `list_scoring_strategies`  
+  Show available scorer names from context/scoring collection.
 
-- `list_search_backends`
-  - Output: available backends (MCTS, Retro*, Breadth-first, DFPN) and current selection.
+- `list_expansion_strategies`  
+  Show active expansion strategies from policy configuration.
 
-- `export_results`
-  - Inputs: session ID, format (json/csv-like summary path handling).
-  - Output: export location or payload blob.
+- `build_stock`  
+  Administrative helper around stock generation workflow (from molecular inputs).
 
-- `close_session`
-  - Cleanup in-memory resources for the session.
+- `download_public_data`  
+  Operational helper to fetch public model/data assets.
 
-Related native CLI utilities (useful for ops/debug):  
-`aizynthcli`, `cat_aizynth_output`, `download_public_data`, `make_stock`.
+- `run_cli_fallback`  
+  Execute `aizynthcli` pipeline when import-mode integration is not suitable.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- **RDKit installation issues**
-  - Prefer conda-based install if pip wheels fail in your environment.
-
-- **Model/data not found**
-  - Ensure public data is downloaded and config paths are correct.
-
-- **Slow runtime**
-  - Retrosynthesis search can be compute-heavy; cap iterations/time per request.
-  - Use queueing and per-request timeout in production.
-
-- **Backend mismatch**
-  - Some configs are tuned for MCTS; switching backend may affect quality/performance.
-
-- **Optional dependency errors**
-  - Install extras only when using corresponding features (e.g., TensorFlow policies, Mongo stock).
-
-- **Concurrency**
-  - Avoid unsafe shared mutable state; isolate sessions for multi-user MCP (Model Context Protocol) deployments.
-
-- **Large payloads**
-  - Return summarized route info by default; fetch full trees with a separate call.
+- **RDKit installation**: most common setup blocker; use a compatible Python environment.
+- **Model/backend mismatch**: some policies require TensorFlow/Keras; ensure backend matches config.
+- **Missing stock/models**: search quality depends heavily on valid stock and trained expansion/filter assets.
+- **Performance**: MCTS can be expensive; control iterations, depth, and timeout in config.
+- **Import vs CLI mode**: import integration is preferred; keep CLI fallback for isolated/sandboxed deployments.
+- **Environment reproducibility**: pin dependency versions and keep config/data paths explicit.
 
 ---
 
-## 6) Reference Links / Documentation
+## 6) Reference Links and Documentation
 
 - Repository: https://github.com/MolecularAI/aizynthfinder
-- Main package entry: `aizynthfinder/aizynthfinder.py`
-- CLI interface: `aizynthfinder/interfaces/aizynthcli.py`
-- Analysis module: `aizynthfinder/analysis/tree_analysis.py`
-- Search backends:
-  - `aizynthfinder/search/mcts/`
-  - `aizynthfinder/search/retrostar/`
-  - `aizynthfinder/search/breadth_first/`
-  - `aizynthfinder/search/dfpn/`
-- Service extension examples: `services/README.md` (renamed from original services directory guidance)
+- Core modules to review:
+  - `aizynthfinder/aizynthfinder.py`
+  - `aizynthfinder/context/config.py`
+  - `aizynthfinder/search/mcts/search.py`
+  - `aizynthfinder/analysis/tree_analysis.py`
+  - `aizynthfinder/interfaces/aizynthcli.py`
+  - `aizynthfinder/tools/make_stock.py`
+- Existing project docs and changelog in repo root (`README.md`, `CHANGELOG.md`).
+
+If you are packaging this as a standalone MCP (Model Context Protocol) service, keep tool interfaces thin, prefer structured JSON outputs, and expose config/search limits explicitly for safe operation.
