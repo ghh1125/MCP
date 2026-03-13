@@ -1,295 +1,472 @@
 import os
 import sys
-from typing import Any, Dict, Optional
+import importlib
+import importlib.util
+import importlib.machinery
+from typing import Any, Dict, Optional, Tuple
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "source",
 )
-if source_path not in sys.path:
-    sys.path.insert(0, source_path)
+sys.path.insert(0, source_path)
 
 
 class Adapter:
     """
-    MCP Import-mode adapter for the backtrader repository.
+    MCP Import Mode Adapter for backtrader repository integration.
 
-    This adapter prioritizes direct imports from repository source code and provides
-    graceful fallbacks when optional modules are unavailable.
+    This adapter attempts direct module import first ("import" mode) and falls back
+    to a file-based dynamic loader ("fallback_cli") when needed.
+
+    Unified return format for all public methods:
+    {
+        "status": "success" | "error",
+        "mode": "<current mode>",
+        "message": "<human-readable summary>",
+        "data": <optional payload>,
+        "error": "<optional error details>"
+    }
     """
 
     def __init__(self) -> None:
         self.mode = "import"
-        self._modules: Dict[str, Any] = {}
+        self._loaded_modules: Dict[str, Any] = {}
         self._import_errors: Dict[str, str] = {}
-        self._load_modules()
+        self._initialize_imports()
 
     # -------------------------------------------------------------------------
-    # Internal helpers
+    # Core helpers
     # -------------------------------------------------------------------------
-    def _result(self, status: str, **kwargs: Any) -> Dict[str, Any]:
-        payload = {"status": status, "mode": self.mode}
-        payload.update(kwargs)
-        return payload
+    def _ok(self, message: str, data: Optional[Any] = None) -> Dict[str, Any]:
+        return {
+            "status": "success",
+            "mode": self.mode,
+            "message": message,
+            "data": data,
+        }
 
-    def _load_optional(self, key: str, import_path: str) -> None:
+    def _err(self, message: str, error: Optional[Exception] = None) -> Dict[str, Any]:
+        return {
+            "status": "error",
+            "mode": self.mode,
+            "message": message,
+            "error": str(error) if error else None,
+        }
+
+    def _safe_import(self, module_path: str) -> Tuple[Optional[Any], Optional[str]]:
         try:
-            module = __import__(import_path, fromlist=["*"])
-            self._modules[key] = module
+            module = importlib.import_module(module_path)
+            self._loaded_modules[module_path] = module
+            return module, None
         except Exception as exc:
-            self._modules[key] = None
-            self._import_errors[key] = (
-                f"Failed to import '{import_path}'. "
-                f"Install or enable required optional dependency. Details: {exc}"
-            )
+            self._import_errors[module_path] = str(exc)
+            return None, str(exc)
 
-    def _load_modules(self) -> None:
-        self._load_optional("backtrader", "backtrader")
-        self._load_optional("cerebro_mod", "backtrader.cerebro")
-        self._load_optional("strategy_mod", "backtrader.strategy")
-        self._load_optional("broker_mod", "backtrader.broker")
-        self._load_optional("feeds_mod", "backtrader.feeds")
-        self._load_optional("analyzers_mod", "backtrader.analyzers")
-        self._load_optional("indicators_mod", "backtrader.indicators")
-        self._load_optional("observers_mod", "backtrader.observers")
-        self._load_optional("sizers_mod", "backtrader.sizers")
-        self._load_optional("stores_mod", "backtrader.stores")
-        self._load_optional("signals_mod", "backtrader.signals")
-        self._load_optional("btrun_mod", "backtrader.btrun.btrun")
+    def _load_module_from_file(self, module_name: str, file_path: str) -> Tuple[Optional[Any], Optional[str]]:
+        try:
+            if not os.path.exists(file_path):
+                return None, f"File not found: {file_path}. Verify repository extraction path and source directory."
+            loader = importlib.machinery.SourceFileLoader(module_name, file_path)
+            spec = importlib.util.spec_from_loader(module_name, loader)
+            if spec is None:
+                return None, f"Unable to create module spec for {module_name}."
+            mod = importlib.util.module_from_spec(spec)
+            loader.exec_module(mod)
+            self._loaded_modules[module_name] = mod
+            return mod, None
+        except Exception as exc:
+            return None, str(exc)
 
-    def _require(self, key: str) -> Optional[Any]:
-        mod = self._modules.get(key)
-        if mod is None:
-            return None
-        return mod
+    def _initialize_imports(self) -> None:
+        targets = [
+            "backtrader.btrun.btrun",
+            "tools.rewrite-data",
+            "tools.yahoodownload",
+            "contrib.utils.iqfeed-to-influxdb",
+            "contrib.utils.influxdb-import",
+            "contrib.samples.pair-trading.pair-trading",
+            "samples.weekdays-filler.weekdaysfiller",
+            "samples.weekdays-filler.weekdaysaligner",
+        ]
 
-    # -------------------------------------------------------------------------
-    # Status and diagnostics
-    # -------------------------------------------------------------------------
-    def health_check(self) -> Dict[str, Any]:
+        for mod in targets:
+            self._safe_import(mod)
+
+        if any(m not in self._loaded_modules for m in targets):
+            self.mode = "fallback_cli"
+
+    def get_health(self) -> Dict[str, Any]:
         """
-        Validate import-mode readiness and return diagnostic status.
+        Return adapter health and module import diagnostics.
 
         Returns:
-            dict: Unified status payload with loaded modules and import errors.
+            dict: Unified status payload with import success/failure overview.
         """
-        loaded = {k: (v is not None) for k, v in self._modules.items()}
-        status = "ok" if any(loaded.values()) else "error"
-        return self._result(
-            status,
-            loaded_modules=loaded,
-            import_errors=self._import_errors,
-            guidance="Ensure repository source exists under the configured source path.",
+        return self._ok(
+            "Adapter health check completed.",
+            data={
+                "loaded_modules": list(self._loaded_modules.keys()),
+                "import_errors": self._import_errors,
+                "source_path": source_path,
+            },
         )
 
     # -------------------------------------------------------------------------
-    # Core class factories
-    # -------------------------------------------------------------------------
-    def create_cerebro(self, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Create a backtrader.cerebro.Cerebro instance.
-
-        Parameters:
-            **kwargs: Keyword arguments passed directly to Cerebro constructor.
-
-        Returns:
-            dict: status, instance or error guidance.
-        """
-        mod = self._require("cerebro_mod")
-        if mod is None or not hasattr(mod, "Cerebro"):
-            return self._result(
-                "error",
-                error="Cerebro class is unavailable.",
-                guidance=self._import_errors.get(
-                    "cerebro_mod",
-                    "Verify backtrader.cerebro is present in repository source.",
-                ),
-            )
-        try:
-            instance = mod.Cerebro(**kwargs)
-            return self._result("ok", instance=instance, class_name="backtrader.cerebro.Cerebro")
-        except Exception as exc:
-            return self._result("error", error=f"Failed to create Cerebro: {exc}")
-
-    def create_strategy(self, strategy_class_name: str = "Strategy", **kwargs: Any) -> Dict[str, Any]:
-        """
-        Create an instance of a strategy class from backtrader.strategy module.
-
-        Parameters:
-            strategy_class_name: Class name to instantiate (default: Strategy).
-            **kwargs: Constructor parameters for the strategy class.
-
-        Returns:
-            dict: status and created instance when possible.
-        """
-        mod = self._require("strategy_mod")
-        if mod is None:
-            return self._result(
-                "error",
-                error="Strategy module is unavailable.",
-                guidance=self._import_errors.get("strategy_mod", "Check backtrader.strategy import path."),
-            )
-        cls = getattr(mod, strategy_class_name, None)
-        if cls is None:
-            return self._result(
-                "error",
-                error=f"Strategy class '{strategy_class_name}' not found.",
-                guidance="Use a valid class from backtrader.strategy.",
-            )
-        try:
-            instance = cls(**kwargs)
-            return self._result("ok", instance=instance, class_name=f"backtrader.strategy.{strategy_class_name}")
-        except Exception as exc:
-            return self._result("error", error=f"Failed to instantiate strategy class: {exc}")
-
-    def create_broker_base(self, class_name: str = "BrokerBase", **kwargs: Any) -> Dict[str, Any]:
-        """
-        Create an instance of a broker class from backtrader.broker.
-
-        Parameters:
-            class_name: Broker class name in backtrader.broker.
-            **kwargs: Constructor args for selected broker class.
-
-        Returns:
-            dict: status and broker instance or actionable error.
-        """
-        mod = self._require("broker_mod")
-        if mod is None:
-            return self._result(
-                "error",
-                error="Broker module is unavailable.",
-                guidance=self._import_errors.get("broker_mod", "Check backtrader.broker source module."),
-            )
-        cls = getattr(mod, class_name, None)
-        if cls is None:
-            return self._result(
-                "error",
-                error=f"Broker class '{class_name}' not found.",
-                guidance="Inspect backtrader.broker for valid class names.",
-            )
-        try:
-            instance = cls(**kwargs)
-            return self._result("ok", instance=instance, class_name=f"backtrader.broker.{class_name}")
-        except Exception as exc:
-            return self._result("error", error=f"Failed to instantiate broker class: {exc}")
-
-    # -------------------------------------------------------------------------
-    # CLI-related methods from analysis
+    # backtrader.btrun.btrun
     # -------------------------------------------------------------------------
     def call_btrun(self, argv: Optional[list] = None) -> Dict[str, Any]:
         """
-        Execute backtrader CLI entrypoint from backtrader.btrun.btrun.
+        Execute the built-in btrun command module.
 
-        Parameters:
-            argv: Optional argument list. If omitted, uses current process args behavior.
+        Args:
+            argv (list, optional): Command-line style arguments. If omitted, module defaults are used.
 
         Returns:
-            dict: status with return code/result or error details.
+            dict: Unified status with execution result or actionable error guidance.
         """
-        mod = self._require("btrun_mod")
-        if mod is None:
-            return self._result(
-                "error",
-                error="btrun CLI module is unavailable.",
-                guidance=self._import_errors.get("btrun_mod", "Ensure backtrader.btrun.btrun exists."),
-            )
         try:
-            if hasattr(mod, "main"):
-                result = mod.main(argv) if argv is not None else mod.main()
-                return self._result("ok", result=result, entrypoint="backtrader.btrun.btrun.main")
-            return self._result(
-                "error",
-                error="No main entrypoint found in btrun module.",
-                guidance="Use a module version exposing main(argv).",
+            module = self._loaded_modules.get("backtrader.btrun.btrun")
+            if module is None:
+                module, err = self._safe_import("backtrader.btrun.btrun")
+                if module is None:
+                    return self._err(
+                        "Failed to import backtrader btrun module. Confirm source/backtrader is present and importable.",
+                        Exception(err),
+                    )
+
+            if hasattr(module, "main"):
+                result = module.main(argv) if argv is not None else module.main()
+                return self._ok("btrun executed via main().", data={"result": result})
+
+            return self._err(
+                "btrun module does not expose main(). Use backtrader.btrun.btrun manually with repository-compatible arguments."
             )
-        except SystemExit as exc:
-            return self._result("ok", result=getattr(exc, "code", 0), note="CLI exited via SystemExit.")
         except Exception as exc:
-            return self._result("error", error=f"Failed to execute btrun: {exc}")
+            return self._err("btrun execution failed. Validate arguments and data file paths.", exc)
 
     # -------------------------------------------------------------------------
-    # Generic module accessors for broad repository coverage
+    # tools/rewrite-data.py
     # -------------------------------------------------------------------------
-    def get_module(self, module_key: str) -> Dict[str, Any]:
+    def call_rewrite_data_parse_args(self, args: Optional[list] = None) -> Dict[str, Any]:
         """
-        Retrieve a loaded module object by adapter key.
+        Call parse_args from tools/rewrite-data.py.
 
-        Parameters:
-            module_key: One of internal module keys, e.g., 'feeds_mod', 'indicators_mod'.
+        Args:
+            args (list, optional): Argument vector for parser input.
 
         Returns:
-            dict: status and module object when available.
+            dict: Unified status with parser namespace/details.
         """
-        module = self._modules.get(module_key)
-        if module is None:
-            return self._result(
-                "error",
-                error=f"Module key '{module_key}' is not available.",
-                guidance=self._import_errors.get(module_key, "Call health_check() for diagnostics."),
-            )
-        return self._result("ok", module=module, module_key=module_key)
-
-    def create_from_module(self, module_key: str, class_name: str, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Instantiate any class from a previously loaded module.
-
-        Parameters:
-            module_key: Internal loaded module key.
-            class_name: Class name inside that module.
-            **kwargs: Constructor args.
-
-        Returns:
-            dict: status and instance.
-        """
-        module = self._modules.get(module_key)
-        if module is None:
-            return self._result(
-                "error",
-                error=f"Module '{module_key}' is unavailable.",
-                guidance=self._import_errors.get(module_key, "Verify optional dependencies and source path."),
-            )
-        cls = getattr(module, class_name, None)
-        if cls is None:
-            return self._result(
-                "error",
-                error=f"Class '{class_name}' not found in module '{module_key}'.",
-                guidance="Use get_module() and inspect available attributes.",
-            )
         try:
-            instance = cls(**kwargs)
-            return self._result("ok", instance=instance, module_key=module_key, class_name=class_name)
+            mod = self._loaded_modules.get("tools.rewrite-data")
+            if mod is None:
+                path = os.path.join(source_path, "tools", "rewrite-data.py")
+                mod, err = self._load_module_from_file("tools.rewrite_data_dynamic", path)
+                if mod is None:
+                    return self._err("Unable to load tools/rewrite-data.py for parse_args.", Exception(err))
+
+            fn = getattr(mod, "parse_args", None)
+            if fn is None:
+                return self._err("parse_args not found in tools/rewrite-data.py. Confirm repository version compatibility.")
+            res = fn(args) if args is not None else fn()
+            return self._ok("rewrite-data parse_args executed.", data={"result": res})
         except Exception as exc:
-            return self._result("error", error=f"Failed to instantiate '{class_name}': {exc}")
+            return self._err("rewrite-data parse_args failed. Check argument format.", exc)
 
-    def call_module_function(self, module_key: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call_rewrite_data_runstrat(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Call any function from a loaded module by name.
+        Call runstrat from tools/rewrite-data.py.
 
-        Parameters:
-            module_key: Internal module key.
-            function_name: Callable attribute name.
-            *args: Positional args.
-            **kwargs: Keyword args.
+        Args:
+            *args: Positional arguments forwarded to runstrat.
+            **kwargs: Keyword arguments forwarded to runstrat.
 
         Returns:
-            dict: status and function return value.
+            dict: Unified status with execution output.
         """
-        module = self._modules.get(module_key)
-        if module is None:
-            return self._result(
-                "error",
-                error=f"Module '{module_key}' is unavailable.",
-                guidance=self._import_errors.get(module_key, "Check import diagnostics with health_check()."),
-            )
-        fn = getattr(module, function_name, None)
-        if fn is None or not callable(fn):
-            return self._result(
-                "error",
-                error=f"Function '{function_name}' not found or not callable in '{module_key}'.",
-                guidance="Inspect module attributes before invoking.",
-            )
         try:
-            value = fn(*args, **kwargs)
-            return self._result("ok", result=value, module_key=module_key, function_name=function_name)
+            mod = self._loaded_modules.get("tools.rewrite-data")
+            if mod is None:
+                path = os.path.join(source_path, "tools", "rewrite-data.py")
+                mod, err = self._load_module_from_file("tools.rewrite_data_dynamic", path)
+                if mod is None:
+                    return self._err("Unable to load tools/rewrite-data.py for runstrat.", Exception(err))
+
+            fn = getattr(mod, "runstrat", None)
+            if fn is None:
+                return self._err("runstrat not found in tools/rewrite-data.py. Confirm repository version compatibility.")
+            res = fn(*args, **kwargs)
+            return self._ok("rewrite-data runstrat executed.", data={"result": res})
         except Exception as exc:
-            return self._result("error", error=f"Function call failed: {exc}")
+            return self._err("rewrite-data runstrat failed. Validate strategy/data parameters.", exc)
+
+    # -------------------------------------------------------------------------
+    # tools/yahoodownload.py
+    # -------------------------------------------------------------------------
+    def create_yahoo_download_instance(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Instantiate YahooDownload from tools/yahoodownload.py.
+
+        Args:
+            *args: Constructor positional arguments.
+            **kwargs: Constructor keyword arguments.
+
+        Returns:
+            dict: Unified status with instantiated object.
+        """
+        try:
+            mod = self._loaded_modules.get("tools.yahoodownload")
+            if mod is None:
+                mod, err = self._safe_import("tools.yahoodownload")
+                if mod is None:
+                    return self._err("Unable to import tools.yahoodownload.", Exception(err))
+
+            cls = getattr(mod, "YahooDownload", None)
+            if cls is None:
+                return self._err("YahooDownload class not found in tools.yahoodownload.")
+            inst = cls(*args, **kwargs)
+            return self._ok("YahooDownload instance created.", data={"instance": inst})
+        except Exception as exc:
+            return self._err("Failed to create YahooDownload instance. Check constructor parameters.", exc)
+
+    def call_yahoodownload_parse_args(self, args: Optional[list] = None) -> Dict[str, Any]:
+        """
+        Call parse_args from tools/yahoodownload.py.
+
+        Args:
+            args (list, optional): Argument vector for parser input.
+
+        Returns:
+            dict: Unified status with parser output.
+        """
+        try:
+            mod = self._loaded_modules.get("tools.yahoodownload")
+            if mod is None:
+                mod, err = self._safe_import("tools.yahoodownload")
+                if mod is None:
+                    return self._err("Unable to import tools.yahoodownload.", Exception(err))
+
+            fn = getattr(mod, "parse_args", None)
+            if fn is None:
+                return self._err("parse_args not found in tools.yahoodownload.")
+            res = fn(args) if args is not None else fn()
+            return self._ok("yahoodownload parse_args executed.", data={"result": res})
+        except Exception as exc:
+            return self._err("yahoodownload parse_args failed. Verify CLI-style arguments.", exc)
+
+    # -------------------------------------------------------------------------
+    # contrib/utils/iqfeed-to-influxdb.py
+    # -------------------------------------------------------------------------
+    def create_iqfeed_tool_instance(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Instantiate IQFeedTool from contrib/utils/iqfeed-to-influxdb.py.
+
+        Args:
+            *args: Constructor positional arguments.
+            **kwargs: Constructor keyword arguments.
+
+        Returns:
+            dict: Unified status with created instance.
+        """
+        try:
+            mod = self._loaded_modules.get("contrib.utils.iqfeed-to-influxdb")
+            if mod is None:
+                path = os.path.join(source_path, "contrib", "utils", "iqfeed-to-influxdb.py")
+                mod, err = self._load_module_from_file("contrib.utils.iqfeed_to_influxdb_dynamic", path)
+                if mod is None:
+                    return self._err("Unable to load contrib/utils/iqfeed-to-influxdb.py.", Exception(err))
+
+            cls = getattr(mod, "IQFeedTool", None)
+            if cls is None:
+                return self._err("IQFeedTool class not found in contrib/utils/iqfeed-to-influxdb.py.")
+            inst = cls(*args, **kwargs)
+            return self._ok("IQFeedTool instance created.", data={"instance": inst})
+        except Exception as exc:
+            return self._err("Failed to create IQFeedTool instance. Validate required external service settings.", exc)
+
+    # -------------------------------------------------------------------------
+    # contrib/utils/influxdb-import.py
+    # -------------------------------------------------------------------------
+    def create_influxdb_tool_instance(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Instantiate InfluxDBTool from contrib/utils/influxdb-import.py.
+
+        Args:
+            *args: Constructor positional arguments.
+            **kwargs: Constructor keyword arguments.
+
+        Returns:
+            dict: Unified status with created instance.
+        """
+        try:
+            mod = self._loaded_modules.get("contrib.utils.influxdb-import")
+            if mod is None:
+                path = os.path.join(source_path, "contrib", "utils", "influxdb-import.py")
+                mod, err = self._load_module_from_file("contrib.utils.influxdb_import_dynamic", path)
+                if mod is None:
+                    return self._err("Unable to load contrib/utils/influxdb-import.py.", Exception(err))
+
+            cls = getattr(mod, "InfluxDBTool", None)
+            if cls is None:
+                return self._err("InfluxDBTool class not found in contrib/utils/influxdb-import.py.")
+            inst = cls(*args, **kwargs)
+            return self._ok("InfluxDBTool instance created.", data={"instance": inst})
+        except Exception as exc:
+            return self._err("Failed to create InfluxDBTool instance. Verify InfluxDB connection and credentials.", exc)
+
+    # -------------------------------------------------------------------------
+    # contrib/samples/pair-trading/pair-trading.py
+    # -------------------------------------------------------------------------
+    def create_pair_trading_strategy_instance(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Instantiate PairTradingStrategy from contrib/samples/pair-trading/pair-trading.py.
+
+        Args:
+            *args: Constructor positional arguments.
+            **kwargs: Constructor keyword arguments.
+
+        Returns:
+            dict: Unified status with created strategy instance.
+        """
+        try:
+            mod = self._loaded_modules.get("contrib.samples.pair-trading.pair-trading")
+            if mod is None:
+                path = os.path.join(source_path, "contrib", "samples", "pair-trading", "pair-trading.py")
+                mod, err = self._load_module_from_file("contrib.samples.pair_trading_dynamic", path)
+                if mod is None:
+                    return self._err("Unable to load pair-trading sample module.", Exception(err))
+
+            cls = getattr(mod, "PairTradingStrategy", None)
+            if cls is None:
+                return self._err("PairTradingStrategy class not found in pair-trading sample module.")
+            inst = cls(*args, **kwargs)
+            return self._ok("PairTradingStrategy instance created.", data={"instance": inst})
+        except Exception as exc:
+            return self._err("Failed to create PairTradingStrategy instance. Use Cerebro-managed instantiation for runtime use.", exc)
+
+    def call_pair_trading_parse_args(self, args: Optional[list] = None) -> Dict[str, Any]:
+        """
+        Call parse_args from pair-trading sample module.
+
+        Args:
+            args (list, optional): Parser argument list.
+
+        Returns:
+            dict: Unified status with parser result.
+        """
+        try:
+            path = os.path.join(source_path, "contrib", "samples", "pair-trading", "pair-trading.py")
+            mod, err = self._load_module_from_file("contrib.samples.pair_trading_dynamic", path)
+            if mod is None:
+                return self._err("Unable to load pair-trading sample for parse_args.", Exception(err))
+
+            fn = getattr(mod, "parse_args", None)
+            if fn is None:
+                return self._err("parse_args not found in pair-trading sample module.")
+            res = fn(args) if args is not None else fn()
+            return self._ok("pair-trading parse_args executed.", data={"result": res})
+        except Exception as exc:
+            return self._err("pair-trading parse_args failed. Verify provided options.", exc)
+
+    def call_pair_trading_runstrategy(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call runstrategy from pair-trading sample module.
+
+        Args:
+            *args: Positional arguments for runstrategy.
+            **kwargs: Keyword arguments for runstrategy.
+
+        Returns:
+            dict: Unified status with run output.
+        """
+        try:
+            path = os.path.join(source_path, "contrib", "samples", "pair-trading", "pair-trading.py")
+            mod, err = self._load_module_from_file("contrib.samples.pair_trading_dynamic", path)
+            if mod is None:
+                return self._err("Unable to load pair-trading sample for runstrategy.", Exception(err))
+
+            fn = getattr(mod, "runstrategy", None)
+            if fn is None:
+                return self._err("runstrategy not found in pair-trading sample module.")
+            res = fn(*args, **kwargs)
+            return self._ok("pair-trading runstrategy executed.", data={"result": res})
+        except Exception as exc:
+            return self._err("pair-trading runstrategy failed. Check data feeds and broker settings.", exc)
+
+    # -------------------------------------------------------------------------
+    # samples/weekdays-filler
+    # -------------------------------------------------------------------------
+    def create_weekdays_filler_instance(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Instantiate WeekDaysFiller from samples/weekdays-filler/weekdaysfiller.py.
+
+        Args:
+            *args: Constructor positional arguments.
+            **kwargs: Constructor keyword arguments.
+
+        Returns:
+            dict: Unified status with created instance.
+        """
+        try:
+            path = os.path.join(source_path, "samples", "weekdays-filler", "weekdaysfiller.py")
+            mod, err = self._load_module_from_file("samples.weekdays_filler_dynamic", path)
+            if mod is None:
+                return self._err("Unable to load weekdaysfiller sample module.", Exception(err))
+
+            cls = getattr(mod, "WeekDaysFiller", None)
+            if cls is None:
+                return self._err("WeekDaysFiller class not found in weekdaysfiller sample module.")
+            inst = cls(*args, **kwargs)
+            return self._ok("WeekDaysFiller instance created.", data={"instance": inst})
+        except Exception as exc:
+            return self._err("Failed to create WeekDaysFiller instance. Validate constructor inputs.", exc)
+
+    def call_weekdaysaligner_parse_args(self, args: Optional[list] = None) -> Dict[str, Any]:
+        """
+        Call parse_args from samples/weekdays-filler/weekdaysaligner.py.
+
+        Args:
+            args (list, optional): Parser argument list.
+
+        Returns:
+            dict: Unified status with parser namespace/output.
+        """
+        try:
+            path = os.path.join(source_path, "samples", "weekdays-filler", "weekdaysaligner.py")
+            mod, err = self._load_module_from_file("samples.weekdays_aligner_dynamic", path)
+            if mod is None:
+                return self._err("Unable to load weekdaysaligner sample module.", Exception(err))
+
+            fn = getattr(mod, "parse_args", None)
+            if fn is None:
+                return self._err("parse_args not found in weekdaysaligner sample module.")
+            res = fn(args) if args is not None else fn()
+            return self._ok("weekdaysaligner parse_args executed.", data={"result": res})
+        except Exception as exc:
+            return self._err("weekdaysaligner parse_args failed. Review argument values.", exc)
+
+    def call_weekdaysaligner_runstrat(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call runstrat from samples/weekdays-filler/weekdaysaligner.py.
+
+        Args:
+            *args: Positional args forwarded to runstrat.
+            **kwargs: Keyword args forwarded to runstrat.
+
+        Returns:
+            dict: Unified status with strategy run result.
+        """
+        try:
+            path = os.path.join(source_path, "samples", "weekdays-filler", "weekdaysaligner.py")
+            mod, err = self._load_module_from_file("samples.weekdays_aligner_dynamic", path)
+            if mod is None:
+                return self._err("Unable to load weekdaysaligner sample module.", Exception(err))
+
+            fn = getattr(mod, "runstrat", None)
+            if fn is None:
+                return self._err("runstrat not found in weekdaysaligner sample module.")
+            res = fn(*args, **kwargs)
+            return self._ok("weekdaysaligner runstrat executed.", data={"result": res})
+        except Exception as exc:
+            return self._err("weekdaysaligner runstrat failed. Verify feed and calendar options.", exc)

@@ -1,132 +1,147 @@
 # Difference Report — `backtrader`
 
-## 1. Project Overview
+## 1) Project Overview
 
-- **Repository:** `backtrader`  
-- **Project Type:** Python library  
-- **Primary Scope:** Basic functionality  
-- **Report Time:** 2026-03-12 01:19:57  
-- **Intrusiveness:** None (non-invasive change set)  
-- **Workflow Status:** ✅ Success  
-- **Test Status:** ❌ Failed  
+- **Repository**: `backtrader`  
+- **Project Type**: Python library  
+- **Feature Scope**: Basic functionality  
+- **Report Time**: 2026-03-13 13:00:41  
+- **Change Intrusiveness**: None (non-invasive)  
+- **Workflow Status**: ✅ Success  
+- **Test Status**: ❌ Failed  
 
 ---
 
-## 2. Change Summary
+## 2) Change Summary
 
 | Metric | Value |
 |---|---:|
 | New files | 8 |
 | Modified files | 0 |
-| Deleted files | 0 *(not reported)* |
-| Net code impact | Additive-only |
+| Deleted files | 0 (not reported) |
+| Net impact | Additive-only update |
 
-### Interpretation
-This update is an **additive change** (new files only), which generally lowers regression risk for existing logic because no existing tracked files were altered. However, the failed test status indicates integration or quality issues still require attention.
-
----
-
-## 3. Difference Analysis
-
-## 3.1 File-Level Delta
-- **Added:** 8 files  
-- **Modified:** none  
-- **Removed/Renamed:** not indicated  
-
-Because no modified files are listed, all behavioral changes likely come from:
-1. Newly introduced modules/utilities,
-2. New tests/config/docs/scripts that affect CI behavior,
-3. New package metadata or entry points.
-
-## 3.2 Functional Impact (Expected)
-Given scope = **Basic functionality**, likely outcomes include:
-- Foundation utilities or baseline components introduced,
-- Initial or expanded support paths without touching existing internals,
-- Potential CI/test additions that surfaced failures.
-
-## 3.3 Risk Profile
-- **Code regression risk:** Low to medium (no direct edits to existing files).
-- **Integration risk:** Medium (new files may alter import paths, discovery, packaging, or test matrix).
-- **Release risk:** Medium to high until tests pass.
+**Interpretation:**  
+This change set is purely additive, introducing 8 new files without touching existing files. This generally reduces regression risk for existing behavior, but test failure indicates integration, configuration, or quality gaps in newly introduced assets.
 
 ---
 
-## 4. Technical Analysis
+## 3) Difference Analysis
+
+### 3.1 Structural Diff
+- **No existing file modifications** suggest:
+  - No direct refactor of current code paths.
+  - Legacy behavior should remain stable unless new files are auto-imported/executed by discovery rules (e.g., tests, packaging, plugin loading).
+
+### 3.2 Functional Diff
+- Given “Basic functionality” scope and additive files:
+  - Likely introduction of new modules/examples/tests/config scaffolding.
+  - Functional impact depends on whether these files are wired into runtime entry points.
+
+### 3.3 Risk Profile
+- **Runtime regression risk**: Low-to-medium (additive only).
+- **CI/test pipeline risk**: High (already failing).
+- **Release readiness risk**: Medium-to-high until failures are resolved.
+
+---
+
+## 4) Technical Analysis
 
 ## 4.1 CI/Workflow
-- **Workflow:** successful → pipeline executed correctly.
-- **Tests:** failed → quality gate not met for release readiness.
+- Workflow completed successfully, meaning:
+  - Pipeline orchestration ran as expected.
+  - Failure is likely isolated to test stage assertions, dependency mismatch, environment assumptions, or incomplete implementation in new files.
 
-This combination usually means infrastructure is healthy, but implementation/tests are inconsistent.
+## 4.2 Test Failure Implications
+Since test status is failed and no file modifications occurred:
+1. **New tests may be failing** (most likely).
+2. **Test discovery expanded** and exposed pre-existing flaky/hidden failures.
+3. **New files introduced side effects** (imports, initialization, fixtures).
+4. **Packaging/path issues** from added modules (namespace, missing `__init__.py`, incorrect relative imports).
 
-## 4.2 Potential Failure Categories to Validate
-1. **Test discovery/config mismatch**  
-   - New test files require updated `pytest`/runner config.
-2. **Dependency gaps**  
-   - Added files may introduce imports not in install/test requirements.
-3. **API contract mismatch**  
-   - New basic features may not align with existing interfaces.
-4. **Packaging/import issues**  
-   - New modules missing `__init__.py` exposure or namespace registration.
-5. **Environment-specific failures**  
-   - Python version, OS matrix, locale/timezone assumptions.
-
-## 4.3 Quality Signals
-- Additive-only changes are structurally safe.
-- Failed tests override this positive signal and block confidence for deployment.
+## 4.3 Compatibility Considerations
+- Additive changes can still break:
+  - `pytest` collection (`ImportError`, fixture conflicts).
+  - Type/lint gates if new files violate standards.
+  - Optional dependency matrix if new code requires unpinned packages.
 
 ---
 
-## 5. Recommendations & Improvements
+## 5) Recommendations & Improvements
 
 ## 5.1 Immediate Actions (Priority)
-1. **Collect failing test stack traces** and categorize by root cause.
-2. **Run tests locally with CI-equivalent environment** (same Python version/deps).
-3. **Check newly added files for unmet imports/dependencies**.
-4. **Validate packaging/export paths** for any new modules.
-5. **Re-run full suite + targeted subset** after fixes.
+1. **Identify failing test cases** from CI logs (first failing node, traceback root cause).
+2. **Classify failures**:
+   - import/collection error
+   - assertion mismatch
+   - environment/dependency issue
+   - timing/flaky behavior
+3. **Patch with minimal scope**:
+   - fix path/imports
+   - add missing mocks/fixtures
+   - align expected outputs
+   - guard optional deps
 
-## 5.2 Short-Term Hardening
-- Add/adjust **smoke tests** for newly added basic functionality.
-- Ensure **deterministic tests** (avoid network/time randomness).
-- Tighten **lint/type checks** on new files to catch early defects.
-- Add **minimal documentation/changelog entries** for new additions.
+## 5.2 Quality Hardening
+- Add/verify:
+  - deterministic tests (`random.seed`, fixed timestamps)
+  - isolated fixtures (no shared mutable global state)
+  - explicit dependency constraints in test environment
+  - local reproduction command in docs (`pytest -k <failed_test>`)
 
 ## 5.3 Process Improvements
 - Require **green test gate** before merge/release.
-- Add CI step to diff-check for **uncovered new files**.
-- Introduce a **PR template** section: “new files impact + dependency change”.
+- Add CI stages:
+  - smoke tests first (fast fail)
+  - full suite second
+- Introduce **changed-files-based test selection** for faster diagnostics, followed by full verification.
 
 ---
 
-## 6. Deployment Information
+## 6) Deployment Information
 
-## 6.1 Current Readiness
-- **Not release-ready** due to failed tests.
+## 6.1 Current Deployment Readiness
+- **Not release-ready** due to failing tests.
 
-## 6.2 Deployment Risk
-- **Production deployment:** Not recommended.
-- **Staging/internal validation:** Acceptable after triage if isolated.
+## 6.2 Recommended Deployment Decision
+- **Decision**: Hold deployment.
+- **Condition to proceed**:
+  - 100% pass on required test suite
+  - no critical lint/type/package errors
+  - changelog entry for newly added files/features
 
-## 6.3 Suggested Deployment Path
-1. Fix failing tests.
-2. Re-run CI across full matrix.
-3. Publish pre-release/internal build.
-4. Verify install/import/runtime sanity.
-5. Promote to stable release only after all gates pass.
-
----
-
-## 7. Future Planning
-
-- **Stabilization milestone:** Achieve 100% pass on existing + new tests.
-- **Coverage objective:** Ensure new files have baseline unit coverage.
-- **Compatibility objective:** Validate supported Python versions explicitly.
-- **Maintainability objective:** Keep additive architecture modular to avoid core coupling.
-- **Release governance:** Add formal “test-fail = release-blocker” policy.
+## 6.3 Rollout Strategy (post-fix)
+- Perform staged rollout:
+  1. Internal validation / pre-release artifact
+  2. Canary users (if applicable)
+  3. Full release after monitoring window
 
 ---
 
-## 8. Executive Conclusion
+## 7) Future Planning
 
-The `backtrader` update is **non-intrusive and additive** (8 new files, no modifications), which is structurally favorable. However, the **failed test status is a hard blocker**. The immediate focus should be test triage, dependency/API alignment, and CI parity validation. Once tests pass and packaging/import checks are verified, the change can proceed through staged deployment with moderate confidence.
+- **Short-term (1–3 days)**:
+  - Resolve failing tests and stabilize CI.
+  - Confirm new file intent and wiring (runtime vs support-only).
+- **Mid-term (1–2 sprints)**:
+  - Improve test reliability metrics (flake rate, rerun count).
+  - Add baseline quality checks for additive files.
+- **Long-term**:
+  - Establish release scorecard (tests, coverage delta, dependency health, backward-compat checks).
+
+---
+
+## 8) Suggested Validation Checklist
+
+- [ ] All newly added files have clear ownership and purpose.
+- [ ] Imports and package paths resolve in clean environment.
+- [ ] Unit/integration tests pass locally and in CI.
+- [ ] No hidden side effects during test collection/import.
+- [ ] Documentation/changelog updated.
+- [ ] Release pipeline re-run is fully green.
+
+---
+
+## 9) Executive Summary
+
+The update to `backtrader` is an **additive-only change set** (8 new files, no modifications), which is generally low-risk for existing functionality. However, the **failed test status is a release blocker**. The workflow infrastructure is healthy, so focus should be on rapid root-cause isolation in the test stage, minimal corrective patches, and re-validation. Deployment should remain on hold until test and quality gates pass.

@@ -2,128 +2,146 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service provides a practical interface to the `backtrader` engine for strategy backtesting, optimization, and analysis.
+This MCP (Model Context Protocol) service exposes the core capabilities of the `backtrader` engine for strategy research and backtesting through callable service endpoints.
 
-Core capabilities:
+Main functions:
 - Run backtests with `Cerebro`
-- Load market data from CSV/Pandas and supported connectors
-- Execute strategies based on `Strategy`
-- Simulate execution with `BackBroker`
-- Collect performance metrics via analyzers (Sharpe, Drawdown, Returns, TradeAnalyzer, etc.)
-- Optional plotting/reporting integrations
+- Load market data (CSV, Pandas, Yahoo/Quandl-style feeds, and others)
+- Execute strategies, brokers, sizers, analyzers, and observers
+- Return structured performance outputs (returns, drawdown, Sharpe, trade stats, etc.)
+- Support optional plotting and integration-oriented workflows
 
-Repository: https://github.com/mementum/backtrader
+Repository analyzed: https://github.com/mementum/backtrader
 
 ---
 
 ## 2) Installation Method
 
 ### Requirements
-- Python 3.x
-- `setuptools` (for package install)
-
-### Optional dependencies (feature-based)
-- `matplotlib` for plotting
-- `pandas` for DataFrame feeds
-- `numpy` for analytics paths
-- `TA-Lib` for `backtrader.talib`
-- Interactive Brokers stack for IB integration
-- OANDA stack for OANDA integration
-- `pyfolio` for pyfolio analyzer workflows
-- InfluxDB client for influx feed utilities
+- Python runtime
+- Required: `matplotlib`
+- Common optional deps: `pandas`, `numpy`, `python-dateutil`, `pytz`
+- Integration-specific optional deps:
+  - IB stack (`ibpy`/`ib_insync` ecosystem) for IB-related store/broker/data
+  - Oanda client libs for Oanda store/broker/data
+  - `TA-Lib` for `backtrader.talib`
+  - `pyfolio` for PyFolio analyzer workflows
 
 ### Install
-- From PyPI:
-  - `pip install backtrader`
-- From source:
-  - `git clone https://github.com/mementum/backtrader.git`
-  - `cd backtrader`
-  - `pip install .`
+- Install backtrader:
+  pip install backtrader
+
+- Minimal plotting dependency:
+  pip install matplotlib
+
+- Recommended data stack:
+  pip install pandas numpy python-dateutil pytz
 
 ---
 
 ## 3) Quick Start
 
-### Minimal programmatic flow
-1. Create `Cerebro()`
-2. Add a data feed (`bt.feeds.*`)
-3. Add a strategy (`bt.Strategy` subclass)
-4. Optionally add analyzers/observers
-5. Call `cerebro.run()`
-6. Optionally call `cerebro.plot()`
+### Minimal service workflow
+1. Create a backtest run request
+2. Provide data source (e.g., CSV or Pandas)
+3. Select strategy and parameters
+4. Attach analyzers (Sharpe, DrawDown, Returns, TradeAnalyzer, etc.)
+5. Execute and fetch normalized results
 
-### Minimal usage example
+### Typical Python usage pattern behind the service
 import backtrader as bt
 
-class MyStrategy(bt.Strategy):
+class SmaCross(bt.Strategy):
+    params = dict(fast=10, slow=30)
+    def __init__(self):
+        sma1 = bt.ind.SMA(period=self.p.fast)
+        sma2 = bt.ind.SMA(period=self.p.slow)
+        self.crossover = bt.ind.CrossOver(sma1, sma2)
     def next(self):
-        if not self.position:
-            self.buy(size=1)
+        if not self.position and self.crossover > 0:
+            self.buy()
+        elif self.position and self.crossover < 0:
+            self.close()
 
 cerebro = bt.Cerebro()
-data = bt.feeds.YahooFinanceCSVData(dataname='datas/orcl-2014.txt')
+cerebro.addstrategy(SmaCross)
+data = bt.feeds.GenericCSVData(dataname="datas/2006-day-001.txt")
 cerebro.adddata(data)
-cerebro.addstrategy(MyStrategy)
-cerebro.addanalyzer(bt.analyzers.SharpeRatio, _name='sharpe')
-results = cerebro.run()
-print(results[0].analyzers.sharpe.get_analysis())
+cerebro.addanalyzer(bt.analyzers.SharpeRatio, _name="sharpe")
+cerebro.run()
 
-### CLI quick run
-- Main CLI: `btrun`
-- Utility wrapper: `tools/bt-run.py`
-- Data utility: `tools/yahoodownload.py`
-- Data rewrite utility: `tools/rewrite-data.py`
+In the MCP (Model Context Protocol) service, this is wrapped into endpoint calls (see below).
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) service endpoints mapped to repository capabilities:
+Recommended service endpoints (developer-oriented mapping to backtrader modules):
+
+- `health`
+  - Basic readiness/liveness check.
+
+- `list_capabilities`
+  - Returns supported feeds, analyzers, observers, sizers, and integration availability.
 
 - `run_backtest`
-  - Execute a strategy with given data, broker settings, and runtime parameters.
+  - Core endpoint. Runs a backtest with:
+    - strategy class/name + params
+    - data config (feed type, path, timeframe/compression)
+    - broker/cash/commission/slippage
+    - analyzers/observers/sizers
+  - Returns metrics, trades, and optional artifacts metadata.
+
 - `optimize_strategy`
-  - Run parameter sweeps/optimization through `Cerebro` optimization mode.
+  - Runs parameter sweeps/optimization over strategy params.
+  - Returns ranked result set and top configurations.
+
+- `load_data_preview`
+  - Validates data config and previews parsed bars/date range before execution.
+
 - `list_analyzers`
-  - Return available analyzers (e.g., Sharpe, DrawDown, Returns, SQN, TradeAnalyzer).
-- `run_analyzers`
-  - Attach selected analyzers and return computed metrics.
-- `list_data_feeds`
-  - Show supported feed adapters (CSV, Pandas, Yahoo CSV, IB/OANDA where configured).
-- `validate_data_source`
-  - Validate feed format/path and date/time alignment before execution.
-- `plot_results`
-  - Generate plots when plotting dependencies are installed.
-- `run_cli_btrun`
-  - Execute backtesting via `btrun` argument model for batch/legacy compatibility.
-- `download_yahoo_data`
-  - Wrapper around `tools/yahoodownload.py`.
-- `rewrite_data`
-  - Wrapper around `tools/rewrite-data.py`.
+  - Lists available analyzers (e.g., `SharpeRatio`, `DrawDown`, `Returns`, `TradeAnalyzer`, `TimeReturn`, `SQN`, `VWR`).
+
+- `list_feeds`
+  - Lists supported feed adapters (CSV generic/backtrader CSV, Pandas, Yahoo/Quandl-style, IB/Oanda/VC when enabled).
+
+- `run_btrun_cli` (optional bridge)
+  - Wraps `backtrader.btrun.btrun` style execution for CLI-compatible scenarios.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- No modern lockfile/pyproject metadata in analyzed output: use source install and explicit dependency pinning in your own environment.
-- Plotting failures usually mean missing `matplotlib`.
-- Pandas feed usage requires `pandas`.
-- TA-Lib features require native TA-Lib installation plus Python bindings.
-- Broker/store integrations (IB/OANDA) need separate credentials and vendor SDK dependencies.
-- Large optimizations can be CPU/memory heavy; start with narrow parameter grids.
-- Timeframe mixing/resampling/replay can produce alignment surprises; validate with sample scripts in `samples/`.
-- Prefer deterministic test datasets (see `datas/`) for CI and reproducible MCP (Model Context Protocol) responses.
+- Dependency gaps:
+  - Core backtesting works with minimal deps, but many feeds/integrations need extra packages.
+- TA-Lib and PyFolio:
+  - Optional; endpoint should gracefully report “not installed” capability.
+- Broker/store integrations:
+  - IB/Oanda/VC modules require external vendor/client ecosystems and credentials.
+- Data alignment/timeframes:
+  - Multi-timeframe and replay/resample logic can be sensitive to feed configuration.
+- Plotting in server environments:
+  - Prefer non-interactive backends or disable plotting in headless deployments.
+- Performance:
+  - Strategy optimization can be CPU-heavy; use bounded parameter grids and job limits.
+- Stability:
+  - Import feasibility is high and intrusiveness risk is low per analysis, but integration modules vary by environment.
 
 ---
 
-## 6) Reference Links or Documentation
+## 6) Reference Links / Documentation
 
 - Upstream repository: https://github.com/mementum/backtrader
-- Core engine: `backtrader/cerebro.py`
-- Strategy base: `backtrader/strategy.py`
-- Data feed base: `backtrader/feed.py`
-- Broker base/default broker: `backtrader/broker.py`, `backtrader/brokers/bbroker.py`
-- Analyzer base and implementations: `backtrader/analyzer.py`, `backtrader/analyzers/`
-- CLI runner: `backtrader/btrun/btrun.py`
-- Practical examples: `samples/`
-- Tests for behavior reference: `tests/`
+- Package entry points of interest:
+  - `backtrader.cerebro.Cerebro`
+  - `backtrader.strategy.Strategy`
+  - `backtrader.feed` / `backtrader.feeds.*`
+  - `backtrader.analyzers.*`
+  - `backtrader.observers.*`
+  - `backtrader.btrun.btrun`
+- Samples directory (practical patterns):
+  - `samples/` in repository root
+- Tests directory (behavior references):
+  - `tests/` in repository root
+
+If you want, I can also generate a concrete endpoint I/O schema (JSON request/response shapes) for each MCP (Model Context Protocol) service endpoint.

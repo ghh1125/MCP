@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773249197.625862,
-    "end_time": 1773249468.213274,
-    "duration": 270.58741211891174,
+    "start_time": 1773377729.586689,
+    "end_time": 1773377915.588434,
+    "duration": 186.00174498558044,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 18,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,14 +53,33 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.backtrader.source",
+        "mcp_output.mcp_plugin",
+        "source.backtrader",
+        "source.backtrader.analyzers",
+        "source.backtrader.brokers",
+        "source.backtrader.btrun",
+        "source.backtrader.commissions",
+        "source.backtrader.feeds",
+        "source.backtrader.filters",
+        "source.backtrader.indicators",
+        "source.backtrader.observers",
+        "source.backtrader.plot",
+        "source.backtrader.signals",
+        "source.backtrader.sizers",
+        "source.backtrader.stores",
+        "source.backtrader.strategies",
+        "source.backtrader.studies",
+        "source.backtrader.utils"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
       "has_requirements_txt": false,
       "pyproject": false,
       "setup_cfg": false,
-      "setup_py": false
+      "setup_py": true
     },
     "entry_points": {
       "imports": [],
@@ -68,7 +87,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.9,
+      "import_feasibility": 0.92,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -121,44 +140,35 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/backtrader/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75000 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/backtrader/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75000 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "add a modern packaging file (pyproject.toml) and expose clear console_scripts for btrun/tools",
-    "add CI (GitHub Actions) for multi-version Python testing plus lint/type checks",
-    "fix dependency detection mismatch by ensuring setup.py/metadata is discoverable and mirrored in requirements/dev requirements",
-    "expand tests beyond indicators into broker/order lifecycle and cerebro optimization edge cases",
-    "add integration tests for optional backends (IB/Oanda/pyfolio/pandas feeds) with graceful-skip markers",
-    "introduce static analysis/pre-commit (ruff/black/isort/mypy) and enforce style consistency",
-    "improve docs with a quickstart and architecture map for Cerebro/Strategy/Feed/Broker interactions",
-    "add API stability notes and deprecation policy for core extension points",
-    "reduce monolithic hotspots (cerebro.py/strategy.py/bbroker.py/store modules) via incremental refactors into smaller components",
-    "add structured logging hooks and clearer error messages around feed/broker connectivity failures",
-    "create benchmark/regression suite for run-loop and memory usage on large datasets",
-    "strengthen plugin layer tests for generated MCP endpoints (class instantiation",
-    "arg validation",
-    "failure modes)",
-    "add contract tests to verify MCP adapter import mode against real backtrader modules",
-    "pin and document optional dependency groups (plotting",
-    "live trading",
-    "analytics) for reproducible installs",
-    "add security and maintenance hygiene (dependabot",
-    "pinned minima",
-    "vulnerability scan)",
-    "document and test CLI behavior parity between btrun and tools/bt-run.py",
-    "add smoke tests using sample strategies/data to validate end-to-end execution",
-    "provide contributor guide updates (local setup",
-    "test matrix",
-    "optional services mocking)"
+    "add and run a real test suite for the generated MCP plugin (smoke + endpoint contract tests) since test status is empty",
+    "reduce/curate exposed endpoints to a stable public subset (current list is overly broad and duplicate-heavy)",
+    "fix name collisions and duplicate endpoint names (e.g.",
+    "repeated `fixedsize`",
+    "`heikinashi`",
+    "`vortex`",
+    "`parse_args`",
+    "etc.) via namespacing (`module.symbol`)",
+    "add strict input/output Pydantic schemas per endpoint and enforce validation/error normalization",
+    "introduce endpoint tagging and discovery metadata (core vs sample vs internal) to improve usability",
+    "exclude samples/tools/contrib from default export and make them opt-in",
+    "add dependency guards and graceful fallbacks for optional integrations (IB/Oanda/TA-Lib/pyfolio/pandas/numpy)",
+    "modernize packaging with `pyproject.toml` and explicit extras while keeping `setup.py` compatibility",
+    "set up CI (GitHub Actions) for lint/type/test across supported Python versions",
+    "add static analysis gates (ruff/flake8",
+    "mypy/pyright) and basic security checks",
+    "create performance benchmarks for high-frequency endpoints and add caching for static metadata/reflection results",
+    "split large core modules (`cerebro.py`",
+    "`strategy.py`",
+    "`bbroker.py`) incrementally to improve maintainability",
+    "improve docs with a concise MCP quickstart plus endpoint examples and versioned API surface",
+    "add observability in MCP service (structured logs",
+    "request IDs",
+    "latency/error metrics)",
+    "implement semantic versioning and changelog policy for MCP API-breaking changes",
+    "add integration tests that run representative backtrader strategies through MCP end-to-end with sample data"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -189,35 +199,36 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal status 'success' and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Robust fallback behavior: when git clone failed, zip fallback succeeded and produced a full repository snapshot (~367 files) for analysis and generation.",
-      "Low-intrusion import-based adapter strategy (feasibility 0.9, intrusiveness low) matched backtrader’s architecture well.",
-      "Generated MCP service started healthy over stdio and passed plugin-level health checks."
+      "Workflow status is success with all planned nodes executed (download, analysis, env, generate, run, review, finalize).",
+      "Import-mode adapter was feasible (import_feasibility=0.92, low intrusiveness risk), enabling non-invasive integration.",
+      "Generated MCP service started healthy over stdio transport.",
+      "Repository structure was rich and analyzable via AST scan despite DeepWiki failure."
     ],
     "failure_reasons": [
-      "Primary repository acquisition failed due to network/connectivity issue to github.com:443 (curl 28 timeout).",
-      "Telemetry and reporting inconsistencies: execution summary shows 0 files processed / 0 tools / 0 LOC, while detailed state shows substantial analysis and 16 endpoints.",
-      "DeepWiki integration failed, reducing enrichment quality and external contextual diagnostics."
+      "No hard workflow failure occurred; however, validation quality is weak because MCP tests are effectively empty (details/test files absent).",
+      "Original project test status is marked failed/invalid in summary despite test coverage shown as 100%, indicating inconsistent test reporting.",
+      "DeepWiki analysis failed, reducing external semantic/context enrichment.",
+      "Generated API surface is over-broad with duplicate/colliding endpoint names, creating correctness and usability risk."
     ],
     "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Dominant delay likely occurred in download due to 75s network timeout before fallback; clone failure recovered by zip import.",
-      "analysis_time": "Moderate; analysis succeeded on a large codebase and identified core modules/CLI/dependencies despite summary counters being inaccurate.",
-      "generation_time": "Efficient baseline generation (7 files) with import adapter and core endpoint exposure; minimal customization depth.",
-      "test_time": "Plugin runtime validation was fast and successful (healthy service), but original project tests were effectively not executed (reported passed=false with empty details)."
+      "download_time": "Completed successfully as part of 186s total; zip fallback worked, indicating resilient acquisition path.",
+      "analysis_time": "Moderate-to-heavy due to large codebase scan (367 files; many modules/classes/functions discovered).",
+      "generation_time": "Fast enough to complete in-session; produced expected plugin scaffolding and requirements.",
+      "test_time": "Nominal/near-zero; insufficient real test execution (startup/health only), so performance confidence is low."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown from metrics (reported 0 MB). Practical efficiency appears acceptable given successful analysis of a medium-large repo.",
-      "cpu_efficiency": "Unknown from metrics (reported 0%). No evidence of CPU saturation; elapsed time mainly attributable to network/retry behavior.",
-      "disk_usage": "Low-to-moderate for generated artifacts; repository footprint moderate-to-large. Reported generated size=0 indicates measurement instrumentation issue."
+      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB), likely instrumentation gap rather than true zero usage.",
+      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%), cannot assess compute efficiency reliably.",
+      "disk_usage": "Low-to-moderate; only a small MCP output set was generated, but generated_files_size=0 suggests metrics collection issue."
     }
   },
   "technical_quality": {
     "code_quality_score": 74,
-    "architecture_score": 81,
-    "performance_score": 62,
-    "maintainability_score": 69,
+    "architecture_score": 72,
+    "performance_score": 58,
+    "maintainability_score": 70,
     "security_score": 85,
-    "scalability_score": 71
+    "scalability_score": 64
   }
 }

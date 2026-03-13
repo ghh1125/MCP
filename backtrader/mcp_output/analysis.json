@@ -1109,14 +1109,33 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.backtrader.source",
+      "mcp_output.mcp_plugin",
+      "source.backtrader",
+      "source.backtrader.analyzers",
+      "source.backtrader.brokers",
+      "source.backtrader.btrun",
+      "source.backtrader.commissions",
+      "source.backtrader.feeds",
+      "source.backtrader.filters",
+      "source.backtrader.indicators",
+      "source.backtrader.observers",
+      "source.backtrader.plot",
+      "source.backtrader.signals",
+      "source.backtrader.sizers",
+      "source.backtrader.stores",
+      "source.backtrader.strategies",
+      "source.backtrader.studies",
+      "source.backtrader.utils"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
     "pyproject": false,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -1126,122 +1145,3594 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "backtrader/cerebro.py",
+        "package": "backtrader",
+        "module": "dataseries",
+        "functions": [],
+        "classes": [
+          "DataSeries",
+          "OHLC",
+          "OHLCDateTime",
+          "SimpleFilterWrapper",
+          "TimeFrame"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "observer",
+        "functions": [],
+        "classes": [
+          "MetaObserver",
+          "Observer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "functions",
+        "functions": [],
+        "classes": [
+          "All",
+          "And",
+          "Any",
+          "Cmp",
+          "CmpEx",
+          "DivByZero",
+          "DivZeroByZero",
+          "If",
+          "List",
+          "Logic",
+          "Max",
+          "Min",
+          "MultiLogic",
+          "MultiLogicReduce",
+          "Or",
+          "Reduce",
+          "Sum"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "linebuffer",
+        "functions": [
+          "LineDelay",
+          "LineNum"
+        ],
+        "classes": [
+          "LineActions",
+          "LineBuffer",
+          "LineOwnOperation",
+          "LinesOperation",
+          "MetaLineActions",
+          "PseudoArray"
+        ],
+        "function_signatures": {
+          "LineDelay": [
+            "a",
+            "ago"
+          ],
+          "LineNum": [
+            "num"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "store",
+        "functions": [],
+        "classes": [
+          "MetaSingleton",
+          "Store"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "flt",
+        "functions": [],
+        "classes": [
+          "Filter",
+          "MetaFilter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "comminfo",
+        "functions": [],
+        "classes": [
+          "CommInfoBase",
+          "CommissionInfo"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "signal",
+        "functions": [],
+        "classes": [
+          "Signal"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "mathsupport",
+        "functions": [
+          "average",
+          "standarddev",
+          "variance"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "average": [
+            "x",
+            "bessel"
+          ],
+          "variance": [
+            "x",
+            "avgx"
+          ],
+          "standarddev": [
+            "x",
+            "avgx",
+            "bessel"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
         "module": "cerebro",
         "functions": [],
         "classes": [
-          "Cerebro"
+          "Cerebro",
+          "OptReturn"
         ],
-        "description": "Primary orchestration engine for backtests: strategy registration, data feeds, broker integration, analyzers/observers, run loop, and optimization."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "backtrader/strategy.py",
+        "package": "backtrader",
+        "module": "metabase",
+        "functions": [
+          "findbases",
+          "findowner"
+        ],
+        "classes": [
+          "AutoInfoClass",
+          "ItemCollection",
+          "MetaBase",
+          "MetaParams",
+          "ParamsBase"
+        ],
+        "function_signatures": {
+          "findbases": [
+            "kls",
+            "topclass"
+          ],
+          "findowner": [
+            "owned",
+            "cls",
+            "startlevel",
+            "skip"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "lineiterator",
+        "functions": [
+          "LinesCoupler"
+        ],
+        "classes": [
+          "DataAccessor",
+          "IndicatorBase",
+          "LineIterator",
+          "MetaLineIterator",
+          "MultiCoupler",
+          "ObserverBase",
+          "SingleCoupler",
+          "StrategyBase"
+        ],
+        "function_signatures": {
+          "LinesCoupler": [
+            "cdata",
+            "clock"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "trade",
+        "functions": [],
+        "classes": [
+          "Trade",
+          "TradeHistory"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "timer",
+        "functions": [],
+        "classes": [
+          "Timer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "sizer",
+        "functions": [],
+        "classes": [
+          "Sizer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "indicator",
+        "functions": [],
+        "classes": [
+          "Indicator",
+          "LinePlotterIndicator",
+          "MetaIndicator",
+          "MtLinePlotterIndicator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "resamplerfilter",
+        "functions": [],
+        "classes": [
+          "DTFaker",
+          "Replayer",
+          "ReplayerDaily",
+          "ReplayerMinutes",
+          "ReplayerMonthly",
+          "ReplayerSeconds",
+          "ReplayerTicks",
+          "ReplayerWeekly",
+          "Resampler",
+          "ResamplerDaily",
+          "ResamplerMinutes",
+          "ResamplerMonthly",
+          "ResamplerSeconds",
+          "ResamplerTicks",
+          "ResamplerWeekly",
+          "ResamplerYearly"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "analyzer",
+        "functions": [],
+        "classes": [
+          "Analyzer",
+          "MetaAnalyzer",
+          "MetaTimeFrameAnalyzerBase",
+          "TimeFrameAnalyzerBase"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "order",
+        "functions": [],
+        "classes": [
+          "BuyOrder",
+          "Order",
+          "OrderBase",
+          "OrderData",
+          "OrderExecutionBit",
+          "SellOrder",
+          "StopBuyOrder",
+          "StopLimitBuyOrder",
+          "StopLimitSellOrder",
+          "StopSellOrder"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
         "module": "strategy",
         "functions": [],
         "classes": [
+          "MetaSigStrategy",
+          "MetaStrategy",
+          "SignalStrategy",
           "Strategy"
         ],
-        "description": "Base strategy lifecycle and trading API surface (orders, notifications, next/prenext hooks), central extension point for users."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "backtrader/feed.py",
+        "package": "backtrader",
         "module": "feed",
         "functions": [],
         "classes": [
           "AbstractDataBase",
-          "DataBase"
+          "CSVDataBase",
+          "CSVFeedBase",
+          "DataBase",
+          "DataClone",
+          "FeedBase",
+          "MetaAbstractDataBase",
+          "MetaCSVDataBase"
         ],
-        "description": "Core market data abstractions and feed plumbing used by concrete feed adapters."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "backtrader/broker.py",
+        "package": "backtrader",
+        "module": "tradingcal",
+        "functions": [],
+        "classes": [
+          "PandasMarketCalendar",
+          "TradingCalendar",
+          "TradingCalendarBase"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "position",
+        "functions": [],
+        "classes": [
+          "Position"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "fillers",
+        "functions": [],
+        "classes": [
+          "BarPointPerc",
+          "FixedBarPerc",
+          "FixedSize"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "writer",
+        "functions": [],
+        "classes": [
+          "WriterBase",
+          "WriterFile",
+          "WriterStringIO"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "errors",
+        "functions": [],
+        "classes": [
+          "BacktraderError",
+          "FromModuleImportError",
+          "ModuleImportError",
+          "StrategySkipError"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "lineseries",
+        "functions": [
+          "LineSeriesMaker"
+        ],
+        "classes": [
+          "LineAlias",
+          "LineSeries",
+          "LineSeriesStub",
+          "Lines",
+          "MetaLineSeries"
+        ],
+        "function_signatures": {
+          "LineSeriesMaker": [
+            "arg",
+            "slave"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
         "module": "broker",
         "functions": [],
         "classes": [
-          "BrokerBase"
+          "BrokerBase",
+          "MetaBroker"
         ],
-        "description": "Broker abstraction for order execution, cash/value accounting, and commission/slippage handling."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "backtrader/brokers/bbroker.py",
-        "module": "brokers.bbroker",
+        "package": "backtrader",
+        "module": "lineroot",
+        "functions": [],
+        "classes": [
+          "LineMultiple",
+          "LineRoot",
+          "LineSingle",
+          "MetaLineRoot"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.filters",
+        "module": "heikinashi",
+        "functions": [],
+        "classes": [
+          "HeikinAshi"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.filters",
+        "module": "session",
+        "functions": [],
+        "classes": [
+          "SessionFiller",
+          "SessionFilter",
+          "SessionFilterSimple"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.filters",
+        "module": "daysteps",
+        "functions": [],
+        "classes": [
+          "BarReplayer_Open"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.filters",
+        "module": "renko",
+        "functions": [],
+        "classes": [
+          "Renko"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.filters",
+        "module": "bsplitter",
+        "functions": [],
+        "classes": [
+          "DaySplitter_Close"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.filters",
+        "module": "datafilter",
+        "functions": [],
+        "classes": [
+          "DataFilter"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.filters",
+        "module": "calendardays",
+        "functions": [],
+        "classes": [
+          "CalendarDays"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.filters",
+        "module": "datafiller",
+        "functions": [],
+        "classes": [
+          "DataFiller"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "commissions",
+        "functions": [],
+        "classes": [
+          "CommInfo",
+          "CommInfo_Futures",
+          "CommInfo_Futures_Fixed",
+          "CommInfo_Futures_Perc",
+          "CommInfo_Stocks",
+          "CommInfo_Stocks_Fixed",
+          "CommInfo_Stocks_Perc"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.brokers",
+        "module": "oandabroker",
+        "functions": [],
+        "classes": [
+          "MetaOandaBroker",
+          "OandaBroker",
+          "OandaCommInfo"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.brokers",
+        "module": "vcbroker",
+        "functions": [],
+        "classes": [
+          "MetaVCBroker",
+          "VCBroker",
+          "VCCommInfo"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.brokers",
+        "module": "ibbroker",
+        "functions": [],
+        "classes": [
+          "IBBroker",
+          "IBCommInfo",
+          "IBOrder",
+          "IBOrderState",
+          "MetaIBBroker"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.brokers",
+        "module": "bbroker",
         "functions": [],
         "classes": [
           "BackBroker"
         ],
-        "description": "Default in-memory simulation broker implementation used in most backtests."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "backtrader/order.py",
-        "module": "order",
+        "package": "backtrader.analyzers",
+        "module": "calmar",
         "functions": [],
         "classes": [
-          "Order",
-          "BuyOrder",
-          "SellOrder",
-          "OrderData",
-          "OrderExecutionBit"
+          "Calmar"
         ],
-        "description": "Order model hierarchy and execution state transitions."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "backtrader/trade.py",
-        "module": "trade",
+        "package": "backtrader.analyzers",
+        "module": "periodstats",
         "functions": [],
         "classes": [
-          "Trade"
+          "PeriodStats"
         ],
-        "description": "Trade-level aggregation, PnL tracking, and lifecycle accounting."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "backtrader/analyzer.py",
-        "module": "analyzer",
+        "package": "backtrader.analyzers",
+        "module": "sqn",
         "functions": [],
         "classes": [
-          "Analyzer"
+          "SQN"
         ],
-        "description": "Analyzer base class; foundation for performance metric modules in backtrader/analyzers."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "backtrader/indicator.py",
-        "module": "indicator",
+        "package": "backtrader.analyzers",
+        "module": "tradeanalyzer",
         "functions": [],
         "classes": [
-          "Indicator"
+          "TradeAnalyzer"
         ],
-        "description": "Indicator base class used by all technical indicators under backtrader/indicators."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "backtrader/btrun/btrun.py",
-        "module": "btrun.btrun",
+        "package": "backtrader.analyzers",
+        "module": "logreturnsrolling",
+        "functions": [],
+        "classes": [
+          "LogReturnsRolling"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.analyzers",
+        "module": "transactions",
+        "functions": [],
+        "classes": [
+          "Transactions"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.analyzers",
+        "module": "positions",
+        "functions": [],
+        "classes": [
+          "PositionsValue"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.analyzers",
+        "module": "returns",
+        "functions": [],
+        "classes": [
+          "Returns"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.analyzers",
+        "module": "timereturn",
+        "functions": [],
+        "classes": [
+          "TimeReturn"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.analyzers",
+        "module": "vwr",
+        "functions": [],
+        "classes": [
+          "VWR"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "analyzersfolio",
+        "functions": [],
+        "classes": [
+          "PyFolio"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.analyzers",
+        "module": "drawdown",
+        "functions": [],
+        "classes": [
+          "DrawDown",
+          "TimeDrawDown"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.analyzers",
+        "module": "sharpe",
+        "functions": [],
+        "classes": [
+          "SharpeRatio",
+          "SharpeRatio_A"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.analyzers",
+        "module": "leverage",
+        "functions": [],
+        "classes": [
+          "GrossLeverage"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.analyzers",
+        "module": "annualreturn",
+        "functions": [],
+        "classes": [
+          "AnnualReturn"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.plot",
+        "module": "plot",
+        "functions": [],
+        "classes": [
+          "PInfo",
+          "Plot_OldSync"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.plot",
+        "module": "finance",
+        "functions": [
+          "plot_candlestick",
+          "plot_lineonclose",
+          "plot_ohlc",
+          "plot_volume"
+        ],
+        "classes": [
+          "CandlestickPlotHandler",
+          "LineOnClosePlotHandler",
+          "OHLCPlotHandler",
+          "VolumePlotHandler"
+        ],
+        "function_signatures": {
+          "plot_candlestick": [
+            "ax",
+            "x",
+            "opens",
+            "highs",
+            "lows",
+            "closes",
+            "colorup",
+            "colordown",
+            "edgeup",
+            "edgedown",
+            "tickup",
+            "tickdown",
+            "width",
+            "tickwidth",
+            "edgeadjust",
+            "edgeshading",
+            "alpha",
+            "label",
+            "fillup",
+            "filldown"
+          ],
+          "plot_volume": [
+            "ax",
+            "x",
+            "opens",
+            "closes",
+            "volumes",
+            "colorup",
+            "colordown",
+            "edgeup",
+            "edgedown",
+            "edgeshading",
+            "edgeadjust",
+            "width",
+            "alpha"
+          ],
+          "plot_ohlc": [
+            "ax",
+            "x",
+            "opens",
+            "highs",
+            "lows",
+            "closes",
+            "colorup",
+            "colordown",
+            "width",
+            "tickwidth",
+            "alpha",
+            "label"
+          ],
+          "plot_lineonclose": [
+            "ax",
+            "x",
+            "closes",
+            "color",
+            "width",
+            "alpha",
+            "label"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.plot",
+        "module": "formatters",
+        "functions": [
+          "getlocator",
+          "patch_formatter",
+          "patch_locator"
+        ],
+        "classes": [
+          "MyDateFormatter",
+          "MyVolFormatter"
+        ],
+        "function_signatures": {
+          "patch_locator": [
+            "locator",
+            "xdates"
+          ],
+          "patch_formatter": [
+            "formatter",
+            "xdates"
+          ],
+          "getlocator": [
+            "xdates",
+            "numticks",
+            "tz"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.plot",
+        "module": "multicursor",
+        "functions": [],
+        "classes": [
+          "MultiCursor",
+          "MultiCursor2",
+          "Widget"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.plot",
+        "module": "locator",
+        "functions": [],
+        "classes": [
+          "AutoDateFormatter",
+          "AutoDateLocator",
+          "RRuleLocator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.plot",
+        "module": "utils",
+        "functions": [
+          "shade_color",
+          "tag_box_style"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "tag_box_style": [
+            "x0",
+            "y0",
+            "width",
+            "height",
+            "mutation_size",
+            "mutation_aspect"
+          ],
+          "shade_color": [
+            "color",
+            "percent"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.plot",
+        "module": "scheme",
+        "functions": [],
+        "classes": [
+          "PlotScheme"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.studies.contrib",
+        "module": "fractal",
+        "functions": [],
+        "classes": [
+          "Fractal"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.strategies",
+        "module": "sma_crossover",
+        "functions": [],
+        "classes": [
+          "MA_CrossOver"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.sizers",
+        "module": "fixedsize",
+        "functions": [],
+        "classes": [
+          "FixedReverser",
+          "FixedSize",
+          "FixedSizeTarget"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.sizers",
+        "module": "percents_sizer",
+        "functions": [],
+        "classes": [
+          "AllInSizer",
+          "AllInSizerInt",
+          "PercentSizer",
+          "PercentSizerInt"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "directionalmove",
+        "functions": [],
+        "classes": [
+          "AverageDirectionalMovementIndex",
+          "AverageDirectionalMovementIndexRating",
+          "DirectionalIndicator",
+          "DirectionalMovement",
+          "DirectionalMovementIndex",
+          "DownMove",
+          "MinusDirectionalIndicator",
+          "PlusDirectionalIndicator",
+          "UpMove"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "rmi",
+        "functions": [],
+        "classes": [
+          "RelativeMomentumIndex"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "zlind",
+        "functions": [],
+        "classes": [
+          "ZeroLagIndicator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "awesomeoscillator",
+        "functions": [],
+        "classes": [
+          "AwesomeOscillator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "zlema",
+        "functions": [],
+        "classes": [
+          "ZeroLagExponentialMovingAverage"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "heikinashi",
+        "functions": [],
+        "classes": [
+          "HeikinAshi"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "percentrank",
+        "functions": [],
+        "classes": [
+          "PercentRank"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "mabase",
+        "functions": [],
+        "classes": [
+          "MetaMovAvBase",
+          "MovAv",
+          "MovingAverage",
+          "MovingAverageBase"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "wma",
+        "functions": [],
+        "classes": [
+          "WeightedMovingAverage"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "vortex",
+        "functions": [],
+        "classes": [
+          "Vortex"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "accdecoscillator",
+        "functions": [],
+        "classes": [
+          "AccelerationDecelerationOscillator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "priceoscillator",
+        "functions": [],
+        "classes": [
+          "PercentagePriceOscillator",
+          "PercentagePriceOscillatorShort",
+          "PriceOscillator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "ultimateoscillator",
+        "functions": [],
+        "classes": [
+          "UltimateOscillator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "psar",
+        "functions": [],
+        "classes": [
+          "ParabolicSAR"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "macd",
+        "functions": [],
+        "classes": [
+          "MACD",
+          "MACDHisto"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "basicops",
+        "functions": [],
+        "classes": [
+          "Accum",
+          "AllN",
+          "AnyN",
+          "ApplyN",
+          "Average",
+          "BaseApplyN",
+          "ExponentialSmoothing",
+          "ExponentialSmoothingDynamic",
+          "FindFirstIndex",
+          "FindFirstIndexHighest",
+          "FindFirstIndexLowest",
+          "FindLastIndex",
+          "FindLastIndexHighest",
+          "FindLastIndexLowest",
+          "Highest",
+          "Lowest",
+          "OperationN",
+          "PeriodN",
+          "ReduceN",
+          "SumN",
+          "WeightedAverage"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "ema",
+        "functions": [],
+        "classes": [
+          "ExponentialMovingAverage"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "ols",
+        "functions": [],
+        "classes": [
+          "CointN",
+          "OLS_BetaN",
+          "OLS_Slope_InterceptN",
+          "OLS_TransformationN"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "stochastic",
+        "functions": [],
+        "classes": [
+          "Stochastic",
+          "StochasticFast",
+          "StochasticFull"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "atr",
+        "functions": [],
+        "classes": [
+          "AverageTrueRange",
+          "TrueHigh",
+          "TrueLow",
+          "TrueRange"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "oscillator",
+        "functions": [],
+        "classes": [
+          "Oscillator",
+          "OscillatorMixIn"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "prettygoodoscillator",
+        "functions": [],
+        "classes": [
+          "PrettyGoodOscillator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "dma",
+        "functions": [],
+        "classes": [
+          "DicksonMovingAverage"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "percentchange",
+        "functions": [],
+        "classes": [
+          "PercentChange"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "hadelta",
+        "functions": [],
+        "classes": [
+          "haDelta"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "cci",
+        "functions": [],
+        "classes": [
+          "CommodityChannelIndex"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "hma",
+        "functions": [],
+        "classes": [
+          "HullMovingAverage"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "deviation",
+        "functions": [],
+        "classes": [
+          "MeanDeviation",
+          "StandardDeviation"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "dema",
+        "functions": [],
+        "classes": [
+          "DoubleExponentialMovingAverage",
+          "TripleExponentialMovingAverage"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "williams",
+        "functions": [],
+        "classes": [
+          "WilliamsAD",
+          "WilliamsR"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "dv2",
+        "functions": [],
+        "classes": [
+          "DV2"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "tsi",
+        "functions": [],
+        "classes": [
+          "TrueStrengthIndicator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "ichimoku",
+        "functions": [],
+        "classes": [
+          "Ichimoku"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "kama",
+        "functions": [],
+        "classes": [
+          "AdaptiveMovingAverage"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "sma",
+        "functions": [],
+        "classes": [
+          "MovingAverageSimple"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "crossover",
+        "functions": [],
+        "classes": [
+          "CrossDown",
+          "CrossOver",
+          "CrossUp",
+          "NonZeroDifference"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "pivotpoint",
+        "functions": [],
+        "classes": [
+          "DemarkPivotPoint",
+          "FibonacciPivotPoint",
+          "PivotPoint"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "rsi",
+        "functions": [],
+        "classes": [
+          "DownDay",
+          "DownDayBool",
+          "RSI_EMA",
+          "RSI_SMA",
+          "RSI_Safe",
+          "RelativeStrengthIndex",
+          "UpDay",
+          "UpDayBool"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "trix",
+        "functions": [],
+        "classes": [
+          "Trix",
+          "TrixSignal"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "lrsi",
+        "functions": [],
+        "classes": [
+          "LaguerreFilter",
+          "LaguerreRSI"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "hurst",
+        "functions": [],
+        "classes": [
+          "HurstExponent"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "aroon",
+        "functions": [],
+        "classes": [
+          "AroonDown",
+          "AroonOscillator",
+          "AroonUp",
+          "AroonUpDown",
+          "AroonUpDownOscillator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "bollinger",
+        "functions": [],
+        "classes": [
+          "BollingerBands",
+          "BollingerBandsPct"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "momentum",
+        "functions": [],
+        "classes": [
+          "Momentum",
+          "MomentumOscillator",
+          "RateOfChange",
+          "RateOfChange100"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "dpo",
+        "functions": [],
+        "classes": [
+          "DetrendedPriceOscillator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "smma",
+        "functions": [],
+        "classes": [
+          "SmoothedMovingAverage"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "envelope",
+        "functions": [],
+        "classes": [
+          "Envelope",
+          "EnvelopeMixIn"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators",
+        "module": "kst",
+        "functions": [],
+        "classes": [
+          "KnowSureThing"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.indicators.contrib",
+        "module": "vortex",
+        "functions": [],
+        "classes": [
+          "Vortex"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.stores",
+        "module": "oandastore",
+        "functions": [],
+        "classes": [
+          "API",
+          "MetaSingleton",
+          "OandaNetworkError",
+          "OandaRequestError",
+          "OandaStore",
+          "OandaStreamError",
+          "OandaTimeFrameError",
+          "Streamer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.stores",
+        "module": "vchartfile",
+        "functions": [],
+        "classes": [
+          "VChartFile"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.stores",
+        "module": "ibstore",
+        "functions": [
+          "ibregister"
+        ],
+        "classes": [
+          "IBStore",
+          "MetaSingleton",
+          "RTVolume"
+        ],
+        "function_signatures": {
+          "ibregister": [
+            "f"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.stores",
+        "module": "vcstore",
+        "functions": [
+          "PumpEvents"
+        ],
+        "classes": [
+          "MetaSingleton",
+          "RTEventSink",
+          "VCStore"
+        ],
+        "function_signatures": {
+          "PumpEvents": [
+            "timeout",
+            "hevt",
+            "cb"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader",
+        "module": "utils3",
+        "functions": [
+          "with_metaclass"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "with_metaclass": [
+            "meta"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.utils",
+        "module": "autodict",
+        "functions": [
+          "Tree"
+        ],
+        "classes": [
+          "AutoDict",
+          "AutoDictList",
+          "AutoOrderedDict",
+          "DotDict"
+        ],
+        "function_signatures": {
+          "Tree": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.utils",
+        "module": "flushfile",
+        "functions": [],
+        "classes": [
+          "StdOutDevNull",
+          "flushfile"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.utils",
+        "module": "dateintern",
+        "functions": [
+          "Localizer",
+          "date2num",
+          "num2date",
+          "num2dt",
+          "num2time",
+          "time2num",
+          "tzparse"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "tzparse": [
+            "tz"
+          ],
+          "Localizer": [
+            "tz"
+          ],
+          "num2date": [
+            "x",
+            "tz",
+            "naive"
+          ],
+          "num2dt": [
+            "num",
+            "tz",
+            "naive"
+          ],
+          "num2time": [
+            "num",
+            "tz",
+            "naive"
+          ],
+          "date2num": [
+            "dt",
+            "tz"
+          ],
+          "time2num": [
+            "tm"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.utils",
+        "module": "ordereddefaultdict",
+        "functions": [],
+        "classes": [
+          "OrderedDefaultdict"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "sierrachart",
+        "functions": [],
+        "classes": [
+          "SierraChartCSVData"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "rollover",
+        "functions": [],
+        "classes": [
+          "MetaRollOver",
+          "RollOver"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "pandafeed",
+        "functions": [],
+        "classes": [
+          "PandasData",
+          "PandasDirectData"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "quandl",
+        "functions": [],
+        "classes": [
+          "Quandl",
+          "QuandlCSV"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "yahoo",
+        "functions": [],
+        "classes": [
+          "YahooFinance",
+          "YahooFinanceCSV",
+          "YahooFinanceCSVData",
+          "YahooFinanceData",
+          "YahooLegacyCSV"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "influxfeed",
+        "functions": [],
+        "classes": [
+          "InfluxDB"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "ibdata",
+        "functions": [],
+        "classes": [
+          "IBData",
+          "MetaIBData"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "csvgeneric",
+        "functions": [],
+        "classes": [
+          "GenericCSV",
+          "GenericCSVData"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "vchartfile",
+        "functions": [],
+        "classes": [
+          "MetaVChartFile",
+          "VChartFile"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "vcdata",
+        "functions": [],
+        "classes": [
+          "MetaVCData",
+          "VCData"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "btcsv",
+        "functions": [],
+        "classes": [
+          "BacktraderCSV",
+          "BacktraderCSVData"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "mt4csv",
+        "functions": [],
+        "classes": [
+          "MT4CSVData"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "blaze",
+        "functions": [],
+        "classes": [
+          "BlazeData"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "oanda",
+        "functions": [],
+        "classes": [
+          "MetaOandaData",
+          "OandaData"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "vchartcsv",
+        "functions": [],
+        "classes": [
+          "VChartCSV",
+          "VChartCSVData"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "chainer",
+        "functions": [],
+        "classes": [
+          "Chainer",
+          "MetaChainer"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.feeds",
+        "module": "vchart",
+        "functions": [],
+        "classes": [
+          "VChartData",
+          "VChartFeed"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.btrun",
+        "module": "btrun",
+        "functions": [
+          "btrun",
+          "getdatas",
+          "getfunctions",
+          "getmodclasses",
+          "getmodfunctions",
+          "getobjects",
+          "loadmodule",
+          "loadmodule2",
+          "loadmodule3",
+          "parse_args",
+          "setbroker"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "btrun": [
+            "pargs"
+          ],
+          "setbroker": [
+            "args",
+            "cerebro"
+          ],
+          "getdatas": [
+            "args"
+          ],
+          "getmodclasses": [
+            "mod",
+            "clstype",
+            "clsname"
+          ],
+          "getmodfunctions": [
+            "mod",
+            "funcname"
+          ],
+          "loadmodule": [
+            "modpath",
+            "modname"
+          ],
+          "loadmodule2": [
+            "modpath",
+            "modname"
+          ],
+          "loadmodule3": [
+            "modpath",
+            "modname"
+          ],
+          "getobjects": [
+            "iterable",
+            "clsbase",
+            "modbase",
+            "issignal"
+          ],
+          "getfunctions": [
+            "iterable",
+            "modbase"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.observers",
+        "module": "benchmark",
+        "functions": [],
+        "classes": [
+          "Benchmark"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.observers",
+        "module": "timereturn",
+        "functions": [],
+        "classes": [
+          "TimeReturn"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.observers",
+        "module": "drawdown",
+        "functions": [],
+        "classes": [
+          "DrawDown",
+          "DrawDownLength",
+          "DrawDown_Old"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.observers",
+        "module": "trades",
+        "functions": [],
+        "classes": [
+          "DataTrades",
+          "MetaDataTrades",
+          "Trades"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.observers",
+        "module": "broker",
+        "functions": [],
+        "classes": [
+          "Broker",
+          "Cash",
+          "FundShares",
+          "FundValue",
+          "Value"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.observers",
+        "module": "logreturns",
+        "functions": [],
+        "classes": [
+          "LogReturns",
+          "LogReturns2"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "backtrader.observers",
+        "module": "buysell",
+        "functions": [],
+        "classes": [
+          "BuySell"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tools",
+        "module": "rewrite-data",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "RewriteStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "pargs"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "tools",
+        "module": "yahoodownload",
+        "functions": [
+          "parse_args"
+        ],
+        "classes": [
+          "YahooDownload"
+        ],
+        "function_signatures": {
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "contrib.utils",
+        "module": "iqfeed-to-influxdb",
+        "functions": [],
+        "classes": [
+          "IQFeedTool"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "contrib.utils",
+        "module": "influxdb-import",
+        "functions": [],
+        "classes": [
+          "InfluxDBTool"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "contrib.samples.pair-trading",
+        "module": "pair-trading",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "PairTradingStrategy"
+        ],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.weekdays-filler",
+        "module": "weekdaysfiller",
+        "functions": [],
+        "classes": [
+          "WeekDaysFiller"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.weekdays-filler",
+        "module": "weekdaysaligner",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.talib",
+        "module": "tablibsartest",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "TALibStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.talib",
+        "module": "talibtest",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "TALibStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.writer-test",
+        "module": "writer-test",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "LongShortStrategy"
+        ],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.data-replay",
+        "module": "data-replay",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "SMAStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.gold-vs-sp500",
+        "module": "gold-vs-sp500",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "MACrossOver",
+          "PearsonR"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.pinkfish-challenge",
+        "module": "pinkfish-challenge",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "DayStepsCloseFilter",
+          "DayStepsReplayFilter",
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.observer-benchmark",
+        "module": "observer-benchmark",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.cheat-on-open",
+        "module": "cheat-on-open",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.sratio",
+        "module": "sratio",
+        "functions": [
+          "average",
+          "parse_args",
+          "run",
+          "standarddev",
+          "variance"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "average": [
+            "x"
+          ],
+          "variance": [
+            "x"
+          ],
+          "standarddev": [
+            "x"
+          ],
+          "run": [
+            "pargs"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.calmar",
+        "module": "calmar-test",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.stop-trading",
+        "module": "stop-loss-approaches",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "AutoStopOrStopTrail",
+          "BaseStrategy",
+          "ManualStopOrStopTrail",
+          "ManualStopOrStopTrailCheat"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.data-multitimeframe",
+        "module": "data-multitimeframe",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "SMAStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.vwr",
+        "module": "vwr",
         "functions": [
           "parse_args",
           "runstrat"
         ],
         "classes": [],
-        "description": "CLI runner utilities for loading strategy/data configuration and executing runs."
+        "function_signatures": {
+          "runstrat": [
+            "pargs"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.multi-example",
+        "module": "mult-values",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St",
+          "TestSizer"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.data-pandas",
+        "module": "data-pandas-optix",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "PandasDataOptix",
+          "StrategyOptix"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.data-pandas",
+        "module": "data-pandas",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.order-close",
+        "module": "close-minute",
+        "functions": [
+          "getdata",
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "getdata": [
+            "args"
+          ],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.order-close",
+        "module": "close-daily",
+        "functions": [
+          "getdata",
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "SessionEndFiller",
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "getdata": [
+            "args"
+          ],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.yahoo-test",
+        "module": "yahoo-test",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samplesfoliotestfoliotest",
+        "module": "samplesfoliotestfoliotest",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.pivot-point",
+        "module": "ppsample",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.pivot-point",
+        "module": "pivotpoint",
+        "functions": [],
+        "classes": [
+          "PivotPoint",
+          "PivotPoint1"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.data-filler",
+        "module": "data-filler",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.data-filler",
+        "module": "relativevolume",
+        "functions": [],
+        "classes": [
+          "RelativeVolume"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.psar",
+        "module": "psar",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.psar",
+        "module": "psar-intraday",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.stoptrail",
+        "module": "trail",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.slippage",
+        "module": "slippage",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "SMACrossOver",
+          "SlipSt"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.multidata-strategy",
+        "module": "multidata-strategy",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "MultiDataStrategy"
+        ],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.multidata-strategy",
+        "module": "multidata-strategy-unaligned",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "MultiDataStrategy"
+        ],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.timers",
+        "module": "scheduled-min",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.timers",
+        "module": "scheduled",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.relative-volume",
+        "module": "relvolbybar",
+        "functions": [],
+        "classes": [
+          "RelativeVolumeByBar"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.relative-volume",
+        "module": "relative-volume",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.commission-schemes",
+        "module": "commission-schemes",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "SMACrossOver"
+        ],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.oandatest",
+        "module": "oandatest",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "TestStrategy"
+        ],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.optimization",
+        "module": "optimization",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "OptimizeStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.resample-tickdata",
+        "module": "resample-tickdata",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.multitrades",
+        "module": "multitrades",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "MultiTradeStrategy"
+        ],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.multitrades",
+        "module": "mtradeobserver",
+        "functions": [],
+        "classes": [
+          "MTradeObserver"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samplesfolio2foliotest",
+        "module": "samplesfolio2foliotest",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.volumefilling",
+        "module": "volumefilling",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.partial-plot",
+        "module": "partial-plot",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.plot-same-axis",
+        "module": "plot-same-axis",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "PlotStrategy"
+        ],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.oco",
+        "module": "oco",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.sizertest",
+        "module": "sizertest",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "CloseSMA",
+          "FixedReverser",
+          "LongOnly"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.future-spot",
+        "module": "future-spot",
+        "functions": [
+          "close_changer",
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "BuySellArrows",
+          "St"
+        ],
+        "function_signatures": {
+          "close_changer": [
+            "data"
+          ],
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.order-execution",
+        "module": "order-execution",
+        "functions": [
+          "getdata",
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "OrderExecutionStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "getdata": [
+            "args"
+          ],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.analyzer-annualreturn",
+        "module": "analyzer-annualreturn",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "LongShortStrategy"
+        ],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.rollover",
+        "module": "rollover",
+        "functions": [
+          "checkdate",
+          "checkvolume",
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "TheStrategy"
+        ],
+        "function_signatures": {
+          "checkdate": [
+            "dt",
+            "d"
+          ],
+          "checkvolume": [
+            "d0",
+            "d1"
+          ],
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.vctest",
+        "module": "vctest",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "TestStrategy"
+        ],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.mixing-timeframes",
+        "module": "mixing-timeframes",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.kselrsi",
+        "module": "ksignal",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "TheStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "pargs"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.data-resample",
+        "module": "data-resample",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.data-bid-ask",
+        "module": "bidask",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "BidAskCSV",
+          "St"
+        ],
+        "function_signatures": {
+          "parse_args": [],
+          "runstrategy": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.sharpe-timereturn",
+        "module": "sharpe-timereturn",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "runstrat": [
+            "pargs"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.order_target",
+        "module": "order_target",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "TheStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.sigsmacross",
+        "module": "sigsmacross",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "SmaCross"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "pargs"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.sigsmacross",
+        "module": "sigsmacross2",
+        "functions": [],
+        "classes": [
+          "SmaCross"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.daysteps",
+        "module": "daysteps",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.ib-cash-bid-ask",
+        "module": "ib-cash-bid-ask",
+        "functions": [
+          "run"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "run": [
+            "args"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.btfd",
+        "module": "btfd",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St",
+          "ValueUnlever"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.memory-savings",
+        "module": "memory-savings",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St",
+          "TestInd"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.lrsi",
+        "module": "lrsi-test",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.renko",
+        "module": "renko",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.bracket",
+        "module": "bracket",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.macd-settings",
+        "module": "macd-settings",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "FixedPerc",
+          "TheStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.ibtest",
+        "module": "ibtest",
+        "functions": [
+          "parse_args",
+          "runstrategy"
+        ],
+        "classes": [
+          "TestStrategy"
+        ],
+        "function_signatures": {
+          "runstrategy": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.bidask-to-ohlc",
+        "module": "bidask-to-ohlc",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.credit-interest",
+        "module": "credit-interest",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "NoExit",
+          "SMACrossOver",
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.lineplotter",
+        "module": "lineplotter",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "pargs"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.observers",
+        "module": "observers-default-drawdown",
+        "functions": [
+          "runstrat"
+        ],
+        "classes": [
+          "MyStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.observers",
+        "module": "orderobserver",
+        "functions": [],
+        "classes": [
+          "OrderObserver"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.observers",
+        "module": "observers-orderobserver",
+        "functions": [
+          "runstrat"
+        ],
+        "classes": [
+          "MyStrategy"
+        ],
+        "function_signatures": {
+          "runstrat": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.multi-copy",
+        "module": "multi-copy",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "TheStrategy",
+          "TheStrategy2"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.calendar-days",
+        "module": "calendar-days",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "runstrat": [],
+          "parse_args": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.order-history",
+        "module": "order-history",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "SmaCross",
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.tradingcalendar",
+        "module": "tcal",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "NYSE_2016",
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.tradingcalendar",
+        "module": "tcal-intra",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "NYSE_2016",
+          "St"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.signals-strategy",
+        "module": "signals-strategy",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "SMACloseSignal",
+          "SMAExitSignal"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "args"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "samples.strategy-selection",
+        "module": "strategy-selection",
+        "functions": [
+          "parse_args",
+          "runstrat"
+        ],
+        "classes": [
+          "St0",
+          "St1",
+          "StFetcher"
+        ],
+        "function_signatures": {
+          "runstrat": [
+            "pargs"
+          ],
+          "parse_args": [
+            "pargs"
+          ]
+        },
+        "description": "Discovered via AST scan"
       }
     ],
     "cli_commands": [
       {
         "name": "btrun",
-        "module": "backtrader/btrun/btrun.py",
-        "description": "Main CLI entry for running strategies/backtests from command line arguments."
+        "module": "source.backtrader.btrun.btrun",
+        "description": "Built-in command-style runner for strategies/data/analyzers via argument parsing."
       },
       {
         "name": "bt-run.py",
-        "module": "tools/bt-run.py",
-        "description": "Convenience wrapper script around backtrader run functionality."
-      },
-      {
-        "name": "yahoodownload.py",
-        "module": "tools/yahoodownload.py",
-        "description": "Utility script to download Yahoo historical market data."
-      },
-      {
-        "name": "rewrite-data.py",
-        "module": "tools/rewrite-data.py",
-        "description": "Utility script for data transformation/rewrite operations."
+        "module": "source.backtrader.tools.bt-run",
+        "description": "Thin tool wrapper around runtime execution (script utility)."
       }
     ],
     "import_strategy": {
@@ -1251,21 +4742,23 @@
     },
     "dependencies": {
       "required": [
-        "python (setuptools package via setup.py)"
+        "python (runtime)",
+        "matplotlib"
       ],
       "optional": [
-        "matplotlib (plotting modules under backtrader/plot)",
-        "pandas (pandafeed and data integration)",
-        "numpy (commonly used by indicators/analytics paths)",
-        "TA-Lib (backtrader/talib.py integration)",
-        "ibpy / Interactive Brokers stack (ibstore/ibbroker/ibdata paths)",
-        "oandapy / Oanda stack (oandastore/oandabroker/oanda feed paths)",
-        "influxdb client stack (influx feed utilities)",
-        "pyfolio (analyzers/pyfolio.py and samples)"
+        "pandas",
+        "numpy",
+        "python-dateutil",
+        "pytz",
+        "ibpy/ib_insync ecosystem for IB integrations",
+        "oandapy/oanda-related client libs",
+        "vchart/vc store-related vendor libs",
+        "TA-Lib (for source.backtrader.talib)",
+        "pyfolio (for analyzer integrations)"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.9,
+      "import_feasibility": 0.92,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -1283,7 +4776,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.9,
+    "import_feasibility": 0.92,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }
