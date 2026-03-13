@@ -1,7 +1,7 @@
 {
   "summary": {
     "repository_url": "https://github.com/cvxpy/cvxpy",
-    "summary": "Imported via zip fallback, file count: 556",
+    "summary": "Imported via zip fallback, file count: 557",
     "file_tree": {
       ".devcontainer/devcontainer.json": {
         "size": 344
@@ -580,7 +580,7 @@
         "size": 1602
       },
       "cvxpy/problems/problem.py": {
-        "size": 64830
+        "size": 64961
       },
       "cvxpy/problems/problem_form.py": {
         "size": 15473
@@ -766,7 +766,7 @@
         "size": 1219
       },
       "cvxpy/reductions/dcp2cone/cone_matrix_stuffing.py": {
-        "size": 20255
+        "size": 20161
       },
       "cvxpy/reductions/dcp2cone/dcp2cone.py": {
         "size": 6466
@@ -1000,7 +1000,7 @@
         "size": 8111
       },
       "cvxpy/reductions/solution.py": {
-        "size": 3020
+        "size": 3265
       },
       "cvxpy/reductions/solvers/__init__.py": {
         "size": 563
@@ -1018,7 +1018,7 @@
         "size": 8531
       },
       "cvxpy/reductions/solvers/conic_solvers/clarabel_conif.py": {
-        "size": 13442
+        "size": 13630
       },
       "cvxpy/reductions/solvers/conic_solvers/conic_solver.py": {
         "size": 15654
@@ -1036,7 +1036,7 @@
         "size": 7407
       },
       "cvxpy/reductions/solvers/conic_solvers/cuopt_conif.py": {
-        "size": 11331
+        "size": 11464
       },
       "cvxpy/reductions/solvers/conic_solvers/cvxopt_conif.py": {
         "size": 13877
@@ -1093,7 +1093,7 @@
         "size": 12655
       },
       "cvxpy/reductions/solvers/conic_solvers/scs_conif.py": {
-        "size": 13497
+        "size": 13405
       },
       "cvxpy/reductions/solvers/conic_solvers/sdpa_conif.py": {
         "size": 6872
@@ -1332,6 +1332,9 @@
       "cvxpy/tests/test_clarabel.py": {
         "size": 4750
       },
+      "cvxpy/tests/test_clarabel_warm_start.py": {
+        "size": 969
+      },
       "cvxpy/tests/test_coeff_extractor.py": {
         "size": 15336
       },
@@ -1345,7 +1348,7 @@
         "size": 35489
       },
       "cvxpy/tests/test_conic_solvers.py": {
-        "size": 123566
+        "size": 125027
       },
       "cvxpy/tests/test_constant.py": {
         "size": 3394
@@ -1676,14 +1679,30 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.cvxpy.source",
+      "mcp_output.mcp_plugin",
+      "source.cvxpy",
+      "source.cvxpy.atoms",
+      "source.cvxpy.constraints",
+      "source.cvxpy.cvxcore",
+      "source.cvxpy.expressions",
+      "source.cvxpy.interface",
+      "source.cvxpy.lin_ops",
+      "source.cvxpy.problems",
+      "source.cvxpy.reductions",
+      "source.cvxpy.tests",
+      "source.cvxpy.transforms",
+      "source.cvxpy.utilities",
+      "source.setup"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
-    "has_requirements_txt": false,
-    "pyproject": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -1693,101 +1712,120 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "cvxpy",
-        "module": "__init__.py",
-        "functions": [],
-        "classes": [],
-        "description": "Top-level public API re-export hub; best import surface for plugin integration."
+        "package": "source.cvxpy",
+        "module": "source.cvxpy.__init__",
+        "functions": [
+          "reshape",
+          "vec",
+          "sum",
+          "multiply",
+          "quad_form"
+        ],
+        "classes": [
+          "Variable",
+          "Parameter",
+          "Problem",
+          "Minimize",
+          "Maximize"
+        ],
+        "description": "Top-level public API re-export module; best import surface for MCP tools to construct/solve optimization problems with minimal coupling to internals."
       },
       {
-        "package": "cvxpy/problems",
-        "module": "problem.py",
+        "package": "source.cvxpy.problems",
+        "module": "source.cvxpy.problems.problem",
         "functions": [],
         "classes": [
           "Problem"
         ],
-        "description": "Primary optimization model container and solve entrypoint."
+        "description": "Primary orchestration object for model compilation, reduction chain construction, and solver execution."
       },
       {
-        "package": "cvxpy/expressions/variable.py",
-        "module": "variable.py",
+        "package": "source.cvxpy.expressions",
+        "module": "source.cvxpy.expressions.variable",
         "functions": [],
         "classes": [
           "Variable"
         ],
-        "description": "Decision variable definition class used in nearly all models."
+        "description": "Decision-variable abstraction used to build symbolic optimization expressions."
       },
       {
-        "package": "cvxpy/expressions/constants/parameter.py",
-        "module": "parameter.py",
+        "package": "source.cvxpy.expressions.constants",
+        "module": "source.cvxpy.expressions.constants.parameter",
         "functions": [],
         "classes": [
           "Parameter"
         ],
-        "description": "Parameterized constants for repeated solves / DPP workflows."
+        "description": "Parameterized constants for repeated solves and DPP-style workflows."
       },
       {
-        "package": "cvxpy/problems/objective.py",
-        "module": "objective.py",
+        "package": "source.cvxpy.problems",
+        "module": "source.cvxpy.problems.objective",
         "functions": [],
         "classes": [
           "Minimize",
-          "Maximize",
-          "Objective"
+          "Maximize"
         ],
-        "description": "Objective specification primitives."
+        "description": "Objective wrappers used with Problem to define optimization direction and target expression."
       },
       {
-        "package": "cvxpy/constraints",
-        "module": "__init__.py",
+        "package": "source.cvxpy.reductions.solvers",
+        "module": "source.cvxpy.reductions.solvers.defines",
+        "functions": [],
+        "classes": [],
+        "description": "Solver capability/registration metadata; useful for MCP tool endpoints like list_solvers and solver-compat checks."
+      },
+      {
+        "package": "source.cvxpy.reductions.solvers",
+        "module": "source.cvxpy.reductions.solvers.solving_chain",
+        "functions": [],
+        "classes": [],
+        "description": "Reduction pipeline assembly from symbolic problem to solver-ready canonical form."
+      },
+      {
+        "package": "source.cvxpy.atoms",
+        "module": "source.cvxpy.atoms.__init__",
+        "functions": [
+          "norm",
+          "sum_squares",
+          "log_sum_exp",
+          "maximum",
+          "minimum"
+        ],
+        "classes": [],
+        "description": "High-value atom namespace for expression-building tools; broad convex modeling coverage."
+      },
+      {
+        "package": "source.cvxpy.constraints",
+        "module": "source.cvxpy.constraints.__init__",
         "functions": [],
         "classes": [
           "Constraint",
-          "Equality",
-          "Inequality",
           "NonPos",
           "Zero",
           "PSD",
           "SOC",
           "ExpCone",
-          "PowCone3D",
-          "PowConeND"
+          "PowCone3D"
         ],
-        "description": "Core constraint families exposed for model construction."
-      },
-      {
-        "package": "cvxpy/reductions/solvers",
-        "module": "defines.py",
-        "functions": [],
-        "classes": [],
-        "description": "Solver registry/constants; useful for capability discovery in MCP tools."
-      },
-      {
-        "package": "cvxpy/reductions/solvers",
-        "module": "solving_chain.py",
-        "functions": [],
-        "classes": [
-          "SolvingChain"
-        ],
-        "description": "Canonicalization-to-solver execution pipeline internals."
+        "description": "Constraint primitives backing user-facing operators and advanced explicit cone modeling."
       }
     ],
     "cli_commands": [
       {
-        "name": "python -m cvxpy.utilities.cvxpy_upgrade",
-        "module": "cvxpy/utilities/cvxpy_upgrade.py",
-        "description": "Source migration helper (legacy API rewrites), utility CLI-like entry via module execution."
+        "name": "cvxpy_upgrade",
+        "module": "source.cvxpy.utilities.cvxpy_upgrade",
+        "description": "Migration helper utility script for updating old CVXPY syntax patterns; script-like utility, not a primary package CLI entry point."
       },
       {
-        "name": "python tools/release_notes.py",
-        "module": "tools/release_notes.py",
-        "description": "Project maintenance script, not end-user optimization CLI."
+        "name": "release_notes",
+        "module": "source.tools.release_notes",
+        "description": "Repository maintenance script for generating release notes; developer tooling, not end-user optimization CLI."
       }
     ],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.95
     },
     "dependencies": {
       "required": [
@@ -1804,23 +1842,21 @@
         "cplex",
         "mosek",
         "highspy",
-        "glpk",
-        "cbc",
+        "pyscipopt",
         "xpress",
-        "sdpa",
-        "diffcp",
-        "ipopt",
-        "knitro",
-        "copt",
+        "coptpy",
+        "piqp",
+        "proxqp",
+        "daqp",
         "qoco",
-        "cuclarabel",
-        "cuopt",
-        "pdlp",
-        "scip"
+        "sdpa-python",
+        "diffcp",
+        "ortools",
+        "pandas"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.96,
+      "import_feasibility": 0.93,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -1838,7 +1874,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.96,
+    "import_feasibility": 0.93,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

@@ -2,116 +2,93 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service provides a thin developer-facing interface over [CVXPY](https://github.com/cvxpy/cvxpy), a Python modeling library for convex optimization (plus selected quasiconvex, geometric, mixed-integer, and NLP workflows depending on solver support).
+This service exposes a practical MCP (Model Context Protocol) interface for CVXPY-based mathematical optimization workflows.  
+It is designed for developers who want to build, validate, and solve convex optimization problems from LLM/tooling environments.
 
-### Main functions
-- Build optimization models from variables, parameters, objectives, and constraints.
-- Solve models with available solvers (automatic or explicit selection).
-- Support repeated solves via `Parameter` updates (DPP-friendly workflows).
-- Expose solver capability and status metadata for downstream automation.
+Main capabilities:
+- Build optimization models with `Variable`, `Parameter`, objectives (`Minimize` / `Maximize`), atoms, and constraints
+- Run solver-backed optimization (`Problem.solve`)
+- Inspect solver availability and compatibility
+- Support parameterized repeated solves (DPP-style workflows)
 
 ---
 
 ## 2) Installation Method
 
 ### Requirements
-- Python 3.9+ (recommended modern 3.x)
-- Required runtime libraries:
-  - `numpy`
-  - `scipy`
-- At least one solver backend (recommended defaults: `osqp`, `scs`, or `clarabel`)
+- Python 3.9+ (recommended)
+- Required: `numpy`, `scipy`
+- Recommended solver backends: `osqp`, `scs`, `clarabel`, `ecos` (install as needed)
 
-### Install (minimal)
-pip install cvxpy
+### Install commands
+- Core:
+  `pip install cvxpy`
+- Common open-source solvers:
+  `pip install cvxpy[scs,ecos,osqp]`  
+  (If extras are unavailable in your environment, install solvers directly: `pip install scs ecos osqp clarabel`)
 
-### Install with common solvers
-pip install "cvxpy[scs,osqp,clarabel]"
-
-### Optional commercial/advanced solvers
-Install separately per vendor/package, e.g. GUROBI, CPLEX, MOSEK, XPRESS, SCIP, IPOPT, KNITRO, etc., then ensure licenses/environment are configured.
+### Verify install
+- `python -c "import cvxpy as cp; print(cp.__version__)"`
 
 ---
 
 ## 3) Quick Start
 
-### Basic modeling flow
-import cvxpy as cp
+### Typical flow
+1. Create variables/parameters  
+2. Build objective and constraints  
+3. Create `Problem`  
+4. Call solve and read results
 
-x = cp.Variable()
-obj = cp.Minimize((x - 1)**2)
-prob = cp.Problem(obj, [x >= 0])
-value = prob.solve()   # or prob.solve(solver=cp.OSQP)
+Example usage pattern:
+import cvxpy as cp  
+x = cp.Variable(3)  
+target = cp.Parameter(3)  
+target.value = [1.0, 2.0, 3.0]  
 
-print("status:", prob.status)
-print("objective:", value)
+objective = cp.Minimize(cp.sum_squares(x - target))  
+constraints = [x >= 0, cp.sum(x) == 1]  
+prob = cp.Problem(objective, constraints)  
+value = prob.solve(solver="OSQP")  
+
+print("status:", prob.status)  
+print("opt value:", value)  
 print("x:", x.value)
 
-### Parameterized repeated solve
-import cvxpy as cp
-
-x = cp.Variable()
-p = cp.Parameter(nonneg=True, value=1.0)
-prob = cp.Problem(cp.Minimize((x - p)**2), [x >= 0])
-
-for v in [1.0, 2.0, 3.0]:
-    p.value = v
-    prob.solve()
-    print(v, x.value)
+For repeated solves, update parameter values (`target.value = ...`) and call `prob.solve(...)` again.
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) service surface (practical mapping to CVXPY core APIs):
+Suggested MCP (Model Context Protocol) service endpoints:
 
-- `build_problem`
-  - Create a `Problem` from objective + constraints.
-  - Inputs: expression graph/spec.
-  - Output: problem handle/id.
+- `build_problem`  
+  Build a CVXPY problem from objective, variables, constraints, and atoms.
 
-- `solve_problem`
-  - Execute `Problem.solve(...)`.
-  - Inputs: problem id, solver (optional), solver options (optional).
-  - Output: status, objective value, variable values, timing/stats.
+- `solve_problem`  
+  Solve a compiled problem with selected solver and options; returns status, objective value, primal values.
 
-- `set_parameter`
-  - Update `Parameter.value` for an existing problem.
-  - Inputs: problem id, parameter name/id, value.
-  - Output: confirmation + validation errors if any.
+- `list_solvers`  
+  Return installed/available solvers and basic capabilities.
 
-- `list_solvers`
-  - Return installed/available solver backends and basic capability hints.
-  - Backed by CVXPY solver definitions (`reductions/solvers/defines.py`).
+- `check_solver_compatibility`  
+  Validate whether a problem class is compatible with a target solver.
 
-- `get_problem_status`
-  - Fetch last known solve status, infeasibility/unbounded flags, and metadata.
+- `set_parameters`  
+  Update `Parameter` values for fast repeated solves.
 
-- `upgrade_legacy_source` (utility)
-  - Wrapper for `python -m cvxpy.utilities.cvxpy_upgrade` for migration help.
+- `get_problem_summary`  
+  Return model dimensions, constraint families (SOC/PSD/EXP/etc.), and DCP/DGP compliance signals.
 
----
+- `get_solution`  
+  Fetch variable values, duals (if available), and solver stats.
 
-## 5) Common Issues and Notes
+- `validate_model`  
+  Run rule checks (e.g., DCP/DGP) before solve and return actionable diagnostics.
 
-- Solver not found:
-  - CVXPY may install without all optional solvers. Install solver package explicitly.
-- Performance:
-  - Reuse a compiled model and update `Parameter` values instead of rebuilding.
-- Numerical stability:
-  - Try a different solver and/or scaling; inspect `prob.status` carefully.
-- Mixed-integer / NLP:
-  - Requires specific solver support; not all backends support all problem classes.
-- Environment/licensing:
-  - Commercial solvers require valid local licenses and vendor environment variables.
-- Large models:
-  - Prefer sparse data structures and avoid unnecessary dense matrix construction.
+- `upgrade_legacy_syntax` (utility)  
+  Wraps `cvxpy_upgrade` script-like migration helper.
 
----
-
-## 6) Reference Links or Documentation
-
-- CVXPY repository: https://github.com/cvxpy/cvxpy  
-- Official docs: https://www.cvxpy.org/  
-- API entrypoint (`cvxpy/__init__.py`) and core model class (`cvxpy/problems/problem.py`)  
-- Solver integration internals: `cvxpy/reductions/solvers/`  
-- Migration utility: `python -m cvxpy.utilities.cvxpy_upgrade`
+- `generate_release_notes` (maintenance)  
+  Developer utility
