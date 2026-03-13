@@ -1,7 +1,7 @@
 {
   "repository": {
     "name": "BioSPPy",
-    "url": "https://github.com/scientisst/BioSPPy",
+    "url": "https://github.com/PIA-Group/BioSPPy",
     "local_path": "/Users/ghh/Documents/Code/Code2MCP-private/workspace/BioSPPy",
     "description": "Python library",
     "features": "Basic functionality",
@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773269401.834347,
-    "end_time": 1773269656.7036228,
-    "duration": 254.86927580833435,
+    "start_time": 1773379856.435787,
+    "end_time": 1773380077.634735,
+    "duration": 221.19894814491272,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 6,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,14 +53,21 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.BioSPPy.source",
+        "mcp_output.mcp_plugin",
+        "source.biosppy",
+        "source.biosppy.inter_plotting",
+        "source.biosppy.signals",
+        "source.biosppy.synthesizers"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
-      "has_requirements_txt": false,
+      "has_requirements_txt": true,
       "pyproject": false,
-      "setup_cfg": false,
-      "setup_py": false
+      "setup_cfg": true,
+      "setup_py": true
     },
     "entry_points": {
       "imports": [],
@@ -68,12 +75,12 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.9,
+      "import_feasibility": 0.92,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
     "deepwiki_analysis": {
-      "repo_url": "https://github.com/scientisst/BioSPPy",
+      "repo_url": "https://github.com/PIA-Group/BioSPPy",
       "repo_name": "BioSPPy",
       "error": "DeepWiki analysis failed",
       "model": "gpt-5.3-codex",
@@ -121,49 +128,39 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/BioSPPy/temp_clone'...\nfatal: unable to access 'https://github.com/scientisst/BioSPPy/': Error in the HTTP2 framing layer\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/BioSPPy/temp_clone'...\nfatal: unable to access 'https://github.com/scientisst/BioSPPy/': Error in the HTTP2 framing layer\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "add a minimal automated test suite for each exposed MCP endpoint (happy path + invalid inputs + edge cases) since test status is empty",
-    "fix repository structure/dependency detection mismatches by adding a modern `pyproject.toml` (and keeping `setup.py` compatibility if needed) so tooling reliably finds packages and requirements",
-    "pin and validate runtime dependencies in both root and `mcp_output/requirements.txt` (including optional deps behavior) to prevent environment drift",
-    "add strict request/response schemas for every endpoint via Pydantic models (signal shape",
-    "sampling rate",
-    "units",
-    "return fields) to harden API contracts",
-    "implement consistent error handling and domain-specific exceptions in `adapter.py`/`mcp_service.py` with clear user-facing messages",
-    "add input sanitization and resource guards (max array length",
-    "timeout limits",
-    "memory checks) for heavy signal-processing endpoints",
-    "create regression tests with bundled example datasets (ecg/eda/emg/ppg/eeg/hrv) and expected summary metrics to detect algorithm drift",
-    "add CI workflows for lint/type/test/build across multiple Python versions and OSes plus publish artifacts only after passing checks",
-    "introduce static quality gates (ruff/flake8",
-    "black",
-    "mypy/pyright",
-    "bandit) and enforce via pre-commit",
-    "improve MCP README with concrete endpoint examples",
-    "parameter defaults",
-    "error codes",
-    "and performance notes for large signals",
-    "add observability hooks (structured logs",
-    "per-endpoint latency",
-    "failure counts) and optional tracing for production MCP deployments",
-    "refactor oversized modules (e.g.",
-    "`signals/ecg.py`",
-    "`plotting.py`) into smaller submodules to improve maintainability and testability",
-    "cache/reuse expensive intermediate computations (filter coefficients",
-    "spectral windows) where safe to reduce repeated-call latency",
-    "add backward-compatibility/versioning policy for endpoint names and output schemas before future changes",
-    "include benchmark tests for representative signal lengths to track performance regressions over time"
+    "add a minimal smoke test suite (import biosppy",
+    "call representative functions like signals.ecg.ecg",
+    "signals.ppg.ppg",
+    "storage.serialize/deserialize) and wire it to CI",
+    "add a pyproject.toml and migrate packaging metadata from setup.py/setup.cfg for modern builds",
+    "pin and split dependencies into core vs optional extras (e.g.",
+    "mne/pywavelets) with tested version ranges",
+    "add endpoint-level MCP tests for duplicated/ambiguous names (e.g.",
+    "ecg",
+    "plot_acc",
+    "pearson_correlation) to prevent routing collisions",
+    "introduce stricter input validation and clear error messages for high-parameter APIs (especially ECG/EMG detectors)",
+    "improve API consistency by standardizing argument names/order across signal modules (signal",
+    "sampling_rate",
+    "path",
+    "show)",
+    "add benchmark scripts for heavy modules (ecg.py",
+    "tools.py",
+    "biometrics.py) and track regressions",
+    "expand docs with task-based examples and expected output shapes for each top-level function",
+    "add type hints incrementally to public functions and enforce with mypy/pyright in permissive mode first",
+    "create a deprecation policy and changelog automation to manage legacy function behavior safely",
+    "harden serialization/storage paths with security checks (zip traversal prevention",
+    "safe JSON/HDF handling)",
+    "reduce plugin surface by curating/reviewing exposed MCP endpoints instead of exporting nearly everything",
+    "add property-based tests for numerical utilities (filtering",
+    "spectra",
+    "heart-rate extraction) to catch edge cases",
+    "add reproducibility controls (global random seed helpers and deterministic options in clustering/biometrics flows)",
+    "configure lint/format/pre-commit (ruff/black/isort) to improve maintainability and contributor onboarding"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -194,37 +191,36 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Zip fallback import path recovered from git clone failure and successfully loaded repository contents (64 files).",
-      "Low-intrusiveness import adapter strategy (confidence 0.9) enabled MCP wrapper generation without invasive source changes.",
-      "Generated MCP service started healthy over stdio transport.",
-      "Domain-relevant endpoints were produced (ECG/EDA/EMG/PPG/RESP/EEG/HRV + DSP helpers + biometrics classes)."
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-based adapter strategy was feasible (import_feasibility=0.92, low intrusiveness risk), enabling rapid MCP wrapping.",
+      "Repository structure and dependencies were detected reliably via zip fallback and AST scan, yielding broad function/class discovery.",
+      "Generated MCP service started healthy over stdio transport with no runtime errors reported."
     ],
     "failure_reasons": [
-      "Primary repository acquisition failed due to network/protocol issue: HTTP2 framing error during git clone.",
-      "Pipeline telemetry inconsistency: execution reports 0 files processed and 0 LLM calls, while analysis state shows successful zip fallback and detailed module extraction.",
-      "Dependency/structure detectors returned false negatives (requirements/setup present in file tree but detected as absent), indicating analyzer mismatch.",
-      "Quality gates were weak: no meaningful endpoint tests executed despite plugin health check passing."
+      "No hard workflow failure occurred.",
+      "Quality-gate weakness: original project tests are marked passed=false despite reported 100% coverage metadata, indicating test execution/collection inconsistency.",
+      "DeepWiki analysis failed (non-blocking), reducing external semantic validation depth.",
+      "Generation telemetry appears incomplete (tool_endpoints=0, generated LOC/size=0) and conflicts with discovered endpoint list, suggesting instrumentation/reporting defects."
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Download node partially failed on git clone, then recovered via zip fallback. This likely added retry/fallback latency and reduced determinism.",
-      "analysis_time": "Analysis produced substantial module and dependency intelligence, but metadata counters are inconsistent; effective analysis quality is medium-high.",
-      "generation_time": "Generation completed quickly and produced expected scaffold files, but reported 0 LOC/0 endpoint count indicates instrumentation gaps.",
-      "test_time": "Minimal/placeholder validation only (service health), no functional endpoint verification; test confidence is low."
+      "download_time": "Completed within total runtime; exact per-node timing unavailable. Zip fallback succeeded, indicating resilient fetch/ingestion path.",
+      "analysis_time": "Likely moderate-to-high share of runtime due to AST scan across medium-size codebase (~47 files, several large modules).",
+      "generation_time": "Likely efficient given successful file creation and adapter scaffolding, but missing LOC/size metrics limit precision.",
+      "test_time": "MCP health test passed quickly; original project test phase appears not meaningfully executed (0 execution_time), so validation depth is limited."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown from metrics (reported 0 MB likely means not captured). Expected moderate memory needs for biosignal arrays; add runtime profiling.",
-      "cpu_efficiency": "Unknown from metrics (reported 0%). Signal-processing endpoints are CPU-heavy; introduce per-endpoint CPU timing.",
-      "disk_usage": "Generated artifacts are small, but example datasets in repo are sizable; current disk telemetry is missing and should be instrumented."
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB). No evidence of memory pressure, but metrics are not trustworthy.",
+      "cpu_efficiency": "Unknown from telemetry (reported 0%). Runtime (~221s) suggests non-trivial compute in analysis/generation.",
+      "disk_usage": "Low-to-moderate expected; only a small MCP output scaffold created. Reported generated size=0 indicates measurement gap."
     }
   },
   "technical_quality": {
-    "code_quality_score": 72,
+    "code_quality_score": 74,
     "architecture_score": 78,
-    "performance_score": 61,
-    "maintainability_score": 69,
+    "performance_score": 62,
+    "maintainability_score": 71,
     "security_score": 85,
-    "scalability_score": 66
+    "scalability_score": 68
   }
 }

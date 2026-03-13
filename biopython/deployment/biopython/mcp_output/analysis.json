@@ -2171,14 +2171,57 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.biopython.source",
+      "mcp_output.mcp_plugin",
+      "source.Bio",
+      "source.Bio.Affy",
+      "source.Bio.Align",
+      "source.Bio.AlignIO",
+      "source.Bio.Alphabet",
+      "source.Bio.Blast",
+      "source.Bio.CAPS",
+      "source.Bio.Cluster",
+      "source.Bio.Compass",
+      "source.Bio.Data",
+      "source.Bio.Emboss",
+      "source.Bio.Entrez",
+      "source.Bio.ExPASy",
+      "source.Bio.GenBank",
+      "source.Bio.Geo",
+      "source.Bio.Graphics",
+      "source.Bio.HMM",
+      "source.Bio.KEGG",
+      "source.Bio.Medline",
+      "source.Bio.NMR",
+      "source.Bio.Nexus",
+      "source.Bio.PDB",
+      "source.Bio.Pathway",
+      "source.Bio.Phylo",
+      "source.Bio.PopGen",
+      "source.Bio.Restriction",
+      "source.Bio.SCOP",
+      "source.Bio.SVDSuperimposer",
+      "source.Bio.SearchIO",
+      "source.Bio.SeqIO",
+      "source.Bio.SeqUtils",
+      "source.Bio.Sequencing",
+      "source.Bio.SwissProt",
+      "source.Bio.TogoWS",
+      "source.Bio.UniGene",
+      "source.Bio.UniProt",
+      "source.Bio.codonalign",
+      "source.Bio.motifs",
+      "source.Bio.phenotype",
+      "source.BioSQL"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -2188,167 +2231,160 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "Bio/Seq.py",
-        "module": "Bio.Seq",
-        "functions": [
-          "transcribe",
-          "back_transcribe",
-          "translate",
-          "reverse_complement",
-          "reverse_complement_rna"
-        ],
-        "classes": [
-          "Seq",
-          "MutableSeq",
-          "UndefinedSequenceError"
-        ],
-        "description": "Core sequence object model and sequence transformation utilities central to Biopython usage."
-      },
-      {
-        "package": "Bio/SeqIO/__init__.py",
-        "module": "Bio.SeqIO",
+        "package": "source.Bio.SeqIO",
+        "module": "__init__",
         "functions": [
           "parse",
           "read",
           "write",
           "convert",
           "index",
-          "index_db"
+          "index_db",
+          "to_dict"
         ],
         "classes": [],
-        "description": "Primary sequence file I/O facade supporting many biological file formats."
+        "description": "Central sequence I/O facade for many bioinformatics formats; best high-value, stable import surface for parsing and writing records."
       },
       {
-        "package": "Bio/Align/__init__.py",
-        "module": "Bio.Align",
+        "package": "source.Bio.AlignIO",
+        "module": "__init__",
         "functions": [
           "parse",
           "read",
-          "write"
+          "write",
+          "convert"
+        ],
+        "classes": [],
+        "description": "Multiple sequence alignment I/O facade; format conversion and alignment parsing/writing."
+      },
+      {
+        "package": "source.Bio.Align",
+        "module": "__init__",
+        "functions": [
+          "parse",
+          "read",
+          "write",
+          "substitution_matrices.load"
         ],
         "classes": [
           "PairwiseAligner",
           "Alignment",
           "Alignments"
         ],
-        "description": "Modern alignment API for pairwise and multiple alignments, parsing/writing alignments and alignment operations."
+        "description": "Modern alignment APIs including pairwise alignment and rich alignment objects."
       },
       {
-        "package": "Bio/AlignIO/__init__.py",
-        "module": "Bio.AlignIO",
-        "functions": [
-          "parse",
-          "read",
-          "write",
-          "convert"
-        ],
-        "classes": [],
-        "description": "Legacy and broadly used alignment I/O layer with format conversion support."
-      },
-      {
-        "package": "Bio/SearchIO/__init__.py",
-        "module": "Bio.SearchIO",
-        "functions": [
-          "parse",
-          "read",
-          "to_dict",
-          "index",
-          "write",
-          "convert"
-        ],
-        "classes": [],
-        "description": "Search result parsing and writing framework (BLAST, HMMER, Infernal, etc.)."
-      },
-      {
-        "package": "Bio/PDB/__init__.py",
-        "module": "Bio.PDB",
+        "package": "source.Bio.PDB",
+        "module": "PDBParser/MMCIFParser/PDBIO",
         "functions": [],
         "classes": [
           "PDBParser",
           "MMCIFParser",
           "PDBIO",
-          "PDBList",
           "Superimposer",
           "NeighborSearch"
         ],
-        "description": "Protein structure parsing, manipulation, and export toolkit."
+        "description": "Protein structure parsing/manipulation stack; useful for structural biology MCP tools."
       },
       {
-        "package": "Bio/Phylo/__init__.py",
-        "module": "Bio.Phylo",
+        "package": "source.Bio.Entrez",
+        "module": "__init__",
         "functions": [
-          "parse",
-          "read",
-          "write",
-          "convert",
-          "draw",
-          "draw_ascii"
-        ],
-        "classes": [],
-        "description": "Phylogenetic tree parsing, format conversion, and visualization helpers."
-      },
-      {
-        "package": "Bio/Entrez/__init__.py",
-        "module": "Bio.Entrez",
-        "functions": [
-          "esearch",
           "efetch",
+          "esearch",
           "esummary",
-          "epost",
           "elink",
+          "epost",
           "einfo",
-          "egquery",
-          "espell",
-          "ecitmatch",
           "read",
           "parse"
         ],
         "classes": [],
-        "description": "NCBI Entrez HTTP client utilities for programmatic bioinformatics data retrieval."
+        "description": "NCBI E-utilities client for remote retrieval; useful but network/rate-limit sensitive."
       },
       {
-        "package": "Bio/Blast/__init__.py",
-        "module": "Bio.Blast",
+        "package": "source.Bio.Seq",
+        "module": "__init__",
+        "functions": [],
+        "classes": [
+          "Seq",
+          "MutableSeq"
+        ],
+        "description": "Core sequence object model and biological sequence operations."
+      },
+      {
+        "package": "source.Bio.SeqRecord",
+        "module": "__init__",
+        "functions": [],
+        "classes": [
+          "SeqRecord"
+        ],
+        "description": "Annotated sequence record container used across SeqIO/GenBank/SwissProt workflows."
+      },
+      {
+        "package": "source.Bio.SeqFeature",
+        "module": "__init__",
+        "functions": [],
+        "classes": [
+          "SeqFeature",
+          "FeatureLocation",
+          "CompoundLocation"
+        ],
+        "description": "Feature/annotation coordinate model for rich genomic records."
+      },
+      {
+        "package": "source.Bio.Phylo",
+        "module": "__init__",
         "functions": [
-          "parse",
           "read",
-          "write"
+          "parse",
+          "write",
+          "convert"
         ],
         "classes": [],
-        "description": "BLAST result parsing/writing interfaces and model objects."
+        "description": "Phylogenetic tree I/O across Newick/Nexus/PhyloXML-like formats."
+      },
+      {
+        "package": "source.Bio.SearchIO",
+        "module": "__init__",
+        "functions": [
+          "read",
+          "parse",
+          "index",
+          "index_db",
+          "write",
+          "convert"
+        ],
+        "classes": [],
+        "description": "Search result parsers for BLAST/HMMER/Infernal/Exonerate outputs."
       }
     ],
     "cli_commands": [
       {
+        "name": "No first-class package CLI entry points detected",
+        "module": "source.Bio (package level)",
+        "description": "Repository exposes library APIs; command-line utilities exist as standalone scripts under Scripts/ rather than console entry points."
+      },
+      {
         "name": "query_pubmed.py",
         "module": "Scripts/query_pubmed.py",
-        "description": "Example utility script for querying PubMed via Entrez APIs."
+        "description": "Example/utility script for PubMed querying via Entrez."
       },
       {
         "name": "scop_pdb.py",
         "module": "Scripts/scop_pdb.py",
-        "description": "Script utility related to SCOP/PDB processing."
+        "description": "Standalone utility around SCOP/PDB data."
       },
       {
-        "name": "update_ncbi_codon_table.py",
-        "module": "Scripts/update_ncbi_codon_table.py",
-        "description": "Maintenance/update script for codon table data."
-      },
-      {
-        "name": "hsexpo.py",
-        "module": "Scripts/PDB/hsexpo.py",
-        "description": "PDB structure exposure-related script."
-      },
-      {
-        "name": "nextorf.py",
-        "module": "Scripts/xbbtools/nextorf.py",
-        "description": "ORF-finding utility script in xbbtools."
+        "name": "xbbtools.py",
+        "module": "Scripts/xbbtools/xbbtools.py",
+        "description": "Legacy script entry for xbbtools utilities."
       }
     ],
     "import_strategy": {
       "primary": "import",
       "fallback": "cli",
-      "confidence": 0.9
+      "confidence": 0.93
     },
     "dependencies": {
       "required": [
@@ -2356,22 +2392,19 @@
         "numpy"
       ],
       "optional": [
-        "reportlab",
-        "matplotlib",
-        "networkx",
-        "mysqlclient/MySQLdb",
-        "mysql-connector-python",
-        "psycopg2",
-        "mmtf-python",
-        "lxml",
-        "rdflib",
-        "Pillow"
+        "reportlab (graphics/genome diagram rendering)",
+        "matplotlib (phylo plotting/integration)",
+        "networkx or igraph (some phylo integrations/tests)",
+        "mysqlclient/mysql-connector-python/psycopg2/sqlite3 (BioSQL backends)",
+        "mmtf-python (MMTF support)",
+        "external binaries for some wrappers/features (e.g., DSSP/NACCESS/PAML/BLAST tools depending on module use)",
+        "internet access + NCBI credentials/email policy compliance for Entrez/online modules"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.96,
+      "import_feasibility": 0.94,
       "intrusiveness_risk": "low",
-      "complexity": "complex"
+      "complexity": "medium"
     }
   },
   "deepwiki_analysis": {
@@ -2387,8 +2420,8 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.96,
+    "import_feasibility": 0.94,
     "intrusiveness_risk": "low",
-    "complexity": "complex"
+    "complexity": "medium"
   }
 }

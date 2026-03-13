@@ -1,8 +1,6 @@
 import os
 import sys
-import traceback
-import importlib
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional, Tuple
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -13,314 +11,422 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import-Mode adapter for the Biopython repository.
+    MCP Import-mode adapter for Biopython core I/O and alignment surfaces.
 
-    This adapter attempts direct module imports from the local `source` directory.
-    If import mode is unavailable, methods return actionable fallback guidance.
-    All public methods return a unified dictionary with a `status` field.
+    This adapter targets the analyzed modules:
+    - source.Bio.SeqIO -> Bio.SeqIO
+    - source.Bio.AlignIO -> Bio.AlignIO
+    - source.Bio.Align -> Bio.Align
+
+    It provides:
+    - Dedicated class instance factory methods for identified classes:
+      PairwiseAligner, Alignment, Alignments
+    - Dedicated function-call methods for identified functions:
+      parse, read, write (for SeqIO / AlignIO / Align)
+    - Unified dictionary response format with status field
+    - Graceful fallback when import fails
     """
 
     # -------------------------------------------------------------------------
-    # Initialization and module registry
+    # Initialization and module management
     # -------------------------------------------------------------------------
-
     def __init__(self) -> None:
+        """
+        Initialize adapter in import mode and attempt module imports.
+
+        Attributes:
+            mode (str): Always "import" for this adapter.
+            available (bool): True if core imports succeeded.
+            import_error (Optional[str]): Captured import error if unavailable.
+        """
         self.mode = "import"
-        self._modules: Dict[str, Any] = {}
-        self._module_paths: Dict[str, str] = {
-            "entrez": "Bio.Entrez",
-            "medline": "Bio.Medline",
-            "seqio": "Bio.SeqIO",
-            "alignio": "Bio.AlignIO",
-            "phylo": "Bio.Phylo",
-            "pdb": "Bio.PDB",
-            "blast_ncbiwww": "Bio.Blast.NCBIWWW",
-            "blast_ncbixml": "Bio.Blast.NCBIXML",
-            "pairwise2": "Bio.pairwise2",
-            "motifs": "Bio.motifs",
-            "kegg_rest": "Bio.KEGG.REST",
-            "expassy": "Bio.ExPASy",
-            "swissprot": "Bio.SwissProt",
-        }
-        self._load_modules()
+        self.available = False
+        self.import_error: Optional[str] = None
+
+        self._seqio = None
+        self._alignio = None
+        self._align = None
+
+        self._import_modules()
+
+    def _import_modules(self) -> None:
+        """Attempt importing required modules and classes from repository source tree."""
+        try:
+            import Bio.SeqIO as seqio_module
+            import Bio.AlignIO as alignio_module
+            import Bio.Align as align_module
+
+            self._seqio = seqio_module
+            self._alignio = alignio_module
+            self._align = align_module
+            self.available = True
+            self.import_error = None
+        except Exception as exc:
+            self.available = False
+            self.import_error = (
+                f"Import failed. Ensure repository source is present under '{source_path}' "
+                f"and compatible dependencies are installed. Details: {exc}"
+            )
 
     def _result(self, status: str, **kwargs: Any) -> Dict[str, Any]:
-        data = {"status": status}
-        data.update(kwargs)
-        return data
+        """Create unified result dictionary."""
+        payload = {"status": status, "mode": self.mode}
+        payload.update(kwargs)
+        return payload
 
-    def _load_modules(self) -> None:
-        failed = {}
-        for key, path in self._module_paths.items():
-            try:
-                self._modules[key] = importlib.import_module(path)
-            except Exception as exc:
-                failed[key] = {
-                    "module": path,
-                    "error": str(exc),
-                }
-        if failed:
-            self.mode = "fallback"
-            self._import_errors = failed
-        else:
-            self._import_errors = {}
+    def _ensure_available(self) -> Tuple[bool, Optional[Dict[str, Any]]]:
+        """Check adapter availability and return fallback error payload when unavailable."""
+        if not self.available:
+            return False, self._result(
+                "error",
+                message=self.import_error
+                or "Adapter imports are unavailable. Verify source path and dependencies.",
+                actionable_guidance=(
+                    "Confirm the 'source' directory exists, includes Bio package, and retry. "
+                    "If needed, install optional dependencies required by target format."
+                ),
+            )
+        return True, None
 
-    def get_status(self) -> Dict[str, Any]:
+    # -------------------------------------------------------------------------
+    # Health and capability methods
+    # -------------------------------------------------------------------------
+    def health(self) -> Dict[str, Any]:
         """
-        Return adapter status and module import diagnostics.
+        Return adapter health and import status.
         """
+        if self.available:
+            return self._result(
+                "ok",
+                available=True,
+                modules=["Bio.SeqIO", "Bio.AlignIO", "Bio.Align"],
+            )
         return self._result(
-            "success",
-            mode=self.mode,
-            loaded_modules=sorted(self._modules.keys()),
-            import_errors=self._import_errors,
-            guidance=(
-                "If mode is fallback, ensure repository source is available at '<plugin_root>/source' "
-                "and that optional dependencies (e.g., numpy) are installed."
-            ),
+            "error",
+            available=False,
+            message=self.import_error,
         )
 
     # -------------------------------------------------------------------------
-    # Internal guards
+    # Class instance factory methods (identified classes from Bio.Align)
     # -------------------------------------------------------------------------
-
-    def _require_module(self, key: str) -> Dict[str, Any]:
-        if self.mode != "import" or key not in self._modules:
-            return self._result(
-                "error",
-                message=f"Module '{self._module_paths.get(key, key)}' is not available in import mode.",
-                guidance=(
-                    "Verify source path injection and local repository checkout. "
-                    "Then retry adapter initialization."
-                ),
-            )
-        return self._result("success", module=self._modules[key])
-
-    # -------------------------------------------------------------------------
-    # Entrez / Medline
-    # -------------------------------------------------------------------------
-
-    def entrez_set_email(self, email: str, api_key: Optional[str] = None) -> Dict[str, Any]:
+    def create_pairwise_aligner(self, **kwargs: Any) -> Dict[str, Any]:
         """
-        Configure Entrez credentials.
+        Create a Bio.Align.PairwiseAligner instance.
 
         Parameters:
-            email: Contact email required by NCBI.
-            api_key: Optional NCBI API key.
+            **kwargs: Attributes to set on the newly created aligner, e.g.
+                mode="local", match_score=2.0, mismatch_score=-1.0,
+                open_gap_score=-0.5, extend_gap_score=-0.1
 
         Returns:
-            Unified status dictionary.
+            dict: Unified status payload with aligner instance under 'instance' on success.
         """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
         try:
-            chk = self._require_module("entrez")
-            if chk["status"] != "success":
-                return chk
-            mod = chk["module"]
-            mod.email = email
-            if api_key:
-                mod.api_key = api_key
-            return self._result("success", configured=True, email=email, api_key_set=bool(api_key))
-        except Exception as exc:
-            return self._result("error", message=str(exc), traceback=traceback.format_exc())
-
-    def entrez_esearch(self, db: str, term: str, retmax: int = 20) -> Dict[str, Any]:
-        try:
-            chk = self._require_module("entrez")
-            if chk["status"] != "success":
-                return chk
-            e = chk["module"]
-            handle = e.esearch(db=db, term=term, retmax=retmax)
-            data = e.read(handle)
-            handle.close()
-            return self._result("success", data=data)
+            cls = getattr(self._align, "PairwiseAligner")
+            obj = cls()
+            for k, v in kwargs.items():
+                setattr(obj, k, v)
+            return self._result("ok", instance=obj, class_name="PairwiseAligner")
         except Exception as exc:
             return self._result(
                 "error",
-                message=f"Entrez esearch failed: {exc}",
-                guidance="Ensure network connectivity and valid Entrez email/API key configuration.",
+                message=f"Failed to create PairwiseAligner: {exc}",
+                actionable_guidance="Validate aligner parameter names and values.",
             )
 
-    def medline_parse_records(self, text_path: str) -> Dict[str, Any]:
-        try:
-            chk = self._require_module("medline")
-            if chk["status"] != "success":
-                return chk
-            med = chk["module"]
-            with open(text_path, "r", encoding="utf-8") as f:
-                records = list(med.parse(f))
-            return self._result("success", count=len(records), records=records)
-        except Exception as exc:
-            return self._result("error", message=f"Medline parse failed: {exc}")
+    def create_alignment(self, sequences: Any = None, coordinates: Any = None) -> Dict[str, Any]:
+        """
+        Create a Bio.Align.Alignment instance.
 
-    # -------------------------------------------------------------------------
-    # Sequence I/O
-    # -------------------------------------------------------------------------
+        Parameters:
+            sequences: Sequence-like inputs expected by Bio.Align.Alignment.
+            coordinates: Optional coordinates array-like object.
 
-    def seqio_parse(self, file_path: str, fmt: str) -> Dict[str, Any]:
+        Returns:
+            dict: Unified status payload with alignment instance under 'instance' on success.
+        """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
         try:
-            chk = self._require_module("seqio")
-            if chk["status"] != "success":
-                return chk
-            seqio = chk["module"]
-            records = list(seqio.parse(file_path, fmt))
-            return self._result("success", count=len(records), records=records)
+            cls = getattr(self._align, "Alignment")
+            if sequences is not None and coordinates is not None:
+                obj = cls(sequences, coordinates)
+            elif sequences is not None:
+                obj = cls(sequences)
+            else:
+                obj = cls()
+            return self._result("ok", instance=obj, class_name="Alignment")
         except Exception as exc:
             return self._result(
                 "error",
-                message=f"SeqIO parse failed: {exc}",
-                guidance="Check file path and format (e.g., fasta, genbank, fastq).",
+                message=f"Failed to create Alignment: {exc}",
+                actionable_guidance=(
+                    "Provide valid sequences and optional coordinates matching Bio.Align.Alignment expectations."
+                ),
             )
 
-    def seqio_write(self, records: List[Any], file_path: str, fmt: str) -> Dict[str, Any]:
+    def create_alignments(self, iterable: Any = None) -> Dict[str, Any]:
+        """
+        Create a Bio.Align.Alignments instance.
+
+        Parameters:
+            iterable: Optional iterable of alignment objects.
+
+        Returns:
+            dict: Unified status payload with alignments instance under 'instance' on success.
+        """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
         try:
-            chk = self._require_module("seqio")
-            if chk["status"] != "success":
-                return chk
-            seqio = chk["module"]
-            written = seqio.write(records, file_path, fmt)
-            return self._result("success", written=written, output=file_path)
-        except Exception as exc:
-            return self._result("error", message=f"SeqIO write failed: {exc}")
-
-    # -------------------------------------------------------------------------
-    # Alignment I/O and pairwise alignment
-    # -------------------------------------------------------------------------
-
-    def alignio_read(self, file_path: str, fmt: str) -> Dict[str, Any]:
-        try:
-            chk = self._require_module("alignio")
-            if chk["status"] != "success":
-                return chk
-            alignio = chk["module"]
-            aln = alignio.read(file_path, fmt)
-            return self._result("success", alignment=aln, length=getattr(aln, "get_alignment_length", lambda: None)())
-        except Exception as exc:
-            return self._result("error", message=f"AlignIO read failed: {exc}")
-
-    def pairwise2_globalxx(self, seq_a: str, seq_b: str) -> Dict[str, Any]:
-        try:
-            chk = self._require_module("pairwise2")
-            if chk["status"] != "success":
-                return chk
-            p2 = chk["module"]
-            alignments = p2.align.globalxx(seq_a, seq_b)
-            return self._result("success", count=len(alignments), alignments=alignments)
-        except Exception as exc:
-            return self._result("error", message=f"Pairwise alignment failed: {exc}")
-
-    # -------------------------------------------------------------------------
-    # BLAST
-    # -------------------------------------------------------------------------
-
-    def blast_qblast(self, program: str, database: str, sequence: str, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            chk = self._require_module("blast_ncbiwww")
-            if chk["status"] != "success":
-                return chk
-            ncbiwww = chk["module"]
-            handle = ncbiwww.qblast(program, database, sequence, **kwargs)
-            xml = handle.read()
-            handle.close()
-            return self._result("success", xml=xml)
+            cls = getattr(self._align, "Alignments")
+            obj = cls(iterable) if iterable is not None else cls()
+            return self._result("ok", instance=obj, class_name="Alignments")
         except Exception as exc:
             return self._result(
                 "error",
-                message=f"qblast failed: {exc}",
-                guidance="Check internet access and NCBI service limits. Retry with smaller query.",
+                message=f"Failed to create Alignments: {exc}",
+                actionable_guidance="Ensure iterable elements are valid alignment objects.",
             )
 
-    def blast_parse_xml_file(self, xml_file: str) -> Dict[str, Any]:
+    # -------------------------------------------------------------------------
+    # SeqIO function wrappers: parse/read/write
+    # -------------------------------------------------------------------------
+    def seqio_parse(self, handle: Any, format: str, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call Bio.SeqIO.parse.
+
+        Parameters:
+            handle: File path, handle, or text stream.
+            format (str): Sequence file format (e.g., 'fasta', 'genbank').
+            **kwargs: Extra parser options forwarded to Bio.SeqIO.parse.
+
+        Returns:
+            dict: status='ok' with iterator under 'result' on success.
+        """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
         try:
-            chk = self._require_module("blast_ncbixml")
-            if chk["status"] != "success":
-                return chk
-            ncbixml = chk["module"]
-            with open(xml_file, "r", encoding="utf-8") as f:
-                records = list(ncbixml.parse(f))
-            return self._result("success", count=len(records), records=records)
+            result = self._seqio.parse(handle, format, **kwargs)
+            return self._result("ok", result=result, module="Bio.SeqIO", function="parse")
         except Exception as exc:
-            return self._result("error", message=f"BLAST XML parse failed: {exc}")
+            return self._result(
+                "error",
+                message=f"Bio.SeqIO.parse failed: {exc}",
+                actionable_guidance="Verify input handle/path and format string.",
+            )
+
+    def seqio_read(self, handle: Any, format: str, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call Bio.SeqIO.read.
+
+        Parameters:
+            handle: File path, handle, or text stream containing exactly one record.
+            format (str): Sequence file format.
+            **kwargs: Extra options forwarded to Bio.SeqIO.read.
+
+        Returns:
+            dict: status='ok' with record under 'result' on success.
+        """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
+        try:
+            result = self._seqio.read(handle, format, **kwargs)
+            return self._result("ok", result=result, module="Bio.SeqIO", function="read")
+        except Exception as exc:
+            return self._result(
+                "error",
+                message=f"Bio.SeqIO.read failed: {exc}",
+                actionable_guidance="Ensure exactly one record exists in input for read().",
+            )
+
+    def seqio_write(self, sequences: Any, handle: Any, format: str, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call Bio.SeqIO.write.
+
+        Parameters:
+            sequences: SeqRecord or iterable of SeqRecord objects.
+            handle: Output file path or writable handle.
+            format (str): Output format.
+            **kwargs: Extra options forwarded to Bio.SeqIO.write.
+
+        Returns:
+            dict: status='ok' with count under 'result' on success.
+        """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
+        try:
+            result = self._seqio.write(sequences, handle, format, **kwargs)
+            return self._result("ok", result=result, module="Bio.SeqIO", function="write")
+        except Exception as exc:
+            return self._result(
+                "error",
+                message=f"Bio.SeqIO.write failed: {exc}",
+                actionable_guidance="Validate sequence objects, output handle, and format.",
+            )
 
     # -------------------------------------------------------------------------
-    # Phylogenetics
+    # AlignIO function wrappers: parse/read/write
     # -------------------------------------------------------------------------
+    def alignio_parse(self, handle: Any, format: str, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call Bio.AlignIO.parse.
 
-    def phylo_read(self, file_path: str, fmt: str = "newick") -> Dict[str, Any]:
+        Parameters:
+            handle: File path, handle, or text stream.
+            format (str): Alignment format (e.g., 'clustal', 'stockholm', 'phylip').
+            **kwargs: Extra parser options.
+
+        Returns:
+            dict: status='ok' with iterator under 'result' on success.
+        """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
         try:
-            chk = self._require_module("phylo")
-            if chk["status"] != "success":
-                return chk
-            phylo = chk["module"]
-            tree = phylo.read(file_path, fmt)
-            return self._result("success", tree=tree)
+            result = self._alignio.parse(handle, format, **kwargs)
+            return self._result("ok", result=result, module="Bio.AlignIO", function="parse")
         except Exception as exc:
-            return self._result("error", message=f"Phylo read failed: {exc}")
+            return self._result(
+                "error",
+                message=f"Bio.AlignIO.parse failed: {exc}",
+                actionable_guidance="Check alignment input source and specified format.",
+            )
+
+    def alignio_read(self, handle: Any, format: str, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call Bio.AlignIO.read.
+
+        Parameters:
+            handle: Input file path or handle containing one alignment.
+            format (str): Alignment format.
+            **kwargs: Extra options.
+
+        Returns:
+            dict: status='ok' with alignment object under 'result' on success.
+        """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
+        try:
+            result = self._alignio.read(handle, format, **kwargs)
+            return self._result("ok", result=result, module="Bio.AlignIO", function="read")
+        except Exception as exc:
+            return self._result(
+                "error",
+                message=f"Bio.AlignIO.read failed: {exc}",
+                actionable_guidance="Ensure input contains exactly one alignment.",
+            )
+
+    def alignio_write(self, alignments: Any, handle: Any, format: str, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call Bio.AlignIO.write.
+
+        Parameters:
+            alignments: Alignment object or iterable of alignments.
+            handle: Output file path or writable handle.
+            format (str): Alignment output format.
+            **kwargs: Extra options.
+
+        Returns:
+            dict: status='ok' with write count under 'result' on success.
+        """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
+        try:
+            result = self._alignio.write(alignments, handle, format, **kwargs)
+            return self._result("ok", result=result, module="Bio.AlignIO", function="write")
+        except Exception as exc:
+            return self._result(
+                "error",
+                message=f"Bio.AlignIO.write failed: {exc}",
+                actionable_guidance="Validate alignment objects and output destination.",
+            )
 
     # -------------------------------------------------------------------------
-    # PDB
+    # Align function wrappers: parse/read/write
     # -------------------------------------------------------------------------
+    def align_parse(self, handle: Any, format: str, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call Bio.Align.parse.
 
-    def pdb_parse_structure(self, structure_id: str, pdb_file: str) -> Dict[str, Any]:
+        Parameters:
+            handle: Alignment input source.
+            format (str): Format supported by Bio.Align parser.
+            **kwargs: Additional parser options.
+
+        Returns:
+            dict: status='ok' with iterator or alignment stream under 'result'.
+        """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
         try:
-            chk = self._require_module("pdb")
-            if chk["status"] != "success":
-                return chk
-            pdb_mod = chk["module"]
-            parser = pdb_mod.PDBParser(QUIET=True)
-            structure = parser.get_structure(structure_id, pdb_file)
-            return self._result("success", structure=structure)
+            result = self._align.parse(handle, format, **kwargs)
+            return self._result("ok", result=result, module="Bio.Align", function="parse")
         except Exception as exc:
-            return self._result("error", message=f"PDB parse failed: {exc}")
+            return self._result(
+                "error",
+                message=f"Bio.Align.parse failed: {exc}",
+                actionable_guidance="Verify format and input compatibility with Bio.Align.",
+            )
 
-    # -------------------------------------------------------------------------
-    # Motifs / KEGG / ExPASy / SwissProt
-    # -------------------------------------------------------------------------
+    def align_read(self, handle: Any, format: str, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call Bio.Align.read.
 
-    def motifs_create(self, instances: List[str]) -> Dict[str, Any]:
+        Parameters:
+            handle: Input source containing a single alignment item.
+            format (str): Expected alignment format.
+            **kwargs: Additional read options.
+
+        Returns:
+            dict: status='ok' with alignment object under 'result'.
+        """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
         try:
-            chk = self._require_module("motifs")
-            if chk["status"] != "success":
-                return chk
-            motifs = chk["module"]
-            motif = motifs.create(instances)
-            return self._result("success", motif=motif)
+            result = self._align.read(handle, format, **kwargs)
+            return self._result("ok", result=result, module="Bio.Align", function="read")
         except Exception as exc:
-            return self._result("error", message=f"Motif creation failed: {exc}")
+            return self._result(
+                "error",
+                message=f"Bio.Align.read failed: {exc}",
+                actionable_guidance="Ensure a single valid alignment is present in the input.",
+            )
 
-    def kegg_list(self, database: str) -> Dict[str, Any]:
-        try:
-            chk = self._require_module("kegg_rest")
-            if chk["status"] != "success":
-                return chk
-            rest = chk["module"]
-            handle = rest.kegg_list(database)
-            text = handle.read()
-            handle.close()
-            return self._result("success", data=text)
-        except Exception as exc:
-            return self._result("error", message=f"KEGG list failed: {exc}")
+    def align_write(self, alignments: Any, target: Any, format: str, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call Bio.Align.write.
 
-    def expasy_get_prosite_raw(self, prosite_id: str) -> Dict[str, Any]:
-        try:
-            chk = self._require_module("expassy")
-            if chk["status"] != "success":
-                return chk
-            expasy = chk["module"]
-            handle = expasy.get_prosite_raw(prosite_id)
-            text = handle.read()
-            handle.close()
-            return self._result("success", data=text)
-        except Exception as exc:
-            return self._result("error", message=f"ExPASy request failed: {exc}")
+        Parameters:
+            alignments: Alignment or iterable of alignments.
+            target: Output destination path or handle.
+            format (str): Output format.
+            **kwargs: Additional write options.
 
-    def swissprot_parse(self, file_path: str) -> Dict[str, Any]:
+        Returns:
+            dict: status='ok' with write result under 'result'.
+        """
+        ok, err = self._ensure_available()
+        if not ok:
+            return err
         try:
-            chk = self._require_module("swissprot")
-            if chk["status"] != "success":
-                return chk
-            sp = chk["module"]
-            with open(file_path, "r", encoding="utf-8") as f:
-                records = list(sp.parse(f))
-            return self._result("success", count=len(records), records=records)
+            result = self._align.write(alignments, target, format, **kwargs)
+            return self._result("ok", result=result, module="Bio.Align", function="write")
         except Exception as exc:
-            return self._result("error", message=f"SwissProt parse failed: {exc}")
+            return self._result(
+                "error",
+                message=f"Bio.Align.write failed: {exc}",
+                actionable_guidance="Check output target permissions and alignment object validity.",
+            )

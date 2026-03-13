@@ -2,18 +2,12 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service wraps core Biopython capabilities into developer-friendly tools for bioinformatics workflows.  
-It focuses on:
+This service wraps core Biopython APIs as MCP (Model Context Protocol) tools for sequence, alignment, structure, phylogeny, search-result parsing, and NCBI Entrez retrieval workflows.
 
-- Biological sequence operations (`Bio.Seq`)
-- Sequence file I/O and format conversion (`Bio.SeqIO`)
-- Alignment parsing/writing and pairwise alignment (`Bio.Align`, `Bio.AlignIO`)
-- Search result parsing (BLAST/HMMER/Infernal via `Bio.SearchIO`, `Bio.Blast`)
-- Structure parsing and processing (`Bio.PDB`)
-- Phylogenetic tree I/O and visualization helpers (`Bio.Phylo`)
-- NCBI Entrez data retrieval (`Bio.Entrez`)
-
-Best suited for automation, data ingestion pipelines, and LLM-driven bioinformatics tasks.
+Primary goals:
+- Provide stable, developer-friendly bioinformatics operations via MCP (Model Context Protocol)
+- Expose high-value Biopython modules (`SeqIO`, `AlignIO`, `Align`, `PDB`, `Phylo`, `SearchIO`, `Entrez`)
+- Enable format conversion, parsing, indexing, and basic analysis in a tool-callable interface
 
 ---
 
@@ -22,99 +16,104 @@ Best suited for automation, data ingestion pipelines, and LLM-driven bioinformat
 ### Requirements
 - Python 3.x
 - `biopython`
-- `numpy` (core dependency)
+- `numpy` (required by Biopython)
 
-Optional (feature-specific): `matplotlib`, `networkx`, `reportlab`, `lxml`, `rdflib`, `Pillow`, `mmtf-python`, SQL drivers (`mysqlclient`, `mysql-connector-python`, `psycopg2`).
+Optional (feature-dependent):
+- `reportlab` (graphics/genome diagrams)
+- `matplotlib` (phylo plotting)
+- `networkx` or `igraph` (some phylo integrations)
+- `mmtf-python` (MMTF support)
+- DB drivers for BioSQL: `mysqlclient` / `mysql-connector-python` / `psycopg2` / `sqlite3`
+- External binaries for some modules: DSSP, NACCESS, PAML, BLAST tools
 
 ### Install
-- `pip install biopython numpy`
-- Optional extras as needed, e.g.:
-  - `pip install matplotlib networkx`
-  - `pip install lxml rdflib Pillow`
-  - `pip install mmtf-python`
+pip install biopython numpy
+
+Optional extras (as needed):
+pip install reportlab matplotlib networkx mmtf-python
 
 ---
 
 ## 3) Quick Start
 
-### Typical MCP (Model Context Protocol) flow
-1. Connect MCP (Model Context Protocol) client to this service.
-2. Call a tool endpoint (e.g., sequence parse, translate, alignment parse).
-3. Receive normalized JSON-like results for downstream orchestration.
+### Minimal usage flow
+1. Start your MCP (Model Context Protocol) host runtime
+2. Register this Biopython service
+3. Call tools such as sequence parse/read/write or alignment/structure parsers
 
-### Example usage patterns
-- Parse FASTA/GenBank records with `SeqIO.parse`/`SeqIO.read`
-- Translate DNA/RNA using `Bio.Seq.translate`
-- Convert formats with `SeqIO.convert` or `AlignIO.convert`
-- Parse BLAST/HMMER output with `SearchIO.parse`
-- Read structures using `PDBParser` or `MMCIFParser`
-- Fetch NCBI data with `Entrez.esearch` + `Entrez.efetch`
+### Typical tool calls (conceptual)
+- Parse FASTA/GenBank records using `SeqIO.parse` / `SeqIO.read`
+- Convert sequence formats using `SeqIO.convert`
+- Parse alignments using `AlignIO.parse` or modern `Bio.Align.parse`
+- Load substitution matrices via `Bio.Align.substitution_matrices.load`
+- Parse PDB/mmCIF structures with `PDBParser` / `MMCIFParser`
+- Read/convert phylogenetic trees via `Phylo.read` / `Phylo.convert`
+- Parse BLAST/HMMER outputs via `SearchIO.parse`
+- Query NCBI with `Entrez.esearch` + `Entrez.efetch`
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Recommended endpoint set for this MCP (Model Context Protocol) service:
+Recommended MCP (Model Context Protocol) endpoints for this service:
 
-- `seq.transform`  
-  Transcribe, back-transcribe, translate, reverse complement (DNA/RNA).
+- `seqio_parse`
+  - Parse multi-record sequence files (FASTA/GenBank/EMBL/FASTQ/etc.)
+- `seqio_read`
+  - Read exactly one sequence record
+- `seqio_write`
+  - Write sequence records to target format
+- `seqio_convert`
+  - Convert sequence files between supported formats
+- `seqio_index` / `seqio_index_db`
+  - Build lightweight/random-access sequence indexes
 
-- `seqio.parse`  
-  Parse sequence files (FASTA, GenBank, EMBL, etc.) into records.
+- `alignio_parse` / `alignio_read` / `alignio_write` / `alignio_convert`
+  - Multiple sequence alignment I/O and conversion
 
-- `seqio.read`  
-  Read a single sequence record from a file/string source.
+- `align_parse` / `align_read` / `align_write`
+  - Modern `Bio.Align` alignment APIs
+- `pairwise_align`
+  - Pairwise alignment via `PairwiseAligner`
+- `load_substitution_matrix`
+  - Load scoring matrices (e.g., BLOSUM/PAM)
 
-- `seqio.write`  
-  Write records to output format.
+- `pdb_parse`
+  - Parse PDB files
+- `mmcif_parse`
+  - Parse mmCIF files
+- `pdb_write`
+  - Export structures
+- `structure_superimpose` / `neighbor_search`
+  - Structural comparison and proximity queries
 
-- `seqio.convert`  
-  Convert between sequence formats.
+- `phylo_read` / `phylo_parse` / `phylo_write` / `phylo_convert`
+  - Phylogenetic tree I/O workflows
 
-- `align.parse` / `align.read` / `align.write`  
-  Work with modern alignment formats and `Alignment` objects.
+- `searchio_parse` / `searchio_read` / `searchio_index` / `searchio_convert`
+  - Search tool output parsing (BLAST/HMMER/Infernal/Exonerate)
 
-- `align.pairwise`  
-  Pairwise alignment using `PairwiseAligner`.
-
-- `alignio.parse` / `alignio.convert`  
-  Legacy/compatible alignment I/O paths.
-
-- `searchio.parse` / `searchio.read` / `searchio.write`  
-  Parse and export search results (BLAST, HMMER, Infernal, Exonerate, etc.).
-
-- `pdb.parse`  
-  Parse PDB/mmCIF structures.
-
-- `pdb.analyze`  
-  Neighbor search, superimposition, basic structure-level operations.
-
-- `phylo.parse` / `phylo.read` / `phylo.write` / `phylo.convert`  
-  Tree I/O and format transformations.
-
-- `entrez.esearch` / `entrez.efetch` / `entrez.esummary`  
-  NCBI Entrez retrieval and parsing.
+- `entrez_esearch` / `entrez_efetch` / `entrez_esummary` / `entrez_elink`
+  - NCBI E-utilities access (network dependent)
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Always set `Entrez.email` (and API key if available) to avoid NCBI throttling.
-- Large files (BAM-like outputs, big alignments, huge FASTA) should be streamed/chunked.
-- Format auto-detection is limited; prefer explicit format names.
-- Some modules require optional dependencies (graphics, XML, DB backends).
-- Biopython includes legacy and modern APIs (`AlignIO` vs `Align`); pick one style consistently.
-- Structure and search parsing can be CPU/memory heavy on very large datasets.
-- Internet-dependent tools (Entrez, remote resources) should have retries/timeouts.
+- No first-class package CLI entry points are defined; Biopython is primarily a library.
+- Some capabilities require optional dependencies or external binaries.
+- Entrez usage requires internet and proper NCBI etiquette (`Entrez.email`, rate-limit awareness, API key if needed).
+- Large files (BAM-like, big alignments, massive GenBank) should use streaming/indexing to avoid memory pressure.
+- Format strictness varies; malformed biological files may parse partially or fail.
+- BioSQL features need database-specific drivers and schema setup.
+- Use pinned versions in production for reproducibility.
 
 ---
 
-## 6) Reference Links or Documentation
+## 6) Reference Links / Documentation
 
-- Repository: https://github.com/biopython/biopython
-- Biopython Documentation: https://biopython.org/wiki/Documentation
-- API Docs (latest): https://biopython.org/docs/latest/api/
+- Biopython repository: https://github.com/biopython/biopython
+- Biopython docs: https://biopython.org/wiki/Documentation
+- API docs: https://biopython.org/docs/latest/api/
 - Tutorial & Cookbook: https://biopython.org/DIST/docs/tutorial/Tutorial.html
-- NCBI Entrez Usage Guidelines: https://www.ncbi.nlm.nih.gov/books/NBK25497/
-
-If you want, I can also provide a production-ready `tools` schema (names, params, and response models) for direct MCP (Model Context Protocol) server implementation.
+- NCBI Entrez E-utilities: https://www.ncbi.nlm.nih.gov/books/NBK25501/

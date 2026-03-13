@@ -2,151 +2,139 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service wraps core BioSPPy capabilities for biosignal processing and feature extraction.  
-It is designed for developer workflows where an LLM or external client needs consistent access to signal-analysis tools (ECG, EDA, EMG, PPG, RESP, EEG, HRV), shared DSP utilities, quality checks, plotting helpers, and optional biometrics/synthetic data utilities.
+This MCP (Model Context Protocol) service wraps core BioSPPy capabilities for biosignal processing, feature extraction, quality assessment, clustering, plotting, and data I/O.
 
-Typical use cases:
-- Run end-to-end physiological signal pipelines
-- Extract time/frequency/time-frequency/cepstral features
-- Compute HRV and signal-quality metrics
-- Build biometrics experiments (KNN/SVM/RandomForest wrappers)
-- Generate synthetic ECG/EMG for testing
+Primary service goals:
+- Standardized processing pipelines for physiological signals (ECG, PPG, EDA, EMG, EEG, RESP, ABP, BVP, PCG, ACC)
+- Reusable low-level signal tools (filtering, spectra, statistics, synchronization)
+- Optional biometrics and clustering workflows
+- Storage utilities (TXT/JSON/HDF5/ZIP)
+
+Repository: https://github.com/PIA-Group/BioSPPy
 
 ---
 
 ## 2) Installation Method
 
 ### Requirements
-Core Python dependencies:
-- numpy
-- scipy
-- matplotlib
-- scikit-learn
-- h5py
-- bidict
-- shortuuid
-- joblib
+- Python 3.x
+- Core dependencies:
+  - numpy
+  - scipy
+  - matplotlib
+  - scikit-learn
+  - h5py
+  - bidict
+  - shortuuid
+  - six
+- Optional:
+  - mne (advanced EEG workflows)
+  - pywavelets
 
-Optional (recommended for extended workflows):
-- pandas
-- peakutils
-- statsmodels
-
-### Install with pip
-pip install biosppy numpy scipy matplotlib scikit-learn h5py bidict shortuuid joblib
-
-Optional extras:
-pip install pandas peakutils statsmodels
-
-Notes:
-- Use Python virtual environments (venv/conda) to avoid version conflicts.
-- If running on servers/containers, use a non-interactive matplotlib backend for plotting tasks.
+### Install commands
+- Install from PyPI:
+  - pip install biosppy
+- Or install from source:
+  - git clone https://github.com/PIA-Group/BioSPPy.git
+  - cd BioSPPy
+  - pip install -r requirements.txt
+  - pip install .
 
 ---
 
 ## 3) Quick Start
 
-### Basic import
-from biosppy.signals import ecg, eda, emg, ppg, resp, eeg, hrv
+### Typical MCP (Model Context Protocol) service flow
+1. Load a signal (e.g., ECG samples as a NumPy array)
+2. Call the corresponding processing service endpoint
+3. Read standardized outputs (timestamps, filtered signal, peaks/onsets, rates)
+4. Optionally generate plots or persist outputs
 
-### Run an ECG pipeline
-result = ecg.ecg(signal=ecg_signal, sampling_rate=1000., show=False)
+### Example usage patterns
+- ECG processing: `biosppy.signals.ecg.ecg(signal, sampling_rate=1000, show=False)`
+- PPG processing: `biosppy.signals.ppg.ppg(signal, sampling_rate=1000, show=False)`
+- EDA processing: `biosppy.signals.eda.eda(signal, sampling_rate=1000, show=False)`
+- Generic filtering: `biosppy.signals.tools.filter_signal(...)`
+- Spectrum: `biosppy.signals.tools.power_spectrum(...)`
+- Save structured data: `biosppy.storage.serialize(data, path)`
 
-Typical ECG outputs include filtered signal, R-peaks, heart-rate series, and time vectors (exact return fields depend on BioSPPy version).
-
-### Run other core pipelines
-eda_result = eda.eda(signal=eda_signal, sampling_rate=1000., show=False)  
-emg_result = emg.emg(signal=emg_signal, sampling_rate=1000., show=False)  
-ppg_result = ppg.ppg(signal=ppg_signal, sampling_rate=1000., show=False)  
-resp_result = resp.resp(signal=resp_signal, sampling_rate=1000., show=False)  
-eeg_result = eeg.eeg(signal=eeg_signal, sampling_rate=256., show=False)
-
-### HRV from RR intervals
-hrv_result = hrv.hrv(rri=rri_ms, sampling_rate=4., show=False)
-
-### Low-level DSP helpers
-from biosppy.signals import tools  
-filtered, _, _ = tools.filter_signal(signal=x, ftype='FIR', band='bandpass', order=101, frequency=[3, 45], sampling_rate=1000.)
+Expected output style is tuple-like structured returns (commonly timestamps, processed signals, events, and derived rates/features).
 
 ---
 
-## 4) Available Tools and Endpoints
+## 4) Available Tools and Endpoints List
 
-Recommended MCP (Model Context Protocol) service endpoints:
+Below is a practical MCP (Model Context Protocol) service endpoint map (grouped by module).
 
-- process.ecg  
-  Run ECG preprocessing, peak detection, and heart-rate estimation.
+### Signal Pipelines (`biosppy.signals.*`)
+- `abp.abp`, `abp.find_onsets_zong2003`  
+  Arterial blood pressure processing and onset detection.
+- `acc.acc`, `acc.time_domain_feature_extractor`, `acc.frequency_domain_feature_extractor`  
+  Accelerometer processing and feature extraction.
+- `bvp.bvp`  
+  Blood volume pulse processing.
+- `ecg.ecg`, plus segmenters (`hamilton_segmenter`, `christov_segmenter`, etc.), SQI metrics (`bSQI`, `sSQI`, `kSQI`, `pSQI`, `fSQI`)  
+  ECG full pipeline, beat detection, quality assessment.
+- `eda.eda`, `eda.basic_scr`, `eda.kbk_scr`  
+  Electrodermal activity processing and SCR detection.
+- `eeg.eeg`, `eeg.car_reference`, `eeg.get_power_features`, `eeg.get_plf_features`  
+  EEG referencing and feature extraction.
+- `emg.emg`, `emg.find_onsets`, and multiple onset detectors  
+  Electromyography processing and muscle activation onset detection.
+- `pcg.pcg`, `pcg.find_peaks`, `pcg.identify_heart_sounds`  
+  Phonocardiogram processing and heart sound analysis.
+- `ppg.ppg`, `ppg.find_onsets_elgendi2013`, `ppg.find_onsets_kavsaoglu2016`, `ppg.ppg_segmentation`  
+  PPG pipeline and onset/segmentation methods.
+- `resp.resp`  
+  Respiration processing.
 
-- process.eda  
-  Run EDA preprocessing and event/tonic-phasic related analysis.
+### Signal Utilities (`biosppy.signals.tools`)
+- Filtering: `get_filter`, `filter_signal`, `smoother`, `OnlineFilter`
+- Frequency/phase: `power_spectrum`, `welch_spectrum`, `band_power`, `analytic_signal`, `phase_locking`
+- Time-series ops: `zero_cross`, `find_extrema`, `finite_difference`, `windower`
+- Similarity/join: `distance_profile`, `signal_self_join`, `signal_cross_join`
+- HR and sync: `get_heart_rate`, `synchronize`
+- Stats: `signal_stats`, `normalize`, `pearson_correlation`, `rms_error`
 
-- process.emg  
-  Run EMG processing and onset-related computations.
+### Plotting (`biosppy.plotting`, `biosppy.inter_plotting`)
+- Signal-specific visualization endpoints: `plot_ecg`, `plot_ppg`, `plot_eda`, `plot_emg`, `plot_eeg`, etc.
+- Utility plots: `plot_filter`, `plot_spectrum`, `plot_clustering`, `plot_biometrics`
 
-- process.ppg  
-  Run PPG pulse-related processing and fiducial extraction.
+### Biometrics and ML Helpers
+- `biosppy.biometrics`: classifiers (KNN, SVM), run assessment, cross-validation, score combination
+- `biosppy.clustering`: kmeans, hierarchical, dbscan, consensus clustering, outlier utilities
+- `biosppy.metrics`: pairwise distances and squareform helpers
 
-- process.resp  
-  Process respiration signal and breathing-rate outputs.
+### Data and Persistence (`biosppy.storage`)
+- Serialization: `serialize`, `deserialize`
+- JSON: `dumpJSON`, `loadJSON`
+- HDF5: `alloc_h5`, `store_h5`, `load_h5`
+- TXT: `store_txt`, `load_txt`
+- ZIP: `pack_zip`, `unpack_zip`, `zip_write`
 
-- process.eeg  
-  EEG-oriented processing and spectral feature workflows.
-
-- process.hrv  
-  HRV metrics from RR intervals.
-
-- dsp.filter_signal  
-  Generic filtering utility for custom pipelines.
-
-- dsp.smoother  
-  Signal smoothing helper.
-
-- dsp.normalize  
-  Signal normalization helper.
-
-- features.time / features.frequency / features.time_freq / features.cepstral / features.phase_space  
-  Feature extraction endpoints by domain.
-
-- quality.assess  
-  Signal quality metric computation.
-
-- plotting.static / plotting.interactive  
-  Visualization endpoints (headless-safe mode recommended in production).
-
-- synth.ecg / synth.emg  
-  Synthetic data generation for testing and benchmarking.
-
-- biometrics.classify  
-  Biometric model workflows using available wrappers (BaseClassifier, KNN, SVM, RandomForest, Combination).
+### Misc
+- `biosppy.stats`: correlation/tests/regression
+- `biosppy.timing`: `tic`, `tac`, `clear`, `clear_all`
+- `biosppy.synthesizers.ecg.ecg`: synthetic ECG generation
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Sampling rate mismatch:  
-  Most errors or poor outputs come from incorrect sampling_rate. Always validate it per channel.
-
-- Signal shape/units:  
-  Ensure 1D arrays where expected, and consistent units (e.g., RR intervals typically in ms in some workflows).
-
-- Optional dependency gaps:  
-  Some advanced routines may require optional packages (pandas, peakutils, statsmodels).
-
-- Plotting in production:  
-  Disable interactive plotting or set a non-GUI backend in containers/CI.
-
-- Performance:  
-  Long recordings and high sampling rates can be costly. Consider chunked processing and pre-filtering.
-
-- Reproducibility:  
-  Pin dependency versions for production MCP (Model Context Protocol) services.
+- Version compatibility: ensure NumPy/SciPy/scikit-learn versions are mutually compatible.
+- Plotting in headless environments: disable interactive display (`show=False`) and save to files.
+- EEG advanced features: install optional `mne` when required.
+- Large files / high sampling rates: prefer batch processing and avoid unnecessary plotting for performance.
+- HDF5 storage: confirm `h5py` is installed and file paths are writable.
+- Return formats: many functions return tuple-like structures; check field ordering before production integration.
+- No built-in CLI detected: this is primarily a Python API-oriented service integration.
 
 ---
 
-## 6) Reference Links and Documentation
+## 6) Reference Links / Documentation
 
-- Repository: https://github.com/scientisst/BioSPPy
-- Main package: https://pypi.org/project/biosppy/
-- Project README (usage/examples): https://github.com/scientisst/BioSPPy/blob/master/README.md
-- Contribution guide: https://github.com/scientisst/BioSPPy/blob/master/CONTRIBUTING.md
-- Example datasets/scripts: repository `examples/` and `example.py`
+- GitHub: https://github.com/PIA-Group/BioSPPy
+- Project README: https://github.com/PIA-Group/BioSPPy/blob/master/README.md
+- Changelog: https://github.com/PIA-Group/BioSPPy/blob/master/CHANGELOG.md
+- Source modules (signals): https://github.com/PIA-Group/BioSPPy/tree/master/biosppy/signals
+- Examples data: https://github.com/PIA-Group/BioSPPy/tree/master/examples

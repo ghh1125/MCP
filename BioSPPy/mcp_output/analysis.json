@@ -1,25 +1,19 @@
 {
   "summary": {
-    "repository_url": "https://github.com/scientisst/BioSPPy",
-    "summary": "Imported via zip fallback, file count: 64",
+    "repository_url": "https://github.com/PIA-Group/BioSPPy",
+    "summary": "Imported via zip fallback, file count: 47",
     "file_tree": {
-      ".github/workflows/publish-to-pypi.yml": {
-        "size": 2335
-      },
-      ".readthedocs.yaml": {
-        "size": 787
-      },
       "AUTHORS.md": {
-        "size": 1273
+        "size": 658
       },
-      "CONTRIBUTING.md": {
-        "size": 4273
+      "CHANGELOG.md": {
+        "size": 3345
       },
       "README.md": {
-        "size": 4455
+        "size": 2897
       },
       "biosppy/__init__.py": {
-        "size": 595
+        "size": 511
       },
       "biosppy/__version__.py": {
         "size": 259
@@ -30,116 +24,83 @@
       "biosppy/clustering.py": {
         "size": 28595
       },
-      "biosppy/features/__init__.py": {
-        "size": 526
-      },
-      "biosppy/features/cepstral.py": {
-        "size": 5948
-      },
-      "biosppy/features/frequency.py": {
-        "size": 8647
-      },
-      "biosppy/features/phase_space.py": {
-        "size": 10986
-      },
-      "biosppy/features/time.py": {
-        "size": 5389
-      },
-      "biosppy/features/time_freq.py": {
-        "size": 2670
-      },
       "biosppy/inter_plotting/__init__.py": {
         "size": 444
       },
       "biosppy/inter_plotting/acc.py": {
-        "size": 17678
+        "size": 17555
       },
       "biosppy/inter_plotting/ecg.py": {
-        "size": 4644
+        "size": 4526
       },
       "biosppy/metrics.py": {
-        "size": 5342
+        "size": 5362
       },
       "biosppy/plotting.py": {
-        "size": 78189
-      },
-      "biosppy/quality.py": {
-        "size": 11233
+        "size": 43780
       },
       "biosppy/signals/__init__.py": {
         "size": 612
       },
       "biosppy/signals/abp.py": {
-        "size": 6049
+        "size": 6039
       },
       "biosppy/signals/acc.py": {
-        "size": 8079
+        "size": 5097
       },
       "biosppy/signals/bvp.py": {
         "size": 2987
       },
       "biosppy/signals/ecg.py": {
-        "size": 103319
+        "size": 62088
       },
       "biosppy/signals/eda.py": {
-        "size": 23763
+        "size": 6305
       },
       "biosppy/signals/eeg.py": {
         "size": 12123
       },
-      "biosppy/signals/egm.py": {
-        "size": 33527
-      },
       "biosppy/signals/emg.py": {
-        "size": 41770
-      },
-      "biosppy/signals/hrv.py": {
-        "size": 30658
+        "size": 41564
       },
       "biosppy/signals/pcg.py": {
-        "size": 15840
+        "size": 8301
       },
       "biosppy/signals/ppg.py": {
-        "size": 18036
+        "size": 18232
       },
       "biosppy/signals/resp.py": {
-        "size": 3404
+        "size": 3197
       },
       "biosppy/signals/tools.py": {
-        "size": 59506
-      },
-      "biosppy/spatial/eam.py": {
-        "size": 8818
+        "size": 56286
       },
       "biosppy/stats.py": {
-        "size": 9686
+        "size": 5294
       },
       "biosppy/storage.py": {
-        "size": 46243
+        "size": 25139
       },
       "biosppy/synthesizers/__init__.py": {
-        "size": 443
+        "size": 411
       },
       "biosppy/synthesizers/ecg.py": {
-        "size": 20030
-      },
-      "biosppy/synthesizers/emg.py": {
-        "size": 29266
+        "size": 20014
       },
       "biosppy/timing.py": {
         "size": 1601
       },
       "biosppy/utils.py": {
-        "size": 13475
+        "size": 10067
       },
       "docs/conf.py": {
-        "size": 10845
+        "size": 10232
       },
       "docs/requirements.txt": {
-        "size": 107
+        "size": 1
       },
       "example.py": {
-        "size": 827
+        "size": 783
       },
       "examples/acc.txt": {
         "size": 49404
@@ -159,12 +120,6 @@
       "examples/eeg_eo.txt": {
         "size": 330261
       },
-      "examples/egm_bipolar_af.txt": {
-        "size": 23687
-      },
-      "examples/egm_bipolar_sinus.txt": {
-        "size": 23107
-      },
       "examples/emg.txt": {
         "size": 524313
       },
@@ -174,40 +129,41 @@
       "examples/pcg.txt": {
         "size": 239669
       },
-      "examples/pcg_ecg.txt": {
-        "size": 160104
-      },
       "examples/ppg.txt": {
         "size": 140085
       },
       "examples/resp.txt": {
         "size": 419644
       },
-      "examples/rri.txt": {
-        "size": 3960
-      },
       "requirements.txt": {
-        "size": 177
+        "size": 135
       },
       "setup.cfg": {
         "size": 60
       },
       "setup.py": {
-        "size": 4364
+        "size": 4405
       }
     },
     "processed_by": "zip_fallback",
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.BioSPPy.source",
+      "mcp_output.mcp_plugin",
+      "source.biosppy",
+      "source.biosppy.inter_plotting",
+      "source.biosppy.signals",
+      "source.biosppy.synthesizers"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
-    "has_requirements_txt": false,
+    "has_requirements_txt": true,
     "pyproject": false,
-    "setup_cfg": false,
-    "setup_py": false
+    "setup_cfg": true,
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -217,47 +173,585 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "biosppy",
-        "module": "__init__",
+        "package": "setup",
+        "module": "setup",
         "functions": [],
-        "classes": [],
-        "description": "Top-level package initializer; likely re-exports version and selected submodules."
+        "classes": [
+          "UploadCommand"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "biosppy.signals",
-        "module": "ecg",
-        "functions": [
-          "ecg"
+        "package": "docs",
+        "module": "conf",
+        "functions": [],
+        "classes": [
+          "Mock"
         ],
-        "classes": [],
-        "description": "ECG processing pipeline and helper routines (filtering, peak detection, heart-rate estimation)."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "biosppy.signals",
-        "module": "eda",
+        "package": "biosppy",
+        "module": "metrics",
         "functions": [
-          "eda"
+          "cdist",
+          "pcosine",
+          "pdist",
+          "squareform"
         ],
         "classes": [],
-        "description": "EDA processing pipeline (preprocessing, decomposition/features, event-related metrics)."
+        "function_signatures": {
+          "pcosine": [
+            "u",
+            "v"
+          ],
+          "pdist": [
+            "X",
+            "metric",
+            "p",
+            "w",
+            "V",
+            "VI"
+          ],
+          "cdist": [
+            "XA",
+            "XB",
+            "metric",
+            "p",
+            "V",
+            "VI",
+            "w"
+          ],
+          "squareform": [
+            "X",
+            "force",
+            "checks"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "biosppy.signals",
-        "module": "emg",
+        "package": "biosppy",
+        "module": "clustering",
         "functions": [
-          "emg"
+          "centroid_templates",
+          "coassoc_partition",
+          "consensus",
+          "consensus_kmeans",
+          "create_coassoc",
+          "create_ensemble",
+          "dbscan",
+          "hierarchical",
+          "kmeans",
+          "mdist_templates",
+          "outliers_dbscan",
+          "outliers_dmean"
         ],
         "classes": [],
-        "description": "EMG processing pipeline and onset-related analysis."
+        "function_signatures": {
+          "dbscan": [
+            "data",
+            "min_samples",
+            "eps",
+            "metric",
+            "metric_args"
+          ],
+          "hierarchical": [
+            "data",
+            "k",
+            "linkage",
+            "metric",
+            "metric_args"
+          ],
+          "kmeans": [
+            "data",
+            "k",
+            "init",
+            "max_iter",
+            "n_init",
+            "tol"
+          ],
+          "consensus": [
+            "data",
+            "k",
+            "linkage",
+            "fcn",
+            "grid"
+          ],
+          "consensus_kmeans": [
+            "data",
+            "k",
+            "linkage",
+            "nensemble",
+            "kmin",
+            "kmax"
+          ],
+          "create_ensemble": [
+            "data",
+            "fcn",
+            "grid"
+          ],
+          "create_coassoc": [
+            "ensemble",
+            "N"
+          ],
+          "coassoc_partition": [
+            "coassoc",
+            "k",
+            "linkage"
+          ],
+          "mdist_templates": [
+            "data",
+            "clusters",
+            "ntemplates",
+            "metric",
+            "metric_args"
+          ],
+          "centroid_templates": [
+            "data",
+            "clusters",
+            "ntemplates"
+          ],
+          "outliers_dbscan": [
+            "data",
+            "min_samples",
+            "eps",
+            "metric",
+            "metric_args"
+          ],
+          "outliers_dmean": [
+            "data",
+            "alpha",
+            "beta",
+            "metric",
+            "metric_args",
+            "max_idx"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "biosppy.signals",
-        "module": "ppg",
+        "package": "biosppy",
+        "module": "biometrics",
         "functions": [
-          "ppg"
+          "assess_classification",
+          "assess_runs",
+          "combination",
+          "cross_validation",
+          "get_auth_rates",
+          "get_id_rates",
+          "get_subject_results",
+          "majority_rule"
+        ],
+        "classes": [
+          "BaseClassifier",
+          "CombinationError",
+          "KNN",
+          "SVM",
+          "SubjectError",
+          "UntrainedError"
+        ],
+        "function_signatures": {
+          "get_auth_rates": [
+            "TP",
+            "FP",
+            "TN",
+            "FN",
+            "thresholds"
+          ],
+          "get_id_rates": [
+            "H",
+            "M",
+            "R",
+            "N",
+            "thresholds"
+          ],
+          "get_subject_results": [
+            "results",
+            "subject",
+            "thresholds",
+            "subjects",
+            "subject_dict",
+            "subject_idx"
+          ],
+          "assess_classification": [
+            "results",
+            "thresholds"
+          ],
+          "assess_runs": [
+            "results",
+            "subjects"
+          ],
+          "combination": [
+            "results",
+            "weights"
+          ],
+          "majority_rule": [
+            "labels",
+            "random"
+          ],
+          "cross_validation": [
+            "labels",
+            "n_iter",
+            "test_size",
+            "train_size",
+            "random_state"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "biosppy",
+        "module": "plotting",
+        "functions": [
+          "plot_abp",
+          "plot_acc",
+          "plot_bcg",
+          "plot_biometrics",
+          "plot_bvp",
+          "plot_clustering",
+          "plot_ecg",
+          "plot_eda",
+          "plot_eeg",
+          "plot_emg",
+          "plot_filter",
+          "plot_pcg",
+          "plot_ppg",
+          "plot_resp",
+          "plot_spectrum"
         ],
         "classes": [],
-        "description": "PPG processing pipeline including pulse-related fiducials/features."
+        "function_signatures": {
+          "plot_filter": [
+            "ftype",
+            "band",
+            "order",
+            "frequency",
+            "sampling_rate",
+            "path",
+            "show"
+          ],
+          "plot_spectrum": [
+            "signal",
+            "sampling_rate",
+            "path",
+            "show"
+          ],
+          "plot_acc": [
+            "ts",
+            "raw",
+            "vm",
+            "sm",
+            "path",
+            "show"
+          ],
+          "plot_ppg": [
+            "ts",
+            "raw",
+            "filtered",
+            "onsets",
+            "heart_rate_ts",
+            "heart_rate",
+            "path",
+            "show"
+          ],
+          "plot_bvp": [
+            "ts",
+            "raw",
+            "filtered",
+            "onsets",
+            "heart_rate_ts",
+            "heart_rate",
+            "path",
+            "show"
+          ],
+          "plot_abp": [
+            "ts",
+            "raw",
+            "filtered",
+            "onsets",
+            "heart_rate_ts",
+            "heart_rate",
+            "path",
+            "show"
+          ],
+          "plot_eda": [
+            "ts",
+            "raw",
+            "filtered",
+            "onsets",
+            "peaks",
+            "amplitudes",
+            "path",
+            "show"
+          ],
+          "plot_emg": [
+            "ts",
+            "sampling_rate",
+            "raw",
+            "filtered",
+            "onsets",
+            "processed",
+            "path",
+            "show"
+          ],
+          "plot_resp": [
+            "ts",
+            "raw",
+            "filtered",
+            "zeros",
+            "resp_rate_ts",
+            "resp_rate",
+            "path",
+            "show"
+          ],
+          "plot_eeg": [
+            "ts",
+            "raw",
+            "filtered",
+            "labels",
+            "features_ts",
+            "theta",
+            "alpha_low",
+            "alpha_high",
+            "beta",
+            "gamma",
+            "plf_pairs",
+            "plf",
+            "path",
+            "show"
+          ],
+          "plot_ecg": [
+            "ts",
+            "raw",
+            "filtered",
+            "rpeaks",
+            "templates_ts",
+            "templates",
+            "heart_rate_ts",
+            "heart_rate",
+            "path",
+            "show"
+          ],
+          "plot_bcg": [
+            "ts",
+            "raw",
+            "filtered",
+            "jpeaks",
+            "templates_ts",
+            "templates",
+            "heart_rate_ts",
+            "heart_rate",
+            "path",
+            "show"
+          ],
+          "plot_pcg": [
+            "ts",
+            "raw",
+            "filtered",
+            "peaks",
+            "heart_sounds",
+            "heart_rate_ts",
+            "inst_heart_rate",
+            "path",
+            "show"
+          ],
+          "plot_biometrics": [
+            "assessment",
+            "eer_idx",
+            "path",
+            "show"
+          ],
+          "plot_clustering": [
+            "data",
+            "clusters",
+            "path",
+            "show"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "biosppy",
+        "module": "timing",
+        "functions": [
+          "clear",
+          "clear_all",
+          "tac",
+          "tic"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "tic": [
+            "name"
+          ],
+          "tac": [
+            "name"
+          ],
+          "clear": [
+            "name"
+          ],
+          "clear_all": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "biosppy",
+        "module": "utils",
+        "functions": [
+          "fileparts",
+          "fullfile",
+          "highestAveragesAllocator",
+          "normpath",
+          "random_fraction",
+          "remainderAllocator",
+          "walktree"
+        ],
+        "classes": [
+          "ReturnTuple"
+        ],
+        "function_signatures": {
+          "normpath": [
+            "path"
+          ],
+          "fileparts": [
+            "path"
+          ],
+          "fullfile": [],
+          "walktree": [
+            "top",
+            "spec"
+          ],
+          "remainderAllocator": [
+            "votes",
+            "k",
+            "reverse",
+            "check"
+          ],
+          "highestAveragesAllocator": [
+            "votes",
+            "k",
+            "divisor",
+            "check"
+          ],
+          "random_fraction": [
+            "indx",
+            "fraction",
+            "sort"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "biosppy",
+        "module": "stats",
+        "functions": [
+          "linear_regression",
+          "paired_test",
+          "pearson_correlation",
+          "unpaired_test"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "pearson_correlation": [
+            "x",
+            "y"
+          ],
+          "linear_regression": [
+            "x",
+            "y"
+          ],
+          "paired_test": [
+            "x",
+            "y"
+          ],
+          "unpaired_test": [
+            "x",
+            "y"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "biosppy",
+        "module": "storage",
+        "functions": [
+          "alloc_h5",
+          "deserialize",
+          "dumpJSON",
+          "loadJSON",
+          "load_h5",
+          "load_txt",
+          "pack_zip",
+          "serialize",
+          "store_h5",
+          "store_txt",
+          "unpack_zip",
+          "zip_write"
+        ],
+        "classes": [
+          "HDF"
+        ],
+        "function_signatures": {
+          "serialize": [
+            "data",
+            "path",
+            "compress"
+          ],
+          "deserialize": [
+            "path"
+          ],
+          "dumpJSON": [
+            "data",
+            "path"
+          ],
+          "loadJSON": [
+            "path"
+          ],
+          "zip_write": [
+            "fid",
+            "files",
+            "recursive",
+            "root"
+          ],
+          "pack_zip": [
+            "files",
+            "path",
+            "recursive",
+            "forceExt"
+          ],
+          "unpack_zip": [
+            "zip_path",
+            "path"
+          ],
+          "alloc_h5": [
+            "path"
+          ],
+          "store_h5": [
+            "path",
+            "label",
+            "data"
+          ],
+          "load_h5": [
+            "path",
+            "label"
+          ],
+          "store_txt": [
+            "path",
+            "data",
+            "sampling_rate",
+            "resolution",
+            "date",
+            "labels",
+            "precision"
+          ],
+          "load_txt": [
+            "path"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
         "package": "biosppy.signals",
@@ -266,126 +760,783 @@
           "resp"
         ],
         "classes": [],
-        "description": "Respiration signal processing and breathing-rate related outputs."
+        "function_signatures": {
+          "resp": [
+            "signal",
+            "sampling_rate",
+            "path",
+            "show"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
         "package": "biosppy.signals",
-        "module": "eeg",
+        "module": "ppg",
         "functions": [
-          "eeg"
+          "find_onsets_elgendi2013",
+          "find_onsets_kavsaoglu2016",
+          "ppg",
+          "ppg_segmentation"
         ],
         "classes": [],
-        "description": "EEG processing utilities and spectral/feature extraction routines."
-      },
-      {
-        "package": "biosppy.signals",
-        "module": "hrv",
-        "functions": [
-          "hrv"
-        ],
-        "classes": [],
-        "description": "Heart-rate variability processing from RR interval series."
+        "function_signatures": {
+          "ppg": [
+            "signal",
+            "sampling_rate",
+            "show"
+          ],
+          "find_onsets_elgendi2013": [
+            "signal",
+            "sampling_rate",
+            "peakwindow",
+            "beatwindow",
+            "beatoffset",
+            "mindelay"
+          ],
+          "find_onsets_kavsaoglu2016": [
+            "signal",
+            "sampling_rate",
+            "alpha",
+            "k",
+            "init_bpm",
+            "min_delay",
+            "max_BPM"
+          ],
+          "ppg_segmentation": [
+            "filtered",
+            "sampling_rate",
+            "show",
+            "show_mean",
+            "selection",
+            "peak_threshold"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
         "package": "biosppy.signals",
         "module": "tools",
         "functions": [
+          "analytic_signal",
+          "band_power",
+          "distance_profile",
           "filter_signal",
+          "find_extrema",
+          "find_intersection",
+          "finite_difference",
+          "get_filter",
+          "get_heart_rate",
+          "mean_waves",
+          "median_waves",
+          "normalize",
+          "pearson_correlation",
+          "phase_locking",
+          "power_spectrum",
+          "rms_error",
+          "signal_cross_join",
+          "signal_self_join",
+          "signal_stats",
           "smoother",
-          "normalize"
+          "synchronize",
+          "welch_spectrum",
+          "windower",
+          "zero_cross"
+        ],
+        "classes": [
+          "OnlineFilter"
+        ],
+        "function_signatures": {
+          "get_filter": [
+            "ftype",
+            "band",
+            "order",
+            "frequency",
+            "sampling_rate"
+          ],
+          "filter_signal": [
+            "signal",
+            "ftype",
+            "band",
+            "order",
+            "frequency",
+            "sampling_rate"
+          ],
+          "smoother": [
+            "signal",
+            "kernel",
+            "size",
+            "mirror"
+          ],
+          "analytic_signal": [
+            "signal",
+            "N"
+          ],
+          "phase_locking": [
+            "signal1",
+            "signal2",
+            "N"
+          ],
+          "power_spectrum": [
+            "signal",
+            "sampling_rate",
+            "pad",
+            "pow2",
+            "decibel"
+          ],
+          "welch_spectrum": [
+            "signal",
+            "sampling_rate",
+            "size",
+            "overlap",
+            "window",
+            "window_kwargs",
+            "pad",
+            "decibel"
+          ],
+          "band_power": [
+            "freqs",
+            "power",
+            "frequency",
+            "decibel"
+          ],
+          "signal_stats": [
+            "signal"
+          ],
+          "normalize": [
+            "signal",
+            "ddof"
+          ],
+          "zero_cross": [
+            "signal",
+            "detrend"
+          ],
+          "find_extrema": [
+            "signal",
+            "mode"
+          ],
+          "windower": [
+            "signal",
+            "size",
+            "step",
+            "fcn",
+            "fcn_kwargs",
+            "kernel",
+            "kernel_kwargs"
+          ],
+          "synchronize": [
+            "x",
+            "y",
+            "detrend"
+          ],
+          "pearson_correlation": [
+            "x",
+            "y"
+          ],
+          "rms_error": [
+            "x",
+            "y"
+          ],
+          "get_heart_rate": [
+            "beats",
+            "sampling_rate",
+            "smooth",
+            "size"
+          ],
+          "find_intersection": [
+            "x1",
+            "y1",
+            "x2",
+            "y2",
+            "alpha",
+            "xtol",
+            "ytol"
+          ],
+          "finite_difference": [
+            "signal",
+            "weights"
+          ],
+          "distance_profile": [
+            "query",
+            "signal",
+            "metric"
+          ],
+          "signal_self_join": [
+            "signal",
+            "size",
+            "index",
+            "limit"
+          ],
+          "signal_cross_join": [
+            "signal1",
+            "signal2",
+            "size",
+            "index",
+            "limit"
+          ],
+          "mean_waves": [
+            "data",
+            "size",
+            "step"
+          ],
+          "median_waves": [
+            "data",
+            "size",
+            "step"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "biosppy.signals",
+        "module": "eeg",
+        "functions": [
+          "car_reference",
+          "eeg",
+          "get_plf_features",
+          "get_power_features"
         ],
         "classes": [],
-        "description": "Shared low-level DSP helpers reused across signal-specific modules."
+        "function_signatures": {
+          "eeg": [
+            "signal",
+            "sampling_rate",
+            "labels",
+            "path",
+            "show"
+          ],
+          "car_reference": [
+            "signal"
+          ],
+          "get_power_features": [
+            "signal",
+            "sampling_rate",
+            "size",
+            "overlap"
+          ],
+          "get_plf_features": [
+            "signal",
+            "sampling_rate",
+            "size",
+            "overlap"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "biosppy.features",
-        "module": "time",
-        "functions": [],
+        "package": "biosppy.signals",
+        "module": "bvp",
+        "functions": [
+          "bvp"
+        ],
         "classes": [],
-        "description": "Time-domain feature extraction helpers."
+        "function_signatures": {
+          "bvp": [
+            "signal",
+            "sampling_rate",
+            "path",
+            "show"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "biosppy.features",
-        "module": "frequency",
-        "functions": [],
+        "package": "biosppy.signals",
+        "module": "pcg",
+        "functions": [
+          "find_peaks",
+          "get_avg_heart_rate",
+          "homomorphic_filter",
+          "identify_heart_sounds",
+          "pcg"
+        ],
         "classes": [],
-        "description": "Frequency-domain feature extraction helpers."
+        "function_signatures": {
+          "pcg": [
+            "signal",
+            "sampling_rate",
+            "path",
+            "show"
+          ],
+          "find_peaks": [
+            "signal",
+            "sampling_rate"
+          ],
+          "homomorphic_filter": [
+            "signal",
+            "sampling_rate"
+          ],
+          "get_avg_heart_rate": [
+            "envelope",
+            "sampling_rate"
+          ],
+          "identify_heart_sounds": [
+            "beats",
+            "sampling_rate"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "biosppy.features",
-        "module": "time_freq",
-        "functions": [],
+        "package": "biosppy.signals",
+        "module": "ecg",
+        "functions": [
+          "ASI_segmenter",
+          "ZZ2018",
+          "bSQI",
+          "christov_segmenter",
+          "compare_segmentation",
+          "correct_rpeaks",
+          "ecg",
+          "engzee_segmenter",
+          "extract_heartbeats",
+          "fSQI",
+          "gamboa_segmenter",
+          "getPPositions",
+          "getQPositions",
+          "getSPositions",
+          "getTPositions",
+          "hamilton_segmenter",
+          "kSQI",
+          "pSQI",
+          "sSQI",
+          "ssf_segmenter"
+        ],
         "classes": [],
-        "description": "Time-frequency feature extraction helpers."
+        "function_signatures": {
+          "ecg": [
+            "signal",
+            "sampling_rate",
+            "path",
+            "show",
+            "interactive"
+          ],
+          "extract_heartbeats": [
+            "signal",
+            "rpeaks",
+            "sampling_rate",
+            "before",
+            "after"
+          ],
+          "compare_segmentation": [
+            "reference",
+            "test",
+            "sampling_rate",
+            "offset",
+            "minRR",
+            "tol"
+          ],
+          "correct_rpeaks": [
+            "signal",
+            "rpeaks",
+            "sampling_rate",
+            "tol"
+          ],
+          "ssf_segmenter": [
+            "signal",
+            "sampling_rate",
+            "threshold",
+            "before",
+            "after"
+          ],
+          "christov_segmenter": [
+            "signal",
+            "sampling_rate"
+          ],
+          "engzee_segmenter": [
+            "signal",
+            "sampling_rate",
+            "threshold"
+          ],
+          "gamboa_segmenter": [
+            "signal",
+            "sampling_rate",
+            "tol"
+          ],
+          "hamilton_segmenter": [
+            "signal",
+            "sampling_rate"
+          ],
+          "ASI_segmenter": [
+            "signal",
+            "sampling_rate",
+            "Pth"
+          ],
+          "getQPositions": [
+            "ecg_proc",
+            "show"
+          ],
+          "getSPositions": [
+            "ecg_proc",
+            "show"
+          ],
+          "getPPositions": [
+            "ecg_proc",
+            "show"
+          ],
+          "getTPositions": [
+            "ecg_proc",
+            "show"
+          ],
+          "bSQI": [
+            "detector_1",
+            "detector_2",
+            "fs",
+            "mode",
+            "search_window"
+          ],
+          "sSQI": [
+            "signal"
+          ],
+          "kSQI": [
+            "signal",
+            "fisher"
+          ],
+          "pSQI": [
+            "signal",
+            "f_thr"
+          ],
+          "fSQI": [
+            "ecg_signal",
+            "fs",
+            "nseg",
+            "num_spectrum",
+            "dem_spectrum",
+            "mode"
+          ],
+          "ZZ2018": [
+            "signal",
+            "detector_1",
+            "detector_2",
+            "fs",
+            "search_window",
+            "nseg",
+            "mode"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "biosppy.features",
-        "module": "cepstral",
-        "functions": [],
+        "package": "biosppy.signals",
+        "module": "abp",
+        "functions": [
+          "abp",
+          "find_onsets_zong2003"
+        ],
         "classes": [],
-        "description": "Cepstral feature extraction helpers."
+        "function_signatures": {
+          "abp": [
+            "signal",
+            "sampling_rate",
+            "show"
+          ],
+          "find_onsets_zong2003": [
+            "signal",
+            "sampling_rate",
+            "sm_size",
+            "size",
+            "alpha",
+            "wrange",
+            "d1_th",
+            "d2_th"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "biosppy.features",
-        "module": "phase_space",
-        "functions": [],
+        "package": "biosppy.signals",
+        "module": "emg",
+        "functions": [
+          "abbink_onset_detector",
+          "bonato_onset_detector",
+          "emg",
+          "find_onsets",
+          "hodges_bui_onset_detector",
+          "lidierth_onset_detector",
+          "londral_onset_detector",
+          "silva_onset_detector",
+          "solnik_onset_detector"
+        ],
         "classes": [],
-        "description": "Phase-space based feature extraction."
+        "function_signatures": {
+          "emg": [
+            "signal",
+            "sampling_rate",
+            "path",
+            "show"
+          ],
+          "find_onsets": [
+            "signal",
+            "sampling_rate",
+            "size",
+            "threshold"
+          ],
+          "hodges_bui_onset_detector": [
+            "signal",
+            "rest",
+            "sampling_rate",
+            "size",
+            "threshold"
+          ],
+          "bonato_onset_detector": [
+            "signal",
+            "rest",
+            "sampling_rate",
+            "threshold",
+            "active_state_duration",
+            "samples_above_fail",
+            "fail_size"
+          ],
+          "lidierth_onset_detector": [
+            "signal",
+            "rest",
+            "sampling_rate",
+            "size",
+            "threshold",
+            "active_state_duration",
+            "fail_size"
+          ],
+          "abbink_onset_detector": [
+            "signal",
+            "rest",
+            "sampling_rate",
+            "size",
+            "alarm_size",
+            "threshold",
+            "transition_threshold"
+          ],
+          "solnik_onset_detector": [
+            "signal",
+            "rest",
+            "sampling_rate",
+            "threshold",
+            "active_state_duration"
+          ],
+          "silva_onset_detector": [
+            "signal",
+            "sampling_rate",
+            "size",
+            "threshold_size",
+            "threshold"
+          ],
+          "londral_onset_detector": [
+            "signal",
+            "rest",
+            "sampling_rate",
+            "size",
+            "threshold",
+            "active_state_duration"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "biosppy",
-        "module": "plotting",
-        "functions": [],
+        "package": "biosppy.signals",
+        "module": "eda",
+        "functions": [
+          "basic_scr",
+          "eda",
+          "kbk_scr"
+        ],
         "classes": [],
-        "description": "Static plotting functions for multiple biosignal workflows."
+        "function_signatures": {
+          "eda": [
+            "signal",
+            "sampling_rate",
+            "path",
+            "show",
+            "min_amplitude"
+          ],
+          "basic_scr": [
+            "signal",
+            "sampling_rate"
+          ],
+          "kbk_scr": [
+            "signal",
+            "sampling_rate",
+            "min_amplitude"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "package": "biosppy",
-        "module": "inter_plotting",
-        "functions": [],
+        "package": "biosppy.signals",
+        "module": "acc",
+        "functions": [
+          "acc",
+          "frequency_domain_feature_extractor",
+          "time_domain_feature_extractor"
+        ],
         "classes": [],
-        "description": "Interactive plotting support modules."
-      },
-      {
-        "package": "biosppy",
-        "module": "quality",
-        "functions": [],
-        "classes": [],
-        "description": "Signal quality metrics and quality assessment routines."
-      },
-      {
-        "package": "biosppy",
-        "module": "storage",
-        "functions": [],
-        "classes": [],
-        "description": "Read/write and serialization utilities for processed data."
+        "function_signatures": {
+          "acc": [
+            "signal",
+            "sampling_rate",
+            "path",
+            "show",
+            "interactive"
+          ],
+          "time_domain_feature_extractor": [
+            "signal"
+          ],
+          "frequency_domain_feature_extractor": [
+            "signal",
+            "sampling_rate"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
         "package": "biosppy.synthesizers",
         "module": "ecg",
-        "functions": [],
-        "classes": [],
-        "description": "Synthetic ECG generation utilities."
-      },
-      {
-        "package": "biosppy.synthesizers",
-        "module": "emg",
-        "functions": [],
-        "classes": [],
-        "description": "Synthetic EMG generation utilities."
-      },
-      {
-        "package": "biosppy",
-        "module": "biometrics",
-        "functions": [],
-        "classes": [
-          "BaseClassifier",
-          "KNN",
-          "SVM",
-          "RandomForest",
-          "Combination"
+        "functions": [
+          "B",
+          "I",
+          "P",
+          "Pq",
+          "Q1",
+          "Q2",
+          "R",
+          "S",
+          "St",
+          "T",
+          "ecg"
         ],
-        "description": "Biometric classification/identification workflows and model wrappers."
+        "classes": [],
+        "function_signatures": {
+          "B": [
+            "l",
+            "Kb"
+          ],
+          "P": [
+            "i",
+            "Ap",
+            "Kp"
+          ],
+          "Pq": [
+            "l",
+            "Kpq"
+          ],
+          "Q1": [
+            "i",
+            "Aq",
+            "Kq1"
+          ],
+          "Q2": [
+            "i",
+            "Aq",
+            "Kq2"
+          ],
+          "R": [
+            "i",
+            "Ar",
+            "Kr"
+          ],
+          "S": [
+            "i",
+            "As",
+            "Ks",
+            "Kcs",
+            "k"
+          ],
+          "St": [
+            "i",
+            "As",
+            "Ks",
+            "Kcs",
+            "sm",
+            "Kst",
+            "k"
+          ],
+          "T": [
+            "i",
+            "As",
+            "Ks",
+            "Kcs",
+            "sm",
+            "Kst",
+            "At",
+            "Kt",
+            "k"
+          ],
+          "I": [
+            "i",
+            "As",
+            "Ks",
+            "Kcs",
+            "sm",
+            "Kst",
+            "At",
+            "Kt",
+            "si",
+            "Ki"
+          ],
+          "ecg": [
+            "Kb",
+            "Ap",
+            "Kp",
+            "Kpq",
+            "Aq",
+            "Kq1",
+            "Kq2",
+            "Ar",
+            "Kr",
+            "As",
+            "Ks",
+            "Kcs",
+            "sm",
+            "Kst",
+            "At",
+            "Kt",
+            "si",
+            "Ki",
+            "var",
+            "sampling_rate"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "biosppy.inter_plotting",
+        "module": "ecg",
+        "functions": [
+          "plot_ecg"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "plot_ecg": [
+            "ts",
+            "raw",
+            "filtered",
+            "rpeaks",
+            "templates_ts",
+            "templates",
+            "heart_rate_ts",
+            "heart_rate",
+            "path",
+            "show"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "biosppy.inter_plotting",
+        "module": "acc",
+        "functions": [
+          "plot_acc"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "plot_acc": [
+            "ts",
+            "raw",
+            "vm",
+            "sm",
+            "spectrum",
+            "path"
+          ]
+        },
+        "description": "Discovered via AST scan"
       }
     ],
     "cli_commands": [],
@@ -403,22 +1554,21 @@
         "h5py",
         "bidict",
         "shortuuid",
-        "joblib"
+        "six"
       ],
       "optional": [
-        "pandas",
-        "peakutils",
-        "statsmodels"
+        "mne",
+        "pywavelets"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.9,
+      "import_feasibility": 0.92,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
   },
   "deepwiki_analysis": {
-    "repo_url": "https://github.com/scientisst/BioSPPy",
+    "repo_url": "https://github.com/PIA-Group/BioSPPy",
     "repo_name": "BioSPPy",
     "error": "DeepWiki analysis failed",
     "model": "gpt-5.3-codex",
@@ -430,7 +1580,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.9,
+    "import_feasibility": 0.92,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

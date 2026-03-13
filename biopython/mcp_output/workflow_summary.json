@@ -10,13 +10,13 @@
     "forks": 0,
     "language": "Python",
     "last_updated": "",
-    "complexity": "complex",
+    "complexity": "medium",
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773296141.4603221,
-    "end_time": 1773296477.935463,
-    "duration": 336.47514176368713,
+    "start_time": 1773378901.434772,
+    "end_time": 1773379123.220161,
+    "duration": 221.7853901386261,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 42,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,14 +53,57 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.biopython.source",
+        "mcp_output.mcp_plugin",
+        "source.Bio",
+        "source.Bio.Affy",
+        "source.Bio.Align",
+        "source.Bio.AlignIO",
+        "source.Bio.Alphabet",
+        "source.Bio.Blast",
+        "source.Bio.CAPS",
+        "source.Bio.Cluster",
+        "source.Bio.Compass",
+        "source.Bio.Data",
+        "source.Bio.Emboss",
+        "source.Bio.Entrez",
+        "source.Bio.ExPASy",
+        "source.Bio.GenBank",
+        "source.Bio.Geo",
+        "source.Bio.Graphics",
+        "source.Bio.HMM",
+        "source.Bio.KEGG",
+        "source.Bio.Medline",
+        "source.Bio.NMR",
+        "source.Bio.Nexus",
+        "source.Bio.PDB",
+        "source.Bio.Pathway",
+        "source.Bio.Phylo",
+        "source.Bio.PopGen",
+        "source.Bio.Restriction",
+        "source.Bio.SCOP",
+        "source.Bio.SVDSuperimposer",
+        "source.Bio.SearchIO",
+        "source.Bio.SeqIO",
+        "source.Bio.SeqUtils",
+        "source.Bio.Sequencing",
+        "source.Bio.SwissProt",
+        "source.Bio.TogoWS",
+        "source.Bio.UniGene",
+        "source.Bio.UniProt",
+        "source.Bio.codonalign",
+        "source.Bio.motifs",
+        "source.Bio.phenotype",
+        "source.BioSQL"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
       "has_requirements_txt": false,
-      "pyproject": false,
+      "pyproject": true,
       "setup_cfg": false,
-      "setup_py": false
+      "setup_py": true
     },
     "entry_points": {
       "imports": [],
@@ -68,9 +111,9 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.96,
+      "import_feasibility": 0.94,
       "intrusiveness_risk": "low",
-      "complexity": "complex"
+      "complexity": "medium"
     },
     "deepwiki_analysis": {
       "repo_url": "https://github.com/biopython/biopython",
@@ -121,45 +164,40 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/biopython/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75014 ms: Couldn't connect to server\nfatal: expected 'packfile'\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/biopython/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75014 ms: Couldn't connect to server\nfatal: expected 'packfile'\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "deduplicate MCP endpoint names across modules (e.g.",
-    "multiple parse/read/write collisions) by introducing namespaced tool IDs like `seqio.parse` and `align.parse`",
-    "add a lightweight smoke test suite for generated MCP tools (import + one-call-per-endpoint) since test status is empty",
-    "generate strict Pydantic input/output schemas per endpoint (especially for Seq/Alignment/PDB objects) to avoid ambiguous serialization",
-    "create an automated dependency capability matrix (core vs optional deps like reportlab/matplotlib/networkx/lxml) and gate endpoint registration when extras are missing",
-    "add CI for `mcp_output` (lint",
-    "type-check",
-    "smoke tests) integrated with existing GitHub Actions",
-    "harden import adapter with graceful fallbacks/timeouts for online/network-bound modules (Entrez/KEGG/NCBIWWW) and explicit offline-safe mode",
-    "prioritize performance guards for heavy parsers by adding payload size limits and streaming responses for large files",
-    "improve error taxonomy in MCP service (user input errors vs parser errors vs missing optional dependency) with stable error codes",
-    "add caching for repeated expensive operations (e.g.",
-    "format indexing/read of large sequence/alignment files)",
-    "include golden example requests/responses in `README_MCP.md` for top workflows (Seq transform",
-    "SeqIO convert",
-    "PDB parse)",
-    "add contract tests to ensure MCP wrappers preserve Biopython behavior/signatures for key APIs",
-    "expose version/health endpoints reporting Biopython version and enabled optional backends",
-    "add security checks for file/path inputs (path traversal prevention",
-    "allowed-root policy)",
-    "split very large generated adapter sections into per-domain modules (Seq",
-    "Align",
-    "PDB",
-    "Entrez",
-    "Phylo) for maintainability",
-    "introduce observability hooks (structured logs + per-endpoint latency/error metrics)",
-    "pin and verify plugin runtime requirements in `mcp_output/requirements.txt` with upper bounds and periodic dependency update automation"
+    "deduplicate and namespace MCP endpoints to avoid collisions (e.g.",
+    "SeqIO.parse vs AlignIO.parse)",
+    "add strong typed request/response schemas with format-specific validation via Pydantic v2",
+    "implement centralized error mapping with actionable messages (invalid format",
+    "missing optional dependency",
+    "network/rate-limit",
+    "external binary not found)",
+    "create a capability matrix endpoint that reports available optional dependencies/binaries at runtime",
+    "split online/network-dependent tools (Entrez/KEGG) behind explicit opt-in flags and configurable retry+backoff+timeout",
+    "add caching for remote Entrez/KEGG calls with TTL and ETag support",
+    "enforce resource guards (max file size",
+    "max records",
+    "streaming parsers) to prevent memory spikes on huge inputs",
+    "introduce async job mode for long-running parsers/converters and structure operations",
+    "prioritize high-value stable APIs first (SeqIO/AlignIO/Align/SearchIO/PDB) and mark legacy/experimental endpoints clearly",
+    "add endpoint-level observability (latency",
+    "error rate",
+    "payload size) and structured logs with correlation IDs",
+    "build contract tests for each exposed endpoint plus golden-file tests for major formats",
+    "add fuzz/property-based tests for parsers handling malformed biological files",
+    "run CI across optional dependency matrix (numpy/reportlab/matplotlib/networkx/igraph/mmtf and DB drivers)",
+    "include smoke tests that start MCP server and exercise every advertised endpoint",
+    "add security hardening for file/path inputs (path traversal checks",
+    "sandboxed temp dirs",
+    "extension/content sniffing)",
+    "provide deterministic serialization options for outputs to improve reproducibility",
+    "expose batch operations (parse/convert/write) to reduce per-call overhead",
+    "document clear versioning/deprecation policy for endpoint names and parameter changes",
+    "auto-generate MCP docs from schemas including per-format examples and failure cases",
+    "add graceful degradation when optional modules are absent with fallback suggestions",
+    "include benchmark suite for common workloads (FASTA/GenBank/BLAST/PDB) and track regressions in CI"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -190,36 +228,36 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal status `success` and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Resilience mechanism worked: after git clone failure, pipeline continued via zip fallback and still analyzed ~721 files.",
-      "Plugin scaffold was generated successfully with runnable entrypoint (`start_mcp.py`) and healthy MCP startup over stdio.",
-      "Import-based adapter strategy is appropriate for Biopython’s API-centric architecture and low intrusiveness risk."
+      "Workflow completed all planned nodes (download, analysis, env, generate, run, review, finalize) with overall status=success.",
+      "Low-intrusiveness import adapter strategy was appropriate for Biopython’s library-first architecture (import feasibility 0.94).",
+      "Generated MCP service started successfully and passed MCP plugin health checks (healthy, stdio transport).",
+      "Repository structure and core module discovery were strong, enabling broad endpoint candidate extraction."
     ],
     "failure_reasons": [
-      "Primary repository acquisition failed due to network connectivity timeout to github.com:443 (curl 28).",
-      "Telemetry quality issues: several metrics are inconsistent or zeroed (`total_files_processed=0`, `llm_calls=0`, empty env/perf/test details) despite evidence of substantial analysis and generation.",
-      "DeepWiki enrichment failed, reducing external architectural/contextual validation.",
-      "Generated endpoint namespace collisions (multiple parse/read/write tools) indicate incomplete disambiguation and weak contract validation."
+      "No hard workflow failure occurred.",
+      "Quality gap: original project tests were not executed successfully (passed=false, execution_time=0, empty test files), so compatibility confidence is limited.",
+      "DeepWiki analysis failed, reducing external contextual validation.",
+      "Generation telemetry appears incomplete/inconsistent (e.g., llm_calls=0, tool_endpoints=0, total_lines_of_code=0 despite files/endpoints existing)."
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Download likely dominated total runtime due to ~75s clone timeout before fallback; node succeeded functionally via `continue_with_empty` + zip fallback.",
-      "analysis_time": "Moderate-to-high for a large codebase (721 files); produced meaningful module mapping despite inconsistent dependency flags.",
-      "generation_time": "Efficient scaffold generation; however quality signals (0 LOC/size, 0 endpoint count in one section) indicate reporting defects.",
-      "test_time": "Insufficient validation depth; MCP health check passed, but original project tests not executed and MCP endpoint smoke/contract tests missing."
+      "download_time": "Completed successfully; repository imported via zip fallback. Timing per-node not provided, but overall ingestion handled large codebase (721 files) reliably.",
+      "analysis_time": "Completed with medium complexity classification and useful module/dependency mapping; likely a major share of the 221.8s run due to repository size.",
+      "generation_time": "Completed and produced expected MCP scaffold files; however generated artifact metrics (LOC/size/endpoints) are inconsistent with actual outputs.",
+      "test_time": "MCP plugin smoke/health checks passed quickly; original project test phase effectively absent, creating validation blind spots."
     },
     "resource_usage": {
-      "memory_efficiency": "Cannot be reliably assessed (reported 0 MB). Instrumentation gap likely, not true zero usage.",
-      "cpu_efficiency": "Cannot be reliably assessed (reported 0%). Add per-node CPU sampling.",
-      "disk_usage": "Actual disk activity occurred (repo extraction + generated files), but reported generated size is 0; disk telemetry is incomplete."
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB); likely acceptable for orchestration but not trustworthy due to missing metrics.",
+      "cpu_efficiency": "Unknown from telemetry (reported 0%); cannot evaluate actual efficiency.",
+      "disk_usage": "Moderate-to-high repository footprint expected (large test corpus and many parser modules); generated MCP artifacts are small."
     }
   },
   "technical_quality": {
-    "code_quality_score": 68,
-    "architecture_score": 74,
-    "performance_score": 61,
-    "maintainability_score": 66,
+    "code_quality_score": 76,
+    "architecture_score": 81,
+    "performance_score": 62,
+    "maintainability_score": 74,
     "security_score": 85,
-    "scalability_score": 70
+    "scalability_score": 68
   }
 }

@@ -1,8 +1,5 @@
 import os
 import sys
-import traceback
-import importlib
-from typing import Any, Dict, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -10,323 +7,352 @@ source_path = os.path.join(
 )
 sys.path.insert(0, source_path)
 
+import importlib
+import traceback
+from typing import Any, Dict, Optional
+
 
 class Adapter:
     """
-    MCP Import-mode adapter for BioSPPy repository.
+    MCP Import Mode Adapter for BioSPPy repository integration.
 
-    This adapter attempts to import BioSPPy modules directly from the local `source`
-    path and provides unified, safe wrappers for common functionality.
-    All method responses use a standardized dictionary format:
-        {
-            "status": "success" | "error",
-            "mode": "import" | "fallback",
-            "message": str,
-            "data": Any
-        }
+    This adapter prioritizes direct import-based execution from local source code
+    and provides graceful fallback responses when imports are unavailable.
     """
 
     # -------------------------------------------------------------------------
-    # Initialization and module management
+    # Initialization and Module Management
     # -------------------------------------------------------------------------
     def __init__(self) -> None:
+        """
+        Initialize adapter state, import mode, and dynamic module registry.
+        """
         self.mode = "import"
         self._modules: Dict[str, Any] = {}
+        self._classes: Dict[str, Any] = {}
         self._import_errors: Dict[str, str] = {}
-        self._load_modules()
+        self._initialized = False
+        self._initialize_imports()
 
-    def _result(self, status: str, message: str, data: Any = None) -> Dict[str, Any]:
+    def _result(
+        self,
+        status: str,
+        message: str,
+        data: Optional[Dict[str, Any]] = None,
+        error: Optional[str] = None,
+        guidance: Optional[str] = None,
+    ) -> Dict[str, Any]:
         return {
             "status": status,
             "mode": self.mode,
             "message": message,
-            "data": data,
+            "data": data or {},
+            "error": error,
+            "guidance": guidance,
         }
 
-    def _load_modules(self) -> None:
-        module_names = [
-            "biosppy",
-            "biosppy.biometrics",
-            "biosppy.clustering",
-            "biosppy.metrics",
-            "biosppy.plotting",
-            "biosppy.quality",
-            "biosppy.stats",
-            "biosppy.storage",
-            "biosppy.timing",
-            "biosppy.utils",
-            "biosppy.features.cepstral",
-            "biosppy.features.frequency",
-            "biosppy.features.phase_space",
-            "biosppy.features.time",
-            "biosppy.features.time_freq",
-            "biosppy.signals.abp",
-            "biosppy.signals.acc",
-            "biosppy.signals.bvp",
-            "biosppy.signals.ecg",
-            "biosppy.signals.eda",
-            "biosppy.signals.eeg",
-            "biosppy.signals.egm",
-            "biosppy.signals.emg",
-            "biosppy.signals.hrv",
-            "biosppy.signals.pcg",
-            "biosppy.signals.ppg",
-            "biosppy.signals.resp",
-            "biosppy.signals.tools",
-            "biosppy.spatial.eam",
-            "biosppy.synthesizers.ecg",
-            "biosppy.synthesizers.emg",
-            "biosppy.inter_plotting.acc",
-            "biosppy.inter_plotting.ecg",
-        ]
-
-        for name in module_names:
-            try:
-                self._modules[name] = importlib.import_module(name)
-            except Exception as e:
-                self._import_errors[name] = str(e)
-
-        if "biosppy" not in self._modules:
-            self.mode = "fallback"
-
-    def get_status(self) -> Dict[str, Any]:
+    def _initialize_imports(self) -> None:
         """
-        Get adapter/module import status.
+        Dynamically import discovered modules/classes from analysis output.
+
+        Targeted imports (from analysis):
+        - setup.UploadCommand
+        - docs.conf.Mock
+        """
+        import_targets = {
+            "setup": "setup",
+            "docs_conf": "docs.conf",
+        }
+
+        for key, module_path in import_targets.items():
+            try:
+                self._modules[key] = importlib.import_module(module_path)
+            except Exception as exc:
+                self._modules[key] = None
+                self._import_errors[module_path] = str(exc)
+
+        # Load classes if modules are available
+        try:
+            setup_mod = self._modules.get("setup")
+            self._classes["UploadCommand"] = getattr(setup_mod, "UploadCommand") if setup_mod else None
+            if setup_mod and self._classes["UploadCommand"] is None:
+                self._import_errors["setup.UploadCommand"] = "Class not found in module."
+        except Exception as exc:
+            self._classes["UploadCommand"] = None
+            self._import_errors["setup.UploadCommand"] = str(exc)
+
+        try:
+            conf_mod = self._modules.get("docs_conf")
+            self._classes["Mock"] = getattr(conf_mod, "Mock") if conf_mod else None
+            if conf_mod and self._classes["Mock"] is None:
+                self._import_errors["docs.conf.Mock"] = "Class not found in module."
+        except Exception as exc:
+            self._classes["Mock"] = None
+            self._import_errors["docs.conf.Mock"] = str(exc)
+
+        self._initialized = True
+
+    # -------------------------------------------------------------------------
+    # Health and Status
+    # -------------------------------------------------------------------------
+    def health_check(self) -> Dict[str, Any]:
+        """
+        Return adapter readiness, import availability, and diagnostics.
 
         Returns:
-            dict: Import mode, loaded modules, and import errors.
+            dict: Unified status payload with loaded modules, class availability,
+            and actionable guidance for missing imports.
         """
+        loaded_modules = {k: (v is not None) for k, v in self._modules.items()}
+        loaded_classes = {k: (v is not None) for k, v in self._classes.items()}
+        ok = any(loaded_modules.values()) or any(loaded_classes.values())
+
+        guidance = None
+        if not ok:
+            guidance = (
+                "No target modules could be imported. Ensure repository source is present at "
+                "'.../source', verify dependencies from requirements.txt are installed, and retry."
+            )
+
         return self._result(
-            "success",
-            "Adapter status fetched.",
-            {
-                "loaded_modules": sorted(self._modules.keys()),
+            status="success" if ok else "fallback",
+            message="Adapter health check completed.",
+            data={
+                "initialized": self._initialized,
+                "loaded_modules": loaded_modules,
+                "loaded_classes": loaded_classes,
                 "import_errors": self._import_errors,
             },
+            guidance=guidance,
         )
 
     # -------------------------------------------------------------------------
-    # Generic invocation utilities
+    # Class Instance Methods (from analysis.classes)
     # -------------------------------------------------------------------------
-    def _call_function(
-        self, module_name: str, function_name: str, *args: Any, **kwargs: Any
-    ) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._result(
-                "error",
-                "Import mode is unavailable. Ensure repository source is present under the expected source path.",
-                None,
-            )
+    def create_upload_command(self, dist: Optional[Any] = None) -> Dict[str, Any]:
+        """
+        Create an instance of setup.UploadCommand.
 
-        module = self._modules.get(module_name)
-        if module is None:
-            return self._result(
-                "error",
-                f"Module '{module_name}' is not available. Check dependencies and import errors.",
-                {"import_error": self._import_errors.get(module_name)},
-            )
+        Parameters:
+            dist (Any, optional): Distutils distribution object. If omitted, the
+                method attempts a no-arg constructor fallback.
 
-        fn = getattr(module, function_name, None)
-        if fn is None:
-            return self._result(
-                "error",
-                f"Function '{function_name}' not found in module '{module_name}'. Verify API compatibility with this repository version.",
-                None,
-            )
-
-        try:
-            output = fn(*args, **kwargs)
-            return self._result(
-                "success",
-                f"Function '{module_name}.{function_name}' executed successfully.",
-                output,
-            )
-        except Exception as e:
-            return self._result(
-                "error",
-                f"Execution failed for '{module_name}.{function_name}': {e}",
-                {"traceback": traceback.format_exc()},
-            )
-
-    def _create_instance(
-        self, module_name: str, class_name: str, *args: Any, **kwargs: Any
-    ) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._result(
-                "error",
-                "Import mode is unavailable. Ensure repository source is present under the expected source path.",
-                None,
-            )
-
-        module = self._modules.get(module_name)
-        if module is None:
-            return self._result(
-                "error",
-                f"Module '{module_name}' is not available. Check dependencies and import errors.",
-                {"import_error": self._import_errors.get(module_name)},
-            )
-
-        cls = getattr(module, class_name, None)
+        Returns:
+            dict: Unified status response containing instance metadata.
+        """
+        cls = self._classes.get("UploadCommand")
         if cls is None:
             return self._result(
-                "error",
-                f"Class '{class_name}' not found in module '{module_name}'. Verify API compatibility with this repository version.",
-                None,
+                status="fallback",
+                message="UploadCommand class is unavailable.",
+                error=self._import_errors.get("setup.UploadCommand"),
+                guidance="Verify that 'source/setup.py' exists and can be imported without side effects.",
             )
 
         try:
-            obj = cls(*args, **kwargs)
+            if dist is not None:
+                instance = cls(dist)
+            else:
+                try:
+                    instance = cls()
+                except TypeError:
+                    return self._result(
+                        status="error",
+                        message="UploadCommand requires a dist argument.",
+                        error="Constructor signature mismatch.",
+                        guidance="Pass a valid distutils Distribution instance via 'dist'.",
+                    )
+
             return self._result(
-                "success",
-                f"Class '{module_name}.{class_name}' instantiated successfully.",
-                obj,
+                status="success",
+                message="UploadCommand instance created successfully.",
+                data={
+                    "class": "UploadCommand",
+                    "instance_type": str(type(instance)),
+                    "has_run_method": hasattr(instance, "run"),
+                },
             )
-        except Exception as e:
+        except Exception as exc:
             return self._result(
-                "error",
-                f"Instantiation failed for '{module_name}.{class_name}': {e}",
-                {"traceback": traceback.format_exc()},
+                status="error",
+                message="Failed to create UploadCommand instance.",
+                error=f"{exc}",
+                guidance="Provide a valid dist object and ensure setup.py dependencies are satisfied.",
+                data={"traceback": traceback.format_exc()},
             )
 
-    # -------------------------------------------------------------------------
-    # BioSPPy core wrappers
-    # -------------------------------------------------------------------------
-    def call_biosppy(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def create_mock(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Call a function from biosppy root module.
+        Create an instance of docs.conf.Mock.
 
         Parameters:
-            function_name (str): Name of target function in `biosppy`.
-            *args: Positional args passed to the function.
-            **kwargs: Keyword args passed to the function.
+            *args: Positional arguments forwarded to Mock constructor.
+            **kwargs: Keyword arguments forwarded to Mock constructor.
 
         Returns:
-            dict: Unified execution result.
+            dict: Unified status response with instance metadata.
         """
-        return self._call_function("biosppy", function_name, *args, **kwargs)
+        cls = self._classes.get("Mock")
+        if cls is None:
+            return self._result(
+                status="fallback",
+                message="Mock class is unavailable.",
+                error=self._import_errors.get("docs.conf.Mock"),
+                guidance="Ensure docs/conf.py is importable and optional doc dependencies are mocked correctly.",
+            )
+
+        try:
+            instance = cls(*args, **kwargs)
+            return self._result(
+                status="success",
+                message="Mock instance created successfully.",
+                data={
+                    "class": "Mock",
+                    "instance_type": str(type(instance)),
+                },
+            )
+        except Exception as exc:
+            return self._result(
+                status="error",
+                message="Failed to create Mock instance.",
+                error=f"{exc}",
+                guidance="Review constructor arguments and docs configuration import assumptions.",
+                data={"traceback": traceback.format_exc()},
+            )
 
     # -------------------------------------------------------------------------
-    # Signals wrappers
+    # Class Call Methods / Functional Wrappers
     # -------------------------------------------------------------------------
-    def call_ecg(self, function_name: str = "ecg", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.ecg", function_name, *args, **kwargs)
-
-    def call_eda(self, function_name: str = "eda", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.eda", function_name, *args, **kwargs)
-
-    def call_emg(self, function_name: str = "emg", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.emg", function_name, *args, **kwargs)
-
-    def call_eeg(self, function_name: str = "eeg", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.eeg", function_name, *args, **kwargs)
-
-    def call_resp(self, function_name: str = "resp", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.resp", function_name, *args, **kwargs)
-
-    def call_abp(self, function_name: str = "abp", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.abp", function_name, *args, **kwargs)
-
-    def call_acc(self, function_name: str = "acc", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.acc", function_name, *args, **kwargs)
-
-    def call_bvp(self, function_name: str = "bvp", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.bvp", function_name, *args, **kwargs)
-
-    def call_egm(self, function_name: str = "egm", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.egm", function_name, *args, **kwargs)
-
-    def call_hrv(self, function_name: str = "hrv", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.hrv", function_name, *args, **kwargs)
-
-    def call_pcg(self, function_name: str = "pcg", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.pcg", function_name, *args, **kwargs)
-
-    def call_ppg(self, function_name: str = "ppg", *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.ppg", function_name, *args, **kwargs)
-
-    def call_tools(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.signals.tools", function_name, *args, **kwargs)
-
-    # -------------------------------------------------------------------------
-    # Feature extraction wrappers
-    # -------------------------------------------------------------------------
-    def call_feature_time(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.features.time", function_name, *args, **kwargs)
-
-    def call_feature_frequency(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.features.frequency", function_name, *args, **kwargs)
-
-    def call_feature_cepstral(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.features.cepstral", function_name, *args, **kwargs)
-
-    def call_feature_phase_space(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.features.phase_space", function_name, *args, **kwargs)
-
-    def call_feature_time_freq(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.features.time_freq", function_name, *args, **kwargs)
-
-    # -------------------------------------------------------------------------
-    # Utilities and analytics wrappers
-    # -------------------------------------------------------------------------
-    def call_biometrics(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.biometrics", function_name, *args, **kwargs)
-
-    def call_clustering(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.clustering", function_name, *args, **kwargs)
-
-    def call_metrics(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.metrics", function_name, *args, **kwargs)
-
-    def call_plotting(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.plotting", function_name, *args, **kwargs)
-
-    def call_quality(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.quality", function_name, *args, **kwargs)
-
-    def call_stats(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.stats", function_name, *args, **kwargs)
-
-    def call_storage(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.storage", function_name, *args, **kwargs)
-
-    def call_timing(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.timing", function_name, *args, **kwargs)
-
-    def call_utils(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.utils", function_name, *args, **kwargs)
-
-    # -------------------------------------------------------------------------
-    # Spatial / synthesizers / interactive plotting wrappers
-    # -------------------------------------------------------------------------
-    def call_spatial_eam(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.spatial.eam", function_name, *args, **kwargs)
-
-    def call_synth_ecg(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.synthesizers.ecg", function_name, *args, **kwargs)
-
-    def call_synth_emg(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.synthesizers.emg", function_name, *args, **kwargs)
-
-    def call_inter_plot_acc(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.inter_plotting.acc", function_name, *args, **kwargs)
-
-    def call_inter_plot_ecg(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self._call_function("biosppy.inter_plotting.ecg", function_name, *args, **kwargs)
-
-    # -------------------------------------------------------------------------
-    # Generic class instance creation (for any discovered class in modules)
-    # -------------------------------------------------------------------------
-    def create_instance(self, module_name: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call_upload_command_method(
+        self,
+        method_name: str,
+        method_args: Optional[list] = None,
+        method_kwargs: Optional[dict] = None,
+        dist: Optional[Any] = None,
+    ) -> Dict[str, Any]:
         """
-        Create an instance of a class from a loaded module.
+        Instantiate UploadCommand and invoke a method dynamically.
 
         Parameters:
-            module_name (str): Full module path, e.g., 'biosppy.storage'.
-            class_name (str): Class name in that module.
-            *args: Positional arguments for class constructor.
-            **kwargs: Keyword arguments for class constructor.
+            method_name (str): Name of the method to call on UploadCommand.
+            method_args (list, optional): Positional arguments for the method.
+            method_kwargs (dict, optional): Keyword arguments for the method.
+            dist (Any, optional): Distribution object required by constructor in most setups.
 
         Returns:
-            dict: Unified result with created object in `data` when successful.
+            dict: Unified status response with call result.
         """
-        return self._create_instance(module_name, class_name, *args, **kwargs)
+        method_args = method_args or []
+        method_kwargs = method_kwargs or {}
+
+        inst_resp = self.create_upload_command(dist=dist)
+        if inst_resp["status"] != "success":
+            return inst_resp
+
+        try:
+            cls = self._classes["UploadCommand"]
+            instance = cls(dist) if dist is not None else cls()
+            if not hasattr(instance, method_name):
+                return self._result(
+                    status="error",
+                    message=f"Method '{method_name}' not found on UploadCommand.",
+                    guidance="Check available methods in setup.UploadCommand before invoking.",
+                )
+            method = getattr(instance, method_name)
+            output = method(*method_args, **method_kwargs)
+            return self._result(
+                status="success",
+                message=f"UploadCommand.{method_name} executed successfully.",
+                data={"result": output},
+            )
+        except Exception as exc:
+            return self._result(
+                status="error",
+                message=f"Failed to execute UploadCommand.{method_name}.",
+                error=f"{exc}",
+                guidance="Validate method arguments and ensure environment supports setup command operations.",
+                data={"traceback": traceback.format_exc()},
+            )
+
+    def call_mock_method(
+        self,
+        method_name: str,
+        init_args: Optional[list] = None,
+        init_kwargs: Optional[dict] = None,
+        method_args: Optional[list] = None,
+        method_kwargs: Optional[dict] = None,
+    ) -> Dict[str, Any]:
+        """
+        Instantiate docs.conf.Mock and invoke a method dynamically.
+
+        Parameters:
+            method_name (str): Method to call on Mock instance.
+            init_args (list, optional): Constructor positional arguments.
+            init_kwargs (dict, optional): Constructor keyword arguments.
+            method_args (list, optional): Method positional arguments.
+            method_kwargs (dict, optional): Method keyword arguments.
+
+        Returns:
+            dict: Unified status response with invocation details and output.
+        """
+        init_args = init_args or []
+        init_kwargs = init_kwargs or {}
+        method_args = method_args or []
+        method_kwargs = method_kwargs or {}
+
+        cls = self._classes.get("Mock")
+        if cls is None:
+            return self._result(
+                status="fallback",
+                message="Mock class is unavailable.",
+                error=self._import_errors.get("docs.conf.Mock"),
+                guidance="Ensure docs.conf can be imported from local source tree.",
+            )
+
+        try:
+            instance = cls(*init_args, **init_kwargs)
+            if not hasattr(instance, method_name):
+                return self._result(
+                    status="error",
+                    message=f"Method '{method_name}' not found on Mock.",
+                    guidance="Inspect docs.conf.Mock attributes or call a valid method name.",
+                )
+            method = getattr(instance, method_name)
+            output = method(*method_args, **method_kwargs)
+            return self._result(
+                status="success",
+                message=f"Mock.{method_name} executed successfully.",
+                data={"result": output},
+            )
+        except Exception as exc:
+            return self._result(
+                status="error",
+                message=f"Failed to execute Mock.{method_name}.",
+                error=f"{exc}",
+                guidance="Verify method arguments and constructor inputs.",
+                data={"traceback": traceback.format_exc()},
+            )
+
+    # -------------------------------------------------------------------------
+    # Generic Fallback/Utility
+    # -------------------------------------------------------------------------
+    def fallback_blackbox(self, target: str, payload: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """
+        Provide graceful fallback response when direct import path is unavailable.
+
+        Parameters:
+            target (str): Logical operation target.
+            payload (dict, optional): Request payload for traceability.
+
+        Returns:
+            dict: Fallback response with actionable guidance.
+        """
+        return self._result(
+            status="fallback",
+            message=f"Import-mode execution unavailable for target '{target}'.",
+            data={"target": target, "payload": payload or {}},
+            guidance=(
+                "Use blackbox mode for non-importable modules, or install required dependencies "
+                "from requirements.txt and re-run in import mode."
+            ),
+        )
