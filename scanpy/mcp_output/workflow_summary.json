@@ -11,12 +11,12 @@
     "language": "Python",
     "last_updated": "",
     "complexity": "medium",
-    "intrusiveness_risk": "low"
+    "intrusiveness_risk": "medium"
   },
   "execution": {
-    "start_time": 1773294818.893743,
-    "end_time": 1773295117.356999,
-    "duration": 298.4632558822632,
+    "start_time": 1773464065.938981,
+    "end_time": 1773464457.494603,
+    "duration": 391.5556230545044,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 2,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,7 +53,10 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.scanpy.source",
+        "mcp_output.mcp_plugin"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
@@ -68,8 +71,8 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.9,
-      "intrusiveness_risk": "low",
+      "import_feasibility": 0.88,
+      "intrusiveness_risk": "medium",
       "complexity": "medium"
     },
     "deepwiki_analysis": {
@@ -125,49 +128,40 @@
     {
       "node": "DownloadNode",
       "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/scanpy/temp_clone'...\nerror: RPC failed; curl 16 Error in the HTTP2 framing layer\nfatal: expected flush after ref listing\n",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/scanpy/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 1249 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n",
       "action_taken": "continue_with_empty"
     }
   ],
   "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/scanpy/temp_clone'...\nerror: RPC failed; curl 16 Error in the HTTP2 framing layer\nfatal: expected flush after ref listing\n"
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/scanpy/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 1249 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
   ],
   "recommendations": [
-    "Deduplicate endpoint names in the MCP adapter (e.g.",
-    "`neighbors` and `umap` appear twice)",
-    "Add schema-first input validation for all tool arguments (AnnData paths",
-    "layer names",
-    "keys",
-    "numeric ranges) with clear error messages",
-    "Introduce lightweight smoke tests for every exposed endpoint in `tests_mcp` (import + minimal call + expected output shape/type)",
-    "Add integration tests for optional dependency paths (`leidenalg`",
-    "`igraph`",
-    "`umap-learn`",
-    "`harmonypy`",
-    "etc.) with graceful-skip behavior",
-    "Pin and verify project dependencies in MCP packaging (prefer syncing from Scanpy `pyproject.toml` instead of minimal MCP-only requirements)",
-    "Expose endpoint metadata (stability level",
-    "required/optional deps",
-    "mutates `adata` or returns copy) in README and runtime introspection",
-    "Add timeout and memory guardrails for heavy operations (`neighbors`",
-    "`umap`",
-    "`rank_genes_groups`) to prevent runaway MCP jobs",
-    "Improve adapter resilience by adding structured exception mapping from Scanpy errors to MCP-friendly error codes",
-    "Validate import-mode startup on clean environments in CI (matrix across Python and key optional dependency sets)",
-    "Add benchmark-backed regression checks for core endpoints using existing `benchmarks/` assets",
-    "Normalize naming consistency between Scanpy API and MCP tools (document aliases",
-    "avoid ambiguity between plotting vs tool `umap`)",
-    "Add deterministic-mode options (seed propagation) across stochastic endpoints and test for reproducibility",
-    "Expand README_MCP with end-to-end workflows (read → preprocess → pca → neighbors → umap → leiden → rank_genes_groups)",
-    "Add file/IO safety checks (path existence",
-    "extension validation",
-    "overwrite policy) for `read`/`write`",
-    "Add observability hooks (structured logs",
-    "per-endpoint latency",
-    "failure counts) for MCP service operations",
-    "Ensure backward-compatible handling for deprecated Scanpy functions with explicit warnings surfaced through MCP",
-    "Add contract tests for return serialization (NumPy/pandas/AnnData-derived objects) to guarantee MCP transport compatibility",
-    "Create a minimal “healthcheck + version + dependency diagnostics” endpoint for faster deployment troubleshooting"
+    "deduplicate MCP endpoints and normalize names (e.g.",
+    "repeated umap/tsne/pca/dotplot/matrixplot/rank_genes_groups)",
+    "add strict input/output schemas with Pydantic models for AnnData paths/options and structured error codes",
+    "implement filesystem sandboxing plus allowlisted extensions for read/write/read_visium to reduce path traversal and unsafe file access risk",
+    "split heavy/optional tools (leiden/louvain/umap/external methods) behind capability checks with clear “missing dependency” remediation messages",
+    "add a minimal automated test suite for generated MCP endpoints (smoke + parameter validation + failure cases) since test status is empty",
+    "introduce lazy imports for plotting/external modules to reduce startup latency and avoid hard failures when optional deps are absent",
+    "provide async/job-style wrappers for long-running computations (neighbors/umap/rank_genes_groups/paga) with progress and cancellation support",
+    "enforce non-interactive plotting defaults (Agg backend",
+    "save-to-file return metadata) to make plotting endpoints MCP-safe",
+    "add endpoint-level timeouts and memory guards for large datasets to prevent server exhaustion",
+    "expose a curated “safe core” endpoint profile by default and move advanced/high-risk APIs to an opt-in profile",
+    "improve packaging metadata detection in the adapter pipeline (pyproject exists but was reported false) to increase analysis reliability",
+    "add version pin compatibility matrix checks for scanpy/anndata/numpy/scipy in startup diagnostics",
+    "include reproducibility controls (global random seed endpoint + per-call seed passthrough)",
+    "return richer artifacts (file paths",
+    "shapes",
+    "obs/var summaries",
+    "generated keys in adata.uns/obsm) instead of raw Python objects",
+    "add benchmark-driven regression checks using existing benchmarks/asv config for core MCP workflows",
+    "strengthen logging/telemetry with request IDs and per-endpoint timing to aid debugging and performance tuning",
+    "add security hardening for deserialization and untrusted inputs (size limits",
+    "MIME/type checks",
+    "optional quarantine dir)",
+    "improve README_MCP with task-oriented examples (load→pp→tl→pl pipeline) and explicit dependency tiers",
+    "add CI workflow for mcp_output generation validation to prevent drift between upstream Scanpy API and exposed MCP endpoints"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -198,34 +192,35 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Resilience mechanism worked: clone failure was bypassed via zip fallback/imported archive, enabling downstream analysis and generation.",
-      "Import-mode adapter strategy was appropriate for a Python library like Scanpy (high import feasibility: 0.9).",
-      "MCP plugin boot/health validation passed (service_health=healthy, stdio transport)."
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize)",
+      "Resilient fallback path worked: git clone failed but zip-based import succeeded (333 files analyzed)",
+      "Import-mode adapter generation completed with runnable MCP scaffold and healthy stdio service",
+      "Core Scanpy API surface was detected and mapped into endpoints (I/O, preprocessing, tools, plotting, datasets)"
     ],
     "failure_reasons": [
-      "Primary git clone failed due to network/protocol issue (HTTP2 framing error, expected flush after ref listing).",
-      "Repository metadata extraction appears inconsistent (e.g., dependencies/pyproject not detected in summary despite pyproject.toml present in analyzed tree), indicating parser reliability gaps.",
-      "Quality signals are incomplete: zero recorded LLM/deepwiki calls, zero processed files in execution summary, and empty code review object reduce confidence in diagnostics fidelity."
+      "Primary repository acquisition failed due to network/transport error during git fetch (curl 18 partial transfer, early EOF)",
+      "Metadata extraction reliability issue: dependency scanner reported pyproject=false despite pyproject.toml present",
+      "Validation depth was weak: original project tests not executed (passed=false with empty details) and MCP tests effectively minimal",
+      "Observability gap: performance metrics and per-node timings were not captured (all zeros/unknown)"
     ],
     "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Download step was degraded by clone failure; fallback path succeeded. This likely dominated latency and introduced instability risk.",
-      "analysis_time": "Analysis completed with meaningful module mapping, but metadata extraction inconsistencies suggest partial/fragile analysis pipeline behavior.",
-      "generation_time": "Generation succeeded quickly enough within total runtime, producing expected MCP scaffold and endpoint inventory.",
-      "test_time": "MCP runtime health test passed; original project tests were not actually validated despite a nominal 100% coverage field (likely placeholder)."
+      "download_time": "Download node experienced a hard clone failure but recovered via fallback; indicates robustness but unstable network/git transport. Exact node duration not provided.",
+      "analysis_time": "Static analysis completed on 333-file tree and identified core modules/dependencies; quality acceptable though packaging detection inconsistency reduces trust.",
+      "generation_time": "Generation succeeded, producing 7 files and import-based adapter. Endpoint list is broad but includes duplication and likely overexposure.",
+      "test_time": "Service run/health check passed, but substantive endpoint/functional regression tests were not executed; confidence in correctness is moderate."
     },
     "resource_usage": {
-      "memory_efficiency": "Undetermined from telemetry (reported 0 MB). Instrumentation appears missing rather than true zero usage.",
-      "cpu_efficiency": "Undetermined from telemetry (reported 0%). Add real CPU sampling during node execution.",
-      "disk_usage": "Low-to-moderate; generated plugin artifacts are small, but repository footprint is significant (~332 files)."
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB). Cannot confirm efficiency; add runtime measurement.",
+      "cpu_efficiency": "Unknown from telemetry (reported 0%). CPU profile absent.",
+      "disk_usage": "Low for generated artifact set (7 files), but actual source processing footprint higher due to full repo fallback import."
     }
   },
   "technical_quality": {
-    "code_quality_score": 72,
+    "code_quality_score": 74,
     "architecture_score": 78,
-    "performance_score": 60,
-    "maintainability_score": 70,
+    "performance_score": 62,
+    "maintainability_score": 71,
     "security_score": 85,
     "scalability_score": 68
   }

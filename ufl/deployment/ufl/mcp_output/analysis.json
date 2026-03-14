@@ -659,7 +659,10 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.ufl.source",
+      "mcp_output.mcp_plugin"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
@@ -676,132 +679,111 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "ufl",
-        "module": "__init__",
+        "package": "deployment.ufl.source",
+        "module": "deployment.ufl.source.ufl",
         "functions": [
           "as_ufl",
-          "replace",
-          "lhs",
-          "rhs",
-          "system",
-          "functional",
-          "action",
-          "adjoint",
-          "derivative",
-          "diff",
           "grad",
           "div",
           "curl",
-          "rot",
           "inner",
           "dot",
-          "outer",
-          "cross",
-          "det",
-          "inv",
-          "tr",
-          "sym",
-          "skew",
-          "dev",
-          "diag",
-          "diag_vector",
-          "jump",
-          "avg",
-          "cell_avg",
-          "facet_avg",
-          "variable",
-          "conditional",
-          "min_value",
-          "max_value",
-          "And",
-          "Or",
-          "Not",
-          "sin",
-          "cos",
-          "tan",
-          "exp",
-          "ln",
-          "sqrt"
+          "dx",
+          "ds",
+          "dS",
+          "lhs",
+          "rhs",
+          "derivative",
+          "replace",
+          "split",
+          "TestFunction",
+          "TrialFunction",
+          "TestFunctions",
+          "TrialFunctions"
         ],
         "classes": [
-          "Expr",
           "Form",
           "Integral",
           "FiniteElement",
-          "AbstractFiniteElement",
+          "MixedElement",
           "FunctionSpace",
-          "MixedFunctionSpace",
           "Argument",
-          "TestFunction",
-          "TrialFunction",
           "Coefficient",
           "Constant",
-          "Cell",
           "Mesh",
-          "Measure"
+          "Cell"
         ],
-        "description": "Top-level symbolic DSL API surface for building, transforming, and analyzing finite-element variational forms."
+        "description": "Top-level symbolic DSL API for defining variational forms, elements, spaces, operators, and measures. This is the primary stable integration surface."
       },
       {
-        "package": "ufl.algorithms",
-        "module": "apply_derivatives",
+        "package": "deployment.ufl.source",
+        "module": "deployment.ufl.source.ufl.algorithms",
         "functions": [
+          "compute_form_data",
           "apply_derivatives",
-          "apply_coordinate_derivatives"
-        ],
-        "classes": [
-          "DerivativeRuleDispatcher",
-          "GenericDerivativeRuleset",
-          "GradRuleset",
-          "ReferenceGradRuleset"
-        ],
-        "description": "Core symbolic differentiation engine over UFL expression DAGs; central for AD and Jacobian generation workflows."
-      },
-      {
-        "package": "ufl.algorithms",
-        "module": "compute_form_data",
-        "functions": [
-          "compute_form_data"
-        ],
-        "classes": [
-          "FormData"
-        ],
-        "description": "Computes normalized/compiled metadata and transformed integrands for forms, widely used by downstream compilers/backends."
-      },
-      {
-        "package": "ufl.algorithms",
-        "module": "analysis",
-        "functions": [
+          "apply_algebra_lowering",
+          "apply_geometry_lowering",
+          "apply_restrictions",
+          "expand_indices",
+          "estimate_total_polynomial_degree",
           "extract_arguments",
           "extract_coefficients",
-          "extract_constants",
-          "extract_type",
-          "has_type"
+          "replace",
+          "signature"
         ],
-        "classes": [],
-        "description": "Static analysis helpers for expression and form DAG inspection."
-      },
-      {
-        "package": "ufl.core",
-        "module": "expr",
-        "functions": [],
         "classes": [
-          "Expr"
+          "FormData",
+          "Transformer",
+          "MultiFunction"
         ],
-        "description": "Base symbolic expression node abstraction and common behavior."
+        "description": "Transformation, analysis, and normalization pipeline for UFL expression DAGs and forms. Best target for read-only analysis tools in MCP."
       },
       {
-        "package": "ufl.form",
-        "module": "form",
-        "functions": [],
+        "package": "deployment.ufl.source",
+        "module": "deployment.ufl.source.ufl.core",
+        "functions": [
+          "compute_expr_hash"
+        ],
+        "classes": [
+          "Expr",
+          "Operator",
+          "Terminal",
+          "ExternalOperator",
+          "MultiIndex"
+        ],
+        "description": "Low-level expression graph model and node typing. Useful for structural inspection but less stable than top-level API."
+      },
+      {
+        "package": "deployment.ufl.source",
+        "module": "deployment.ufl.source.ufl.form",
+        "functions": [
+          "as_form",
+          "zero",
+          "extract_domains"
+        ],
         "classes": [
           "Form",
           "BaseForm"
         ],
-        "description": "Form object model, integral grouping, hashing/signature interfaces, and algebraic composition semantics."
+        "description": "Form container and manipulation logic; central for any plugin that consumes or rewrites variational forms."
+      },
+      {
+        "package": "deployment.ufl.source",
+        "module": "deployment.ufl.source.ufl.formatting.ufl2unicode",
+        "functions": [
+          "ufl2unicode"
+        ],
+        "classes": [],
+        "description": "Human-readable rendering utilities for expressions/forms; good for MCP explain/preview responses."
       }
     ],
-    "cli_commands": [],
+    "cli_commands": [
+      {
+        "name": "None detected",
+        "module": "",
+        "description": "No explicit CLI entry points found in scanned paths (no console_scripts and no obvious __main__ CLI module)."
+      }
+    ],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
@@ -814,11 +796,12 @@
       ],
       "optional": [
         "pytest (test only)",
-        "sympy (ecosystem-side, not core runtime for ufl package)"
+        "sphinx (docs only)",
+        "fenicsx/dolfinx ecosystem components (integration context, not hard runtime dependency for core UFL import)"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.95,
+      "import_feasibility": 0.96,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -836,7 +819,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.95,
+    "import_feasibility": 0.96,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

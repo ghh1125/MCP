@@ -11,12 +11,12 @@
     "language": "Python",
     "last_updated": "",
     "complexity": "complex",
-    "intrusiveness_risk": "low"
+    "intrusiveness_risk": "medium"
   },
   "execution": {
-    "start_time": 1773270565.785645,
-    "end_time": 1773270860.094516,
-    "duration": 294.3088710308075,
+    "start_time": 1773461253.309027,
+    "end_time": 1773462216.903234,
+    "duration": 963.5942070484161,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 26,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,12 +53,39 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.mne-python.source",
+        "mcp_output.mcp_plugin",
+        "source.mne",
+        "source.mne._fiff",
+        "source.mne.beamformer",
+        "source.mne.channels",
+        "source.mne.commands",
+        "source.mne.data",
+        "source.mne.datasets",
+        "source.mne.decoding",
+        "source.mne.export",
+        "source.mne.forward",
+        "source.mne.gui",
+        "source.mne.html_templates",
+        "source.mne.inverse_sparse",
+        "source.mne.io",
+        "source.mne.minimum_norm",
+        "source.mne.preprocessing",
+        "source.mne.report",
+        "source.mne.simulation",
+        "source.mne.source_space",
+        "source.mne.stats",
+        "source.mne.tests",
+        "source.mne.time_frequency",
+        "source.mne.utils",
+        "source.mne.viz"
+      ]
     },
     "dependencies": {
-      "has_environment_yml": false,
+      "has_environment_yml": true,
       "has_requirements_txt": false,
-      "pyproject": false,
+      "pyproject": true,
       "setup_cfg": false,
       "setup_py": false
     },
@@ -68,8 +95,8 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.93,
-      "intrusiveness_risk": "low",
+      "import_feasibility": 0.72,
+      "intrusiveness_risk": "medium",
       "complexity": "complex"
     },
     "deepwiki_analysis": {
@@ -121,55 +148,46 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/mne-python/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75002 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/mne-python/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75002 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "stabilize dependency detection by reading `pyproject.toml` from the extracted tree (it exists but was flagged missing)",
-    "add a preflight validation step that checks test-status payloads are non-empty and fails fast with actionable diagnostics",
-    "trim MCP endpoint surface by exposing only high-value stable APIs first (e.g.",
-    "`read_raw_*`",
-    "`Epochs`",
-    "`read_evokeds`",
-    "core inverse/beamformer calls) and gate plotting/UI-heavy methods behind optional feature flags",
-    "add contract tests for each advertised endpoint (import",
-    "call",
-    "type/shape assertions",
-    "expected exceptions) plus a small golden-dataset smoke suite",
-    "introduce CI matrix for minimal vs full optional dependencies (headless + viz extras) to catch import/runtime drift early",
-    "enforce structured error mapping in the adapter (MNE errors → consistent MCP error codes/messages) with correlation IDs for debugging",
-    "improve performance by lazy-importing heavy modules (`viz`",
-    "`pyvista`",
-    "Qt backends) and measuring cold-start latency in CI with thresholds",
-    "add timeout/retry/circuit-breaker controls around long-running operations (`Raw.filter`",
-    "inverse/beamformer computations) and document defaults",
-    "implement resource guards for memory/CPU on large FIF processing (chunking/streaming guidance",
-    "max duration/sample caps)",
-    "harden input validation with pydantic schemas per endpoint (file path existence",
-    "channel picks",
-    "frequency bounds",
-    "event IDs)",
-    "add security checks for untrusted file handling (path traversal protection",
-    "allowed extensions",
-    "sandboxed temp dirs)",
-    "create a compatibility policy/version pinning strategy for MNE + optional ecosystem packages with automated weekly update PRs",
-    "add observability (basic metrics: request count",
-    "latency",
-    "failure rate by endpoint) and a troubleshooting section in `README_MCP.md`",
-    "reduce repo-analysis noise by excluding massive nonessential metadata folders (e.g.",
-    "`doc/sphinxext/prs`) from plugin-generation context",
-    "add end-to-end CLI tests for `start_mcp.py` startup/shutdown and health checks",
-    "include example client snippets and minimal reproducible workflows in README for Raw→Epochs→Evoked pipeline",
-    "add regression tests specifically for adapter mode `import` fallback behavior and clear downgrade path to CLI mode",
-    "define an endpoint deprecation/versioning scheme to prevent breaking downstream MCP clients"
+    "Harden repository ingestion with retry/resume and fallback to shallow git clone when zip download fails",
+    "Add a preflight dependency checker that validates required/optional MNE extras and reports actionable install commands",
+    "Implement lazy imports and per-endpoint module loading to reduce startup cost and import-side failures",
+    "Add a CLI fallback execution path for heavy/fragile endpoints (especially viz and large IO) when import mode errors",
+    "Introduce endpoint-level health checks/smoke tests using small synthetic MNE objects (RawArray/Epochs) to validate MCP bindings",
+    "Expand automated tests in `tests_mcp` for argument validation",
+    "error mapping",
+    "and serialization of core classes",
+    "Add structured error taxonomy (DependencyMissing",
+    "FileFormatUnsupported",
+    "RuntimeImportError",
+    "HeadlessVizError) with user-friendly remediation hints",
+    "Gate visualization endpoints behind headless-safe checks (matplotlib backend/PyVista availability) and return clear non-GUI alternatives",
+    "Improve README_MCP with concrete examples for common workflows (load raw",
+    "find events",
+    "ICA",
+    "PSD) and expected input/output schemas",
+    "Add version pinning/compatibility matrix for `mne`",
+    "`numpy`",
+    "`scipy`",
+    "and `pydantic` to prevent runtime drift",
+    "Generate JSON Schemas for each endpoint and enforce strict Pydantic models for stable MCP contracts",
+    "Add timeout/cancellation controls and memory guards for long-running transforms (TFR/ICA/CSD)",
+    "Implement lightweight caching for repeated file reads and computed intermediates (with invalidation by file hash)",
+    "Add observability: structured logs",
+    "per-endpoint latency/error metrics",
+    "and import-failure counters",
+    "Create a minimal “safe default” endpoint set (non-viz",
+    "low-memory) and mark advanced endpoints as optional capability flags",
+    "Add integration tests for representative file formats (FIF/EDF/BDF/BrainVision) with tiny fixtures",
+    "Validate and normalize path handling across OSes (spaces",
+    "unicode",
+    "relative paths) before IO calls",
+    "Add graceful degradation when optional packages are missing (e.g.",
+    "skip vtk/pyvista features instead of failing server start)",
+    "Include a reproducible dev environment (`environment.yml`/lockfile) for MCP plugin CI",
+    "Add CI workflow to run lint/type-check/tests for `mcp_output` and publish test report artifacts"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -200,35 +218,35 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow completed all planned nodes and reached finalize with overall status=success.",
-      "Zip fallback recovered repository content after git clone network failure (analysis reports ~8,380 files).",
-      "Import-mode adapter generation succeeded and produced runnable MCP scaffold files.",
-      "MCP plugin health check passed (healthy over stdio), indicating baseline service boot viability."
+      "Workflow reached terminal success state with all planned nodes executed (download, analysis, env, generate, run, review, finalize)",
+      "MCP plugin runtime test passed with healthy service status over stdio transport",
+      "Import-based adapter strategy aligned with detected MNE API surface and produced broad endpoint coverage",
+      "No runtime errors or warnings were recorded during orchestration"
     ],
     "failure_reasons": [
-      "Primary clone failed due to network timeout to github.com:443 (curl 28), causing degraded acquisition path.",
-      "Telemetry/metrics integrity issues: total_files_processed=0 and zeroed performance metrics despite large analyzed tree.",
-      "Dependency/entry-point detection produced false negatives (pyproject/environment.yml exist but flagged missing).",
-      "Validation quality gap: original project test status marked failed with empty payload/details."
+      "Repository preprocessing partially failed due to zip download IncompleteRead, reducing analysis fidelity",
+      "DeepWiki analysis failed, so architecture/context enrichment depended on fallback LLM direct analysis",
+      "Original project test status is failed/unknown despite reported 100% coverage metadata, indicating unreliable baseline validation",
+      "Generated artifact metrics are inconsistent (tool_endpoints=0 vs populated endpoint list; total_lines_of_code=0), suggesting reporting/telemetry defects"
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "~75s+ likely spent on failed clone retry/timeout before fallback; dominant delay source.",
-      "analysis_time": "Completed with large corpus via fallback; likely substantial but not directly instrumented per-node.",
-      "generation_time": "Fast scaffold generation succeeded, but generated LOC/size/tool_count were recorded as 0 (instrumentation defect).",
-      "test_time": "MCP health check succeeded quickly; original-project tests not meaningfully executed/validated."
+      "download_time": "Download node completed but experienced non-fatal zip transfer instability (IncompleteRead). This is the primary execution fragility.",
+      "analysis_time": "Analysis completed via fallback path; quality adequate for generation but lower confidence than full repository preprocessing + DeepWiki.",
+      "generation_time": "Generation completed successfully with required files and entrypoint created; endpoint exposure is broad and useful.",
+      "test_time": "Service-level test passed quickly (startup_time reported 0), but original-project validation is not trustworthy; test depth appears shallow."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown due to missing metrics; likely moderate pressure when indexing very large docs/metadata tree.",
-      "cpu_efficiency": "Unknown/zero-reported; analysis likely CPU-bound but telemetry is not trustworthy.",
-      "disk_usage": "Potentially high due to extracted zip + generated outputs; no quantitative tracking available."
+      "memory_efficiency": "Undetermined from metrics (reported 0 MB). Likely acceptable for scaffold generation, but runtime memory for heavy MNE ops remains unmeasured.",
+      "cpu_efficiency": "Undetermined from metrics (reported 0%). End-to-end duration (~964s) indicates non-trivial processing overhead and potential I/O/network wait.",
+      "disk_usage": "Generated output footprint appears underreported (0 size), indicating instrumentation gaps rather than true zero disk impact."
     }
   },
   "technical_quality": {
-    "code_quality_score": 72,
+    "code_quality_score": 74,
     "architecture_score": 78,
-    "performance_score": 58,
-    "maintainability_score": 74,
+    "performance_score": 62,
+    "maintainability_score": 76,
     "security_score": 85,
     "scalability_score": 68
   }

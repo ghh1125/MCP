@@ -551,14 +551,21 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.pydy.source",
+      "mcp_output.mcp_plugin",
+      "source.pydy",
+      "source.pydy.codegen",
+      "source.pydy.tests",
+      "source.pydy.viz"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
     "pyproject": false,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -569,54 +576,67 @@
     "core_modules": [
       {
         "package": "pydy",
-        "module": "__init__",
-        "functions": [],
-        "classes": [],
-        "description": "Top-level package initializer; exposes package version metadata via submodules."
-      },
-      {
-        "package": "pydy",
         "module": "system",
         "functions": [],
         "classes": [
           "System"
         ],
-        "description": "Primary simulation interface for symbolic multibody systems; manages constants/specifieds/initial conditions and numerical integration workflow."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
         "package": "pydy",
         "module": "models",
         "functions": [
           "multi_mass_spring_damper",
-          "n_link_pendulum_on_cart",
-          "spherical_pendulum"
+          "n_link_pendulum_on_cart"
         ],
         "classes": [],
-        "description": "Factory helpers that generate ready-to-use symbolic mechanics models and equations of motion."
+        "function_signatures": {
+          "multi_mass_spring_damper": [
+            "n",
+            "apply_gravity",
+            "apply_external_forces"
+          ],
+          "n_link_pendulum_on_cart": [
+            "n",
+            "cart_force",
+            "joint_torques"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
         "package": "pydy",
         "module": "utils",
         "functions": [
-          "state_derivatives",
-          "sort_sympy"
-        ],
-        "classes": [],
-        "description": "Utility helpers for symbolic state handling and deterministic symbol ordering."
-      },
-      {
-        "package": "pydy.codegen",
-        "module": "ode_function_generators",
-        "functions": [
-          "generate_ode_function"
+          "sympy_equal_to_or_newer_than",
+          "sympy_newer_than",
+          "wrap_and_indent"
         ],
         "classes": [
-          "ODEFunctionGenerator",
-          "LambdifyODEFunctionGenerator",
-          "CythonODEFunctionGenerator",
-          "TheanoODEFunctionGenerator"
+          "PyDyDeprecationWarning",
+          "PyDyFutureWarning",
+          "PyDyImportWarning",
+          "PyDyUserWarning"
         ],
-        "description": "Core code-generation backend for fast RHS/ODE callable creation from symbolic equations."
+        "function_signatures": {
+          "sympy_equal_to_or_newer_than": [
+            "version",
+            "installed_version"
+          ],
+          "sympy_newer_than": [
+            "version"
+          ],
+          "wrap_and_indent": [
+            "lines",
+            "indentation",
+            "width",
+            "continuation",
+            "comment"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
         "package": "pydy.codegen",
@@ -625,25 +645,8 @@
         "classes": [
           "CMatrixGenerator"
         ],
-        "description": "C source generation for symbolic matrix expressions."
-      },
-      {
-        "package": "pydy.codegen",
-        "module": "cython_code",
-        "functions": [],
-        "classes": [
-          "CythonMatrixGenerator"
-        ],
-        "description": "Cython wrapper generation around compiled symbolic matrix code."
-      },
-      {
-        "package": "pydy.codegen",
-        "module": "matrix_generator",
-        "functions": [],
-        "classes": [
-          "MatrixGenerator"
-        ],
-        "description": "Base machinery for converting symbolic matrix expressions into target-language code."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
         "package": "pydy.codegen",
@@ -652,16 +655,80 @@
         "classes": [
           "OctaveMatrixGenerator"
         ],
-        "description": "Octave/MATLAB-style code generation for symbolic matrices."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pydy.codegen",
+        "module": "ode_function_generators",
+        "functions": [
+          "generate_ode_function"
+        ],
+        "classes": [
+          "CythonODEFunctionGenerator",
+          "LambdifyODEFunctionGenerator",
+          "ODEFunctionGenerator",
+          "SymjitODEFunctionGenerator",
+          "TheanoODEFunctionGenerator"
+        ],
+        "function_signatures": {
+          "generate_ode_function": []
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pydy.codegen",
+        "module": "cython_code",
+        "functions": [],
+        "classes": [
+          "CythonMatrixGenerator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pydy.codegen",
+        "module": "matrix_generator",
+        "functions": [],
+        "classes": [
+          "MatrixGenerator"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
         "package": "pydy.viz",
-        "module": "scene",
+        "module": "server",
         "functions": [],
         "classes": [
-          "Scene"
+          "Server",
+          "StoppableHTTPServer"
         ],
-        "description": "High-level visualization scene assembly and export/server integration."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pydy.viz",
+        "module": "shapes",
+        "functions": [],
+        "classes": [
+          "Box",
+          "Circle",
+          "Cone",
+          "Cube",
+          "Cylinder",
+          "Icosahedron",
+          "Octahedron",
+          "Plane",
+          "Shape",
+          "Sphere",
+          "Tetrahedron",
+          "Torus",
+          "TorusKnot",
+          "Tube"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
         "package": "pydy.viz",
@@ -670,38 +737,8 @@
         "classes": [
           "VisualizationFrame"
         ],
-        "description": "Binding between symbolic reference frames/points and renderable geometry."
-      },
-      {
-        "package": "pydy.viz",
-        "module": "shapes",
-        "functions": [],
-        "classes": [
-          "Shape",
-          "Box",
-          "Cube",
-          "Cylinder",
-          "Cone",
-          "Sphere",
-          "Circle",
-          "Plane",
-          "Tetrahedron",
-          "Octahedron",
-          "Icosahedron",
-          "Torus",
-          "Tube"
-        ],
-        "description": "Geometry primitives used by the visualization subsystem."
-      },
-      {
-        "package": "pydy.viz",
-        "module": "camera",
-        "functions": [],
-        "classes": [
-          "PerspectiveCamera",
-          "OrthoGraphicCamera"
-        ],
-        "description": "Camera models for scene rendering."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
         "package": "pydy.viz",
@@ -710,35 +747,670 @@
         "classes": [
           "PointLight"
         ],
-        "description": "Lighting primitive(s) for visualization scenes."
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
       },
       {
         "package": "pydy.viz",
-        "module": "server",
+        "module": "scene",
+        "functions": [],
+        "classes": [
+          "Scene"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "pydy.viz",
+        "module": "camera",
+        "functions": [],
+        "classes": [
+          "OrthoGraphicCamera",
+          "PerspectiveCamera"
+        ],
+        "function_signatures": {},
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "bin",
+        "module": "benchmark_pydy_code_gen",
         "functions": [
-          "run_server"
+          "run_benchmark"
         ],
         "classes": [],
-        "description": "Lightweight HTTP serving utilities for visualization output."
-      }
-    ],
-    "cli_commands": [
-      {
-        "name": "benchmark_pydy_code_gen.py",
-        "module": "bin/benchmark_pydy_code_gen.py",
-        "description": "Benchmark script for comparing PyDy code-generation performance paths."
+        "function_signatures": {
+          "run_benchmark": [
+            "max_num_links",
+            "num_time_steps",
+            "duration"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "name": "compare_linear_systems_solvers.py",
-        "module": "bin/compare_linear_systems_solvers.py",
-        "description": "Utility script comparing linear solver approaches used in generated dynamics workflows."
+        "package": "bin",
+        "module": "compare_linear_systems_solvers",
+        "functions": [
+          "numpy_umath_linalg_solve",
+          "scipy_linalg_lapack_dposv",
+          "scipy_linalg_solve"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "numpy_umath_linalg_solve": [
+            "A",
+            "b"
+          ],
+          "scipy_linalg_solve": [
+            "A",
+            "b"
+          ],
+          "scipy_linalg_lapack_dposv": [
+            "A",
+            "b"
+          ]
+        },
+        "description": "Discovered via AST scan"
       },
       {
-        "name": "time_rhs.py",
-        "module": "bin/time_rhs.py",
-        "description": "Timing utility for RHS function execution performance."
+        "package": "examples.parallel-execution",
+        "module": "joblib_demo",
+        "functions": [
+          "odeint_wrapper",
+          "rhs_wrapper"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "rhs_wrapper": [
+            "p"
+          ],
+          "odeint_wrapper": [
+            "p"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.parallel-execution",
+        "module": "multiprocessing_demo",
+        "functions": [
+          "odeint_wrapper",
+          "rhs_wrapper"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "rhs_wrapper": [
+            "p"
+          ],
+          "odeint_wrapper": [
+            "p"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter6.Ex11.7_11",
+        "module": "8",
+        "functions": [
+          "define_forces"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "define_forces": [
+            "c",
+            "exert_by",
+            "exert_on",
+            "express"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter6",
+        "module": "util",
+        "functions": [
+          "function_from_partials",
+          "generalized_active_forces",
+          "generalized_active_forces_K",
+          "generalized_active_forces_V",
+          "generalized_inertia_forces",
+          "generalized_inertia_forces_K",
+          "inertia_coefficient_contribution",
+          "inertia_coefficient_matrix",
+          "inertia_torque",
+          "kde_matrix",
+          "lagrange_equations",
+          "msprint",
+          "partial_velocities",
+          "potential_energy",
+          "subs",
+          "vc_matrix"
+        ],
+        "classes": [
+          "PartialVelocity"
+        ],
+        "function_signatures": {
+          "msprint": [
+            "expr"
+          ],
+          "subs": [
+            "x"
+          ],
+          "partial_velocities": [
+            "system",
+            "generalized_speeds",
+            "frame",
+            "kde_map",
+            "constraint_map",
+            "express_frame"
+          ],
+          "generalized_active_forces": [
+            "partials",
+            "forces",
+            "uaux"
+          ],
+          "inertia_torque": [
+            "rb",
+            "frame",
+            "kde_map",
+            "constraint_map",
+            "uaux"
+          ],
+          "generalized_inertia_forces": [
+            "partials",
+            "bodies",
+            "kde_map",
+            "constraint_map",
+            "uaux"
+          ],
+          "kde_matrix": [
+            "u",
+            "kde_map"
+          ],
+          "vc_matrix": [
+            "u",
+            "vc_map"
+          ],
+          "generalized_active_forces_V": [
+            "V",
+            "q",
+            "u",
+            "kde_map",
+            "vc_map"
+          ],
+          "function_from_partials": [
+            "df_dq",
+            "q",
+            "zero_constants"
+          ],
+          "potential_energy": [
+            "Fr",
+            "q",
+            "u",
+            "kde_map",
+            "vc_map"
+          ],
+          "inertia_coefficient_contribution": [
+            "body",
+            "partials",
+            "r",
+            "s"
+          ],
+          "inertia_coefficient_matrix": [
+            "system",
+            "partials"
+          ],
+          "generalized_inertia_forces_K": [
+            "K",
+            "q",
+            "u",
+            "kde_map",
+            "vc_map"
+          ],
+          "generalized_active_forces_K": [
+            "K",
+            "q",
+            "u",
+            "kde_map",
+            "vc_map"
+          ],
+          "lagrange_equations": [
+            "L",
+            "q",
+            "u",
+            "kde_map"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter5.Ex10",
+        "module": "15",
+        "functions": [
+          "print_fr_star"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "print_fr_star": [
+            "fr_star"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter5",
+        "module": "util",
+        "functions": [
+          "function_from_partials",
+          "generalized_active_forces",
+          "generalized_active_forces_V",
+          "generalized_inertia_forces",
+          "generalized_inertia_forces_K",
+          "inertia_coefficient_contribution",
+          "inertia_coefficient_matrix",
+          "kde_matrix",
+          "msprint",
+          "partial_velocities",
+          "potential_energy",
+          "subs",
+          "vc_matrix"
+        ],
+        "classes": [
+          "PartialVelocity"
+        ],
+        "function_signatures": {
+          "msprint": [
+            "expr"
+          ],
+          "subs": [
+            "x"
+          ],
+          "partial_velocities": [
+            "system",
+            "generalized_speeds",
+            "frame",
+            "kde_map",
+            "constraint_map",
+            "express_frame"
+          ],
+          "generalized_active_forces": [
+            "partials",
+            "forces",
+            "uaux"
+          ],
+          "generalized_inertia_forces": [
+            "partials",
+            "bodies",
+            "kde_map",
+            "constraint_map",
+            "uaux"
+          ],
+          "kde_matrix": [
+            "u",
+            "kde_map"
+          ],
+          "vc_matrix": [
+            "u",
+            "vc_map"
+          ],
+          "generalized_active_forces_V": [
+            "V",
+            "q",
+            "u",
+            "kde_map",
+            "vc_map"
+          ],
+          "function_from_partials": [
+            "df_dq",
+            "q",
+            "zero_constants"
+          ],
+          "potential_energy": [
+            "Fr",
+            "q",
+            "u",
+            "kde_map",
+            "vc_map"
+          ],
+          "inertia_coefficient_contribution": [
+            "body",
+            "partials",
+            "r",
+            "s"
+          ],
+          "inertia_coefficient_matrix": [
+            "system",
+            "partials"
+          ],
+          "generalized_inertia_forces_K": [
+            "K",
+            "q",
+            "u",
+            "kde_map",
+            "vc_map"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter5.Ex10",
+        "module": "13",
+        "functions": [
+          "coupled_speeds",
+          "find_coupled_speeds"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "coupled_speeds": [
+            "ic_matrix",
+            "partials"
+          ],
+          "find_coupled_speeds": [
+            "kde_map"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter2.Ex4",
+        "module": "18",
+        "functions": [
+          "msprint"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "msprint": [
+            "expr"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter2.Ex3",
+        "module": "15",
+        "functions": [
+          "msprint"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "msprint": [
+            "expr"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter2.Ex4",
+        "module": "1",
+        "functions": [
+          "msprint"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "msprint": [
+            "expr"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter3.Ex6",
+        "module": "13",
+        "functions": [
+          "angle_between_vectors",
+          "convert_eigenvectors_matrix_vector",
+          "inertia_matrix"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "inertia_matrix": [
+            "dyadic",
+            "rf"
+          ],
+          "convert_eigenvectors_matrix_vector": [
+            "eigenvectors",
+            "rf"
+          ],
+          "angle_between_vectors": [
+            "a",
+            "b"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter3.Ex5",
+        "module": "8",
+        "functions": [
+          "calc_inertia_vec"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "calc_inertia_vec": [
+            "rho",
+            "p",
+            "n_a",
+            "N",
+            "iv"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter3.Ex5",
+        "module": "1",
+        "functions": [
+          "eval_v",
+          "integrate_v",
+          "pos",
+          "ybl",
+          "ybu",
+          "zbl",
+          "zbu"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "eval_v": [
+            "v",
+            "N"
+          ],
+          "integrate_v": [
+            "integrand",
+            "rf",
+            "bounds"
+          ],
+          "pos": [
+            "z",
+            "y",
+            "x",
+            "coord"
+          ],
+          "ybu": [
+            "x"
+          ],
+          "ybl": [
+            "x"
+          ],
+          "zbu": [
+            "x",
+            "y"
+          ],
+          "zbl": [
+            "x",
+            "y"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter3.Ex5",
+        "module": "4",
+        "functions": [
+          "eval_vec"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "eval_vec": [
+            "v"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter3.Ex6",
+        "module": "10",
+        "functions": [
+          "angle_between_vectors",
+          "inertia_matrix"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "inertia_matrix": [
+            "dyadic",
+            "rf"
+          ],
+          "angle_between_vectors": [
+            "a",
+            "b"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter3.Ex6",
+        "module": "14",
+        "functions": [
+          "index_min",
+          "inertia_matrix",
+          "integrate_v"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "inertia_matrix": [
+            "dyadic",
+            "rf"
+          ],
+          "integrate_v": [
+            "integrand",
+            "rf",
+            "bounds"
+          ],
+          "index_min": [
+            "values"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter4.Ex8",
+        "module": "14",
+        "functions": [
+          "define_forces"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "define_forces": [
+            "c",
+            "exert_by",
+            "exert_on",
+            "express"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter4",
+        "module": "util",
+        "functions": [
+          "generalized_active_forces",
+          "generalized_inertia_forces",
+          "msprint",
+          "partial_velocities",
+          "subs"
+        ],
+        "classes": [
+          "PartialVelocity"
+        ],
+        "function_signatures": {
+          "msprint": [
+            "expr"
+          ],
+          "subs": [
+            "x"
+          ],
+          "partial_velocities": [
+            "system",
+            "generalized_speeds",
+            "frame",
+            "kde_map",
+            "constraint_map",
+            "express_frame"
+          ],
+          "generalized_active_forces": [
+            "partials",
+            "forces",
+            "uaux"
+          ],
+          "generalized_inertia_forces": [
+            "partials",
+            "bodies",
+            "kde_map",
+            "constraint_map",
+            "uaux"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter4.Ex7",
+        "module": "12",
+        "functions": [
+          "subdict"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "subdict": [
+            "d",
+            "keylist"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.Kane1985.Chapter4.Ex8",
+        "module": "9",
+        "functions": [
+          "print_fr"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "print_fr": [
+            "forces",
+            "ulist"
+          ]
+        },
+        "description": "Discovered via AST scan"
+      },
+      {
+        "package": "examples.double_pendulum.scipy",
+        "module": "double_pendulum_integration",
+        "functions": [
+          "rhs"
+        ],
+        "classes": [],
+        "function_signatures": {
+          "rhs": [
+            "y",
+            "t",
+            "l",
+            "m",
+            "g"
+          ]
+        },
+        "description": "Discovered via AST scan"
       }
     ],
+    "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
@@ -755,13 +1427,12 @@
         "cython",
         "theano",
         "matplotlib",
-        "pydy.viz JS runtime dependencies (bundled static assets)",
-        "joblib (example-level)",
-        "multiprocessing (stdlib, example-level)"
+        "IPython",
+        "notebook/jupyter"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.92,
+      "import_feasibility": 0.93,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -779,7 +1450,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.92,
+    "import_feasibility": 0.93,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

@@ -635,7 +635,10 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.rasterio.source",
+      "mcp_output.mcp_plugin"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
@@ -652,254 +655,21 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "rasterio",
-        "module": "rasterio/__init__.py",
-        "functions": [
-          "open",
-          "band",
-          "bool_",
-          "ubyte",
-          "sbyte",
-          "uint16",
-          "int16",
-          "uint32",
-          "int32",
-          "uint64",
-          "int64",
-          "float32",
-          "float64"
-        ],
-        "classes": [],
-        "description": "Top-level API surface for dataset opening and dtype aliases; primary import entry for library users."
-      },
-      {
-        "package": "rasterio",
-        "module": "rasterio/io.py",
+        "package": "deployment.rasterio.source",
+        "module": "rasterio",
         "functions": [],
-        "classes": [
-          "MemoryFile",
-          "FilePath",
-          "DatasetReader",
-          "DatasetWriter"
-        ],
-        "description": "Core raster I/O abstractions and in-memory/file-backed dataset handling."
-      },
-      {
-        "package": "rasterio",
-        "module": "rasterio/env.py",
-        "functions": [
-          "defenv",
-          "setenv",
-          "getenv",
-          "delenv"
-        ],
-        "classes": [
-          "Env"
-        ],
-        "description": "GDAL/PROJ runtime environment management; critical for safe configuration and session scoping."
-      },
-      {
-        "package": "rasterio",
-        "module": "rasterio/features.py",
-        "functions": [
-          "shapes",
-          "rasterize",
-          "geometry_mask",
-          "sieve",
-          "bounds",
-          "is_valid_geom"
-        ],
         "classes": [],
-        "description": "Vector/raster feature conversion and masking operations frequently exposed in workflows."
+        "description": "Top-level package appears to contain Rasterio source, but no directly validated importable symbols can be safely asserted under the provided scanned package-path constraint."
       },
       {
-        "package": "rasterio",
-        "module": "rasterio/warp.py",
-        "functions": [
-          "reproject",
-          "calculate_default_transform",
-          "transform_bounds",
-          "transform_geom",
-          "aligned_target"
-        ],
-        "classes": [
-          "Resampling"
-        ],
-        "description": "Reprojection and coordinate transformation primitives for geospatial processing."
-      },
-      {
-        "package": "rasterio",
-        "module": "rasterio/windows.py",
-        "functions": [
-          "from_bounds",
-          "bounds",
-          "transform",
-          "intersection",
-          "intersect"
-        ],
-        "classes": [
-          "Window"
-        ],
-        "description": "Windowed read/write math for chunked and tiled raster access."
-      },
-      {
-        "package": "rasterio",
-        "module": "rasterio/transform.py",
-        "functions": [
-          "from_origin",
-          "from_bounds",
-          "xy",
-          "rowcol",
-          "array_bounds"
-        ],
-        "classes": [
-          "AffineTransformer",
-          "GCPTransformer",
-          "RPCTransformer"
-        ],
-        "description": "Pixel-to-world/world-to-pixel coordinate transform helpers."
-      },
-      {
-        "package": "rasterio",
-        "module": "rasterio/mask.py",
-        "functions": [
-          "mask",
-          "raster_geometry_mask"
-        ],
+        "package": "mcp_output.mcp_plugin",
+        "module": "mcp plugin scaffold",
+        "functions": [],
         "classes": [],
-        "description": "Geometry-driven masking and crop behavior for raster datasets."
-      },
-      {
-        "package": "rasterio",
-        "module": "rasterio/merge.py",
-        "functions": [
-          "merge"
-        ],
-        "classes": [],
-        "description": "Raster mosaic/merge operation across multiple sources."
-      },
-      {
-        "package": "rasterio",
-        "module": "rasterio/rio/main.py",
-        "functions": [
-          "main"
-        ],
-        "classes": [],
-        "description": "CLI root for the `rio` command group and command registration."
+        "description": "Scanned output package for MCP plugin artifacts; no concrete importable API identified from provided entry-point scan."
       }
     ],
-    "cli_commands": [
-      {
-        "name": "rio",
-        "module": "rasterio/rio/main.py",
-        "description": "Primary CLI entrypoint for rasterio command suite."
-      },
-      {
-        "name": "rio blocks",
-        "module": "rasterio/rio/blocks.py",
-        "description": "Inspect internal block structure of raster datasets."
-      },
-      {
-        "name": "rio bounds",
-        "module": "rasterio/rio/bounds.py",
-        "description": "Report dataset bounds."
-      },
-      {
-        "name": "rio calc",
-        "module": "rasterio/rio/calc.py",
-        "description": "Raster calculator-style expression evaluation."
-      },
-      {
-        "name": "rio clip",
-        "module": "rasterio/rio/clip.py",
-        "description": "Clip rasters with bounds/geometry."
-      },
-      {
-        "name": "rio convert",
-        "module": "rasterio/rio/convert.py",
-        "description": "Translate raster formats and options."
-      },
-      {
-        "name": "rio create",
-        "module": "rasterio/rio/create.py",
-        "description": "Create new raster datasets from parameters."
-      },
-      {
-        "name": "rio edit-info",
-        "module": "rasterio/rio/edit_info.py",
-        "description": "Edit metadata/CRS/transform-like dataset info."
-      },
-      {
-        "name": "rio env",
-        "module": "rasterio/rio/env.py",
-        "description": "Inspect runtime environment and GDAL config."
-      },
-      {
-        "name": "rio gcps",
-        "module": "rasterio/rio/gcps.py",
-        "description": "Inspect/manage ground control points."
-      },
-      {
-        "name": "rio info",
-        "module": "rasterio/rio/info.py",
-        "description": "Output dataset metadata summary."
-      },
-      {
-        "name": "rio insp",
-        "module": "rasterio/rio/insp.py",
-        "description": "Interactive inspection helpers."
-      },
-      {
-        "name": "rio mask",
-        "module": "rasterio/rio/mask.py",
-        "description": "Mask raster data by vector geometries."
-      },
-      {
-        "name": "rio merge",
-        "module": "rasterio/rio/merge.py",
-        "description": "Merge multiple rasters into one mosaic."
-      },
-      {
-        "name": "rio overview",
-        "module": "rasterio/rio/overview.py",
-        "description": "Build/manage raster overviews."
-      },
-      {
-        "name": "rio rasterize",
-        "module": "rasterio/rio/rasterize.py",
-        "description": "Rasterize vector features."
-      },
-      {
-        "name": "rio rm",
-        "module": "rasterio/rio/rm.py",
-        "description": "Remove dataset artifacts/paths (driver-dependent behavior)."
-      },
-      {
-        "name": "rio sample",
-        "module": "rasterio/rio/sample.py",
-        "description": "Sample raster values at coordinates."
-      },
-      {
-        "name": "rio shapes",
-        "module": "rasterio/rio/shapes.py",
-        "description": "Extract vector shapes from raster regions."
-      },
-      {
-        "name": "rio stack",
-        "module": "rasterio/rio/stack.py",
-        "description": "Stack bands from multiple rasters."
-      },
-      {
-        "name": "rio transform",
-        "module": "rasterio/rio/transform.py",
-        "description": "Coordinate and affine transform utilities."
-      },
-      {
-        "name": "rio warp",
-        "module": "rasterio/rio/warp.py",
-        "description": "Reproject/warp rasters."
-      }
-    ],
+    "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "cli",
@@ -907,23 +677,23 @@
     },
     "dependencies": {
       "required": [
+        "python>=3.x",
         "numpy",
+        "click",
         "affine",
         "attrs",
-        "click",
-        "cligj",
         "snuggs",
         "click-plugins",
-        "setuptools",
-        "GDAL (native shared library/runtime)"
+        "GDAL runtime/libs"
       ],
       "optional": [
-        "matplotlib (plotting paths)",
-        "pytest (tests only)"
+        "matplotlib (plotting)",
+        "pytest (tests)",
+        "boto3/botocore-style cloud session stack (environment-dependent)"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.72,
+      "import_feasibility": 0.41,
       "intrusiveness_risk": "medium",
       "complexity": "complex"
     }
@@ -941,7 +711,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.72,
+    "import_feasibility": 0.41,
     "intrusiveness_risk": "medium",
     "complexity": "complex"
   }

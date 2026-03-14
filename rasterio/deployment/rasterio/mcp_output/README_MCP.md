@@ -2,154 +2,128 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service provides geospatial raster capabilities powered by Rasterio (GDAL-based).  
-It is designed for developer workflows that need reliable raster read/write, reprojection, masking, rasterization, and metadata inspection.
+This service wraps core Rasterio capabilities as MCP (Model Context Protocol) service operations so LLM agents and developer tools can read, inspect, transform, and export raster geospatial data safely and consistently.
 
-Main functions:
-- Open/read/write raster datasets
-- Windowed (chunked) access for large files
-- Reproject and transform coordinates
-- Mask, polygonize, rasterize, and merge rasters
-- Inspect dataset metadata and environment configuration
+Main capabilities:
+- Open/read raster datasets (local or supported virtual paths)
+- Inspect metadata (CRS, bounds, transform, dtype, nodata, bands)
+- Windowed reads and sampling
+- Reprojection/warping
+- Masking, clipping, merge/stack workflows
+- Rasterize/shapes-style feature conversion (if enabled by service implementation)
+
+This project is based on the Rasterio codebase (`rasterio/rasterio`) and GDAL runtime behavior.
 
 ---
 
 ## 2) Installation Method
 
-### Requirements
-- Python 3.9+ (recommended)
-- Native GDAL runtime/library available on the system
-- Python dependencies:
-  - numpy
-  - affine
-  - attrs
-  - click
-  - cligj
-  - snuggs
-  - click-services
-  - setuptools
-- Optional:
-  - matplotlib (plotting)
-  - pytest (tests)
+### Prerequisites
+- Python 3.x
+- GDAL runtime and development libraries compatible with your Rasterio version
+- Recommended system build tools for native dependencies
+
+### Python dependencies (typical)
+- rasterio
+- numpy
+- click
+- affine
+- attrs
+- snuggs
+- click-plugins
+
+Optional:
+- matplotlib (plot/preview flows)
+- pytest (test/dev)
+- cloud/session extras depending on your environment (for remote storage access)
 
 ### Install
-- Install Rasterio:
-  - pip install rasterio
-- Verify:
-  - python -c "import rasterio; print(rasterio.__version__)"
-  - rio --help
+- `pip install rasterio`
+- If your MCP (Model Context Protocol) host requires a service package, install that package as well (for example: `pip install <your-mcp-service-package>`).
 
-Note: GDAL compatibility is critical. If import fails, first verify GDAL shared libraries are correctly installed and discoverable.
+### Verify
+- Confirm Rasterio loads and GDAL is visible in runtime.
+- Run a basic dataset open/read call from your MCP (Model Context Protocol) client.
 
 ---
 
 ## 3) Quick Start
 
-### Basic open/read
-import rasterio
+### Typical service flow
+1. Open dataset
+2. Read metadata/info
+3. Read data (full or windowed)
+4. Apply transform (warp/mask/merge)
+5. Write/export result
 
-with rasterio.open("input.tif") as src:
-    arr = src.read(1)
-    print(src.crs, src.transform, src.bounds)
+### Example MCP (Model Context Protocol) usage pattern
+- Call `raster.open` with dataset URI/path
+- Call `raster.info` to inspect CRS, bounds, size, dtype
+- Call `raster.read` with optional band indexes and window
+- Optionally call `raster.warp` or `raster.mask`
+- Call `raster.write` to persist output
 
-### Reproject
-from rasterio.warp import calculate_default_transform, reproject, Resampling
-
-# Typical flow: compute transform/shape, then reproject band data
-# using source/destination CRS and chosen resampling.
-
-### Mask by geometry
-from rasterio.mask import mask
-
-# Use GeoJSON-like geometries to crop/mask a dataset.
-
-### Merge rasters
-from rasterio.merge import merge
-
-# Merge multiple sources into a mosaic array + transform.
+Use small windows first for large rasters to reduce memory pressure and latency.
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-This service can expose Rasterio operations as MCP (Model Context Protocol) endpoints/tools such as:
+Note: exact endpoint names depend on your MCP (Model Context Protocol) host/service adapter. Recommended practical mapping:
 
-- `open_dataset`  
-  Open raster source and return core metadata (size, CRS, bounds, dtype, band count).
+- `raster.open`
+  - Open or validate a raster source handle.
+- `raster.info`
+  - Return metadata: dimensions, count, CRS, transform, bounds, nodata, dtype.
+- `raster.read`
+  - Read pixel arrays by band and optional window/bounds.
+- `raster.sample`
+  - Sample pixel values at coordinate points.
+- `raster.mask`
+  - Apply geometry mask/crop.
+- `raster.warp`
+  - Reproject/resample to target CRS/resolution.
+- `raster.merge`
+  - Merge multiple rasters into one output.
+- `raster.stack`
+  - Stack multiple inputs into multiband output.
+- `raster.write`
+  - Write array + profile to output dataset.
+- `raster.env`
+  - Manage GDAL/Rasterio environment options (cache, drivers, credentials).
+- `raster.shapes` / `raster.rasterize` (optional)
+  - Convert raster-to-vector shapes or vector-to-raster burn.
 
-- `read_band`  
-  Read one/more bands, optionally with windowed access for large rasters.
-
-- `read_window`  
-  Read by pixel window or bounds-derived window to reduce memory use.
-
-- `get_info`  
-  Return profile, tags, nodata, transform, overviews, and driver info.
-
-- `reproject_raster`  
-  Reproject to target CRS/resolution using Rasterio warp primitives.
-
-- `transform_coords`  
-  Convert coordinates or bounds between CRS systems.
-
-- `mask_raster`  
-  Apply geometry masks and optional crop.
-
-- `rasterize_features`  
-  Burn vector geometries into a raster grid.
-
-- `extract_shapes`  
-  Polygonize raster regions into vector-like geometries.
-
-- `merge_rasters`  
-  Mosaic multiple rasters into one output.
-
-- `sample_points`  
-  Sample raster values at coordinate pairs.
-
-- `environment_info`  
-  Inspect GDAL/PROJ runtime options and session-scoped environment.
-
-CLI equivalents are available via `rio` subcommands (`rio info`, `rio warp`, `rio merge`, `rio mask`, etc.) if your MCP (Model Context Protocol) service uses command execution fallback.
+If your implementation exposes fewer operations, keep the same semantics and return structured errors for unsupported calls.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- GDAL runtime mismatch  
-  Most common failure source. Ensure Rasterio wheel/system GDAL versions are compatible.
+- GDAL mismatch is the #1 issue  
+  Ensure Rasterio and GDAL binary compatibility.
+- CRS and axis-order confusion  
+  Always verify CRS and coordinate order before sampling/warp.
+- Large raster memory usage  
+  Prefer windowed reads, overviews, and tiling-aware workflows.
+- Remote/Cloud access  
+  Requires proper session/environment configuration (credentials, VSI options).
+- Performance  
+  Reprojection and merge are CPU/I/O intensive; tune block sizes and cache settings.
+- Error handling  
+  Return clear MCP (Model Context Protocol) service errors for invalid paths, unsupported drivers, and CRS transform failures.
 
-- CRS/axis-order confusion  
-  Always validate CRS definitions and coordinate ordering before warp/transform operations.
-
-- Large raster performance  
-  Prefer windowed reads/writes (`windows`) and avoid loading full arrays when unnecessary.
-
-- Memory pressure  
-  Reprojection/merge can be expensive; tune chunk sizes and intermediate array handling.
-
-- Environment scoping  
-  Use `rasterio.Env` for deterministic GDAL/PROJ config in server processes.
-
-- Cloud/remote access  
-  Some workflows require proper GDAL virtual filesystem or credential/session configuration.
-
-- Native dependency deployment  
-  Containerized environments should pin Rasterio + GDAL combinations to avoid runtime drift.
+Risk profile from analysis:
+- Import feasibility: medium-low in constrained environments
+- Intrusiveness risk: medium
+- Overall complexity: high (geospatial + native runtime stack)
 
 ---
 
-## 6) Reference Links or Documentation
+## 6) Reference Links and Documentation
 
-- Repository: https://github.com/rasterio/rasterio
-- Official docs: https://rasterio.readthedocs.io/
-- CLI help: `rio --help`
-- Key modules:
-  - `rasterio.io` (dataset IO, MemoryFile)
-  - `rasterio.env` (runtime env)
-  - `rasterio.features` (shapes/rasterize)
-  - `rasterio.warp` (reprojection)
-  - `rasterio.windows` (windowed access)
-  - `rasterio.transform` (pixel/world transforms)
-
-If you are wrapping these as MCP (Model Context Protocol) services, start with read/info/warp/mask endpoints first, then add merge/rasterize/shapes based on workload needs.
+- Rasterio repository: https://github.com/rasterio/rasterio
+- Rasterio docs: https://rasterio.readthedocs.io/
+- GDAL docs: https://gdal.org/
+- Rasterio CLI modules (reference for operation design): `rasterio/rio/*`
+- MCP (Model Context Protocol) specification: use your platform’s official MCP docs for transport, schema, and tool registration.

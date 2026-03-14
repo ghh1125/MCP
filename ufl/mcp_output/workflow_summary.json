@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773252997.851743,
-    "end_time": 1773253238.9952252,
-    "duration": 241.14348220825195,
+    "start_time": 1773464717.998925,
+    "end_time": 1773465058.2708611,
+    "duration": 340.2719361782074,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 2,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,7 +53,10 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.ufl.source",
+        "mcp_output.mcp_plugin"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
@@ -68,7 +71,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.95,
+      "import_feasibility": 0.96,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -125,38 +128,39 @@
     {
       "node": "DownloadNode",
       "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/ufl/temp_clone'...\nfatal: unable to access 'https://github.com/FEniCS/ufl/': Error in the HTTP2 framing layer\n",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/ufl/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 5018 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n",
       "action_taken": "continue_with_empty"
     }
   ],
   "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/ufl/temp_clone'...\nfatal: unable to access 'https://github.com/FEniCS/ufl/': Error in the HTTP2 framing layer\n"
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/ufl/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 5018 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
   ],
   "recommendations": [
-    "add a minimal CI smoke test for the generated MCP plugin (import plugin",
-    "start server",
-    "call 2–3 core endpoints)",
-    "populate `test status`/`code review`/`performance metrics` in the pipeline output and fail on missing sections to avoid blind spots",
-    "fix dependency detection so `pyproject.toml` is recognized (it currently reports `pyproject: False` despite file presence)",
-    "deduplicate/normalize exported endpoints in MCP generation (e.g.",
-    "repeated `expr`/`form`) and enforce naming conventions",
-    "add contract tests that compare MCP endpoint behavior to direct `ufl` API results for key symbolic ops (`grad`",
-    "`div`",
-    "`derivative`",
-    "`replace`)",
-    "introduce type-validation/error-shape tests for MCP inputs using Pydantic schemas",
-    "create a small benchmark suite for hot paths (`apply_derivatives`",
-    "`compute_form_data`",
-    "form hashing/signature) with regression thresholds in CI",
-    "split very large algorithm modules (notably `ufl/algorithms/apply_derivatives.py`) into focused submodules to reduce maintenance risk",
-    "add property-based tests (Hypothesis) for expression DAG transformations and algebraic invariants",
-    "strengthen docs by mapping each exposed MCP endpoint to its UFL module/class and including canonical request/response examples",
-    "add compatibility matrix testing across supported Python versions and NumPy ranges (plus optional SymPy-present environment)",
-    "improve release hygiene with automated changelog checks and wheel/sdist verification before publish",
-    "add observability in MCP service (structured logs",
-    "latency/error counters per endpoint)",
-    "include security/dependency scanning (pip-audit/Safety + GitHub Dependabot policy enforcement) in CI",
-    "add golden tests for signature/stability-sensitive outputs to catch subtle symbolic canonicalization regressions"
+    "Add and run an MCP-specific test suite (smoke tests for every exported endpoint",
+    "plus contract tests for symbolic equivalence)",
+    "de-duplicate endpoint names in the generated plugin surface (e.g.",
+    "repeated `replace`/`form`) and enforce unique naming via generation-time validation",
+    "improve dependency detection in analysis (it incorrectly reports `pyproject` missing despite `pyproject.toml` existing)",
+    "add CI workflow for MCP output (lint",
+    "type-check",
+    "import test",
+    "minimal runtime call checks)",
+    "restrict exported APIs to a curated stable subset (top-level `ufl` + selected `ufl.algorithms`) to reduce breakage risk from low-level internals",
+    "add version pin/compatibility matrix for `ufl` and Python in `mcp_output/requirements.txt` and README",
+    "generate structured docstrings for each endpoint with argument/return/error schemas to improve MCP tool usability",
+    "add error normalization in adapter/service layers (consistent exception mapping and actionable messages for invalid forms)",
+    "include performance guards for expensive transforms (`apply_derivatives`",
+    "`compute_form_data`) with optional timeout/size limits",
+    "add snapshot tests for `ufl2unicode` rendering and `signature` stability across supported versions",
+    "validate plugin packaging metadata and entry points (ensure `start_mcp.py` and module main paths are consistent and documented)",
+    "add a small set of end-to-end examples in `README_MCP.md` (Poisson form creation",
+    "derivative transform",
+    "signature extraction)",
+    "introduce static typing checks (mypy/pyright) for generated MCP code and stricter pydantic models for inputs",
+    "add observability hooks (request logging",
+    "endpoint timing",
+    "failure counters) to aid debugging in MCP deployments",
+    "and add a regeneration-diff check in CI to fail when generated plugin code is stale relative to source analysis"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -187,36 +191,36 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal status `success` and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Robust fallback behavior: after git clone failure, pipeline continued via zip/import fallback and still analyzed ~217 files.",
-      "Import-mode adapter generation succeeded and MCP service health check passed (`healthy`, stdio transport).",
-      "Low intrusiveness risk and high import feasibility (0.95) supported non-invasive wrapping strategy."
+      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Resilience worked: clone failure was mitigated by zip fallback import, allowing analysis and generation to continue.",
+      "Import-mode adapter strategy matched repository characteristics (high import feasibility 0.96, low intrusiveness risk).",
+      "Generated MCP service started healthy over stdio, indicating runnable baseline output."
     ],
     "failure_reasons": [
-      "Primary source acquisition failed in DownloadNode due to network/protocol error (`HTTP2 framing layer`) when cloning from GitHub.",
-      "Pipeline observability gaps: zeroed/empty metrics (`llm_calls`, `total_files_processed`, performance metrics, code review) reduce confidence in reported success quality.",
-      "Dependency detection inconsistency: `pyproject.toml` exists but reported as `pyproject: False`, indicating analyzer defect.",
-      "Test signal quality is weak: original project tests marked not passed despite `100%` coverage and zero execution time, indicating reporting inconsistency."
+      "Primary git clone failed due to network/transport interruption (curl 18 partial transfer, early EOF, invalid index-pack).",
+      "DeepWiki analysis failed, reducing external semantic enrichment.",
+      "Original project tests were not executed successfully despite repository containing extensive tests (reporting inconsistency).",
+      "Metadata quality issues: dependency detection incorrectly marked pyproject as missing."
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Download encountered hard failure in git clone; recovery occurred through fallback path. Time likely dominated by retry/failure latency.",
-      "analysis_time": "Analysis appears effective despite fallback (file inventory, core module extraction, risk/security summaries), but metadata counters are inconsistent.",
-      "generation_time": "Generation completed quickly enough within total 241s and produced expected scaffold files; however endpoint/tool count reporting is contradictory.",
-      "test_time": "MCP plugin health test passed, but project test execution data is effectively missing (0s runtime, empty details), limiting reliability."
+      "download_time": "Download node encountered clone failure; fallback path succeeded. This likely dominated early latency and introduced retrial overhead.",
+      "analysis_time": "Moderate; repository scan covered ~217 files and identified core modules/endpoints successfully.",
+      "generation_time": "Fast-to-moderate; plugin scaffolding and endpoint surface were generated, but reported LOC/size metrics are zero (telemetry gap).",
+      "test_time": "Minimal/insufficient; MCP health check passed, but original test suite effectively not run, so validation depth is low."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB). Instrumentation required before concluding efficiency.",
-      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%). No actionable CPU profile available.",
-      "disk_usage": "Low-to-moderate; repository analyzed and plugin scaffold generated, but generated LOC/size reported as 0 suggests accounting bug."
+      "memory_efficiency": "Unknown due to missing runtime telemetry (reported 0 MB). Cannot confirm efficiency.",
+      "cpu_efficiency": "Unknown due to missing runtime telemetry (reported 0%).",
+      "disk_usage": "Likely moderate (source + generated plugin), but reported generated size is 0, indicating instrumentation inaccuracies."
     }
   },
   "technical_quality": {
     "code_quality_score": 72,
     "architecture_score": 78,
-    "performance_score": 60,
+    "performance_score": 64,
     "maintainability_score": 70,
     "security_score": 85,
-    "scalability_score": 68
+    "scalability_score": 69
   }
 }

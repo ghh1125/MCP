@@ -8,293 +8,347 @@ source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "source",
 )
-sys.path.insert(0, source_path)
+if source_path not in sys.path:
+    sys.path.insert(0, source_path)
 
 
 class Adapter:
     """
-    Import-mode adapter for the flair repository.
+    MCP import-mode adapter for the flair repository.
 
-    This adapter prioritizes direct import/use of repository modules and provides
-    graceful fallback responses when imports or runtime execution fail.
+    This adapter prioritizes importing and executing repository code directly from the local
+    source tree. If imports are unavailable, it gracefully degrades to a fallback mode and
+    returns actionable guidance in English.
+
+    Notes:
+    - Analysis did not provide explicit entry-point functions/classes to map 1:1.
+    - This adapter therefore exposes robust module-level operations for the core Flair package,
+      including dynamic class instantiation and method invocation.
     """
 
-    # -------------------------------------------------------------------------
-    # Initialization and module registry
-    # -------------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
-        self._module_map = {
-            "flair.__init__": "flair",
-            "flair.data": "flair.data",
-            "flair.tokenization": "flair.tokenization",
-            "flair.datasets": "flair.datasets",
-            "flair.embeddings": "flair.embeddings",
-            "flair.models": "flair.models",
-            "flair.nn": "flair.nn",
-            "flair.trainers": "flair.trainers",
-            "flair.trainers.trainer": "flair.trainers.trainer",
-            "flair.training_utils": "flair.training_utils",
-            "flair.file_utils": "flair.file_utils",
-            "flair.inference_utils": "flair.inference_utils",
-            "flair.visual": "flair.visual",
-            "examples.ner.run_ner": "examples.ner.run_ner",
-            "examples.multi_gpu.run_multi_gpu": "examples.multi_gpu.run_multi_gpu",
-        }
+        self._import_ok = False
+        self._errors: List[str] = []
         self._modules: Dict[str, Any] = {}
-        self._import_errors: Dict[str, str] = {}
-        self._load_modules()
+        self._initialize_imports()
 
+    # -------------------------------------------------------------------------
+    # Internal utilities
+    # -------------------------------------------------------------------------
     def _result(self, status: str, **kwargs: Any) -> Dict[str, Any]:
         payload = {"status": status}
         payload.update(kwargs)
         return payload
 
-    def _load_modules(self) -> None:
-        for key, module_path in self._module_map.items():
+    def _initialize_imports(self) -> None:
+        """
+        Try importing known core modules from the repository using full package paths.
+        Falls back cleanly if unavailable.
+        """
+        module_paths = [
+            "deployment.flair.source.flair",
+            "deployment.flair.source.flair.data",
+            "deployment.flair.source.flair.models",
+            "deployment.flair.source.flair.embeddings",
+            "deployment.flair.source.flair.datasets",
+            "deployment.flair.source.flair.trainers",
+            "deployment.flair.source.flair.training_utils",
+        ]
+        ok_count = 0
+        for path in module_paths:
             try:
-                self._modules[key] = importlib.import_module(module_path)
-            except Exception as exc:
-                self._import_errors[key] = (
-                    f"Failed to import '{module_path}'. "
-                    f"Ensure repository source exists under '{source_path}' and dependencies are installed. "
-                    f"Original error: {exc}"
-                )
+                self._modules[path] = importlib.import_module(path)
+                ok_count += 1
+            except Exception as e:
+                self._errors.append(f"Failed to import '{path}': {e}")
 
-    def health_check(self) -> Dict[str, Any]:
-        return self._result(
-            "success" if not self._import_errors else "partial",
-            mode=self.mode,
-            imported_modules=list(self._modules.keys()),
-            failed_modules=self._import_errors,
-            guidance=(
-                "Install required dependencies (torch, transformers, tqdm, numpy, scikit-learn, deprecated, segtok, "
-                "matplotlib, janome, langdetect, lxml, gdown, sqlitedict, mpld3) and verify source path."
-            ),
-        )
+        self._import_ok = ok_count > 0
+        if not self._import_ok:
+            self.mode = "fallback"
 
-    # -------------------------------------------------------------------------
-    # Generic execution helpers
-    # -------------------------------------------------------------------------
-    def _get_module(self, key: str) -> Dict[str, Any]:
-        module = self._modules.get(key)
-        if module is None:
+    def _require_import_mode(self) -> Optional[Dict[str, Any]]:
+        if not self._import_ok:
             return self._result(
                 "error",
-                message=self._import_errors.get(
-                    key,
-                    f"Module '{key}' is unavailable. Confirm local source checkout and dependencies.",
-                ),
                 mode=self.mode,
-            )
-        return self._result("success", module=module)
-
-    def _safe_call(self, fn: Any, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            value = fn(*args, **kwargs)
-            return self._result("success", data=value)
-        except Exception as exc:
-            return self._result(
-                "error",
                 message=(
-                    f"Function call failed: {exc}. Check parameter values and dependency/runtime compatibility."
+                    "Import mode is unavailable. Ensure the repository source is present at "
+                    f"'{source_path}' and verify package path resolution."
                 ),
-                traceback=traceback.format_exc(),
-                mode=self.mode,
+                errors=self._errors,
+                action="Check filesystem layout, then retry initialization.",
             )
-
-    def _safe_instantiate(self, cls: Any, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        try:
-            instance = cls(*args, **kwargs)
-            return self._result("success", data=instance)
-        except Exception as exc:
-            return self._result(
-                "error",
-                message=(
-                    f"Class instantiation failed: {exc}. Verify constructor arguments and model/resource availability."
-                ),
-                traceback=traceback.format_exc(),
-                mode=self.mode,
-            )
+        return None
 
     # -------------------------------------------------------------------------
-    # Flair core classes
+    # Adapter status and diagnostics
     # -------------------------------------------------------------------------
-    def create_sentence(self, text: str, use_tokenizer: Any = True, language_code: Optional[str] = None) -> Dict[str, Any]:
+    def get_status(self) -> Dict[str, Any]:
         """
-        Create flair.data.Sentence instance.
-
-        Parameters:
-        - text: Input text.
-        - use_tokenizer: Tokenizer flag/callable accepted by Flair.
-        - language_code: Optional language code.
-
-        Returns:
-        Unified status dictionary containing the instance or error details.
-        """
-        m = self._get_module("flair.data")
-        if m["status"] != "success":
-            return m
-        cls = getattr(m["module"], "Sentence", None)
-        if cls is None:
-            return self._result("error", message="Sentence class not found in flair.data.", mode=self.mode)
-        return self._safe_instantiate(cls, text, use_tokenizer=use_tokenizer, language_code=language_code)
-
-    def create_token(self, text: str, head_id: Optional[int] = None) -> Dict[str, Any]:
-        """
-        Create flair.data.Token instance.
-
-        Parameters:
-        - text: Token text.
-        - head_id: Optional head index for dependency structures.
-        """
-        m = self._get_module("flair.data")
-        if m["status"] != "success":
-            return m
-        cls = getattr(m["module"], "Token", None)
-        if cls is None:
-            return self._result("error", message="Token class not found in flair.data.", mode=self.mode)
-        kwargs = {}
-        if head_id is not None:
-            kwargs["head_id"] = head_id
-        return self._safe_instantiate(cls, text, **kwargs)
-
-    def create_corpus(self, train: Any = None, dev: Any = None, test: Any = None, name: Optional[str] = None) -> Dict[str, Any]:
-        """
-        Create flair.data.Corpus instance.
-
-        Parameters:
-        - train/dev/test: Split datasets accepted by Flair.
-        - name: Optional corpus name.
-        """
-        m = self._get_module("flair.data")
-        if m["status"] != "success":
-            return m
-        cls = getattr(m["module"], "Corpus", None)
-        if cls is None:
-            return self._result("error", message="Corpus class not found in flair.data.", mode=self.mode)
-        return self._safe_instantiate(cls, train, dev, test, name=name)
-
-    # -------------------------------------------------------------------------
-    # Model classes
-    # -------------------------------------------------------------------------
-    def create_sequence_tagger(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Create flair.models.SequenceTagger instance with forwarded constructor args.
-        """
-        m = self._get_module("flair.models")
-        if m["status"] != "success":
-            return m
-        cls = getattr(m["module"], "SequenceTagger", None)
-        if cls is None:
-            return self._result("error", message="SequenceTagger class not found in flair.models.", mode=self.mode)
-        return self._safe_instantiate(cls, *args, **kwargs)
-
-    def create_text_classifier(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Create flair.models.TextClassifier instance with forwarded constructor args.
-        """
-        m = self._get_module("flair.models")
-        if m["status"] != "success":
-            return m
-        cls = getattr(m["module"], "TextClassifier", None)
-        if cls is None:
-            return self._result("error", message="TextClassifier class not found in flair.models.", mode=self.mode)
-        return self._safe_instantiate(cls, *args, **kwargs)
-
-    def create_model_trainer(self, model: Any, corpus: Any, optimizer: Any = None) -> Dict[str, Any]:
-        """
-        Create flair.trainers.ModelTrainer instance.
-
-        Parameters:
-        - model: Flair model instance.
-        - corpus: Flair corpus instance.
-        - optimizer: Optional optimizer class/instance.
-        """
-        m = self._get_module("flair.trainers")
-        if m["status"] != "success":
-            return m
-        cls = getattr(m["module"], "ModelTrainer", None)
-        if cls is None:
-            return self._result("error", message="ModelTrainer class not found in flair.trainers.", mode=self.mode)
-        if optimizer is None:
-            return self._safe_instantiate(cls, model, corpus)
-        return self._safe_instantiate(cls, model, corpus, optimizer=optimizer)
-
-    # -------------------------------------------------------------------------
-    # Function-style calls
-    # -------------------------------------------------------------------------
-    def run_ner_script_main(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
-        """
-        Call examples.ner.run_ner main entry if available.
-
-        Parameters:
-        - argv: Optional argument list. If unsupported by target main(), call without args.
-        """
-        m = self._get_module("examples.ner.run_ner")
-        if m["status"] != "success":
-            return m
-        main_fn = getattr(m["module"], "main", None)
-        if main_fn is None:
-            return self._result(
-                "error",
-                message="examples.ner.run_ner.main not found. This script may not expose a callable entry.",
-                mode=self.mode,
-            )
-        if argv is None:
-            return self._safe_call(main_fn)
-        try:
-            return self._safe_call(main_fn, argv)
-        except Exception:
-            return self._safe_call(main_fn)
-
-    def run_multi_gpu_script_main(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
-        """
-        Call examples.multi_gpu.run_multi_gpu main entry if available.
-        """
-        m = self._get_module("examples.multi_gpu.run_multi_gpu")
-        if m["status"] != "success":
-            return m
-        main_fn = getattr(m["module"], "main", None)
-        if main_fn is None:
-            return self._result(
-                "error",
-                message="examples.multi_gpu.run_multi_gpu.main not found. This script may not expose a callable entry.",
-                mode=self.mode,
-            )
-        if argv is None:
-            return self._safe_call(main_fn)
-        try:
-            return self._safe_call(main_fn, argv)
-        except Exception:
-            return self._safe_call(main_fn)
-
-    # -------------------------------------------------------------------------
-    # Utility wrappers
-    # -------------------------------------------------------------------------
-    def list_module_attributes(self, module_key: str, public_only: bool = True) -> Dict[str, Any]:
-        """
-        List attributes exported by a loaded module key.
-
-        Parameters:
-        - module_key: One of internal keys from module registry.
-        - public_only: If True, exclude private names.
-        """
-        m = self._get_module(module_key)
-        if m["status"] != "success":
-            return m
-        names = dir(m["module"])
-        if public_only:
-            names = [n for n in names if not n.startswith("_")]
-        return self._result("success", data=names, mode=self.mode)
-
-    def get_import_report(self) -> Dict[str, Any]:
-        """
-        Return import success/failure report for all managed modules.
+        Return adapter health, mode, and module import summary.
         """
         return self._result(
-            "success",
+            "success" if self._import_ok else "error",
             mode=self.mode,
-            loaded={k: v.__name__ for k, v in self._modules.items()},
-            failed=self._import_errors,
+            import_ok=self._import_ok,
+            loaded_modules=list(self._modules.keys()),
+            errors=self._errors,
         )
+
+    def list_loaded_modules(self) -> Dict[str, Any]:
+        """
+        List successfully loaded module paths.
+        """
+        check = self._require_import_mode()
+        if check:
+            return check
+        return self._result("success", modules=list(self._modules.keys()), mode=self.mode)
+
+    # -------------------------------------------------------------------------
+    # Generic module/class/function operations
+    # -------------------------------------------------------------------------
+    def import_module(self, module_path: str) -> Dict[str, Any]:
+        """
+        Import a module dynamically by full path.
+
+        Parameters:
+            module_path: Fully qualified module path, e.g. 'deployment.flair.source.flair.data'
+        """
+        try:
+            module = importlib.import_module(module_path)
+            self._modules[module_path] = module
+            self._import_ok = True
+            self.mode = "import"
+            return self._result("success", module=module_path, mode=self.mode)
+        except Exception as e:
+            return self._result(
+                "error",
+                mode=self.mode,
+                module=module_path,
+                message=f"Module import failed: {e}",
+                action="Verify module path and source tree integrity.",
+                traceback=traceback.format_exc(),
+            )
+
+    def get_class(self, module_path: str, class_name: str) -> Dict[str, Any]:
+        """
+        Retrieve a class object from a module.
+
+        Parameters:
+            module_path: Fully qualified module path.
+            class_name: Target class name.
+        """
+        try:
+            module = self._modules.get(module_path) or importlib.import_module(module_path)
+            cls = getattr(module, class_name)
+            return self._result("success", class_name=class_name, module=module_path, class_ref=cls)
+        except Exception as e:
+            return self._result(
+                "error",
+                mode=self.mode,
+                message=f"Unable to resolve class '{class_name}' from '{module_path}': {e}",
+                action="Confirm class name and module path, then retry.",
+                traceback=traceback.format_exc(),
+            )
+
+    def create_instance(
+        self,
+        module_path: str,
+        class_name: str,
+        init_args: Optional[List[Any]] = None,
+        init_kwargs: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        """
+        Create an instance of a class discovered at runtime.
+
+        Parameters:
+            module_path: Fully qualified module path.
+            class_name: Class name to instantiate.
+            init_args: Positional args for __init__.
+            init_kwargs: Keyword args for __init__.
+        """
+        init_args = init_args or []
+        init_kwargs = init_kwargs or {}
+        try:
+            class_info = self.get_class(module_path, class_name)
+            if class_info.get("status") != "success":
+                return class_info
+            cls = class_info["class_ref"]
+            instance = cls(*init_args, **init_kwargs)
+            return self._result(
+                "success",
+                mode=self.mode,
+                module=module_path,
+                class_name=class_name,
+                instance=instance,
+            )
+        except Exception as e:
+            return self._result(
+                "error",
+                mode=self.mode,
+                message=f"Instance creation failed for '{class_name}': {e}",
+                action="Review constructor signature and provided arguments.",
+                traceback=traceback.format_exc(),
+            )
+
+    def call_function(
+        self,
+        module_path: str,
+        function_name: str,
+        call_args: Optional[List[Any]] = None,
+        call_kwargs: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        """
+        Call a function from a module.
+
+        Parameters:
+            module_path: Fully qualified module path.
+            function_name: Function to execute.
+            call_args: Positional arguments.
+            call_kwargs: Keyword arguments.
+        """
+        call_args = call_args or []
+        call_kwargs = call_kwargs or {}
+        try:
+            module = self._modules.get(module_path) or importlib.import_module(module_path)
+            fn = getattr(module, function_name)
+            result = fn(*call_args, **call_kwargs)
+            return self._result(
+                "success",
+                mode=self.mode,
+                module=module_path,
+                function=function_name,
+                result=result,
+            )
+        except Exception as e:
+            return self._result(
+                "error",
+                mode=self.mode,
+                message=f"Function call failed for '{function_name}': {e}",
+                action="Check function name and arguments, then retry.",
+                traceback=traceback.format_exc(),
+            )
+
+    def call_instance_method(
+        self,
+        instance: Any,
+        method_name: str,
+        call_args: Optional[List[Any]] = None,
+        call_kwargs: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        """
+        Call a method on an instance.
+
+        Parameters:
+            instance: Target object instance.
+            method_name: Method to invoke.
+            call_args: Positional arguments.
+            call_kwargs: Keyword arguments.
+        """
+        call_args = call_args or []
+        call_kwargs = call_kwargs or {}
+        try:
+            method = getattr(instance, method_name)
+            result = method(*call_args, **call_kwargs)
+            return self._result(
+                "success",
+                mode=self.mode,
+                method=method_name,
+                result=result,
+            )
+        except Exception as e:
+            return self._result(
+                "error",
+                mode=self.mode,
+                message=f"Instance method call failed for '{method_name}': {e}",
+                action="Validate instance type, method name, and method arguments.",
+                traceback=traceback.format_exc(),
+            )
+
+    # -------------------------------------------------------------------------
+    # Flair-focused convenience methods
+    # -------------------------------------------------------------------------
+    def get_flair_version(self) -> Dict[str, Any]:
+        """
+        Retrieve Flair version from the imported package.
+        """
+        candidates = [
+            "deployment.flair.source.flair",
+        ]
+        for mod in candidates:
+            try:
+                module = self._modules.get(mod) or importlib.import_module(mod)
+                version = getattr(module, "__version__", None)
+                return self._result("success", mode=self.mode, module=mod, version=version)
+            except Exception:
+                continue
+        return self._result(
+            "error",
+            mode=self.mode,
+            message="Unable to read Flair version.",
+            action="Ensure the flair package is importable from the source directory.",
+        )
+
+    def create_sentence(self, text: str) -> Dict[str, Any]:
+        """
+        Create a Sentence object using flair.data.Sentence.
+
+        Parameters:
+            text: Raw text content.
+        """
+        return self.create_instance(
+            module_path="deployment.flair.source.flair.data",
+            class_name="Sentence",
+            init_args=[text],
+            init_kwargs={},
+        )
+
+    def load_sequence_tagger(self, model_name_or_path: str) -> Dict[str, Any]:
+        """
+        Load SequenceTagger via classmethod .load() from flair.models.
+
+        Parameters:
+            model_name_or_path: Model identifier or local path.
+        """
+        try:
+            module_path = "deployment.flair.source.flair.models"
+            module = self._modules.get(module_path) or importlib.import_module(module_path)
+            cls = getattr(module, "SequenceTagger")
+            model = cls.load(model_name_or_path)
+            return self._result(
+                "success",
+                mode=self.mode,
+                module=module_path,
+                class_name="SequenceTagger",
+                model=model,
+            )
+        except Exception as e:
+            return self._result(
+                "error",
+                mode=self.mode,
+                message=f"Failed to load SequenceTagger: {e}",
+                action="Confirm model name/path and required dependencies (torch, transformers).",
+                traceback=traceback.format_exc(),
+            )
+
+    def predict_with_model(self, model: Any, sentence_or_sentences: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Run model prediction for Flair model objects exposing .predict().
+
+        Parameters:
+            model: Loaded Flair model.
+            sentence_or_sentences: Sentence or list of Sentence objects.
+            kwargs: Additional predict options.
+        """
+        try:
+            model.predict(sentence_or_sentences, **kwargs)
+            return self._result("success", mode=self.mode, message="Prediction completed.")
+        except Exception as e:
+            return self._result(
+                "error",
+                mode=self.mode,
+                message=f"Prediction failed: {e}",
+                action="Ensure input objects are valid Flair data types and model is loaded.",
+                traceback=traceback.format_exc(),
+            )

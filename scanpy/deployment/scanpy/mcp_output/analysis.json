@@ -1,7 +1,7 @@
 {
   "summary": {
     "repository_url": "https://github.com/scverse/scanpy",
-    "summary": "Imported via zip fallback, file count: 332",
+    "summary": "Imported via zip fallback, file count: 333",
     "file_tree": {
       ".codecov.yml": {
         "size": 260
@@ -396,6 +396,9 @@
       "docs/release-notes/3986.doc.md": {
         "size": 133
       },
+      "docs/release-notes/3999.feat.md": {
+        "size": 90
+      },
       "docs/release-notes/index.md": {
         "size": 60
       },
@@ -781,7 +784,7 @@
         "size": 24886
       },
       "src/scanpy/tools/_rank_genes_groups.py": {
-        "size": 33445
+        "size": 33622
       },
       "src/scanpy/tools/_score_genes.py": {
         "size": 10961
@@ -895,7 +898,7 @@
         "size": 964
       },
       "tests/test_filter_rank_genes_groups.py": {
-        "size": 3004
+        "size": 3311
       },
       "tests/test_get.py": {
         "size": 17728
@@ -1004,7 +1007,10 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.scanpy.source",
+      "mcp_output.mcp_plugin"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
@@ -1021,135 +1027,104 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "src/scanpy/preprocessing/_simple.py",
-        "module": "scanpy.preprocessing._simple",
+        "package": "deployment.scanpy.source",
+        "module": "scanpy",
+        "functions": [
+          "read",
+          "read_10x_h5",
+          "read_10x_mtx",
+          "read_visium",
+          "set_figure_params"
+        ],
+        "classes": [
+          "Verbosity",
+          "ScanpyConfig"
+        ],
+        "description": "Top-level public API surface aggregating I/O, configuration, and major subpackages (pp/tl/pl/get/datasets/external). Best import anchor for MCP exposure."
+      },
+      {
+        "package": "deployment.scanpy.source",
+        "module": "scanpy.preprocessing",
         "functions": [
           "filter_cells",
           "filter_genes",
+          "normalize_total",
           "log1p",
-          "normalize_per_cell",
-          "regress_out",
+          "highly_variable_genes",
           "scale",
-          "subsample",
-          "downsample_counts"
-        ],
-        "classes": [],
-        "description": "Core preprocessing primitives for QC filtering, normalization, scaling, regression, and sampling."
-      },
-      {
-        "package": "src/scanpy/preprocessing/_highly_variable_genes.py",
-        "module": "scanpy.preprocessing._highly_variable_genes",
-        "functions": [
-          "highly_variable_genes"
-        ],
-        "classes": [],
-        "description": "Highly variable gene selection workflows used in standard single-cell pipelines."
-      },
-      {
-        "package": "src/scanpy/preprocessing/_pca/__init__.py",
-        "module": "scanpy.preprocessing._pca",
-        "functions": [
-          "pca"
-        ],
-        "classes": [],
-        "description": "Principal component analysis entry points and backend selection."
-      },
-      {
-        "package": "src/scanpy/neighbors/__init__.py",
-        "module": "scanpy.neighbors",
-        "functions": [
+          "pca",
           "neighbors"
         ],
-        "classes": [
-          "Neighbors"
-        ],
-        "description": "KNN graph computation and neighborhood graph container/operations."
-      },
-      {
-        "package": "src/scanpy/tools/_umap.py",
-        "module": "scanpy.tools._umap",
-        "functions": [
-          "umap"
-        ],
         "classes": [],
-        "description": "UMAP embedding computation based on precomputed neighborhood graph."
+        "description": "Core preprocessing pipeline primitives used in most workflows; stable, high-value callable set for plugin tooling."
       },
       {
-        "package": "src/scanpy/tools/_leiden.py",
-        "module": "scanpy.tools._leiden",
-        "functions": [
-          "leiden"
-        ],
-        "classes": [],
-        "description": "Leiden graph clustering tool."
-      },
-      {
-        "package": "src/scanpy/tools/_rank_genes_groups.py",
-        "module": "scanpy.tools._rank_genes_groups",
-        "functions": [
-          "rank_genes_groups",
-          "filter_rank_genes_groups"
-        ],
-        "classes": [],
-        "description": "Differential expression/ranking utilities for marker detection."
-      },
-      {
-        "package": "src/scanpy/plotting/_tools/scatterplots.py",
-        "module": "scanpy.plotting._tools.scatterplots",
+        "package": "deployment.scanpy.source",
+        "module": "scanpy.tools",
         "functions": [
           "umap",
           "tsne",
-          "diffmap",
-          "draw_graph",
-          "spatial"
+          "leiden",
+          "louvain",
+          "rank_genes_groups",
+          "paga",
+          "dpt",
+          "score_genes"
         ],
         "classes": [],
-        "description": "Primary embedding visualization functions."
+        "description": "Downstream analysis and graph/trajectory/clustering routines; should be exposed as optional advanced MCP tools due to heavier runtime dependencies."
       },
       {
-        "package": "src/scanpy/readwrite.py",
+        "package": "deployment.scanpy.source",
+        "module": "scanpy.plotting",
+        "functions": [
+          "umap",
+          "tsne",
+          "pca",
+          "violin",
+          "dotplot",
+          "matrixplot",
+          "rank_genes_groups"
+        ],
+        "classes": [
+          "DotPlot",
+          "MatrixPlot",
+          "StackedViolin"
+        ],
+        "description": "Visualization API with large surface and matplotlib coupling; better exposed selectively (non-interactive-safe methods only)."
+      },
+      {
+        "package": "deployment.scanpy.source",
         "module": "scanpy.readwrite",
         "functions": [
           "read",
-          "read_h5ad",
+          "read_10x_h5",
+          "read_10x_mtx",
+          "read_visium",
           "write"
         ],
         "classes": [],
-        "description": "I/O layer for AnnData and related formats."
+        "description": "I/O layer for AnnData-compatible files; ideal for MCP file-oriented operations with strict path sandboxing."
       },
       {
-        "package": "src/scanpy/datasets/_datasets.py",
-        "module": "scanpy.datasets._datasets",
+        "package": "deployment.scanpy.source",
+        "module": "scanpy.datasets",
         "functions": [
           "pbmc3k",
           "pbmc68k_reduced",
-          "visium_sge"
+          "visium_sge",
+          "krumsiek11",
+          "toggleswitch"
         ],
         "classes": [],
-        "description": "Built-in example/test dataset loaders useful for MCP smoke tests."
-      },
-      {
-        "package": "src/scanpy/get/get.py",
-        "module": "scanpy.get.get",
-        "functions": [
-          "obs_df",
-          "var_df",
-          "rank_genes_groups_df"
-        ],
-        "classes": [],
-        "description": "Structured extraction helpers for tabular outputs from AnnData/Scanpy results."
+        "description": "Dataset loaders useful for testing and demos; safe onboarding entrypoints for MCP workflows."
       }
     ],
     "cli_commands": [
       {
         "name": "scanpy",
-        "module": "src/scanpy/cli.py",
-        "description": "Top-level CLI entry module for Scanpy workflows and utility operations."
-      },
-      {
-        "name": "python -m scanpy",
-        "module": "src/scanpy/__main__.py",
-        "description": "Module execution entry point delegating to Scanpy CLI behavior."
+        "module": "scanpy.cli",
+        "description": "Package CLI entry implemented in scanpy/cli.py and wired through __main__.py; suitable only as fallback execution path due to weaker structured return handling."
       }
     ],
     "import_strategy": {
@@ -1159,32 +1134,39 @@
     },
     "dependencies": {
       "required": [
-        "anndata",
+        "python",
         "numpy",
         "scipy",
         "pandas",
+        "anndata",
+        "h5py",
         "matplotlib",
-        "scikit-learn"
+        "scikit-learn",
+        "numba",
+        "networkx"
       ],
       "optional": [
         "umap-learn",
         "igraph",
         "leidenalg",
         "louvain",
-        "h5py",
-        "numba",
+        "pynndescent",
         "dask",
+        "zarr",
         "bbknn",
         "harmonypy",
         "scanorama",
         "magic-impute",
         "phate",
-        "phenograph"
+        "phenograph",
+        "palantir",
+        "sam-algorithm",
+        "wishbone"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.9,
-      "intrusiveness_risk": "low",
+      "import_feasibility": 0.88,
+      "intrusiveness_risk": "medium",
       "complexity": "medium"
     }
   },
@@ -1201,8 +1183,8 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.9,
-    "intrusiveness_risk": "low",
+    "import_feasibility": 0.88,
+    "intrusiveness_risk": "medium",
     "complexity": "medium"
   }
 }

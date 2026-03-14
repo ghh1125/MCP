@@ -2,167 +2,153 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service wraps core Flair NLP capabilities for model-assisted workflows, including:
+This service wraps core Flair NLP capabilities as an MCP (Model Context Protocol) service for LLM-driven workflows.
 
-- Sequence labeling (NER, POS, chunking) via `SequenceTagger`
-- Text/document classification via `TextClassifier`
-- Embedding generation (word, Flair, transformer, stacked embeddings)
-- Dataset loading for sequence labeling (e.g., `ColumnCorpus`)
-- Training orchestration via `ModelTrainer`
-- Extensible training hooks via trainer services (renamed from plugins)
+Main goals:
+- Run inference for sequence labeling (NER/POS), text classification, and embedding generation
+- Expose training operations (train, fine-tune, resume) in a controllable way
+- Provide a low-intrusion integration point via Flair trainer services lifecycle hooks
 
-It is designed for developers who want a practical interface to run inference, training, and embedding operations through an MCP (Model Context Protocol)-style service layer.
+Core Flair modules used:
+- `flair.data` (Sentence/Token/Corpus/Dictionary primitives)
+- `flair.models.sequence_tagger_model` (SequenceTagger)
+- `flair.models.text_classification_model` (TextClassifier)
+- `flair.embeddings.transformer` (Transformer embeddings)
+- `flair.trainers.trainer` + `flair.trainers.services.base` (training orchestration/hooks)
 
 ---
 
 ## 2) Installation Method
 
-### Requirements
+Requirements (minimum):
+- Python >= 3.9
+- torch
+- transformers
+- tqdm
+- numpy
+- scipy
+- sentencepiece
+- segtok
+- ftfy
+- gdown
+- huggingface_hub
+- deprecated
 
-Core runtime dependencies include:
+Optional (feature-dependent):
+- spacy, gensim, bpemb
+- matplotlib, scikit-learn, tabulate
+- wandb, tensorboard, clearml
+- janome, langdetect, sqlitedict
 
-- `torch`
-- `transformers`
-- `tqdm`
-- `numpy`
-- `scikit-learn`
-- `deprecated`
-- `segtok`
-- `matplotlib`
-- `janome`
-- `langdetect`
-- `lxml`
-- `gdown`
-- `sqlitedict`
-- `mpld3`
+Recommended setup:
+1. Create a virtual environment
+2. Install Flair and required runtime packages
+3. Install optional packages only for features you need (logging backends, specific embeddings, language tooling)
 
-Optional (feature-specific): `sentencepiece`, `sacremoses`, `ftfy`, `boto3`, `gensim`, `bpemb`, `wandb`, `tensorboard`, `clearml`.
-
-### Install
-
-- Install Flair from source repository or PyPI (recommended for stable usage).
-- Then install optional extras only if needed (e.g., experiment tracking or specific tokenizers).
-
-Typical flow:
-- create virtual environment
-- install PyTorch matching your CUDA/CPU setup
-- install Flair
-- install optional packages as needed
+Typical pip flow:
+- `pip install flair`
+- Add optional extras manually as needed (e.g., `wandb`, `tensorboard`, `clearml`)
 
 ---
 
 ## 3) Quick Start
 
-### Basic inference flow
+### A. Sequence tagging inference
+- Load `SequenceTagger` with `SequenceTagger.load(...)`
+- Build `Sentence(...)`
+- Call `predict(...)`
+- Return token/span labels from `Sentence.to_dict()`
 
-1. Create `Sentence` objects (`flair.data.Sentence`)
-2. Load a pretrained model (`SequenceTagger` or `TextClassifier`)
-3. Run prediction
-4. Read labels/spans/tokens from the enriched sentence/document objects
+### B. Text classification inference
+- Load `TextClassifier` with `TextClassifier.load(...)`
+- Create `Sentence(...)` with input text
+- Call `predict(...)`
+- Read document labels
 
-### Typical training flow
+### C. Embedding service call
+- Use `TransformerWordEmbeddings` or `TransformerDocumentEmbeddings`
+- Call `embed(...)` on sentence instances
+- Return embedding metadata or vectors (depending on service response policy)
 
-1. Load corpus (e.g., `ColumnCorpus` for sequence labeling data)
-2. Define embeddings (`WordEmbeddings`, `FlairEmbeddings`, or transformer embeddings)
-3. Build model (`SequenceTagger` / `TextClassifier`)
-4. Train with `ModelTrainer`
-5. Optionally attach trainer services for logging/checkpoint/scheduling behaviors
-
-### Example scripts in repository
-
-- `examples/ner/run_ner.py` (NER workflow)
-- `examples/multi_gpu/run_multi_gpu.py` (multi-GPU training workflow)
+### D. Training operations
+- Use `ModelTrainer.train(...)`, `fine_tune(...)`, or `resume(...)`
+- Attach custom trainer services through Flair’s trainer extension points for MCP (Model Context Protocol) lifecycle integration
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) endpoints for this service:
+Suggested MCP (Model Context Protocol) service endpoints:
 
-- `health`
-  - Service health/status check.
+- `health.check`
+  - Validate runtime, model cache paths, and dependency readiness.
 
 - `models.list`
-  - List available/registered Flair model families and pretrained aliases.
+  - List available local/remote model identifiers supported by the service.
 
-- `models.load`
-  - Load a model into memory (e.g., sequence tagger, text classifier).
+- `sequence_tagger.load`
+  - Load or warm a sequence tagging model.
 
-- `inference.sequence_tag`
-  - Run token-level tagging (NER/POS/chunking) using `SequenceTagger`.
+- `sequence_tagger.predict`
+  - Input: text or tokenized sentences.
+  - Output: token/span labels (NER/POS/etc.), confidence if enabled.
 
-- `inference.classify_text`
-  - Run text/document classification using `TextClassifier`.
+- `text_classifier.load`
+  - Load or warm a text classification model.
 
-- `embeddings.encode_tokens`
-  - Generate token embeddings (word/flair/transformer).
+- `text_classifier.predict`
+  - Input: sentence/document text.
+  - Output: predicted class labels and scores.
 
-- `embeddings.encode_document`
-  - Generate document embeddings (transformer document embeddings, etc.).
+- `embeddings.word`
+  - Generate token-level transformer embeddings.
 
-- `datasets.load_column_corpus`
-  - Load custom sequence-labeling datasets from column format.
+- `embeddings.document`
+  - Generate sentence/document-level transformer embeddings.
 
-- `training.start`
-  - Start model training via `ModelTrainer`.
+- `training.train`
+  - Start supervised training run with config.
 
-- `training.status`
-  - Retrieve training progress/metrics.
+- `training.fine_tune`
+  - Fine-tune from existing checkpoint/model.
 
-- `training.stop`
-  - Gracefully stop training job.
+- `training.resume`
+  - Resume interrupted training from checkpoint.
 
-- `training.services.configure`
-  - Configure trainer services (logging, scheduler, checkpoints, tracking).
+- `data.serialize_sentence`
+  - Convert Flair Sentence to/from dict for transport-safe MCP (Model Context Protocol) payloads.
 
-- `artifacts.list`
-  - List produced artifacts (models, logs, checkpoints).
-
-- `artifacts.get`
-  - Retrieve specific artifact metadata/path/reference.
+- `corpus.downsample`
+  - Utility endpoint for quick dataset-size reduction in experiments.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- PyTorch compatibility:
-  - Always match Torch build with your CUDA runtime; many runtime failures come from mismatch.
-
-- Transformer-heavy pipelines:
-  - Expect high memory usage. Use smaller models, shorter max sequence length, or batch-size tuning.
-
-- Tokenization differences:
-  - Prediction quality can vary if inference tokenization differs from training setup.
-
-- Optional dependency gaps:
-  - Missing optional libraries may disable specific embedding/model features.
-
-- Multi-GPU:
-  - Use provided example as baseline; confirm distributed environment variables and NCCL setup.
-
-- Reproducibility:
-  - Pin library versions and random seeds; behavior may vary across transformer/torch versions.
-
-- Service extensibility:
-  - Prefer trainer services for customization instead of editing core training loops.
+- Version compatibility:
+  - Keep `torch`, `transformers`, and Flair-compatible versions aligned.
+- First-run latency:
+  - Model downloads from Hugging Face can be slow; pre-warm models in production.
+- Memory/performance:
+  - Transformer embeddings are GPU-memory intensive; batch carefully.
+- Optional dependencies:
+  - Missing optional packages may disable specific features but not core inference.
+- Training observability:
+  - Logging integrations (W&B/TensorBoard/ClearML) require separate installation and credentials.
+- Intrusiveness/risk:
+  - Integration risk is low; import feasibility is high (~0.94), with medium overall complexity.
 
 ---
 
 ## 6) Reference Links / Documentation
 
-- Repository: https://github.com/flairNLP/flair
-- Main docs/tutorials: `docs/tutorial/`
-- Core modules:
+- Flair repository: https://github.com/flairNLP/flair
+- Flair docs/tutorials (in repo): `docs/tutorial/*`
+- Trainer and extension points:
+  - `flair.trainers.trainer`
+  - `flair.trainers.services.base`
+- Core model/data APIs:
   - `flair.data`
   - `flair.models.sequence_tagger_model`
   - `flair.models.text_classification_model`
-  - `flair.embeddings.token`
   - `flair.embeddings.transformer`
-  - `flair.trainers.trainer`
-  - `flair.trainers.services.base` (conceptual rename from plugin base)
-  - `flair.datasets.sequence_labeling`
-- Example workflows:
-  - `examples/ner/run_ner.py`
-  - `examples/multi_gpu/run_multi_gpu.py`
-
-If you want, I can also provide a ready-to-use MCP (Model Context Protocol) service contract (JSON schema-style endpoint I/O) for these endpoints.

@@ -2,121 +2,113 @@
 
 ## 1) Project Introduction
 
-This service wraps core ObsPy capabilities into MCP (Model Context Protocol)-friendly tools for seismic workflows.
+This service exposes practical ObsPy capabilities through MCP (Model Context Protocol) for seismic workflows, including:
 
-Main capabilities:
-- Read/write seismic waveform, station metadata, and event catalog formats
-- Access remote FDSN services for waveforms/stations/events
-- Perform common signal processing (filtering, envelope, preprocessing)
-- Run travel-time and ray-path calculations (TauP)
-- Support bulk data acquisition workflows (mass downloader)
+- Waveform reading/processing (`Stream`, `Trace`, `read`)
+- Remote data retrieval via FDSN (`Client.get_waveforms`, `get_stations`, `get_events`)
+- MiniSEED interoperability (read/write)
+- Signal filtering (`bandpass`, `highpass`, `lowpass`, `bandstop`)
+- Travel-time modeling (`TauPyModel`)
+- Geodetic calculations (`gps2dist_azimuth`, `locations2degrees`)
 
-Target users: developers building AI agents, automation, or data pipelines for seismology/geophysics.
+Best suited for developer-facing automation, analysis assistants, and data-access tooling.
 
 ---
 
 ## 2) Installation Method
 
-Recommended environment: Python 3.10+ (3.9+ may work depending on your stack).
+### Prerequisites
+- Python 3.9+ recommended
+- System build tools for scientific Python packages
 
-Core dependencies:
-- numpy
-- scipy
-- matplotlib
-- lxml
-- sqlalchemy
-- requests
+### Core dependencies
+- Required: `numpy`, `scipy`, `matplotlib`, `lxml`, `setuptools`
+- Optional (feature-dependent): `cartopy`, `requests`, `sqlalchemy`, `geographiclib`, `pyproj`
 
-Optional (feature-specific):
-- cartopy
-- pyproj
-- geographiclib
-- numba
-- pyshp (shapefile)
+### Install
+- `pip install obspy`
+- For optional geospatial/network/database features:
+  - `pip install requests sqlalchemy geographiclib pyproj cartopy`
 
-Install:
-- pip install obspy
-- (optional extras) pip install cartopy pyproj geographiclib numba pyshp
-
-If system wheels are unavailable, ensure build toolchain and scientific libs are available.
+### Verify
+- `python -c "import obspy; print(obspy.__version__)"`
 
 ---
 
 ## 3) Quick Start
 
-Typical service usage should expose ObsPy-backed MCP (Model Context Protocol) tools such as:
+### Read waveform and basic processing
+from obspy import read  
+st = read("example.mseed")  
+st.filter("bandpass", freqmin=1.0, freqmax=20.0)  
+print(st)
 
-- Read waveform data into `Stream` / `Trace`
-- Apply processing (`bandpass`, `lowpass`, `highpass`, `envelope`)
-- Query remote FDSN data via `Client`
-- Compute travel times with `TauPyModel`
-- Export MiniSEED / StationXML / QuakeML
+### Retrieve data from FDSN
+from obspy.clients.fdsn import Client  
+client = Client("IRIS")  
+st = client.get_waveforms("IU", "ANMO", "00", "BHZ", "2020-01-01T00:00:00", "2020-01-01T00:10:00")  
+print(st)
 
-Minimal developer flow:
-1. Initialize your MCP (Model Context Protocol) server.
-2. Register ObsPy-backed services/endpoints (see section 4).
-3. Invoke tool calls from client/agent with input params (file path, network/station/channel, time window, filter settings, phase list, etc.).
-4. Return compact structured outputs (summary + artifacts/paths).
+### Travel-time modeling
+from obspy.taup import TauPyModel  
+model = TauPyModel(model="iasp91")  
+arrivals = model.get_travel_times(source_depth_in_km=10, distance_in_degree=30)  
+print(arrivals[:3])
+
+### Geodetic helpers
+from obspy.geodetics import gps2dist_azimuth  
+dist_m, az, baz = gps2dist_azimuth(48.1, 11.6, 40.7, -74.0)  
+print(dist_m, az, baz)
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) service endpoints:
+Recommended MCP (Model Context Protocol) service endpoints:
 
-- `waveform.read`
-  - Read local seismic files into stream objects (multi-format via ObsPy I/O).
-- `waveform.write_mseed`
-  - Write waveform streams to MiniSEED.
-- `waveform.filter`
-  - Apply `bandpass`, `bandstop`, `lowpass`, `highpass`, `envelope`.
-- `waveform.slice_merge`
-  - Slice by time, merge traces, basic preprocessing.
-- `fdsn.get_waveforms`
-  - Fetch waveform data from FDSN servers.
-- `fdsn.get_stations`
-  - Fetch station/instrument metadata (StationXML-compatible).
-- `fdsn.get_events`
-  - Query event catalogs from FDSN event services.
-- `fdsn.mass_download`
-  - Bulk waveform + metadata download orchestration.
-- `event.read_quakeml` / `event.write_quakeml`
-  - Read/write QuakeML catalogs.
-- `inventory.read_stationxml` / `inventory.write_stationxml`
-  - Read/write StationXML inventory/response metadata.
-- `taup.travel_times`
-  - Compute phase travel times using `TauPyModel`.
-- `taup.ray_paths`
-  - Compute ray-path or pierce-point style outputs.
-- `system.file_summary`
-  - Quick metadata summary for ObsPy-readable files (similar to `obspy-print` CLI behavior).
-
-Related ObsPy CLI commands (optional integration):
-- `obspy-print`
-- `obspy-flinn-engdahl`
-- `obspy-reftek-rescue`
-- `obspy-scan`
-- `obspy-plot`
-- `obspy-mopad`
-- `obspy-runtests`
+- `read_waveform`
+  - Load local seismic files (MiniSEED and other ObsPy-supported formats).
+- `filter_waveform`
+  - Apply standard filters (`bandpass`, `highpass`, `lowpass`, `bandstop`) to traces/streams.
+- `fdsn_get_waveforms`
+  - Download waveform windows from FDSN providers.
+- `fdsn_get_stations`
+  - Fetch station/instrument metadata.
+- `fdsn_get_events`
+  - Query earthquake event catalogs.
+- `mseed_read_write`
+  - Explicit MiniSEED import/export operations.
+- `taup_travel_times`
+  - Compute phase arrivals from source depth and epicentral distance.
+- `geodetic_distance_azimuth`
+  - Compute distance/azimuth/back-azimuth from coordinate pairs.
+- `cli_obspy_print`
+  - Inspect waveform/event metadata from files.
+- `cli_obspy_flinn_engdahl`
+  - Resolve Flinn–Engdahl region for coordinates.
+- `cli_obspy_reftek_rescue`
+  - Recover Reftek data from partial/raw media.
+- `cli_obspy_sds_report`
+  - Generate SDS archive coverage/quality HTML reports.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Large files: MiniSEED and archive scans can be memory/IO heavy; stream in chunks when possible.
-- Remote services: FDSN endpoints may rate-limit or vary in supported parameters; add retries/timeouts.
-- Optional geospatial plotting: requires extra dependencies (`cartopy`, `pyproj`, etc.).
-- Native/scientific stack: `numpy/scipy/lxml` installation may require platform-specific wheels/toolchains.
-- Reproducibility: pin ObsPy + numpy/scipy versions in production.
-- Performance: use bulk download APIs for many stations/time windows instead of many tiny requests.
+- Some functionality needs optional packages (`cartopy`, `pyproj`, etc.).
+- FDSN access depends on network availability and provider limits/timeouts.
+- Large waveform windows can be memory-heavy; prefer chunked downloads.
+- Plotting/imaging features may require GUI/backend configuration in headless environments.
+- MiniSEED handling is robust, but format edge cases vary by source archives.
+- Repository analysis indicates low intrusiveness risk and medium integration complexity.
 
 ---
 
 ## 6) Reference Links or Documentation
 
 - Repository: https://github.com/obspy/obspy
-- ObsPy documentation: https://docs.obspy.org/
-- FDSN web services spec: https://www.fdsn.org/webservices/
-- QuakeML format: https://quake.ethz.ch/quakeml/
-- StationXML format: https://www.fdsn.org/xml/station/
+- Main documentation: https://docs.obspy.org/
+- FDSN client module: https://docs.obspy.org/packages/obspy.clients.fdsn.html
+- TauP module: https://docs.obspy.org/packages/obspy.taup.html
+- Signal processing: https://docs.obspy.org/packages/obspy.signal.html
+- Geodetics: https://docs.obspy.org/packages/obspy.geodetics.html

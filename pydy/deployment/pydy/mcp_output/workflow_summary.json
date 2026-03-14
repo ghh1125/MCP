@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773252182.230516,
-    "end_time": 1773252511.982767,
-    "duration": 329.7522511482239,
+    "start_time": 1773462925.16491,
+    "end_time": 1773463376.3995671,
+    "duration": 451.2346570491791,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 6,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,14 +53,21 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.pydy.source",
+        "mcp_output.mcp_plugin",
+        "source.pydy",
+        "source.pydy.codegen",
+        "source.pydy.tests",
+        "source.pydy.viz"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
       "has_requirements_txt": false,
       "pyproject": false,
       "setup_cfg": false,
-      "setup_py": false
+      "setup_py": true
     },
     "entry_points": {
       "imports": [],
@@ -68,7 +75,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.92,
+      "import_feasibility": 0.93,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -121,45 +128,35 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/pydy/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75016 ms: Couldn't connect to server\nfatal: expected 'packfile'\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/pydy/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75016 ms: Couldn't connect to server\nfatal: expected 'packfile'\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "add and run a real test matrix (Python/SymPy/NumPy/SciPy versions) in CI with coverage gates",
-    "modernize packaging by adding `pyproject.toml` and moving metadata from `setup.py` (keep a thin shim if needed)",
-    "publish explicit dependency files (`requirements.txt` and/or extras like `viz`",
-    "`dev`",
-    "`docs`) since analysis couldn’t detect environment metadata",
-    "create smoke tests for the generated MCP plugin endpoints (especially class-based endpoints and visualization objects) and wire them into CI",
-    "prioritize regression tests around `pydy/codegen/ode_function_generators.py` and `pydy/system.py` because they are large/high-impact modules",
-    "replace or isolate deprecated optional backend paths (notably Theano) behind optional extras and clearer runtime warnings",
-    "add type hints to public APIs (`System`",
-    "model factories",
-    "codegen entry points) and enforce with mypy/pyright in gradual mode",
-    "add lint/format tooling (ruff + black) with pre-commit hooks for consistent contributions",
-    "harden docs build in CI (API docs + example execution subset) and add a compatibility table for optional backends",
-    "reduce and externalize legacy bundled JS assets in `pydy/viz/static/js/external` (or pin/update via a managed frontend workflow) to lower security/maintenance risk",
-    "add benchmark CI (or scheduled runs) for RHS/codegen performance using existing `bin/` scripts and track regressions over time",
-    "standardize example quality by adding runnable checks for key examples and minimal README instructions per example folder",
-    "improve release engineering with changelog automation",
-    "wheel/sdist build checks",
-    "and trusted publishing to PyPI",
-    "document and test import-mode assumptions used by the MCP adapter (constructor signatures",
-    "serialization of SymPy objects",
-    "error normalization)",
-    "add contract tests for endpoint naming/casing (`orthographiccamera` vs class name variants) to prevent breaking API drift",
-    "introduce lightweight architecture docs describing boundaries between symbolic modeling",
-    "codegen",
-    "simulation",
-    "and viz layers"
+    "add and publish a minimal `pyproject.toml` (PEP 517/621) while keeping `setup.py` compatibility",
+    "add pinned test/dev dependency files (`requirements-dev.txt` or `conda` env) and include optional extras (`viz`",
+    "`codegen`",
+    "`docs`)",
+    "expand CI matrix (Python/SymPy/NumPy version ranges + OS) and enable coverage reporting with thresholds",
+    "create a smoke-test suite for MCP endpoints and deduplicate/canonicalize endpoint names (e.g.",
+    "repeated `odeint_wrapper`",
+    "`rhs_wrapper`)",
+    "limit MCP exports to stable public API only (exclude most `examples/*` symbols) and add an allowlist",
+    "add type hints to core modules (`system.py`",
+    "`ode_function_generators.py`) and enforce with `mypy`/`pyright` in CI",
+    "introduce lint/format pre-commit pipeline (`ruff` + `black` + import sorting) and fail CI on violations",
+    "split large modules (`pydy/system.py`",
+    "`pydy/codegen/ode_function_generators.py`",
+    "`pydy/viz/scene.py`) into smaller units with clearer interfaces",
+    "modernize and prune vendored frontend assets in `pydy/viz/static/js/external` (or move to package-managed build) and add license/SBOM checks",
+    "add performance regression benchmarks for codegen/system integration (reuse `bin/benchmark_pydy_code_gen.py`) and track in CI",
+    "strengthen docs with API reference boundaries (public vs internal)",
+    "MCP usage examples",
+    "and quickstart notebooks validated in CI",
+    "add backward-compatibility/deprecation policy tests for warning classes and legacy generators (Theano/Symjit)",
+    "improve repository metadata and health files (CONTRIBUTING",
+    "SECURITY",
+    "issue/PR templates",
+    "release checklist)",
+    "add import-time and optional-dependency guard tests to ensure graceful degradation when Cython/Theano/Jupyter are absent"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -190,36 +187,35 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow-level completion succeeded despite SCM network failure due to resilient zip fallback/import path.",
-      "Low-intrusiveness import adapter strategy (feasibility ~0.92) matched this Python library well.",
-      "MCP plugin artifacts were generated coherently (entrypoint, adapter, service, requirements, README).",
-      "Generated MCP service passed health/startup checks over stdio transport."
+      "Workflow completed end-to-end with status=success across all planned nodes (download, analysis, env, generate, run, review, finalize).",
+      "Low intrusiveness risk and high import feasibility (0.93) enabled adapter_mode=import instead of more fragile black-box wrapping.",
+      "Generated MCP service started healthy over stdio transport and passed MCP plugin validation.",
+      "Repository structure and AST-discovered symbols provided sufficient metadata for automated endpoint generation."
     ],
     "failure_reasons": [
-      "Primary git clone failed (curl 28 timeout to github.com:443), indicating external network/connectivity instability.",
-      "Execution telemetry quality is degraded: total_files_processed=0 and several zeroed metrics contradict detailed file-tree evidence.",
-      "Original project tests were not executed meaningfully (reported failed with empty details), reducing confidence in functional parity.",
-      "DeepWiki analysis failed, reducing external architecture/context enrichment."
+      "No hard workflow failure detected.",
+      "Original project test status is marked failed/unknown with empty details and zero execution time, indicating test phase likely not executed rather than functional regression.",
+      "DeepWiki analysis failed, reducing enrichment quality for architecture/context decisions."
     ],
     "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Dominant delay source; clone retried then fell back after ~75s network timeout. Download stage likely major share of total 329.75s.",
-      "analysis_time": "Moderate; repository was analyzed via zip fallback (181 files discovered), but top-level counters remained inconsistent.",
-      "generation_time": "Efficient for scaffold generation; multiple files emitted quickly, though LOC/size metrics were incorrectly zero.",
-      "test_time": "Minimal/insufficient; MCP health check passed, but no substantial endpoint contract/integration test matrix was run."
+      "download_time": "Completed successfully via zip fallback; robust retrieval path worked, but exact per-node timing not provided.",
+      "analysis_time": "Static/AST analysis completed with medium complexity classification and maintainability index 75; no per-node timing available.",
+      "generation_time": "Code generation succeeded (7 files created), but reported generated LOC/size are zero, indicating metrics collection gap.",
+      "test_time": "MCP plugin tests passed (service healthy), while original project tests were effectively not run (0s, no files), creating validation blind spot."
     },
     "resource_usage": {
-      "memory_efficiency": "Not measurable from provided telemetry (reported 0 MB). Instrumentation gap rather than proven low usage.",
-      "cpu_efficiency": "Not measurable (reported 0%). Likely under-instrumented execution pipeline.",
-      "disk_usage": "Actual disk usage non-trivial (repo + generated files), but reported generated size=0 indicates measurement defect."
+      "memory_efficiency": "Unknown from telemetry (reported 0 MB suggests missing instrumentation rather than true zero use).",
+      "cpu_efficiency": "Unknown from telemetry (0% likely uncollected).",
+      "disk_usage": "Low-to-moderate expected (small plugin artifact set), but exact size missing due to metric gap."
     }
   },
   "technical_quality": {
     "code_quality_score": 74,
-    "architecture_score": 81,
-    "performance_score": 62,
-    "maintainability_score": 70,
+    "architecture_score": 78,
+    "performance_score": 63,
+    "maintainability_score": 72,
     "security_score": 85,
-    "scalability_score": 72
+    "scalability_score": 68
   }
 }

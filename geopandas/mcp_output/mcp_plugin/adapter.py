@@ -2,7 +2,7 @@ import os
 import sys
 import traceback
 import importlib
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, Optional, List
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -13,268 +13,137 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import-Mode adapter for the GeoPandas repository source tree.
+    Import-mode adapter for the GeoPandas repository source package.
 
-    This adapter prefers direct module imports from the local repository source path.
-    If imports fail, it gracefully degrades to fallback mode and returns actionable
-    guidance in English.
+    This adapter prioritizes direct imports from the local source tree:
+    - deployment.geopandas.source.geopandas
+
+    It provides:
+    - module loading and health checks
+    - wrappers for key constructors and commonly used functions
+    - graceful fallback responses when import is unavailable
     """
 
     def __init__(self) -> None:
         self.mode = "import"
-        self._fallback_reason: Optional[str] = None
+        self._loaded = False
+        self._load_error: Optional[str] = None
         self._modules: Dict[str, Any] = {}
-        self._initialize_imports()
+        self._symbols: Dict[str, Any] = {}
+        self._initialize()
 
     # -------------------------------------------------------------------------
     # Internal helpers
     # -------------------------------------------------------------------------
-    def _ok(self, data: Any = None, message: str = "Success") -> Dict[str, Any]:
-        return {"status": "success", "mode": self.mode, "message": message, "data": data}
+    def _ok(self, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        out = {"status": "success", "mode": self.mode}
+        if data:
+            out.update(data)
+        return out
 
-    def _err(self, message: str, error: Optional[Exception] = None, guidance: Optional[str] = None) -> Dict[str, Any]:
-        payload = {"status": "error", "mode": self.mode, "message": message}
-        if error is not None:
-            payload["error"] = str(error)
+    def _fail(self, message: str, guidance: Optional[str] = None, error: Optional[str] = None) -> Dict[str, Any]:
+        out = {
+            "status": "error",
+            "mode": self.mode,
+            "message": message,
+        }
         if guidance:
-            payload["guidance"] = guidance
-        return payload
+            out["guidance"] = guidance
+        if error:
+            out["error"] = error
+        return out
 
-    def _import_module(self, module_path: str) -> Tuple[bool, Optional[Any], Optional[str]]:
-        try:
-            mod = importlib.import_module(module_path)
-            return True, mod, None
-        except Exception as e:
-            return False, None, f"{module_path}: {e}"
-
-    def _initialize_imports(self) -> None:
-        required_modules = [
-            "geopandas",
-            "geopandas.io.file",
-            "geopandas.io.arrow",
-            "geopandas.io.sql",
-            "geopandas.tools.clip",
-            "geopandas.tools.overlay",
-            "geopandas.tools.sjoin",
-            "geopandas.tools.geocoding",
-            "geopandas.tools._random",
-            "geopandas.tools.hilbert_curve",
-        ]
-
-        errors: List[str] = []
-        for mod_path in required_modules:
-            ok, mod, err = self._import_module(mod_path)
-            if ok:
-                self._modules[mod_path] = mod
-            else:
-                errors.append(err or f"Failed importing {mod_path}")
-
-        if errors:
-            self.mode = "fallback"
-            self._fallback_reason = "; ".join(errors)
-
-    def health_check(self) -> Dict[str, Any]:
-        """
-        Return adapter and import health information.
-        """
-        if self.mode == "import":
-            return self._ok(
-                {
-                    "imports_loaded": sorted(self._modules.keys()),
-                    "fallback_reason": self._fallback_reason,
-                },
-                "Adapter initialized in import mode.",
-            )
-        return self._err(
-            "Adapter running in fallback mode due to import failures.",
+    def _fallback(self, action: str) -> Dict[str, Any]:
+        return self._fail(
+            message=f"Import mode is not available for action '{action}'.",
             guidance=(
-                "Ensure repository source exists at the configured source path, and required "
-                "dependencies are installed: numpy, pandas, shapely, pyproj. Optional features "
-                "may require fiona/pyogrio/pyarrow/sqlalchemy/rtree/matplotlib/folium."
+                "Verify the repository source is present under the expected 'source' directory, "
+                "and ensure required dependencies are installed: python>=3.11, numpy, pandas, "
+                "shapely, pyproj, packaging."
             ),
+            error=self._load_error,
         )
 
-    # -------------------------------------------------------------------------
-    # Core constructors and IO wrappers
-    # -------------------------------------------------------------------------
-    def create_geoseries(self, data=None, index=None, crs=None, **kwargs) -> Dict[str, Any]:
+    def _initialize(self) -> None:
         """
-        Create a GeoSeries using geopandas.GeoSeries.
-
-        Parameters:
-            data: Geometry-like iterable or scalar.
-            index: Optional index.
-            crs: CRS definition.
-            **kwargs: Forwarded to GeoSeries constructor.
+        Load GeoPandas modules and key symbols from local source package paths.
         """
-        if self.mode != "import":
-            return self._err("GeoSeries creation unavailable in fallback mode.", guidance="Fix imports and retry.")
         try:
-            gpd = self._modules["geopandas"]
-            obj = gpd.GeoSeries(data=data, index=index, crs=crs, **kwargs)
-            return self._ok(obj, "GeoSeries created.")
-        except Exception as e:
-            return self._err("Failed to create GeoSeries.", e)
+            base_pkg = "deployment.geopandas.source.geopandas"
 
-    def create_geodataframe(self, data=None, geometry=None, crs=None, **kwargs) -> Dict[str, Any]:
-        """
-        Create a GeoDataFrame using geopandas.GeoDataFrame.
+            self._modules["geopandas"] = importlib.import_module(base_pkg)
+            self._modules["geopandas_io_file"] = importlib.import_module(f"{base_pkg}.io.file")
+            self._modules["geopandas_io_arrow"] = importlib.import_module(f"{base_pkg}.io.arrow")
+            self._modules["geopandas_io_sql"] = importlib.import_module(f"{base_pkg}.io.sql")
+            self._modules["geopandas_tools"] = importlib.import_module(f"{base_pkg}.tools")
+            self._modules["geopandas_tools_clip"] = importlib.import_module(f"{base_pkg}.tools.clip")
+            self._modules["geopandas_tools_overlay"] = importlib.import_module(f"{base_pkg}.tools.overlay")
+            self._modules["geopandas_tools_sjoin"] = importlib.import_module(f"{base_pkg}.tools.sjoin")
+            self._modules["geopandas_tools_geocoding"] = importlib.import_module(f"{base_pkg}.tools.geocoding")
+            self._modules["geopandas_tools_hilbert"] = importlib.import_module(f"{base_pkg}.tools.hilbert_curve")
+            self._modules["geopandas_tools_random"] = importlib.import_module(f"{base_pkg}.tools._random")
+            self._modules["geopandas_show_versions"] = importlib.import_module(f"{base_pkg}.tools._show_versions")
 
-        Parameters:
-            data: Tabular-like data.
-            geometry: Geometry column or sequence.
-            crs: CRS definition.
-            **kwargs: Forwarded to GeoDataFrame constructor.
-        """
-        if self.mode != "import":
-            return self._err("GeoDataFrame creation unavailable in fallback mode.", guidance="Fix imports and retry.")
-        try:
             gpd = self._modules["geopandas"]
-            obj = gpd.GeoDataFrame(data=data, geometry=geometry, crs=crs, **kwargs)
-            return self._ok(obj, "GeoDataFrame created.")
-        except Exception as e:
-            return self._err("Failed to create GeoDataFrame.", e)
+            self._symbols["GeoDataFrame"] = getattr(gpd, "GeoDataFrame", None)
+            self._symbols["GeoSeries"] = getattr(gpd, "GeoSeries", None)
+            self._symbols["read_file"] = getattr(gpd, "read_file", None)
+            self._symbols["read_parquet"] = getattr(gpd, "read_parquet", None)
+            self._symbols["read_feather"] = getattr(gpd, "read_feather", None)
+            self._symbols["read_postgis"] = getattr(gpd, "read_postgis", None)
+            self._symbols["sjoin"] = getattr(gpd, "sjoin", None)
+            self._symbols["overlay"] = getattr(gpd, "overlay", None)
+            self._symbols["clip"] = getattr(gpd, "clip", None)
+            self._symbols["points_from_xy"] = getattr(gpd, "points_from_xy", None)
+            self._symbols["datasets"] = getattr(gpd, "datasets", None)
 
-    def read_file(self, filename: str, **kwargs) -> Dict[str, Any]:
-        """
-        Read geospatial file with geopandas.read_file.
-        """
-        if self.mode != "import":
-            return self._err("read_file unavailable in fallback mode.", guidance="Install optional IO deps like fiona or pyogrio.")
-        try:
-            gpd = self._modules["geopandas"]
-            out = gpd.read_file(filename, **kwargs)
-            return self._ok(out, "File read successfully.")
-        except Exception as e:
-            return self._err("Failed to read file.", e, "Verify path, driver support, and IO dependencies.")
+            self._loaded = True
+            self._load_error = None
+        except Exception as exc:
+            self._loaded = False
+            self._load_error = f"{exc.__class__.__name__}: {exc}"
 
-    def read_parquet(self, path: str, **kwargs) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err("read_parquet unavailable in fallback mode.", guidance="Install pyarrow and fix imports.")
-        try:
-            gpd = self._modules["geopandas"]
-            out = gpd.read_parquet(path, **kwargs)
-            return self._ok(out, "Parquet read successfully.")
-        except Exception as e:
-            return self._err("Failed to read parquet.", e, "Ensure pyarrow is available and file is valid.")
-
-    def read_feather(self, path: str, **kwargs) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err("read_feather unavailable in fallback mode.", guidance="Install pyarrow and fix imports.")
-        try:
-            gpd = self._modules["geopandas"]
-            out = gpd.read_feather(path, **kwargs)
-            return self._ok(out, "Feather read successfully.")
-        except Exception as e:
-            return self._err("Failed to read feather.", e)
-
-    def read_postgis(self, sql: str, con: Any, geom_col: str = "geom", **kwargs) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err("read_postgis unavailable in fallback mode.", guidance="Install sqlalchemy/geoalchemy2/psycopg and fix imports.")
-        try:
-            gpd = self._modules["geopandas"]
-            out = gpd.read_postgis(sql=sql, con=con, geom_col=geom_col, **kwargs)
-            return self._ok(out, "PostGIS query executed successfully.")
-        except Exception as e:
-            return self._err("Failed to read PostGIS.", e)
-
-    # -------------------------------------------------------------------------
-    # Tools wrappers
-    # -------------------------------------------------------------------------
-    def clip(self, gdf: Any, mask: Any, keep_geom_type: bool = False, sort: bool = False) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err("clip unavailable in fallback mode.", guidance="Fix imports and geometry dependencies.")
-        try:
-            gpd = self._modules["geopandas"]
-            out = gpd.clip(gdf, mask, keep_geom_type=keep_geom_type, sort=sort)
-            return self._ok(out, "Clip operation completed.")
-        except Exception as e:
-            return self._err("Failed to execute clip.", e)
-
-    def overlay(self, df1: Any, df2: Any, how: str = "intersection", keep_geom_type: Optional[bool] = None, make_valid: bool = True) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err("overlay unavailable in fallback mode.", guidance="Fix imports and ensure valid geometries.")
-        try:
-            gpd = self._modules["geopandas"]
-            out = gpd.overlay(df1, df2, how=how, keep_geom_type=keep_geom_type, make_valid=make_valid)
-            return self._ok(out, "Overlay operation completed.")
-        except Exception as e:
-            return self._err("Failed to execute overlay.", e)
-
-    def sjoin(self, left_df: Any, right_df: Any, how: str = "inner", predicate: str = "intersects", lsuffix: str = "left", rsuffix: str = "right", **kwargs) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err("sjoin unavailable in fallback mode.", guidance="Install spatial index backend (rtree/pygeos/shapely STRtree) and fix imports.")
-        try:
-            gpd = self._modules["geopandas"]
-            out = gpd.sjoin(left_df, right_df, how=how, predicate=predicate, lsuffix=lsuffix, rsuffix=rsuffix, **kwargs)
-            return self._ok(out, "Spatial join completed.")
-        except Exception as e:
-            return self._err("Failed to execute spatial join.", e)
-
-    def sjoin_nearest(self, left_df: Any, right_df: Any, how: str = "inner", max_distance: Optional[float] = None, distance_col: Optional[str] = None, exclusive: bool = False) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err("sjoin_nearest unavailable in fallback mode.", guidance="Ensure spatial index capabilities and fix imports.")
-        try:
-            gpd = self._modules["geopandas"]
-            out = gpd.sjoin_nearest(
-                left_df,
-                right_df,
-                how=how,
-                max_distance=max_distance,
-                distance_col=distance_col,
-                exclusive=exclusive,
+    def _call(self, fn: Any, action: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        if not self._loaded:
+            return self._fallback(action)
+        if fn is None:
+            return self._fail(
+                message=f"Function for action '{action}' is not available.",
+                guidance="Check the repository version and exported API symbols.",
             )
-            return self._ok(out, "Nearest spatial join completed.")
-        except Exception as e:
-            return self._err("Failed to execute nearest spatial join.", e)
-
-    def geocode(self, strings: Any, provider: Optional[str] = None, **kwargs) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err("geocode unavailable in fallback mode.", guidance="Install geocoding dependencies and fix imports.")
         try:
-            gpd = self._modules["geopandas"]
-            out = gpd.tools.geocode(strings, provider=provider, **kwargs)
-            return self._ok(out, "Geocoding completed.")
-        except Exception as e:
-            return self._err("Failed to geocode.", e)
-
-    def reverse_geocode(self, points: Any, provider: Optional[str] = None, **kwargs) -> Dict[str, Any]:
-        if self.mode != "import":
-            return self._err("reverse_geocode unavailable in fallback mode.", guidance="Install geocoding dependencies and fix imports.")
-        try:
-            gpd = self._modules["geopandas"]
-            out = gpd.tools.reverse_geocode(points, provider=provider, **kwargs)
-            return self._ok(out, "Reverse geocoding completed.")
-        except Exception as e:
-            return self._err("Failed to reverse geocode.", e)
-
-    # -------------------------------------------------------------------------
-    # Generic execution helpers
-    # -------------------------------------------------------------------------
-    def call_module_function(self, module_path: str, function_name: str, *args, **kwargs) -> Dict[str, Any]:
-        """
-        Dynamically call a function from an imported or importable module.
-        """
-        try:
-            mod = self._modules.get(module_path)
-            if mod is None:
-                ok, mod, err = self._import_module(module_path)
-                if not ok or mod is None:
-                    return self._err("Failed to import requested module.", guidance=err)
-                self._modules[module_path] = mod
-
-            fn = getattr(mod, function_name, None)
-            if fn is None or not callable(fn):
-                return self._err(
-                    f"Function '{function_name}' not found in module '{module_path}'.",
-                    guidance="Check the module path and function name against repository source.",
-                )
-
             result = fn(*args, **kwargs)
-            return self._ok(result, f"Function '{module_path}.{function_name}' executed.")
-        except Exception as e:
-            return self._err(
-                "Dynamic function call failed.",
-                e,
-                guidance=traceback.format_exc(limit=3),
+            return self._ok({"action": action, "result": result})
+        except Exception as exc:
+            return self._fail(
+                message=f"Execution failed for action '{action}'.",
+                guidance="Validate parameters, input data paths, CRS values, and optional dependency availability.",
+                error=f"{exc.__class__.__name__}: {exc}",
             )
+
+    # -------------------------------------------------------------------------
+    # Status and diagnostics
+    # -------------------------------------------------------------------------
+    def health(self) -> Dict[str, Any]:
+        """
+        Return adapter health and import status.
+        """
+        if self._loaded:
+            return self._ok(
+                {
+                    "loaded": True,
+                    "modules": sorted(list(self._modules.keys())),
+                    "available_symbols": sorted([k for k, v in self._symbols.items() if v is not None]),
+                }
+            )
+        return self._fallback("health")
+
+    def show_versions(self) -> Dict[str, Any]:
+        """
+        Return version diagnostics using geopandas.tools._show_versions.
+        """
+        if not self._loaded:
+            return self._fallback("show_versions")
+        try:
+            mod = self._modules.get("geopandas_show_versions")
+            fn = getattr(mod, "show_versions", None)

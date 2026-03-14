@@ -887,7 +887,10 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.flair.source",
+      "mcp_output.mcp_plugin"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
@@ -904,99 +907,99 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "flair",
+        "package": "deployment.flair.source",
         "module": "flair.data",
-        "functions": [],
+        "functions": [
+          "Dictionary.load",
+          "Corpus.downsample",
+          "Sentence.to_dict",
+          "Sentence.from_dict"
+        ],
         "classes": [
           "Sentence",
           "Token",
-          "Corpus",
-          "Dictionary",
           "Label",
           "Span",
-          "Relation"
+          "Corpus",
+          "Dictionary",
+          "FlairDataset"
         ],
-        "description": "Core data abstractions for text, annotations, labels, and corpora; foundational for nearly all Flair model workflows."
+        "description": "Core data model and dataset abstractions used across tagging, classification, training, and serialization."
       },
       {
-        "package": "flair",
+        "package": "deployment.flair.source",
         "module": "flair.models.sequence_tagger_model",
-        "functions": [],
+        "functions": [
+          "SequenceTagger.load",
+          "SequenceTagger.predict",
+          "SequenceTagger.forward_loss"
+        ],
         "classes": [
           "SequenceTagger"
         ],
-        "description": "Primary sequence labeling model (e.g., NER/POS/chunking), central for inference and training in tagging tasks."
+        "description": "Primary sequence labeling model (e.g., NER/POS) and most practical inference entry point."
       },
       {
-        "package": "flair",
+        "package": "deployment.flair.source",
         "module": "flair.models.text_classification_model",
-        "functions": [],
+        "functions": [
+          "TextClassifier.load",
+          "TextClassifier.predict",
+          "TextClassifier.forward_loss"
+        ],
         "classes": [
           "TextClassifier"
         ],
-        "description": "Document/text classification model interface for single- and multi-label tasks."
+        "description": "Document/sentence classification model for sentiment/topic and similar tasks."
       },
       {
-        "package": "flair",
-        "module": "flair.embeddings.token",
-        "functions": [],
-        "classes": [
-          "WordEmbeddings",
-          "FlairEmbeddings",
-          "StackedEmbeddings"
-        ],
-        "description": "Token-level embedding implementations and composition utilities used by taggers and related models."
-      },
-      {
-        "package": "flair",
+        "package": "deployment.flair.source",
         "module": "flair.embeddings.transformer",
-        "functions": [],
+        "functions": [
+          "TransformerWordEmbeddings.embed",
+          "TransformerDocumentEmbeddings.embed"
+        ],
         "classes": [
           "TransformerWordEmbeddings",
           "TransformerDocumentEmbeddings"
         ],
-        "description": "Transformer-based embeddings for token/document representations; common in modern Flair pipelines."
+        "description": "Transformer-based embedding backends used by many higher-level models."
       },
       {
-        "package": "flair",
+        "package": "deployment.flair.source",
         "module": "flair.trainers.trainer",
-        "functions": [],
+        "functions": [
+          "ModelTrainer.fine_tune",
+          "ModelTrainer.train",
+          "ModelTrainer.resume"
+        ],
         "classes": [
           "ModelTrainer"
         ],
-        "description": "Central training orchestration class integrating models, corpora, optimization, evaluation, and plugin hooks."
+        "description": "Training orchestration with plugin hooks, checkpoints, schedulers, and logging integration."
       },
       {
-        "package": "flair",
+        "package": "deployment.flair.source",
         "module": "flair.trainers.plugins.base",
-        "functions": [],
-        "classes": [
-          "TrainerPlugin"
+        "functions": [
+          "TrainerPlugin.attach_to_trainer",
+          "TrainerPlugin.detach_from_trainer"
         ],
-        "description": "Plugin extension interface for low-intrusion customization of training behavior (logging, scheduling, checkpoints, etc.)."
+        "classes": [
+          "TrainerPlugin",
+          "TrainingInterrupt"
+        ],
+        "description": "Native extension mechanism; best anchor for minimal-intrusion MCP integration during training lifecycle."
       },
       {
-        "package": "flair",
-        "module": "flair.datasets.sequence_labeling",
+        "package": "mcp_output.mcp_plugin",
+        "module": "__init__",
         "functions": [],
-        "classes": [
-          "ColumnCorpus"
-        ],
-        "description": "Dataset loaders/parsers for sequence labeling tasks; frequently used for custom training data ingestion."
+        "classes": [],
+        "description": "Scanned output package path reserved for MCP plugin implementation; no confirmed callable entry points provided."
       }
     ],
-    "cli_commands": [
-      {
-        "name": "examples.ner.run_ner",
-        "module": "examples/ner/run_ner.py",
-        "description": "Script-style NER training/inference example; not an installed console entry point."
-      },
-      {
-        "name": "examples.multi_gpu.run_multi_gpu",
-        "module": "examples/multi_gpu/run_multi_gpu.py",
-        "description": "Script-style multi-GPU training example; not a formal CLI command exported via entry_points."
-      }
-    ],
+    "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
@@ -1004,35 +1007,36 @@
     },
     "dependencies": {
       "required": [
+        "python>=3.9",
         "torch",
         "transformers",
         "tqdm",
         "numpy",
-        "scikit-learn",
+        "scipy",
         "deprecated",
+        "sentencepiece",
         "segtok",
-        "matplotlib",
-        "janome",
-        "langdetect",
-        "lxml",
+        "ftfy",
         "gdown",
-        "sqlitedict",
-        "mpld3"
+        "huggingface_hub"
       ],
       "optional": [
-        "sentencepiece",
-        "sacremoses",
-        "ftfy",
-        "boto3",
+        "spacy",
         "gensim",
         "bpemb",
+        "tabulate",
+        "matplotlib",
+        "scikit-learn",
+        "sqlitedict",
+        "janome",
+        "langdetect",
         "wandb",
         "tensorboard",
         "clearml"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.91,
+      "import_feasibility": 0.94,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -1050,7 +1054,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.91,
+    "import_feasibility": 0.94,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

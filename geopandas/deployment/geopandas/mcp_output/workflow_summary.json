@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773244745.058615,
-    "end_time": 1773245521.151846,
-    "duration": 776.0932309627533,
+    "start_time": 1773460662.184353,
+    "end_time": 1773461077.007573,
+    "duration": 414.82321977615356,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 2,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,7 +53,10 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.geopandas.source",
+        "mcp_output.mcp_plugin"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
@@ -68,7 +71,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.91,
+      "import_feasibility": 0.9,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -125,31 +128,32 @@
     {
       "node": "DownloadNode",
       "type": "CloneFailed",
-      "message": "Command '['git', 'clone', 'https://github.com/geopandas/geopandas', '/Users/ghh/Documents/Code/Code2MCP-private/workspace/geopandas/temp_clone']' timed out after 600 seconds",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/geopandas/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 2383 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n",
       "action_taken": "continue_with_empty"
     }
   ],
   "warnings": [
-    "git clone failed: Command '['git', 'clone', 'https://github.com/geopandas/geopandas', '/Users/ghh/Documents/Code/Code2MCP-private/workspace/geopandas/temp_clone']' timed out after 600 seconds"
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/geopandas/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 2383 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
   ],
   "recommendations": [
-    "deduplicate and normalize MCP endpoints (current list repeats read_file/read_parquet/read_feather/read_postgis/sjoin/overlay/clip and has class/function naming inconsistencies like geodataframe/geoseries/geometryarray)",
-    "add a strict API contract layer with Pydantic schemas for geometries/CRS/IO args and standardized error mapping",
-    "introduce smoke and integration tests for the generated MCP plugin (import",
-    "endpoint discovery",
-    "round-trip I/O",
-    "optional-dependency gating)",
-    "add a CI workflow for mcp_output (lint + type checks + tests across minimal/latest dependency matrices)",
-    "improve dependency detection logic (it incorrectly reports no pyproject/environment despite files existing) to prevent bad setup guidance",
-    "implement capability-aware endpoint registration (enable/disable file/sql/arrow/sindex endpoints based on installed extras)",
-    "add timeout/resource guards for heavy operations (overlay/sjoin/read_file on large datasets)",
-    "expand README_MCP with backend matrix and concrete examples for pyogrio/fiona/pyarrow/postgis",
-    "add observability hooks (structured logs",
-    "per-endpoint latency/failure counters)",
-    "harden path/SQL input handling and document safe usage patterns for untrusted inputs",
-    "create regression tests for adapter_mode=import fallback behavior and version compatibility (Python 3.11–3.14)",
-    "benchmark high-cost endpoints and add basic performance budgets",
-    "reduce exposure of low-level constructors unless needed (from_wkb/from_wkt/from_shapely) or clearly mark them advanced/unstable in MCP docs"
+    "Add a minimal but meaningful MCP test suite (smoke tests for server startup",
+    "endpoint registration",
+    "and 3–5 high-value calls like read_file/to_crs/sjoin) since test status is empty",
+    "remove duplicate/ambiguous endpoint names (e.g.",
+    "both `geodataframe` and `GeoDataFrame.*`) and enforce a consistent naming convention",
+    "add structured input validation/error mapping in the adapter (clear handling for missing optional deps like pyogrio/pyarrow/sqlalchemy and invalid CRS/geometry payloads)",
+    "generate endpoint docs automatically from docstrings and signatures into `README_MCP.md` (with required/optional dependency matrix and examples)",
+    "add CI for the MCP output package (lint + type-check + tests across Python 3.11–3.13 aligned with upstream envs)",
+    "pin and verify dependency compatibility in `mcp_output/requirements.txt` with an upper-bound strategy and periodic update job",
+    "introduce performance guardrails (benchmark cold start and heavy ops like parquet/sql paths; set regression thresholds)",
+    "implement observability basics (structured logs",
+    "per-endpoint timing",
+    "failure counters",
+    "optional debug mode)",
+    "harden import fallback behavior by explicitly testing zip/import modes and failing with actionable diagnostics",
+    "add contract tests to ensure MCP endpoint behavior stays aligned with upstream GeoPandas API changes (especially IO and spatial join/overlay)",
+    "improve security posture by validating file/SQL inputs and documenting safe usage patterns",
+    "prioritize a smaller curated default endpoint surface (core stable APIs) with an “extended” opt-in set to reduce maintenance risk"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -181,35 +185,35 @@
   "execution_analysis": {
     "success_factors": [
       "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Robust fallback behavior: after git clone timeout, pipeline continued via zip fallback and still analyzed ~127 files.",
-      "Import-mode adapter strategy was feasible (reported confidence ~0.9, feasibility 0.91) and produced runnable MCP scaffolding.",
-      "Generated plugin passed MCP health/startup checks (stdio transport, service_health=healthy)."
+      "Zip fallback import path succeeded after git clone failure, enabling repository analysis (127 files discovered).",
+      "Import-mode adapter generation completed with healthy MCP service startup over stdio.",
+      "Low intrusiveness risk and high import feasibility (0.9) supported automated wrapping approach."
     ],
     "failure_reasons": [
-      "Primary repository acquisition path failed: git clone timed out at 600s (DownloadNode CloneFailed).",
-      "Metadata extraction inconsistencies: dependency scanner falsely reported missing pyproject/environment/requirements despite files being present.",
-      "Validation depth was weak: original project tests did not pass/run meaningfully (execution_time=0, empty details), reducing confidence in behavioral correctness.",
-      "Endpoint generation quality issues: duplicate endpoints and naming inconsistencies indicate incomplete normalization/dedup logic."
+      "Primary repository acquisition failed due to network/transport instability during git clone (RPC curl 18, early EOF, invalid index-pack).",
+      "Validation depth is weak: original project tests were not executed successfully (passed=false, empty details), and MCP test suite appears minimal/empty.",
+      "DeepWiki enrichment failed, reducing external architectural/context intelligence.",
+      "Execution telemetry quality is low (0 values for many performance metrics, unknown environment), limiting confidence in diagnostics."
     ],
     "overall_assessment": "fair",
     "node_performance": {
-      "download_time": "Dominant delay source; clone hit full 600s timeout before fallback. Primary bottleneck in wall-clock runtime.",
-      "analysis_time": "Completed successfully after fallback; produced useful module/dependency/risk insights but with partial metadata accuracy.",
-      "generation_time": "Fast enough to produce full MCP scaffold, but quality signals (0 LOC/size metrics, 0 tool_endpoints metrics mismatch) suggest instrumentation gaps.",
-      "test_time": "MCP plugin smoke health passed, but project/integration test coverage was effectively absent; test stage insufficient for production confidence."
+      "download_time": "Download experienced hard failure on git clone; fallback to zip import prevented pipeline abort. Time likely dominated by retry/fallback overhead.",
+      "analysis_time": "Analysis succeeded and identified core modules/endpoints despite incomplete dependency auto-detection; reasonable for medium complexity.",
+      "generation_time": "Generation succeeded quickly from available module map; produced standard MCP scaffold and endpoint surface.",
+      "test_time": "MCP runtime health check passed, but meaningful functional tests are effectively absent; test stage quality is insufficient."
     },
     "resource_usage": {
-      "memory_efficiency": "No reliable telemetry (reported 0 MB), so efficiency cannot be validated; likely under-instrumented.",
-      "cpu_efficiency": "No reliable telemetry (reported 0%), preventing CPU efficiency assessment.",
-      "disk_usage": "Generated artifacts exist and repository content processed via fallback, but reported generated size=0 suggests disk accounting/metrics bug."
+      "memory_efficiency": "Not measurable from provided metrics (reported as 0); likely acceptable for codegen workflow but unverified.",
+      "cpu_efficiency": "Not measurable from provided metrics (reported as 0); no evidence of CPU pressure.",
+      "disk_usage": "Generated artifact footprint appears very small/possibly misreported (0 LOC/size), indicating telemetry inconsistency rather than true zero usage."
     }
   },
   "technical_quality": {
-    "code_quality_score": 68,
-    "architecture_score": 74,
-    "performance_score": 55,
-    "maintainability_score": 70,
-    "security_score": 82,
-    "scalability_score": 64
+    "code_quality_score": 72,
+    "architecture_score": 76,
+    "performance_score": 58,
+    "maintainability_score": 68,
+    "security_score": 85,
+    "scalability_score": 70
   }
 }

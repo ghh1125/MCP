@@ -2,147 +2,139 @@
 
 ## 1) Project Introduction
 
-This service wraps core **Scanpy** single-cell analysis workflows into MCP (Model Context Protocol)-friendly tools so LLM agents and developer clients can run common RNA-seq tasks programmatically.
+This service exposes core **Scanpy** single-cell analysis capabilities through an MCP (Model Context Protocol) interface.  
+It is designed for developer workflows that need structured, callable tools for:
 
-Main capabilities:
-- AnnData I/O (`read`, `read_h5ad`, `write`)
-- Preprocessing (filtering, normalization, log transform, scaling, HVG selection, PCA)
-- Graph and embedding workflows (neighbors, UMAP)
-- Clustering (Leiden)
-- Marker ranking (`rank_genes_groups`)
-- Data extraction helpers (`obs_df`, `var_df`, `rank_genes_groups_df`)
-- Built-in dataset loaders for smoke tests (`pbmc3k`, `pbmc68k_reduced`, `visium_sge`)
+- AnnData I/O (`read`, `read_10x_h5`, `read_10x_mtx`, `read_visium`, `write`)
+- Preprocessing (`filter_cells`, `filter_genes`, `normalize_total`, `log1p`, `highly_variable_genes`, `scale`, `pca`, `neighbors`)
+- Analysis (`umap`, `tsne`, `leiden`, `louvain`, `rank_genes_groups`, `paga`, `dpt`, `score_genes`)
+- Plotting (selected non-interactive plotting functions)
+- Demo datasets (`pbmc3k`, `pbmc68k_reduced`, `visium_sge`, etc.)
+
+Recommended execution strategy:
+- Primary: direct Python import/calls
+- Fallback: `scanpy` CLI for limited cases
 
 ---
 
 ## 2) Installation Method
 
-### Requirements
-Core dependencies:
-- anndata
-- numpy
-- scipy
-- pandas
+### Runtime requirements
+Required core stack:
+- Python
+- numpy, scipy, pandas
+- anndata, h5py
 - matplotlib
-- scikit-learn
+- scikit-learn, numba, networkx
 
-Common optional dependencies (feature-dependent):
-- umap-learn
-- igraph + leidenalg (or louvain)
-- h5py
-- numba
-- dask
-- bbknn, harmonypy, scanorama, magic-impute, phate, phenograph
+Optional (feature-dependent):
+- umap-learn, igraph, leidenalg, louvain, pynndescent
+- dask, zarr
+- bbknn, harmonypy, scanorama, magic-impute, phate, phenograph, palantir, sam-algorithm, wishbone
 
-### Install
-- Install Scanpy:
-  - `pip install scanpy`
-- Recommended clustering stack:
-  - `pip install "scanpy[leiden]"`
-- Optional ecosystem tools: install only what your endpoints expose.
+### Install (minimal)
+pip install scanpy
+
+### Install (common analysis extras)
+pip install "scanpy[leiden]" umap-learn igraph leidenalg
+
+### Service integration
+Install your MCP (Model Context Protocol) host/runtime, then register this service as a Python-backed service that imports `scanpy` and exposes the tool functions listed below.
 
 ---
 
 ## 3) Quick Start
 
-### Typical workflow in service logic
-1. Load dataset (`scanpy.datasets.pbmc3k()` or `scanpy.read_h5ad(...)`)
-2. Preprocess:
-   - `filter_cells`, `filter_genes`
-   - `normalize_per_cell`, `log1p`
-   - `highly_variable_genes`
-   - `pca`
-3. Build graph and embedding:
-   - `neighbors`
-   - `umap`
-4. Cluster and markers:
-   - `leiden`
-   - `rank_genes_groups`
-5. Return tabular outputs:
-   - `obs_df`, `var_df`, `rank_genes_groups_df`
+### Typical workflow (service-side logic)
+1. Load data via `scanpy.read*`  
+2. Preprocess via `scanpy.pp.*`  
+3. Compute embeddings/clusters via `scanpy.tl.*`  
+4. Return structured results (obs/var stats, embeddings, cluster labels)  
+5. Optionally generate saved plots via `scanpy.pl.*` (file output only)
 
-### Minimal invocation path
-- Import-first strategy is recommended (`import scanpy as sc`)
-- CLI fallback is available:
-  - `scanpy ...`
-  - `python -m scanpy ...`
+### Example call sequence
+- `read("data.h5ad")`
+- `pp.filter_cells(...)`
+- `pp.filter_genes(...)`
+- `pp.normalize_total(...)`
+- `pp.log1p(...)`
+- `pp.highly_variable_genes(...)`
+- `pp.pca(...)`
+- `pp.neighbors(...)`
+- `tl.umap(...)`
+- `tl.leiden(...)`
+- `tl.rank_genes_groups(...)`
+
+### Recommended response pattern
+For each endpoint, return:
+- `status`
+- `inputs`
+- `summary_metrics`
+- `artifacts` (paths, tables, plot file names)
+- `warnings` (missing optional dependencies, large-memory operations)
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) service endpoints:
+### I/O endpoints
+- `read` — Load AnnData-compatible files.
+- `read_10x_h5` — Load 10x HDF5 matrices.
+- `read_10x_mtx` — Load 10x MTX directories.
+- `read_visium` — Load Visium spatial datasets.
+- `write` — Save AnnData to disk.
 
-- `io.read`
-  - Read AnnData from path/URL.
-- `io.read_h5ad`
-  - Read `.h5ad` specifically.
-- `io.write`
-  - Persist AnnData/results.
+### Preprocessing endpoints
+- `filter_cells` — Filter low-quality cells.
+- `filter_genes` — Filter low-information genes.
+- `normalize_total` — Library size normalization.
+- `log1p` — Log transform counts.
+- `highly_variable_genes` — Select variable genes.
+- `scale` — Standardize features.
+- `pca` — Dimensionality reduction.
+- `neighbors` — Compute neighborhood graph.
 
+### Analysis endpoints
+- `umap` — 2D/3D manifold embedding.
+- `tsne` — t-SNE embedding.
+- `leiden` — Graph-based clustering (requires leiden deps).
+- `louvain` — Louvain clustering (optional deps).
+- `rank_genes_groups` — Differential expression per group.
+- `paga` — Coarse-grained connectivity graph.
+- `dpt` — Diffusion pseudotime.
+- `score_genes` — Gene set scoring.
+
+### Plotting endpoints (selective)
+- `pl.umap`, `pl.tsne`, `pl.pca`
+- `pl.violin`, `pl.dotplot`, `pl.matrixplot`
+- `pl.rank_genes_groups`
+
+### Dataset endpoints
 - `datasets.pbmc3k`
-  - Load canonical PBMC tutorial dataset (fast smoke test).
 - `datasets.pbmc68k_reduced`
-  - Reduced PBMC dataset for quicker iteration.
 - `datasets.visium_sge`
-  - Spatial example dataset.
-
-- `pp.filter_cells`
-  - Filter low-quality cells by counts/genes.
-- `pp.filter_genes`
-  - Filter low-information genes.
-- `pp.normalize_per_cell`
-  - Library-size normalization.
-- `pp.log1p`
-  - Log transform.
-- `pp.highly_variable_genes`
-  - HVG selection.
-- `pp.pca`
-  - PCA embedding.
-
-- `neighbors.compute`
-  - KNN graph computation (`scanpy.neighbors.neighbors`).
-
-- `tl.umap`
-  - UMAP embedding from neighbor graph.
-- `tl.leiden`
-  - Leiden clustering.
-- `tl.rank_genes_groups`
-  - Differential ranking by cluster/group.
-- `tl.filter_rank_genes_groups`
-  - Post-filter ranked markers.
-
-- `get.obs_df`
-  - Extract obs-aligned tabular data.
-- `get.var_df`
-  - Extract var-aligned tabular data.
-- `get.rank_genes_groups_df`
-  - Extract marker table as DataFrame-like output.
+- `datasets.krumsiek11`
+- `datasets.toggleswitch`
 
 ---
 
 ## 5) Common Issues and Notes
 
-- **Leiden errors**: usually missing `igraph`/`leidenalg`.
-- **UMAP unavailable**: install `umap-learn`.
-- **Large-memory runs**: PCA/neighbors on big datasets can be heavy; use subset/HVG and incremental strategies.
-- **Version mismatch**: keep `scanpy`, `anndata`, and `numpy/scipy` compatible.
-- **Headless environments**: configure matplotlib backend if plotting endpoints are enabled.
-- **Runtime profile**: import feasibility is high; operational complexity is medium.
+- **Optional dependency errors**: many advanced tools (Leiden, UMAP, external methods) need extra packages.
+- **Headless environments**: use non-interactive matplotlib backend; save plots to files.
+- **Memory/performance**: large `.h5ad` and dense conversions can be expensive; prefer sparse-safe operations.
+- **Path safety**: enforce strict sandboxing for read/write endpoints.
+- **Reproducibility**: set random seeds for neighbors/UMAP/clustering.
+- **Stability**: expose a curated subset of plotting and external methods to reduce operational risk.
 
 ---
 
 ## 6) Reference Links / Documentation
 
-- Repository: https://github.com/scverse/scanpy
-- Scanpy docs index: `docs/index.md` (in repo)
-- API docs sections:
-  - `docs/api/preprocessing.md`
-  - `docs/api/tools.md`
-  - `docs/api/plotting.md`
-  - `docs/api/io.md`
-  - `docs/api/datasets.md`
-- Development/testing references:
-  - `docs/dev/getting-set-up.md`
-  - `docs/dev/testing.md`
-  - `tests/` for behavior examples
+- Scanpy repository: https://github.com/scverse/scanpy
+- Scanpy docs index: https://scanpy.readthedocs.io/
+- API docs: https://scanpy.readthedocs.io/en/stable/api.html
+- Installation guide: https://scanpy.readthedocs.io/en/stable/installation.html
+- AnnData docs: https://anndata.readthedocs.io/
+
+If you want, I can also provide a ready-to-use MCP (Model Context Protocol) service manifest/template with this endpoint set and suggested input/output schemas.

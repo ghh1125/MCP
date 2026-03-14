@@ -14,9 +14,9 @@
     "intrusiveness_risk": "medium"
   },
   "execution": {
-    "start_time": 1773245704.6679392,
-    "end_time": 1773245976.636728,
-    "duration": 271.9687888622284,
+    "start_time": 1773463586.915602,
+    "end_time": 1773463857.2908852,
+    "duration": 270.375283241272,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 2,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,7 +53,10 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.rasterio.source",
+        "mcp_output.mcp_plugin"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
@@ -68,7 +71,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.72,
+      "import_feasibility": 0.41,
       "intrusiveness_risk": "medium",
       "complexity": "complex"
     },
@@ -125,42 +128,35 @@
     {
       "node": "DownloadNode",
       "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/rasterio/temp_clone'...\nfatal: unable to access 'https://github.com/rasterio/rasterio/': Error in the HTTP2 framing layer\n",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/rasterio/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 2953 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n",
       "action_taken": "continue_with_empty"
     }
   ],
   "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/rasterio/temp_clone'...\nfatal: unable to access 'https://github.com/rasterio/rasterio/': Error in the HTTP2 framing layer\n"
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/rasterio/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 2953 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
   ],
   "recommendations": [
-    "add a minimal MCP smoke-test suite (import plugin",
-    "list tools",
-    "call a no-I/O endpoint) and wire it into CI",
-    "add dependency/packaging hardening for the plugin by pinning compatible `fastmcp`/`pydantic` ranges and generating a lock file",
-    "improve endpoint safety by whitelisting pure functions first and gating high-risk I/O or env-mutating calls (`open`",
-    "`setenv`",
-    "`delenv`) behind explicit flags",
-    "resolve naming collisions in exported endpoints (e.g.",
-    "duplicate `bounds`",
-    "`from_bounds`",
-    "`transform`) via namespacing like `windows.bounds`/`transform.from_bounds`",
-    "add runtime preflight checks with clear errors for native GDAL availability/version mismatch before serving requests",
-    "define strict request/response schemas for complex geospatial types (Window/Affine/CRS/geometry) with validation and normalization",
-    "add timeout/concurrency limits and per-call resource guards for expensive operations (`reproject`",
-    "`merge`",
-    "`rasterize`)",
-    "strengthen observability with structured logs",
-    "per-endpoint latency/error metrics",
-    "and optional tracing hooks",
-    "publish an MCP-focused compatibility matrix (Python/GDAL/rasterio versions) and document known limitations",
-    "add golden-path integration tests that execute a few real raster workflows via MCP against fixture datasets",
-    "improve security posture with input path sanitization",
-    "optional sandboxed working directory",
-    "and disabled network/file writes by default",
-    "expand README_MCP with concrete tool-call examples and failure-mode troubleshooting",
-    "automate API drift detection so plugin endpoints are checked against upstream rasterio symbols on upgrades",
-    "add contract tests for CLI-backed fallbacks (if import path fails) to keep behavior consistent",
-    "introduce semantic versioning and changelog for the MCP plugin artifacts separate from upstream rasterio releases"
+    "Fix repository/path detection in the analyzer (it falsely reports missing `pyproject.toml`",
+    "`requirements.txt`",
+    "and `setup.py` despite them existing)",
+    "add a fallback symbol/index scan to extract real importable APIs from `rasterio` modules instead of returning empty functions/classes",
+    "implement endpoint generation in the MCP adapter (currently zero endpoints) starting with high-value stable operations like metadata/info/read-window/transform/warp wrappers",
+    "add a GDAL-aware preflight check in `start_mcp.py` to validate native runtime availability and return actionable setup errors",
+    "create contract tests in `mcp_output/tests_mcp` that verify endpoint registration and basic request/response schemas",
+    "add smoke tests that run against small fixture rasters to validate import-mode execution",
+    "improve dependency modeling by separating core Python deps from system/native GDAL requirements and pinning compatible ranges",
+    "enhance error handling in `adapter.py`/`mcp_service.py` with structured exceptions and user-safe messages for common Rasterio/GDAL failures",
+    "expose CLI-discovered `rio` commands as MCP tools where safe to broaden capability quickly",
+    "add observability (debug logging",
+    "timing",
+    "endpoint-level success/failure counters) for troubleshooting complex geospatial operations",
+    "document an explicit support matrix (Python",
+    "Rasterio",
+    "GDAL versions and platform notes) in `README_MCP.md`",
+    "introduce security/resource guards (input path validation",
+    "file size/window limits",
+    "timeout/cancellation support) to reduce medium intrusiveness risk",
+    "and add CI for the plugin output that runs lint + unit + smoke tests on Linux/macOS with a reproducible GDAL setup"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -191,36 +187,36 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal status `success` and executed all planned nodes (`download`, `analysis`, `env`, `generate`, `run`, `review`, `finalize`).",
-      "Resilience mechanism worked: after git clone failure, pipeline continued via zip fallback and still analyzed ~209 files.",
-      "MCP plugin scaffold was generated with runnable entrypoint (`start_mcp.py`) and healthy service status over stdio transport.",
-      "Adapter strategy (`import` primary, CLI fallback identified in analysis) is appropriate for rasterio’s API-rich Python surface."
+      "Workflow orchestration completed all planned nodes (download, analysis, env, generate, run, review, finalize) with final status marked success.",
+      "Zip fallback recovered source ingestion after git clone failure, enabling downstream analysis and plugin scaffolding.",
+      "MCP plugin process started healthy over stdio, indicating baseline runtime viability of generated scaffold.",
+      "Generation pipeline consistently produced expected artifact set (entrypoint, adapter, service module, README, requirements)."
     ],
     "failure_reasons": [
-      "Primary repository acquisition failed due to transient network/protocol issue: `Error in the HTTP2 framing layer` during clone.",
-      "Metadata extraction appears inconsistent (dependencies/entry points reported empty in one section despite pyproject/setup.py existing), indicating partial parser/path mismatch after fallback.",
-      "Validation depth was low: original project tests did not pass/run, MCP tests are minimal (health only), and key metrics are zeros (resource/perf observability gap).",
-      "DeepWiki enrichment failed, reducing confidence in automated semantic mapping quality."
+      "Primary repository clone failed due to network/transport interruption (curl 18 partial transfer, early EOF, invalid index-pack).",
+      "Analyzer/path detection produced false negatives for project metadata files (pyproject.toml, requirements.txt, setup.py), degrading dependency and entry-point discovery quality.",
+      "API/symbol extraction failed to identify importable functions/classes, leading to zero generated MCP endpoints.",
+      "No effective original-project test execution despite reported 100% coverage field, indicating telemetry inconsistency."
     ],
     "overall_assessment": "fair",
     "node_performance": {
-      "download_time": "Download experienced failure on git clone; fallback import succeeded. This likely dominated early-stage latency and increased total duration.",
-      "analysis_time": "Analysis completed with useful module/CLI discovery, but structural/dependency signals were partially inconsistent, suggesting moderate effectiveness.",
-      "generation_time": "Generation was fast and successful for scaffold files, but reported `total_lines_of_code=0` and `tool_endpoints=0` conflict with endpoint list, indicating instrumentation/reporting defects.",
-      "test_time": "Testing phase appears shallow (plugin health check only; no functional raster workflows), so elapsed testing effort was low and quality signal limited."
+      "download_time": "Download was degraded by clone failure but recovered via zip fallback; resilience good, primary path reliability poor.",
+      "analysis_time": "Analysis completed but quality was limited by incorrect dependency detection and empty entry-point extraction.",
+      "generation_time": "Generation was fast and structurally complete, but functional completeness is low (0 endpoints).",
+      "test_time": "Plugin health check passed quickly; meaningful functional tests were effectively absent."
     },
     "resource_usage": {
-      "memory_efficiency": "Undetermined from telemetry (`memory_usage_mb=0`); likely acceptable for scaffolding, but no evidence for runtime workloads.",
-      "cpu_efficiency": "Undetermined (`cpu_usage_percent=0`); no benchmark data for heavy ops such as reproject/merge/rasterize.",
-      "disk_usage": "Repository footprint is non-trivial (209 files + tests/docs). Generated plugin footprint is small, but size metrics reported as 0 indicate missing collection."
+      "memory_efficiency": "Unknown/insufficient data (reported 0 MB likely telemetry gap).",
+      "cpu_efficiency": "Unknown/insufficient data (reported 0% likely telemetry gap).",
+      "disk_usage": "Likely low for generated output, but generated_files_size=0 suggests metrics collection issue rather than true usage."
     }
   },
   "technical_quality": {
-    "code_quality_score": 72,
-    "architecture_score": 78,
-    "performance_score": 60,
-    "maintainability_score": 69,
+    "code_quality_score": 62,
+    "architecture_score": 64,
+    "performance_score": 48,
+    "maintainability_score": 58,
     "security_score": 85,
-    "scalability_score": 66
+    "scalability_score": 52
   }
 }

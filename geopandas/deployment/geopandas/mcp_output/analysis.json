@@ -389,7 +389,10 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.geopandas.source",
+      "mcp_output.mcp_plugin"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
@@ -406,48 +409,47 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "geopandas",
-        "module": "__init__.py",
+        "package": "deployment.geopandas.source",
+        "module": "geopandas.geodataframe",
         "functions": [
-          "read_file",
-          "read_parquet",
-          "read_feather",
-          "read_postgis",
-          "sjoin",
-          "overlay",
-          "clip",
-          "show_versions"
-        ],
-        "classes": [
-          "GeoDataFrame",
-          "GeoSeries"
-        ],
-        "description": "Top-level public API surface for loading, spatial operations, and core geospatial dataframe/series types."
-      },
-      {
-        "package": "geopandas",
-        "module": "geodataframe.py",
-        "functions": [
-          "from_features",
-          "from_postgis"
+          "GeoDataFrame.from_dict",
+          "GeoDataFrame.from_features",
+          "GeoDataFrame.from_file",
+          "GeoDataFrame.set_geometry",
+          "GeoDataFrame.to_crs",
+          "GeoDataFrame.to_file",
+          "GeoDataFrame.to_parquet",
+          "GeoDataFrame.to_feather",
+          "GeoDataFrame.to_postgis",
+          "GeoDataFrame.explore"
         ],
         "classes": [
           "GeoDataFrame"
         ],
-        "description": "Primary tabular geospatial container built on pandas.DataFrame with geometry column semantics and CRS-aware operations."
+        "description": "Primary tabular geospatial container built on pandas DataFrame with geometry-aware IO, CRS transforms, export/import, and map exploration."
       },
       {
-        "package": "geopandas",
-        "module": "geoseries.py",
-        "functions": [],
+        "package": "deployment.geopandas.source",
+        "module": "geopandas.geoseries",
+        "functions": [
+          "GeoSeries.from_wkt",
+          "GeoSeries.from_wkb",
+          "GeoSeries.from_xy",
+          "GeoSeries.to_crs",
+          "GeoSeries.set_crs",
+          "GeoSeries.buffer",
+          "GeoSeries.intersects",
+          "GeoSeries.within",
+          "GeoSeries.distance"
+        ],
         "classes": [
           "GeoSeries"
         ],
-        "description": "Vectorized geospatial series type built on pandas.Series, exposing geometry methods and predicates."
+        "description": "Vectorized geometry series abstraction with CRS support and geometric predicates/operations."
       },
       {
-        "package": "geopandas",
-        "module": "array.py",
+        "package": "deployment.geopandas.source",
+        "module": "geopandas.array",
         "functions": [
           "from_shapely",
           "from_wkb",
@@ -457,77 +459,76 @@
         "classes": [
           "GeometryArray"
         ],
-        "description": "Geometry extension array implementation and low-level constructors used by GeoSeries/GeoDataFrame."
+        "description": "Low-level extension array implementation backing GeoSeries/GeoDataFrame geometry dtype and conversion helpers."
       },
       {
-        "package": "geopandas",
-        "module": "io/file.py",
+        "package": "deployment.geopandas.source",
+        "module": "geopandas.io.file",
         "functions": [
           "read_file",
-          "to_file",
-          "list_layers"
+          "to_file"
         ],
         "classes": [],
-        "description": "File I/O integration layer (Fiona/Pyogrio-style backends) for reading/writing vector geospatial files."
+        "description": "File-based geospatial IO entrypoints (driver-backed readers/writers)."
       },
       {
-        "package": "geopandas",
-        "module": "io/arrow.py",
+        "package": "deployment.geopandas.source",
+        "module": "geopandas.io.arrow",
         "functions": [
           "read_parquet",
-          "to_parquet",
           "read_feather",
+          "to_parquet",
           "to_feather"
         ],
         "classes": [],
-        "description": "Arrow-based interchange and GeoParquet/Feather serialization."
+        "description": "Columnar geospatial IO using Arrow/Parquet/Feather, including metadata handling."
       },
       {
-        "package": "geopandas",
-        "module": "io/sql.py",
+        "package": "deployment.geopandas.source",
+        "module": "geopandas.io.sql",
         "functions": [
           "read_postgis",
           "to_postgis"
         ],
         "classes": [],
-        "description": "Database I/O for PostGIS-backed workflows."
+        "description": "Database IO integration for PostGIS and SQL-backed geospatial workflows."
       },
       {
-        "package": "geopandas",
-        "module": "tools/sjoin.py",
+        "package": "deployment.geopandas.source",
+        "module": "geopandas.tools.sjoin",
         "functions": [
           "sjoin",
           "sjoin_nearest"
         ],
         "classes": [],
-        "description": "Spatial join utilities based on predicates and nearest-neighbor matching."
+        "description": "Spatial join primitives for relational/geometric matching."
       },
       {
-        "package": "geopandas",
-        "module": "tools/overlay.py",
+        "package": "deployment.geopandas.source",
+        "module": "geopandas.tools.overlay",
         "functions": [
           "overlay"
         ],
         "classes": [],
-        "description": "Set-theoretic overlay operations between geospatial layers."
+        "description": "Topological overlay operations (intersection/union/difference)."
       },
       {
-        "package": "geopandas",
-        "module": "tools/clip.py",
+        "package": "deployment.geopandas.source",
+        "module": "geopandas.tools.clip",
         "functions": [
           "clip"
         ],
         "classes": [],
-        "description": "Geometry clipping operations against masks/bounds."
+        "description": "Geometry clipping to bounds/mask geometries."
       },
       {
-        "package": "geopandas",
-        "module": "sindex.py",
-        "functions": [],
-        "classes": [
-          "SpatialIndex"
+        "package": "deployment.geopandas.source",
+        "module": "geopandas.tools._show_versions",
+        "functions": [
+          "show_versions"
         ],
-        "description": "Spatial indexing abstraction used by spatial joins and predicate acceleration."
+        "classes": [],
+        "description": "Runtime diagnostics for dependency/version reporting; useful for MCP health/debug tools."
       }
     ],
     "cli_commands": [],
@@ -538,15 +539,16 @@
     },
     "dependencies": {
       "required": [
-        "python",
+        "python>=3.11",
         "numpy",
         "pandas",
         "shapely",
-        "pyproj"
+        "pyproj",
+        "packaging"
       ],
       "optional": [
-        "fiona",
         "pyogrio",
+        "fiona",
         "pyarrow",
         "sqlalchemy",
         "geoalchemy2",
@@ -554,12 +556,13 @@
         "rtree",
         "scipy",
         "matplotlib",
+        "folium",
         "mapclassify",
-        "folium"
+        "geopy"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.91,
+      "import_feasibility": 0.9,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -577,7 +580,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.91,
+    "import_feasibility": 0.9,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

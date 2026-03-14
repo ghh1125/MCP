@@ -1,10 +1,7 @@
-# Difference Report — **obspy**
-
-**Generated:** 2026-03-12 08:21:00  
-**Repository:** `obspy`  
+# Difference Report — **obspy**  
+**Generated:** 2026-03-14 12:34:42  
 **Project Type:** Python library  
-**Scope:** Basic functionality  
-**Change Intrusiveness:** None  
+**Scope/Intrusiveness:** None  
 **Workflow Status:** ✅ Success  
 **Test Status:** ❌ Failed  
 
@@ -12,162 +9,121 @@
 
 ## 1) Project Overview
 
-This update introduces **new additions only** to the `obspy` codebase with no edits to existing files.  
-Given the metadata:
-
+**Repository:** `obspy`  
+**Primary Feature Area:** Basic functionality  
+**Change Summary:**  
 - **New files:** 8  
 - **Modified files:** 0  
+- **Deleted files:** 0 (not reported)
 
-the change appears to be **non-invasive** and likely additive (e.g., new modules, examples, docs, configs, or tests).
-
----
-
-## 2) Change Summary
-
-| Metric | Value |
-|---|---:|
-| New files | 8 |
-| Modified files | 0 |
-| Deleted files | 0 *(not reported)* |
-| Net change type | Additive-only |
-| Intrusiveness | None |
-
-### High-level Interpretation
-- The implementation risk to existing runtime paths is likely low due to no in-place modifications.
-- However, the **failed test status** indicates either:
-  - Incompatibility introduced by newly added assets,
-  - Missing integration wiring/configuration,
-  - Environmental or dependency drift,
-  - Or failing/incorrect newly added tests.
+This update appears to be a **non-intrusive additive change set** focused on introducing new artifacts without altering existing tracked files.
 
 ---
 
-## 3) Difference Analysis
+## 2) High-Level Difference Analysis
 
-## 3.1 Structural Impact
-- **Codebase topology expanded** by 8 files.
-- Existing modules/classes/functions were **not directly altered**.
-- Any behavioral impact should come from:
-  - import side effects,
-  - registration/discovery mechanisms,
-  - packaging/build metadata changes,
-  - test suite expansion.
+### 2.1 File-Level Delta
+- The change introduces **8 new files**.
+- No direct modifications to existing code paths were reported.
+- No removals were reported.
 
-## 3.2 Functional Impact (Basic Functionality)
-Because this is additive-only:
-- Legacy behavior should remain stable **if no global initialization paths are touched**.
-- New functionality may be inaccessible until documented/imported/exposed in package interfaces.
-- If tests failed, likely affected areas include:
-  - test collection,
-  - dependency resolution,
-  - API contract expectations for new functionality.
-
-## 3.3 Risk Profile
-- **Regression risk (existing features):** Low–Medium  
-- **Integration risk (new features):** Medium  
-- **Release readiness:** Blocked by test failure
+### 2.2 Impact Characterization
+Given zero modified files and additive-only changes:
+- **Backward compatibility risk:** Low (in principle)
+- **Runtime regression risk:** Moderate (because tests failed)
+- **Integration risk:** Medium (new files may alter discovery/loading behavior, packaging, or test collection)
 
 ---
 
-## 4) Technical Analysis
+## 3) Technical Analysis
 
-## 4.1 CI/Workflow
-- **Workflow succeeded**: lint/build/job orchestration likely functional.
-- **Tests failed**: quality gate not satisfied; merge/release should be gated.
+Although the workflow completed successfully, tests failed. In additive-only updates, common technical causes include:
 
-## 4.2 Likely Failure Categories
-1. **Unit tests for new files failing**
-   - Assertions mismatched, incomplete fixtures, edge case handling.
-2. **Import/package path issues**
-   - New modules not included in package exports or setup metadata.
-3. **Dependency mismatch**
-   - New code requires optional/undeclared dependencies.
-4. **Version/environment sensitivity**
-   - Python version compatibility or platform-specific assumptions.
-5. **Test isolation issues**
-   - New tests depending on global state, filesystem, network, or timing.
+1. **Test discovery side effects**
+   - New files unintentionally collected as tests (naming/path conventions like `test_*.py`).
+2. **Packaging/import path issues**
+   - New modules may introduce import cycles or missing optional dependencies.
+3. **Environment assumptions**
+   - New files may require data/config/environment variables unavailable in CI.
+4. **Lint/type/quality checks embedded in test stage**
+   - Failure may come from style/static checks rather than unit logic.
+5. **Resource-dependent tests**
+   - Added fixtures/data files may be missing from manifest or CI artifact configuration.
 
-## 4.3 Observability Gaps
-Current metadata does not include:
-- exact file list,
-- failing test names,
-- traceback snippets,
-- coverage delta.
+---
 
-Without these, root-cause is inferential and should be validated from CI logs.
+## 4) Risk & Quality Assessment
+
+| Area | Status | Notes |
+|---|---|---|
+| Build/Workflow | ✅ Success | Pipeline executed to completion |
+| Test Suite | ❌ Failed | Blocking for merge/release |
+| API Stability | 🟢 Likely stable | No modified files reported |
+| Release Readiness | 🔴 Not ready | Must resolve test failures first |
 
 ---
 
 ## 5) Recommendations & Improvements
 
-## 5.1 Immediate Actions (High Priority)
-- Retrieve and review CI failure logs (first failing test + full traceback).
-- Categorize failures into:
-  - product code defects,
-  - test defects,
-  - environment/config issues.
-- Apply minimal corrective patch and rerun full test matrix.
+### Immediate (Blocker Resolution)
+1. **Extract failing test details**
+   - Identify exact failing test module(s), stack traces, and failure class (assertion/import/config).
+2. **Validate test collection**
+   - Confirm new files are not unintentionally matched by test discovery patterns.
+3. **Check dependency and packaging metadata**
+   - Ensure required dependencies/data files are declared (`pyproject.toml` / `setup.cfg` / MANIFEST equivalents).
+4. **Reproduce locally with CI-equivalent environment**
+   - Same Python version, extras, and environment variables.
 
-## 5.2 Code/Packaging Hygiene
-- Verify all new Python files are:
-  - included in package discovery/build config,
-  - imported/exported intentionally (if public API).
-- Confirm dependency declarations (`install_requires` / optional extras / test deps).
-
-## 5.3 Test Reliability
-- Ensure new tests:
-  - are deterministic,
-  - avoid network/time flakiness,
-  - use fixtures/mocks for external IO.
-- Add targeted tests for edge cases and negative paths around added functionality.
-
-## 5.4 Documentation
-- For each new file, add or update:
-  - module docstrings,
-  - usage notes,
-  - changelog entry.
-- If public API expanded, provide concise examples.
+### Short-Term Quality Hardening
+1. Add/adjust **targeted tests** for each new file’s expected behavior.
+2. Add a **pre-merge CI gate** for import smoke checks.
+3. Ensure **naming conventions** for non-test files avoid accidental test discovery.
+4. Add/update **developer documentation** for any new setup prerequisites.
 
 ---
 
 ## 6) Deployment Information
 
-## 6.1 Release Gate Decision
-**Do not deploy/release yet** due to failed tests.
+### Current Deployment Posture
+- **Do not deploy/release** current state due to failed tests.
+- Workflow success alone is insufficient for production readiness.
 
-## 6.2 Suggested Promotion Path
-1. Fix failing tests/issues in feature branch.
-2. Re-run CI across supported Python versions/platforms.
-3. Confirm:
-   - all tests pass,
-   - packaging artifacts build successfully,
-   - no import/runtime warnings.
-4. Proceed with staged release (e.g., test PyPI/internal validation) before production tagging.
-
-## 6.3 Rollback Consideration
-Since no existing files were modified, rollback is straightforward:
-- revert/remove the 8 new files (or revert commit) if needed.
+### Suggested Deployment Flow
+1. Fix test failures.
+2. Re-run full CI matrix.
+3. Require green status for:
+   - unit/integration tests
+   - packaging/build validation
+   - lint/type checks (if applicable)
+4. Tag and release only after all required checks pass.
 
 ---
 
 ## 7) Future Planning
 
-- Introduce **change impact checklist** for additive updates:
-  - packaging inclusion,
-  - API export review,
-  - dependency declaration,
-  - docs/tests completeness.
-- Add CI safeguards:
-  - fail-fast on missing deps/import errors,
-  - per-module smoke tests for newly added files.
-- Track quality metrics:
-  - pass rate trend,
-  - flaky test rate,
-  - coverage on newly introduced modules.
+1. **CI observability improvements**
+   - Publish concise failure summaries and artifacts for faster triage.
+2. **Change impact labeling**
+   - Automatically classify additive-only vs. behavioral changes.
+3. **Test reliability program**
+   - Track flaky tests and quarantine policy.
+4. **Release governance**
+   - Enforce “no release on red tests” branch protection.
 
 ---
 
-## 8) Executive Conclusion
+## 8) Suggested Follow-Up Checklist
 
-This change set is structurally low-intrusive (**8 new files, 0 modified**), but it is currently **not releasable** because tests failed.  
-Primary next step is to resolve CI test failures, validate packaging/integration of new files, and re-run full validation before deployment.
+- [ ] Collect failing test logs and classify root cause  
+- [ ] Verify new-file test discovery behavior  
+- [ ] Confirm dependency/data-file declarations  
+- [ ] Add missing tests for newly added files  
+- [ ] Re-run CI in clean environment  
+- [ ] Approve merge only after full green pipeline  
+
+---
+
+## 9) Executive Summary
+
+This change set is **additive (8 new files, no modifications)** and nominally low-intrusion, but **test failures make it non-releasable**. Prioritize root-cause analysis of CI test failures, validate packaging/discovery behavior introduced by new files, and re-run the full validation matrix before deployment.

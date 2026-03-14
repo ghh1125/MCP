@@ -52,7 +52,7 @@
         "size": 108
       },
       "CHANGELOG.txt": {
-        "size": 115064
+        "size": 115031
       },
       "CODE_OF_CONDUCT.md": {
         "size": 3389
@@ -436,16 +436,16 @@
         "size": 684
       },
       "obspy/clients/fdsn/tests/data/dataselect_helpstring.txt": {
-        "size": 129
+        "size": 135
       },
       "obspy/clients/fdsn/tests/data/eida_token.txt": {
         "size": 603
       },
       "obspy/clients/fdsn/tests/data/event_helpstring.txt": {
-        "size": 2156
+        "size": 2162
       },
       "obspy/clients/fdsn/tests/data/station_helpstring.txt": {
-        "size": 1554
+        "size": 1560
       },
       "obspy/clients/fdsn/tests/data/uncommon_channel_location.txt": {
         "size": 860
@@ -454,7 +454,7 @@
         "size": 8667
       },
       "obspy/clients/fdsn/tests/test_client.py": {
-        "size": 80994
+        "size": 80949
       },
       "obspy/clients/fdsn/tests/test_eidaws_routing_client.py": {
         "size": 15288
@@ -2447,14 +2447,28 @@
     "success": true
   },
   "structure": {
-    "packages": []
+    "packages": [
+      "deployment.obspy.source",
+      "mcp_output.mcp_plugin",
+      "source.obspy",
+      "source.obspy.clients",
+      "source.obspy.core",
+      "source.obspy.geodetics",
+      "source.obspy.imaging",
+      "source.obspy.io",
+      "source.obspy.lib",
+      "source.obspy.realtime",
+      "source.obspy.scripts",
+      "source.obspy.signal",
+      "source.obspy.taup"
+    ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -2464,148 +2478,100 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "obspy/core",
-        "module": "obspy.core.stream",
-        "functions": [],
-        "classes": [
-          "Stream"
-        ],
-        "description": "Primary waveform container with read/merge/slice/filter/plot style operations; central execution surface for most ObsPy workflows."
-      },
-      {
-        "package": "obspy/core",
-        "module": "obspy.core.trace",
-        "functions": [],
-        "classes": [
-          "Trace",
-          "Stats"
-        ],
-        "description": "Single-channel waveform object and metadata handling; core signal preprocessing unit used by Stream."
-      },
-      {
-        "package": "obspy/core",
-        "module": "obspy.core.utcdatetime",
-        "functions": [],
-        "classes": [
+        "package": "source.obspy.core",
+        "module": "source.obspy.core",
+        "functions": [
+          "read",
           "UTCDateTime"
         ],
-        "description": "Canonical time representation used across clients, I/O, event, and inventory APIs."
+        "classes": [
+          "Stream",
+          "Trace",
+          "UTCDateTime"
+        ],
+        "description": "Primary ObsPy data model and top-level waveform loading entry points; best MCP surface for waveform-centric tasks."
       },
       {
-        "package": "obspy/clients/fdsn",
-        "module": "obspy.clients.fdsn.client",
-        "functions": [],
+        "package": "source.obspy.clients.fdsn",
+        "module": "source.obspy.clients.fdsn.client",
+        "functions": [
+          "get_waveforms",
+          "get_stations",
+          "get_events"
+        ],
         "classes": [
           "Client"
         ],
-        "description": "Network client for FDSN services (waveforms, stations, events); key online data access integration point."
+        "description": "FDSN web service access layer for waveform/station/event retrieval; most useful remote-data integration module."
       },
       {
-        "package": "obspy/clients/fdsn/mass_downloader",
-        "module": "obspy.clients.fdsn.mass_downloader.mass_downloader",
-        "functions": [],
-        "classes": [
-          "MassDownloader"
-        ],
-        "description": "Bulk waveform + metadata download orchestration; suitable for async/background MCP tasks."
-      },
-      {
-        "package": "obspy/io/mseed",
-        "module": "obspy.io.mseed.core",
+        "package": "source.obspy.io",
+        "module": "source.obspy.io.mseed.core",
         "functions": [
           "_read_mseed",
-          "_write_mseed",
-          "_is_mseed"
+          "_write_mseed"
         ],
         "classes": [],
-        "description": "MiniSEED reader/writer implementation, foundational for high-volume waveform exchange."
+        "description": "MiniSEED I/O implementation behind core read/write plugin system; critical for seismic waveform interoperability."
       },
       {
-        "package": "obspy/io/stationxml",
-        "module": "obspy.io.stationxml.core",
-        "functions": [
-          "_read_stationxml",
-          "_write_stationxml",
-          "_is_stationxml"
-        ],
-        "classes": [],
-        "description": "StationXML metadata serialization/deserialization for inventories and responses."
-      },
-      {
-        "package": "obspy/io/quakeml",
-        "module": "obspy.io.quakeml.core",
-        "functions": [
-          "_read_quakeml",
-          "_write_quakeml",
-          "_is_quakeml"
-        ],
-        "classes": [],
-        "description": "QuakeML event catalog I/O backend."
-      },
-      {
-        "package": "obspy/signal",
-        "module": "obspy.signal.filter",
+        "package": "source.obspy.signal",
+        "module": "source.obspy.signal.filter",
         "functions": [
           "bandpass",
           "bandstop",
-          "lowpass",
           "highpass",
-          "envelope"
+          "lowpass"
         ],
         "classes": [],
-        "description": "Common seismic filtering primitives for direct tool wrapping."
+        "description": "Core signal-processing utilities frequently used in workflows after loading traces/streams."
       },
       {
-        "package": "obspy/taup",
-        "module": "obspy.taup",
+        "package": "source.obspy.taup",
+        "module": "source.obspy.taup",
         "functions": [],
         "classes": [
           "TauPyModel"
         ],
-        "description": "Travel-time/ray-path modeling API for geophysical phase calculations."
+        "description": "Travel-time and phase-arrival modeling for event analysis and synthetic timing workflows."
+      },
+      {
+        "package": "source.obspy.geodetics",
+        "module": "source.obspy.geodetics.base",
+        "functions": [
+          "gps2dist_azimuth",
+          "locations2degrees"
+        ],
+        "classes": [],
+        "description": "Geodetic helpers used across event-location, travel-time, and station-distance computations."
       }
     ],
     "cli_commands": [
       {
         "name": "obspy-print",
-        "module": "obspy.scripts.print",
-        "description": "CLI utility for printing quick summaries of ObsPy-readable files."
+        "module": "source.obspy.scripts.print",
+        "description": "CLI utility to inspect waveform/event metadata from supported files."
       },
       {
         "name": "obspy-flinn-engdahl",
-        "module": "obspy.scripts.flinnengdahl",
-        "description": "CLI for region lookup based on Flinn-Engdahl geographic classification."
+        "module": "source.obspy.scripts.flinnengdahl",
+        "description": "CLI tool to resolve Flinn-Engdahl geographic region from coordinates."
       },
       {
         "name": "obspy-reftek-rescue",
-        "module": "obspy.scripts.reftekrescue",
-        "description": "CLI for rescuing/parsing Reftek data structures."
+        "module": "source.obspy.scripts.reftekrescue",
+        "description": "CLI utility for salvaging Reftek data from raw/partial media."
       },
       {
-        "name": "obspy-scan",
-        "module": "obspy.imaging.scripts.scan",
-        "description": "Scan/visualization style command for waveform archives."
-      },
-      {
-        "name": "obspy-plot",
-        "module": "obspy.imaging.scripts.plot",
-        "description": "Simple plotting entry command for seismic data products."
-      },
-      {
-        "name": "obspy-mopad",
-        "module": "obspy.imaging.scripts.mopad",
-        "description": "Moment tensor/beachball related CLI script."
-      },
-      {
-        "name": "obspy-runtests",
-        "module": "obspy.scripts.runtests",
-        "description": "Project test runner command."
+        "name": "obspy-sds-report",
+        "module": "source.obspy.scripts.sds_html_report",
+        "description": "CLI report generation for SDS archive quality/coverage."
       }
     ],
     "import_strategy": {
       "primary": "import",
       "fallback": "cli",
-      "confidence": 0.9
+      "confidence": 0.92
     },
     "dependencies": {
       "required": [
@@ -2613,19 +2579,18 @@
         "scipy",
         "matplotlib",
         "lxml",
-        "sqlalchemy",
-        "requests"
+        "setuptools"
       ],
       "optional": [
         "cartopy",
-        "pyproj",
+        "requests",
+        "sqlalchemy",
         "geographiclib",
-        "numba",
-        "shapefile/pyshp"
+        "pyproj"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.93,
+      "import_feasibility": 0.9,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -2643,7 +2608,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.93,
+    "import_feasibility": 0.9,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

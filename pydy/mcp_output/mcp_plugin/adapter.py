@@ -1,359 +1,286 @@
 import os
 import sys
-import traceback
 import importlib
-from typing import Any, Dict, Optional
+import traceback
+from typing import Any, Dict, Optional, Tuple
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "source",
 )
-sys.path.insert(0, source_path)
+if source_path not in sys.path:
+    sys.path.insert(0, source_path)
 
 
 class Adapter:
     """
-    MCP Import Mode Adapter for the PyDy repository.
+    MCP Import Mode Adapter for the pydy repository.
 
-    This adapter prefers direct module imports from the local `source` directory.
-    If imports are unavailable, it gracefully falls back to "blackbox" mode and
-    returns actionable guidance in English.
+    This adapter attempts direct imports from the local source tree first.
+    If imports fail, it switches to graceful fallback behavior while keeping a
+    consistent response format for all methods.
     """
 
     # -------------------------------------------------------------------------
     # Initialization and module management
     # -------------------------------------------------------------------------
     def __init__(self) -> None:
-        self.mode = "import"
-        self._modules: Dict[str, Any] = {}
-        self._import_errors: Dict[str, str] = {}
-        self._load_modules()
+        """
+        Initialize adapter state and attempt module/function/class imports.
 
-    def _result(
-        self,
-        status: str,
-        message: str,
-        data: Optional[Dict[str, Any]] = None,
-        error: Optional[str] = None,
-    ) -> Dict[str, Any]:
-        return {
-            "status": status,
+        Attributes:
+            mode (str): Adapter operation mode, defaults to "import".
+            available (bool): Whether primary imports are available.
+            modules (dict): Loaded module objects.
+            symbols (dict): Imported callable/class symbols.
+            errors (dict): Import-time errors keyed by symbol/module name.
+        """
+        self.mode = "import"
+        self.available = False
+        self.modules: Dict[str, Any] = {}
+        self.symbols: Dict[str, Any] = {}
+        self.errors: Dict[str, str] = {}
+        self._load_imports()
+
+    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "success") -> Dict[str, Any]:
+        payload = {"status": "success", "mode": self.mode, "message": message}
+        if data:
+            payload.update(data)
+        return payload
+
+    def _err(self, message: str, guidance: str, details: Optional[str] = None) -> Dict[str, Any]:
+        payload = {
+            "status": "error",
             "mode": self.mode,
             "message": message,
-            "data": data or {},
-            "error": error,
+            "guidance": guidance,
         }
+        if details:
+            payload["details"] = details
+        return payload
 
-    def _safe_import(self, module_path: str) -> Optional[Any]:
+    def _fallback(self, feature: str) -> Dict[str, Any]:
+        return self._err(
+            message=f"Feature unavailable in current environment: {feature}",
+            guidance=(
+                "Verify local source checkout under the 'source' directory, ensure dependencies "
+                "are installed (sympy, numpy, scipy), and retry import mode."
+            ),
+        )
+
+    def _load_module(self, key: str, module_path: str) -> None:
         try:
-            module = importlib.import_module(module_path)
-            self._modules[module_path] = module
-            return module
+            self.modules[key] = importlib.import_module(module_path)
         except Exception as exc:
-            self._import_errors[module_path] = f"{type(exc).__name__}: {exc}"
-            return None
+            self.errors[key] = f"{type(exc).__name__}: {exc}"
 
-    def _load_modules(self) -> None:
-        """
-        Attempt to import all core modules identified in repository analysis.
-        Switches to fallback mode if critical imports fail.
-        """
-        module_candidates = [
-            "pydy",
-            "pydy.models",
-            "pydy.system",
-            "pydy.utils",
-            "pydy.codegen.c_code",
-            "pydy.codegen.cython_code",
-            "pydy.codegen.matrix_generator",
-            "pydy.codegen.octave_code",
-            "pydy.codegen.ode_function_generators",
-            "pydy.viz.camera",
-            "pydy.viz.light",
-            "pydy.viz.scene",
-            "pydy.viz.server",
-            "pydy.viz.shapes",
-            "pydy.viz.visualization_frame",
-        ]
+    def _load_symbol(self, key: str, module_key: str, symbol_name: str) -> None:
+        try:
+            module = self.modules[module_key]
+            self.symbols[key] = getattr(module, symbol_name)
+        except Exception as exc:
+            self.errors[key] = f"{type(exc).__name__}: {exc}"
 
-        for path in module_candidates:
-            self._safe_import(path)
+    def _load_imports(self) -> None:
+        # Full module paths derived from analysis packages (without "source." prefix)
+        self._load_module("benchmark", "bin.benchmark_pydy_code_gen")
+        self._load_module("compare", "bin.compare_linear_systems_solvers")
+        self._load_module("kane6_util", "examples.Kane1985.Chapter6.util")
 
-        critical = ["pydy", "pydy.system", "pydy.codegen.ode_function_generators"]
-        if any(c not in self._modules for c in critical):
-            self.mode = "blackbox"
+        # parallel-execution directory uses hyphen; cannot import as package path directly.
+        # Graceful handling kept explicit for transparency.
+        self.errors["parallel_execution_modules"] = (
+            "ImportError: Module path 'examples.parallel-execution.*' is not a valid Python package path."
+        )
 
-    def get_status(self) -> Dict[str, Any]:
+        # Symbols
+        if "benchmark" in self.modules:
+            self._load_symbol("run_benchmark", "benchmark", "run_benchmark")
+
+        if "compare" in self.modules:
+            self._load_symbol("numpy_umath_linalg_solve", "compare", "numpy_umath_linalg_solve")
+            self._load_symbol("scipy_linalg_lapack_dposv", "compare", "scipy_linalg_lapack_dposv")
+            self._load_symbol("scipy_linalg_solve", "compare", "scipy_linalg_solve")
+
+        if "kane6_util" in self.modules:
+            self._load_symbol("function_from_partials", "kane6_util", "function_from_partials")
+            self._load_symbol("generalized_active_forces", "kane6_util", "generalized_active_forces")
+            self._load_symbol("generalized_active_forces_K", "kane6_util", "generalized_active_forces_K")
+            self._load_symbol("PartialVelocity", "kane6_util", "PartialVelocity")
+
+        self.available = len(self.symbols) > 0
+
+    # -------------------------------------------------------------------------
+    # Health and diagnostics
+    # -------------------------------------------------------------------------
+    def health(self) -> Dict[str, Any]:
         """
-        Return adapter health status, current mode, loaded modules, and import errors.
+        Return adapter health diagnostics.
+
+        Returns:
+            dict: Unified status payload with loaded module and symbol details.
         """
-        return self._result(
-            status="success",
-            message="Adapter status retrieved.",
+        return self._ok(
             data={
-                "loaded_modules": sorted(self._modules.keys()),
-                "import_errors": self._import_errors,
-                "source_path": source_path,
+                "available": self.available,
+                "loaded_modules": sorted(self.modules.keys()),
+                "loaded_symbols": sorted(self.symbols.keys()),
+                "import_errors": self.errors,
             },
+            message="adapter initialized",
         )
 
     # -------------------------------------------------------------------------
-    # Core API: pydy.system / pydy.models / pydy.utils
+    # bin.benchmark_pydy_code_gen
     # -------------------------------------------------------------------------
-    def create_system(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call_run_benchmark(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Instantiate pydy.system.System.
+        Call benchmark_pydy_code_gen.run_benchmark.
 
         Parameters:
-            *args: Positional arguments forwarded to pydy.system.System.
-            **kwargs: Keyword arguments forwarded to pydy.system.System.
+            *args: Positional arguments forwarded to run_benchmark.
+            **kwargs: Keyword arguments forwarded to run_benchmark.
 
         Returns:
-            dict: Unified status dictionary with the created instance under data.instance.
+            dict: Unified status payload with invocation result.
         """
-        if self.mode != "import":
-            return self._result(
-                status="error",
-                message="Import mode unavailable. Cannot instantiate System in fallback mode.",
-                error="Ensure local source includes 'pydy/system.py' and dependencies (sympy, numpy, scipy).",
-            )
+        fn = self.symbols.get("run_benchmark")
+        if fn is None:
+            return self._fallback("bin.benchmark_pydy_code_gen.run_benchmark")
         try:
-            cls = getattr(self._modules["pydy.system"], "System")
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result}, "run_benchmark executed")
+        except Exception as exc:
+            return self._err(
+                "Failed to execute run_benchmark.",
+                "Check function arguments and runtime dependencies, then retry.",
+                details=f"{type(exc).__name__}: {exc}",
+            )
+
+    # -------------------------------------------------------------------------
+    # bin.compare_linear_systems_solvers
+    # -------------------------------------------------------------------------
+    def call_numpy_umath_linalg_solve(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call compare_linear_systems_solvers.numpy_umath_linalg_solve.
+
+        Parameters:
+            *args: Positional arguments forwarded to the function.
+            **kwargs: Keyword arguments forwarded to the function.
+
+        Returns:
+            dict: Unified status payload with solve result.
+        """
+        fn = self.symbols.get("numpy_umath_linalg_solve")
+        if fn is None:
+            return self._fallback("bin.compare_linear_systems_solvers.numpy_umath_linalg_solve")
+        try:
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result}, "numpy_umath_linalg_solve executed")
+        except Exception as exc:
+            return self._err(
+                "Failed to execute numpy_umath_linalg_solve.",
+                "Ensure matrix dimensions and numeric dtypes are valid.",
+                details=f"{type(exc).__name__}: {exc}",
+            )
+
+    def call_scipy_linalg_lapack_dposv(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call compare_linear_systems_solvers.scipy_linalg_lapack_dposv.
+
+        Parameters:
+            *args: Positional arguments forwarded to the function.
+            **kwargs: Keyword arguments forwarded to the function.
+
+        Returns:
+            dict: Unified status payload with solve result.
+        """
+        fn = self.symbols.get("scipy_linalg_lapack_dposv")
+        if fn is None:
+            return self._fallback("bin.compare_linear_systems_solvers.scipy_linalg_lapack_dposv")
+        try:
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result}, "scipy_linalg_lapack_dposv executed")
+        except Exception as exc:
+            return self._err(
+                "Failed to execute scipy_linalg_lapack_dposv.",
+                "Provide a symmetric positive-definite matrix and compatible RHS.",
+                details=f"{type(exc).__name__}: {exc}",
+            )
+
+    def call_scipy_linalg_solve(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call compare_linear_systems_solvers.scipy_linalg_solve.
+
+        Parameters:
+            *args: Positional arguments forwarded to the function.
+            **kwargs: Keyword arguments forwarded to the function.
+
+        Returns:
+            dict: Unified status payload with solve result.
+        """
+        fn = self.symbols.get("scipy_linalg_solve")
+        if fn is None:
+            return self._fallback("bin.compare_linear_systems_solvers.scipy_linalg_solve")
+        try:
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result}, "scipy_linalg_solve executed")
+        except Exception as exc:
+            return self._err(
+                "Failed to execute scipy_linalg_solve.",
+                "Validate input array shapes and that SciPy is installed correctly.",
+                details=f"{type(exc).__name__}: {exc}",
+            )
+
+    # -------------------------------------------------------------------------
+    # examples.Kane1985.Chapter6.util
+    # -------------------------------------------------------------------------
+    def create_partial_velocity_instance(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Create an instance of examples.Kane1985.Chapter6.util.PartialVelocity.
+
+        Parameters:
+            *args: Positional constructor arguments.
+            **kwargs: Keyword constructor arguments.
+
+        Returns:
+            dict: Unified status payload with created instance.
+        """
+        cls = self.symbols.get("PartialVelocity")
+        if cls is None:
+            return self._fallback("examples.Kane1985.Chapter6.util.PartialVelocity")
+        try:
             instance = cls(*args, **kwargs)
-            return self._result(
-                status="success",
-                message="System instance created.",
-                data={"instance": instance},
-            )
+            return self._ok({"instance": instance}, "PartialVelocity instance created")
         except Exception as exc:
-            return self._result(
-                status="error",
-                message="Failed to create System instance.",
-                error=f"{type(exc).__name__}: {exc}",
+            return self._err(
+                "Failed to instantiate PartialVelocity.",
+                "Verify constructor arguments required by the class.",
+                details=f"{type(exc).__name__}: {exc}",
             )
 
-    def call_models_module(self, attr_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call_function_from_partials(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Dynamically call an attribute from pydy.models.
+        Call examples.Kane1985.Chapter6.util.function_from_partials.
 
         Parameters:
-            attr_name: Callable attribute name in pydy.models.
-            *args/**kwargs: Forwarded call arguments.
+            *args: Positional arguments forwarded to the function.
+            **kwargs: Keyword arguments forwarded to the function.
 
         Returns:
-            dict: Unified status dictionary with call result.
+            dict: Unified status payload with function result.
         """
-        if self.mode != "import":
-            return self._result(
-                status="error",
-                message="Import mode unavailable. Cannot call pydy.models in fallback mode.",
-                error="Ensure local source includes 'pydy/models.py'.",
-            )
+        fn = self.symbols.get("function_from_partials")
+        if fn is None:
+            return self._fallback("examples.Kane1985.Chapter6.util.function_from_partials")
         try:
-            mod = self._modules["pydy.models"]
-            fn = getattr(mod, attr_name)
-            if not callable(fn):
-                return self._result(
-                    status="error",
-                    message="Requested attribute is not callable.",
-                    error=f"Attribute '{attr_name}' exists but is not callable.",
-                )
-            out = fn(*args, **kwargs)
-            return self._result(
-                status="success",
-                message=f"pydy.models.{attr_name} executed.",
-                data={"result": out},
-            )
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result}, "function_from_partials executed")
         except Exception as exc:
-            return self._result(
-                status="error",
-                message=f"Failed to execute pydy.models.{attr_name}.",
-                error=f"{type(exc).__name__}: {exc}",
+            return self._err(
+                "Failed to execute function_from_partials.",
+                "Check symbolic inputs and partial definitions for compatibility.",
+                details=f"{type(exc).__name__}: {exc}",
             )
 
-    def call_utils_module(self, attr_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Dynamically call an attribute from pydy.utils.
-        """
-        if self.mode != "import":
-            return self._result(
-                status="error",
-                message="Import mode unavailable. Cannot call pydy.utils in fallback mode.",
-                error="Ensure local source includes 'pydy/utils.py'.",
-            )
-        try:
-            mod = self._modules["pydy.utils"]
-            fn = getattr(mod, attr_name)
-            if not callable(fn):
-                return self._result(
-                    status="error",
-                    message="Requested attribute is not callable.",
-                    error=f"Attribute '{attr_name}' exists but is not callable.",
-                )
-            out = fn(*args, **kwargs)
-            return self._result(
-                status="success",
-                message=f"pydy.utils.{attr_name} executed.",
-                data={"result": out},
-            )
-        except Exception as exc:
-            return self._result(
-                status="error",
-                message=f"Failed to execute pydy.utils.{attr_name}.",
-                error=f"{type(exc).__name__}: {exc}",
-            )
-
-    # -------------------------------------------------------------------------
-    # Codegen API wrappers
-    # -------------------------------------------------------------------------
-    def call_codegen_module(self, module_name: str, attr_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call a function/class from selected pydy.codegen module.
-
-        Parameters:
-            module_name: One of c_code, cython_code, matrix_generator, octave_code, ode_function_generators.
-            attr_name: Attribute name to call/construct.
-        """
-        if self.mode != "import":
-            return self._result(
-                status="error",
-                message="Import mode unavailable. Cannot call codegen modules in fallback mode.",
-                error="Verify local source path and install optional dependencies like cython when needed.",
-            )
-        path_map = {
-            "c_code": "pydy.codegen.c_code",
-            "cython_code": "pydy.codegen.cython_code",
-            "matrix_generator": "pydy.codegen.matrix_generator",
-            "octave_code": "pydy.codegen.octave_code",
-            "ode_function_generators": "pydy.codegen.ode_function_generators",
-        }
-        try:
-            module_path = path_map[module_name]
-            mod = self._modules[module_path]
-            target = getattr(mod, attr_name)
-            if callable(target):
-                out = target(*args, **kwargs)
-                return self._result(
-                    status="success",
-                    message=f"{module_path}.{attr_name} executed.",
-                    data={"result": out},
-                )
-            return self._result(
-                status="success",
-                message=f"{module_path}.{attr_name} retrieved.",
-                data={"result": target},
-            )
-        except KeyError:
-            return self._result(
-                status="error",
-                message="Unknown codegen module requested.",
-                error=f"Supported module_name values: {list(path_map.keys())}",
-            )
-        except Exception as exc:
-            return self._result(
-                status="error",
-                message=f"Failed to execute {module_name}.{attr_name}.",
-                error=f"{type(exc).__name__}: {exc}",
-            )
-
-    # -------------------------------------------------------------------------
-    # Visualization API wrappers
-    # -------------------------------------------------------------------------
-    def create_viz_instance(self, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Instantiate a visualization class from pydy.viz modules.
-
-        Search order:
-            pydy.viz.camera, pydy.viz.light, pydy.viz.scene, pydy.viz.server,
-            pydy.viz.shapes, pydy.viz.visualization_frame
-        """
-        if self.mode != "import":
-            return self._result(
-                status="error",
-                message="Import mode unavailable. Cannot instantiate visualization classes in fallback mode.",
-                error="Ensure visualization modules exist in local source and JS assets are available for runtime usage.",
-            )
-
-        viz_modules = [
-            "pydy.viz.camera",
-            "pydy.viz.light",
-            "pydy.viz.scene",
-            "pydy.viz.server",
-            "pydy.viz.shapes",
-            "pydy.viz.visualization_frame",
-        ]
-
-        try:
-            for mod_path in viz_modules:
-                mod = self._modules.get(mod_path)
-                if mod is None:
-                    continue
-                if hasattr(mod, class_name):
-                    cls = getattr(mod, class_name)
-                    instance = cls(*args, **kwargs)
-                    return self._result(
-                        status="success",
-                        message=f"{mod_path}.{class_name} instance created.",
-                        data={"instance": instance},
-                    )
-            return self._result(
-                status="error",
-                message="Requested visualization class was not found.",
-                error=f"Class '{class_name}' not found in known pydy.viz modules.",
-            )
-        except Exception as exc:
-            return self._result(
-                status="error",
-                message=f"Failed to create visualization instance for '{class_name}'.",
-                error=f"{type(exc).__name__}: {exc}",
-            )
-
-    # -------------------------------------------------------------------------
-    # Generic callable utility (full coverage fallback)
-    # -------------------------------------------------------------------------
-    def call(self, module_path: str, attr_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Generic executor for any imported module attribute.
-
-        Parameters:
-            module_path: Full module path, e.g., 'pydy.system'.
-            attr_name: Attribute name in module.
-            *args/**kwargs: Arguments for callable attributes.
-
-        Returns:
-            dict: Unified status dictionary.
-        """
-        if self.mode != "import":
-            return self._result(
-                status="error",
-                message="Import mode unavailable. Generic call is disabled in fallback mode.",
-                error="Fix import errors and verify source tree integrity before retrying.",
-            )
-        try:
-            if module_path not in self._modules:
-                imported = self._safe_import(module_path)
-                if imported is None:
-                    return self._result(
-                        status="error",
-                        message=f"Module import failed: {module_path}",
-                        error=self._import_errors.get(module_path, "Unknown import error."),
-                    )
-
-            mod = self._modules[module_path]
-            target = getattr(mod, attr_name)
-            if callable(target):
-                result = target(*args, **kwargs)
-            else:
-                result = target
-
-            return self._result(
-                status="success",
-                message=f"{module_path}.{attr_name} resolved successfully.",
-                data={"result": result},
-            )
-        except Exception as exc:
-            return self._result(
-                status="error",
-                message=f"Failed to execute {module_path}.{attr_name}.",
-                error=f"{type(exc).__name__}: {exc}\n{traceback.format_exc(limit=1)}",
-            )
+    def call_generalized_active_forces(self, *args: Any, **kwargs: Any) -> Dict[str, Any

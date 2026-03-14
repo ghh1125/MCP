@@ -1,285 +1,290 @@
 import os
 import sys
-import traceback
 import importlib
-from typing import Any, Dict, Optional
+import traceback
+from typing import Any, Dict, List, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "source",
 )
-if source_path not in sys.path:
-    sys.path.insert(0, source_path)
+sys.path.insert(0, source_path)
 
 
 class Adapter:
     """
-    Import-mode MCP adapter for the ObsPy repository.
+    Import-mode MCP adapter for ObsPy source tree.
 
-    This adapter prioritizes direct module import/use and provides structured
-    fallback guidance when imports or calls fail.
+    This adapter prioritizes direct module import from local `source` path and provides:
+    - Runtime import health check
+    - Generic import/call helpers
+    - Dedicated wrappers for identified CLI modules/functions from analysis
+    - Graceful fallback guidance when import/runtime fails
     """
 
     def __init__(self) -> None:
         self.mode = "import"
-        self._modules: Dict[str, Optional[Any]] = {}
-        self._load_modules()
+        self._module_cache: Dict[str, Any] = {}
+        self._cli_modules = {
+            "obspy-print": "obspy.scripts.print",
+            "obspy-flinn-engdahl": "obspy.scripts.flinnengdahl",
+            "obspy-reftek-rescue": "obspy.scripts.reftekrescue",
+            "obspy-sds-report": "obspy.scripts.sds_html_report",
+        }
+        self._dependency_hints = {
+            "required": ["numpy", "scipy", "matplotlib", "lxml", "setuptools"],
+            "optional": ["cartopy", "requests", "sqlalchemy", "geographiclib", "pyproj"],
+        }
 
     # -------------------------------------------------------------------------
-    # Internal helpers
+    # Internal utilities
     # -------------------------------------------------------------------------
-    def _result(self, status: str, **kwargs: Any) -> Dict[str, Any]:
-        payload = {"status": status}
-        payload.update(kwargs)
+    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "success") -> Dict[str, Any]:
+        payload = {"status": "success", "mode": self.mode, "message": message}
+        if data:
+            payload.update(data)
         return payload
 
-    def _safe_import(self, module_path: str) -> Optional[Any]:
-        try:
-            mod = importlib.import_module(module_path)
-            return mod
-        except Exception:
-            return None
+    def _err(self, message: str, guidance: Optional[str] = None, exc: Optional[BaseException] = None) -> Dict[str, Any]:
+        payload = {"status": "error", "mode": self.mode, "message": message}
+        if guidance:
+            payload["guidance"] = guidance
+        if exc is not None:
+            payload["error_type"] = exc.__class__.__name__
+            payload["error"] = str(exc)
+            payload["traceback"] = traceback.format_exc(limit=3)
+        return payload
 
-    def _load_modules(self) -> None:
-        module_paths = [
-            "obspy",
-            "obspy.scripts.print",
-            "obspy.scripts.flinnengdahl",
-            "obspy.scripts.reftekrescue",
-            "obspy.scripts.runtests",
-            "obspy.imaging.scripts.scan",
-            "obspy.imaging.scripts.plot",
-            "obspy.imaging.scripts.mopad",
-            "obspy.clients.fdsn.client",
-            "obspy.clients.filesystem.sds",
-            "obspy.clients.seedlink.basic_client",
-            "obspy.signal.filter",
-            "obspy.signal.trigger",
-            "obspy.geodetics.base",
-            "obspy.taup",
-        ]
-        for p in module_paths:
-            self._modules[p] = self._safe_import(p)
+    def _import_module(self, module_path: str) -> Any:
+        if module_path in self._module_cache:
+            return self._module_cache[module_path]
+        module = importlib.import_module(module_path)
+        self._module_cache[module_path] = module
+        return module
 
-    def _get_module(self, module_path: str) -> Dict[str, Any]:
-        mod = self._modules.get(module_path)
-        if mod is None:
-            mod = self._safe_import(module_path)
-            self._modules[module_path] = mod
-        if mod is None:
-            return self._result(
-                "error",
-                error=f"Failed to import module '{module_path}'.",
-                guidance=(
-                    "Ensure the repository source is available under the configured "
-                    "source path and required dependencies are installed."
-                ),
+    def _resolve_callable(self, module_path: str, function_name: str) -> Any:
+        module = self._import_module(module_path)
+        if not hasattr(module, function_name):
+            raise AttributeError(
+                f"Function '{function_name}' was not found in module '{module_path}'. "
+                "Verify source version or available API names."
             )
-        return self._result("success", module=mod)
-
-    def _instantiate(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod_res = self._get_module(module_path)
-        if mod_res["status"] != "success":
-            return mod_res
-        try:
-            cls = getattr(mod_res["module"], class_name)
-            instance = cls(*args, **kwargs)
-            return self._result("success", instance=instance)
-        except AttributeError:
-            return self._result(
-                "error",
-                error=f"Class '{class_name}' not found in module '{module_path}'.",
-                guidance="Verify class name against the repository version.",
-            )
-        except Exception as exc:
-            return self._result(
-                "error",
-                error=f"Failed to instantiate '{class_name}': {exc}",
-                traceback=traceback.format_exc(),
-                guidance="Check constructor arguments and dependency availability.",
-            )
-
-    def _call(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        mod_res = self._get_module(module_path)
-        if mod_res["status"] != "success":
-            return mod_res
-        try:
-            fn = getattr(mod_res["module"], function_name)
-            result = fn(*args, **kwargs)
-            return self._result("success", result=result)
-        except AttributeError:
-            return self._result(
-                "error",
-                error=f"Function '{function_name}' not found in module '{module_path}'.",
-                guidance="Verify function name against the repository version.",
-            )
-        except Exception as exc:
-            return self._result(
-                "error",
-                error=f"Failed to execute '{function_name}': {exc}",
-                traceback=traceback.format_exc(),
-                guidance="Validate inputs and runtime environment.",
-            )
+        fn = getattr(module, function_name)
+        if not callable(fn):
+            raise TypeError(f"Attribute '{function_name}' in module '{module_path}' is not callable.")
+        return fn
 
     # -------------------------------------------------------------------------
-    # Status and diagnostics
+    # Health / environment
     # -------------------------------------------------------------------------
     def health_check(self) -> Dict[str, Any]:
         """
-        Check import readiness of key ObsPy modules and return diagnostics.
+        Check import readiness for key ObsPy modules and dependency hints.
+
+        Returns:
+            dict: Unified status payload with import check details.
         """
-        loaded = {k: (v is not None) for k, v in self._modules.items()}
-        ok = all(loaded.values())
-        return self._result(
-            "success" if ok else "partial",
-            mode=self.mode,
-            source_path=source_path,
-            modules=loaded,
-            guidance=(
-                "If partial, install missing dependencies: numpy, scipy, matplotlib, "
-                "lxml, sqlalchemy, requests (plus optional extras as needed)."
-            ),
-        )
+        required_modules = [
+            "obspy",
+            "obspy.core",
+            "obspy.scripts.print",
+            "obspy.scripts.flinnengdahl",
+            "obspy.scripts.reftekrescue",
+            "obspy.scripts.sds_html_report",
+        ]
+        results = {}
+        for mod in required_modules:
+            try:
+                self._import_module(mod)
+                results[mod] = "ok"
+            except Exception as exc:
+                results[mod] = f"failed: {exc.__class__.__name__}: {exc}"
+
+        failures = {k: v for k, v in results.items() if not str(v).startswith("ok")}
+        if failures:
+            return self._err(
+                "One or more critical imports failed.",
+                guidance=(
+                    "Ensure the local source tree exists under the configured 'source' directory and "
+                    "install required dependencies: " + ", ".join(self._dependency_hints["required"])
+                ),
+            ) | {"checks": results, "dependency_hints": self._dependency_hints}
+        return self._ok({"checks": results, "dependency_hints": self._dependency_hints})
 
     # -------------------------------------------------------------------------
-    # Core import-oriented wrappers (classes)
+    # Generic import/call API
     # -------------------------------------------------------------------------
-    def create_fdsn_client(self, base_url: str = "IRIS", user: Optional[str] = None, password: Optional[str] = None,
-                           **kwargs: Any) -> Dict[str, Any]:
+    def create_instance(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Create obspy.clients.fdsn.client.Client instance.
+        Create an instance from a class in a target module.
 
         Parameters:
-        - base_url: FDSN service alias or URL.
-        - user/password: Optional credentials.
-        - kwargs: Additional constructor args accepted by ObsPy.
-        """
-        return self._instantiate(
-            "obspy.clients.fdsn.client",
-            "Client",
-            base_url,
-            user=user,
-            password=password,
-            **kwargs,
-        )
+            module_path: Full module import path (e.g., 'obspy.clients.fdsn.client').
+            class_name: Target class name.
+            *args, **kwargs: Arguments passed to class constructor.
 
-    def create_sds_client(self, sds_root: str, **kwargs: Any) -> Dict[str, Any]:
+        Returns:
+            dict: status payload; on success includes 'instance'.
         """
-        Create obspy.clients.filesystem.sds.Client instance.
-
-        Parameters:
-        - sds_root: Root directory of SDS archive.
-        - kwargs: Additional constructor args.
-        """
-        return self._instantiate("obspy.clients.filesystem.sds", "Client", sds_root, **kwargs)
-
-    def create_seedlink_basic_client(self, server: str, port: int = 18000, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Create obspy.clients.seedlink.basic_client.Client instance.
-
-        Parameters:
-        - server: SeedLink server hostname.
-        - port: SeedLink server port.
-        - kwargs: Additional constructor args.
-        """
-        return self._instantiate("obspy.clients.seedlink.basic_client", "Client", server, port=port, **kwargs)
-
-    # -------------------------------------------------------------------------
-    # Core import-oriented wrappers (functions)
-    # -------------------------------------------------------------------------
-    def call_obspy_read(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call obspy.read() for waveform loading.
-        """
-        return self._call("obspy", "read", *args, **kwargs)
-
-    def call_obspy_read_inventory(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call obspy.read_inventory() for station metadata loading.
-        """
-        return self._call("obspy", "read_inventory", *args, **kwargs)
-
-    def call_obspy_read_events(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call obspy.read_events() for event catalog loading.
-        """
-        return self._call("obspy", "read_events", *args, **kwargs)
-
-    def call_geodetics_locations2degrees(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call obspy.geodetics.base.locations2degrees().
-        """
-        return self._call("obspy.geodetics.base", "locations2degrees", *args, **kwargs)
-
-    def call_geodetics_gps2dist_azimuth(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call obspy.geodetics.base.gps2dist_azimuth().
-        """
-        return self._call("obspy.geodetics.base", "gps2dist_azimuth", *args, **kwargs)
-
-    def create_taup_model(self, model: str = "iasp91") -> Dict[str, Any]:
-        """
-        Create obspy.taup.TauPyModel instance.
-
-        Parameters:
-        - model: TauP Earth model name.
-        """
-        return self._instantiate("obspy.taup", "TauPyModel", model=model)
-
-    # -------------------------------------------------------------------------
-    # CLI module adapters (import-mode fallback for command workflows)
-    # -------------------------------------------------------------------------
-    def call_cli_module_main(self, module_path: str, argv: Optional[list] = None) -> Dict[str, Any]:
-        """
-        Execute a CLI module main() in import mode.
-
-        Parameters:
-        - module_path: Full module path (e.g., 'obspy.scripts.print').
-        - argv: Optional argument list to inject as sys.argv[1:].
-        """
-        mod_res = self._get_module(module_path)
-        if mod_res["status"] != "success":
-            return mod_res
-        mod = mod_res["module"]
-        if not hasattr(mod, "main"):
-            return self._result(
-                "error",
-                error=f"Module '{module_path}' does not expose a main() function.",
-                guidance="Use direct API methods where possible or verify module entry behavior.",
-            )
-        old_argv = sys.argv[:]
         try:
-            if argv is not None:
-                sys.argv = [module_path] + list(argv)
-            out = mod.main()
-            return self._result("success", result=out)
+            module = self._import_module(module_path)
+            if not hasattr(module, class_name):
+                return self._err(
+                    f"Class '{class_name}' not found in module '{module_path}'.",
+                    guidance="Check class name spelling and module path from repository source.",
+                )
+            cls = getattr(module, class_name)
+            instance = cls(*args, **kwargs)
+            return self._ok({"instance": instance}, f"Instance created: {module_path}.{class_name}")
         except Exception as exc:
-            return self._result(
-                "error",
-                error=f"CLI main execution failed for '{module_path}': {exc}",
-                traceback=traceback.format_exc(),
-                guidance="Check command arguments and local data paths.",
+            return self._err(
+                f"Failed to create instance for {module_path}.{class_name}.",
+                guidance="Verify constructor parameters and required runtime dependencies.",
+                exc=exc,
             )
-        finally:
-            sys.argv = old_argv
 
-    def run_obspy_print(self, argv: Optional[list] = None) -> Dict[str, Any]:
-        return self.call_cli_module_main("obspy.scripts.print", argv=argv)
+    def call_function(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call a function from a target module.
 
-    def run_obspy_flinn_engdahl(self, argv: Optional[list] = None) -> Dict[str, Any]:
-        return self.call_cli_module_main("obspy.scripts.flinnengdahl", argv=argv)
+        Parameters:
+            module_path: Full module import path.
+            function_name: Function name in the module.
+            *args, **kwargs: Function arguments.
 
-    def run_obspy_reftek_rescue(self, argv: Optional[list] = None) -> Dict[str, Any]:
-        return self.call_cli_module_main("obspy.scripts.reftekrescue", argv=argv)
+        Returns:
+            dict: status payload; on success includes 'result'.
+        """
+        try:
+            fn = self._resolve_callable(module_path, function_name)
+            result = fn(*args, **kwargs)
+            return self._ok({"result": result}, f"Function executed: {module_path}.{function_name}")
+        except Exception as exc:
+            return self._err(
+                f"Failed to call function {module_path}.{function_name}.",
+                guidance="Confirm function signature and input argument types.",
+                exc=exc,
+            )
 
-    def run_obspy_scan(self, argv: Optional[list] = None) -> Dict[str, Any]:
-        return self.call_cli_module_main("obspy.imaging.scripts.scan", argv=argv)
+    # -------------------------------------------------------------------------
+    # Dedicated wrappers for identified CLI modules
+    # -------------------------------------------------------------------------
+    def cli_obspy_print(self, args: Optional[List[str]] = None) -> Dict[str, Any]:
+        """
+        Execute ObsPy print script entry function from module `obspy.scripts.print`.
 
-    def run_obspy_plot(self, argv: Optional[list] = None) -> Dict[str, Any]:
-        return self.call_cli_module_main("obspy.imaging.scripts.plot", argv=argv)
+        Parameters:
+            args: Optional CLI-like argument list. If omitted, defaults to [].
 
-    def run_obspy_mopad(self, argv: Optional[list] = None) -> Dict[str, Any]:
-        return self.call_cli_module_main("obspy.imaging.scripts.mopad", argv=argv)
+        Returns:
+            dict: status payload with execution result.
+        """
+        return self._run_cli_module("obspy-print", args or [])
 
-    def run_obspy_runtests(self, argv: Optional[list] = None) -> Dict[str, Any]:
-        return self.call_cli_module_main("obspy.scripts.runtests", argv=argv)
+    def cli_obspy_flinn_engdahl(self, args: Optional[List[str]] = None) -> Dict[str, Any]:
+        """
+        Execute ObsPy Flinn-Engdahl resolver from module `obspy.scripts.flinnengdahl`.
+
+        Parameters:
+            args: Optional CLI-like argument list.
+
+        Returns:
+            dict: status payload with execution result.
+        """
+        return self._run_cli_module("obspy-flinn-engdahl", args or [])
+
+    def cli_obspy_reftek_rescue(self, args: Optional[List[str]] = None) -> Dict[str, Any]:
+        """
+        Execute ObsPy Reftek rescue utility from module `obspy.scripts.reftekrescue`.
+
+        Parameters:
+            args: Optional CLI-like argument list.
+
+        Returns:
+            dict: status payload with execution result.
+        """
+        return self._run_cli_module("obspy-reftek-rescue", args or [])
+
+    def cli_obspy_sds_report(self, args: Optional[List[str]] = None) -> Dict[str, Any]:
+        """
+        Execute ObsPy SDS HTML report utility from module `obspy.scripts.sds_html_report`.
+
+        Parameters:
+            args: Optional CLI-like argument list.
+
+        Returns:
+            dict: status payload with execution result.
+        """
+        return self._run_cli_module("obspy-sds-report", args or [])
+
+    def _run_cli_module(self, cli_name: str, args: List[str]) -> Dict[str, Any]:
+        try:
+            if cli_name not in self._cli_modules:
+                return self._err(
+                    f"Unknown CLI name '{cli_name}'.",
+                    guidance=f"Supported CLI names: {', '.join(sorted(self._cli_modules.keys()))}",
+                )
+            module_path = self._cli_modules[cli_name]
+            module = self._import_module(module_path)
+
+            target_candidates = ["main", "_main"]
+            target = None
+            for name in target_candidates:
+                if hasattr(module, name) and callable(getattr(module, name)):
+                    target = getattr(module, name)
+                    break
+
+            if target is None:
+                return self._err(
+                    f"No callable main entry point found in '{module_path}'.",
+                    guidance="Inspect module to identify its callable entry function.",
+                )
+
+            result = target(args) if args is not None else target()
+            return self._ok(
+                {"result": result, "module": module_path, "cli_name": cli_name, "args": args},
+                f"CLI module executed: {cli_name}",
+            )
+        except SystemExit as exc:
+            return self._ok(
+                {"exit_code": getattr(exc, "code", 0), "cli_name": cli_name, "args": args},
+                "CLI requested process exit; captured safely.",
+            )
+        except Exception as exc:
+            return self._err(
+                f"Failed to execute CLI module '{cli_name}'.",
+                guidance="Validate CLI arguments and ensure optional dependencies are installed.",
+                exc=exc,
+            )
+
+    # -------------------------------------------------------------------------
+    # Discovery helpers
+    # -------------------------------------------------------------------------
+    def list_supported_cli(self) -> Dict[str, Any]:
+        """
+        List supported CLI commands identified by analysis.
+
+        Returns:
+            dict: status payload with command mapping.
+        """
+        return self._ok({"commands": self._cli_modules})
+
+    def import_module(self, module_path: str) -> Dict[str, Any]:
+        """
+        Import and cache a module by full path.
+
+        Parameters:
+            module_path: Module path (e.g., 'obspy.signal.filter').
+
+        Returns:
+            dict: status payload with module representation.
+        """
+        try:
+            module = self._import_module(module_path)
+            return self._ok({"module": module, "module_path": module_path}, "Module imported.")
+        except Exception as exc:
+            return self._err(
+                f"Failed to import module '{module_path}'.",
+                guidance="Check module path and source layout under the 'source' directory.",
+                exc=exc,
+            )

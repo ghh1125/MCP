@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773281222.5819268,
-    "end_time": 1773281482.0753129,
-    "duration": 259.49338603019714,
+    "start_time": 1773460161.8057,
+    "end_time": 1773460409.026898,
+    "duration": 247.22119784355164,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 0,
+    "total_files_processed": 2,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -53,7 +53,10 @@
   },
   "analysis": {
     "structure": {
-      "packages": []
+      "packages": [
+        "deployment.flair.source",
+        "mcp_output.mcp_plugin"
+      ]
     },
     "dependencies": {
       "has_environment_yml": false,
@@ -68,7 +71,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.91,
+      "import_feasibility": 0.94,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -125,45 +128,39 @@
     {
       "node": "DownloadNode",
       "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/flair/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75001 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n",
+      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/flair/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 555 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n",
       "action_taken": "continue_with_empty"
     }
   ],
   "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/flair/temp_clone'...\nerror: RPC failed; curl 28 Failed to connect to github.com port 443 after 75001 ms: Couldn't connect to server\nfatal: expected flush after ref listing\n"
+    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/flair/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 555 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
   ],
   "recommendations": [
-    "add a minimal smoke-test suite for the MCP plugin (server startup",
-    "endpoint registration",
-    "one happy-path call per endpoint)",
-    "align dependency detection with actual repo files (pyproject.toml/setup.py/requirements.txt are present) and fail analysis when metadata parsing disagrees with file tree",
-    "introduce CI jobs specifically for mcp_output (lint",
-    "type-check",
-    "unit tests) and gate merges on them",
-    "define strict Pydantic request/response schemas for each endpoint with versioned contracts to prevent API drift",
-    "implement structured error handling in adapter/service layers (typed exceptions",
-    "clear error codes",
-    "actionable messages)",
-    "add timeout/retry/circuit-breaker safeguards around heavy model-loading endpoints",
-    "create lazy-loading and shared model cache to reduce cold-start latency and memory duplication",
-    "add concurrency/load tests for inference endpoints and document safe worker/thread settings",
-    "pin and constrain plugin/runtime dependencies (including flair/torch/transformers compatibility matrix) and add reproducible lockfiles",
-    "expand observability with structured logs/metrics/traces (request latency",
-    "model load time",
-    "error rate) plus health and readiness endpoints",
-    "harden security by validating/sanitizing all endpoint inputs and setting resource limits for untrusted payload sizes",
-    "refactor oversized core modules incrementally (e.g.",
-    "flair.data",
-    "datasets",
-    "sequence tagger) into smaller components with clearer ownership boundaries",
-    "improve test coverage for tokenizer/sentence edge cases and trainer plugin interactions with targeted regression tests",
-    "add golden tests for serialization/deserialization of Sentence/Token/Label/Span/Relation objects across versions",
-    "provide a formal CLI entry point for examples currently script-only and document recommended production invocation",
-    "consolidate and deduplicate docs between docs/tutorial and resources/docs to reduce drift",
-    "add an MCP quickstart in README with copy-paste examples and troubleshooting for common dependency/model download failures",
-    "introduce pre-commit hooks (ruff/black/isort/mypy) and enforce consistent style across core and generated plugin code",
-    "add benchmark baselines (throughput/latency/memory) for key endpoints and fail CI on significant regressions",
-    "define deprecation policy and compatibility guarantees for exposed MCP endpoints and core class mappings"
+    "add and run MCP smoke/integration tests in CI (test status is empty) covering SequenceTagger.predict",
+    "TextClassifier.predict",
+    "and ModelTrainer.train via the generated adapter",
+    "fix dependency detection in the analysis pipeline (it missed existing pyproject.toml/setup.py/requirements.txt) to avoid wrong packaging recommendations",
+    "reduce MCP endpoint surface by removing auto-exposed class-name aliases (e.g.",
+    "“sentence”",
+    "“sequencetagger”) and keep only stable method endpoints",
+    "add strict input/output schemas with Pydantic models plus versioned contracts for each endpoint",
+    "implement timeout/retry/error-mapping wrappers around heavy calls (transformer embedding/training) to improve MCP reliability",
+    "add authentication/authorization and rate limiting to MCP service before exposing model loading/training operations",
+    "pin and document compatibility matrix (Python/Torch/Transformers/FastMCP) and add a lockfile for reproducible plugin installs",
+    "create performance benchmarks (latency/memory) for key endpoints and add regression thresholds in CI",
+    "add structured logging and tracing (request id",
+    "model name",
+    "duration",
+    "failures) in mcp_service.py for observability",
+    "introduce caching/pooling for loaded models and embeddings to avoid repeated cold starts",
+    "add graceful resource guards in adapter (max batch size",
+    "max sequence length",
+    "GPU/CPU fallback) to prevent OOM on predict/train calls",
+    "improve README_MCP with concrete examples for each endpoint and failure modes",
+    "add security hardening for model/dataset loading paths (path validation",
+    "remote download policy)",
+    "add contract tests to ensure Sentence.to_dict/from_dict round-trip fidelity through MCP serialization",
+    "add a plugin lifecycle hook strategy using TrainerPlugin attach/detach to minimize intrusiveness during long training runs"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -194,36 +191,37 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal status 'success' and executed all expected nodes (download, analysis, env, generate, run, review, finalize)",
-      "Resilience mechanism worked: after git clone failure, zip fallback imported repository content (293 files) and enabled downstream generation",
-      "MCP plugin startup/health check passed (stdio transport healthy), indicating runnable baseline service scaffold",
-      "Low intrusiveness import-mode adapter with identified core Flair modules reduced integration risk"
+      "Workflow reached terminal status `success` and executed all planned nodes: download, analysis, env, generate, run, review, finalize",
+      "Robust fallback behavior: when git clone failed, zip fallback succeeded (`processed_by: zip_fallback`, ~293 files discovered)",
+      "Import-based adapter strategy had high feasibility confidence (0.94), enabling automatic endpoint exposure",
+      "Generated MCP package structure and startup entrypoint were produced consistently",
+      "MCP plugin runtime check passed (`service_health: healthy`, transport: stdio)"
     ],
     "failure_reasons": [
-      "Primary repository acquisition failed due to network/connectivity issue to github.com:443 (curl 28 timeout) during git clone",
-      "DeepWiki analysis failed, reducing external semantic enrichment",
-      "Analysis metadata inconsistencies (dependencies/packages reported absent despite pyproject.toml, setup.py, requirements.txt in file tree) indicate parser/analysis pipeline defect",
-      "Quality evidence is incomplete: no meaningful project test execution and zeroed metrics (LOC/files processed/perf) reduce confidence in reported success"
+      "Primary repository acquisition failed in DownloadNode due to network/transport interruption (`curl 18`, early EOF, invalid index-pack)",
+      "Dependency detection pipeline produced false negatives (reported no pyproject/setup/requirements despite files existing)",
+      "Validation depth was low: original project tests not executed effectively (`passed: false`, no test files, execution_time 0)",
+      "Observability and performance metrics are incomplete (all zeros), limiting objective runtime quality assessment"
     ],
     "overall_assessment": "fair",
     "node_performance": {
-      "download_time": "Likely dominated by ~75s clone timeout before fallback; operationally acceptable due to recovery, but reliability is weak.",
-      "analysis_time": "Completed with useful LLM-derived module mapping, but structured analyzers under-reported repository/dependency facts.",
-      "generation_time": "Efficient scaffold generation (7 files) with import adapter and endpoint set; however, reported tool/LOC counters are inconsistent.",
-      "test_time": "Plugin health test passed quickly; no substantive endpoint/functional/load test evidence, so quality signal is shallow."
+      "download_time": "Download path was partially degraded: git clone failed, then recovered via zip fallback. This likely increased latency and reduced metadata fidelity.",
+      "analysis_time": "Analysis succeeded functionally, but quality was mixed due to incorrect dependency discovery and empty entry-point detection despite rich repo structure.",
+      "generation_time": "Generation completed quickly and produced expected files, but output quality signals are weak (`total_lines_of_code: 0`, `tool_endpoints: 0` inconsistent with listed endpoints).",
+      "test_time": "Test execution was minimal/insufficient; MCP health check passed, but no substantive integration or contract tests were recorded."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown/insufficient telemetry (reported 0 MB).",
-      "cpu_efficiency": "Unknown/insufficient telemetry (reported 0%).",
-      "disk_usage": "Low for generated artifact set; repository footprint moderate-large, but no measured disk metrics provided."
+      "memory_efficiency": "Unknown/undetermined due to missing telemetry (`memory_usage_mb: 0`).",
+      "cpu_efficiency": "Unknown/undetermined due to missing telemetry (`cpu_usage_percent: 0`).",
+      "disk_usage": "Likely low for generated artifacts, but reported generated size is zero, indicating instrumentation/data-quality issues."
     }
   },
   "technical_quality": {
-    "code_quality_score": 72,
-    "architecture_score": 78,
-    "performance_score": 61,
+    "code_quality_score": 68,
+    "architecture_score": 74,
+    "performance_score": 52,
     "maintainability_score": 70,
     "security_score": 85,
-    "scalability_score": 66
+    "scalability_score": 61
   }
 }

@@ -1,6 +1,8 @@
 import os
 import sys
-from typing import Any, Dict, Optional
+import importlib
+import traceback
+from typing import Any, Dict, List, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -11,313 +13,346 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP import-mode adapter for mne-python.
+    Import-mode adapter for the mne-python MCP plugin integration.
 
-    This adapter prioritizes direct in-repo imports and provides graceful fallback
-    guidance when imports are unavailable.
+    This adapter prioritizes Python imports and provides a graceful CLI fallback
+    pathway when import-based execution is unavailable.
     """
 
+    # -------------------------------------------------------------------------
+    # Lifecycle / Initialization
+    # -------------------------------------------------------------------------
     def __init__(self) -> None:
+        """
+        Initialize adapter state, import registry, and module availability.
+
+        Attributes:
+            mode: Adapter execution mode, fixed to "import".
+            package_root: Root import path for repository package.
+            modules: Loaded module cache keyed by logical name.
+            available: Boolean import readiness state.
+            warnings: List of non-fatal issues detected during initialization.
+        """
         self.mode = "import"
-        self._modules: Dict[str, Any] = {}
-        self._commands: Dict[str, Any] = {}
-        self._import_error: Optional[str] = None
+        self.package_root = "mne"
+        self.modules: Dict[str, Any] = {}
+        self.available = False
+        self.warnings: List[str] = []
         self._initialize_imports()
 
+    def _initialize_imports(self) -> None:
+        """
+        Attempt to import core and command modules identified by analysis.
+
+        This method captures and stores import exceptions so the adapter can
+        continue operating in graceful fallback mode.
+        """
+        targets = {
+            "mne": "mne",
+            "commands": "mne.commands",
+        }
+
+        loaded = 0
+        for key, mod_path in targets.items():
+            try:
+                self.modules[key] = importlib.import_module(mod_path)
+                loaded += 1
+            except Exception as exc:
+                self.modules[key] = None
+                self.warnings.append(
+                    f"Failed to import '{mod_path}'. Verify local source checkout and dependencies. Detail: {exc}"
+                )
+        self.available = loaded > 0
+
     # -------------------------------------------------------------------------
-    # Internal helpers
+    # Unified response helpers
     # -------------------------------------------------------------------------
-    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "OK") -> Dict[str, Any]:
-        payload = {"status": "success", "mode": self.mode, "message": message}
-        if data:
-            payload.update(data)
+    def _ok(self, message: str, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        return {"status": "success", "message": message, "data": data or {}}
+
+    def _fail(
+        self,
+        message: str,
+        error: Optional[str] = None,
+        guidance: Optional[str] = None,
+        data: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        payload = {"status": "error", "message": message, "data": data or {}}
+        if error:
+            payload["error"] = error
+        if guidance:
+            payload["guidance"] = guidance
         return payload
 
-    def _err(self, message: str, guidance: Optional[str] = None) -> Dict[str, Any]:
-        out = {"status": "error", "mode": self.mode, "message": message}
-        if guidance:
-            out["guidance"] = guidance
-        return out
-
-    def _import_module(self, dotted_path: str, alias: str) -> None:
-        try:
-            self._modules[alias] = __import__(dotted_path, fromlist=["*"])
-        except Exception as e:
-            self._modules[alias] = None
-            if self._import_error is None:
-                self._import_error = str(e)
-
-    def _initialize_imports(self) -> None:
-        # Core package
-        self._import_module("mne", "mne")
-
-        # CLI command modules identified by analysis
-        self._import_module("mne.commands.mne_browse_raw", "cmd_browse_raw")
-        self._import_module("mne.commands.mne_report", "cmd_report")
-        self._import_module("mne.commands.mne_sys_info", "cmd_sys_info")
-        self._import_module("mne.commands.mne_show_fiff", "cmd_show_fiff")
-        self._import_module("mne.commands.mne_what", "cmd_what")
-
-        # Track command callables where possible
-        for alias in ["cmd_browse_raw", "cmd_report", "cmd_sys_info", "cmd_show_fiff", "cmd_what"]:
-            mod = self._modules.get(alias)
-            self._commands[alias] = getattr(mod, "run", None) if mod else None
-
-    def _check_available(self, alias: str, feature_name: str) -> Optional[Dict[str, Any]]:
-        if self._modules.get(alias) is None:
-            return self._err(
-                f"{feature_name} is unavailable because module import failed.",
-                guidance=(
-                    "Ensure the repository source tree exists under the configured source path "
-                    "and that required dependencies are installed."
-                ),
-            )
-        return None
+    def _fallback(
+        self,
+        action: str,
+        reason: str,
+        extra: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        return {
+            "status": "fallback",
+            "message": f"Import mode unavailable for '{action}'.",
+            "reason": reason,
+            "guidance": (
+                "Ensure repository source is present under the configured 'source' directory and "
+                "install required dependencies (numpy, scipy, matplotlib, packaging, pooch, tqdm). "
+                "If import still fails, use the CLI fallback via the 'mne' command."
+            ),
+            "data": extra or {},
+        }
 
     # -------------------------------------------------------------------------
-    # Status / diagnostics
+    # Health / Introspection
     # -------------------------------------------------------------------------
     def health_check(self) -> Dict[str, Any]:
         """
-        Return adapter health and import diagnostics.
-        """
-        available = {k: v is not None for k, v in self._modules.items()}
-        if all(available.values()):
-            return self._ok({"available_modules": available}, "All modules imported successfully.")
-        return self._err(
-            "Some modules could not be imported.",
-            guidance=f"Import diagnostics: {self._import_error or 'Unknown import error.'}",
-        )
+        Report adapter readiness and import diagnostics.
 
-    def get_dependency_hints(self) -> Dict[str, Any]:
-        """
-        Return dependency hints derived from analysis.
+        Returns:
+            Dict with status, mode, import availability, and warning details.
         """
         return self._ok(
+            "Adapter health check completed.",
             {
-                "required": ["numpy", "scipy", "matplotlib", "packaging", "pooch", "jinja2", "tqdm"],
-                "optional": [
-                    "scikit-learn", "pandas", "h5py", "nibabel", "pyvista",
-                    "PyQt5/PySide6", "numba", "joblib", "dipy", "mne-qt-browser",
-                    "neo", "pyxdf", "eeglabio",
-                ],
+                "mode": self.mode,
+                "available": self.available,
+                "loaded_modules": {k: bool(v) for k, v in self.modules.items()},
+                "warnings": self.warnings,
             },
-            "Dependency hints generated from repository analysis.",
         )
 
-    # -------------------------------------------------------------------------
-    # Core mne module methods
-    # -------------------------------------------------------------------------
-    def create_info(self, ch_names, sfreq, ch_types="misc", **kwargs) -> Dict[str, Any]:
+    def list_known_packages(self) -> Dict[str, Any]:
         """
-        Create an MNE Info object via mne.create_info.
-
-        Parameters:
-        - ch_names: list of channel names.
-        - sfreq: sampling frequency.
-        - ch_types: channel type(s).
-        - kwargs: forwarded to mne.create_info.
+        Return package namespaces discovered during analysis.
 
         Returns:
-        - Unified status dictionary with created info in `result`.
+            Dict containing analyzed package names for discovery/debugging.
         """
-        unavailable = self._check_available("mne", "mne.create_info")
-        if unavailable:
-            return unavailable
+        packages = [
+            "deployment.mne-python.source",
+            "mcp_output.mcp_plugin",
+            "source.mne",
+            "source.mne._fiff",
+            "source.mne.beamformer",
+            "source.mne.channels",
+            "source.mne.commands",
+            "source.mne.data",
+            "source.mne.datasets",
+            "source.mne.decoding",
+            "source.mne.export",
+            "source.mne.forward",
+            "source.mne.gui",
+            "source.mne.html_templates",
+            "source.mne.inverse_sparse",
+            "source.mne.io",
+            "source.mne.minimum_norm",
+            "source.mne.preprocessing",
+            "source.mne.report",
+            "source.mne.simulation",
+            "source.mne.source_space",
+            "source.mne.stats",
+            "source.mne.tests",
+            "source.mne.time_frequency",
+            "source.mne.utils",
+            "source.mne.viz",
+        ]
+        return self._ok("Known package list prepared.", {"packages": packages})
+
+    # -------------------------------------------------------------------------
+    # Module management
+    # -------------------------------------------------------------------------
+    def import_module(self, module_path: str) -> Dict[str, Any]:
+        """
+        Dynamically import an MNE module using full package path.
+
+        Args:
+            module_path: Absolute module path (e.g., 'mne.io', 'mne.preprocessing').
+
+        Returns:
+            Unified status dictionary with module import result.
+        """
         try:
-            result = self._modules["mne"].create_info(ch_names=ch_names, sfreq=sfreq, ch_types=ch_types, **kwargs)
-            return self._ok({"result": result}, "Info object created.")
-        except Exception as e:
-            return self._err(
-                f"Failed to create Info object: {e}",
-                guidance="Validate channel names, sfreq type, and channel type definitions.",
+            mod = importlib.import_module(module_path)
+            self.modules[module_path] = mod
+            return self._ok("Module imported successfully.", {"module_path": module_path})
+        except Exception as exc:
+            return self._fail(
+                "Module import failed.",
+                error=str(exc),
+                guidance="Confirm module path and dependency installation.",
+                data={"module_path": module_path},
             )
 
-    def instantiate_raw_array(self, data, info, first_samp=0, copy="auto", verbose=None) -> Dict[str, Any]:
+    def get_module_attributes(self, module_path: str, limit: int = 200) -> Dict[str, Any]:
         """
-        Instantiate mne.io.RawArray.
+        Enumerate public attributes for a module to support function discovery.
 
-        Parameters:
-        - data: ndarray, shape (n_channels, n_times).
-        - info: mne.Info object.
-        - first_samp: first sample index.
-        - copy: copy behavior.
-        - verbose: MNE verbosity.
+        Args:
+            module_path: Full module path.
+            limit: Maximum number of attributes to return.
 
         Returns:
-        - Unified status dictionary with RawArray instance in `result`.
+            Unified status dictionary containing exported attribute names.
         """
-        unavailable = self._check_available("mne", "mne.io.RawArray")
-        if unavailable:
-            return unavailable
         try:
-            raw = self._modules["mne"].io.RawArray(data=data, info=info, first_samp=first_samp, copy=copy, verbose=verbose)
-            return self._ok({"result": raw}, "RawArray instance created.")
-        except Exception as e:
-            return self._err(
-                f"Failed to instantiate RawArray: {e}",
-                guidance="Ensure data is 2D numeric and matches Info channel count.",
+            mod = self.modules.get(module_path) or importlib.import_module(module_path)
+            attrs = [a for a in dir(mod) if not a.startswith("_")]
+            return self._ok(
+                "Module attributes fetched.",
+                {"module_path": module_path, "attributes": attrs[: max(1, limit)]},
             )
-
-    def call_read_raw(self, fname, **kwargs) -> Dict[str, Any]:
-        """
-        Call mne.io.read_raw for auto-detected format reading.
-
-        Parameters:
-        - fname: input file path.
-        - kwargs: forwarded to mne.io.read_raw.
-
-        Returns:
-        - Unified status dictionary with raw object in `result`.
-        """
-        unavailable = self._check_available("mne", "mne.io.read_raw")
-        if unavailable:
-            return unavailable
-        try:
-            raw = self._modules["mne"].io.read_raw(fname, **kwargs)
-            return self._ok({"result": raw}, "Raw file loaded.")
-        except Exception as e:
-            return self._err(
-                f"Failed to read raw data: {e}",
-                guidance="Confirm file path, format support, and related optional dependencies.",
+        except Exception as exc:
+            return self._fail(
+                "Could not inspect module attributes.",
+                error=str(exc),
+                guidance="Import the module first and verify it is available in local source.",
+                data={"module_path": module_path},
             )
 
     # -------------------------------------------------------------------------
-    # CLI wrappers from mne/commands/*
+    # Core MNE call surface
     # -------------------------------------------------------------------------
-    def call_mne_browse_raw(self, argv: Optional[list] = None) -> Dict[str, Any]:
+    def call_mne_function(self, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Execute mne browse_raw command module run().
+        Call a function from the top-level mne module by name.
 
-        Parameters:
-        - argv: optional command-style argument list.
+        Args:
+            function_name: Name of the function in module 'mne'.
+            *args: Positional arguments forwarded to the target function.
+            **kwargs: Keyword arguments forwarded to the target function.
 
         Returns:
-        - Unified status dictionary with command return value if available.
+            Unified status dictionary with execution result or actionable failure.
         """
-        unavailable = self._check_available("cmd_browse_raw", "mne browse_raw")
-        if unavailable:
-            return unavailable
+        if not self.modules.get("mne"):
+            return self._fallback("call_mne_function", "Top-level module 'mne' is not importable.")
+
         try:
-            run = self._commands.get("cmd_browse_raw")
-            if run is None:
-                return self._err(
-                    "browse_raw command entrypoint not found.",
-                    guidance="Inspect mne.commands.mne_browse_raw for available callable entrypoints.",
+            target = getattr(self.modules["mne"], function_name, None)
+            if target is None or not callable(target):
+                return self._fail(
+                    "Requested MNE function was not found.",
+                    guidance="Use get_module_attributes('mne') to discover available callables.",
+                    data={"function_name": function_name},
                 )
-            out = run(argv or [])
-            return self._ok({"result": out}, "mne browse_raw executed.")
-        except Exception as e:
-            return self._err(
-                f"Failed to execute mne browse_raw: {e}",
-                guidance="Provide valid command arguments and ensure GUI backend dependencies are installed.",
+            result = target(*args, **kwargs)
+            return self._ok(
+                "MNE function executed successfully.",
+                {"function_name": function_name, "result": result},
             )
-
-    def call_mne_report(self, argv: Optional[list] = None) -> Dict[str, Any]:
-        unavailable = self._check_available("cmd_report", "mne report")
-        if unavailable:
-            return unavailable
-        try:
-            run = self._commands.get("cmd_report")
-            if run is None:
-                return self._err("report command entrypoint not found.", guidance="Check mne.commands.mne_report module.")
-            out = run(argv or [])
-            return self._ok({"result": out}, "mne report executed.")
-        except Exception as e:
-            return self._err(
-                f"Failed to execute mne report: {e}",
-                guidance="Verify report arguments and paths are correct.",
-            )
-
-    def call_mne_sys_info(self, argv: Optional[list] = None) -> Dict[str, Any]:
-        unavailable = self._check_available("cmd_sys_info", "mne sys_info")
-        if unavailable:
-            return unavailable
-        try:
-            run = self._commands.get("cmd_sys_info")
-            if run is None:
-                return self._err("sys_info command entrypoint not found.", guidance="Check mne.commands.mne_sys_info module.")
-            out = run(argv or [])
-            return self._ok({"result": out}, "mne sys_info executed.")
-        except Exception as e:
-            return self._err(
-                f"Failed to execute mne sys_info: {e}",
-                guidance="Try running with no arguments to print environment diagnostics.",
-            )
-
-    def call_mne_show_fiff(self, argv: Optional[list] = None) -> Dict[str, Any]:
-        unavailable = self._check_available("cmd_show_fiff", "mne show_fiff")
-        if unavailable:
-            return unavailable
-        try:
-            run = self._commands.get("cmd_show_fiff")
-            if run is None:
-                return self._err("show_fiff command entrypoint not found.", guidance="Check mne.commands.mne_show_fiff module.")
-            out = run(argv or [])
-            return self._ok({"result": out}, "mne show_fiff executed.")
-        except Exception as e:
-            return self._err(
-                f"Failed to execute mne show_fiff: {e}",
-                guidance="Ensure the FIFF file exists and is readable.",
-            )
-
-    def call_mne_what(self, argv: Optional[list] = None) -> Dict[str, Any]:
-        unavailable = self._check_available("cmd_what", "mne what")
-        if unavailable:
-            return unavailable
-        try:
-            run = self._commands.get("cmd_what")
-            if run is None:
-                return self._err("what command entrypoint not found.", guidance="Check mne.commands.mne_what module.")
-            out = run(argv or [])
-            return self._ok({"result": out}, "mne what executed.")
-        except Exception as e:
-            return self._err(
-                f"Failed to execute mne what: {e}",
-                guidance="Pass a valid file path to identify file type.",
+        except Exception as exc:
+            return self._fail(
+                "MNE function execution failed.",
+                error=str(exc),
+                guidance="Validate function arguments and data formats expected by MNE.",
+                data={"function_name": function_name, "traceback": traceback.format_exc()},
             )
 
     # -------------------------------------------------------------------------
-    # Unified dispatcher
+    # CLI wrapper (fallback-friendly)
     # -------------------------------------------------------------------------
-    def call(self, operation: str, **kwargs) -> Dict[str, Any]:
+    def call_mne_cli(self, argv: Optional[List[str]] = None) -> Dict[str, Any]:
         """
-        Generic dispatcher for adapter operations.
+        Execute the primary MNE command-line wrapper from imported command module.
 
-        Supported operations:
-        - health_check
-        - get_dependency_hints
-        - create_info
-        - instantiate_raw_array
-        - call_read_raw
-        - call_mne_browse_raw
-        - call_mne_report
-        - call_mne_sys_info
-        - call_mne_show_fiff
-        - call_mne_what
+        Args:
+            argv: Optional list of CLI-like arguments. If omitted, attempts default call.
+
+        Returns:
+            Unified status dictionary with invocation status and hints.
         """
-        mapping = {
-            "health_check": self.health_check,
-            "get_dependency_hints": self.get_dependency_hints,
-            "create_info": self.create_info,
-            "instantiate_raw_array": self.instantiate_raw_array,
-            "call_read_raw": self.call_read_raw,
-            "call_mne_browse_raw": self.call_mne_browse_raw,
-            "call_mne_report": self.call_mne_report,
-            "call_mne_sys_info": self.call_mne_sys_info,
-            "call_mne_show_fiff": self.call_mne_show_fiff,
-            "call_mne_what": self.call_mne_what,
-        }
-        fn = mapping.get(operation)
-        if fn is None:
-            return self._err(
-                f"Unknown operation: {operation}",
-                guidance=f"Use one of: {', '.join(mapping.keys())}",
-            )
+        commands_mod = self.modules.get("commands")
+        if not commands_mod:
+            return self._fallback("call_mne_cli", "Module 'mne.commands' is not importable.")
+
         try:
-            return fn(**kwargs)
-        except TypeError as e:
-            return self._err(
-                f"Invalid parameters for operation '{operation}': {e}",
-                guidance="Check required parameters and parameter names.",
+            entry_candidates = ["main", "run", "command_main"]
+            entry = None
+            for name in entry_candidates:
+                fn = getattr(commands_mod, name, None)
+                if callable(fn):
+                    entry = fn
+                    break
+
+            if entry is None:
+                return self._fail(
+                    "No callable CLI entry point found in mne.commands.",
+                    guidance="Inspect mne.commands module attributes and map the correct callable.",
+                    data={"checked_candidates": entry_candidates},
+                )
+
+            if argv is None:
+                out = entry()
+            else:
+                out = entry(argv)
+
+            return self._ok(
+                "MNE CLI wrapper executed.",
+                {"argv": argv or [], "result": out, "entry_point": entry.__name__},
+            )
+        except TypeError:
+            try:
+                out = entry()  # type: ignore[misc]
+                return self._ok(
+                    "MNE CLI wrapper executed with default signature.",
+                    {"argv": argv or [], "result": out, "entry_point": entry.__name__},  # type: ignore[union-attr]
+                )
+            except Exception as exc:
+                return self._fail(
+                    "MNE CLI invocation failed.",
+                    error=str(exc),
+                    guidance="Pass valid subcommands/arguments or verify command module compatibility.",
+                    data={"traceback": traceback.format_exc()},
+                )
+        except Exception as exc:
+            return self._fail(
+                "MNE CLI invocation failed.",
+                error=str(exc),
+                guidance="Check installed optional dependencies and command arguments.",
+                data={"traceback": traceback.format_exc()},
+            )
+
+    # -------------------------------------------------------------------------
+    # Class instantiation helper (generic, analysis-driven)
+    # -------------------------------------------------------------------------
+    def create_instance(
+        self,
+        module_path: str,
+        class_name: str,
+        *args: Any,
+        **kwargs: Any,
+    ) -> Dict[str, Any]:
+        """
+        Instantiate a class from a target module path.
+
+        Args:
+            module_path: Full module path containing the class.
+            class_name: Class name to instantiate.
+            *args: Positional constructor arguments.
+            **kwargs: Keyword constructor arguments.
+
+        Returns:
+            Unified status dictionary with instantiated object handle.
+        """
+        try:
+            mod = self.modules.get(module_path) or importlib.import_module(module_path)
+            cls = getattr(mod, class_name, None)
+            if cls is None:
+                return self._fail(
+                    "Class not found in module.",
+                    guidance="Use get_module_attributes(module_path) to verify class exports.",
+                    data={"module_path": module_path, "class_name": class_name},
+                )
+            instance = cls(*args, **kwargs)
+            return self._ok(
+                "Class instantiated successfully.",
+                {"module_path": module_path, "class_name": class_name, "instance": instance},
+            )
+        except Exception as exc:
+            return self._fail(
+                "Class instantiation failed.",
+                error=str(exc),
+                guidance="Verify constructor arguments and required dependencies for this class.",
+                data={"module_path": module_path, "class_name": class_name, "traceback": traceback.format_exc()},
             )
