@@ -2,124 +2,117 @@
 
 ## 1) Project Introduction
 
-This MCP (Model Context Protocol) service provides a practical interface over the DeepChem repository for molecular ML workflows, including:
+This MCP (Model Context Protocol) service wraps core DeepChem capabilities for molecular ML workflows, including:
 
-- Data ingestion (`CSV`, `SDF`, `JSON`, FASTA, images)
-- Featurization (molecular, graph, sequence, material, complex)
-- Dataset preparation and splitting (random, scaffold, stratified, index)
-- Model training/inference (PyTorch, TensorFlow/Keras, optional JAX)
-- Transforms and metrics for evaluation
-- MolNet benchmark execution
+- Dataset loading and preprocessing (CSV/SDF/JSON/image/biological sequence)
+- Featurization (ECFP, graph, SMILES/token, protein/complex features)
+- Model training/inference (Torch, TensorFlow, JAX, sklearn, XGBoost)
+- Benchmarking via MolNet loaders and benchmark runners
+- Evaluation, metrics, splitting, transforms, and utility workflows
 
-It is designed for developer-facing automation agents and toolchains that need structured access to DeepChem capabilities.
+Repository: https://github.com/deepchem/deepchem
 
 ---
 
-## 2) Installation Method
+## 2) Installation
 
-### Prerequisites
-- Python 3.9+ recommended
-- Core: `numpy`, `scipy`, `pandas`, `scikit-learn`
-- Optional by use case: `rdkit`, `torch`, `tensorflow`, `jax`, `pytorch-lightning`, `transformers`, `dgl`, `xgboost`, `lightgbm`, `pyscf`
+### Base requirements
+- Python 3.8+ (recommended 3.10/3.11)
+- Core libs: `numpy scipy pandas scikit-learn joblib tqdm`
 
-### Install DeepChem
-- Minimal:
-  - `pip install deepchem`
-- With PyTorch workflows:
-  - Install `torch` first (matching your CPU/GPU setup), then `pip install deepchem`
-- With TensorFlow workflows:
-  - Install `tensorflow`, then `pip install deepchem`
-- Chemistry-heavy workflows:
-  - Ensure `rdkit` is installed in your environment before running molecular featurizers/loaders
+Install core package:
+- `pip install deepchem`
 
-### Verify
-- Run: `python -c "import deepchem as dc; print(dc.__version__)"`
+Install optional stacks as needed:
+- Chemistry: `rdkit`
+- Deep learning: `torch` or `tensorflow` or `jax`
+- Extras: `pytorch-lightning transformers dgl torch-geometric xgboost lightgbm pyscf`
+
+Practical setup pattern:
+1. Create a fresh virtual environment
+2. Install `deepchem`
+3. Add only the backend/features you need (Torch/TensorFlow/JAX + RDKit)
 
 ---
 
 ## 3) Quick Start
 
-### Typical workflow in MCP (Model Context Protocol)
-1. Load data with a DeepChem loader (e.g., `CSVLoader`, `SDFLoader`)
-2. Featurize into a `Dataset` (`NumpyDataset`/`DiskDataset`)
-3. Split (`RandomSplitter` or `ScaffoldSplitter`)
-4. Apply transformers (normalization/balancing if needed)
-5. Train model (`TorchModel` or `KerasModel`)
-6. Evaluate using `Metric`
+### Typical MCP (Model Context Protocol) flow
+1. Load dataset from MolNet (e.g., Tox21, Delaney, QM9)
+2. Apply featurizer and split strategy
+3. Train selected model
+4. Evaluate with DeepChem metrics
+5. Return scores/predictions via MCP (Model Context Protocol) response
 
-### Minimal example flow
-- Load a CSV of molecules + labels
-- Apply a molecular featurizer (e.g., circular fingerprint or graph featurizer)
-- Train a classifier/regressor
-- Return predictions and ROC-AUC/RMSE metrics
-
-### Benchmark entry points
-- `python -m deepchem.molnet.run_benchmark`
-- `python -m deepchem.molnet.run_benchmark_low_data`
-- `python -m deepchem.molnet.run_benchmark_models`
+### Example task patterns
+- Classification benchmark: use `deepchem.molnet.run_benchmark`
+- Low-data benchmark: use `deepchem.molnet.run_benchmark_low_data`
+- Programmatic loading: use `deepchem.molnet.load_function.*`
+- Data ingest: `deepchem.data.*` loaders
+- Feature extraction: `deepchem.feat.*`
+- Training APIs: `deepchem.models.*` / `deepchem.models.torch_models.*`
+- Evaluation: `deepchem.metrics.*`, `deepchem.utils.evaluate`
 
 ---
 
-## 4) Available Tools and Endpoints List
+## 4) Available Tools and Endpoints
 
-Recommended MCP (Model Context Protocol) services for this repo:
+Recommended MCP (Model Context Protocol) service endpoints:
 
 - `health_check`
-  - Validate Python runtime and key package availability.
+  - Verify runtime, backend availability, and import status.
+
 - `list_capabilities`
-  - Return installed backends (RDKit/Torch/TF/JAX) and enabled features.
+  - Return installed backends/features (Torch/TF/JAX/RDKit, etc.).
+
 - `load_dataset`
-  - Ingest raw files via DeepChem loaders into dataset objects.
+  - Load datasets via MolNet (`load_tox21`, `load_delaney`, `load_qm9`, etc.) or file loaders.
+
 - `featurize_data`
-  - Apply selected featurizer to molecules/sequences/materials/complexes.
+  - Apply selected featurizer (ECFP, graph conv, SMILES tokenizer, protein/complex, material).
+
 - `split_dataset`
-  - Run random/scaffold/stratified/index splitting.
-- `apply_transformers`
-  - Run normalization, balancing, clipping, log transforms.
+  - Apply splitters (random, scaffold, stratified, time/PDBBind, task-based).
+
 - `train_model`
-  - Train DeepChem model wrappers (`TorchModel`, `KerasModel`, etc.).
+  - Train model families (GraphConv, MPNN, GCN/GAT, multitask MLP, sklearn, GBDT).
+
 - `predict`
-  - Batch inference on new samples.
+  - Run inference on prepared datasets.
+
 - `evaluate_model`
-  - Compute metrics via DeepChem `Metric`.
-- `run_molnet_benchmark`
-  - Launch MolNet benchmarking scripts and return summary results.
-- `list_models` / `list_featurizers` / `list_splitters`
-  - Discover available classes in current environment.
+  - Compute metrics (ROC-AUC, PRC-AUC, RMSE, MAE, Pearson R², etc.).
+
+- `run_benchmark`
+  - Execute MolNet benchmark workflow using selected model/split/featurizer.
+
+- `run_low_data_benchmark`
+  - Execute low-data benchmark variants.
+
+- `export_results`
+  - Save predictions, scores, and metadata to disk/artifact storage.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Backend mismatch:
-  - Many features are optional; missing `rdkit`/`torch`/`tensorflow` causes import/runtime errors for specific tasks.
-- Environment complexity:
-  - DeepChem is large and multi-framework; prefer isolated virtual environments.
-- Performance:
-  - Use `DiskDataset` for larger-than-memory workloads.
-  - For GPU workflows, verify CUDA-compatible framework versions.
-- Reproducibility:
-  - Set random seeds and splitter configs explicitly.
-- Intrusiveness/complexity:
-  - Service integration risk is medium due to broad dependency surface; start with minimal endpoints and progressively enable advanced features.
+- Dependency complexity is medium/high; install only required optional stacks.
+- RDKit is essential for many molecule features and loaders.
+- Torch/TF/JAX features are backend-specific; missing backend causes import/runtime failures.
+- Some benchmark datasets require downloading large files; expect longer setup times.
+- GPU acceleration depends on correct CUDA/backend build compatibility.
+- DGL/PyG-based models need matching versions with your PyTorch installation.
+- For reproducibility, set random seeds and pin package versions.
 
 ---
 
-## 6) Reference Links or Documentation
+## 6) References
 
-- Repository: https://github.com/deepchem/deepchem
-- Main docs (project): check `README.md` and `docs/` in repo
+- DeepChem repository: https://github.com/deepchem/deepchem
+- Main package docs (in repo): `README.md`, `docs/`
 - Examples: `examples/`
-- Core benchmark modules:
-  - `deepchem/molnet/run_benchmark.py`
-  - `deepchem/molnet/run_benchmark_low_data.py`
-  - `deepchem/molnet/run_benchmark_models.py`
-- Key implementation modules:
-  - `deepchem/data/datasets.py`
-  - `deepchem/data/data_loader.py`
-  - `deepchem/feat/base_classes.py`
-  - `deepchem/models/torch_models/torch_model.py`
-  - `deepchem/models/keras_model.py`
-  - `deepchem/splits/splitters.py`
-  - `deepchem/trans/transformers.py`
-  - `deepchem/metrics/metric.py`
+- MolNet loaders: `deepchem/molnet/load_function/`
+- Benchmarks:  
+  - `python -m deepchem.molnet.run_benchmark`  
+  - `python -m deepchem.molnet.run_benchmark_low_data`
+- Contribution guide: `CONTRIBUTING.md`

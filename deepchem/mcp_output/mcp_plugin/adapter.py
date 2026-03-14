@@ -1,6 +1,7 @@
 import os
 import sys
-from typing import Any, Dict, List, Optional
+import importlib
+from typing import Any, Dict, List, Optional, Tuple
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -11,309 +12,470 @@ sys.path.insert(0, source_path)
 
 class Adapter:
     """
-    MCP Import Mode Adapter for the DeepChem repository.
+    Import-mode adapter for selected DeepChem repository modules.
 
-    This adapter is designed to:
-    - Prefer direct module import and invocation.
-    - Gracefully fall back with actionable messages when optional dependencies are missing.
-    - Provide a unified response format across all methods.
+    This adapter attempts to import and call concrete implementations discovered
+    in repository analysis. It exposes:
+    - Function wrappers for identified callable functions.
+    - Class instance constructors for identified classes.
+    - CLI fallback helpers when import path execution is not available.
 
-    Unified response format:
+    All methods return a unified dictionary with at least:
     {
-        "status": "success" | "error",
-        "mode": "import",
-        "data": ...,
-        "error": ...,
-        "guidance": ...,
+        "status": "success" | "error" | "fallback",
+        ...
     }
     """
 
-    # ============================================================
-    # Initialization and internal utilities
-    # ============================================================
-
     def __init__(self) -> None:
-        """
-        Initialize adapter state and import cache.
-        """
         self.mode = "import"
         self._modules: Dict[str, Any] = {}
+        self._class_instances: Dict[str, Any] = {}
         self._import_errors: Dict[str, str] = {}
+        self._load_modules()
 
-    def _ok(self, data: Any = None, message: Optional[str] = None) -> Dict[str, Any]:
-        return {
-            "status": "success",
-            "mode": self.mode,
-            "data": data,
-            "message": message,
-        }
+    # -------------------------------------------------------------------------
+    # Internal utilities
+    # -------------------------------------------------------------------------
+    def _result(self, status: str, **kwargs: Any) -> Dict[str, Any]:
+        payload = {"status": status}
+        payload.update(kwargs)
+        return payload
 
-    def _err(self, error: str, guidance: Optional[str] = None) -> Dict[str, Any]:
-        return {
-            "status": "error",
-            "mode": self.mode,
-            "error": error,
-            "guidance": guidance
-            or "Verify source path, required dependencies, and module availability.",
-        }
-
-    def _import_module(self, module_path: str) -> Dict[str, Any]:
-        """
-        Import a module by full package path.
-
-        Parameters
-        ----------
-        module_path: str
-            Full Python module path, for example: 'deepchem.molnet.run_benchmark'
-
-        Returns
-        -------
-        Dict[str, Any]
-            Unified status dictionary containing imported module in `data` on success.
-        """
-        if module_path in self._modules:
-            return self._ok(self._modules[module_path], f"Module already loaded: {module_path}")
-
+    def _import_module(self, module_path: str) -> Optional[Any]:
         try:
-            module = __import__(module_path, fromlist=["*"])
+            module = importlib.import_module(module_path)
             self._modules[module_path] = module
-            return self._ok(module, f"Imported module: {module_path}")
-        except Exception as e:
-            msg = str(e)
-            self._import_errors[module_path] = msg
-            return self._err(
-                error=f"Failed to import module '{module_path}': {msg}",
-                guidance=(
-                    "Ensure the repository source is available under the configured source path. "
-                    "Install optional dependencies for DeepChem features (e.g., rdkit, torch, tensorflow, jax)."
-                ),
+            return module
+        except Exception as exc:
+            self._import_errors[module_path] = (
+                f"Failed to import '{module_path}'. "
+                f"Verify dependencies and source path. Details: {exc}"
             )
+            return None
 
-    def _call_attr(
-        self, module_path: str, attr_name: str, *args: Any, **kwargs: Any
-    ) -> Dict[str, Any]:
-        """
-        Generic safe invoker for a callable attribute in a module.
-        """
-        mod_result = self._import_module(module_path)
-        if mod_result["status"] != "success":
-            return mod_result
-
-        module = mod_result["data"]
-        if not hasattr(module, attr_name):
-            return self._err(
-                error=f"Attribute '{attr_name}' not found in module '{module_path}'.",
-                guidance="Check API version compatibility and available symbols in the repository.",
-            )
-
-        try:
-            attr = getattr(module, attr_name)
-            if callable(attr):
-                value = attr(*args, **kwargs)
-                return self._ok(value, f"Called {module_path}.{attr_name} successfully.")
-            return self._ok(attr, f"Retrieved attribute {module_path}.{attr_name} successfully.")
-        except Exception as e:
-            return self._err(
-                error=f"Execution failed for '{module_path}.{attr_name}': {e}",
-                guidance=(
-                    "Validate input parameters and ensure optional runtime dependencies are installed."
-                ),
-            )
-
-    # ============================================================
-    # Repository and environment diagnostics
-    # ============================================================
+    def _load_modules(self) -> None:
+        module_paths = [
+            "datasets.construct_pdbbind_df",
+            "docs.source.conf",
+            "contrib.visualization.utils",
+            "contrib.DeepMHC.bd13_datasets",
+            "contrib.DeepMHC.deepmhc",
+            "contrib.dragonn.models",
+        ]
+        for mp in module_paths:
+            self._import_module(mp)
 
     def health_check(self) -> Dict[str, Any]:
         """
-        Validate import readiness for key DeepChem modules and report status.
+        Report adapter readiness and import status.
 
-        Returns
-        -------
-        Dict[str, Any]
-            Unified dictionary with module import checks and recommendations.
+        Returns:
+            Dict with loaded modules and import errors.
         """
-        targets = [
-            "deepchem",
-            "deepchem.molnet.run_benchmark",
-            "deepchem.molnet.run_benchmark_low_data",
-            "deepchem.molnet.run_benchmark_models",
-        ]
-        report: List[Dict[str, Any]] = []
-        for mod in targets:
-            r = self._import_module(mod)
-            report.append(
-                {
-                    "module": mod,
-                    "status": r["status"],
-                    "message": r.get("message"),
-                    "error": r.get("error"),
-                }
-            )
+        return self._result(
+            "success",
+            mode=self.mode,
+            loaded_modules=sorted(self._modules.keys()),
+            import_errors=self._import_errors,
+            guidance=(
+                "Install optional scientific dependencies (e.g., rdkit, tensorflow, torch) "
+                "if specific modules fail to import."
+            ),
+        )
 
-        failed = [x for x in report if x["status"] != "success"]
-        if failed:
-            return self._err(
-                error="One or more core module imports failed.",
+    def _call_function(
+        self,
+        module_path: str,
+        function_name: str,
+        *args: Any,
+        **kwargs: Any,
+    ) -> Dict[str, Any]:
+        module = self._modules.get(module_path)
+        if module is None:
+            msg = self._import_errors.get(
+                module_path,
+                f"Module '{module_path}' is not available.",
+            )
+            return self._result(
+                "fallback",
+                error=msg,
                 guidance=(
-                    "Inspect 'data' in the response for per-module failures. "
-                    "Install required basics: numpy, scipy, pandas, scikit-learn; "
-                    "then add optional stacks as needed (rdkit/torch/tensorflow/jax)."
+                    f"Cannot call '{function_name}' because import failed. "
+                    "Check Python path and install missing dependencies."
                 ),
-            ) | {"data": report}
-        return self._ok(report, "All targeted modules imported successfully.")
-
-    # ============================================================
-    # DeepChem MolNet benchmark entry modules (from LLM analysis)
-    # ============================================================
-
-    def import_run_benchmark_module(self) -> Dict[str, Any]:
-        """
-        Import deepchem.molnet.run_benchmark module.
-
-        Returns
-        -------
-        Dict[str, Any]
-            Unified status dictionary with the module object on success.
-        """
-        return self._import_module("deepchem.molnet.run_benchmark")
-
-    def import_run_benchmark_low_data_module(self) -> Dict[str, Any]:
-        """
-        Import deepchem.molnet.run_benchmark_low_data module.
-
-        Returns
-        -------
-        Dict[str, Any]
-            Unified status dictionary with the module object on success.
-        """
-        return self._import_module("deepchem.molnet.run_benchmark_low_data")
-
-    def import_run_benchmark_models_module(self) -> Dict[str, Any]:
-        """
-        Import deepchem.molnet.run_benchmark_models module.
-
-        Returns
-        -------
-        Dict[str, Any]
-            Unified status dictionary with the module object on success.
-        """
-        return self._import_module("deepchem.molnet.run_benchmark_models")
-
-    def get_module_members(self, module_path: str) -> Dict[str, Any]:
-        """
-        List public members of a module for dynamic discovery.
-
-        Parameters
-        ----------
-        module_path: str
-            Full module path to inspect.
-
-        Returns
-        -------
-        Dict[str, Any]
-            Unified status dictionary with public member names.
-        """
-        r = self._import_module(module_path)
-        if r["status"] != "success":
-            return r
-        module = r["data"]
+            )
+        fn = getattr(module, function_name, None)
+        if fn is None:
+            return self._result(
+                "error",
+                error=f"Function '{function_name}' not found in module '{module_path}'.",
+                guidance="Verify repository version and function name.",
+            )
         try:
-            members = [m for m in dir(module) if not m.startswith("_")]
-            return self._ok({"module": module_path, "members": members})
-        except Exception as e:
-            return self._err(
-                error=f"Failed to inspect module '{module_path}': {e}",
-                guidance="Retry with a valid module path and ensure import succeeded.",
+            data = fn(*args, **kwargs)
+            return self._result(
+                "success",
+                module=module_path,
+                function=function_name,
+                data=data,
+            )
+        except Exception as exc:
+            return self._result(
+                "error",
+                error=f"Function call failed: {exc}",
+                guidance="Validate function parameters and input data format.",
             )
 
-    # ============================================================
-    # Generic callable/class adapters to maximize import-mode usage
-    # ============================================================
-
-    def create_instance(
-        self, module_path: str, class_name: str, *args: Any, **kwargs: Any
+    def _create_instance(
+        self,
+        module_path: str,
+        class_name: str,
+        instance_key: Optional[str] = None,
+        *args: Any,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
-        """
-        Create an instance of a class from a fully qualified module path.
-
-        Parameters
-        ----------
-        module_path: str
-            Full module path containing the class.
-        class_name: str
-            Name of the class to instantiate.
-        *args, **kwargs:
-            Initialization arguments forwarded to the class constructor.
-
-        Returns
-        -------
-        Dict[str, Any]
-            Unified status dictionary with created instance on success.
-        """
-        r = self._import_module(module_path)
-        if r["status"] != "success":
-            return r
-        module = r["data"]
-        if not hasattr(module, class_name):
-            return self._err(
+        module = self._modules.get(module_path)
+        if module is None:
+            msg = self._import_errors.get(
+                module_path,
+                f"Module '{module_path}' is not available.",
+            )
+            return self._result(
+                "fallback",
+                error=msg,
+                guidance=(
+                    f"Cannot instantiate '{class_name}' because import failed. "
+                    "Check dependency installation."
+                ),
+            )
+        cls = getattr(module, class_name, None)
+        if cls is None:
+            return self._result(
+                "error",
                 error=f"Class '{class_name}' not found in module '{module_path}'.",
-                guidance="Use get_module_members to inspect available symbols.",
+                guidance="Verify repository version and class name.",
             )
         try:
-            cls = getattr(module, class_name)
             instance = cls(*args, **kwargs)
-            return self._ok(instance, f"Instantiated {module_path}.{class_name} successfully.")
-        except Exception as e:
-            return self._err(
-                error=f"Failed to instantiate '{module_path}.{class_name}': {e}",
-                guidance="Check constructor parameters and dependency requirements.",
+            key = instance_key or f"{module_path}.{class_name}"
+            self._class_instances[key] = instance
+            return self._result(
+                "success",
+                module=module_path,
+                class_name=class_name,
+                instance_key=key,
+            )
+        except Exception as exc:
+            return self._result(
+                "error",
+                error=f"Class instantiation failed: {exc}",
+                guidance="Check constructor arguments and required runtime dependencies.",
             )
 
-    def call_function(
-        self, module_path: str, function_name: str, *args: Any, **kwargs: Any
+    # -------------------------------------------------------------------------
+    # Functions: datasets.construct_pdbbind_df
+    # -------------------------------------------------------------------------
+    def call_construct_df(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call datasets.construct_pdbbind_df.construct_df.
+
+        Parameters:
+            *args: Positional arguments forwarded to construct_df.
+            **kwargs: Keyword arguments forwarded to construct_df.
+
+        Returns:
+            Unified status dictionary with function output in 'data' on success.
+        """
+        return self._call_function("datasets.construct_pdbbind_df", "construct_df", *args, **kwargs)
+
+    def call_extract_labels(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call datasets.construct_pdbbind_df.extract_labels.
+
+        Parameters:
+            *args: Positional arguments forwarded to extract_labels.
+            **kwargs: Keyword arguments forwarded to extract_labels.
+
+        Returns:
+            Unified status dictionary with function output in 'data' on success.
+        """
+        return self._call_function("datasets.construct_pdbbind_df", "extract_labels", *args, **kwargs)
+
+    # -------------------------------------------------------------------------
+    # Functions: docs.source.conf
+    # -------------------------------------------------------------------------
+    def call_linkcode_resolve(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call docs.source.conf.linkcode_resolve.
+
+        Parameters:
+            *args: Positional arguments forwarded to linkcode_resolve.
+            **kwargs: Keyword arguments forwarded to linkcode_resolve.
+
+        Returns:
+            Unified status dictionary with resolved link info in 'data' on success.
+        """
+        return self._call_function("docs.source.conf", "linkcode_resolve", *args, **kwargs)
+
+    # -------------------------------------------------------------------------
+    # Functions: contrib.visualization.utils
+    # -------------------------------------------------------------------------
+    def call_combine_mdtraj(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call contrib.visualization.utils.combine_mdtraj.
+
+        Parameters:
+            *args: Positional arguments forwarded to combine_mdtraj.
+            **kwargs: Keyword arguments forwarded to combine_mdtraj.
+
+        Returns:
+            Unified status dictionary containing result in 'data' on success.
+        """
+        return self._call_function("contrib.visualization.utils", "combine_mdtraj", *args, **kwargs)
+
+    def call_convert_lines_to_mdtraj(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call contrib.visualization.utils.convert_lines_to_mdtraj.
+
+        Parameters:
+            *args: Positional arguments forwarded to convert_lines_to_mdtraj.
+            **kwargs: Keyword arguments forwarded to convert_lines_to_mdtraj.
+
+        Returns:
+            Unified status dictionary containing result in 'data' on success.
+        """
+        return self._call_function("contrib.visualization.utils", "convert_lines_to_mdtraj", *args, **kwargs)
+
+    def call_display_images(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call contrib.visualization.utils.display_images.
+
+        Parameters:
+            *args: Positional arguments forwarded to display_images.
+            **kwargs: Keyword arguments forwarded to display_images.
+
+        Returns:
+            Unified status dictionary containing result in 'data' on success.
+        """
+        return self._call_function("contrib.visualization.utils", "display_images", *args, **kwargs)
+
+    # -------------------------------------------------------------------------
+    # Functions: contrib.DeepMHC.bd13_datasets
+    # -------------------------------------------------------------------------
+    def call_featurize(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call contrib.DeepMHC.bd13_datasets.featurize.
+
+        Parameters:
+            *args: Positional arguments forwarded to featurize.
+            **kwargs: Keyword arguments forwarded to featurize.
+
+        Returns:
+            Unified status dictionary containing featurized output in 'data' on success.
+        """
+        return self._call_function("contrib.DeepMHC.bd13_datasets", "featurize", *args, **kwargs)
+
+    def call_load_bd2013_human(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call contrib.DeepMHC.bd13_datasets.load_bd2013_human.
+
+        Parameters:
+            *args: Positional arguments forwarded to load_bd2013_human.
+            **kwargs: Keyword arguments forwarded to load_bd2013_human.
+
+        Returns:
+            Unified status dictionary with loaded dataset artifacts in 'data' on success.
+        """
+        return self._call_function("contrib.DeepMHC.bd13_datasets", "load_bd2013_human", *args, **kwargs)
+
+    def call_to_one_hot_array(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call contrib.DeepMHC.bd13_datasets.to_one_hot_array.
+
+        Parameters:
+            *args: Positional arguments forwarded to to_one_hot_array.
+            **kwargs: Keyword arguments forwarded to to_one_hot_array.
+
+        Returns:
+            Unified status dictionary with encoded array in 'data' on success.
+        """
+        return self._call_function("contrib.DeepMHC.bd13_datasets", "to_one_hot_array", *args, **kwargs)
+
+    # -------------------------------------------------------------------------
+    # Classes: contrib.DeepMHC.deepmhc.DeepMHC
+    # -------------------------------------------------------------------------
+    def create_deepmhc(self, *args: Any, instance_key: Optional[str] = None, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Instantiate contrib.DeepMHC.deepmhc.DeepMHC.
+
+        Parameters:
+            *args: Positional constructor args.
+            instance_key: Optional storage key for later retrieval.
+            **kwargs: Keyword constructor args.
+
+        Returns:
+            Unified status dictionary with 'instance_key' on success.
+        """
+        return self._create_instance(
+            "contrib.DeepMHC.deepmhc",
+            "DeepMHC",
+            instance_key,
+            *args,
+            **kwargs,
+        )
+
+    # -------------------------------------------------------------------------
+    # Classes: contrib.dragonn.models
+    # -------------------------------------------------------------------------
+    def create_motif_score_rnn(self, *args: Any, instance_key: Optional[str] = None, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Instantiate contrib.dragonn.models.MotifScoreRNN.
+
+        Parameters:
+            *args: Positional constructor args.
+            instance_key: Optional storage key for later retrieval.
+            **kwargs: Keyword constructor args.
+
+        Returns:
+            Unified status dictionary with 'instance_key' on success.
+        """
+        return self._create_instance(
+            "contrib.dragonn.models",
+            "MotifScoreRNN",
+            instance_key,
+            *args,
+            **kwargs,
+        )
+
+    def create_gkmsvm(self, *args: Any, instance_key: Optional[str] = None, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Instantiate contrib.dragonn.models.gkmSVM.
+
+        Parameters:
+            *args: Positional constructor args.
+            instance_key: Optional storage key for later retrieval.
+            **kwargs: Keyword constructor args.
+
+        Returns:
+            Unified status dictionary with 'instance_key' on success.
+        """
+        return self._create_instance(
+            "contrib.dragonn.models",
+            "gkmSVM",
+            instance_key,
+            *args,
+            **kwargs,
+        )
+
+    # -------------------------------------------------------------------------
+    # Instance management
+    # -------------------------------------------------------------------------
+    def list_instances(self) -> Dict[str, Any]:
+        """
+        List cached class instances created by this adapter.
+
+        Returns:
+            Unified status dictionary containing instance keys.
+        """
+        return self._result("success", instances=sorted(self._class_instances.keys()))
+
+    def call_instance_method(
+        self,
+        instance_key: str,
+        method_name: str,
+        *args: Any,
+        **kwargs: Any,
     ) -> Dict[str, Any]:
         """
-        Call a function from a module by full path and function name.
+        Invoke a method on a previously created instance.
 
-        Parameters
-        ----------
-        module_path: str
-            Full module path containing the function.
-        function_name: str
-            Function name to invoke.
-        *args, **kwargs:
-            Positional and keyword arguments for the function.
+        Parameters:
+            instance_key: Key returned by create_* method.
+            method_name: Target method name on the instance.
+            *args: Positional arguments for the instance method.
+            **kwargs: Keyword arguments for the instance method.
 
-        Returns
-        -------
-        Dict[str, Any]
-            Unified status dictionary with function return value on success.
+        Returns:
+            Unified status dictionary with method result in 'data' on success.
         """
-        return self._call_attr(module_path, function_name, *args, **kwargs)
+        inst = self._class_instances.get(instance_key)
+        if inst is None:
+            return self._result(
+                "error",
+                error=f"Instance '{instance_key}' not found.",
+                guidance="Create the instance first using the matching create_* method.",
+            )
+        method = getattr(inst, method_name, None)
+        if method is None or not callable(method):
+            return self._result(
+                "error",
+                error=f"Method '{method_name}' not found on instance '{instance_key}'.",
+                guidance="Check available methods with dir(instance).",
+            )
+        try:
+            data = method(*args, **kwargs)
+            return self._result("success", instance_key=instance_key, method=method_name, data=data)
+        except Exception as exc:
+            return self._result(
+                "error",
+                error=f"Instance method call failed: {exc}",
+                guidance="Validate method parameters and ensure model state is initialized.",
+            )
 
-    # ============================================================
-    # Fallback guidance
-    # ============================================================
-
-    def fallback_cli_guidance(self) -> Dict[str, Any]:
+    # -------------------------------------------------------------------------
+    # CLI fallback helpers
+    # -------------------------------------------------------------------------
+    def cli_run_benchmark(self, extra_args: Optional[List[str]] = None) -> Dict[str, Any]:
         """
-        Provide non-executing CLI fallback guidance based on identified entry modules.
+        Provide CLI fallback guidance for MolNet benchmark execution.
 
-        Returns
-        -------
-        Dict[str, Any]
-            Unified status dictionary with actionable commands.
+        Parameters:
+            extra_args: Optional CLI args to append.
+
+        Returns:
+            Unified status dictionary with a suggested command.
         """
-        commands = [
-            "python -m deepchem.molnet.run_benchmark",
-            "python -m deepchem.molnet.run_benchmark_low_data",
-            "python -m deepchem.molnet.run_benchmark_models",
-        ]
-        return self._ok(
-            {
-                "commands": commands,
-                "note": "Use CLI fallback when import-mode execution is blocked by missing optional dependencies.",
-            },
-            "CLI fallback guidance prepared.",
+        cmd = ["python", "-m", "source.deepchem.molnet.run_benchmark"] + (extra_args or [])
+        return self._result(
+            "fallback",
+            command=cmd,
+            guidance=(
+                "Use this command in a shell when import-mode execution is unavailable. "
+                "Ensure dependencies are installed and run from project root."
+            ),
+        )
+
+    def cli_run_benchmark_low_data(self, extra_args: Optional[List[str]] = None) -> Dict[str, Any]:
+        """
+        Provide CLI fallback guidance for low-data benchmark workflow.
+
+        Parameters:
+            extra_args: Optional CLI args to append.
+
+        Returns:
+            Unified status dictionary with a suggested command.
+        """
+        cmd = ["python", "-m", "source.deepchem.molnet.run_benchmark_low_data"] + (extra_args or [])
+        return self._result(
+            "fallback",
+            command=cmd,
+            guidance="Run in shell as fallback. Verify low-data benchmark options before execution.",
+        )
+
+    def cli_run_example_benchmark(self, extra_args: Optional[List[str]] = None) -> Dict[str, Any]:
+        """
+        Provide CLI fallback guidance for example benchmark runner.
+
+        Parameters:
+            extra_args: Optional CLI args to append.
+
+        Returns:
+            Unified status dictionary with a suggested command.
+        """
+        cmd = ["python", "-m", "source.examples.benchmark"] + (extra_args or [])
+        return self._result(
+            "fallback",
+            command=cmd,
+            guidance="This is a demo-oriented runner and may be less stable than core benchmark scripts.",
         )
