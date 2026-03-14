@@ -1,8 +1,5 @@
 import os
 import sys
-import traceback
-import importlib
-from typing import Any, Dict, List, Optional, Tuple
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -10,330 +7,315 @@ source_path = os.path.join(
 )
 sys.path.insert(0, source_path)
 
+from typing import Any, Dict, List, Optional
+
 
 class Adapter:
     """
-    MCP Import-Mode Adapter for FEniCS UFL repository.
+    MCP Import Mode Adapter for FEniCS UFL repository.
 
-    This adapter attempts direct import-based integration first and gracefully
-    falls back to a non-import mode when runtime constraints prevent loading.
+    This adapter prioritizes import-based execution against repository source code
+    available under the local `source` directory. It provides robust fallback behavior
+    if imports fail, and returns a unified response format for all methods.
     """
 
-    # ---------------------------------------------------------------------
-    # Lifecycle / Initialization
-    # ---------------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    # Lifecycle and module management
+    # -------------------------------------------------------------------------
     def __init__(self) -> None:
         """
-        Initialize the adapter.
-
-        Attributes:
-            mode (str): Adapter mode, fixed to "import" as requested.
-            available (bool): Whether import mode is currently operational.
-            modules (dict): Loaded module objects keyed by full package path.
-            errors (list): Import and runtime errors captured during setup.
+        Initialize adapter state, import mode, and module registry.
         """
-        self.mode: str = "import"
-        self.available: bool = False
-        self.modules: Dict[str, Any] = {}
-        self.errors: List[str] = []
+        self.mode = "import"
+        self._import_ok = False
+        self._import_error: Optional[str] = None
+        self._modules: Dict[str, Any] = {}
         self._initialize_imports()
+
+    def _ok(self, data: Any = None, message: str = "success") -> Dict[str, Any]:
+        return {"status": "ok", "mode": self.mode, "message": message, "data": data}
+
+    def _error(
+        self,
+        message: str,
+        error: Optional[Exception] = None,
+        guidance: str = "Check repository source placement and Python dependencies.",
+    ) -> Dict[str, Any]:
+        return {
+            "status": "error",
+            "mode": self.mode,
+            "message": message,
+            "error": str(error) if error else None,
+            "guidance": guidance,
+        }
 
     def _initialize_imports(self) -> None:
         """
-        Load high-value UFL modules discovered from repository analysis.
+        Attempt to import core UFL modules from repository source with graceful fallback.
         """
-        module_names = [
-            "deployment.ufl.source.ufl",
-            "deployment.ufl.source.ufl.algorithms",
-            "deployment.ufl.source.ufl.algorithms.analysis",
-            "deployment.ufl.source.ufl.algorithms.apply_derivatives",
-            "deployment.ufl.source.ufl.algorithms.compute_form_data",
-            "deployment.ufl.source.ufl.algorithms.domain_analysis",
-            "deployment.ufl.source.ufl.algorithms.estimate_degrees",
-            "deployment.ufl.source.ufl.algorithms.expand_indices",
-            "deployment.ufl.source.ufl.algorithms.formsplitter",
-            "deployment.ufl.source.ufl.algorithms.formtransformations",
-            "deployment.ufl.source.ufl.algorithms.map_integrands",
-            "deployment.ufl.source.ufl.algorithms.replace",
-            "deployment.ufl.source.ufl.algorithms.signature",
-            "deployment.ufl.source.ufl.cell",
-            "deployment.ufl.source.ufl.constant",
-            "deployment.ufl.source.ufl.coefficient",
-            "deployment.ufl.source.ufl.finiteelement",
-            "deployment.ufl.source.ufl.form",
-            "deployment.ufl.source.ufl.formoperators",
-            "deployment.ufl.source.ufl.functionspace",
-            "deployment.ufl.source.ufl.geometry",
-            "deployment.ufl.source.ufl.measure",
-            "deployment.ufl.source.ufl.operators",
-            "deployment.ufl.source.ufl.tensoralgebra",
-            "deployment.ufl.source.ufl.tensors",
-            "deployment.ufl.source.ufl.variable",
-        ]
+        try:
+            import source.ufl as ufl_pkg
+            import source.ufl.algorithms as algorithms_pkg
+            import source.ufl.core as core_pkg
+            import source.ufl.corealg as corealg_pkg
+            import source.ufl.formatting as formatting_pkg
+            import source.ufl.utils as utils_pkg
 
-        loaded = 0
-        for name in module_names:
-            try:
-                self.modules[name] = importlib.import_module(name)
-                loaded += 1
-            except Exception as exc:
-                self.errors.append(f"Failed to import {name}: {exc}")
+            self._modules["ufl"] = ufl_pkg
+            self._modules["algorithms"] = algorithms_pkg
+            self._modules["core"] = core_pkg
+            self._modules["corealg"] = corealg_pkg
+            self._modules["formatting"] = formatting_pkg
+            self._modules["utils"] = utils_pkg
 
-        self.available = loaded > 0
+            self._import_ok = True
+        except Exception as exc:
+            self._import_ok = False
+            self._import_error = str(exc)
 
-    # ---------------------------------------------------------------------
-    # Unified response helpers
-    # ---------------------------------------------------------------------
-    def _ok(self, data: Any = None, message: str = "success") -> Dict[str, Any]:
-        return {"status": "success", "mode": self.mode, "message": message, "data": data}
-
-    def _fail(self, message: str, error: Optional[Exception] = None) -> Dict[str, Any]:
-        payload: Dict[str, Any] = {"status": "error", "mode": self.mode, "message": message}
-        if error is not None:
-            payload["error"] = str(error)
-            payload["traceback"] = traceback.format_exc()
-        return payload
-
-    def _fallback(self, action: str) -> Dict[str, Any]:
-        return {
-            "status": "fallback",
-            "mode": self.mode,
-            "message": (
-                f"Import mode is unavailable for action '{action}'. "
-                f"Check source path and repository layout at: {source_path}. "
-                "Ensure deployment.ufl.source package exists and is importable."
-            ),
-            "errors": self.errors,
-        }
-
-    # ---------------------------------------------------------------------
-    # Status / diagnostics
-    # ---------------------------------------------------------------------
-    def health_check(self) -> Dict[str, Any]:
+    # -------------------------------------------------------------------------
+    # Status and diagnostics
+    # -------------------------------------------------------------------------
+    def get_status(self) -> Dict[str, Any]:
         """
-        Run adapter health checks.
-
-        Returns:
-            dict: Unified status dictionary including loaded modules and import errors.
+        Return adapter and import health status.
         """
         return self._ok(
             data={
-                "available": self.available,
-                "loaded_module_count": len(self.modules),
-                "loaded_modules": sorted(self.modules.keys()),
-                "import_errors": self.errors,
-                "python_version": sys.version,
-                "source_path": source_path,
+                "import_ready": self._import_ok,
+                "import_error": self._import_error,
+                "available_modules": sorted(self._modules.keys()),
+                "dependencies": {
+                    "required": ["python>=3.9", "numpy"],
+                    "optional": ["pytest", "sphinx"],
+                },
+                "risk": {
+                    "import_feasibility": 0.95,
+                    "intrusiveness_risk": "low",
+                    "complexity": "medium",
+                },
             },
-            message="Adapter health report generated.",
+            message="adapter status",
         )
 
-    # ---------------------------------------------------------------------
-    # Dynamic module / symbol management
-    # ---------------------------------------------------------------------
-    def import_module(self, module_path: str) -> Dict[str, Any]:
+    def list_capabilities(self) -> Dict[str, Any]:
         """
-        Dynamically import a module by full package path.
-
-        Args:
-            module_path: Full import path, e.g. 'deployment.ufl.source.ufl.form'.
-
-        Returns:
-            dict: Unified status with module metadata.
+        List capabilities exposed by this adapter.
         """
-        try:
-            mod = importlib.import_module(module_path)
-            self.modules[module_path] = mod
-            self.available = True
-            return self._ok(
-                data={"module": module_path, "attributes": len(dir(mod))},
-                message=f"Module imported: {module_path}",
-            )
-        except Exception as exc:
-            return self._fail(
-                f"Unable to import module '{module_path}'. Verify package path and dependencies.",
-                exc,
-            )
+        capabilities = [
+            "import source.ufl modules",
+            "inspect module attributes",
+            "create class instances dynamically",
+            "invoke callable functions dynamically",
+            "fallback guidance on import failures",
+        ]
+        return self._ok(data=capabilities, message="capabilities listed")
 
-    def get_symbol(self, module_path: str, symbol_name: str) -> Dict[str, Any]:
-        """
-        Fetch a symbol (class/function/constant) from a loaded module.
-
-        Args:
-            module_path: Full module path.
-            symbol_name: Attribute name to retrieve.
-
-        Returns:
-            dict: Unified status with symbol type and callable info.
-        """
-        try:
-            if module_path not in self.modules:
-                mod_result = self.import_module(module_path)
-                if mod_result["status"] != "success":
-                    return mod_result
-            mod = self.modules[module_path]
-            if not hasattr(mod, symbol_name):
-                return self._fail(
-                    f"Symbol '{symbol_name}' not found in module '{module_path}'.",
-                    None,
-                )
-            sym = getattr(mod, symbol_name)
-            return self._ok(
-                data={
-                    "module": module_path,
-                    "symbol": symbol_name,
-                    "type": type(sym).__name__,
-                    "callable": callable(sym),
-                },
-                message="Symbol resolved successfully.",
-            )
-        except Exception as exc:
-            return self._fail("Failed to resolve symbol.", exc)
-
-    # ---------------------------------------------------------------------
-    # Generic class/function invocation
-    # ---------------------------------------------------------------------
+    # -------------------------------------------------------------------------
+    # Generic dynamic class/function accessors
+    # -------------------------------------------------------------------------
     def create_instance(
-        self, module_path: str, class_name: str, *args: Any, **kwargs: Any
+        self,
+        module_key: str,
+        class_name: str,
+        args: Optional[List[Any]] = None,
+        kwargs: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         """
-        Instantiate a class from a given module.
+        Create an instance of a class from a loaded module.
 
-        Args:
-            module_path: Full module import path.
-            class_name: Class name to instantiate.
-            *args: Positional constructor arguments.
-            **kwargs: Keyword constructor arguments.
+        Parameters:
+        - module_key: Registry key from loaded modules (e.g., 'ufl', 'algorithms').
+        - class_name: Name of class to instantiate.
+        - args: Positional arguments list.
+        - kwargs: Keyword arguments dictionary.
 
         Returns:
-            dict: Unified status with instance repr and type.
+        Unified status dictionary containing instance metadata.
         """
-        if not self.available and not self.modules:
-            return self._fallback("create_instance")
+        if not self._import_ok:
+            return self._error(
+                message="Import mode is unavailable.",
+                guidance="Ensure source/ufl exists and includes importable Python package files.",
+            )
         try:
-            symbol_result = self.get_symbol(module_path, class_name)
-            if symbol_result["status"] != "success":
-                return symbol_result
-            cls = getattr(self.modules[module_path], class_name)
+            args = args or []
+            kwargs = kwargs or {}
+            module = self._modules.get(module_key)
+            if module is None:
+                return self._error(
+                    message=f"Unknown module key: {module_key}",
+                    guidance=f"Use one of: {', '.join(sorted(self._modules.keys()))}",
+                )
+            cls = getattr(module, class_name)
             instance = cls(*args, **kwargs)
             return self._ok(
                 data={
-                    "module": module_path,
-                    "class": class_name,
+                    "module_key": module_key,
+                    "class_name": class_name,
                     "instance_type": type(instance).__name__,
-                    "instance_repr": repr(instance),
+                    "repr": repr(instance),
                 },
-                message="Class instance created successfully.",
+                message="instance created",
+            )
+        except AttributeError as exc:
+            return self._error(
+                message=f"Class not found: {class_name}",
+                error=exc,
+                guidance="Verify class name and module key, then inspect module attributes.",
             )
         except Exception as exc:
-            return self._fail(
-                f"Failed to instantiate class '{class_name}' from '{module_path}'.",
-                exc,
+            return self._error(
+                message="Failed to create class instance.",
+                error=exc,
+                guidance="Review constructor arguments and class requirements.",
             )
 
     def call_function(
-        self, module_path: str, function_name: str, *args: Any, **kwargs: Any
+        self,
+        module_key: str,
+        function_name: str,
+        args: Optional[List[Any]] = None,
+        kwargs: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         """
-        Call a function from a given module.
+        Call a function/callable by name from a loaded module.
 
-        Args:
-            module_path: Full module import path.
-            function_name: Function name to call.
-            *args: Positional call arguments.
-            **kwargs: Keyword call arguments.
+        Parameters:
+        - module_key: Registry key from loaded modules.
+        - function_name: Callable attribute name.
+        - args: Positional arguments list.
+        - kwargs: Keyword arguments dictionary.
 
         Returns:
-            dict: Unified status with call result.
+        Unified status dictionary containing function call result.
         """
-        if not self.available and not self.modules:
-            return self._fallback("call_function")
+        if not self._import_ok:
+            return self._error(
+                message="Import mode is unavailable.",
+                guidance="Ensure local repository source is available under source/ and dependencies are installed.",
+            )
         try:
-            symbol_result = self.get_symbol(module_path, function_name)
-            if symbol_result["status"] != "success":
-                return symbol_result
-            fn = getattr(self.modules[module_path], function_name)
+            args = args or []
+            kwargs = kwargs or {}
+            module = self._modules.get(module_key)
+            if module is None:
+                return self._error(
+                    message=f"Unknown module key: {module_key}",
+                    guidance=f"Use one of: {', '.join(sorted(self._modules.keys()))}",
+                )
+            fn = getattr(module, function_name)
             if not callable(fn):
-                return self._fail(
-                    f"Symbol '{function_name}' in '{module_path}' is not callable.",
-                    None,
+                return self._error(
+                    message=f"Attribute is not callable: {function_name}",
+                    guidance="Inspect module attributes and select a function or callable class.",
                 )
             result = fn(*args, **kwargs)
             return self._ok(
                 data={
-                    "module": module_path,
-                    "function": function_name,
-                    "result_type": type(result).__name__,
+                    "module_key": module_key,
+                    "function_name": function_name,
                     "result": result,
                 },
-                message="Function called successfully.",
+                message="function called",
+            )
+        except AttributeError as exc:
+            return self._error(
+                message=f"Function not found: {function_name}",
+                error=exc,
+                guidance="Verify function name against repository module exports.",
             )
         except Exception as exc:
-            return self._fail(
-                f"Failed to call function '{function_name}' from '{module_path}'.",
-                exc,
+            return self._error(
+                message="Function call failed.",
+                error=exc,
+                guidance="Review input arguments and function signature.",
             )
 
-    # ---------------------------------------------------------------------
-    # UFL-specific convenience methods (high-value coverage from analysis)
-    # ---------------------------------------------------------------------
-    def create_cell(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.create_instance("deployment.ufl.source.ufl.cell", "Cell", *args, **kwargs)
+    # -------------------------------------------------------------------------
+    # UFL-focused helper methods (high-value import-mode workflow)
+    # -------------------------------------------------------------------------
+    def get_module_attributes(self, module_key: str) -> Dict[str, Any]:
+        """
+        Get public attributes of a loaded module.
 
-    def create_constant(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.create_instance("deployment.ufl.source.ufl.constant", "Constant", *args, **kwargs)
+        Parameters:
+        - module_key: Registry key ('ufl', 'algorithms', 'core', 'corealg', 'formatting', 'utils').
 
-    def create_coefficient(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.create_instance("deployment.ufl.source.ufl.coefficient", "Coefficient", *args, **kwargs)
-
-    def create_finite_element(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.create_instance("deployment.ufl.source.ufl.finiteelement", "FiniteElement", *args, **kwargs)
-
-    def create_function_space(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.create_instance("deployment.ufl.source.ufl.functionspace", "FunctionSpace", *args, **kwargs)
-
-    def create_measure(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.create_instance("deployment.ufl.source.ufl.measure", "Measure", *args, **kwargs)
-
-    def create_variable(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.create_instance("deployment.ufl.source.ufl.variable", "Variable", *args, **kwargs)
-
-    def compute_form_data(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.call_function(
-            "deployment.ufl.source.ufl.algorithms.compute_form_data",
-            "compute_form_data",
-            *args,
-            **kwargs,
+        Returns:
+        Unified status dictionary with sorted public attribute names.
+        """
+        if not self._import_ok:
+            return self._error(
+                message="Cannot inspect modules because imports are unavailable.",
+                guidance="Resolve import errors first using get_status().",
+            )
+        module = self._modules.get(module_key)
+        if module is None:
+            return self._error(
+                message=f"Unknown module key: {module_key}",
+                guidance=f"Use one of: {', '.join(sorted(self._modules.keys()))}",
+            )
+        attrs = sorted([a for a in dir(module) if not a.startswith("_")])
+        return self._ok(
+            data={"module_key": module_key, "attributes": attrs},
+            message="module attributes retrieved",
         )
 
-    def estimate_total_polynomial_degree(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.call_function(
-            "deployment.ufl.source.ufl.algorithms.estimate_degrees",
-            "estimate_total_polynomial_degree",
-            *args,
-            **kwargs,
-        )
+    def evaluate_expression(self, expression: Any, mapping: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """
+        Attempt to evaluate a UFL expression if it provides an `evaluate` method.
 
-    def expand_indices(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.call_function(
-            "deployment.ufl.source.ufl.algorithms.expand_indices",
-            "expand_indices",
-            *args,
-            **kwargs,
-        )
+        Parameters:
+        - expression: UFL expression object.
+        - mapping: Optional mapping used by expression evaluate methods.
 
-    def replace(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.call_function(
-            "deployment.ufl.source.ufl.algorithms.replace",
-            "replace",
-            *args,
-            **kwargs,
-        )
+        Returns:
+        Unified status dictionary with evaluation result.
+        """
+        try:
+            if expression is None:
+                return self._error(
+                    message="Expression is required.",
+                    guidance="Provide a valid UFL expression object.",
+                )
+            if not hasattr(expression, "evaluate"):
+                return self._error(
+                    message="Provided object does not support evaluation.",
+                    guidance="Pass an object with an evaluate() method.",
+                )
+            mapping = mapping or {}
+            result = expression.evaluate(mapping)
+            return self._ok(data={"result": result}, message="expression evaluated")
+        except Exception as exc:
+            return self._error(
+                message="Expression evaluation failed.",
+                error=exc,
+                guidance="Check expression compatibility and evaluation context.",
+            )
 
-    def compute_signature(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        return self.call_function(
-            "deployment.ufl.source.ufl.algorithms.signature",
-            "compute_expression_signature",
-            *args,
-            **kwargs,
+    def fallback_blackbox(self, task: str, payload: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """
+        Provide graceful fallback guidance when import mode is unavailable.
+
+        Parameters:
+        - task: User task description.
+        - payload: Optional task-specific input data.
+
+        Returns:
+        Unified status dictionary with fallback instructions.
+        """
+        return self._ok(
+            data={
+                "strategy": "blackbox",
+                "task": task,
+                "payload": payload or {},
+                "note": "Import mode failed or is insufficient for this task.",
+                "next_steps": [
+                    "Verify source path and package structure.",
+                    "Install required dependencies (numpy, Python>=3.9).",
+                    "Retry import mode, then run task again.",
+                ],
+            },
+            message="fallback guidance",
         )

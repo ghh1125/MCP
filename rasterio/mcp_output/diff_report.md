@@ -1,29 +1,23 @@
 # Difference Report — `rasterio`
 
-**Generated:** 2026-03-14 12:53:40  
+**Generated:** 2026-03-14 13:52:03  
 **Repository:** `rasterio`  
 **Project Type:** Python library  
-**Scope:** Basic functionality  
-**Intrusiveness:** None  
+**Scope/Intrusiveness:** None (non-intrusive update profile)  
 **Workflow Status:** ✅ Success  
 **Test Status:** ❌ Failed  
-**Changed Files:** 8 added, 0 modified
+**Change Summary:** 8 new files, 0 modified files
 
 ---
 
 ## 1) Project Overview
 
-`rasterio` is a Python library for reading, writing, and processing geospatial raster data.  
-This change set appears to be **additive-only** (no existing files modified), with **8 new files** introduced to support or extend basic functionality.
-
-### High-level assessment
-- **Risk profile:** Low-to-medium (non-intrusive, no direct edits to existing code)
-- **Release readiness:** Not ready due to failing tests
-- **Primary concern:** Integration quality of new files and test coverage alignment
+`rasterio` is a Python geospatial library focused on raster data I/O and processing.  
+This change set appears to be **additive only** (new files without touching existing code), indicating an extension-oriented update rather than a refactor or behavior change to current modules.
 
 ---
 
-## 2) Change Summary
+## 2) High-Level Difference Summary
 
 | Metric | Value |
 |---|---:|
@@ -31,125 +25,119 @@ This change set appears to be **additive-only** (no existing files modified), wi
 | Modified files | 0 |
 | Deleted files | 0 (not reported) |
 | Intrusiveness | None |
-| CI/Workflow | Success |
-| Tests | Failed |
+| CI Workflow | Success |
+| Test Suite | Failed |
 
-### Interpretation
-- The pipeline/workflow itself executed successfully (e.g., lint/build/job execution worked).
-- Functional or validation checks failed during test execution, indicating behavior or test compatibility issues related to the newly added files.
+**Interpretation:**  
+- The pipeline executed successfully at workflow level (e.g., jobs ran), but one or more test checks failed.  
+- Since no existing files were modified, failures are likely due to:
+  - New tests failing,
+  - Newly introduced modules not meeting expected contracts,
+  - Packaging/config side effects from new files,
+  - Lint/type/test discovery issues.
 
 ---
 
 ## 3) Difference Analysis
 
-Because no existing files were modified, this update likely introduces:
-1. **New modules/utilities** for basic features, and/or  
-2. **New tests/data fixtures/config files** that expose gaps or regressions, and/or  
-3. **Packaging/docs/examples** that are syntactically valid but behaviorally incomplete.
+### 3.1 Change Pattern
+- **Pure addition pattern**: 8 files added, no direct edits to existing code.
+- This minimizes regression risk in legacy paths but can still introduce:
+  - Import-time conflicts,
+  - Test collection breakage,
+  - Configuration drift,
+  - Incomplete integration hooks.
 
-### Positive signals
-- Additive-only changes reduce direct regression risk to stable code paths.
-- Workflow success indicates environment/configuration is mostly healthy.
-
-### Negative signals
-- Test failure means:
-  - New code may not satisfy expected behavior.
-  - Tests may be incomplete, outdated, or improperly configured for new artifacts.
-  - Possible missing runtime/test dependencies or fixture path issues.
+### 3.2 Risk Profile
+- **Runtime regression risk:** Low to Medium (no edits to existing source, but new imports/plugins can still affect runtime).
+- **Test stability risk:** High (already observed failure).
+- **Release readiness:** Not ready until test failures are resolved.
 
 ---
 
 ## 4) Technical Analysis
 
-## 4.1 Likely root-cause categories for failed tests
-1. **Import/package exposure mismatch**
-   - New files not properly exported in package init or entry points.
-2. **Behavioral contract mismatch**
-   - API signatures/defaults differ from expected test assumptions.
-3. **Data/fixture path issues**
-   - Raster fixtures not found, relative paths broken, or CRS/GDAL env assumptions unmet.
-4. **Environment-dependent test behavior**
-   - GDAL/proj/lib versions in CI differ from local assumptions.
-5. **Incomplete edge-case handling**
-   - Nodata, dtype casting, windowed reads, transforms, masks, CRS metadata, or I/O mode handling.
+Because file-level diffs are not provided, analysis is based on metadata and typical Python library behavior:
 
-## 4.2 Risk evaluation
-- **Backward compatibility risk:** Low (no modifications to existing files), but can become medium if import namespace or packaging behavior changes.
-- **Operational risk:** Medium due to failing tests and potential hidden integration gaps.
-- **Deployment risk:** Medium-high until tests pass consistently.
+1. **CI vs Test discrepancy**
+   - “Workflow success” with “Test failed” generally means orchestration succeeded while quality gates did not.
+   - If failure was non-blocking in CI config, branch protection should be reviewed.
+
+2. **Likely failure classes**
+   - Missing dependencies for new files (optional extras not declared).
+   - Path/import issues (`src/` layout vs test path assumptions).
+   - New test fixtures requiring environment variables, GDAL/raster backends, or sample data.
+   - Static checks failing if included in test stage (pytest plugins, coverage thresholds).
+
+3. **Integration completeness check**
+   - New files may need:
+     - `__init__.py` exposure,
+     - packaging inclusion (MANIFEST/pyproject config),
+     - documentation index updates,
+     - changelog entry,
+     - test markers for platform-specific behavior.
 
 ---
 
 ## 5) Recommendations & Improvements
 
-## 5.1 Immediate actions (blockers)
-1. **Triage failing test logs** by failure class:
-   - Assertion mismatch
-   - Import/module errors
-   - Environment/dependency failures
-   - File/fixture not found
-2. **Map each failure to one of the 8 new files** and confirm ownership.
-3. **Run targeted test subsets locally** (unit first, then integration).
-4. **Add/adjust tests** for every new public behavior path.
-5. **Gate merge/release on green tests** in the same CI profile used by default branch.
+## Immediate (Blocker Resolution)
+1. **Triage failing tests first**
+   - Capture failing test IDs, stack traces, and failing stage (unit/integration/lint/type).
+2. **Reproduce locally in clean environment**
+   - Use the same Python/GDAL versions as CI.
+3. **Validate dependency declarations**
+   - Ensure any new runtime/test deps are in `pyproject.toml`/requirements and CI install steps.
+4. **Check test discoverability and markers**
+   - Confirm new tests are correctly marked/skipped for unsupported environments.
 
-## 5.2 Code quality hardening
-- Ensure all new public APIs include:
-  - Type hints
-  - Docstrings
-  - Input validation and explicit error messages
-- Add tests for geospatial edge cases:
-  - CRS missing/invalid
-  - Nodata propagation
-  - Transform precision
-  - Window bounds and resampling behavior
-- Validate compatibility across supported Python and GDAL matrix.
+## Short-Term Hardening
+5. **Enforce test pass as required status**
+   - Prevent merge when test job fails.
+6. **Add smoke tests for new files**
+   - Minimal import/execution tests to catch packaging/import issues early.
+7. **Coverage and quality gates**
+   - Ensure added files meet minimum coverage and style/type checks.
 
-## 5.3 Packaging and maintainability
-- Confirm new files are included in package manifests/distribution metadata.
-- If files are docs/examples only, isolate them from runtime/import paths.
-- Add changelog entry summarizing new basic functionality and known limitations.
+## Medium-Term Improvements
+8. **Improve CI matrix**
+   - Validate across key Python versions and geospatial backend combos.
+9. **Artifact/debug retention**
+   - Store pytest logs, junit XML, and environment diagnostics for faster root-cause analysis.
+10. **Release note hygiene**
+   - Explicitly document “additive-only” scope and known limitations.
 
 ---
 
 ## 6) Deployment Information
 
-## Current status
-- **Deployment recommendation:** **Hold** (do not release yet).
-- **Reason:** Test suite failure indicates unresolved quality issues.
-
-## Pre-deployment checklist
-- [ ] All failed tests resolved and passing in CI
-- [ ] No flaky tests in reruns
-- [ ] New files included/excluded appropriately in wheel/sdist
-- [ ] Smoke tests on representative raster datasets pass
-- [ ] Versioning and release notes updated
-
-## Rollout strategy (once green)
-- Prefer **patch/minor release** depending on public API exposure.
-- Use staged rollout:
-  1. Internal validation
-  2. Pre-release tag (optional)
-  3. Full release after monitoring install/runtime feedback
+- **Deployment recommendation:** ⛔ **Do not deploy/release** this change set yet.
+- **Reason:** Test status is failed; quality gate not satisfied.
+- **Pre-deploy checklist:**
+  - [ ] All tests passing
+  - [ ] New files included in package build
+  - [ ] Dependency lock/constraints updated
+  - [ ] Changelog/release notes updated
+  - [ ] CI required checks enforced
 
 ---
 
 ## 7) Future Planning
 
-1. **Strengthen CI matrix**
-   - Expand GDAL/PROJ/Python combinations to catch env-sensitive failures earlier.
-2. **Regression prevention**
-   - Add tests specifically tied to new files and failure signatures observed now.
-3. **Developer workflow**
-   - Introduce pre-merge required checks for unit + integration + packaging validation.
-4. **Observability**
-   - Track test flakiness and failure taxonomy over time for trend-based quality improvements.
-5. **Documentation**
-   - Provide concise usage examples for new functionality and explicit compatibility notes.
+1. **Stabilization sprint (near-term)**
+   - Resolve failing tests and add regression tests for the new modules.
+2. **Observability for test failures**
+   - Standardize failure classification (env/setup/code/data).
+3. **Quality governance**
+   - Align branch protection with mandatory test success.
+4. **Incremental rollout**
+   - If features are user-facing, consider feature flags or staged release notes.
+5. **Post-merge monitoring**
+   - Track install/import issues and user bug reports after release candidate publication.
 
 ---
 
 ## 8) Executive Conclusion
 
-This is a **non-intrusive, additive** change set (8 new files, no modifications), which is generally favorable for stability. However, the **failed test status is a release blocker**.  
-The project should proceed with targeted failure triage, test alignment, and CI hardening before deployment. Once tests are green and packaging is validated, the update can be released with moderate confidence.
+This update is structurally low-intrusion (**8 new files, no edits**) but currently **not releasable** due to failing tests.  
+Primary priority is targeted test triage and integration validation of the newly added files. Once all checks pass and packaging/docs are confirmed, the change set should be safe to proceed with standard release workflow.

@@ -1009,13 +1009,15 @@
   "structure": {
     "packages": [
       "deployment.scanpy.source",
-      "mcp_output.mcp_plugin"
+      "mcp_output.mcp_plugin",
+      "source.benchmarks.benchmarks",
+      "source.src.scanpy"
     ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
     "setup_py": false
   },
@@ -1027,146 +1029,195 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "deployment.scanpy.source",
-        "module": "scanpy",
+        "package": "source.src.scanpy",
+        "module": "source.src.scanpy.preprocessing",
         "functions": [
-          "read",
-          "read_10x_h5",
-          "read_10x_mtx",
-          "read_visium",
-          "set_figure_params"
-        ],
-        "classes": [
-          "Verbosity",
-          "ScanpyConfig"
-        ],
-        "description": "Top-level public API surface aggregating I/O, configuration, and major subpackages (pp/tl/pl/get/datasets/external). Best import anchor for MCP exposure."
-      },
-      {
-        "package": "deployment.scanpy.source",
-        "module": "scanpy.preprocessing",
-        "functions": [
+          "calculate_qc_metrics",
           "filter_cells",
           "filter_genes",
-          "normalize_total",
-          "log1p",
           "highly_variable_genes",
-          "scale",
+          "log1p",
+          "neighbors",
+          "normalize_total",
           "pca",
-          "neighbors"
+          "regress_out",
+          "scale",
+          "scrublet",
+          "subsample"
         ],
         "classes": [],
-        "description": "Core preprocessing pipeline primitives used in most workflows; stable, high-value callable set for plugin tooling."
+        "description": "Primary preprocessing pipeline utilities for AnnData objects (QC, normalization, feature selection, dimensionality reduction, scaling)."
       },
       {
-        "package": "deployment.scanpy.source",
-        "module": "scanpy.tools",
+        "package": "source.src.scanpy",
+        "module": "source.src.scanpy.tools",
         "functions": [
-          "umap",
-          "tsne",
+          "dendrogram",
+          "diffmap",
+          "draw_graph",
+          "embedding_density",
+          "ingest",
           "leiden",
           "louvain",
-          "rank_genes_groups",
           "paga",
-          "dpt",
-          "score_genes"
+          "rank_genes_groups",
+          "score_genes",
+          "tsne",
+          "umap"
         ],
         "classes": [],
-        "description": "Downstream analysis and graph/trajectory/clustering routines; should be exposed as optional advanced MCP tools due to heavier runtime dependencies."
+        "description": "Core downstream analysis methods (graph clustering, embeddings, trajectory/graph abstraction, marker ranking)."
       },
       {
-        "package": "deployment.scanpy.source",
-        "module": "scanpy.plotting",
+        "package": "source.src.scanpy",
+        "module": "source.src.scanpy.plotting",
         "functions": [
-          "umap",
-          "tsne",
-          "pca",
-          "violin",
           "dotplot",
+          "heatmap",
           "matrixplot",
-          "rank_genes_groups"
+          "paga",
+          "rank_genes_groups",
+          "scatter",
+          "spatial",
+          "stacked_violin",
+          "umap",
+          "violin"
         ],
         "classes": [
           "DotPlot",
           "MatrixPlot",
           "StackedViolin"
         ],
-        "description": "Visualization API with large surface and matplotlib coupling; better exposed selectively (non-interactive-safe methods only)."
+        "description": "Visualization API (pl.*) for embeddings, QC, marker genes, and structured plot classes."
       },
       {
-        "package": "deployment.scanpy.source",
-        "module": "scanpy.readwrite",
+        "package": "source.src.scanpy",
+        "module": "source.src.scanpy.datasets",
+        "functions": [
+          "blobs",
+          "ebi_expression_atlas",
+          "krumsiek11",
+          "pbmc3k",
+          "pbmc68k_reduced",
+          "toggleswitch"
+        ],
+        "classes": [],
+        "description": "Dataset loaders and helpers for examples, tests, and quick-start workflows."
+      },
+      {
+        "package": "source.src.scanpy",
+        "module": "source.src.scanpy.readwrite",
         "functions": [
           "read",
           "read_10x_h5",
           "read_10x_mtx",
-          "read_visium",
+          "read_csv",
+          "read_h5ad",
+          "read_loom",
           "write"
         ],
         "classes": [],
-        "description": "I/O layer for AnnData-compatible files; ideal for MCP file-oriented operations with strict path sandboxing."
+        "description": "I/O layer for AnnData-compatible formats and 10x Genomics data ingestion."
       },
       {
-        "package": "deployment.scanpy.source",
-        "module": "scanpy.datasets",
+        "package": "source.src.scanpy",
+        "module": "source.src.scanpy.get",
         "functions": [
-          "pbmc3k",
-          "pbmc68k_reduced",
-          "visium_sge",
-          "krumsiek11",
-          "toggleswitch"
+          "obs_df",
+          "rank_genes_groups_df",
+          "var_df"
         ],
         "classes": [],
-        "description": "Dataset loaders useful for testing and demos; safe onboarding entrypoints for MCP workflows."
+        "description": "Data extraction/convenience accessors for tidy/tabular outputs from AnnData."
+      },
+      {
+        "package": "source.src.scanpy",
+        "module": "source.src.scanpy.neighbors",
+        "functions": [
+          "compute_neighbors_umap",
+          "neighbors"
+        ],
+        "classes": [
+          "Neighbors"
+        ],
+        "description": "Neighborhood graph construction backend and graph representation utilities."
+      },
+      {
+        "package": "source.src.scanpy",
+        "module": "source.src.scanpy.metrics",
+        "functions": [
+          "gearys_c",
+          "morans_i"
+        ],
+        "classes": [],
+        "description": "Spatial/autocorrelation metrics and related quantitative utilities."
+      },
+      {
+        "package": "source.src.scanpy",
+        "module": "source.src.scanpy.external",
+        "functions": [
+          "bbknn",
+          "harmony_integrate",
+          "magic",
+          "mnn_correct",
+          "scanorama_integrate"
+        ],
+        "classes": [],
+        "description": "Optional wrappers to external ecosystem methods with additional dependencies."
       }
     ],
     "cli_commands": [
       {
         "name": "scanpy",
-        "module": "scanpy.cli",
-        "description": "Package CLI entry implemented in scanpy/cli.py and wired through __main__.py; suitable only as fallback execution path due to weaker structured return handling."
+        "module": "source.src.scanpy.cli",
+        "description": "Top-level CLI entry module; lightweight command-line interface around scanpy operations/settings."
+      },
+      {
+        "name": "python -m scanpy",
+        "module": "source.src.scanpy.__main__",
+        "description": "Module execution entry point delegating into CLI behavior."
       }
     ],
     "import_strategy": {
       "primary": "import",
       "fallback": "cli",
-      "confidence": 0.9
+      "confidence": 0.93
     },
     "dependencies": {
       "required": [
-        "python",
+        "anndata",
         "numpy",
         "scipy",
         "pandas",
-        "anndata",
-        "h5py",
         "matplotlib",
         "scikit-learn",
+        "h5py",
         "numba",
-        "networkx"
+        "networkx",
+        "packaging"
       ],
       "optional": [
         "umap-learn",
         "igraph",
         "leidenalg",
         "louvain",
-        "pynndescent",
+        "python-igraph",
         "dask",
         "zarr",
-        "bbknn",
+        "statsmodels",
+        "seaborn",
         "harmonypy",
+        "bbknn",
         "scanorama",
         "magic-impute",
-        "phate",
-        "phenograph",
         "palantir",
-        "sam-algorithm",
-        "wishbone"
+        "phate",
+        "phenograph"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.88,
-      "intrusiveness_risk": "medium",
+      "import_feasibility": 0.91,
+      "intrusiveness_risk": "low",
       "complexity": "medium"
     }
   },
@@ -1183,8 +1234,8 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.88,
-    "intrusiveness_risk": "medium",
+    "import_feasibility": 0.91,
+    "intrusiveness_risk": "low",
     "complexity": "medium"
   }
 }

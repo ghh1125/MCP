@@ -661,13 +661,19 @@
   "structure": {
     "packages": [
       "deployment.ufl.source",
-      "mcp_output.mcp_plugin"
+      "mcp_output.mcp_plugin",
+      "source.ufl",
+      "source.ufl.algorithms",
+      "source.ufl.core",
+      "source.ufl.corealg",
+      "source.ufl.formatting",
+      "source.ufl.utils"
     ]
   },
   "dependencies": {
     "has_environment_yml": false,
     "has_requirements_txt": false,
-    "pyproject": false,
+    "pyproject": true,
     "setup_cfg": false,
     "setup_py": false
   },
@@ -679,115 +685,183 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "deployment.ufl.source",
-        "module": "deployment.ufl.source.ufl",
+        "package": "source.ufl",
+        "module": "source.ufl.__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Primary public API re-export surface for UFL symbolic objects/operators; best import anchor for MCP plugin exposure."
+      },
+      {
+        "package": "source.ufl",
+        "module": "source.ufl.form",
+        "functions": [],
+        "classes": [
+          "Form"
+        ],
+        "description": "Core variational form representation and manipulation."
+      },
+      {
+        "package": "source.ufl",
+        "module": "source.ufl.finiteelement",
+        "functions": [],
+        "classes": [
+          "AbstractFiniteElement",
+          "FiniteElement",
+          "MixedElement",
+          "SymmetricElement"
+        ],
+        "description": "Finite element definitions and composition primitives."
+      },
+      {
+        "package": "source.ufl",
+        "module": "source.ufl.functionspace",
+        "functions": [],
+        "classes": [
+          "FunctionSpace",
+          "MixedFunctionSpace",
+          "TensorProductFunctionSpace"
+        ],
+        "description": "Function-space abstractions linked to elements and domains."
+      },
+      {
+        "package": "source.ufl",
+        "module": "source.ufl.argument",
         "functions": [
-          "as_ufl",
-          "grad",
-          "div",
-          "curl",
-          "inner",
-          "dot",
-          "dx",
-          "ds",
-          "dS",
-          "lhs",
-          "rhs",
-          "derivative",
-          "replace",
-          "split",
+          "Argument",
           "TestFunction",
           "TrialFunction",
           "TestFunctions",
           "TrialFunctions"
         ],
         "classes": [
-          "Form",
-          "Integral",
-          "FiniteElement",
-          "MixedElement",
-          "FunctionSpace",
+          "BaseArgument",
           "Argument",
+          "Coargument"
+        ],
+        "description": "Test/trial argument creation and argument node types."
+      },
+      {
+        "package": "source.ufl",
+        "module": "source.ufl.coefficient",
+        "functions": [
           "Coefficient",
+          "Coefficients"
+        ],
+        "classes": [
+          "BaseCoefficient",
+          "Coefficient",
+          "Cofunction"
+        ],
+        "description": "Symbolic coefficient and cofunction terminals."
+      },
+      {
+        "package": "source.ufl",
+        "module": "source.ufl.constant",
+        "functions": [],
+        "classes": [
           "Constant",
-          "Mesh",
-          "Cell"
+          "VectorConstant",
+          "TensorConstant"
         ],
-        "description": "Top-level symbolic DSL API for defining variational forms, elements, spaces, operators, and measures. This is the primary stable integration surface."
+        "description": "Symbolic constants used in forms."
       },
       {
-        "package": "deployment.ufl.source",
-        "module": "deployment.ufl.source.ufl.algorithms",
+        "package": "source.ufl",
+        "module": "source.ufl.measure",
         "functions": [
-          "compute_form_data",
-          "apply_derivatives",
-          "apply_algebra_lowering",
-          "apply_geometry_lowering",
-          "apply_restrictions",
-          "expand_indices",
-          "estimate_total_polynomial_degree",
-          "extract_arguments",
-          "extract_coefficients",
-          "replace",
-          "signature"
+          "Measure",
+          "register_integral_type",
+          "integral_types"
         ],
         "classes": [
-          "FormData",
-          "Transformer",
-          "MultiFunction"
+          "MeasureSum",
+          "MeasureProduct"
         ],
-        "description": "Transformation, analysis, and normalization pipeline for UFL expression DAGs and forms. Best target for read-only analysis tools in MCP."
+        "description": "Integration measures (dx, ds, dS, etc.) and integral type registry."
       },
       {
-        "package": "deployment.ufl.source",
-        "module": "deployment.ufl.source.ufl.core",
+        "package": "source.ufl",
+        "module": "source.ufl.operators",
         "functions": [
-          "compute_expr_hash"
-        ],
-        "classes": [
-          "Expr",
-          "Operator",
-          "Terminal",
-          "ExternalOperator",
-          "MultiIndex"
-        ],
-        "description": "Low-level expression graph model and node typing. Useful for structural inspection but less stable than top-level API."
-      },
-      {
-        "package": "deployment.ufl.source",
-        "module": "deployment.ufl.source.ufl.form",
-        "functions": [
-          "as_form",
-          "zero",
-          "extract_domains"
-        ],
-        "classes": [
-          "Form",
-          "BaseForm"
-        ],
-        "description": "Form container and manipulation logic; central for any plugin that consumes or rewrites variational forms."
-      },
-      {
-        "package": "deployment.ufl.source",
-        "module": "deployment.ufl.source.ufl.formatting.ufl2unicode",
-        "functions": [
-          "ufl2unicode"
+          "grad",
+          "div",
+          "curl",
+          "inner",
+          "dot",
+          "outer",
+          "sym",
+          "tr",
+          "det",
+          "inv",
+          "sqrt",
+          "sin",
+          "cos",
+          "exp",
+          "ln",
+          "conditional",
+          "as_vector",
+          "as_matrix",
+          "as_tensor"
         ],
         "classes": [],
-        "description": "Human-readable rendering utilities for expressions/forms; good for MCP explain/preview responses."
-      }
-    ],
-    "cli_commands": [
+        "description": "High-level symbolic tensor/calculus operators; primary callable surface for expression building."
+      },
       {
-        "name": "None detected",
-        "module": "",
-        "description": "No explicit CLI entry points found in scanned paths (no console_scripts and no obvious __main__ CLI module)."
+        "package": "source.ufl.algorithms",
+        "module": "source.ufl.algorithms.compute_form_data",
+        "functions": [
+          "compute_form_data"
+        ],
+        "classes": [],
+        "description": "Main analysis/transformation pipeline entry for compiled form metadata."
+      },
+      {
+        "package": "source.ufl.algorithms",
+        "module": "source.ufl.algorithms.analysis",
+        "functions": [
+          "extract_arguments",
+          "extract_coefficients",
+          "extract_constants",
+          "extract_elements",
+          "extract_sub_elements"
+        ],
+        "classes": [],
+        "description": "Expression/form introspection helpers suitable for MCP read-only tooling."
+      },
+      {
+        "package": "source.ufl.algorithms",
+        "module": "source.ufl.algorithms.signature",
+        "functions": [
+          "compute_expression_signature",
+          "compute_form_signature"
+        ],
+        "classes": [],
+        "description": "Deterministic signature/hash-like utilities useful for caching and MCP idempotence."
+      },
+      {
+        "package": "source.ufl.algorithms",
+        "module": "source.ufl.algorithms.replace",
+        "functions": [
+          "replace"
+        ],
+        "classes": [],
+        "description": "Symbolic substitution transform for controlled expression rewrites."
+      },
+      {
+        "package": "source.ufl.core",
+        "module": "source.ufl.core.expr",
+        "functions": [],
+        "classes": [
+          "Expr"
+        ],
+        "description": "Fundamental symbolic DAG node base class."
       }
     ],
+    "cli_commands": [],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.95
     },
     "dependencies": {
       "required": [
@@ -795,13 +869,12 @@
         "numpy"
       ],
       "optional": [
-        "pytest (test only)",
-        "sphinx (docs only)",
-        "fenicsx/dolfinx ecosystem components (integration context, not hard runtime dependency for core UFL import)"
+        "pytest (test/dev only)",
+        "sphinx (docs only)"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.96,
+      "import_feasibility": 0.95,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -819,7 +892,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.96,
+    "import_feasibility": 0.95,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

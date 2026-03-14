@@ -1,247 +1,399 @@
 import os
 import sys
-import importlib
 import traceback
+import inspect
 from typing import Any, Dict, Optional, Tuple
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "source",
 )
-sys.path.insert(0, source_path)
+if source_path not in sys.path:
+    sys.path.insert(0, source_path)
 
 
 class Adapter:
     """
-    MCP Import-Mode Adapter for Rasterio repository integration.
+    MCP Import Mode Adapter for Rasterio repository integration.
 
-    This adapter prefers direct Python imports from local source code.
-    If imports fail (commonly due to missing GDAL runtime/libs), methods
-    return actionable fallback guidance while preserving a unified response format.
+    This adapter attempts to import and call actual implementations from:
+    - rasterio.__init__: open, band, pad
+    - rasterio.io: open
+    - rasterio.rio.main: CLI entry fallback support (rio)
+
+    Design goals:
+    - Unified return format with status field.
+    - Graceful fallback when import-mode execution is unavailable.
+    - Clear, actionable English error messages.
     """
 
-    # -------------------------------------------------------------------------
-    # Lifecycle / Initialization
-    # -------------------------------------------------------------------------
+    # =========================================================================
+    # Initialization and Module Management
+    # =========================================================================
+
     def __init__(self) -> None:
+        """
+        Initialize adapter in import mode and load target modules/functions.
+
+        Attributes:
+            mode (str): Execution mode, fixed to "import".
+            _imports (dict): Imported modules/functions registry.
+            _import_errors (dict): Import errors with actionable diagnostics.
+        """
         self.mode = "import"
-        self._modules: Dict[str, Any] = {}
+        self._imports: Dict[str, Any] = {}
         self._import_errors: Dict[str, str] = {}
-        self._initialized = False
-        self._initialize_imports()
+        self._load_imports()
 
-    def _ok(self, message: str, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        return {"status": "success", "message": message, "data": data or {}}
-
-    def _fail(self, message: str, error: Optional[Exception] = None, data: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        payload: Dict[str, Any] = {"status": "error", "message": message, "data": data or {}}
-        if error is not None:
-            payload["error"] = str(error)
+    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "Success") -> Dict[str, Any]:
+        payload = {"status": "success", "mode": self.mode, "message": message}
+        if data:
+            payload.update(data)
         return payload
 
-    def _fallback(self, action: str, error: Optional[Exception] = None) -> Dict[str, Any]:
-        guidance = (
-            f"Import mode is unavailable for '{action}'. "
-            "Ensure local source package is present and GDAL runtime/libs are installed and discoverable. "
-            "Action: verify Python path, GDAL shared libraries, and compatible numpy build."
-        )
-        return self._fail(guidance, error=error, data={"mode": self.mode, "fallback": "cli_or_environment_fix"})
+    def _fail(self, message: str, error: Optional[Exception] = None, hint: Optional[str] = None) -> Dict[str, Any]:
+        payload: Dict[str, Any] = {
+            "status": "error",
+            "mode": self.mode,
+            "message": message,
+        }
+        if error is not None:
+            payload["error"] = str(error)
+            payload["error_type"] = error.__class__.__name__
+        if hint:
+            payload["hint"] = hint
+        return payload
 
-    def _safe_import(self, module_path: str) -> Tuple[bool, Optional[Any]]:
-        try:
-            mod = importlib.import_module(module_path)
-            self._modules[module_path] = mod
-            return True, mod
-        except Exception as e:
-            self._import_errors[module_path] = f"{e}\n{traceback.format_exc()}"
-            return False, None
-
-    def _initialize_imports(self) -> None:
+    def _load_imports(self) -> None:
         """
-        Load likely core Rasterio modules from repository source.
-        Uses full package paths as required.
+        Import required modules and functions from repository source code.
+
+        Uses full package paths discovered in analysis:
+        - rasterio.__init__
+        - rasterio.io
+        - rasterio.rio.main
+
+        Any failure is recorded and exposed via health/status methods.
         """
-        module_candidates = [
-            "deployment.rasterio.source.rasterio",
-            "deployment.rasterio.source.rasterio.io",
-            "deployment.rasterio.source.rasterio.env",
-            "deployment.rasterio.source.rasterio.features",
-            "deployment.rasterio.source.rasterio.mask",
-            "deployment.rasterio.source.rasterio.merge",
-            "deployment.rasterio.source.rasterio.plot",
-            "deployment.rasterio.source.rasterio.transform",
-            "deployment.rasterio.source.rasterio.warp",
-            "deployment.rasterio.source.rasterio.windows",
-            "deployment.rasterio.source.rasterio.vrt",
-            "deployment.rasterio.source.rasterio.session",
-            "deployment.rasterio.source.rasterio.enums",
-            "deployment.rasterio.source.rasterio.dtypes",
-            "deployment.rasterio.source.rasterio.errors",
-            "deployment.rasterio.source.rasterio.coords",
-            "deployment.rasterio.source.rasterio.rpc",
-            "deployment.rasterio.source.rasterio.sample",
-            "deployment.rasterio.source.rasterio.fill",
-            "deployment.rasterio.source.rasterio.stack",
-            "deployment.rasterio.source.rasterio.tools",
-            "deployment.rasterio.source.rasterio.profiles",
-        ]
-        for path in module_candidates:
-            self._safe_import(path)
+        import_targets = {
+            "rasterio_module": "rasterio",
+            "rasterio_io_module": "rasterio.io",
+            "rasterio_rio_main_module": "rasterio.rio.main",
+        }
 
-        self._initialized = True
-
-    # -------------------------------------------------------------------------
-    # Status / Diagnostics
-    # -------------------------------------------------------------------------
-    def health_check(self) -> Dict[str, Any]:
-        """
-        Check adapter readiness and report import status.
-
-        Returns:
-            dict: Unified status payload with loaded modules and import errors.
-        """
-        if not self._initialized:
-            return self._fail("Adapter was not initialized properly.")
-        return self._ok(
-            "Adapter health check completed.",
-            data={
-                "mode": self.mode,
-                "loaded_modules": sorted(list(self._modules.keys())),
-                "import_error_count": len(self._import_errors),
-                "import_errors": self._import_errors,
-            },
-        )
-
-    # -------------------------------------------------------------------------
-    # Core rasterio package wrappers
-    # -------------------------------------------------------------------------
-    def open_dataset(self, path: str, mode: str = "r", **kwargs: Any) -> Dict[str, Any]:
-        """
-        Open a raster dataset via rasterio.open.
-
-        Parameters:
-            path (str): Path or URI to raster dataset.
-            mode (str): File mode, e.g., 'r', 'w', 'r+'.
-            **kwargs: Extra open options forwarded to rasterio.open.
-
-        Returns:
-            dict: status, message, and dataset metadata preview.
-        """
-        try:
-            mod = self._modules.get("deployment.rasterio.source.rasterio")
-            if mod is None or not hasattr(mod, "open"):
-                return self._fallback("open_dataset")
-            with mod.open(path, mode=mode, **kwargs) as ds:
-                meta = {
-                    "name": getattr(ds, "name", None),
-                    "driver": getattr(ds, "driver", None),
-                    "width": getattr(ds, "width", None),
-                    "height": getattr(ds, "height", None),
-                    "count": getattr(ds, "count", None),
-                    "crs": str(getattr(ds, "crs", None)),
-                }
-            return self._ok("Dataset opened successfully.", data=meta)
-        except Exception as e:
-            return self._fail("Failed to open dataset. Check path, permissions, driver support, and GDAL setup.", error=e)
-
-    def show_versions(self) -> Dict[str, Any]:
-        """
-        Get Rasterio and environment version details.
-
-        Returns:
-            dict: status and version information text or structure.
-        """
-        try:
-            mod = self._modules.get("deployment.rasterio.source.rasterio")
-            if mod is None:
-                return self._fallback("show_versions")
-            show_versions_fn = getattr(mod, "show_versions", None)
-            if callable(show_versions_fn):
-                info = show_versions_fn()
-                return self._ok("Version details retrieved.", data={"versions": info})
-            return self._fail("show_versions is not available in imported module.")
-        except Exception as e:
-            return self._fail("Failed to retrieve version details.", error=e)
-
-    # -------------------------------------------------------------------------
-    # Functional module dispatcher (generic, rich fallback)
-    # -------------------------------------------------------------------------
-    def call_module_function(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Dynamically call any function from an imported module.
-
-        Parameters:
-            module_path (str): Full module path, e.g., deployment.rasterio.source.rasterio.warp.
-            function_name (str): Function to call from module.
-            *args: Positional arguments for function.
-            **kwargs: Keyword arguments for function.
-
-        Returns:
-            dict: Unified response with call result.
-        """
-        try:
-            module = self._modules.get(module_path)
-            if module is None:
-                ok, module = self._safe_import(module_path)
-                if not ok or module is None:
-                    return self._fallback(f"call_module_function:{module_path}.{function_name}")
-            fn = getattr(module, function_name, None)
-            if not callable(fn):
-                return self._fail(
-                    f"Function '{function_name}' not found or not callable in module '{module_path}'.",
-                    data={"module_path": module_path, "function_name": function_name},
+        for key, module_name in import_targets.items():
+            try:
+                self._imports[key] = __import__(module_name, fromlist=["*"])
+            except Exception as exc:
+                self._import_errors[key] = (
+                    f"Failed to import '{module_name}'. Ensure native GDAL runtime is available, "
+                    f"repository source path is correct, and compiled rasterio extensions are compatible. Details: {exc}"
                 )
+
+        self._bind_callable("rasterio_open", "rasterio_module", "open")
+        self._bind_callable("rasterio_band", "rasterio_module", "band")
+        self._bind_callable("rasterio_pad", "rasterio_module", "pad")
+        self._bind_callable("rasterio_io_open", "rasterio_io_module", "open")
+        self._bind_callable("rio_main", "rasterio_rio_main_module", "main")
+
+    def _bind_callable(self, target_key: str, module_key: str, attr_name: str) -> None:
+        """
+        Bind callable from an imported module to internal registry.
+
+        Args:
+            target_key: Internal key name for callable.
+            module_key: Key of module in _imports.
+            attr_name: Attribute/callable name on module.
+        """
+        if module_key not in self._imports:
+            self._import_errors[target_key] = (
+                f"Cannot bind '{attr_name}' because module key '{module_key}' is unavailable."
+            )
+            return
+        try:
+            obj = getattr(self._imports[module_key], attr_name)
+            self._imports[target_key] = obj
+        except Exception as exc:
+            self._import_errors[target_key] = (
+                f"Failed to resolve '{attr_name}' from module '{module_key}'. Details: {exc}"
+            )
+
+    # =========================================================================
+    # Adapter Diagnostics
+    # =========================================================================
+
+    def get_status(self) -> Dict[str, Any]:
+        """
+        Return adapter health and import availability diagnostics.
+
+        Returns:
+            dict:
+                {
+                  "status": "success" | "error",
+                  "mode": "import",
+                  "message": str,
+                  "available": {...},
+                  "import_errors": {...}
+                }
+        """
+        available = {
+            "rasterio.open": "rasterio_open" in self._imports,
+            "rasterio.band": "rasterio_band" in self._imports,
+            "rasterio.pad": "rasterio_pad" in self._imports,
+            "rasterio.io.open": "rasterio_io_open" in self._imports,
+            "rasterio.rio.main.main": "rio_main" in self._imports,
+        }
+        if self._import_errors:
+            return self._fail(
+                message="Adapter initialized with partial import failures.",
+                hint="Install/align GDAL and rasterio compiled extensions, then re-run.",
+                error=RuntimeError("Some imports failed"),
+            ) | {"available": available, "import_errors": self._import_errors}
+        return self._ok(
+            data={"available": available, "import_errors": {}},
+            message="All target imports are available.",
+        )
+
+    # =========================================================================
+    # Function Wrappers: rasterio.__init__
+    # =========================================================================
+
+    def call_rasterio_open(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call rasterio.open from rasterio.__init__.
+
+        Parameters:
+            *args: Positional arguments forwarded to rasterio.open (e.g., path, mode).
+            **kwargs: Keyword arguments forwarded to rasterio.open.
+
+        Returns:
+            dict:
+                status, message, and result metadata.
+                The returned dataset object is included as `result` for chaining by MCP runtime.
+        """
+        fn = self._imports.get("rasterio_open")
+        if fn is None:
+            return self._fail(
+                "Function 'rasterio.open' is unavailable in import mode.",
+                hint="Verify source import path and GDAL/rasterio binary compatibility.",
+            )
+        try:
             result = fn(*args, **kwargs)
             return self._ok(
-                f"Function '{function_name}' executed successfully.",
-                data={"module_path": module_path, "function_name": function_name, "result": result},
+                data={
+                    "function": "rasterio.open",
+                    "result": result,
+                    "result_type": type(result).__name__,
+                },
+                message="rasterio.open executed successfully.",
             )
-        except Exception as e:
+        except Exception as exc:
             return self._fail(
-                f"Function call failed for '{module_path}.{function_name}'. Validate parameters and runtime dependencies.",
-                error=e,
+                "Failed to execute 'rasterio.open'.",
+                error=exc,
+                hint="Check input path, mode, driver options, and dataset accessibility.",
             )
 
-    # -------------------------------------------------------------------------
-    # Class factory / instantiation dispatcher
-    # -------------------------------------------------------------------------
-    def create_class_instance(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+    def call_rasterio_band(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Dynamically instantiate a class from an imported module.
+        Call rasterio.band from rasterio.__init__.
 
         Parameters:
-            module_path (str): Full module path.
-            class_name (str): Class name to instantiate.
-            *args: Positional args for constructor.
-            **kwargs: Keyword args for constructor.
+            *args: Positional arguments forwarded to rasterio.band.
+            **kwargs: Keyword arguments forwarded to rasterio.band.
 
         Returns:
-            dict: status and lightweight instance details.
+            dict with unified status and call result.
+        """
+        fn = self._imports.get("rasterio_band")
+        if fn is None:
+            return self._fail(
+                "Function 'rasterio.band' is unavailable in import mode.",
+                hint="Ensure rasterio package imports correctly from repository source.",
+            )
+        try:
+            result = fn(*args, **kwargs)
+            return self._ok(
+                data={
+                    "function": "rasterio.band",
+                    "result": result,
+                    "result_type": type(result).__name__,
+                },
+                message="rasterio.band executed successfully.",
+            )
+        except Exception as exc:
+            return self._fail(
+                "Failed to execute 'rasterio.band'.",
+                error=exc,
+                hint="Pass a valid dataset object and a valid band index.",
+            )
+
+    def call_rasterio_pad(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call rasterio.pad from rasterio.__init__.
+
+        Parameters:
+            *args: Positional arguments forwarded to rasterio.pad.
+            **kwargs: Keyword arguments forwarded to rasterio.pad.
+
+        Returns:
+            dict with unified status and call result.
+        """
+        fn = self._imports.get("rasterio_pad")
+        if fn is None:
+            return self._fail(
+                "Function 'rasterio.pad' is unavailable in import mode.",
+                hint="Confirm repository rasterio APIs are importable and complete.",
+            )
+        try:
+            result = fn(*args, **kwargs)
+            return self._ok(
+                data={
+                    "function": "rasterio.pad",
+                    "result": result,
+                    "result_type": type(result).__name__,
+                },
+                message="rasterio.pad executed successfully.",
+            )
+        except Exception as exc:
+            return self._fail(
+                "Failed to execute 'rasterio.pad'.",
+                error=exc,
+                hint="Validate array/window arguments and numeric padding configuration.",
+            )
+
+    # =========================================================================
+    # Function Wrappers: rasterio.io
+    # =========================================================================
+
+    def call_rasterio_io_open(self, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call rasterio.io.open from rasterio.io module.
+
+        Parameters:
+            *args: Positional arguments for rasterio.io.open.
+            **kwargs: Keyword arguments for rasterio.io.open.
+
+        Returns:
+            dict with unified status and call result.
+        """
+        fn = self._imports.get("rasterio_io_open")
+        if fn is None:
+            return self._fail(
+                "Function 'rasterio.io.open' is unavailable in import mode.",
+                hint="Check whether rasterio.io module imports without binary dependency errors.",
+            )
+        try:
+            result = fn(*args, **kwargs)
+            return self._ok(
+                data={
+                    "function": "rasterio.io.open",
+                    "result": result,
+                    "result_type": type(result).__name__,
+                },
+                message="rasterio.io.open executed successfully.",
+            )
+        except Exception as exc:
+            return self._fail(
+                "Failed to execute 'rasterio.io.open'.",
+                error=exc,
+                hint="Verify dataset URI/path, mode, and GDAL environment configuration.",
+            )
+
+    # =========================================================================
+    # CLI Fallback Support (rio)
+    # =========================================================================
+
+    def call_rio_main(self, args: Optional[list] = None, standalone_mode: bool = False) -> Dict[str, Any]:
+        """
+        Invoke rasterio.rio.main.main as a fallback CLI pathway.
+
+        Parameters:
+            args: List of CLI-like arguments (e.g., ['info', 'file.tif']).
+            standalone_mode: Forwarded to click command execution; False recommended for integration.
+
+        Returns:
+            dict with execution status and return value.
+        """
+        fn = self._imports.get("rio_main")
+        if fn is None:
+            return self._fail(
+                "CLI fallback 'rasterio.rio.main.main' is unavailable.",
+                hint="Ensure rasterio.rio modules are importable and click dependencies are installed.",
+            )
+        try:
+            result = fn(args=args or [], standalone_mode=standalone_mode)
+            return self._ok(
+                data={
+                    "function": "rasterio.rio.main.main",
+                    "args": args or [],
+                    "result": result,
+                    "result_type": type(result).__name__,
+                },
+                message="rio main executed successfully.",
+            )
+        except SystemExit as exc:
+            code = getattr(exc, "code", 1)
+            if code == 0:
+                return self._ok(
+                    data={"function": "rasterio.rio.main.main", "exit_code": code},
+                    message="rio command completed successfully.",
+                )
+            return self._fail(
+                f"rio command exited with non-zero status: {code}.",
+                error=exc,
+                hint="Review CLI arguments and dataset paths.",
+            )
+        except Exception as exc:
+            return self._fail(
+                "Failed to execute rio CLI fallback.",
+                error=exc,
+                hint="Check command arguments and runtime dependencies (click, GDAL, rasterio extensions).",
+            )
+
+    # =========================================================================
+    # Utility: Introspection and Safe Dispatch
+    # =========================================================================
+
+    def list_capabilities(self) -> Dict[str, Any]:
+        """
+        List exposed adapter methods and callable availability.
+
+        Returns:
+            dict with available call methods and import diagnostics.
+        """
+        call_methods = [name for name in dir(self) if name.startswith("call_") and callable(getattr(self, name))]
+        return self._ok(
+            data={
+                "mode": self.mode,
+                "call_methods": sorted(call_methods),
+                "import_errors": self._import_errors,
+            },
+            message="Capabilities collected.",
+        )
+
+    def dispatch(self, method: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Dynamically dispatch adapter call methods by name.
+
+        Parameters:
+            method: Method name to call, e.g., 'call_rasterio_open'.
+            *args/**kwargs: Arguments passed to target method.
+
+        Returns:
+            Unified status dictionary.
         """
         try:
-            module = self._modules.get(module_path)
-            if module is None:
-                ok, module = self._safe_import(module_path)
-                if not ok or module is None:
-                    return self._fallback(f"create_class_instance:{module_path}.{class_name}")
-            cls = getattr(module, class_name, None)
-            if cls is None:
+            target = getattr(self, method, None)
+            if target is None or not callable(target):
                 return self._fail(
-                    f"Class '{class_name}' not found in module '{module_path}'.",
-                    data={"module_path": module_path, "class_name": class_name},
+                    f"Unknown method '{method}'.",
+                    hint="Use list_capabilities() to view supported method names.",
                 )
-            instance = cls(*args, **kwargs)
-            return self._ok(
-                f"Instance of '{class_name}' created successfully.",
-                data={
-                    "module_path": module_path,
-                    "class_name": class_name,
-                    "instance_type": str(type(instance)),
-                    "instance_repr": repr(instance),
-                },
-            )
-        except Exception as e:
+            return target(*args, **kwargs)
+        except Exception as exc:
             return self._fail(
-                f"Failed to instantiate '{module_path}.{class_name}'. Verify constructor arguments and dependencies.",
-                error=e,
+                f"Dispatch failed for method '{method}'.",
+                error=exc,
+                hint="Check method name and parameter types.",
             )

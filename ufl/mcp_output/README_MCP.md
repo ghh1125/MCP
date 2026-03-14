@@ -1,114 +1,98 @@
 # UFL MCP (Model Context Protocol) Service README
 
-## 1) Introduction
+## 1) Project Introduction
 
-This service exposes the FEniCS UFL (Unified Form Language) symbolic API through MCP (Model Context Protocol) for form authoring, inspection, and transformation.
+This service exposes the core capabilities of [FEniCS UFL](https://github.com/FEniCS/ufl) through MCP (Model Context Protocol): symbolic construction, analysis, and transformation of variational forms and tensor expressions.
 
-Main capabilities:
-- Build variational forms (trial/test functions, coefficients, measures, operators).
-- Analyze and normalize expression DAGs using `ufl.algorithms`.
-- Compute signatures and metadata for forms.
-- Render forms/expressions to readable Unicode for explanations.
+Primary use cases:
+- Build symbolic PDE forms (test/trial functions, coefficients, measures, operators).
+- Inspect forms/expressions (arguments, coefficients, constants, elements).
+- Compute deterministic signatures for caching/idempotence.
+- Apply controlled symbolic rewrites and form-data preparation.
 
-Primary integration surface:
-- `ufl` (top-level DSL, recommended)
-- `ufl.algorithms` (analysis/transform pipeline)
-- `ufl.form` (form container utilities)
-- `ufl.formatting.ufl2unicode` (human-readable rendering)
-
----
-
-## 2) Installation
+## 2) Installation Method
 
 Requirements:
-- Python `>=3.9`
-- `numpy`
-- Optional: `pytest` (tests), `sphinx` (docs)
+- Python >= 3.9
+- numpy
 
 Install:
-- `pip install ufl`
-- or from source repository:
-  - `pip install .`
+- `pip install ufl numpy`
 
-If you are packaging this as an MCP (Model Context Protocol) service, add your MCP host/runtime dependencies separately (not part of core UFL).
+For development/testing/docs:
+- `pip install pytest sphinx`
 
----
+If integrating into your MCP (Model Context Protocol) host, add this service as a Python-imported backend module (no native CLI entry points are defined in this repository).
 
 ## 3) Quick Start
 
-Typical workflow in this service:
-1. Construct symbolic objects using `ufl`:
-   - `FiniteElement`, `FunctionSpace`, `TrialFunction`, `TestFunction`, `Coefficient`, `Constant`
-   - operators like `grad`, `div`, `inner`, measures `dx`, `ds`, `dS`
-2. Build a `Form` (e.g., bilinear/linear forms).
-3. Run analysis/transforms:
-   - `compute_form_data`
-   - `apply_derivatives`
-   - `apply_algebra_lowering`
-   - `apply_geometry_lowering`
-   - `apply_restrictions`
-   - `expand_indices`
-   - `signature`
-4. Return rendered output via `ufl2unicode` for explainability responses.
+Minimal workflow:
+1. Import UFL public API from `ufl`.
+2. Define element/function space/domain symbols.
+3. Build expressions with operators (`grad`, `div`, `inner`, etc.).
+4. Analyze/transform with `ufl.algorithms.*`.
 
----
+Example actions your MCP (Model Context Protocol) service should support:
+- Create a form expression (e.g., bilinear/linear forms).
+- Extract metadata (`extract_arguments`, `extract_coefficients`, `extract_constants`).
+- Compute stable signatures (`compute_form_signature`).
+- Substitute symbols (`replace`).
+- Prepare compiler-facing metadata (`compute_form_data`).
 
-## 4) Tools / Endpoints
+## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) service endpoints:
+Recommended MCP (Model Context Protocol) service endpoints:
 
-- `ufl.build_form`
-  - Create symbolic forms from provided definitions.
-  - Output: serialized form/expression handle.
+- `ufl.build_expression`  
+  Build symbolic expressions/forms using UFL operators and terminals.
 
-- `ufl.analyze_form`
-  - Run `compute_form_data`, extract arguments/coefficients/domains/degree estimates.
-  - Output: structured metadata.
+- `ufl.analyze.form_entities`  
+  Wrapper around:
+  - `extract_arguments`
+  - `extract_coefficients`
+  - `extract_constants`
+  - `extract_elements`
+  - `extract_sub_elements`
 
-- `ufl.transform_form`
-  - Apply pipeline steps (`apply_derivatives`, lowering, restrictions, index expansion, replace).
-  - Output: transformed form handle + transform log.
+- `ufl.analyze.signature`  
+  Wrapper around:
+  - `compute_expression_signature`
+  - `compute_form_signature`  
+  Useful for caching and reproducible identity.
 
-- `ufl.signature`
-  - Compute canonical form signature for caching/comparison.
-  - Output: deterministic signature string.
+- `ufl.transform.replace`  
+  Symbolic substitution via `ufl.algorithms.replace.replace`.
 
-- `ufl.render_unicode`
-  - Render expression/form via `ufl2unicode`.
-  - Output: readable mathematical text.
+- `ufl.transform.compute_form_data`  
+  Run `compute_form_data` for downstream compilation/processing metadata.
 
-- `ufl.inspect_expr`
-  - Low-level DAG/node inspection using `ufl.core` (`Expr`, `Operator`, `Terminal`).
-  - Output: node types, shape, free indices, dependencies.
-
-- `ufl.validate`
-  - Basic consistency checks (arity/restrictions/domain sanity).
-  - Output: warnings/errors list.
-
-No native CLI entry points were detected in the scanned repository; MCP (Model Context Protocol) access should be provided by your service host.
-
----
+- `ufl.info.capabilities`  
+  Return service version, supported operators/measures, and environment diagnostics.
 
 ## 5) Common Issues and Notes
 
 - Version compatibility:
-  - Ensure Python and UFL versions are aligned (`python>=3.9`).
-- Environment confusion:
-  - UFL is symbolic; full PDE solving requires external FEniCSx components (e.g., DOLFINx), which are not hard runtime dependencies for basic UFL import.
+  - Ensure Python >= 3.9.
+  - Keep `ufl` and downstream FEniCS components aligned by release series.
+
+- No built-in CLI:
+  - This repository is library-first; expose functionality through your MCP (Model Context Protocol) service layer.
+
 - Performance:
-  - Large expression DAG transforms can be expensive; cache signatures and intermediate normalized forms.
-- API stability:
-  - Prefer top-level `ufl` and `ufl.algorithms` for service interfaces.
-  - `ufl.core` is useful for deep inspection but lower-level and more change-prone.
-- Serialization:
-  - For MCP (Model Context Protocol), pass stable identifiers/serialized structures rather than raw Python object references across process boundaries.
+  - Large symbolic DAGs can be expensive to transform repeatedly.
+  - Use signatures to cache results of analysis/transformation endpoints.
 
----
+- Safety/robustness:
+  - Validate user-provided symbolic rewrite maps before `replace`.
+  - Add request size/depth limits for very large expressions.
 
-## 6) References
+- Docs/tests dependencies:
+  - `pytest` and `sphinx` are optional and intended for development workflows.
 
-- Repository: https://github.com/FEniCS/ufl
-- UFL package docs (in repo): `README.md`, `doc/source/`
-- Change history: `ChangeLog.md`
-- Demos: `demo/`
-- Tests/examples of behavior: `test/`
+## 6) Reference Links and Documentation
+
+- Repository: https://github.com/FEniCS/ufl  
+- Upstream README: https://github.com/FEniCS/ufl/blob/main/README.md  
+- Changelog: https://github.com/FEniCS/ufl/blob/main/ChangeLog.md  
+- Package metadata (`pyproject.toml`): https://github.com/FEniCS/ufl/blob/main/pyproject.toml  
+- FEniCS ecosystem: https://fenicsproject.org/

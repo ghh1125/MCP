@@ -1,8 +1,6 @@
 import os
 import sys
-import traceback
-import importlib
-from typing import Any, Dict, Optional
+from typing import Any, Callable, Dict, Optional
 
 source_path = os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
@@ -15,184 +13,210 @@ class Adapter:
     """
     MCP import-mode adapter for the Scanpy repository.
 
-    This adapter prioritizes direct Python imports and provides a graceful
-    fallback path hint for CLI execution when import-mode fails.
+    This adapter prioritizes direct imports from repository source code and falls back
+    to a lightweight CLI-compatible mode when imports are unavailable.
     """
 
-    # ---------------------------------------------------------------------
-    # Lifecycle and module management
-    # ---------------------------------------------------------------------
     def __init__(self) -> None:
         self.mode = "import"
         self._modules: Dict[str, Any] = {}
         self._import_error: Optional[str] = None
-        self._load_modules()
+        self._initialize_modules()
 
-    def _ok(self, data: Any = None, message: str = "ok") -> Dict[str, Any]:
-        return {"status": "success", "mode": self.mode, "message": message, "data": data}
+    # ---------------------------------------------------------------------
+    # Internal helpers
+    # ---------------------------------------------------------------------
+    def _ok(self, data: Optional[Dict[str, Any]] = None, message: str = "success") -> Dict[str, Any]:
+        payload = {"status": "success", "mode": self.mode, "message": message}
+        if data:
+            payload.update(data)
+        return payload
 
-    def _err(self, message: str, guidance: Optional[str] = None, details: Any = None) -> Dict[str, Any]:
+    def _error(self, message: str, guidance: Optional[str] = None, exc: Optional[Exception] = None) -> Dict[str, Any]:
         payload = {"status": "error", "mode": self.mode, "message": message}
         if guidance:
             payload["guidance"] = guidance
-        if details is not None:
-            payload["details"] = details
+        if exc is not None:
+            payload["error"] = str(exc)
         return payload
 
-    def _load_modules(self) -> None:
+    def _initialize_modules(self) -> None:
         try:
-            self._modules["scanpy"] = importlib.import_module("scanpy")
-            self._modules["scanpy.cli"] = importlib.import_module("scanpy.cli")
-            self._modules["scanpy.datasets"] = importlib.import_module("scanpy.datasets")
-            self._modules["scanpy.get"] = importlib.import_module("scanpy.get")
-            self._modules["scanpy.pp"] = importlib.import_module("scanpy.pp")
-            self._modules["scanpy.tl"] = importlib.import_module("scanpy.tl")
-            self._modules["scanpy.pl"] = importlib.import_module("scanpy.pl")
-            self._modules["scanpy.metrics"] = importlib.import_module("scanpy.metrics")
-            self._modules["scanpy.queries"] = importlib.import_module("scanpy.queries")
-            self._modules["scanpy.external"] = importlib.import_module("scanpy.external")
-            self._modules["scanpy.readwrite"] = importlib.import_module("scanpy.readwrite")
+            import source.src.scanpy as scanpy_pkg
+            import source.src.scanpy.cli as scanpy_cli
+            import source.src.scanpy.__main__ as scanpy_main
+
+            self._modules["scanpy"] = scanpy_pkg
+            self._modules["cli"] = scanpy_cli
+            self._modules["main"] = scanpy_main
         except Exception as exc:
+            self.mode = "cli"
             self._import_error = str(exc)
 
-    def health(self) -> Dict[str, Any]:
+    def _get_module(self, key: str) -> Optional[Any]:
+        return self._modules.get(key)
+
+    def _safe_call(self, func: Callable[..., Any], *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        try:
+            result = func(*args, **kwargs)
+            return self._ok({"result": result})
+        except Exception as exc:
+            return self._error(
+                "Function execution failed.",
+                guidance="Check arguments and data schema, then retry.",
+                exc=exc,
+            )
+
+    # ---------------------------------------------------------------------
+    # Status and environment
+    # ---------------------------------------------------------------------
+    def health_check(self) -> Dict[str, Any]:
         """
-        Check whether import-mode is available.
+        Report adapter readiness and import state.
 
         Returns:
-            Unified status dictionary with loaded module list or actionable error.
+            dict: Unified response with status, mode, and module availability.
         """
-        if self._import_error:
-            return self._err(
-                "Import mode initialization failed.",
-                guidance=(
-                    "Verify repository source is mounted under the expected 'source' directory, "
-                    "and install required dependencies such as numpy, scipy, pandas, anndata, h5py, "
-                    "matplotlib, scikit-learn, numba, and networkx."
-                ),
-                details={"import_error": self._import_error, "fallback_cli": "python -m scanpy"},
-            )
-        return self._ok(
-            data={"loaded_modules": sorted(self._modules.keys()), "fallback_cli": "python -m scanpy"},
-            message="Import mode is ready.",
+        available = {k: bool(v) for k, v in self._modules.items()}
+        if self.mode == "import":
+            return self._ok({"modules": available}, "Adapter is ready in import mode.")
+        return self._error(
+            "Adapter is running in fallback mode due to import failure.",
+            guidance=f"Verify repository path and dependencies. Import error: {self._import_error}",
         )
 
     # ---------------------------------------------------------------------
-    # Generic invocation helpers
+    # Core scanpy package access
     # ---------------------------------------------------------------------
-    def _resolve_attr(self, module_key: str, attr_name: str) -> Any:
-        if self._import_error:
-            raise RuntimeError(
-                "Import mode is unavailable. Call health() for diagnostics and fallback guidance."
-            )
-        mod = self._modules.get(module_key)
+    def instance_scanpy(self) -> Dict[str, Any]:
+        """
+        Return the imported scanpy module instance.
+
+        Returns:
+            dict: Unified response containing module object when available.
+        """
+        mod = self._get_module("scanpy")
         if mod is None:
-            raise ValueError(f"Module '{module_key}' is not loaded.")
+            return self._error(
+                "scanpy module is unavailable in current mode.",
+                guidance="Install required dependencies and ensure source/src is importable.",
+            )
+        return self._ok({"module": mod}, "scanpy module loaded.")
+
+    def call_scanpy_attr(self, attr_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Call a top-level attribute from source.src.scanpy dynamically.
+
+        Parameters:
+            attr_name: Name of function/attribute on the scanpy package.
+            *args: Positional arguments for callable attributes.
+            **kwargs: Keyword arguments for callable attributes.
+
+        Returns:
+            dict: Unified response with call result or attribute value.
+        """
+        mod = self._get_module("scanpy")
+        if mod is None:
+            return self._error(
+                "scanpy module is not imported.",
+                guidance="Use health_check() and resolve import issues first.",
+            )
         if not hasattr(mod, attr_name):
-            raise AttributeError(f"Attribute '{attr_name}' not found in module '{module_key}'.")
-        return getattr(mod, attr_name)
-
-    def call(self, module_key: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
-        """
-        Call any function from a loaded module by name.
-
-        Parameters:
-            module_key: Full module key, e.g. 'scanpy.pp', 'scanpy.tl', 'scanpy.datasets'.
-            function_name: Callable attribute name in the module.
-            *args, **kwargs: Positional and keyword parameters passed to the target function.
-
-        Returns:
-            Unified status dictionary containing function result or actionable error.
-        """
-        try:
-            fn = self._resolve_attr(module_key, function_name)
-            if not callable(fn):
-                return self._err(
-                    f"Attribute '{function_name}' in '{module_key}' is not callable.",
-                    guidance="Choose a callable function name or use get_attr() for non-callables.",
-                )
-            return self._ok(data=fn(*args, **kwargs), message=f"Called {module_key}.{function_name}")
-        except Exception as exc:
-            return self._err(
-                f"Failed to call {module_key}.{function_name}.",
-                guidance="Check parameter names/types and ensure optional dependencies for the chosen method are installed.",
-                details={"error": str(exc), "traceback": traceback.format_exc()},
+            return self._error(
+                f"Attribute '{attr_name}' not found in scanpy module.",
+                guidance="Check the attribute name against source.src.scanpy exports.",
             )
-
-    def get_attr(self, module_key: str, attr_name: str) -> Dict[str, Any]:
-        """
-        Fetch any module attribute by name.
-
-        Parameters:
-            module_key: Full module key.
-            attr_name: Attribute name to retrieve.
-
-        Returns:
-            Unified status dictionary with attribute value.
-        """
-        try:
-            attr = self._resolve_attr(module_key, attr_name)
-            return self._ok(data=attr, message=f"Retrieved {module_key}.{attr_name}")
-        except Exception as exc:
-            return self._err(
-                f"Failed to retrieve {module_key}.{attr_name}.",
-                guidance="Use list_module_attrs() to inspect available names.",
-                details={"error": str(exc)},
-            )
-
-    def list_module_attrs(self, module_key: str, prefix: str = "") -> Dict[str, Any]:
-        """
-        List attributes available in a loaded module.
-
-        Parameters:
-            module_key: Full module key.
-            prefix: Optional prefix filter.
-
-        Returns:
-            Unified status dictionary with sorted attribute names.
-        """
-        try:
-            if self._import_error:
-                raise RuntimeError(self._import_error)
-            mod = self._modules.get(module_key)
-            if mod is None:
-                raise ValueError(f"Module '{module_key}' is not loaded.")
-            names = sorted([n for n in dir(mod) if n.startswith(prefix)])
-            return self._ok(data={"module": module_key, "attributes": names}, message="Listed module attributes.")
-        except Exception as exc:
-            return self._err(
-                f"Failed to list attributes for {module_key}.",
-                guidance="Call health() first and confirm module key correctness.",
-                details={"error": str(exc)},
-            )
+        target = getattr(mod, attr_name)
+        if callable(target):
+            return self._safe_call(target, *args, **kwargs)
+        return self._ok({"result": target}, f"Attribute '{attr_name}' retrieved.")
 
     # ---------------------------------------------------------------------
-    # Scanpy-focused convenience wrappers (import strategy primary, CLI fallback hint)
+    # CLI module wrappers (source.src.scanpy.cli)
     # ---------------------------------------------------------------------
-    def scanpy_cli_main(self, argv: Optional[list] = None) -> Dict[str, Any]:
+    def instance_cli(self) -> Dict[str, Any]:
         """
-        Execute scanpy CLI entrypoint function if available.
-
-        Parameters:
-            argv: Optional CLI args list.
+        Return the imported CLI module instance.
 
         Returns:
-            Unified status dictionary.
+            dict: Unified response containing CLI module object.
         """
-        try:
-            cli_mod = self._modules["scanpy.cli"]
-            if hasattr(cli_mod, "main") and callable(cli_mod.main):
-                result = cli_mod.main(argv=argv) if argv is not None else cli_mod.main()
-                return self._ok(data=result, message="scanpy.cli.main executed.")
-            return self._err(
-                "scanpy.cli.main is not available.",
-                guidance="Use fallback CLI: python -m scanpy",
+        mod = self._get_module("cli")
+        if mod is None:
+            return self._error(
+                "CLI module is unavailable.",
+                guidance="Ensure source.src.scanpy.cli can be imported.",
             )
-        except Exception as exc:
-            return self._err(
-                "Failed to execute scanpy CLI main.",
-                guidance="Try fallback CLI execution: python -m scanpy",
-                details={"error": str(exc), "traceback": traceback.format_exc()},
-            )
+        return self._ok({"module": mod}, "CLI module loaded.")
 
-    def read(self, *args: Any, **kwargs: Any) -> Dict
+    def call_cli_main(self, args: Optional[list] = None) -> Dict[str, Any]:
+        """
+        Invoke CLI entry behavior when available.
+
+        Parameters:
+            args: Optional argument list to emulate command-line input.
+
+        Returns:
+            dict: Unified response with CLI execution result.
+        """
+        mod = self._get_module("cli")
+        if mod is None:
+            return self._error(
+                "CLI module is not available in fallback context.",
+                guidance="Run 'python -m scanpy --help' in environment with dependencies.",
+            )
+        for candidate in ("main", "cli", "run"):
+            if hasattr(mod, candidate) and callable(getattr(mod, candidate)):
+                fn = getattr(mod, candidate)
+                if args is None:
+                    return self._safe_call(fn)
+                return self._safe_call(fn, args)
+        return self._error(
+            "No callable CLI entry function found in source.src.scanpy.cli.",
+            guidance="Inspect module for available public entry points and update adapter mapping.",
+        )
+
+    # ---------------------------------------------------------------------
+    # __main__ module wrappers (source.src.scanpy.__main__)
+    # ---------------------------------------------------------------------
+    def instance_main(self) -> Dict[str, Any]:
+        """
+        Return the imported __main__ module instance.
+
+        Returns:
+            dict: Unified response containing __main__ module object.
+        """
+        mod = self._get_module("main")
+        if mod is None:
+            return self._error(
+                "__main__ module is unavailable.",
+                guidance="Ensure source.src.scanpy.__main__ is importable.",
+            )
+        return self._ok({"module": mod}, "__main__ module loaded.")
+
+    def call_module_main(self, args: Optional[list] = None) -> Dict[str, Any]:
+        """
+        Invoke python -m scanpy style entry point behavior.
+
+        Parameters:
+            args: Optional list of arguments for module main function.
+
+        Returns:
+            dict: Unified response with execution outcome.
+        """
+        mod = self._get_module("main")
+        if mod is None:
+            return self._error(
+                "__main__ module is unavailable in current mode.",
+                guidance="Use environment with full dependencies or run CLI directly.",
+            )
+        for candidate in ("main",):
+            if hasattr(mod, candidate) and callable(getattr(mod, candidate)):
+                fn = getattr(mod, candidate)
+                if args is None:
+                    return self._safe_call(fn)
+                return self._safe_call(fn, args)
+        return self._error(
+            "No callable main() found in source.src.scanpy.__main__.",
+            guidance="Verify the repository version and update adapter expectations.",
+        )

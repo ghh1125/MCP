@@ -1,152 +1,136 @@
-# Difference Report — `scanpy` (Python Library)
+# Difference Report – `scanpy` (Python Library)
 
-**Generated at:** 2026-03-14 13:04:22  
+**Generated:** 2026-03-14 13:58:13  
 **Repository:** `scanpy`  
-**Project type:** Python library  
-**Feature scope:** Basic functionality  
-**Change intrusiveness:** None  
-**Workflow status:** ✅ Success  
-**Test status:** ❌ Failed  
-**Files changed:** 8 added, 0 modified
+**Project Type:** Python library  
+**Scope:** Basic functionality  
+**Intrusiveness:** None  
+**Workflow Status:** ✅ Success  
+**Test Status:** ❌ Failed  
 
 ---
 
 ## 1) Project Overview
 
-This update introduces **8 new files** to the `scanpy` repository with **no modifications to existing files**, indicating an additive change set intended to extend or scaffold basic functionality without directly altering current behavior paths.
+This update introduces **new files only** and does not modify existing code paths, indicating a low-risk, additive change set from a source-diff perspective.
 
-Given the successful workflow but failed tests, the branch appears to pass CI workflow execution steps (e.g., lint/build packaging stages) while failing validation checks (unit/integration/regression).
+- **New files:** 8  
+- **Modified files:** 0  
+- **Deleted files:** 0 (not reported)  
 
----
-
-## 2) Change Summary (High-Level)
-
-- **Added:** 8 files  
-- **Modified:** 0 files  
-- **Deleted/Renamed:** Not reported  
-
-### Interpretation
-Because no existing files were edited:
-- Risk of direct regression from code overwrite is low.
-- Risk of **integration mismatch** is still meaningful (new files may be unreferenced, improperly wired, or failing tests due to unmet assumptions).
+Given that no existing files were changed, the implementation appears to be intended as an extension (e.g., new modules, tests, docs, or tooling additions) rather than a behavioral refactor of existing features.
 
 ---
 
-## 3) Difference Analysis
+## 2) Change Summary (High-Level Difference Analysis)
 
-## 3.1 Structural Impact
-- The change is **non-intrusive** at file-diff level.
-- The codebase structure expanded with new artifacts only.
-- Potential categories of additions (in typical Python library evolution):
-  - new modules/subpackages
-  - helper utilities
-  - tests or test fixtures
-  - configuration/docs/examples
+## File-Level Delta
+- **Added:** 8 files
+- **Changed:** none
+- **Removed:** none
 
-## 3.2 Behavioral Impact
-- Since no existing implementation files were modified, runtime behavior should remain unchanged **unless**:
-  - import resolution auto-discovers new modules,
-  - plugin/entry-point registration loads new components,
-  - test discovery now includes failing tests in newly added files.
-
-## 3.3 Quality Signal
-- CI workflow success + test failure suggests:
-  - environment setup and pipeline logic are valid,
-  - functional correctness or expected outputs are not yet satisfied.
+## Behavioral Expectation
+Because no existing files were modified:
+- Existing public APIs are **unlikely** to be directly altered.
+- Regressions are more likely from:
+  - import/registration side effects from newly added modules,
+  - packaging/configuration interactions,
+  - test environment assumptions,
+  - dependency constraints introduced by new files.
 
 ---
 
-## 4) Technical Analysis
+## 3) Technical Analysis
 
-## 4.1 Risk Assessment
-**Overall risk:** Low-to-Moderate  
-- **Low** for core backward compatibility (no edited existing files).  
-- **Moderate** for release readiness (failing test suite blocks confidence).
+## CI/Workflow
+- **Workflow succeeded**, indicating:
+  - repository checks were executed,
+  - environment setup likely completed,
+  - pipeline logic itself is valid.
 
-## 4.2 Likely Failure Vectors
-1. **Incomplete implementation in newly added modules**
-2. **Missing dependency declarations** for new functionality
-3. **Test expectation mismatch** (fixtures/data/contracts outdated)
-4. **Import/package path issues** (e.g., `__init__.py` exposure not aligned)
-5. **Version-specific behavior differences** across test matrix
+## Testing
+- **Tests failed**, indicating functional or environment-level incompatibility despite successful workflow orchestration.
+- Since only new files were introduced, likely failure classes include:
+  1. **New tests failing** due to incorrect expectations or unstable fixtures.
+  2. **Import-time failures** from newly added modules (missing dependency, circular import, optional dependency not guarded).
+  3. **Packaging/discovery issues** (e.g., test discovery including incomplete files).
+  4. **Style/type gates treated as tests** (lint/mypy/pytest plugins failing on new files).
 
-## 4.3 Maintainability Outlook
-- Additive changes are easier to isolate and rollback.
-- If tests were newly added and are failing, this is a positive sign of coverage growth but requires stabilization before merge/release.
-
----
-
-## 5) Validation & Deployment Status
-
-## 5.1 Pipeline State
-- **Workflow:** Success
-- **Tests:** Failed
-- **Deployment readiness:** **Not ready** (should be blocked until test pass)
-
-## 5.2 Release Gate Recommendation
-Set/keep merge gates requiring:
-- all required tests passing,
-- no critical lint/type/security failures,
-- changelog and docs checks for new public surfaces.
+## Risk Assessment
+- **Codebase disruption risk:** Low (no modified files).
+- **Integration risk:** Medium (new artifacts may still affect discovery/import/test matrix).
+- **Release readiness:** Not ready due to failed tests.
 
 ---
 
-## 6) Recommendations & Improvements
+## 4) Quality & Compliance Review
 
-## 6.1 Immediate Actions (Priority)
-1. **Collect failed test list and stack traces** from CI artifacts.
-2. **Classify failures**:
-   - deterministic logic failures,
-   - environment/dependency failures,
-   - flaky/time-sensitive failures.
-3. **Patch newly added files only** where possible to preserve non-intrusive intent.
-4. **Re-run targeted tests**, then full suite.
-5. **Confirm packaging/export wiring** (module discovery, public API exposure, optional deps).
-
-## 6.2 Engineering Hygiene
-- Add or update:
-  - minimal docs for each new module,
-  - type hints and static checks,
-  - focused unit tests around new behavior,
-  - changelog entry describing added capabilities.
-
-## 6.3 Risk Mitigation
-- Use feature flags or soft registration for new components if runtime loading is automatic.
-- Keep rollback simple by isolating new file integration points.
+- **Backward compatibility:** Likely preserved at runtime, but cannot be confirmed until tests pass.
+- **Operational safety:** Reasonable, given non-intrusive update pattern.
+- **Verification completeness:** Insufficient due to test failure.
+- **Merge readiness:** **Blocked** pending root-cause resolution and green CI tests.
 
 ---
 
-## 7) Suggested Deployment Plan
+## 5) Recommendations & Improvements
 
-1. **Pre-merge**
-   - fix failing tests,
-   - validate across supported Python versions,
-   - verify import/package integrity.
-2. **Merge**
-   - only after green CI and reviewer sign-off.
-3. **Post-merge**
-   - monitor downstream integration tests,
-   - verify documentation build and package install smoke tests.
-4. **Release**
-   - include in next patch/minor release depending on API exposure,
-   - publish release notes emphasizing additive nature.
+## Immediate Actions (Priority 1)
+1. **Collect failing test logs** and classify failures by type:
+   - assertion failures vs import errors vs environment/dependency errors.
+2. **Map failing tests to new files**:
+   - identify whether failures are localized to newly added components.
+3. **Validate dependency declarations**:
+   - ensure any newly required package is declared in the correct extras/base requirements.
+4. **Check test discovery boundaries**:
+   - confirm incomplete templates/examples are not being collected as runnable tests.
+
+## Stabilization Actions (Priority 2)
+1. Add/adjust **unit tests for new files** with deterministic fixtures.
+2. Guard optional imports using clear fallbacks and informative error messages.
+3. Enforce local pre-checks:
+   - `pytest -q`
+   - lint/type checks (if part of gating)
+   - minimal import smoke test for added modules.
+
+## Governance Actions (Priority 3)
+1. Require a **“new-files-only” checklist** in PR template:
+   - packaging entry updates,
+   - docs index updates,
+   - test collection impact.
+2. Add CI job to detect **unreferenced or mispackaged additions**.
 
 ---
 
-## 8) Future Planning
+## 6) Deployment Information
 
-- Strengthen CI diagnostics:
-  - artifact retention for failed tests,
-  - clearer failure categorization in pipeline summary.
-- Expand quality gates:
-  - optional mutation or contract tests for new modules.
-- Improve developer feedback loop:
-  - pre-commit hooks for fast local failure detection,
-  - standardized test markers to separate slow/integration suites.
+## Current Deployment Status
+- **Not deployable/releasable** in current state due to failing tests.
+
+## Deployment Risk
+- **Low-to-medium** runtime impact expected, but unresolved test failures introduce unknown risk.
+
+## Go/No-Go Decision
+- **Decision:** **No-Go** until:
+  - all tests pass,
+  - failure root cause is resolved,
+  - CI is fully green across required matrix.
 
 ---
 
-## 9) Executive Conclusion
+## 7) Future Planning
 
-This change set is structurally safe (8 new files, no existing-file edits) but **not release-ready** due to failed tests.  
-The recommended path is to stabilize the newly introduced functionality/tests, revalidate full CI, and proceed with a gated merge once all checks are green.
+1. **Short-term (next iteration):**
+   - Resolve failing test set and re-run full CI matrix.
+   - Add changelog entry summarizing the 8 new files and intended capability.
+2. **Mid-term:**
+   - Introduce stricter PR validation for additive changes (import smoke + packaging check).
+   - Improve failure observability (grouped test failure reporting artifact).
+3. **Long-term:**
+   - Establish reliability KPIs for CI (pass rate, flaky-test index, mean time to repair).
+   - Automate regression triage for newly introduced files.
+
+---
+
+## 8) Executive Conclusion
+
+This is a **non-intrusive, additive change set** (8 new files, no modifications), which is generally favorable for stability. However, **failed tests block acceptance**. The primary objective is to isolate failures introduced or surfaced by the new files, fix dependency/discovery/import issues, and restore full CI health before merge or release.

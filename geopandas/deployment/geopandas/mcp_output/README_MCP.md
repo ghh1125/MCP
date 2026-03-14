@@ -2,111 +2,117 @@
 
 ## 1) Project Introduction
 
-This service exposes core GeoPandas geospatial capabilities through an MCP (Model Context Protocol) interface for LLM/tooling workflows.  
-It is designed for practical GIS data handling in pipelines: reading/writing spatial files, CRS transformations, geometry operations, spatial joins, overlays, clipping, and PostGIS integration.
+This service exposes core GeoPandas capabilities through an MCP (Model Context Protocol) interface for geospatial data workflows.  
+It is designed for developer use cases such as:
 
-Core capabilities:
-- GeoDataFrame / GeoSeries creation and transformation
-- File IO (Shapefile/GeoJSON/GPKG via backend drivers)
-- Arrow IO (Parquet/Feather)
-- Database IO (PostGIS)
-- Spatial analysis tools (`sjoin`, `sjoin_nearest`, `overlay`, `clip`)
-- Runtime diagnostics (`show_versions`)
+- Reading/writing geospatial files and tabular formats
+- Running spatial joins and overlays
+- Clipping geometries
+- Working with CRS transformations
+- PostGIS import/export
+- Environment diagnostics
+
+Main wrapped APIs come from `geopandas` top-level functions and `geopandas.io` / `geopandas.tools`.
 
 ---
 
 ## 2) Installation Method
 
 ### Requirements
-- Python `>=3.11`
-- Required: `numpy`, `pandas`, `shapely`, `pyproj`, `packaging`
-- Optional (feature-dependent): `pyogrio` or `fiona`, `pyarrow`, `sqlalchemy`, `geoalchemy2`, `psycopg/psycopg2`, `rtree`, `scipy`, `matplotlib`, `folium`, `mapclassify`, `geopy`
 
-### Typical install
-- Base:
-  - `pip install geopandas`
-- Recommended IO/performance extras:
-  - `pip install geopandas pyogrio pyarrow sqlalchemy psycopg[binary]`
+- Python 3.11+ (recommended)
+- Required libs: `numpy`, `pandas`, `shapely`, `pyproj`
+- Common optional libs:
+  - File IO backends: `pyogrio` (recommended) or `fiona`
+  - Arrow formats: `pyarrow`
+  - Database: `sqlalchemy`, `geoalchemy2`
+  - Spatial index/perf: `rtree` (or Shapely STRtree path)
+  - Visualization: `matplotlib`, `folium`
+
+### Install (typical)
+
+pip install geopandas pyogrio pyarrow sqlalchemy geoalchemy2 rtree
+
+If you need minimal install:
+
+pip install geopandas
 
 ---
 
 ## 3) Quick Start
 
-Create and transform geospatial data:
-- Build a `GeoDataFrame` from coordinates/geometries
-- Set CRS and reproject with `to_crs`
-- Save outputs via `to_file`, `to_parquet`, or `to_postgis`
+### Basic usage flow
 
-Read and analyze:
-- `read_file(...)` for common GIS files
-- `read_parquet(...)` / `read_feather(...)` for columnar formats
-- Spatial join with `sjoin(...)` or nearest with `sjoin_nearest(...)`
-- Topological operations with `overlay(...)`
-- Clip features with `clip(...)`
+1. `read_file` to load data  
+2. Run operation (`sjoin`, `overlay`, `clip`, CRS conversion, etc.)  
+3. Persist output (`to_file`, `to_parquet`, `to_postgis`)
 
-Health/debug:
-- `show_versions()` for dependency/runtime diagnostics
+### Example calls (service-level intent)
+
+- Load vector data: `read_file(path_or_url)`
+- Spatial join: `sjoin(left_gdf, right_gdf, how="inner", predicate="intersects")`
+- Nearest join: `sjoin_nearest(left_gdf, right_gdf)`
+- Overlay: `overlay(df1, df2, how="intersection")`
+- Clip: `clip(gdf, mask)`
+- Save: `to_parquet(path)`, `to_file(path, driver=...)`, `to_postgis(table, engine)`
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Suggested MCP (Model Context Protocol) service endpoints:
+- `read_file`  
+  Read geospatial files via Fiona/pyogrio backend.
 
-- `read_file(path, layer=None, ...)`  
-  Read geospatial files into `GeoDataFrame`.
+- `list_layers`  
+  Inspect available layers in multi-layer geospatial sources.
 
-- `to_file(gdf, path, driver=None, ...)`  
-  Write `GeoDataFrame` to geospatial file formats.
+- `infer_schema`  
+  Infer file schema for writing/export checks.
 
-- `read_parquet(path, ...)` / `to_parquet(gdf, path, ...)`  
-  Columnar geospatial storage using GeoParquet metadata.
+- `read_parquet` / `read_feather`  
+  Load GeoParquet/Feather datasets.
 
-- `read_feather(path, ...)` / `to_feather(gdf, path, ...)`  
-  Fast Arrow Feather round-trip for geospatial frames.
+- `to_parquet` / `to_feather`  
+  Write Arrow-based geospatial formats.
 
-- `read_postgis(sql, con, ...)` / `to_postgis(gdf, name, con, ...)`  
-  PostGIS import/export for database workflows.
+- `read_postgis` / `to_postgis`  
+  Read/write GeoDataFrames from/to PostGIS.
 
-- `set_crs(gdf_or_gs, crs, ...)` / `to_crs(gdf_or_gs, crs, ...)`  
-  Define or transform coordinate reference systems.
+- `sjoin`  
+  Spatial join using binary spatial predicates.
 
-- `sjoin(left, right, how='inner', predicate='intersects', ...)`  
-  Spatial join by geometric predicate.
+- `sjoin_nearest`  
+  Nearest-neighbor spatial join.
 
-- `sjoin_nearest(left, right, ...)`  
-  Nearest-neighbor spatial matching.
+- `overlay`  
+  Set operations (intersection/union/difference/symmetric_difference).
 
-- `overlay(df1, df2, how='intersection'|'union'|'difference'|...)`  
-  Topological overlay operations.
+- `clip`  
+  Clip geometries to a mask/boundary.
 
-- `clip(gdf, mask, ...)`  
-  Clip geometries to mask/bounds.
-
-- `show_versions()`  
-  Runtime environment and dependency report.
+- `show_versions`  
+  Runtime dependency/version diagnostics for support and debugging.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- CRS mismatches are the #1 error source. Always align CRS before joins/overlay/clip.
-- IO backend matters:
-  - Prefer `pyogrio` for speed.
-  - Use `fiona` as fallback if required by environment.
-- PostGIS usage requires proper DB drivers (`sqlalchemy` + `psycopg/psycopg2`, optionally `geoalchemy2`).
-- Spatial indexing improves join/query performance (`rtree` or compatible backend).
-- Large datasets:
-  - Prefer Parquet/Feather over text formats for speed and size.
+- IO backend mismatch: install `pyogrio` or `fiona` explicitly if file read/write fails.
+- CRS pitfalls: always verify CRS (`set_crs`, `to_crs`) before spatial operations.
+- PostGIS errors: ensure correct SQLAlchemy engine URL, PostGIS extension enabled, and geometry column permissions.
+- Performance:
+  - Prefer Parquet/Feather for large datasets.
+  - Use spatial indexes for joins.
   - Avoid unnecessary geometry conversions.
-- If behavior is unexpected, run `show_versions()` and include output in bug reports.
+- Optional dependency behavior: some endpoints are available only when related packages are installed.
+- Environment checks: run `show_versions` for reproducible bug reports.
 
 ---
 
-## 6) Reference Links / Documentation
+## 6) Reference Links or Documentation
 
 - Repository: https://github.com/geopandas/geopandas
-- GeoPandas docs (start from repo README/docs): `README.md`, `doc/source/getting_started.md`
-- Changelog: `CHANGELOG.md`
-- Contribution guide: `CONTRIBUTING.md`
-- Code of conduct: `CODE_OF_CONDUCT.md`
+- Main documentation: https://geopandas.org/
+- API reference: https://geopandas.org/en/stable/docs/reference.html
+- Installation guide: https://geopandas.org/en/stable/getting_started/install.html
+- Changelog: https://github.com/geopandas/geopandas/blob/main/CHANGELOG.md

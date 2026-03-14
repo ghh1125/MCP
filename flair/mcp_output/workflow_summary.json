@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773460161.8057,
-    "end_time": 1773460409.026898,
-    "duration": 247.22119784355164,
+    "start_time": 1773466305.409739,
+    "end_time": 1773466609.464232,
+    "duration": 304.05449390411377,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 2,
+    "total_files_processed": 14,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -55,15 +55,27 @@
     "structure": {
       "packages": [
         "deployment.flair.source",
-        "mcp_output.mcp_plugin"
+        "mcp_output.mcp_plugin",
+        "source.examples.multi_gpu",
+        "source.examples.ner",
+        "source.flair",
+        "source.flair.datasets",
+        "source.flair.embeddings",
+        "source.flair.models",
+        "source.flair.nn",
+        "source.flair.trainers",
+        "source.flair.visual",
+        "source.tests",
+        "source.tests.embeddings",
+        "source.tests.models"
       ]
     },
     "dependencies": {
       "has_environment_yml": false,
-      "has_requirements_txt": false,
-      "pyproject": false,
+      "has_requirements_txt": true,
+      "pyproject": true,
       "setup_cfg": false,
-      "setup_py": false
+      "setup_py": true
     },
     "entry_points": {
       "imports": [],
@@ -71,7 +83,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.94,
+      "import_feasibility": 0.9,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -124,43 +136,34 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/flair/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 555 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/flair/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 555 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "add and run MCP smoke/integration tests in CI (test status is empty) covering SequenceTagger.predict",
-    "TextClassifier.predict",
-    "and ModelTrainer.train via the generated adapter",
-    "fix dependency detection in the analysis pipeline (it missed existing pyproject.toml/setup.py/requirements.txt) to avoid wrong packaging recommendations",
-    "reduce MCP endpoint surface by removing auto-exposed class-name aliases (e.g.",
-    "“sentence”",
-    "“sequencetagger”) and keep only stable method endpoints",
-    "add strict input/output schemas with Pydantic models plus versioned contracts for each endpoint",
-    "implement timeout/retry/error-mapping wrappers around heavy calls (transformer embedding/training) to improve MCP reliability",
-    "add authentication/authorization and rate limiting to MCP service before exposing model loading/training operations",
-    "pin and document compatibility matrix (Python/Torch/Transformers/FastMCP) and add a lockfile for reproducible plugin installs",
-    "create performance benchmarks (latency/memory) for key endpoints and add regression thresholds in CI",
-    "add structured logging and tracing (request id",
-    "model name",
-    "duration",
-    "failures) in mcp_service.py for observability",
-    "introduce caching/pooling for loaded models and embeddings to avoid repeated cold starts",
-    "add graceful resource guards in adapter (max batch size",
-    "max sequence length",
-    "GPU/CPU fallback) to prevent OOM on predict/train calls",
-    "improve README_MCP with concrete examples for each endpoint and failure modes",
-    "add security hardening for model/dataset loading paths (path validation",
-    "remote download policy)",
-    "add contract tests to ensure Sentence.to_dict/from_dict round-trip fidelity through MCP serialization",
-    "add a plugin lifecycle hook strategy using TrainerPlugin attach/detach to minimize intrusiveness during long training runs"
+    "add a minimal smoke-test suite for the MCP plugin (startup + one call per high-value endpoint like SequenceTagger/TextClassifier/Sentence serialization)",
+    "narrow the exposed endpoint set by default to stable inference-safe APIs and move training/plugin internals behind an “advanced” flag",
+    "introduce strict Pydantic request/response schemas (with versioned models) for all endpoints to prevent serialization drift",
+    "implement lazy loading and model/object caching in `mcp_plugin/adapter.py` to reduce cold-start and repeated import overhead",
+    "add robust error taxonomy and mapping (validation/import/runtime/model-not-found) with consistent structured error payloads",
+    "pin and align dependency ranges between root `pyproject.toml`/`requirements*.txt` and `mcp_output/requirements.txt` to avoid environment skew",
+    "add CI workflow specifically for `mcp_output` (lint",
+    "type-check",
+    "smoke tests",
+    "packaging check) since current test status is empty",
+    "generate and publish endpoint-level docs in `README_MCP.md` with concrete request/response examples and resource-cost notes",
+    "add observability hooks (timings",
+    "endpoint call counts",
+    "failure rates) and optional debug logging with redaction for large/sensitive payloads",
+    "create contract tests for key conversions (`Sentence.to_dict` ↔ `Sentence.from_dict`) and backward-compatibility checks across Flair versions",
+    "add timeout/concurrency guards for heavy endpoints (especially embedding/model construction) and document safe usage limits",
+    "validate import-mode resilience by adding fallback behavior and clear diagnostics when optional Flair dependencies are missing",
+    "split large adapter surface into capability modules (data",
+    "embeddings",
+    "models",
+    "training) to improve maintainability and reduce accidental breakage",
+    "add security hardening guidance (input size limits",
+    "disabled arbitrary class instantiation",
+    "controlled model paths)",
+    "include a reproducible local dev bootstrap (`make mcp-dev` or script) that installs both Flair and MCP deps and runs smoke tests end-to-end"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -191,37 +194,36 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal status `success` and executed all planned nodes: download, analysis, env, generate, run, review, finalize",
-      "Robust fallback behavior: when git clone failed, zip fallback succeeded (`processed_by: zip_fallback`, ~293 files discovered)",
-      "Import-based adapter strategy had high feasibility confidence (0.94), enabling automatic endpoint exposure",
-      "Generated MCP package structure and startup entrypoint were produced consistently",
-      "MCP plugin runtime check passed (`service_health: healthy`, transport: stdio)"
+      "End-to-end workflow status is success with all planned nodes executed (download, analysis, env, generate, run, review, finalize)",
+      "Import-mode adapter strategy is appropriate for Flair (import feasibility 0.9, low intrusiveness risk)",
+      "Repository structure and dependency metadata were detected correctly (pyproject.toml, requirements.txt, setup.py)",
+      "MCP plugin started healthy over stdio, indicating baseline runtime viability"
     ],
     "failure_reasons": [
-      "Primary repository acquisition failed in DownloadNode due to network/transport interruption (`curl 18`, early EOF, invalid index-pack)",
-      "Dependency detection pipeline produced false negatives (reported no pyproject/setup/requirements despite files existing)",
-      "Validation depth was low: original project tests not executed effectively (`passed: false`, no test files, execution_time 0)",
-      "Observability and performance metrics are incomplete (all zeros), limiting objective runtime quality assessment"
+      "No hard workflow failure occurred",
+      "Validation depth is limited: original project tests were not executed meaningfully (passed=false with empty details, execution_time=0)",
+      "Quality signals are incomplete: generated LOC/size/tool endpoint counters are zero or inconsistent with reported endpoint list",
+      "DeepWiki enrichment failed, reducing contextual analysis confidence"
     ],
-    "overall_assessment": "fair",
+    "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Download path was partially degraded: git clone failed, then recovered via zip fallback. This likely increased latency and reduced metadata fidelity.",
-      "analysis_time": "Analysis succeeded functionally, but quality was mixed due to incorrect dependency discovery and empty entry-point detection despite rich repo structure.",
-      "generation_time": "Generation completed quickly and produced expected files, but output quality signals are weak (`total_lines_of_code: 0`, `tool_endpoints: 0` inconsistent with listed endpoints).",
-      "test_time": "Test execution was minimal/insufficient; MCP health check passed, but no substantive integration or contract tests were recorded."
+      "download_time": "Completed successfully; exact per-node timing not provided. Zip fallback worked and processed a large tree (~293 files), likely a non-trivial share of total runtime.",
+      "analysis_time": "Completed with medium complexity classification and core module extraction; no node-level duration available, but static analysis quality is adequate.",
+      "generation_time": "Generation succeeded and created expected MCP scaffold files; however, metadata inconsistency (0 LOC/0 size) suggests instrumentation gap.",
+      "test_time": "MCP health check passed, but test depth is minimal; original project test stage effectively absent, so confidence in functional correctness remains moderate."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown/undetermined due to missing telemetry (`memory_usage_mb: 0`).",
-      "cpu_efficiency": "Unknown/undetermined due to missing telemetry (`cpu_usage_percent: 0`).",
-      "disk_usage": "Likely low for generated artifacts, but reported generated size is zero, indicating instrumentation/data-quality issues."
+      "memory_efficiency": "Unknown from metrics (reported 0 MB). Likely acceptable for scaffold generation, but runtime memory for model loading can be high without lazy loading.",
+      "cpu_efficiency": "Unknown from metrics (reported 0%). CPU profile likely dominated by imports/model init in inference-heavy endpoints.",
+      "disk_usage": "Generated artifact footprint appears underreported (0 size), but practical disk use should be modest for plugin code and larger for cached models."
     }
   },
   "technical_quality": {
-    "code_quality_score": 68,
-    "architecture_score": 74,
-    "performance_score": 52,
-    "maintainability_score": 70,
+    "code_quality_score": 74,
+    "architecture_score": 78,
+    "performance_score": 62,
+    "maintainability_score": 71,
     "security_score": 85,
-    "scalability_score": 61
+    "scalability_score": 66
   }
 }

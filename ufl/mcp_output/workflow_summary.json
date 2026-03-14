@@ -14,9 +14,9 @@
     "intrusiveness_risk": "low"
   },
   "execution": {
-    "start_time": 1773464717.998925,
-    "end_time": 1773465058.2708611,
-    "duration": 340.2719361782074,
+    "start_time": 1773467943.48441,
+    "end_time": 1773468125.564049,
+    "duration": 182.0796389579773,
     "status": "success",
     "workflow_status": "success",
     "nodes_executed": [
@@ -28,7 +28,7 @@
       "review",
       "finalize"
     ],
-    "total_files_processed": 2,
+    "total_files_processed": 8,
     "environment_type": "unknown",
     "llm_calls": 0,
     "deepwiki_calls": 0
@@ -55,13 +55,19 @@
     "structure": {
       "packages": [
         "deployment.ufl.source",
-        "mcp_output.mcp_plugin"
+        "mcp_output.mcp_plugin",
+        "source.ufl",
+        "source.ufl.algorithms",
+        "source.ufl.core",
+        "source.ufl.corealg",
+        "source.ufl.formatting",
+        "source.ufl.utils"
       ]
     },
     "dependencies": {
       "has_environment_yml": false,
       "has_requirements_txt": false,
-      "pyproject": false,
+      "pyproject": true,
       "setup_cfg": false,
       "setup_py": false
     },
@@ -71,7 +77,7 @@
       "modules": []
     },
     "risk_assessment": {
-      "import_feasibility": 0.96,
+      "import_feasibility": 0.95,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     },
@@ -124,43 +130,33 @@
     ]
   },
   "code_review": {},
-  "errors": [
-    {
-      "node": "DownloadNode",
-      "type": "CloneFailed",
-      "message": "Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/ufl/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 5018 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n",
-      "action_taken": "continue_with_empty"
-    }
-  ],
-  "warnings": [
-    "git clone failed: Cloning into '/Users/ghh/Documents/Code/Code2MCP-private/workspace/ufl/temp_clone'...\nerror: RPC failed; curl 18 Transferred a partial file\nerror: 5018 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
-  ],
+  "errors": [],
+  "warnings": [],
   "recommendations": [
-    "Add and run an MCP-specific test suite (smoke tests for every exported endpoint",
-    "plus contract tests for symbolic equivalence)",
-    "de-duplicate endpoint names in the generated plugin surface (e.g.",
-    "repeated `replace`/`form`) and enforce unique naming via generation-time validation",
-    "improve dependency detection in analysis (it incorrectly reports `pyproject` missing despite `pyproject.toml` existing)",
-    "add CI workflow for MCP output (lint",
-    "type-check",
-    "import test",
-    "minimal runtime call checks)",
-    "restrict exported APIs to a curated stable subset (top-level `ufl` + selected `ufl.algorithms`) to reduce breakage risk from low-level internals",
-    "add version pin/compatibility matrix for `ufl` and Python in `mcp_output/requirements.txt` and README",
-    "generate structured docstrings for each endpoint with argument/return/error schemas to improve MCP tool usability",
-    "add error normalization in adapter/service layers (consistent exception mapping and actionable messages for invalid forms)",
-    "include performance guards for expensive transforms (`apply_derivatives`",
-    "`compute_form_data`) with optional timeout/size limits",
-    "add snapshot tests for `ufl2unicode` rendering and `signature` stability across supported versions",
-    "validate plugin packaging metadata and entry points (ensure `start_mcp.py` and module main paths are consistent and documented)",
-    "add a small set of end-to-end examples in `README_MCP.md` (Poisson form creation",
-    "derivative transform",
-    "signature extraction)",
-    "introduce static typing checks (mypy/pyright) for generated MCP code and stricter pydantic models for inputs",
-    "add observability hooks (request logging",
-    "endpoint timing",
-    "failure counters) to aid debugging in MCP deployments",
-    "and add a regeneration-diff check in CI to fail when generated plugin code is stale relative to source analysis"
+    "add a minimal smoke test suite for generated MCP endpoints (import server",
+    "list tools",
+    "call 5–10 representative endpoints like `grad`",
+    "`FiniteElement`",
+    "`compute_form_data`)",
+    "add CI workflow for `mcp_output` (lint + tests on Python 3.9–3.12)",
+    "normalize endpoint naming to one convention (prefer snake_case aliases while keeping backward-compatible originals)",
+    "validate and sanitize all endpoint inputs with explicit Pydantic models (especially symbolic expression arguments)",
+    "add structured error mapping (UFL exceptions → stable MCP error codes/messages)",
+    "pin and lock MCP plugin dependencies (constraints/lockfile) and align with UFL’s supported Python/numpy versions",
+    "generate endpoint docs automatically from signatures/docstrings into `README_MCP.md`",
+    "add contract tests for signature/idempotence-sensitive functions (`compute_form_signature`",
+    "`compute_expression_signature`",
+    "`replace`)",
+    "introduce performance regression checks for heavy transforms (`apply_derivatives`",
+    "`compute_form_data`) with baseline thresholds",
+    "add caching for deterministic pure calls (signature/analysis helpers) with bounded size and invalidation strategy",
+    "improve adapter resilience by adding fallback import diagnostics and actionable startup logs",
+    "add security guardrails (deny unsafe eval patterns",
+    "size/depth limits for expression DAG inputs to prevent DoS)",
+    "include example client scripts/notebooks for common UFL workflows via MCP",
+    "enforce code quality tooling in plugin repo (`ruff`/`black`/`mypy` + pre-commit)",
+    "add release/versioning policy for plugin compatibility matrix (UFL version ↔ plugin version)",
+    "expand integration tests against a real UFL install (wheel + source) to verify import-mode stability"
   ],
   "performance_metrics": {
     "memory_usage_mb": 0,
@@ -191,36 +187,37 @@
   },
   "execution_analysis": {
     "success_factors": [
-      "Workflow reached terminal success state and executed all planned nodes (download, analysis, env, generate, run, review, finalize).",
-      "Resilience worked: clone failure was mitigated by zip fallback import, allowing analysis and generation to continue.",
-      "Import-mode adapter strategy matched repository characteristics (high import feasibility 0.96, low intrusiveness risk).",
-      "Generated MCP service started healthy over stdio, indicating runnable baseline output."
+      "Workflow completed end-to-end with status=success across all expected nodes (download, analysis, env, generate, run, review, finalize).",
+      "Import-mode adapter was feasible (confidence 0.95) and aligns with UFL’s Python package architecture.",
+      "Generated MCP service started healthy over stdio and passed plugin-level health checks.",
+      "Low intrusiveness risk and medium complexity made automated wrapping practical.",
+      "Core UFL APIs and algorithms were correctly identified and exposed as MCP endpoints."
     ],
     "failure_reasons": [
-      "Primary git clone failed due to network/transport interruption (curl 18 partial transfer, early EOF, invalid index-pack).",
-      "DeepWiki analysis failed, reducing external semantic enrichment.",
-      "Original project tests were not executed successfully despite repository containing extensive tests (reporting inconsistency).",
-      "Metadata quality issues: dependency detection incorrectly marked pyproject as missing."
+      "No hard workflow failure occurred.",
+      "Validation gap: original project tests were not executed successfully despite reported 100% coverage metadata being inconsistent (passed=false, execution_time=0, no test files).",
+      "DeepWiki analysis failed, reducing external architectural/context enrichment.",
+      "Quality telemetry is incomplete (LOC, file size, resource/performance metrics reported as zero/empty), limiting confidence in quality/perf conclusions."
     ],
     "overall_assessment": "good",
     "node_performance": {
-      "download_time": "Download node encountered clone failure; fallback path succeeded. This likely dominated early latency and introduced retrial overhead.",
-      "analysis_time": "Moderate; repository scan covered ~217 files and identified core modules/endpoints successfully.",
-      "generation_time": "Fast-to-moderate; plugin scaffolding and endpoint surface were generated, but reported LOC/size metrics are zero (telemetry gap).",
-      "test_time": "Minimal/insufficient; MCP health check passed, but original test suite effectively not run, so validation depth is low."
+      "download_time": "Completed successfully; repository imported via zip fallback, which likely increased setup latency but ensured continuity.",
+      "analysis_time": "Completed successfully with strong structural extraction (packages, dependencies, risk model, core modules).",
+      "generation_time": "Completed successfully; MCP scaffold and adapter files were created and endpoint surface was generated.",
+      "test_time": "Plugin health test passed quickly; however, no meaningful endpoint smoke/integration/performance tests were executed."
     },
     "resource_usage": {
-      "memory_efficiency": "Unknown due to missing runtime telemetry (reported 0 MB). Cannot confirm efficiency.",
-      "cpu_efficiency": "Unknown due to missing runtime telemetry (reported 0%).",
-      "disk_usage": "Likely moderate (source + generated plugin), but reported generated size is 0, indicating instrumentation inaccuracies."
+      "memory_efficiency": "Unknown due to missing measurements (reported 0 MB). Instrumentation required.",
+      "cpu_efficiency": "Unknown due to missing measurements (reported 0%). Instrumentation required.",
+      "disk_usage": "Generated artifacts are small footprint in structure, but size metrics are missing (reported 0). Add file-size accounting."
     }
   },
   "technical_quality": {
-    "code_quality_score": 72,
-    "architecture_score": 78,
+    "code_quality_score": 78,
+    "architecture_score": 82,
     "performance_score": 64,
-    "maintainability_score": 70,
+    "maintainability_score": 76,
     "security_score": 85,
-    "scalability_score": 69
+    "scalability_score": 72
   }
 }

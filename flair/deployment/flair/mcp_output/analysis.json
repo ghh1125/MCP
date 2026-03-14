@@ -889,15 +889,27 @@
   "structure": {
     "packages": [
       "deployment.flair.source",
-      "mcp_output.mcp_plugin"
+      "mcp_output.mcp_plugin",
+      "source.examples.multi_gpu",
+      "source.examples.ner",
+      "source.flair",
+      "source.flair.datasets",
+      "source.flair.embeddings",
+      "source.flair.models",
+      "source.flair.nn",
+      "source.flair.trainers",
+      "source.flair.visual",
+      "source.tests",
+      "source.tests.embeddings",
+      "source.tests.models"
     ]
   },
   "dependencies": {
     "has_environment_yml": false,
-    "has_requirements_txt": false,
-    "pyproject": false,
+    "has_requirements_txt": true,
+    "pyproject": true,
     "setup_cfg": false,
-    "setup_py": false
+    "setup_py": true
   },
   "entry_points": {
     "imports": [],
@@ -907,11 +919,17 @@
   "llm_analysis": {
     "core_modules": [
       {
-        "package": "deployment.flair.source",
-        "module": "flair.data",
+        "package": "source.flair",
+        "module": "__init__",
+        "functions": [],
+        "classes": [],
+        "description": "Top-level library initialization and global configuration surface for Flair."
+      },
+      {
+        "package": "source.flair",
+        "module": "data",
         "functions": [
           "Dictionary.load",
-          "Corpus.downsample",
           "Sentence.to_dict",
           "Sentence.from_dict"
         ],
@@ -921,122 +939,145 @@
           "Label",
           "Span",
           "Corpus",
-          "Dictionary",
-          "FlairDataset"
+          "Dictionary"
         ],
-        "description": "Core data model and dataset abstractions used across tagging, classification, training, and serialization."
+        "description": "Core NLP data model layer (sentences, tokens, labels, corpora, vocabularies). Best integration point for text-in/text-out MCP tools."
       },
       {
-        "package": "deployment.flair.source",
-        "module": "flair.models.sequence_tagger_model",
-        "functions": [
-          "SequenceTagger.load",
-          "SequenceTagger.predict",
-          "SequenceTagger.forward_loss"
+        "package": "source.flair.embeddings",
+        "module": "token",
+        "functions": [],
+        "classes": [
+          "WordEmbeddings",
+          "FlairEmbeddings",
+          "CharacterEmbeddings",
+          "TransformerWordEmbeddings",
+          "StackedEmbeddings"
         ],
+        "description": "Token-level embedding implementations used by sequence models."
+      },
+      {
+        "package": "source.flair.embeddings",
+        "module": "document",
+        "functions": [],
+        "classes": [
+          "DocumentPoolEmbeddings",
+          "DocumentRNNEmbeddings",
+          "TransformerDocumentEmbeddings",
+          "SentenceTransformerDocumentEmbeddings"
+        ],
+        "description": "Document/sentence embedding backends for classification and retrieval-style tasks."
+      },
+      {
+        "package": "source.flair.models",
+        "module": "sequence_tagger_model",
+        "functions": [],
         "classes": [
           "SequenceTagger"
         ],
-        "description": "Primary sequence labeling model (e.g., NER/POS) and most practical inference entry point."
+        "description": "Primary NER/POS/chunking tagging model; strong candidate for MCP inference endpoints."
       },
       {
-        "package": "deployment.flair.source",
-        "module": "flair.models.text_classification_model",
-        "functions": [
-          "TextClassifier.load",
-          "TextClassifier.predict",
-          "TextClassifier.forward_loss"
-        ],
+        "package": "source.flair.models",
+        "module": "text_classification_model",
+        "functions": [],
         "classes": [
           "TextClassifier"
         ],
-        "description": "Document/sentence classification model for sentiment/topic and similar tasks."
+        "description": "Core text classification model used for sentiment/topic tasks."
       },
       {
-        "package": "deployment.flair.source",
-        "module": "flair.embeddings.transformer",
-        "functions": [
-          "TransformerWordEmbeddings.embed",
-          "TransformerDocumentEmbeddings.embed"
-        ],
+        "package": "source.flair.models",
+        "module": "tars_model",
+        "functions": [],
         "classes": [
-          "TransformerWordEmbeddings",
-          "TransformerDocumentEmbeddings"
+          "TARSClassifier",
+          "TARSTagger"
         ],
-        "description": "Transformer-based embedding backends used by many higher-level models."
+        "description": "Few-shot/zero-shot capable classification/tagging models; useful advanced MCP tool surface."
       },
       {
-        "package": "deployment.flair.source",
-        "module": "flair.trainers.trainer",
-        "functions": [
-          "ModelTrainer.fine_tune",
-          "ModelTrainer.train",
-          "ModelTrainer.resume"
-        ],
+        "package": "source.flair.trainers",
+        "module": "trainer",
+        "functions": [],
         "classes": [
           "ModelTrainer"
         ],
-        "description": "Training orchestration with plugin hooks, checkpoints, schedulers, and logging integration."
+        "description": "Training orchestration; plugin-capable, but heavier and higher-risk than inference integration."
       },
       {
-        "package": "deployment.flair.source",
-        "module": "flair.trainers.plugins.base",
-        "functions": [
-          "TrainerPlugin.attach_to_trainer",
-          "TrainerPlugin.detach_from_trainer"
-        ],
+        "package": "source.flair.trainers",
+        "module": "plugins.base",
+        "functions": [],
         "classes": [
-          "TrainerPlugin",
-          "TrainingInterrupt"
+          "TrainerPlugin"
         ],
-        "description": "Native extension mechanism; best anchor for minimal-intrusion MCP integration during training lifecycle."
+        "description": "Native plugin/event-hook architecture. Most suitable minimal-intrusion path for training-time MCP observability hooks."
       },
       {
-        "package": "mcp_output.mcp_plugin",
-        "module": "__init__",
+        "package": "source.examples.ner",
+        "module": "run_ner",
         "functions": [],
         "classes": [],
-        "description": "Scanned output package path reserved for MCP plugin implementation; no confirmed callable entry points provided."
+        "description": "Example script for NER training/inference workflows; useful as operational reference, not a stable API."
       }
     ],
-    "cli_commands": [],
+    "cli_commands": [
+      {
+        "name": "python -m source.examples.ner.run_ner",
+        "module": "source.examples.ner.run_ner",
+        "description": "Example NER execution entrypoint (script-style, not formal package CLI)."
+      },
+      {
+        "name": "python -m source.examples.multi_gpu.run_multi_gpu",
+        "module": "source.examples.multi_gpu.run_multi_gpu",
+        "description": "Example multi-GPU training run script."
+      }
+    ],
     "import_strategy": {
       "primary": "import",
       "fallback": "blackbox",
-      "confidence": 0.9
+      "confidence": 0.91
     },
     "dependencies": {
       "required": [
-        "python>=3.9",
+        "python>=3.8",
         "torch",
         "transformers",
-        "tqdm",
         "numpy",
         "scipy",
+        "tqdm",
+        "requests",
         "deprecated",
-        "sentencepiece",
         "segtok",
-        "ftfy",
-        "gdown",
-        "huggingface_hub"
-      ],
-      "optional": [
-        "spacy",
-        "gensim",
-        "bpemb",
-        "tabulate",
         "matplotlib",
-        "scikit-learn",
+        "gensim",
         "sqlitedict",
+        "more-itertools",
+        "conllu",
+        "ftfy",
         "janome",
         "langdetect",
+        "lxml",
+        "huggingface-hub"
+      ],
+      "optional": [
+        "sentencepiece",
+        "sacremoses",
+        "tokenizers",
+        "sentence-transformers",
+        "spacy",
+        "nltk",
+        "umap-learn",
+        "scikit-learn",
+        "pytorch-crf",
         "wandb",
         "tensorboard",
         "clearml"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.94,
+      "import_feasibility": 0.9,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -1054,7 +1095,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.94,
+    "import_feasibility": 0.9,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }
