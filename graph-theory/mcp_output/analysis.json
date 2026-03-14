@@ -195,6 +195,8 @@
   },
   "structure": {
     "packages": [
+      "deployment.graph-theory.source",
+      "mcp_output.mcp_plugin",
       "source.examples",
       "source.graph",
       "source.tests"
@@ -883,15 +885,16 @@
     "dependencies": {
       "required": [
         "python>=3.x",
-        "standard-library"
+        "setuptools"
       ],
       "optional": [
-        "matplotlib (for source.graph.visuals)",
-        "numpy (possible acceleration in optimization modules)"
+        "matplotlib",
+        "numpy",
+        "scipy"
       ]
     },
     "risk_assessment": {
-      "import_feasibility": 0.95,
+      "import_feasibility": 0.92,
       "intrusiveness_risk": "low",
       "complexity": "medium"
     }
@@ -909,7 +912,7 @@
     "model": "gpt-5.3-codex"
   },
   "risk": {
-    "import_feasibility": 0.95,
+    "import_feasibility": 0.92,
     "intrusiveness_risk": "low",
     "complexity": "medium"
   }

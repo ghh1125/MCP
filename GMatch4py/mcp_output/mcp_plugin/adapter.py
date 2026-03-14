@@ -2,294 +2,363 @@ import os
 import sys
 import traceback
 import importlib
+import inspect
 from typing import Any, Dict, List, Optional
 
-source_path = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-    "source",
-)
+source_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "source")
 sys.path.insert(0, source_path)
 
 
 class Adapter:
     """
-    Import-mode adapter for the GMatch4py repository.
+    MCP Import-mode adapter for the GMatch4py repository.
 
-    This adapter attempts to import and expose repository-level functionality
-    discovered during analysis, with graceful fallback behavior when imports fail.
+    This adapter attempts to import repository modules directly from the local
+    `source` directory and exposes unified wrapper methods for discovered
+    functions and classes.
 
-    Key features:
-    - Import mode with fallback-safe execution
-    - Unified return schema for all methods
-    - Function-level wrappers for discovered callable entries
-    - Helpful, actionable English-only error messages
+    Unified return format:
+        {
+            "status": "success" | "error" | "fallback",
+            "mode": "import",
+            "message": str,
+            ... extra fields ...
+        }
     """
 
     # -------------------------------------------------------------------------
     # Initialization and module management
     # -------------------------------------------------------------------------
     def __init__(self) -> None:
-        """
-        Initialize the adapter in import mode and attempt to load target modules.
-
-        Attributes:
-            mode (str): Adapter running mode, fixed as "import".
-            loaded (bool): Whether required modules were loaded successfully.
-            modules (dict): Cached imported modules keyed by logical name.
-            errors (list): Captured import-time errors.
-        """
         self.mode = "import"
-        self.loaded = False
-        self.modules: Dict[str, Any] = {}
-        self.errors: List[str] = []
-        self._load_modules()
+        self.repo_name = "GMatch4py"
+        self.repo_url = "https://github.com/Jacobe2169/GMatch4py"
+        self.import_strategy = {"primary": "import", "fallback": "blackbox", "confidence": 0.9}
+        self.required_dependencies = ["numpy", "networkx", "scipy", "scikit-learn"]
 
-    def _result(
-        self,
-        status: str,
-        message: str,
-        data: Optional[Dict[str, Any]] = None,
-        error: Optional[str] = None,
-    ) -> Dict[str, Any]:
-        return {
-            "status": status,
-            "mode": self.mode,
-            "message": message,
-            "data": data or {},
-            "error": error,
-        }
+        self.modules: Dict[str, Optional[Any]] = {}
+        self.symbols: Dict[str, Optional[Any]] = {}
+        self.last_error: Optional[str] = None
 
-    def _load_modules(self) -> None:
-        """
-        Load known modules discovered by analysis.
+        self._initialize_imports()
 
-        The analysis identified:
-        - package: setup
-        - module: setup
-        - functions: makeExtension, scandir
+    def _result(self, status: str, message: str, **kwargs: Any) -> Dict[str, Any]:
+        data = {"status": status, "mode": self.mode, "message": message}
+        data.update(kwargs)
+        return data
 
-        Also attempts optional package imports for repository subpackages to
-        maximize utility and diagnosability.
-        """
-        required_imports = {
-            "setup": "setup",
-        }
-        optional_imports = {
-            "gmatch4py": "gmatch4py",
-            "embedding": "gmatch4py.embedding",
-            "ged": "gmatch4py.ged",
-            "helpers": "gmatch4py.helpers",
-            "kernels": "gmatch4py.kernels",
-        }
+    def _safe_import_module(self, module_path: str) -> Dict[str, Any]:
+        try:
+            module = importlib.import_module(module_path)
+            self.modules[module_path] = module
+            return self._result("success", f"Imported module '{module_path}' successfully.", module_path=module_path)
+        except Exception as e:
+            self.modules[module_path] = None
+            err = f"Failed to import module '{module_path}': {e}"
+            self.last_error = err
+            return self._result(
+                "fallback",
+                err + " Verify local source files and Python dependencies are available.",
+                module_path=module_path,
+                error=str(e),
+            )
 
-        for key, module_path in required_imports.items():
-            try:
-                self.modules[key] = importlib.import_module(module_path)
-            except Exception as exc:
-                self.errors.append(
-                    f"Failed to import required module '{module_path}'. "
-                    f"Verify repository source is present under 'source/' and dependencies are installed. "
-                    f"Original error: {exc}"
-                )
+    def _safe_get_symbol(self, module_path: str, symbol_name: str) -> Dict[str, Any]:
+        module = self.modules.get(module_path)
+        if module is None:
+            return self._result(
+                "fallback",
+                f"Module '{module_path}' is not available. Import the module before requesting symbol '{symbol_name}'.",
+                module_path=module_path,
+                symbol_name=symbol_name,
+            )
+        try:
+            symbol = getattr(module, symbol_name)
+            self.symbols[f"{module_path}.{symbol_name}"] = symbol
+            return self._result(
+                "success",
+                f"Loaded symbol '{symbol_name}' from '{module_path}'.",
+                module_path=module_path,
+                symbol_name=symbol_name,
+            )
+        except Exception as e:
+            err = f"Failed to load symbol '{symbol_name}' from '{module_path}': {e}"
+            self.last_error = err
+            self.symbols[f"{module_path}.{symbol_name}"] = None
+            return self._result(
+                "fallback",
+                err + " Confirm repository version contains this symbol.",
+                module_path=module_path,
+                symbol_name=symbol_name,
+                error=str(e),
+            )
 
-        for key, module_path in optional_imports.items():
-            try:
-                self.modules[key] = importlib.import_module(module_path)
-            except Exception:
-                pass
+    def _initialize_imports(self) -> None:
+        target_modules = [
+            "gmatch4py",
+            "gmatch4py.embedding",
+            "gmatch4py.ged",
+            "gmatch4py.helpers",
+            "gmatch4py.kernels",
+            "setup",
+        ]
+        for module_path in target_modules:
+            self._safe_import_module(module_path)
 
-        self.loaded = "setup" in self.modules
+        # Discovered functions from analysis: setup.makeExtension, setup.scandir
+        self._safe_get_symbol("setup", "makeExtension")
+        self._safe_get_symbol("setup", "scandir")
 
     # -------------------------------------------------------------------------
-    # Status and diagnostics
+    # Health and diagnostics
     # -------------------------------------------------------------------------
     def health_check(self) -> Dict[str, Any]:
         """
-        Check adapter readiness and module availability.
+        Perform a basic health check for import-mode readiness.
 
         Returns:
-            dict: Unified status payload with loaded modules and import diagnostics.
+            dict: Unified status payload including module availability and
+                  discovered symbols.
         """
-        if self.loaded:
+        module_status = {k: (v is not None) for k, v in self.modules.items()}
+        symbol_status = {k: (v is not None) for k, v in self.symbols.items()}
+        all_core_ok = module_status.get("setup", False) and symbol_status.get("setup.makeExtension", False)
+
+        if all_core_ok:
             return self._result(
-                status="success",
-                message="Adapter is ready in import mode.",
-                data={
-                    "loaded": True,
-                    "loaded_modules": sorted(list(self.modules.keys())),
-                    "import_errors": self.errors,
-                },
+                "success",
+                "Adapter is ready in import mode.",
+                repository=self.repo_name,
+                repository_url=self.repo_url,
+                modules=module_status,
+                symbols=symbol_status,
+                dependencies=self.required_dependencies,
             )
+
         return self._result(
-            status="error",
-            message=(
-                "Adapter is not fully ready. Required modules failed to import. "
-                "Ensure the repository exists under 'source/' and install dependencies: numpy, networkx, scipy."
-            ),
-            data={
-                "loaded": False,
-                "loaded_modules": sorted(list(self.modules.keys())),
-                "import_errors": self.errors,
-            },
-            error="Required import failure",
+            "fallback",
+            "Adapter initialized with partial imports. Install missing dependencies and verify source layout.",
+            repository=self.repo_name,
+            repository_url=self.repo_url,
+            modules=module_status,
+            symbols=symbol_status,
+            dependencies=self.required_dependencies,
+            last_error=self.last_error,
         )
 
-    # -------------------------------------------------------------------------
-    # Function wrappers (discovered via analysis): setup.makeExtension
-    # -------------------------------------------------------------------------
-    def call_makeExtension(
-        self,
-        ext_name: str,
-        file_path: str,
-    ) -> Dict[str, Any]:
+    def list_available_symbols(self) -> Dict[str, Any]:
         """
-        Call setup.makeExtension(ext_name, file_path) from repository setup module.
-
-        Parameters:
-            ext_name (str): Extension module name expected by setup helper.
-            file_path (str): Relative or absolute path used by the setup helper.
+        List currently loaded callable/class symbols discovered by the adapter.
 
         Returns:
-            dict: Unified status response containing call output under data.result.
+            dict: Unified status payload with symbol metadata.
         """
-        if not self.loaded:
+        available = []
+        for fq_name, sym in self.symbols.items():
+            if sym is None:
+                continue
+            available.append(
+                {
+                    "name": fq_name,
+                    "type": "class" if inspect.isclass(sym) else "function" if callable(sym) else type(sym).__name__,
+                    "signature": str(inspect.signature(sym)) if callable(sym) else None,
+                }
+            )
+        return self._result("success", "Collected available symbols.", symbols=available, count=len(available))
+
+    # -------------------------------------------------------------------------
+    # Function wrappers discovered from LLM analysis
+    # -------------------------------------------------------------------------
+    def call_setup_makeExtension(self, ext_name: str, file_path: str) -> Dict[str, Any]:
+        """
+        Call setup.makeExtension(ext_name, file_path).
+
+        Parameters:
+            ext_name (str): Extension name to build.
+            file_path (str): File path used by setup logic.
+
+        Returns:
+            dict: Unified status payload containing function result.
+        """
+        fn = self.symbols.get("setup.makeExtension")
+        if fn is None:
             return self._result(
-                status="error",
-                message=(
-                    "Import mode is unavailable because required modules could not be loaded. "
-                    "Run health_check() and fix import issues first."
-                ),
-                error="Adapter not ready",
+                "fallback",
+                "Function 'setup.makeExtension' is unavailable. Ensure 'source/setup.py' exists and imports cleanly.",
+                function="setup.makeExtension",
+            )
+        try:
+            result = fn(ext_name, file_path)
+            return self._result(
+                "success",
+                "Function 'setup.makeExtension' executed successfully.",
+                function="setup.makeExtension",
+                inputs={"ext_name": ext_name, "file_path": file_path},
+                result=result,
+            )
+        except Exception as e:
+            return self._result(
+                "error",
+                "Execution failed for 'setup.makeExtension'. Validate parameters and repository compatibility.",
+                function="setup.makeExtension",
+                error=str(e),
+                traceback=traceback.format_exc(),
             )
 
-        setup_mod = self.modules.get("setup")
-        if setup_mod is None or not hasattr(setup_mod, "makeExtension"):
+    def call_setup_scandir(self, directory: str, files: Optional[List[str]] = None) -> Dict[str, Any]:
+        """
+        Call setup.scandir(directory, files=None).
+
+        Parameters:
+            directory (str): Root directory to scan.
+            files (list[str], optional): Pre-populated collector list.
+
+        Returns:
+            dict: Unified status payload containing function result.
+        """
+        fn = self.symbols.get("setup.scandir")
+        if fn is None:
             return self._result(
-                status="error",
-                message=(
-                    "Function 'makeExtension' is not available in module 'setup'. "
-                    "Check repository version compatibility."
-                ),
-                error="Missing function",
+                "fallback",
+                "Function 'setup.scandir' is unavailable. Ensure 'source/setup.py' exists and imports cleanly.",
+                function="setup.scandir",
+            )
+        try:
+            if files is None:
+                result = fn(directory)
+                call_args = {"directory": directory}
+            else:
+                result = fn(directory, files)
+                call_args = {"directory": directory, "files": files}
+            return self._result(
+                "success",
+                "Function 'setup.scandir' executed successfully.",
+                function="setup.scandir",
+                inputs=call_args,
+                result=result,
+            )
+        except Exception as e:
+            return self._result(
+                "error",
+                "Execution failed for 'setup.scandir'. Verify directory path and access permissions.",
+                function="setup.scandir",
+                error=str(e),
+                traceback=traceback.format_exc(),
+            )
+
+    # -------------------------------------------------------------------------
+    # Generic module-level helpers for extension and fallback usability
+    # -------------------------------------------------------------------------
+    def call_module_function(self, module_path: str, function_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
+        """
+        Generic dynamic function caller.
+
+        Parameters:
+            module_path (str): Full module path (e.g., 'gmatch4py.kernels').
+            function_name (str): Target function name.
+            *args: Positional arguments.
+            **kwargs: Keyword arguments.
+
+        Returns:
+            dict: Unified status payload with execution result.
+        """
+        if module_path not in self.modules or self.modules[module_path] is None:
+            import_result = self._safe_import_module(module_path)
+            if import_result["status"] not in ("success",):
+                return import_result
+
+        module = self.modules[module_path]
+        try:
+            fn = getattr(module, function_name)
+        except Exception as e:
+            return self._result(
+                "fallback",
+                f"Function '{function_name}' not found in module '{module_path}'. Check the repository API version.",
+                module_path=module_path,
+                function_name=function_name,
+                error=str(e),
+            )
+
+        if not callable(fn):
+            return self._result(
+                "error",
+                f"Symbol '{function_name}' in '{module_path}' is not callable.",
+                module_path=module_path,
+                function_name=function_name,
             )
 
         try:
-            result = setup_mod.makeExtension(ext_name, file_path)
+            result = fn(*args, **kwargs)
             return self._result(
-                status="success",
-                message="Function 'makeExtension' executed successfully.",
-                data={"result": result},
+                "success",
+                f"Function '{module_path}.{function_name}' executed successfully.",
+                module_path=module_path,
+                function_name=function_name,
+                result=result,
             )
-        except Exception as exc:
+        except Exception as e:
             return self._result(
-                status="error",
-                message=(
-                    "Execution of 'makeExtension' failed. "
-                    "Validate ext_name and file_path inputs and ensure setup configuration is valid."
-                ),
-                error=f"{exc}\n{traceback.format_exc()}",
+                "error",
+                f"Execution failed for '{module_path}.{function_name}'.",
+                module_path=module_path,
+                function_name=function_name,
+                error=str(e),
+                traceback=traceback.format_exc(),
             )
 
-    # -------------------------------------------------------------------------
-    # Function wrappers (discovered via analysis): setup.scandir
-    # -------------------------------------------------------------------------
-    def call_scandir(
-        self,
-        directory: str,
-        files: Optional[List[str]] = None,
-    ) -> Dict[str, Any]:
+    def create_class_instance(self, module_path: str, class_name: str, *args: Any, **kwargs: Any) -> Dict[str, Any]:
         """
-        Call setup.scandir(directory, files) from repository setup module.
+        Generic dynamic class instantiation helper.
 
         Parameters:
-            directory (str): Directory path to recursively scan.
-            files (list[str], optional): Existing accumulator list used by the original function.
+            module_path (str): Full module path.
+            class_name (str): Name of class to instantiate.
+            *args: Positional constructor args.
+            **kwargs: Keyword constructor args.
 
         Returns:
-            dict: Unified status response containing scan result under data.result.
+            dict: Unified status payload with instance or error details.
         """
-        if not self.loaded:
+        if module_path not in self.modules or self.modules[module_path] is None:
+            import_result = self._safe_import_module(module_path)
+            if import_result["status"] not in ("success",):
+                return import_result
+
+        module = self.modules[module_path]
+        try:
+            cls = getattr(module, class_name)
+        except Exception as e:
             return self._result(
-                status="error",
-                message=(
-                    "Import mode is unavailable because required modules could not be loaded. "
-                    "Run health_check() and fix import issues first."
-                ),
-                error="Adapter not ready",
+                "fallback",
+                f"Class '{class_name}' not found in module '{module_path}'. Confirm API availability.",
+                module_path=module_path,
+                class_name=class_name,
+                error=str(e),
             )
 
-        setup_mod = self.modules.get("setup")
-        if setup_mod is None or not hasattr(setup_mod, "scandir"):
+        if not inspect.isclass(cls):
             return self._result(
-                status="error",
-                message=(
-                    "Function 'scandir' is not available in module 'setup'. "
-                    "Check repository version compatibility."
-                ),
-                error="Missing function",
+                "error",
+                f"Symbol '{class_name}' in '{module_path}' is not a class.",
+                module_path=module_path,
+                class_name=class_name,
             )
-
-        if files is None:
-            files = []
 
         try:
-            result = setup_mod.scandir(directory, files)
+            instance = cls(*args, **kwargs)
             return self._result(
-                status="success",
-                message="Function 'scandir' executed successfully.",
-                data={"result": result},
+                "success",
+                f"Class '{module_path}.{class_name}' instantiated successfully.",
+                module_path=module_path,
+                class_name=class_name,
+                instance=instance,
             )
-        except Exception as exc:
+        except Exception as e:
             return self._result(
-                status="error",
-                message=(
-                    "Execution of 'scandir' failed. "
-                    "Ensure 'directory' exists and is readable, and 'files' is a list."
-                ),
-                error=f"{exc}\n{traceback.format_exc()}",
+                "error",
+                f"Failed to instantiate '{module_path}.{class_name}'. Check constructor arguments.",
+                module_path=module_path,
+                class_name=class_name,
+                error=str(e),
+                traceback=traceback.format_exc(),
             )
-
-    # -------------------------------------------------------------------------
-    # Package access helpers (graceful fallback utilities)
-    # -------------------------------------------------------------------------
-    def get_package_info(self) -> Dict[str, Any]:
-        """
-        Return package-level import information for discovered gmatch4py modules.
-
-        Returns:
-            dict: Unified status response including available package modules.
-        """
-        available = {
-            k: v.__name__
-            for k, v in self.modules.items()
-            if k in {"gmatch4py", "embedding", "ged", "helpers", "kernels"}
-        }
-        return self._result(
-            status="success",
-            message="Collected package import information.",
-            data={
-                "available_packages": available,
-                "required_ready": self.loaded,
-                "import_errors": self.errors,
-            },
-        )
-
-    def fallback_guidance(self) -> Dict[str, Any]:
-        """
-        Provide actionable fallback guidance when import mode is partially unavailable.
-
-        Returns:
-            dict: Unified status response with practical troubleshooting steps.
-        """
-        guidance = [
-            "Ensure the repository root contains a 'source/' directory with GMatch4py files.",
-            "Install required dependencies: numpy, networkx, scipy.",
-            "Optional dependency for plotting: matplotlib.",
-            "Verify Python can import 'setup' from the repository source path.",
-            "Use health_check() to inspect current import status and error details.",
-        ]
-        return self._result(
-            status="success",
-            message="Fallback guidance generated.",
-            data={"steps": guidance, "import_errors": self.errors},
-        )

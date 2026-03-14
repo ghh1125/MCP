@@ -1,7 +1,7 @@
 cd $PSScriptRoot
 $ErrorActionPreference = "Stop"
 $entryName = if ($env:MCP_ENTRY_NAME) { $env:MCP_ENTRY_NAME } else { "graph-theory" }
-$entryUrl  = if ($env:MCP_ENTRY_URL)  { $env:MCP_ENTRY_URL  } else { "http://localhost:7895/mcp" }
+$entryUrl  = if ($env:MCP_ENTRY_URL)  { $env:MCP_ENTRY_URL  } else { "http://localhost:7888/mcp" }
 $imageName = if ($env:MCP_IMAGE_NAME) { $env:MCP_IMAGE_NAME } else { "graph-theory-mcp" }
 $mcpDir = Join-Path $env:USERPROFILE ".cursor"
 $mcpPath = Join-Path $mcpDir "mcp.json"
@@ -23,4 +23,4 @@ $serversOrdered[$entryName] = @{ url = $entryUrl }
 $config = @{ mcpServers = $serversOrdered }
 $config | ConvertTo-Json -Depth 10 | Set-Content -Path $mcpPath -Encoding UTF8
 docker build -t $imageName .
-docker run --rm -p 7895:7860 $imageName
+docker run --rm -p 7888:7860 $imageName

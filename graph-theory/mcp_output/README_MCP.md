@@ -2,16 +2,16 @@
 
 ## 1) Project Introduction
 
-This repository can be exposed as an MCP (Model Context Protocol) service for graph algorithms and network optimization tasks.  
-It provides a broad set of capabilities around:
+This MCP (Model Context Protocol) service wraps the `graph-theory` Python library to expose practical graph algorithms as callable service tools.
 
-- Graph modeling (`Graph`, `Graph3D`, `BasicGraph`)
-- Pathfinding (BFS/DFS, shortest path, all paths)
-- Network analysis (components, cycle checks, topological sort, DAG helpers)
-- Flow and optimization (max flow, min-cost flow, assignment, transshipment, traffic scheduling, TSP)
-- Optional visualization utilities (`plot_2d`, `plot_3d`)
+It is designed for:
+- Pathfinding (shortest path, all paths, BFS/DFS)
+- Network analysis (components, degree of separation, cycle detection)
+- Optimization (max flow, min-cost flow, assignment, TSP, critical path)
+- Graph utilities (adjacency matrix, hashing, random graph generation, topology checks)
+- Optional visualization helpers (2D/3D plotting)
 
-It is best suited for AI-agent workflows that need callable graph-analysis services.
+Repository: https://github.com/root-11/graph-theory
 
 ---
 
@@ -19,101 +19,91 @@ It is best suited for AI-agent workflows that need callable graph-analysis servi
 
 ### Requirements
 - Python 3.x
-- Package is installed via `setup.py`
-- Optional:
-  - `matplotlib` for visualization features
-  - `numpy` may be useful for optimization-heavy workloads
+- `setuptools`
+- Optional: `matplotlib`, `numpy`, `scipy` (for plotting / scientific workflows)
 
 ### Install
-- `pip install .`
-- For development/testing: `pip install -r test-requirements.txt`
+- From PyPI (if published):
+  pip install graph-theory
+- From source:
+  git clone https://github.com/root-11/graph-theory.git  
+  cd graph-theory  
+  pip install -e .
+
+### For development/testing
+- Install test deps:
+  pip install -r test-requirements.txt
+- Run tests:
+  pytest
 
 ---
 
 ## 3) Quick Start
 
-Typical MCP (Model Context Protocol) service usage wraps library functions as callable services.
+Install and import core APIs in your MCP (Model Context Protocol) service runtime:
 
-Example usage flow:
-1. Create/load a graph with `Graph`
-2. Add nodes/edges
-3. Call algorithms such as:
-   - `shortest_path(graph, start, end, avoids=None)`
-   - `breadth_first_search(graph, start, end)`
-   - `maximum_flow(graph, start, end)`
-   - `topological_sort(graph, key=None)`
+from graph.core import Graph
+from graph.shortest_path import shortest_path
+from graph.max_flow import maximum_flow
+from graph.topological_sort import topological_sort
 
-You can also use sample generators from `examples.graphs` (e.g., `grid`, `london_underground`) for quick testing.
+Build a graph and run common operations:
+
+g = Graph()
+# add nodes/edges according to library API, then:
+path = shortest_path(g, start="A", end="B", avoids=None)
+flow = maximum_flow(g, start="S", end="T")
+order = topological_sort(g, key=None)
+
+Useful additional examples:
+- BFS/DFS: `breadth_first_search`, `depth_first_search`
+- All paths: `all_paths`, `all_simple_paths`
+- Network checks: `has_cycles`, `components`, `is_partite`
+- Optimization: `ap_solver`, `minimum_cost_flow_using_successive_shortest_path`, `tsp_greedy`
 
 ---
 
 ## 4) Available Tools and Endpoints List
 
-Below is a practical MCP (Model Context Protocol) service mapping you can expose.
+Recommended MCP (Model Context Protocol) service tools mapped to library functions:
 
-### Core Graph Services
-- `graph.create` → initialize `Graph` / `Graph3D`
-- `graph.subgraph` → extract subgraph (`subgraph`)
-- `graph.components` → connected components (`components`)
-- `graph.network_size` → neighborhood size (`network_size`)
-
-### Search & Path Services
-- `path.shortest` → `shortest_path`
-- `path.shortest_bidirectional` → `shortest_path_bidirectional`
-- `path.distance_from_path` → `distance_from_path`
-- `path.all` → `all_paths`
-- `path.all_simple` → `all_simple_paths`
-- `search.bfs` → `breadth_first_search`
-- `search.dfs` → `depth_first_search`
-- `search.degree_of_separation` → `degree_of_separation`
-
-### Topology & Structure Services
-- `graph.has_cycles` → `has_cycles`
-- `graph.topological_sort` → `topological_sort`
-- `graph.sources` → DAG source discovery (`sources`)
-- `graph.phase_lines` → DAG layering (`phase_lines`)
-- `graph.is_partite` → `is_partite`
-- `graph.adjacency_matrix` → `adjacency_matrix`
-
-### Flow & Optimization Services
-- `flow.maximum` → `maximum_flow`
-- `flow.max_flow_min_cut` → `maximum_flow_min_cut`
-- `flow.min_cost` → `minimum_cost_flow_using_successive_shortest_path`
-- `opt.assignment` → `ap_solver`
-- `opt.wtap` → `wtap_solver`
-- `opt.critical_path` → `critical_path`
-- `opt.critical_path_slack` → `critical_path_minimize_for_slack`
-- `opt.tsp_greedy` / `opt.tsp_bnb` / `opt.tsp_bruteforce` / `opt.tsp_2023`
-- `opt.transshipment_schedule` → `schedule_rail_system` and related helpers
-- `opt.traffic_jam_solver` → `jam_solver`
-
-### Utility Services
-- `graph.hash` → `graph_hash`
-- `graph.flow_hash` → `flow_graph_hash`
-- `graph.merkle_tree` → `merkle_tree`
-- `graph.random_xy` → `random_xy_graph`
-- `graph.xy_distance` → `xy_distance`
-- `visual.plot_2d` / `visual.plot_3d` → plotting helpers
+- `shortest_path` — shortest route between two nodes
+- `shortest_path_bidirectional` — bidirectional shortest path search
+- `all_pairs_shortest_paths` — shortest paths for all node pairs
+- `all_paths` — enumerate all paths between start/end
+- `all_simple_paths` — enumerate simple (no repeated node) paths
+- `breadth_first_search` / `depth_first_search` — traversal/search
+- `has_cycles` / `cycle` — cycle detection and extraction
+- `topological_sort` — topological ordering for DAGs
+- `components` — connected components
+- `degree_of_separation` / `distance_map` — distance analysis
+- `maximum_flow` / `maximum_flow_min_cut` — flow and cut analysis
+- `minimum_cost_flow_using_successive_shortest_path` — min-cost flow
+- `ap_solver` / `wtap_solver` — assignment and WTAP solvers
+- `critical_path` / `critical_path_minimize_for_slack` — project scheduling analysis
+- `tsp_greedy`, `tsp_branch_and_bound`, `tsp_2023`, `brute_force` — TSP solvers
+- `adjacency_matrix` — graph-to-matrix conversion
+- `is_partite`, `sources`, `phase_lines` — graph topology helpers
+- `graph_hash`, `flow_graph_hash`, `merkle_tree` — hashing/integrity helpers
+- `random_xy_graph` — random spatial graph generator
+- `plot_2d`, `plot_3d` — optional visualization endpoints
 
 ---
 
 ## 5) Common Issues and Notes
 
-- No built-in CLI was detected; MCP (Model Context Protocol) service endpoints should be added by your service wrapper.
-- `requirements.txt` is empty; rely on `setup.py` and optional manual installs (`matplotlib`, `numpy`) as needed.
-- Some optimization tasks (TSP/traffic/transshipment/flow) can be computationally expensive on large graphs.
-- For production services:
-  - enforce input validation (node existence, capacities, costs, DAG assumptions),
-  - set execution timeouts,
-  - return structured errors for unsolved/infeasible cases.
-- Visualization services may fail in headless environments unless backend configuration is handled.
+- No built-in CLI entry points were detected; expose functions through your MCP (Model Context Protocol) service layer directly.
+- Some algorithms (e.g., all paths, brute-force TSP) can be expensive on large graphs.
+- Ensure optional plotting/scientific packages are installed before using visualization or numeric-heavy workflows.
+- Keep graph size constraints and timeouts in your service definitions (especially for combinatorial solvers).
+- Use caching for repeated shortest-path or flow queries in production workloads.
 
 ---
 
 ## 6) Reference Links / Documentation
 
-- Repository: https://github.com/root-11/graph-theory
-- Main package: `graph/`
+- Main repository: https://github.com/root-11/graph-theory
+- Source package: `graph/`
 - Examples: `examples/graphs.py`
-- Tests (best behavior reference): `tests/`
-- Original project README: `README.md` in repository root
+- Tests (usage patterns): `tests/`
+- Original README in repo: `README.md`

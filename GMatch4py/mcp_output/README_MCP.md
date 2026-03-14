@@ -2,121 +2,127 @@
 
 ## 1) Project Introduction
 
-GMatch4py is a Python library for graph comparison, focused on graph edit distance (GED), graph kernels, and related embedding/matching utilities.  
-This MCP (Model Context Protocol) service wraps core GMatch4py capabilities so LLM clients can compare graphs, compute similarity/distance signals, and use graph-matching outputs in downstream workflows.
+GMatch4py is a Python library for graph comparison and graph kernel computation.  
+This MCP (Model Context Protocol) service wraps GMatch4py capabilities so LLM agents can:
 
-Main capabilities:
-- Graph similarity/distance computation
-- GED-oriented matching workflows
-- Kernel-based graph comparison
-- Integration with NetworkX graph objects
+- Compare two or more graphs
+- Compute graph similarity/distance matrices
+- Run graph edit distance (GED)-style matching workflows
+- Generate kernel/embedding-ready outputs for downstream ML tasks
+
+This is useful for structure-aware retrieval, clustering, anomaly detection, and graph classification pipelines.
 
 ---
 
-## 2) Installation Method
+## 2) Installation
 
 ### Requirements
-- Python 3.x
+
+From repository analysis, core dependencies are:
+
 - numpy
-- scipy
 - networkx
-- Optional: matplotlib (for visualization)
+- scipy
+- scikit-learn
+
+Python package metadata is provided via `setup.py` and `requirements.txt`.
 
 ### Install from source
-1. Clone repository:
-   - https://github.com/Jacobe2169/GMatch4py
-2. Install dependencies:
-   - pip install -r requirements.txt
-3. Install package:
-   - pip install .
 
-If you are building native extensions, ensure your local C/C++ build toolchain is available.
+1. Clone the repository:
+   git clone https://github.com/Jacobe2169/GMatch4py.git
+
+2. Install dependencies:
+   pip install -r requirements.txt
+
+3. Install the package:
+   pip install .
+
+If you are integrating as an MCP (Model Context Protocol) service, also install your MCP runtime/SDK in the same environment.
 
 ---
 
 ## 3) Quick Start
 
-### Basic Python usage (library side)
-import networkx as nx
-import gmatch4py as gm
+### Python usage (library-level)
 
-g1 = nx.Graph()
-g1.add_edges_from([(1, 2), (2, 3)])
+Typical usage pattern:
 
-g2 = nx.Graph()
-g2.add_edges_from([(1, 2), (2, 4)])
+1. Build or load NetworkX graphs
+2. Initialize a matcher/kernel object from `gmatch4py`
+3. Compute pairwise distances/similarities
+4. Return matrix/results to caller
 
-# Example: choose a matcher/kernel from gmatch4py and compute similarity/distance
-# (Exact class names may vary by version; inspect gm.* modules)
-# matcher = gm.<SomeMatcherOrKernel>(...)
-# result = matcher.compare([g1, g2], None)
+Example flow (conceptual):
 
-print("Graphs loaded and ready for comparison.")
+- Create graph list: `[g1, g2, g3, ...]`
+- Call comparison method (for GED/kernel implementation)
+- Receive NxN matrix for ranking, retrieval, or clustering
 
-### MCP (Model Context Protocol) service usage pattern
-- Start the MCP (Model Context Protocol) service host that exposes GMatch4py operations.
-- Call service tools with:
-  - Graph payload(s) (typically nodes/edges or serialized NetworkX-compatible format)
-  - Algorithm selection (GED/kernel method)
-  - Optional parameters (costs, normalization, etc.)
-- Receive:
-  - Distance/similarity matrix
-  - Pairwise scores
-  - Optional matching metadata
+### MCP (Model Context Protocol) service usage
+
+Typical service flow:
+
+1. Client sends graphs (edge list / adjacency / labeled nodes)
+2. Service validates and normalizes input
+3. Service runs selected algorithm (GED/kernel)
+4. Service returns:
+   - score matrix
+   - pairwise top matches
+   - optional metadata (runtime, parameters)
 
 ---
 
-## 4) Available Tools and Endpoints List
+## 4) Available Tools and Endpoints
 
-Note: This repository does not define a built-in CLI or explicit HTTP endpoints. In MCP (Model Context Protocol) deployments, expose tools like the following:
+Note: this repository does not expose a built-in CLI or MCP server entrypoint by default, so endpoints are typically defined by your wrapper layer. A practical MCP (Model Context Protocol) service should expose tools like:
 
-- graph.compare
-  - Compare two or more graphs and return similarity/distance outputs.
-- graph.ged
-  - Run graph edit distance-oriented matching with configurable costs.
-- graph.kernel
-  - Compute kernel-based similarity for graph sets.
-- graph.batch_compare
-  - Run pairwise comparisons for a batch and return matrix-form results.
-- graph.validate
-  - Validate graph input schema/format before computation.
+### `health_check`
+Returns service status, version, dependency availability.
 
-Recommended input fields:
-- graphs: list of graph objects (nodes/edges/attributes)
-- method: GED or kernel method name
-- options: algorithm-specific parameters
-- return_metadata: boolean for detailed diagnostics
+### `list_algorithms`
+Returns supported graph matching/kernel methods and required parameters.
+
+### `compare_graph_pair`
+Input: two graphs + algorithm settings  
+Output: single similarity/distance score (+ optional alignment details).
+
+### `compare_graph_batch`
+Input: list of graphs + algorithm settings  
+Output: pairwise matrix, optional nearest-neighbor list.
+
+### `compute_kernel_matrix`
+Input: graph set + kernel config  
+Output: kernel/similarity matrix suitable for ML models.
+
+### `embed_graphs` (optional)
+Input: graph set + embedding config  
+Output: vector representation per graph.
+
+### `explain_score` (optional)
+Input: graph pair + prior score context  
+Output: human-readable explanation of similarity/difference drivers.
 
 ---
 
 ## 5) Common Issues and Notes
 
-- Build/install issues:
-  - If installation fails, verify compiler/build tools and matching Python headers are installed.
-- Dependency mismatches:
-  - Keep numpy/scipy/networkx versions consistent in your environment.
-- Input format errors:
-  - Ensure graph payloads are structurally valid and consistent across batch calls.
-- Performance:
-  - GED can be expensive on large/dense graphs; prefer batch sizing, caching, or kernel approximations when needed.
-- Environment:
-  - Use a virtual environment to avoid package conflicts.
-- Testing:
-  - Repository includes tests under `test/`; run them after installation to validate behavior.
+- No native MCP server included: you need a thin wrapper that maps MCP tools to `gmatch4py` calls.
+- Dependency compatibility: use a clean virtual environment to avoid SciPy / scikit-learn version conflicts.
+- Input format consistency: enforce a single graph schema (node IDs, labels, edge attributes).
+- Performance: pairwise comparison scales roughly with graph count² for full matrices; use batching/caching for large sets.
+- Reproducibility: pin versions in `requirements.txt`/lockfile and log algorithm parameters per request.
+- Build concerns: package uses `setup.py`; if wheels fail, install compiler/build essentials and retry.
 
 ---
 
-## 6) Reference Links and Documentation
+## 6) References
 
 - Repository: https://github.com/Jacobe2169/GMatch4py
-- Existing project README (source of algorithm usage details):  
-  https://github.com/Jacobe2169/GMatch4py/blob/master/README.md
-- Python packaging files:
-  - `requirements.txt`
-  - `setup.py`
-- Related dependency docs:
-  - https://networkx.org/
-  - https://numpy.org/
-  - https://scipy.org/
+- Package metadata: `setup.py`
+- Dependencies: `requirements.txt`
+- Tests/examples:
+  - `test/test.py`
+  - `test/gmatch4py_performance_test.py`
 
-If you are packaging this as an MCP (Model Context Protocol) service, add your host-specific transport/config docs (stdio/SSE/WebSocket), tool schemas, and example request/response payloads alongside this README.
+If you are deploying this as an MCP (Model Context Protocol) service, keep service contracts (input schema, output schema, error model) documented alongside this README.
